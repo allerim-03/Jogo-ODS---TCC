@@ -1,0 +1,444 @@
+/* RESET PADRÃO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CORPO */
+body {
+    min-height: 100vh;
+    display: block;
+    background: linear-gradient(135deg, #3a86ff 0%, #4ade80 100%);
+    background-attachment: fixed;
+    color: white;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    height: 250px;
+    background-image: url("img/banner.PNG");
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+}
+
+/* NAVEGAÇÃO - STICKY */
+nav {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #972fff;
+}
+
+/* MAIN */
+main {
+    min-height: calc(100vh - 350px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* BOAS-VINDAS */
+.boas-vindas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.boas-vindas h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.titulo-branco {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.sub-branco {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* CAIXA LOGIN */
+.login-box {
+    background: #eaeaea;
+    padding: 30px;
+    border-radius: 20px;
+    width: 360px;
+    margin-top: 30px;
+    text-align: center;
+    border: 2px solid #3a86ff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.logo {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.login-box h1 {
+    color: #1a4fd6;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* LABELS */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #444;
+    font-weight: normal;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1.5px solid #3a86ff;
+    outline: none;
+    background: white;
+}
+
+input:focus {
+    border-color: #3a86ff;
+    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+
+/* BOTÕES */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.02);
+    opacity: 0.93;
+}
+
+.btn-azul {
+    background: linear-gradient(90deg, #3a7bd5, #2f5de0);
+}
+
+.btn-login {
+    padding: 15px 45px;
+    font-size: 1.2rem;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    width: auto;
+}
+
+.btn-login:hover {
+    background-color: #1976d2;
+    transform: translateY(-3px);
+}
+
+/* LINK */
+.cadastro {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #555;
+}
+
+.cadastro a {
+    color: #3a86ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* DICA */
+.dica {
+    margin-top: 15px;
+    padding: 10px;
+    background: #c6f6d5;
+    border: 2px solid #22c55e;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #065f46;
+}
+
+/* =============================================
+   CADASTRO - VERDE
+   ============================================= */
+.cadastro-box {
+    border-color: #22c55e !important;
+}
+
+.cadastro-box h1 {
+    color: #22c55e !important;
+}
+
+.cadastro-box input {
+    border-color: #22c55e !important;
+}
+
+.cadastro-box input:focus {
+    border-color: #22c55e !important;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2) !important;
+}
+
+.cadastro-box button {
+    background: #22c55e !important;
+    background-image: none !important;
+}
+
+.cadastro-box .cadastro a {
+    color: #22c55e !important;
+}
+
+/* CLASSES UTILITÁRIAS */
+.negrito { font-weight: bold !important; }
+.texto-azul { color: #3a86ff !important; }
+.texto-verde { color: #22c55e !important; }
+
+/* CONTAINERS */
+.jogos-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* CARDS MEMBROS */
+.membro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    color: #333;
+    width: calc(50% - 20px); /* 2 por linha */
+    min-width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);             
+}
+
+.foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid #4ade80;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info h3 {
+    color: #2196f3;
+    margin-bottom: 5px;
+}
+
+/* RODAPÉ */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    color: white;
+}
+/* ESCOLHA - ALUNO OU PROFESSOR */
+.escolha-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.escolha-card {
+    background: #eaeaea;
+    border: 2px solid #3a86ff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.escolha-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-color: #1a4fd6;
+}
+
+.escolha-icone {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.escolha-card h2 {
+    color: #1a4fd6;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.escolha-card p {
+    color: #555;
+    font-size: 0.9rem;
+}
+/* PROFESSOR - ROXO */
+.professor-box {
+    border-color: #972fff !important;
+}
+
+.professor-box h1 {
+    color: #972fff !important;
+}
+
+.professor-box input {
+    border-color: #972fff !important;
+}
+
+.professor-box input:focus {
+    border-color: #972fff !important;
+    box-shadow: 0 0 0 3px rgba(151, 47, 255, 0.2) !important;
+}
+
+.professor-box button {
+    background: #972fff !important;
+    background-image: none !important;
+}
+
+.professor-box .cadastro a {
+    color: #972fff !important;
+}
+
+.professor-dica {
+    background: #f3e8ff;
+    border: 2px solid #972fff;
+    color: #5b21b6;
+}
+
+/* TELA DE ESCOLHA */
+.escolha-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.escolha-card {
+    background: #eaeaea;
+    border-radius: 20px;
+    padding: 45px 55px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    color: #333;
+}
+
+.escolha-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
+
+.aluno-card {
+    border: 2px solid #3a86ff;
+}
+
+.aluno-card h2 {
+    color: #1a4fd6;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.professor-card {
+    border: 2px solid #972fff;
+}
+
+.professor-card h2 {
+    color: #972fff;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.escolha-icone {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.escolha-card p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* tamanho da tela */ 
+
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1100px;
+}
