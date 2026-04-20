@@ -8,32 +8,33 @@
 
 /* CORPO */
 body {
+    margin: 0;
     min-height: 100vh;
-    display: block;
-    background: linear-gradient(135deg, #3a86ff 0%, #4ade80 100%);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    background: linear-gradient(180deg, #3a7bd5 0%, #00d2ff 25%, #76b852 75%, #8dc26f 100%);
     background-attachment: fixed;
     color: white;
+    padding-top: 100px; 
 }
 
 /* BANNER */
 .banner {
     width: 100%;
-    height: 250px;
+    height: 400px; 
     background-image: url("img/banner.PNG");
-    background-size: contain;
-    background-position: center;
+    background-size: cover; 
+    background-position: center; 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-.header-content h1 {
-    font-size: 3rem;
-    letter-spacing: 5px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    text-transform: uppercase;
-}
 
 /* NAVEGAÇÃO - STICKY */
 nav {
@@ -61,14 +62,13 @@ nav a:hover {
 
 /* MAIN */
 main {
-    min-height: calc(100vh - 350px);
+    flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 0; 
+    margin-top: -10px; 
 }
-
 /* BOAS-VINDAS */
 .boas-vindas {
     display: flex;
@@ -169,22 +169,30 @@ button:hover {
 }
 
 .btn-login {
-    padding: 15px 45px;
-    font-size: 1.2rem;
-    background-color: #2196f3;
-    color: white;
+    padding: 18px 60px;
+    font-size: 1.3rem;
+   
+    background-color: #fbc02d; 
+    color: #1b5e20; 
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-weight: 900;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 0px #c49000; 
     text-transform: uppercase;
-    width: auto;
+    letter-spacing: 1px;
 }
 
 .btn-login:hover {
-    background-color: #1976d2;
+    background-color: #ffeb3b;
     transform: translateY(-3px);
+    box-shadow: 0 9px 0px #c49000;
+}
+
+.btn-login:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #c49000;
 }
 
 /* LINK */
@@ -265,7 +273,7 @@ button:hover {
     padding: 20px;
     border-radius: 20px;
     color: #333;
-    width: calc(50% - 20px); /* 2 por linha */
+    width: calc(50% - 20px); 
     min-width: 320px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);             
 }
@@ -441,4 +449,524 @@ footer {
     margin-top: 30px;
     width: 100%;
     max-width: 1100px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.topbar {
+height: 100px; /* Definindo uma altura fixa para combinar com o padding do body */
+    background-color: #2f7d32;
+    /* ... resto do seu código da topbar ... */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px; /* Removido padding vertical para a height mandar */
+    box-sizing: border-box;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+}
+
+.logo p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: bold;
+}
+
+/* LEVEL E PROGRESSO */
+.level {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -2px;
+}
+
+.level span {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.bar {
+    width: 200px; 
+    height: 12px;
+    background-color: #1b5e20;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 45%;
+    height: 100%;
+    background-color: #fbc02d;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 25px;
+    border-radius: 8px;
+
+
+    margin-left: auto; 
+    
+    width: max-content;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.logout {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    
+    width: auto;        
+    padding: 10px 40px; 
+    
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 15px;   
+}
+
+.logout:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+
+
+
+
+/* MENU HAMBÚRGUER (Quadrado Verde) */
+
+.hamburger {
+    width: 50px;
+    height: 50px;
+    background-color: #8bc34a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px; 
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; 
+}
+
+
+.perfil-container {
+    width: 50px;          
+    height: 50px;          
+    background-color: white; 
+    border-radius: 12px;  
+    overflow: hidden;      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;    
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    transition: transform 0.2s;
+}
+
+.perfil-container:hover {
+    transform: scale(1.1); 
+    border-color: white;
+}
+
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+}
+
+.perfil-externo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 60px;  
+    height: 60px;
+    
+    background-color: white; 
+    border-radius: 12px;     
+    margin-left: 20px;     
+    overflow: hidden;        
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    flex-shrink: 0;         
+}
+
+.perfil-externo:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/*////// JOGOS ///////*
+
+/* Container que segura todos os jogos */
+.jogos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* A moldura de cada jogo */
+.jogo-wrapper {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: #1a1a1a;
+    border: 4px solid #4CAF50;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Capa que cobre o jogo antes do play */
+.capa-jogo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #2e7d32, #81c784);
+    color: white;
+    z-index: 10;
+}
+
+/* O canvas começa escondido */
+.canvas-game {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*////// TELA INICIAL, CONTEÚDO ABAIXO DO BEM VINDO //////*
+
+/* rolar tela */
+main {
+    display: block; 
+}
+
+.divisor {
+    border: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 40px auto;
+    width: 60%;
+}
+
+.sobre-sessao {
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(16, 50, 20, 0.4);
+    border-radius: 20px;
+    margin: 30px 10%;
+    color: white; 
+}
+
+    .sobre-sessao.cinza {
+    padding: 60px 10%;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(16, 50, 20, 0.7);
+        border-radius: 20px;
+        margin: 30px 10%;
+        color: white;
+    }
+
+
+.conteudo-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.conteudo-flex.reverso {
+    flex-direction: row-reverse;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #e0d042;
+    font-weight: bold;
+}
+
+.imagem-placeholder {
+    flex: 1;
+    height: 250px;
+    background: #e0e0e0;
+    border: 2px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.missao-centralizada .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  
+    width: 100%;
+    max-width: 100%;    
+}
+
+.missao-centralizada .banner-final {
+    width: 100%;         
+    max-width: 900px;   
+}
+
+.banner-final {
+    margin-top: 30px;
+    height: 200px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .conteudo-flex, .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* IMAGENS TELA INICIAL */
+.imagem-cenario-pag-inicial {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.imagem-ilust-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.imagem-ilust-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* MENU DE HAMBURGUER */
+/* Esconde o checkbox original */
+.menu-checkbox {
+    display: none !important;
+}
+
+/* Sidebar - Agora com posição fixa absoluta */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Escondida */
+    width: 280px;
+    height: 100vh;
+    background-color: #1b5e20;
+    z-index: 9999; /* Valor bem alto para garantir que apareça */
+    transition: all 0.4s ease;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+}
+
+/* O SELETOR CORRETO: Quando o check for ativado, a sidebar que é irmã dele aparece */
+#menu-check:checked ~ .sidebar {
+    left: 0 !important;
+}
+
+/* Overlay (Fundo escuro) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998; /* Um pouco abaixo da sidebar */
+    display: none;
+}
+
+#menu-check:checked ~ .overlay {
+    display: block;
+}
+
+/* Estilo do perfil dentro da Sidebar */
+.perfil-sidebar {
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.perfil-sidebar .foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    border: 3px solid #fbc02d;
+    margin-bottom: 10px;
+}
+
+.links-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.links-sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.links-sidebar a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #fbc02d;
+}
+
+/* QUIZ **/
+.quiz-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.quiz-header {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#question-text {
+    color: #1a4fd6;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    min-height: 60px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-option {
+    background: white;
+    border: 2px solid #3a86ff;
+    color: #333;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.2s;
+    text-align: left;
+    width: 100%;
+}
+
+.btn-option:hover {
+    background: #eef4ff;
+    transform: scale(1.02);
+}
+
+.btn-option.correct {
+    background-color: #c6f6d5 !important;
+    border-color: #22c55e !important;
+    color: #15803d;
+}
+
+.btn-option.wrong {
+    background-color: #fed7d7 !important;
+    border-color: #f56565 !important;
+    color: #c53030;
+}
+
+.quiz-bar {
+    width: 100% !important;
+    margin-top: 5px;
 }
