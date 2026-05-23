@@ -43,7 +43,8 @@ def create_app():
     CORS(app) 
 
     # Importa e registra o conjunto de rotas de autenticação (Login e Cadastro)
-    from routes.auth_routes import auth_bp
+    from app.routes.auth import auth_bp
+
     app.register_blueprint(auth_bp)
 
     # ==========================================================================
