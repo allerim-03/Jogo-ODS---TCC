@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
-from app.models.usuario import User
+from app.models.user import User
 #import mysql.connector
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
