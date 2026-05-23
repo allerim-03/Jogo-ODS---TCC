@@ -1,26 +1,69 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ODS KIDS - Bem-vindo</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS KIDS - Cultivando o Saber</title>
 
-        <header class="banner">
-            <div class="header-content"></div>
-        </header>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <nav>
-            <a href="escolha.html">Início</a>
+<body>
+<header class="topbar">
+    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <label for="menu-check" class="overlay"></label>
+
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil">
+            <p>Nível 2</p>
+        </div>
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
-            <a href="jogos.html">Jogos</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="ranking.html">Ranking</a>
-            <a href="perfil.html">Perfil</a>
-            <a href="sobrenos.html">Sobre nós</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
         </nav>
+    </div>
+
+    <div class="left">
+        <label for="menu-check" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+
+        <div class="info-container">
+            <div class="logo">
+                <span class="icon">🌱</span>
+                <div>
+                    <h1>ECO-PIXEL</h1>
+                    <p>ADVENTURE</p>
+                </div>
+            </div>
+            <div class="level">
+                <span class="star">★ NÍVEL 2</span>
+                <div class="bar"><div class="progress"></div></div>
+                <span class="xp">450/1000</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">HOME</a>
+        <a href="ods.html">ODS</a>
+        <a href="jogos.html">JOGOS</a>
+        <a href="quiz.html">QUIZ</a>
+        <a href="sobrenos.html">SOBRE NÓS</a>
+        <a href="ranking.html">RANKING</a>
+        <a href="perfil.html">PERFIL</a>
+    </nav>
+
+    <a href="perfil.html" class="perfil-externo">
+        <img src="img/foto.png" class="foto-perfil">
+    </a>
+</header>
 
         <main>
             <section class="boas-vindas">

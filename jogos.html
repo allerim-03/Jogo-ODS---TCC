@@ -9,38 +9,97 @@
 </head>
 
 <body>
+<header class="topbar">
+    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <label for="menu-check" class="overlay"></label>
 
-    <header class="banner banner-home">
-        <div class="header-content">
-           <h1></h1>
-            <p class="subtitle"></p>
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil">
+            <p>Nível 2</p>
         </div>
-    </header>
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+        </nav>
+    </div>
 
-    <!-- MENU -->
-   <nav>
-    <a href="index.html">Início</a>
-    <a href="ods.html">ODS</a>
-    <a href="jogos.html">Jogos</a>
-    <a href="quiz.html">Quiz</a>
-    <a href="ranking.html">Ranking</a>
-    <a href="perfil.html">Perfil</a>
-    <a href="sobrenos.html">Sobre nós</a>
-</nav>
+    <div class="left">
+        <label for="menu-check" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+
+        <div class="info-container">
+            <div class="logo">
+                <span class="icon">🌱</span>
+                <div>
+                    <h1>ECO-PIXEL</h1>
+                    <p>ADVENTURE</p>
+                </div>
+            </div>
+            <div class="level">
+                <span class="star">★ NÍVEL 2</span>
+                <div class="bar"><div class="progress"></div></div>
+                <span class="xp">450/1000</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">HOME</a>
+        <a href="ods.html">ODS</a>
+        <a href="jogos.html">JOGOS</a>
+        <a href="quiz.html">QUIZ</a>
+        <a href="sobrenos.html">SOBRE NÓS</a>
+        <a href="ranking.html">RANKING</a>
+        <a href="perfil.html">PERFIL</a>
+    </nav>
+
+    <a href="perfil.html" class="perfil-externo">
+        <img src="img/foto.png" class="foto-perfil">
+    </a>
+</header>
+
+
 
     <!-- CONTEÚDO -->
     <main>
         <section class="boas-vindas">
+            <br> <br>
             <h2>Escolha um jogo</h2>
             <p>Divirta-se enquanto aprende sobre sustentabilidade 🌱</p>
+<div class="jogos-container">
 
-            <div class="jogos-container">
+    <div class="jogo-wrapper">
+        <div id="capa-jogo-1" class="capa-jogo">
+            <h3>JOGO 1</h3>
+            <button class="btn-login" onclick="iniciarJogo(1)">JOGAR</button>
+        </div>
+        <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-game"></canvas>
+    </div>
 
-                <button class="btn-login">JOGO 1</button>
-                <button class="btn-login">JOGO 2</button>
-                <button class="btn-login">JOGO 3</button>
+    <div class="jogo-wrapper">
+        <div id="capa-jogo-2" class="capa-jogo">
+            <h3>JOGO 2</h3>
+            <button class="btn-login" onclick="iniciarJogo(2)">JOGAR</button>
+        </div>
+        <canvas id="canvas-jogo-2" width="600" height="400" class="canvas-game"></canvas>
+    </div>
 
-            </div>
+    <div class="jogo-wrapper">
+        <div id="capa-jogo-3" class="capa-jogo">
+            <h3>JOGO 3</h3>
+            <button class="btn-login" onclick="iniciarJogo(3)">JOGAR</button>
+        </div>
+        <canvas id="canvas-jogo-3" width="600" height="400" class="canvas-game"></canvas>
+    </div>
+
+</div>
         </section>
     </main>
 

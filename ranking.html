@@ -4,52 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODS KIDS - Ranking</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<header class="topbar">
+    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <label for="menu-check" class="overlay"></label>
 
-    <!-- BANNER -->
-    <header class="banner banner-home">
-        <div class="header-content">
-            <h1></h1>
-            <p class="subtitle"></p>
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil">
+            <p>Nível 2</p>
         </div>
-    </header>
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+        </nav>
+    </div>
 
-    <!-- MENU -->
-    <nav>
-        <a href="index.html">Início</a>
+    <div class="left">
+        <label for="menu-check" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+
+        <div class="info-container">
+            <div class="logo">
+                <span class="icon">🌱</span>
+                <div>
+                    <h1>ECO-PIXEL</h1>
+                    <p>ADVENTURE</p>
+                </div>
+            </div>
+            <div class="level">
+                <span class="star">★ NÍVEL 2</span>
+                <div class="bar"><div class="progress"></div></div>
+                <span class="xp">450/1000</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">HOME</a>
         <a href="ods.html">ODS</a>
-        <a href="jogos.html">Jogos</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="ranking.html">Ranking</a>
-        <a href="perfil.html">Perfil</a>
-        <a href="sobrenos.html">Sobre nós</a>
+        <a href="jogos.html">JOGOS</a>
+        <a href="quiz.html">QUIZ</a>
+        <a href="sobrenos.html">SOBRE NÓS</a>
+        <a href="ranking.html">RANKING</a>
+        <a href="perfil.html">PERFIL</a>
     </nav>
 
-    <!-- CONTEÚDO -->
+    <a href="perfil.html" class="perfil-externo">
+        <img src="img/foto.png" class="foto-perfil">
+    </a>
+</header>
+
     <main>
-        <section class="boas-vindas">
-            <h2>Ranking</h2>
-            <p>Veja os melhores jogadores!</p>
+        <section class="sobre-sessao ranking-wrapper">
+            <div class="texto-ranking-topo">
+                <h2>Ranking</h2>
+                <p>Os melhores protetores do planeta! :)</p>
+            </div>
 
-            <div class="login-box">
-                <h1> Em breve</h1>
-                <p>O ranking estará disponível em breve.</p>
+            <div class="ranking-container">
+                <div class="podium-container">
+                    <div class="podium-card second">
+                        <div class="podium-medal">🥈</div>
+                        <img src="img/foto.png" class="podium-avatar" alt="Player 2">
+                        <span class="podium-name">Nome2</span>
+                        <span class="podium-xp">2.400 XP</span>
+                    </div>
 
-                <a href="index.html">
-                    <button class="btn-login">Voltar ao início</button>
-                </a>
+                    <div class="podium-card first">
+                        <div class="podium-medal">👑</div>
+                        <img src="img/foto.png" class="podium-avatar" alt="Player 1">
+                        <span class="podium-name">Nome1</span>
+                        <span class="podium-xp">2.850 XP</span>
+                    </div>
+
+                    <div class="podium-card third">
+                        <div class="podium-medal">🥉</div>
+                        <img src="img/foto.png" class="podium-avatar" alt="Player 3">
+                        <span class="podium-name">Nome3</span>
+                        <span class="podium-xp">2.150 XP</span>
+                    </div>
+                </div>
+
+                <div class="ranking-list">
+                    <div class="ranking-item">
+                        <span class="position">4º</span>
+                        <img src="img/foto.png" class="item-avatar" alt="Player">
+                        <span class="player-name">Nome4</span>
+                        <span class="player-xp">1.900 XP</span>
+                    </div>
+
+                    <div class="ranking-item">
+                        <span class="position">5º</span>
+                        <img src="img/foto.png" class="item-avatar" alt="Player">
+                        <span class="player-name">Nome5</span>
+                        <span class="player-xp">1.750 XP</span>
+                    </div>
+
+                    <div class="ranking-item">
+                        <span class="position">6º</span>
+                        <img src="img/foto.png" class="item-avatar" alt="Player">
+                        <span class="player-name">Nome6</span>
+                        <span class="player-xp">1.600 XP</span>
+ </div>
+
+                        <div class="ranking-item current-user">
+                        <span class="position">12º</span>
+                        <img src="img/foto.png" class="item-avatar" alt="Você">
+                        <span class="player-name">Você</span>
+                        <span class="player-xp">450 XP</span>
+                   
+                </div>
+
+                <br>
+                 </a>
             </div>
         </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
 </body>
 </html>
+                        

@@ -9,39 +9,102 @@
 </head>
 
 <body>
+<header class="topbar">
+    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <label for="menu-check" class="overlay"></label>
 
-    <!-- BANNER -->
-    <header class="banner banner-home">
-        <div class="header-content">
-            <p class="subtitle"></p>
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil">
+            <p>Nível 2</p>
         </div>
-    </header>
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+        </nav>
+    </div>
 
-    <!-- MENU -->
-    <nav>
-        <a href="index.html">Início</a>
+    <div class="left">
+        <label for="menu-check" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+
+        <div class="info-container">
+            <div class="logo">
+                <span class="icon">🌱</span>
+                <div>
+                    <h1>ECO-PIXEL</h1>
+                    <p>ADVENTURE</p>
+                </div>
+            </div>
+            <div class="level">
+                <span class="star">★ NÍVEL 2</span>
+                <div class="bar"><div class="progress"></div></div>
+                <span class="xp">450/1000</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">HOME</a>
         <a href="ods.html">ODS</a>
-        <a href="jogos.html">Jogos</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="ranking.html">Ranking</a>
-        <a href="perfil.html">Perfil</a>
-        <a href="sobrenos.html">Sobre nós</a>
+        <a href="jogos.html">JOGOS</a>
+        <a href="quiz.html">QUIZ</a>
+        <a href="sobrenos.html">SOBRE NÓS</a>
+        <a href="ranking.html">RANKING</a>
+        <a href="perfil.html">PERFIL</a>
     </nav>
 
+    <a href="perfil.html" class="perfil-externo">
+        <img src="img/foto.png" class="foto-perfil">
+    </a>
+</header>
+
+
+
+
+
     <!-- CONTEÚDO -->
-    <main>
-        <section class="boas-vindas">
-            <h2>Quiz</h2>
-            <p>Em breve você poderá testar seus conhecimentos!</p>
+   <main>
+    <section class="boas-vindas">
+        <br><br>
+        <h2>Eco-Quiz</h2>
+        <p>Teste seus conhecimentos sobre o meio ambiente!</p>
 
-            <div class="login-box">
-                <h1>🚧 Em construção</h1>
-                <p>O quiz estará disponível em breve.</p>
+        <div class="login-box quiz-container" id="quiz-box">
+            <div id="game">
+                <div class="quiz-header">
+                    <span id="progress-text">Pergunta 1 de 3</span>
+                    <div class="bar quiz-bar">
+                        <div id="quiz-progress" class="progress" style="width: 0%"></div>
+                    </div>
+                </div>
 
-                <button class="btn-login">Voltar ao início</button>
+                <h3 id="question-text">Carregando pergunta...</h3>
+
+                <div class="options-container">
+                    <button class="btn-option" onclick="selectOption(0)">Opção 1</button>
+                    <button class="btn-option" onclick="selectOption(1)">Opção 2</button>
+                    <button class="btn-option" onclick="selectOption(2)">Opção 3</button>
+                    <button class="btn-option" onclick="selectOption(3)">Opção 4</button>
+                </div>
             </div>
-        </section>
-    </main>
+
+            <div id="result-screen" style="display: none;">
+                <h1>Fim do Quiz!</h1>
+                <p>Você marcou:</p>
+                <h2 id="final-score" style="color: #fbc02d; font-size: 3rem;">0</h2>
+                <p>pontos de XP</p>
+                <button class="btn-login" onclick="location.reload()">Tentar Novamente</button>
+            </div>
+        </div>
+    </section>
+</main>
 
     <!-- RODAPÉ -->
     <footer>
@@ -49,4 +112,80 @@
     </footer>
 
 </body>
+
+<!--FUNCIONALIDADE DO QUIZ-->
+
+<script>
+    const questions = [
+        {
+            q: "Qual das opções abaixo é um recurso renovável?",
+            options: ["Petróleo", "Energia Solar", "Carvão", "Gás Natural"],
+            answer: 1 // Índice da resposta correta (Energia Solar)
+        },
+        {
+            q: "O que significa a sigla ODS?",
+            options: ["Objetivos de Desenvolvimento Sustentável", "Organização de Direitos Sociais", "Ordenamento de Dados Sistêmicos", "Orientação de Desenvolvimento Simples"],
+            answer: 0
+        },
+        {
+            q: "Qual cor de lixeira representa a reciclagem de Vidro?",
+            options: ["Vermelho", "Azul", "Amarelo", "Verde"],
+            answer: 3
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const qData = questions[currentQuestion];
+        document.getElementById("question-text").innerText = qData.q;
+        document.getElementById("progress-text").innerText = `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+        document.getElementById("quiz-progress").style.width = `${((currentQuestion) / questions.length) * 100}%`;
+        
+        const buttons = document.querySelectorAll(".btn-option");
+        buttons.forEach((btn, index) => {
+            btn.innerText = qData.options[index];
+            btn.className = "btn-option"; // Reseta as cores
+            btn.disabled = false;
+        });
+    }
+
+    function selectOption(index) {
+        const qData = questions[currentQuestion];
+        const buttons = document.querySelectorAll(".btn-option");
+        
+        // Bloqueia cliques repetidos
+        buttons.forEach(btn => btn.disabled = true);
+
+        if (index === qData.answer) {
+            buttons[index].classList.add("correct");
+            score += 100;
+        } else {
+            buttons[index].classList.add("wrong");
+            buttons[qData.answer].classList.add("correct");
+        }
+
+        // Espera 1.5 segundos e vai para a próxima
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }, 1500);
+    }
+
+    function showResults() {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("result-screen").style.display = "block";
+        document.getElementById("final-score").innerText = score;
+        document.getElementById("quiz-progress").style.width = "100%";
+    }
+
+    // Inicia o quiz
+    loadQuestion();
+</script>
+
 </html>
