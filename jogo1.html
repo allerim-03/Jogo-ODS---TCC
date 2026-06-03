@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS KIDS - Jogos</title>
+    <title>Eco-Pixel Adventure - Jogo 1</title>
 
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .jogo-foco-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .canvas-gameplay {
+            background-color: #111; /* Fundo escuro para o jogo se destacar */
+            border: 4px solid #f39c12; /* Borda combinando com o amarelo do seu botão */
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -65,50 +82,23 @@
     </a>
 </header>
 
-
-
-    <!-- CONTEÚDO -->
     <main>
-        <section class="boas-vindas">
+        <section class="boas-vindas jogo-foco-container">
             <br> <br>
-            <h2>Escolha um jogo</h2>
-            <p>Divirta-se enquanto aprende sobre sustentabilidade 🌱</p>
-<div class="jogos-container">
-
-    <div class="jogo-wrapper">
-        <div id="capa-jogo-1" class="capa-jogo">
-            <h3>JOGO 1</h3>
-            <button class="btn-login" onclick="iniciarJogo(1)">JOGAR</button>
-        </div>
-        <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-game"></canvas>
-    </div>
-
-    <div class="jogo-wrapper">
-        <div id="capa-jogo-2" class="capa-jogo">
-            <h3>JOGO 2</h3>
-            <button class="btn-login" onclick="iniciarJogo(2)">JOGAR</button>
-        </div>
-        <canvas id="canvas-jogo-2" width="600" height="400" class="canvas-game"></canvas>
-    </div>
-
-    <div class="jogo-wrapper">
-        <div id="capa-jogo-3" class="capa-jogo">
-            <h3>JOGO 3</h3>
-            <button class="btn-login" onclick="iniciarJogo(3)">JOGAR</button>
-        </div>
-        <canvas id="canvas-jogo-3" width="600" height="400" class="canvas-game"></canvas>
-    </div>
-
-</div>
+            <h2>Jogo 1: Limpando o Oceano 🌊</h2>
+            <p>Use as teclas <b>W, A, S, D</b> para mover o personagem e coletar os resíduos!</p>
+            
+            <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-gameplay"></canvas>
+            
+            <br>
+            <a href="jogos.html" class="btn-login" style="text-decoration: none; padding: 10px 20px;">Voltar para Jogos</a>
         </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <script src="script.js"></script>
-
+    <script src="game1.js"></script>
 </body>
 </html>
