@@ -350,38 +350,38 @@ footer {
     color: #555;
     font-size: 0.9rem;
 }
-/* PROFESSOR - ROXO */
+
+/* TEMA PROFESSOR */
 .professor-box {
-    border-color: #972fff !important;
+    --cor-professor: #972fff;
+
+    border-color: var(--cor-professor);
 }
 
-.professor-box h1 {
-    color: #972fff !important;
+.professor-box h1,
+.professor-box .cadastro a {
+    color: var(--cor-professor);
 }
 
 .professor-box input {
-    border-color: #972fff !important;
+    border-color: var(--cor-professor);
 }
 
 .professor-box input:focus {
-    border-color: #972fff !important;
-    box-shadow: 0 0 0 3px rgba(151, 47, 255, 0.2) !important;
+    border-color: var(--cor-professor);
+    box-shadow: 0 0 0 3px rgb(151 47 255 / 20%);
 }
 
 .professor-box button {
-    background: #972fff !important;
-    background-image: none !important;
-}
-
-.professor-box .cadastro a {
-    color: #972fff !important;
+    background: var(--cor-professor);
 }
 
 .professor-dica {
     background: #f3e8ff;
-    border: 2px solid #972fff;
+    border: 2px solid var(--cor-professor);
     color: #5b21b6;
 }
+
 
 /* TELA DE ESCOLHA */
 .escolha-container {
