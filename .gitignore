@@ -1,0 +1,15 @@
+# Ocultar o arquivo de senhas e chaves do Flask
+backend/.env
+
+# Ocultar o banco de dados de testes do SQLite para não sobrescrever o dos colegas
+backend/instance/
+backend/database.db
+
+# Ocultar as pastas de dependências do Python
+# backend/.venv/
+#backend/__pycache__/
+#backend/*/__pycache__/
+
+# Ocultar as dependências do Vue (Frontend)
+frontend/node_modules/
+frontend/dist/
