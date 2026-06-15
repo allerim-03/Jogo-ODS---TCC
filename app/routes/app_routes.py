@@ -58,6 +58,33 @@ def logout():
     # logout_user()
     return redirect('/login')
 
+#===========================
+# Badge.py
+#=========================
+from app.repositories.badge_repository import get_user_badges
+@routes.route("/user/<int:user_id>/badges")
+def user_badges(user_id):
+
+    badges = get_user_badges(user_id)
+
+    return jsonify(badges)
+
+#rota para testes 
+@routes.route("/test-badges/<int:user_id>")
+def test_badges(user_id):
+
+    user = get_user_by_id(user_id)
+
+    check_and_award_badges(
+        user["id"],
+        user["xp"],
+        user["level"]
+    )
+
+    return jsonify({
+        "message": "Badges verificadas"
+    })
+
 
 #===========================
 # Dashboard.py
