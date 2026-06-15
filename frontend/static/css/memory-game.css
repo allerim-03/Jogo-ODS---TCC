@@ -1,0 +1,250 @@
+
+/* =========================================================
+   MEMORY-GAME.CSS
+   Responsável apenas pelo TABULEIRO DO JOGO
+   (cartas, grid, animações e vitória visual)
+========================================================= */
+
+
+/* =========================================================
+   1. CABEÇALHO DO JOGO (TÍTULO + MASCOTE)
+========================================================= */
+
+/* Cabeçalho do jogo */
+.game-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-header h1 {
+  color: var(--garden-green);
+   margin: 10px 0;
+}
+.game-header p {
+  color: var(--text-color);
+  margin: 5px 0;
+}
+
+/* Mascote Tuga */
+.tuga {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+/* =========================================================
+   2. TABULEIRO DO JOGO (GRID)
+========================================================= */
+
+/* Grade das cartas */
+.memory-game {
+  display: grid;
+   /* responsivo automático */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 6px; /* espaço menor entre as cartas */
+  justify-content: center;
+  margin: 20px;
+}
+
+
+
+/* =========================================================
+   3. CARTAS DO JOGO
+========================================================= */
+
+/* Mantém as cartas quadradas */
+.memory-card {
+  aspect-ratio: 1 / 1;
+  max-width: 100px; /* cartas um pouco menores para caber mais na tela */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+/* efeito de virar carta */
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+
+
+
+/* =========================================================
+   4. FRENTE E VERSO DAS CARTAS
+========================================================= */
+.front, .back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+}
+/* imagem da carta */
+.front {
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
+
+/* verso padrão */
+.back {
+  background-color: var(--bright-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.back::after {
+  content: "ODS";
+}
+
+
+
+/* =========================================================
+   5. RESPONSIVIDADE DO TABULEIRO
+========================================================= */
+
+/* Breakpoints para diferentes telas */
+
+/* Telas grandes (desktop) → até 9 colunas */
+@media (min-width: 1200px) {
+  .memory-game {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .memory-card {
+    max-width: 120px; /* cartas maiores em desktop */
+  }
+}
+
+/* Telas médias (tablet) → até 4 colunas */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .memory-game {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Telas pequenas (celular) → até 2 colunas */
+@media (max-width: 767px) {
+  .memory-game {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+ /* =========================================================
+   6. OVERLAY DE VITÓRIA (MODAL)
+========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.55);
+
+  z-index: 999;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+/* Mensagem de vitória */
+.victory {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #ffffff;
+  color: #2c3e50;
+
+  padding: 30px;
+
+  border: 4px solid #31b54c;
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 100vmax rgba(0, 0, 0, 0.55); /* escurece o fundo */
+
+  z-index: 1000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.victory.show {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.victory.hidden {
+  visibility: hidden; 
+  opacity: 0;
+}
+
+/* Titulo verde */
+.victory h2 {
+  color:var(--garden-green);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.victory p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+
+
+
+.victory .tuga {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+/* Botão Jogar novamente */
+.victory button {
+  margin-top: 15px;
+  padding: 12px 24px;
+
+  background: #31b54c;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.victory button:hover {
+  background: #2a9d45;
+  transform: scale(1.05);/* efeito de destaque */
+}
+
+
+
+
+
+/* =========================================================
+   7. ANIMAÇÕES EXTRAS
+========================================================= */
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#record-message {
+  animation: pulse 1s infinite;
+}

@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jogo da Memória - ODS</title>
+
+  <!-- CSS (Flask-ready) -->
+  <link rel="stylesheet" href="../static/css/reset.css">
+  <link rel="stylesheet" href="../static/css/base.css">
+  <link rel="stylesheet" href="../static/css/ui.css">
+  <link rel="stylesheet" href="../static/css/memory-game.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       TOP BAR (UI FIXA)
+  ========================== -->
+  <div class="top-bar">
+ <!--barra superior responsiva-->
+  <!--botão voltar-->
+    <button id="back-btn">⬅ Voltar</button>
+
+    <div id="ranking">
+      <h3>🏆 Melhor Resultado</h3>
+      <p id="best-score">⭐ Pontuação: 0</p>
+      <p id="best-moves">🎯 0 movimentos</p>
+      <p id="best-time">⌛ 0s</p>
+    </div>
+
+    <div id="hud">
+      <span id="moves">Movimentos: 0</span>
+      <span id="timer">⌛ 0s</span>
+      <span id="score">⭐ Pontuação: 0</span>
+    </div>
+
+  </div>
+
+  <!-- =========================
+       HEADER DO JOGO
+  ========================== -->
+  <header class="game-header">
+    <img src="../static/imagens/tuga.png" alt="Mascote Tuga" class="tuga">
+    <h1>Jogo da Memória</h1>
+    <p>Encontre os pares das 17 ODS!</p>
+  </header>
+
+  <!-- =========================
+       TABULEIRO
+  ========================== -->
+
+    <!-- espaço das cartas  -->
+  <main class="memory-game">
+
+    <div class="memory-card" data-ods="1">
+      <img class="front" src="../static/imagens/ods_01_1.png" alt="ODS 1">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="2">
+      <img class="front" src="../static/imagens/ods_02_0.png" alt="ODS 2">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="3">
+      <img class="front" src="../static/imagens/ods_03_0.png" alt="ODS 3">
+      <div class="back"></div>
+    </div>
+
+ 
+    <div class="memory-card" data-ods="4">
+      <img class="front" src="../static/imagens/ods_04_0.png" alt="ODS 4">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="5">
+      <img class="front" src="../static/imagens/ods_05_0.png" alt="ODS 5">
+      <div class="back"></div>
+    </div>
+
+<div class="memory-card" data-ods="6">
+      <img class="front" src="../static/imagens/ods_06_0.png" alt="ODS 6">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="7">
+      <img class="front" src="../static/imagens/ods_07_0.png" alt="ODS 7">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="8">
+      <img class="front" src="../static/imagens/ods_08_0.png" alt="ODS 8">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="9">
+      <img class="front" src="../static/imagens/ods_09_0.png" alt="ODS 9">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="10">
+      <img class="front" src="../static/imagens/ods_10_0.png" alt="ODS 10">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="11">
+      <img class="front" src="../static/imagens/ods_11_0.png" alt="ODS 11">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="12">
+      <img class="front" src="../static/imagens/ods_12_0.png" alt="ODS 12">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="13">
+      <img class="front" src="../static/imagens/ods_13_0.png" alt="ODS 13">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="14">
+      <img class="front" src="../static/imagens/ods_14_0.png" alt="ODS 14">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="15">
+      <img class="front" src="../static/imagens/ods_15_0.png" alt="ODS 15">
+      <div class="back"></div>
+    </div>
+
+    <div class="memory-card" data-ods="16">
+      <img class="front" src="../static/imagens/ods_16_0.png" alt="ODS 16">
+      <div class="back"></div>
+    </div>
+
+
+    <div class="memory-card" data-ods="17">
+      <img class="front" src="../static/imagens/ods_17_0.png" alt="ODS 17">
+      <div class="back"></div>
+    </div>
+ <!-- Carta ONU -->
+    <div class="memory-card" data-ods="onu">
+      <img class="front" src="../static/imagens/onu.png" alt="ONU">
+      <div class="back"></div>
+    </div>
+
+  </main>
+
+  <!-- =========================
+       VITÓRIA
+  ========================== -->
+  <div id="overlay" class="overlay hidden"></div>
+
+  <div id="victory-message" class="victory hidden">
+    <img src="../static/imagens/TugaPqn.png" alt="Mascote Tuga" class="tuga">
+
+    <h2>Missão Cumprida!</h2>
+
+    <p>Você encontrou todos os pares das ODS!</p>
+
+    <p id="record-message" class="hidden">
+      Novo recorde! O Tuga está orgulhoso de você!
+    </p>
+
+    <button id="restart-btn">Jogar novamente</button>
+  </div>
+
+  <!-- =========================
+       JS MODULAR (IMPORTANTE)
+  ========================== -->
+  <script src="../static/js/memory/memory-game.js"></script>
+
+</body>
+</html>

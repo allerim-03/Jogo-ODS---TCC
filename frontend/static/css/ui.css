@@ -1,0 +1,192 @@
+/* =========================================================
+   UI.CSS
+   Responsável por elementos de INTERFACE GLOBAL
+   (HUD, ranking, botões fixos, topbar)
+========================================================= */
+
+
+/* =========================================================
+   1. TOPBAR (BARRA SUPERIOR DO JOGO)
+   Contém: voltar + ranking + HUD
+========================================================= */
+
+.top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  padding: 15px 20px;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+/* =========================================================
+   UI.CSS
+   Responsável por elementos de INTERFACE GLOBAL
+   (HUD, ranking, botões fixos, topbar)
+========================================================= */
+
+
+/* =========================================================
+   1. TOPBAR (BARRA SUPERIOR DO JOGO)
+   Contém: voltar + ranking + HUD
+========================================================= */
+
+.top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  padding: 15px 20px;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+/* =========================================================
+   2. BOTÃO VOLTAR (NAVEGAÇÃO)
+========================================================= */
+
+/* Botão voltar */
+
+
+#back-btn {
+  background: var(--bright-blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#back-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* =========================================================
+   3. RANKING (MELHOR RESULTADO LOCALSTORAGE)
+========================================================= */
+
+
+#ranking {
+ /* position: fixed; */
+ /* fixa no viewport */
+ /* top: 70px;  */    
+     /* logo abaixo do botão Voltar */
+  /*left: 20px;  */
+        /* canto esquerdo */
+  
+  /*background: #fff8e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+font-weight: bold;
+color: #444;
+  z-index: 999;      /* garante que fique acima do tabuleiro */
+
+  */
+  width: 150px;      /* largura fixa para não “dançar” */
+ 
+  padding: 8px 12px;
+  font-size: 14px;
+
+
+}
+
+#ranking h3 {
+ font-size: 15px;
+  margin-bottom: 4px;
+ /* color: #d17f00; */
+}
+
+#ranking p {
+  margin: 2px 0;
+}
+
+/* =========================================================
+   4. HUD (MOVIMENTOS / TEMPO / PONTUAÇÃO)
+========================================================= */
+ /* HUD */
+#hud {
+
+ /*
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  color: var(--dark-blue);
+  */
+ 
+  display: flex;
+  gap: 20px;
+
+  font-weight: bold;
+  margin-left: auto;
+
+  background: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+  /* =========================================================
+   SCORE (HUD - PONTUAÇÃO)
+========================================================= */
+ /* destaque da pontuação */
+#score {
+  color: #ffde5a;
+  font-weight: bold;
+
+  padding: 2px 6px;
+  border: 2px solid #ffde5a;
+  border-radius: 6px;
+
+  background: #fffbe6;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES DE UI
+   (efeitos visuais globais de interface)
+========================================================= */
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ffde5a;
+  }
+  to {
+    text-shadow: 0 0 15px #ffde5a;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+

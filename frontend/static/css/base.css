@@ -1,0 +1,185 @@
+
+/* =========================================================
+   BASE.CSS
+   Estilos globais seguindo o guia de estilo
+   Responsabilidade: BASE VISUAL DO PROJETO
+   (usado por TODAS as páginas: menu, index, jogos)
+========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS (VARIÁVEIS GLOBAIS)
+   Aqui ficam as cores e padrões oficiais do projeto.
+   Alterar aqui muda o sistema inteiro.
+========================================================= */
+/* ================================
+   Paleta de Cores - PlataformaEduca
+   ================================ */
+:root {
+  --garden-green: #31B54C;   /* Sustentabilidade (60%) */
+  --bright-blue: #43B4FB;    /* Estrutural (30%)  UI / estrutura */
+  --banana-yellow: #FFDE5A;  /* Gamificação (10%) feedback positivo / pontos */
+  --orange: #FF8637;         /* destaque / alertas leves  */
+  --lavender: #DB95FD;       /* Flashcards/Quizzes atividades especiais */
+  --vivid-red: #FF524D;      /* Feedback crítico erro / perigo  */
+  --text-color: #333333;
+  --background-light: #ffffff;
+}
+
+
+/* =========================================================
+   2. RESET BÁSICO
+   Remove inconsistências entre navegadores
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   3. TIPOGRAFIA GLOBAL
+========================================================= */
+
+/* ================================
+   Tipografia
+   ================================ */
+
+   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;600&display=swap');
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11pt;
+  color: var(--text-color);
+  background-color: var(--background-light);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 32pt;
+  font-weight: bold;
+  color: var(--garden-green);
+}
+
+h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--bright-blue);
+}
+
+/* =========================================================
+   4. BOTÕES BASE (GENÉRICO)
+   Todos os botões do sistema herdam daqui
+========================================================= */
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+/* Variações de botão (uso padrão do sistema) */
+button.primary {
+  background-color: var(--garden-green);
+}
+
+button.secondary {
+  background-color: var(--bright-blue);
+}
+
+button.levelup {
+  background-color: var(--banana-yellow);
+  color: #000;
+}
+
+button.danger {
+  background-color: var(--vivid-red);
+}
+
+/* Hover */
+button:hover {
+  opacity: 0.9;
+}
+
+
+
+
+/* =========================================================
+   5. COMPONENTE CARD (BASE)
+   Usado em menu, index, telas de conteúdo
+========================================================= */
+
+/* ================================
+   Cards de Jogos e Atividades
+   ================================ */
+.card {
+  background-color: #fff;
+  border-radius: 16px;
+  border: 2px solid var(--bright-blue);
+  padding: 20px;
+  margin: 15px;
+}
+/* variações visuais de card */
+.card.green {
+  border-color: var(--garden-green);
+}
+
+.card.orange {
+  border-color: var(--orange);
+}
+
+.card.lavender {
+  border-color: var(--lavender);
+}
+
+.card.yellow {
+  border-color: var(--banana-yellow);
+}
+
+
+/* =========================================================
+   6. COMPONENTES DE UTILIDADE (REUTILIZÁVEIS)
+========================================================= */
+
+/* ================================
+   Barra de Progresso / XP
+   ================================ */
+
+
+/* Barrinha de progresso genérica (XP, loading, etc.) */
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 12px;
+  background-color: var(--garden-green);
+  width: 0%; /* será atualizado dinamicamente */
+  transition: width 0.5s ease;
+}
+
+/* ================================
+   Mascote Tuga - Caixas de Diálogo
+   ================================ */
+
+
+/* Caixa padrão de mensagens do mascote */
+.tuga-dialog {
+  border: 3px solid var(--garden-green);
+  background-color: var(--background-light);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.tuga-dialog.blue {
+  border-color: var(--bright-blue);
+}

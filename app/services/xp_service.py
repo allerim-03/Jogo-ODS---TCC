@@ -1,28 +1,32 @@
-LEVELS = {
-    1: 0,
-    2: 100,
-    3: 250,
-    4: 500,
-    5: 1000
-}
+#adciona xp
+#calcula service
+
+LEVELS = [
+    (1, 0),
+    (2, 100),
+    (3, 250),
+    (4, 500),
+    (5, 1000)
+]
 
 def calculate_level(xp):
-
     level = 1
 
-    for lvl, required in LEVELS.items():
-
+    for lvl, required in LEVELS:
         if xp >= required:
             level = lvl
+        else:
+            break
 
     return level
 
-def add_xp(usuario, xp_gained):
 
-    usuario.xp += xp_gained
 
-    usuario.level = calculate_level(
-        usuario.xp
-    )
+def add_xp(user, amount):
+    if amount < 0:
+        raise ValueError("XP não pode ser negativo")
 
-    return usuario
+    user.xp = (user.xp or 0) + amount
+    user.level = calculate_level(user.xp)
+
+    return user

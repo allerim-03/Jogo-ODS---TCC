@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Plataforma Educa</title>
+
+  <!-- CSS (estrutura pronta para Flask) -->
+  <link rel="stylesheet" href="../static/css/reset.css">
+  <link rel="stylesheet" href="../static/css/base.css">
+  <link rel="stylesheet" href="../static/css/ui.css">
+</head>
+
+<body>
+
+  <main class="card green">
+
+    <!-- HEADER -->
+    <header style="text-align:center;">
+      <h1>Bem-vindo à Plataforma Educa</h1>
+      <p>Aprenda jogando com desafios interativos baseados nas ODS.</p>
+    </header>
+
+    <!-- MASCOTE -->
+    <section style="text-align:center; margin-top:20px;">
+      <img
+        src="../static/imagens/Tuga.png"
+        alt="Mascote Tuga"
+        style="max-width:200px; border-radius:12px;"
+      >
+    </section>
+
+    <!-- BOTÃO -->
+    <section style="text-align:center; margin-top:20px;">
+      <button id="start-game" class="primary">
+        Começar
+      </button>
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("start-game")
+      .addEventListener("click", () => {
+        window.location.href = "menu.html";
+      });
+  </script>
+
+</body>
+</html>
+
+
