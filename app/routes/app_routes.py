@@ -123,8 +123,23 @@ def submit_quiz():
     score = data["score"]
 
     xp_gained = score * 10
+    user_id = data["user_id"]
 
-    # TEMP: aqui depois vai virar service
+    score = data["score"]
+
+    user, xp_gained = process_game_score(
+        user_id,
+        score
+    )
+
+    return jsonify({
+        "message": "Quiz finalizado",
+        "xp_gained": xp_gained,
+        "xp": user["xp"],
+        "level": user["level"]
+    })
+    '''
+    --TEMP: aqui depois vai virar service
     user = type("User", (), {
         "id": user_id,
         "xp": 0,
@@ -132,7 +147,8 @@ def submit_quiz():
     })()
 
     user = add_xp(user, xp_gained)
-
+    
+  
     check_and_award_badges(user.id, user.xp, user.level)
 
     return jsonify({
@@ -143,10 +159,13 @@ def submit_quiz():
             "level": user.level
         }
     })
-
+'''
 #===========================
 # games.py
 #=========================
+'''
+game_bp = Blueprint("game", __name__)
+'''
 @routes.route('/games')
 def games():
     return render_template('games.html')
@@ -156,7 +175,7 @@ def games():
 def game(id):
     return render_template('game.html')
 
-
+'''
 @routes.route('/game/score', methods=['POST'])
 def save_score():
     data = request.json
@@ -183,6 +202,30 @@ def save_score():
             "xp": user.xp,
             "level": user.level
         }
+    })@game_bp.route("/game/score", methods=["POST"])
+    '''
+
+
+@routes.route("/game/score", methods=["POST"])
+def game_score():
+    data = request.json
+
+    user_id = data["user_id"]
+    score = data["score"]
+
+    
+
+    user, xp_gained, xp_before = process_game_score(
+    user_id,
+    score
+    )
+
+    return jsonify({
+    "message": "XP atualizado",
+    "xp_before": xp_before,
+    "xp_gained": xp_gained,
+    "xp_after": user["xp"],
+    "level": user["level"]
     })
 #===========================
 # Ranking.py
@@ -253,36 +296,7 @@ def criar_usuario():
     db.session.commit()
     return jsonify({"message": "Usuário criado com sucesso!"}), 201
 '''
-#===========================
-# Game.py
-#=========================
 
-#game.py
-game_bp = Blueprint("game", __name__)
-
-@game_bp.route("/game/score", methods=["POST"])
-def game_score():
-    data = request.json
-
-    user_id = data["user_id"]
-    score = data["score"]
-
-    user =get_user_by_id()(user_id)
-
-    user, xp_gained = process_game_score(user, score)
-
-    update_user(user)
-
-    
-    return jsonify({
-    "message": "XP atualizado",
-    "xp_gained": xp_gained,
-    "user": {
-        "id": user["id"],
-        "xp": user["xp"],
-        "level": user["level"]
-    }
-    })
 
 #teste banco de dados conecta
 @routes.route("/test-db")

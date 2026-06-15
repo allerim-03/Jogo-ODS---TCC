@@ -1561,3 +1561,209 @@ Dashboard do usuário
 * exibir nível
 * exibir badges
 * exibir posição no ranking
+---parte III
+
+# Fase 11 – Integração Completa da Gamificação
+
+## Objetivo
+
+Integrar o fluxo completo da gamificação:
+
+Quiz/Jogos → XP → Level → Badges → Ranking
+
+Quando o jogador finaliza um quiz ou jogo, sua pontuação é convertida em XP, atualizando automaticamente seu nível, verificando conquistas (badges) e refletindo no ranking geral.
+
+---
+
+## Fluxo Implementado
+
+### 1. Receber resultado do jogo
+
+Rota:
+
+POST /game/score
+
+Exemplo de JSON:
+
+```json
+{
+    "user_id": 1,
+    "score": 2
+}
+```
+
+---
+
+### 2. Converter Score em XP
+
+Regra atual:
+
+```python
+xp_gained = score * 10
+```
+
+Exemplo:
+
+* Score = 2
+* XP ganho = 20
+
+---
+
+### 3. Atualizar XP e Level
+
+Arquivo:
+
+app/services/xp_service.py
+
+Funções:
+
+* calculate_level()
+* add_xp()
+
+Tabela de níveis:
+
+| Level | XP Necessário |
+| ----- | ------------- |
+| 1     | 0             |
+| 2     | 100           |
+| 3     | 250           |
+| 4     | 500           |
+| 5     | 1000          |
+
+---
+
+### 4. Atualizar usuário
+
+Arquivo:
+
+app/repositories/user_repository.py
+
+Função:
+
+```python
+update_user(user)
+```
+
+Atualiza:
+
+* xp
+* level
+
+na tabela users.
+
+---
+
+### 5. Verificar Badges
+
+Arquivo:
+
+app/services/badge_service.py
+
+Função:
+
+```python
+check_and_award_badges()
+```
+
+Verifica:
+
+* badges por XP
+* badges por Level
+
+e registra na tabela:
+
+inventory_badges
+
+---
+
+### 6. Salvar histórico de partidas
+
+Arquivo:
+
+app/repositories/score_repository.py
+
+Função:
+
+```python
+save_score()
+```
+
+Tabela:
+
+scores
+
+Campos registrados:
+
+* user_id
+* game_name
+* points
+* xp_earned
+* played_at
+
+---
+
+### 7. Atualizar Ranking
+
+Arquivo:
+
+app/repositories/user_repository.py
+
+Função:
+
+```python
+get_ranking()
+```
+
+Ordenação:
+
+```sql
+ORDER BY xp DESC
+```
+
+---
+
+## Teste realizado via Postman
+
+Endpoint:
+
+POST http://127.0.0.1:5000/game/score
+
+Body:
+
+```json
+{
+    "user_id": 1,
+    "score": 2
+}
+```
+
+Resposta:
+
+```json
+{
+    "message": "XP atualizado",
+    "xp_before": 90,
+    "xp_gained": 20,
+    "xp_after": 110,
+    "level": 2
+}
+```
+
+---
+
+## Resultado da Fase 11
+
+✔ Conversão de score em XP
+
+✔ Atualização de XP
+
+✔ Atualização de Level
+
+✔ Verificação automática de Badges
+
+✔ Registro do histórico de partidas
+
+✔ Atualização do Ranking
+
+✔ Testado via Postman
+
