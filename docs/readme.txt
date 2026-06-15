@@ -1767,3 +1767,15 @@ Resposta:
 
 ✔ Testado via Postman
 
+Fase 12 – Dashboard
+
+✔ Criada rota GET /user/<id>/progress
+
+Retorna:
+- id
+- name
+- xp
+- level
+
+Objetivo:
+Permitir que o Dashboard exiba o progresso do jogador em tempo real.

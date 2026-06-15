@@ -606,37 +606,51 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //enviar dados para o flask
-async function sendScoreToBackend(score, moves, seconds) {
-  try {
-    const response = await fetch("http://localhost:5000/game/score", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: 1, // ⚠️ temporário (depois login resolve isso)
-        // futuro : user_id: localStorage.getItem("user_id")
-        score: score,
-        moves: moves,
-        time: seconds
-      })
-    });
-
-    const data = await response.json();
-    console.log("XP enviado com sucesso:", data);
-
-  } catch (error) {
-    console.error("Erro ao enviar score:", error);
-  }
-}
-
 let scoreEnviado = false;
 
 async function sendScoreToBackend(score, moves, seconds) {
+
   if (scoreEnviado) return;
+
   scoreEnviado = true;
 
-  ...
+  try {
+
+    const response = await fetch(
+      "http://localhost:5000/game/score",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          user_id: 1,
+          score: score,
+          moves: moves,
+          time: seconds
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    console.log("XP enviado:", data);
+
+    alert(
+      `+${data.xp_gained} XP\n` +
+      `XP atual: ${data.xp_after}\n` +
+      `Level: ${data.level}`
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao enviar score:",
+      error
+    );
+
+  }
+
 }
 
 

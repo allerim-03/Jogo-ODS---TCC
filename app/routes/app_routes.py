@@ -21,7 +21,8 @@ from app.services.game_service import process_game_score
 from app.repositories.user_repository import (
     get_user_by_id,
     update_user,
-    get_ranking
+    get_ranking,
+    get_user_progress
 )# ou mysql direto
 from app.services.xp_service import add_xp
 from app.services.badge_service import check_and_award_badges
@@ -243,7 +244,24 @@ def ranking():
     ranking_data = get_ranking()
 
     return jsonify(ranking_data)
+#===========================
+# Progress
+#===========================
 
+@routes.route(
+    "/user/<int:user_id>/progress",
+    methods=["GET"]
+)
+def user_progress(user_id):
+
+    user = get_user_progress(user_id)
+
+    if not user:
+        return jsonify({
+            "message": "Usuário não encontrado"
+        }), 404
+
+    return jsonify(user)
 #===========================
 # classroom.py
 #=========================

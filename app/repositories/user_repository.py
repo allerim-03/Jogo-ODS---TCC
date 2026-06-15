@@ -34,7 +34,28 @@ def update_user(user):
     cursor.close()
     conn.close()
 
+def get_user_progress(user_id):
 
+    conn = get_connection()
+
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            id,
+            name,
+            xp,
+            level
+        FROM users
+        WHERE id = %s
+    """, (user_id,))
+
+    user = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return user
 
 def get_ranking():
 
