@@ -1,18 +1,21 @@
-
+'''
+criado para aplicar testes 
 from flask import Flask, request, jsonify
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from models.usuario import Usuario
 import mysql.connector
-
+from config import *
 app = Flask(__name__)
+from app.routes.ranking import ranking_bp
 
+app.register_blueprint(ranking_bp)
 # Configuração do banco MySQL
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="senha123",
-    database="tcc"
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    database=DB_NAME
 )
 
 # Inicializar extensões
@@ -85,6 +88,7 @@ def add_usuario():
 
     return jsonify({"mensagem": "Usuário inserido com sucesso!"})
 '''
+'''
 -verão anterio sem incluir classe model
 #adicionando usuario
 @app.route("/add_usuario", methods=["POST"])
@@ -101,6 +105,7 @@ def add_usuario():
     return jsonify({"mensagem": "Usuário inserido com sucesso!"})
 
 '''
+'''
 # buscador de usuario 
 @app.route("/usuario/<int:id>", methods=["GET"])
 def buscar_usuario(id):
@@ -112,3 +117,4 @@ def buscar_usuario(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+'''

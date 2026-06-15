@@ -1,10 +1,8 @@
 #converte score em xp
 #aplica progresso (xp+ badge)
-from xp_service import add_xp
-from badge_service import check_and_award_badges
+from app.services.xp_service import add_xp
+from app.services.badge_service import check_and_award_badges
 
-from xp_service import add_xp
-from badge_service import check_and_award_badges
 
 
 def process_game_result(user, score):

@@ -1,6 +1,18 @@
+
+
+from app.repositories.user_repository import get_ranking
+
+
+def get_ranking_data():
+
+    return get_ranking()
+
+
+''' futuro rancking route
+
 from flask import Blueprint, jsonify
 import mysql.connector
-
+from app.database.connection import get_connection
 ranking_bp = Blueprint(
     "ranking",
     __name__
@@ -33,6 +45,8 @@ def ranking():
     cursor.close()
 
     return jsonify(usuarios)
+'''
+
 '''
 ranking = []
 

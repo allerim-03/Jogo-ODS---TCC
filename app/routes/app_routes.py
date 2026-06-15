@@ -1,9 +1,25 @@
 #temporario para todas as rotas
-from flask import Blueprint, request, jsonify
-from game_service import process_game_score
-from user_repository import get_user, update_user  # ou mysql direto
-from xp_service import add_xp
-from badge_service import check_and_award_badges
+
+
+from flask import (
+    Blueprint,
+    request,
+    jsonify,
+    render_template,
+    redirect
+)
+routes = Blueprint(
+    "routes",
+    __name__
+)
+
+from app.services.game_service import process_game_score 
+from app.repositories.user_repository import (
+    get_user_by_id,
+    update_user
+)# ou mysql direto
+from app.services.xp_service import add_xp
+from app.services.badge_service import check_and_award_badges
 
 # futuramente trocar por services
 

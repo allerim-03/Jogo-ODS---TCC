@@ -519,6 +519,12 @@ function verificarVitoria() {
       );
     }
 
+    sendScoreToBackend(
+  GameState.score,
+  GameState.moves,
+  GameState.seconds
+);
+
     loadRanking();// atualiza ranking na tela
 
     // mostrar vitória  -- Mostrar overlay + tela de vitória
@@ -599,9 +605,39 @@ document.addEventListener("DOMContentLoaded", () => {
   MemoryGame.iniciar();
 });
 
+//enviar dados para o flask
+async function sendScoreToBackend(score, moves, seconds) {
+  try {
+    const response = await fetch("http://localhost:5000/game/score", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: 1, // ⚠️ temporário (depois login resolve isso)
+        // futuro : user_id: localStorage.getItem("user_id")
+        score: score,
+        moves: moves,
+        time: seconds
+      })
+    });
 
+    const data = await response.json();
+    console.log("XP enviado com sucesso:", data);
 
+  } catch (error) {
+    console.error("Erro ao enviar score:", error);
+  }
+}
 
+let scoreEnviado = false;
+
+async function sendScoreToBackend(score, moves, seconds) {
+  if (scoreEnviado) return;
+  scoreEnviado = true;
+
+  ...
+}
 
 
 

@@ -1,6 +1,8 @@
+
+
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "",
-    "database": "gamification_db"
+    "password": "senha123",
+    "database": "tcc"
 }

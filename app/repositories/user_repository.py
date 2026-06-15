@@ -1,11 +1,17 @@
-from app.database.connection import get_connection
+from database.connection import get_connection
 
 
 def get_user_by_id(user_id):
+
     conn = get_connection()
+
     cursor = conn.cursor(dictionary=True)
 
-    cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+    cursor.execute(
+        "SELECT * FROM users WHERE id = %s",
+        (user_id,)
+    )
+
     user = cursor.fetchone()
 
     cursor.close()
@@ -27,3 +33,49 @@ def update_user(user):
 
     cursor.close()
     conn.close()
+
+    def get_ranking():
+
+    conn = get_connection()
+
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT id,
+               nome,
+               xp,
+               level
+        FROM users
+        ORDER BY xp DESC
+    """)
+
+    ranking = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return ranking
+
+
+def get_ranking():
+
+    conn = get_connection()
+
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            id,
+            nome,
+            xp,
+            level
+        FROM users
+        ORDER BY xp DESC
+    """)
+
+    ranking = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return ranking
