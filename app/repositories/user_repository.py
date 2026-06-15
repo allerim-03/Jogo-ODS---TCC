@@ -34,27 +34,6 @@ def update_user(user):
     cursor.close()
     conn.close()
 
-def get_ranking():
-
-    conn = get_connection()
-
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute("""
-        SELECT id,
-               nome,
-               xp,
-               level
-        FROM users
-        ORDER BY xp DESC
-    """)
-
-    ranking = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return ranking
 
 
 def get_ranking():
@@ -63,14 +42,15 @@ def get_ranking():
 
     cursor = conn.cursor(dictionary=True)
 
+    
     cursor.execute("""
-        SELECT
-            id,
-            nome,
-            xp,
-            level
-        FROM users
-        ORDER BY xp DESC
+    SELECT
+        id,
+        name,
+        xp,
+        level
+    FROM users
+    ORDER BY xp DESC
     """)
 
     ranking = cursor.fetchall()

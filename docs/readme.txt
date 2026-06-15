@@ -903,3 +903,661 @@ Funcionalidades operacionais:
 
 * preparar documentação técnica para pré-banca;
 * iniciar adaptação definitiva para Flask.
+
+
+
+
+ — Atualização de Desenvolvimento
+
+Data (15/06/2026)
+
+# Objetivo 
+
+Estruturar a base da gamificação utilizando:
+
+* Flask
+* MySQL Connector
+* Services
+* Repositories
+* Sistema de XP
+* Sistema de Níveis
+* Sistema de Ranking
+* Sistema de Badges
+
+---
+
+# Refatoração da Arquitetura
+
+Padronização da arquitetura para:
+
+
+Flask
+│
+├── Routes
+│
+├── Services
+│
+├── Repositories
+│
+└── MySQL Connector
+
+---
+
+# Banco de Dados
+
+## Padronização de nomenclatura
+
+Foi decidido utilizar:
+
+```plaintext
+Banco (MySQL) → inglês
+```
+
+Exemplo:
+
+```plaintext
+users
+badges
+inventory_badges
+scores
+games
+quizzes
+```
+
+Enquanto isso:
+
+```plaintext
+Models Python → podem permanecer em português
+```
+
+Exemplo:
+
+```python
+class Usuario:
+```
+
+---
+
+# Sistema de XP
+
+## Arquivo
+
+```plaintext
+app/services/xp_service.py
+```
+
+Implementado:
+
+### Tabela de níveis
+
+```python
+LEVELS = [
+    (1, 0),
+    (2, 100),
+    (3, 250),
+    (4, 500),
+    (5, 1000)
+]
+```
+
+### Cálculo de nível
+
+```python
+calculate_level(xp)
+```
+
+### Adição de XP
+
+```python
+add_xp(user, amount)
+```
+
+Função responsável por:
+
+* adicionar XP
+* recalcular nível
+* atualizar objeto do usuário
+
+---
+
+# Sistema de Badges
+
+## Arquivo
+
+```plaintext
+app/services/badge_service.py
+```
+
+Refatorado e limpo.
+
+Responsabilidades:
+
+### Verificar badges desbloqueadas
+
+```python
+check_and_award_badges()
+```
+
+### Verificar se o usuário já possui badge
+
+```python
+check_user_badge()
+```
+
+### Conceder badge
+
+```python
+award_badge()
+```
+
+---
+
+# Sistema de Jogos
+
+## Arquivo
+
+```plaintext
+app/services/game_service.py
+```
+
+Implementado:
+
+```python
+process_game_result()
+```
+
+Fluxo:
+
+```plaintext
+Score recebido
+↓
+Converte para XP
+↓
+Atualiza usuário
+↓
+Verifica badges
+↓
+Retorna XP obtido
+```
+
+---
+
+# Repositories
+
+## Arquivo
+
+```plaintext
+app/repositories/user_repository.py
+```
+
+Refatorado.
+
+Implementado:
+
+### Buscar usuário
+
+```python
+get_user_by_id()
+```
+
+### Atualizar usuário
+
+```python
+update_user()
+```
+
+---
+
+# Limpeza de Código
+
+Realizada remoção de:
+
+* código duplicado
+* funções repetidas
+* classes antigas de teste
+* imports incorretos
+
+---
+
+# Correções Identificadas
+
+## Badge Service
+
+Problema:
+
+```python
+from app.database.connection
+```
+
+Estrutura real:
+
+```plaintext
+database/
+└── connection.py
+```
+
+Correção:
+
+```python
+from database.connection import get_connection
+```
+
+---
+
+## Configuração do Banco
+
+Definido banco oficial:
+
+```plaintext
+tcc
+```
+
+Ajuste necessário:
+
+```python
+DB_CONFIG = {
+    "host": "localhost",
+    "user": "root",
+    "password": "senha123",
+    "database": "tcc"
+}
+```
+
+---
+
+# Sistema de Ranking
+
+Estrutura inicial criada.
+
+Necessita refatoração futura para:
+
+```plaintext
+routes/ranking.py
++
+services/ranking_service.py
++
+repositories/user_repository.py
+```
+
+Removendo consultas SQL diretas das rotas.
+
+---
+
+# Situação Atual da Gamificação
+
+## Concluído
+
+* Sistema XP
+* Sistema de Níveis
+* Sistema de Badges
+* Estrutura de Services
+* Estrutura de Repositories
+* Planejamento completo da gamificação
+* Integração inicial Jogos → XP → Badge
+
+---
+
+## Próximos Passos
+
+### Fase 9
+
+Banco de dados
+
+* Criar tabela `badges`
+* Criar tabela `inventory_badges`
+* Criar tabela `scores`
+
+---
+
+### Fase 10
+
+Ranking completo
+
+* ranking_service
+* top jogadores
+* ordenação por XP
+
+---
+
+### Fase 11
+
+Integração Jogo da Memória
+
+```plaintext
+Memory Game
+↓
+Score
+↓
+/game/score
+↓
+XP
+↓
+Level
+↓
+Badge
+↓
+Ranking
+```
+
+---
+
+### Fase 12
+
+Dashboard Gamificado
+
+Exibir:
+
+* XP atual
+* Nível atual
+* Barra de progresso
+* Ranking
+* Badges desbloqueadas
+
+---
+
+# Commit sugerido
+
+```bash
+git commit -m "refactor: organize gamification architecture with services and repositories"
+```
+
+ou mais simples:
+
+```bash
+git commit -m "feat: implement XP, level and badge service structure"
+```
+
+---(15/06/2026)
+# Atualização do Projeto – Sistema de Ranking
+
+## Objetivo
+
+Implementação da estrutura inicial do sistema de gamificação utilizando Flask + MySQL Connector.
+
+---
+
+# Estrutura adotada
+
+O projeto está utilizando:
+
+* Flask
+* Factory Pattern
+* Blueprints
+* MySQL Connector
+* Repository Pattern
+* Services Layer
+
+Organização atual:
+
+app/
+├── routes/
+├── services/
+├── repositories/
+├── config/
+├── templates/
+└── static/
+
+database/
+└── connection.py
+
+---
+
+# Banco de Dados
+
+Tabela principal renomeada para seguir o padrão em inglês:
+
+## users
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    xp INT DEFAULT 0,
+    level INT DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+## scores
+
+```sql
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    game_name VARCHAR(50) NOT NULL,
+    points INT NOT NULL,
+    xp_earned INT NOT NULL,
+    played_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+## badges
+
+```sql
+CREATE TABLE badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    icon VARCHAR(255),
+    requirement_type VARCHAR(50),
+    requirement_value INT NOT NULL
+);
+```
+
+## inventory_badges
+
+```sql
+CREATE TABLE inventory_badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    badge_id INT NOT NULL,
+    earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (badge_id) REFERENCES badges(id)
+);
+```
+
+---
+
+# Sistema de XP
+
+Tabela de progressão definida:
+
+| Level | XP Necessário |
+| ----- | ------------- |
+| 1     | 0             |
+| 2     | 100           |
+| 3     | 250           |
+| 4     | 500           |
+| 5     | 1000          |
+
+Implementado em:
+
+app/services/xp_service.py
+
+Funções:
+
+* calculate_level()
+* add_xp()
+
+Responsabilidades:
+
+* calcular nível baseado no XP
+* atualizar XP do usuário
+* controlar progressão de níveis
+
+---
+
+# Sistema de Badges
+
+Implementado em:
+
+app/services/badge_service.py
+
+Funções:
+
+* check_and_award_badges()
+* user_has_badge()
+* award_badge()
+
+Responsabilidades:
+
+* verificar requisitos de badges
+* evitar badges duplicadas
+* registrar conquistas do usuário
+
+---
+
+# Sistema de Jogos
+
+Implementado em:
+
+app/services/game_service.py
+
+Função:
+
+* process_game_score()
+
+Responsabilidades:
+
+* converter score em XP
+* atualizar nível
+* verificar desbloqueio de badges
+
+---
+
+# Repository Layer
+
+Implementado em:
+
+app/repositories/user_repository.py
+
+Funções:
+
+* get_user_by_id()
+* update_user()
+* get_ranking()
+
+Responsabilidades:
+
+* comunicação direta com o banco
+* consulta de usuários
+* atualização de XP e Level
+* geração do ranking
+
+---
+
+# Configuração do Banco
+
+Arquivo:
+
+app/config/settings.py
+
+```python
+DB_CONFIG = {
+    "host": "localhost",
+    "user": "root",
+    "password": "senha123",
+    "database": "tcc"
+}
+```
+
+Conexão:
+
+database/connection.py
+
+```python
+def get_connection():
+    return mysql.connector.connect(
+        host=DB_CONFIG["host"],
+        user=DB_CONFIG["user"],
+        password=DB_CONFIG["password"],
+        database=DB_CONFIG["database"]
+    )
+```
+
+---
+
+# Rotas Implementadas
+
+## Home
+
+GET /
+
+Retorna:
+
+```json
+{
+  "message": "API funcionando"
+}
+```
+
+## Ranking
+
+GET /ranking
+
+Retorna:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "João",
+    "xp": 120,
+    "level": 2
+  }
+]
+```
+
+Testado com Postman.
+
+---
+
+# Problemas Resolvidos
+
+* ModuleNotFoundError
+* Blueprint não registrado
+* Imports incorretos
+* IndentationError
+* KeyError em DB_CONFIG
+* Coluna nome → name
+* Erro de consulta do ranking
+* Estrutura Repository + Services
+
+---
+
+# Próximas Etapas
+
+## Fase 9
+
+Sistema completo de badges
+
+* criar badges iniciais
+* inserir badges no banco
+* tela de conquistas
+
+## Fase 10
+
+Integração Quiz + Gamificação
+
+* XP ao finalizar quiz
+* atualização automática de nível
+
+## Fase 11
+
+Integração Jogos + Gamificação
+
+* salvar score
+* registrar XP ganho
+* atualizar ranking
+
+## Fase 12
+
+Dashboard do usuário
+
+* exibir XP
+* exibir nível
+* exibir badges
+* exibir posição no ranking

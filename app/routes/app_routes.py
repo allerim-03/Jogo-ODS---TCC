@@ -20,7 +20,8 @@ def home():
 from app.services.game_service import process_game_score 
 from app.repositories.user_repository import (
     get_user_by_id,
-    update_user
+    update_user,
+    get_ranking
 )# ou mysql direto
 from app.services.xp_service import add_xp
 from app.services.badge_service import check_and_award_badges
@@ -61,10 +62,19 @@ def logout():
 #===========================
 # Dashboard.py
 #=========================
+
 @routes.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
+'''
+rota para testes 
+@routes.route("/dashboard")
+def dashboard():
+    return {
+        "message": "dashboard ok"
+    }
+    '''
 #===========================
 # quiz.py
 #=========================
@@ -151,11 +161,18 @@ def save_score():
 # Ranking.py
 #=========================
 
-
+'''
 @routes.route('/ranking')
 def ranking():
     return render_template('ranking.html')
+'''
 
+@routes.route("/ranking")
+def ranking():
+
+    ranking_data = get_ranking()
+
+    return jsonify(ranking_data)
 
 #===========================
 # classroom.py
@@ -239,3 +256,14 @@ def game_score():
         "level": user["level"]
     }
     })
+
+#teste banco de dados conecta
+@routes.route("/test-db")
+def test_db():
+
+    conn = get_connection()
+
+    if conn.is_connected():
+        return {"message": "Banco conectado"}
+
+    return {"message": "Erro"}
