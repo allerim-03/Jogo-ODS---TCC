@@ -12,7 +12,11 @@ routes = Blueprint(
     "routes",
     __name__
 )
-
+@routes.route("/")
+def home():
+    return {
+        "message": "API Gamificação Cultivando o saber funcionando"
+    }
 from app.services.game_service import process_game_score 
 from app.repositories.user_repository import (
     get_user_by_id,
@@ -186,9 +190,9 @@ def create_quiz():
 # User.py
 #=========================
 #rotas user.py
+'''
 from flask import Blueprint, request, jsonify
-from models.usuario import Usuario
-from app import db
+
 
 usuario_bp = Blueprint("usuario", __name__)
 
@@ -204,8 +208,10 @@ def criar_usuario():
     db.session.add(novo_usuario)
     db.session.commit()
     return jsonify({"message": "Usuário criado com sucesso!"}), 201
-
-
+'''
+#===========================
+# Game.py
+#=========================
 
 #game.py
 game_bp = Blueprint("game", __name__)
@@ -217,18 +223,19 @@ def game_score():
     user_id = data["user_id"]
     score = data["score"]
 
-    user = get_user(user_id)
+    user =get_user_by_id()(user_id)
 
     user, xp_gained = process_game_score(user, score)
 
     update_user(user)
 
+    
     return jsonify({
-        "message": "XP atualizado",
-        "xp_gained": xp_gained,
-        "user": {
-            "id": user.id,
-            "xp": user.xp,
-            "level": user.level
-        }
+    "message": "XP atualizado",
+    "xp_gained": xp_gained,
+    "user": {
+        "id": user["id"],
+        "xp": user["xp"],
+        "level": user["level"]
+    }
     })

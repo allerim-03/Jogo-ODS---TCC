@@ -34,7 +34,7 @@ def update_user(user):
     cursor.close()
     conn.close()
 
-    def get_ranking():
+def get_ranking():
 
     conn = get_connection()
 
