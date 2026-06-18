@@ -236,14 +236,14 @@ def game_score():
 @routes.route('/ranking')
 def ranking():
     return render_template('ranking.html')
+    return jsonify(ranking_data)
 '''
 
 @routes.route("/ranking")
 def ranking():
 
-    ranking_data = get_ranking()
-
-    return jsonify(ranking_data)
+    return render_template('ranking.html')
+    
 #===========================
 # Progress
 #===========================

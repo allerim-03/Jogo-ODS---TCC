@@ -65,55 +65,33 @@
     </a>
 </header>
 
-
-    <section class="banner">
-    <div class="header-content">
-    </div>
-</section>
-
     <main>
-        <section class="boas-vindas">
-            <h2>Bem-vindo!</h2>
-            <a href="escolha.html">
-                <button class="btn-login">Login</button>
-            </a>
-        </section>
+    <section class="boas-vindas">
+         <h2 class="titulo-branco">Bem-vindo!</h2>
+            <p class="sub-branco">Venha aprender brincando</p>
+        <div class="login-box professor-box">
 
-        <hr class="divisor">
+            <img src="img/TugaPqn.png">
+            <h1 class="negrito">Cadastro</h1>
 
-        <section class="sobre-sessao">
-            <div class="conteudo-flex">
-                <div class="texto">
-                    <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
-                    <p>aqui a gente vai explicar mais ou menos os nossos objetivos com o projeto e etc.</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 1]</p>    <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-1"> -->
-                </div>
-            </div>  
-        </section>
+            <form>
+                <label>Nome</label>
+                <input type="text" placeholder="Digite o nome" required>
 
-        <section class="sobre-sessao cinza">
-            <div class="conteudo-flex reverso">
-                <div class="texto">
-                    <h3>Aprendendo de forma divertida</h3>
-                    <p>aqui podemos explicar sobre os jogos e os sistemas de pontuação para incentivar e estimular os alunos etc</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 2]</p>     <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-2"> -->
-                </div>
-            </div>
-        </section>
+                <label>Email</label>
+                <input type="email" placeholder="Digite o email" required>
 
-       <section class="sobre-sessao missao-centralizada">
-    <div class="texto">
-        <h3>Nossa Missão</h3>
-        <p>nossos objetivos com esse projeto e porque escolhemos fazer esse tema ou algo assim texto para testar como está na tela esse parágrafo bem longo</p>
-        <div class="banner-final">
-           <img src="img/banner.PNG" alt="descrição" class="imagem-cenario-pag-inicial"> <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-cenario-pag-inicial"> -->
+                <label>Senha</label>
+                <input type="password" placeholder="Escolha a senha" required>
+
+                <label>Repita a senha</label>
+                <input type="password" placeholder="Confirme sua senha" required>
+
+                <button type="submit">Criar</button>
+            </form>
+
+            <p class="cadastro">Já tem uma conta? <a href="login-professor.html" class="negrito">Faça login aqui</a></p>
         </div>
-    </div>
-</section>
     </main>
 
     <footer>

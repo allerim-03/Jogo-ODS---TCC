@@ -21,7 +21,11 @@ if __name__ == "__main__":
 from flask import Flask
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__,
+                template_folder="../frontend/templates",
+        static_folder="../frontend/static"
+                
+                )
 
     # IMPORT DO SEU BLUEPRINT ÚNICO TEMPORÁRIO
     from app.routes.app_routes import routes
