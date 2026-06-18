@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educa - Meu Espaço</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Estilos específicos para a experiência do Aluno */
+        .aluno-header-banner {
+            background: linear-gradient(135deg, #31B54C 0%, #27943e 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(49, 181, 76, 0.2);
+        }
+
+        .texto-banner h2 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+        }
+
+        .texto-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .nivel-cultivo-badge {
+            background: rgba(255, 214, 0, 0.2);
+            border: 2px solid #FFDE5A;
+            padding: 15px 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .nivel-cultivo-badge span {
+            display: block;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #FFDE5A;
+        }
+
+        .nivel-cultivo-badge strong {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .grid-estudante {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 25px;
+        }
+
+        .card-branco {
+            background: white;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .card-branco h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Lista de Atividades */
+        .lista-atividades-hoje {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .item-tarefa {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border-left: 6px solid #FFDE5A;
+            transition: transform 0.2s;
+        }
+
+        .item-tarefa:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+
+        .item-tarefa.concluida {
+            border-left-color: #31B54C;
+            opacity: 0.7;
+        }
+
+        .info-tarefa h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .info-tarefa span {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .btn-acao-tarefa {
+            background: #31B54C;
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* Conquistas/Medalhas */
+        .medalhas-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .medalha-item {
+            background: #fffdf5;
+            border: 2px solid #fef3c7;
+            padding: 20px 10px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .medalha-emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .medalha-item p {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .progresso-titulo {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body class="body-dashboard">
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            
+            <section class="aluno-header-banner">
+                <div class="texto-banner">
+                    <h2>Olá, Sabine! 👋</h2>
+                    <p>Sua jornada de hoje está pronta. Vamos cultivar conhecimento?</p>
+                </div>
+                <div class="nivel-cultivo-badge">
+                    <span>Nível de Cultivo</span>
+                    <strong>Semeador(a) Especial</strong>
+                </div>
+            </section>
+
+            <div class="grid-estudante">
+                
+                <section class="card-branco">
+                    <h3>Minhas Atividades de Hoje</h3>
+                    <div class="lista-atividades-hoje">
+                        
+                        <div class="item-tarefa">
+                            <div class="info-tarefa">
+                                <h4>Quiz: Ecossistemas Brasileiros</h4>
+                                <span>Ciências • Prazo: Hoje</span>
+                            </div>
+                            <a href="#" class="btn-acao-tarefa">Começar</a>
+                        </div>
+
+                        <div class="item-tarefa">
+                            <div class="info-tarefa">
+                                <h4>Leitura: O Cortiço (Capítulo 1)</h4>
+                                <span>Português • Prazo: Amanhã</span>
+                            </div>
+                            <a href="#" class="btn-acao-tarefa">Ler agora</a>
+                        </div>
+
+                        <div class="item-tarefa concluida">
+                            <div class="info-tarefa">
+                                <h4>Desafio de Lógica: Nível 2</h4>
+                                <span>Matemática • Concluído</span>
+                            </div>
+                            <span style="color: #31B54C; font-weight: bold; font-size: 0.9rem;">Nota: 10</span>
+                        </div>
+
+                    </div>
+                </section>
+
+                <div class="coluna-status-aluno">
+                    
+                    <section class="card-branco" style="margin-bottom: 25px;">
+                        <h3>Minhas Conquistas</h3>
+                        <div class="medalhas-container">
+                            <div class="medalha-item">
+                                <span class="medalha-emoji">🥇</span>
+                                <p>Nota 10</p>
+                            </div>
+                            <div class="medalha-item">
+                                <span class="medalha-emoji">🔥</span>
+                                <p>7 Dias Seguidos</p>
+                            </div>
+                            <div class="medalha-item" style="opacity: 0.4; filter: grayscale(1);">
+                                <span class="medalha-emoji">🦉</span>
+                                <p>Sábio(a) da Noite</p>
+                            </div>
+                            <div class="medalha-item" style="opacity: 0.4; filter: grayscale(1);">
+                                <span class="medalha-emoji">👑</span>
+                                <p>Mestre do Quiz</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card-branco">
+                        <h3>Meu Desempenho</h3>
+                        <span class="progresso-titulo">Média Geral desta semana: 8.5</span>
+                        <div class="barra-fundo" style="height: 12px; margin-bottom: 20px;">
+                            <div class="barra-preenchimento progresso-excelente" style="width: 85%;"></div>
+                        </div>
+                        
+                        <span class="progresso-titulo">Frequência: 98%</span>
+                        <div class="barra-fundo" style="height: 12px;">
+                            <div class="barra-preenchimento" style="width: 98%; background-color: #31B54C;"></div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/components.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Chamando a Topbar com o parâmetro 'estudante'
+            injetarTopbar('estudante');
+            injetarFooter();
+        });
+    </script>
+</body>
+</html>

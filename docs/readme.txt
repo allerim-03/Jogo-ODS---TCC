@@ -1779,3 +1779,190 @@ Retorna:
 
 Objetivo:
 Permitir que o Dashboard exiba o progresso do jogador em tempo real.
+
+# Atualização do Projeto – Fase 12 (Polimento e Integração Front-End)
+
+## Data (17/06/2026)
+
+## Objetivo da Fase
+
+Iniciar a integração entre o Front-End e o Back-End, conectando as páginas HTML aos endpoints Flask e ao sistema de gamificação já implementado.
+
+---
+
+## Funcionalidades Implementadas
+
+### Dashboard do Jogador
+
+Foi definido que o painel do aluno (student-profile) será utilizado como Dashboard principal do jogador, evitando duplicação de páginas e aproveitando o layout já desenvolvido.
+
+O Dashboard deverá apresentar:
+
+* Avatar do jogador
+* Nome do jogador
+* XP atual
+* Nível atual
+* Jogos disponíveis
+* Quizzes disponíveis
+* Ranking
+* Badges conquistadas
+
+---
+
+### Endpoint de Progresso do Usuário
+
+Foi criada e testada a rota:
+
+GET /user/<id>/progress
+
+Exemplo de retorno:
+
+```json
+{
+    "id": 1,
+    "name": "Mirella",
+    "xp": 110,
+    "level": 2
+}
+```
+
+Essa rota será utilizada pelo Dashboard para exibir os dados do jogador em tempo real.
+
+---
+
+### Integração do Ranking
+
+A página Ranking foi ajustada para consumir dados do backend através da rota:
+
+GET /ranking
+
+O JavaScript da página passa a preencher automaticamente:
+
+* 1º lugar
+* 2º lugar
+* 3º lugar
+* Lista dos demais jogadores
+
+com base nos dados armazenados na tabela users.
+
+---
+
+### Planejamento da Integração de Badges
+
+Foi definido o fluxo para exibição das badges conquistadas:
+
+Tabela utilizada:
+
+* badges
+* inventory_badges
+
+Nova rota planejada:
+
+GET /user/<id>/badges
+
+Retorno esperado:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Primeiros Passos",
+        "description": "Alcançou 50 XP",
+        "icon": "🌱"
+    }
+]
+```
+
+As badges serão carregadas dinamicamente no Dashboard.
+
+---
+
+### Integração do Jogo da Memória
+
+O JavaScript do jogo foi preparado para enviar resultados ao backend:
+
+POST /game/score
+
+Payload enviado:
+
+```json
+{
+    "user_id": 1,
+    "score": 2,
+    "moves": 10,
+    "time": 35
+}
+```
+
+O backend já processa:
+
+* Conversão Score → XP
+* Atualização de XP
+* Atualização de Level
+* Verificação de Badges
+* Salvamento de Score
+* Atualização do Ranking
+
+---
+
+## Estrutura Consolidada
+
+### Repositories
+
+* user_repository.py
+* score_repository.py
+* badge_repository.py (planejado)
+
+### Services
+
+* xp_service.py
+* badge_service.py
+* game_service.py
+
+### Banco de Dados
+
+Tabelas ativas:
+
+* users
+* scores
+* badges
+* inventory_badges
+
+---
+
+## Status Geral
+
+### Concluído
+
+* Sistema de XP
+* Sistema de Levels
+* Sistema de Badges
+* Sistema de Ranking
+* Persistência de Scores
+* Integração Jogo → XP → Level → Badge → Ranking
+* Endpoint de Progresso do Usuário
+* Integração inicial Ranking Front-End
+
+### Em andamento
+
+* Dashboard conectado ao backend
+* Carregamento dinâmico de Badges
+
+### Próximas etapas
+
+* Finalizar Dashboard
+* Implementar endpoint GET /user/<id>/badges
+* Exibir badges reais no Dashboard
+* Integrar Top 3 do Ranking no Dashboard
+* Implementar autenticação/login para remover user_id fixo
+* Refinamento visual das telas
+
+---
+
+## Progresso do Projeto
+
+Fase 10 – Sistema de Badges → Concluída
+
+Fase 11 – Quiz/Jogos → XP → Level → Badges → Ranking → Concluída
+
+Fase 12 – Polimento e Integração Front-End → Em andamento
