@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educa - Cadastro</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="topbar"></header>
+
+    <main>
+        <div class="boas-vindas">
+            
+            <div id="etapa-tipo-uso" class="login-box">
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; text-align: center; color: #31B54C;">Como deseja acessar?</h2>
+                <p class="sub-branco" style="text-align: center; margin-bottom: 25px;">Escolha o tipo de uso na plataforma para continuar.</p>
+                
+                <div class="seletor-perfil-container">
+                    <div class="quadrinho-opcao" onclick="proximoPassoCadastro('pessoal')">
+                        <span>🏡</span>
+                        <p>Uso Pessoal</p>
+                    </div>
+                    <div class="quadrinho-opcao" onclick="proximoPassoCadastro('institucional')">
+                        <span>🏫</span>
+                        <p>Uso Institucional</p>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 0.9rem; margin-top: 20px; color: #7f8c8d;">
+                    Já tem conta? <a href="login.html" class="texto-perfil-link" style="color: #31B54C;">Faça login</a>
+                </p>
+            </div>
+
+            <form id="form-cadastro" class="login-box estado-estudante oculto">
+                <button type="button" class="btn-voltar" onclick="voltarAoInicioLogin()" style="background: transparent !important; border: none !important; box-shadow: none !important; color: #7f8c8d; font-weight: bold; cursor: pointer; margin-bottom: 15px; text-align: left; width: auto; padding: 0; outline: none !important;">← Voltar ao Início</button>
+                <h2 class="titulo-dinamico" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; transition: color 0.3s; text-align: center;">Crie sua Conta!</h2>
+                <p class="sub-branco" style="text-align: center;">Escolha seu perfil</p>
+
+                <label id="rotulo-perfil-dinamico" class="rotulo-input" style="margin-top: 15px;">QUEM É VOCÊ NA PLATAFORMA?</label>
+                
+                <div class="seletor-perfil-container" id="container-seletores-finais">
+                    <div id="opcao-estudante" class="quadrinho-opcao ativo-estudante" onclick="selecionarPerfil('estudante')">
+                        <span>🎒</span>
+                        <p>Estudante</p>
+                    </div>
+                    <div id="opcao-professor" class="quadrinho-opcao" onclick="selecionarPerfil('professor')">
+                        <span>👩‍🏫</span>
+                        <p>Gestor</p>
+                    </div>
+                </div>
+
+                <input type="hidden" id="tipo_usuario" name="tipo_usuario" value="estudante">
+
+                <label class="rotulo-input" id="label-nome">Nome do Aluno</label>
+                <input type="text" id="nome" class="input-estilizado" placeholder="Seu nome completo" required>
+
+                <label class="rotulo-input">E-mail de Acesso</label>
+                <input type="email" id="email" class="input-estilizado" placeholder="Digite seu E-mail" required>
+
+                <label class="rotulo-input">Crie uma Senha</label>
+                <input type="password" id="senha" class="input-estilizado" placeholder="Mínimo 8 caracteres" required>
+
+                <button type="submit" id="btn-registrar">Criar Conta</button>
+                
+                <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #7f8c8d;">
+                    Já tem conta? <a href="login.html" class="texto-perfil-link">Faça login</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function proximoPassoCadastro(escolha) {
+            const painelTriagem = document.getElementById('etapa-tipo-uso');
+            const formCadastro = document.getElementById('form-cadastro');
+            const seletoresFinais = document.getElementById('container-seletores-finais');
+            const rotuloPerfil = document.getElementById('rotulo-perfil-dinamico');
+
+            painelTriagem.classList.add('oculto');
+            formCadastro.classList.remove('oculto');
+
+            if (escolha === 'pessoal') {
+                seletoresFinais.classList.add('oculto');
+                rotuloPerfil.classList.add('oculto');
+                selecionarPerfil('estudante');
+                document.getElementById('label-nome').innerText = "Nome do Usuário";
+            } else {
+                seletoresFinais.classList.remove('oculto');
+                rotuloPerfil.classList.remove('oculto');
+                selecionarPerfil('estudante');
+            }
+        }
+
+        function selecionarPerfil(perfil) {
+            const caixaForm = document.getElementById('form-cadastro');
+            const inputTipo = document.getElementById('tipo_usuario');
+            const optEstudante = document.getElementById('opcao-estudante');
+            const optProfessor = document.getElementById('opcao-professor');
+            const lblNome = document.getElementById('label-nome');
+            const btnReg = document.getElementById('btn-registrar');
+
+            inputTipo.value = perfil;
+
+            if (perfil === 'estudante') {
+                caixaForm.classList.remove('estado-professor');
+                caixaForm.classList.add('estado-estudante');
+                optEstudante.className = "quadrinho-opcao ativo-estudante";
+                optProfessor.className = "quadrinho-opcao";
+                lblNome.innerText = "Nome do Aluno";
+                btnReg.innerText = "Criar Conta";
+            } else {
+                caixaForm.classList.remove('estado-estudante');
+                caixaForm.classList.add('estado-professor');
+                optEstudante.className = "quadrinho-opcao";
+                optProfessor.className = "quadrinho-opcao ativo-professor";
+                lblNome.innerText = "Nome do Professor / Gestor";
+                btnReg.innerText = "Criar Conta";
+            }
+        }
+
+        function voltarAoInicioCadastro() {
+            const formCadastro = document.getElementById('form-cadastro');
+            formCadastro.classList.add('oculto');
+            document.getElementById('etapa-tipo-uso').classList.remove('oculto');
+        }
+
+        window.onload = () => { selecionarPerfil('estudante'); }
+    </script>
+</body>
+</html>

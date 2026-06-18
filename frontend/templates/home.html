@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--Khay version-->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educa: Cultivando o Saber</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .oculto { display: none !important; }
+        
+        /* CSS Protetor para evitar que o style.css achate os elementos */
+        .caixa-hero-ajustada {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            flex-wrap: wrap; /* Evita achatar em telas menores */
+        }
+
+        .conteudo-texto-hero {
+            flex: 1 1 500px;
+            text-align: left;
+        }
+
+        .conteudo-mascote-hero {
+            flex: 0 1 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .container-publico {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 65vh;
+        }
+
+        .caixa-conteudo {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 100%;
+            max-width: 850px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .texto-narrativo {
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .grid-cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .card-apresentacao {
+            background: #f9fbf9;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #e1ede1;
+            flex: 1 1 280px;
+            max-width: 360px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .icone-card {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .lista-valores {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .lista-valores li {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar"></header>
+
+    <main>
+        
+        <div id="secao-inicio" class="caixa-hero-ajustada">
+            <div class="conteudo-texto-hero">
+                <span class="badge-ods">ODS & Sustentabilidade</span>
+                <h1 class="main-title" style="margin-top: 15px;">
+                    Uma grande aventura rumo ao <span class="highlight-blue">Futuro Sustentável!</span>
+                </h1>
+                <p class="hero-description" style="margin: 20px 0 30px; font-size: 1.1rem; line-height: 1.6;">
+                    Participe de jogos interativos, complete missões ecológicas e aprenda a proteger o nosso planeta junto com seus professores, amigos e toda a sua turma.
+                </p>
+                <div class="action-group" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button onclick="window.location.href='auth/login.html'" class="btn-start">
+                        Começar Aventura ➔
+                    </button>
+                    <button onclick="window.location.href='auth/register.html'" class="btn-register-secondary">
+                        Criar minha conta
+                    </button>
+                </div>
+            </div>
+
+            <div class="conteudo-mascote-hero">
+                <div class="speech-bubble" style="margin-bottom: 20px;">
+                    <p>Olá, Explorador! Eu sou o <strong>Tuga</strong> 🐢. Vamos aprender a cuidar da Terra jogando juntos?</p>
+                </div>
+                <div class="avatar-container">
+                    <span class="mascote-emoji" style="font-size: 5rem; display: block;">🐢</span>
+                    <div class="floor-shadow" style="width: 80px; height: 10px; background: rgba(0,0,0,0.1); border-radius: 50%; margin-top: 5px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="secao-ods" class="container-publico oculto">
+            <div class="caixa-conteudo">
+                <span class="badge-ods" style="background: #e8f5e9; color: #2e7d32;">Quem Somos</span>
+                <h2 class="texto-azul negrito" style="font-size: 2rem; margin: 15px 0 25px;">Sobre Nós</h2>
+                
+                <p class="texto-narrativo">
+                    Nós somos um grupo que ama games e acredita que aprender pode ser tão divertido quanto jogar. A ideia nasceu quando criamos um mini jogo sobre o ciclo da água em Python — ficou fofo e divertido!
+                </p>
+                <p class="texto-narrativo">
+                    A partir daí, decidimos transformar essa paixão em um projeto maior: uma plataforma educacional gamificada que ensina sustentabilidade de forma criativa. Queremos que crianças do ensino fundamental aprendam brincando, desenvolvendo letramento digital e consciência ambiental ao mesmo tempo.
+                </p>
+
+                <div class="grid-cards">
+                    <div class="card-apresentacao">
+                        <span class="icone-card">🚀</span>
+                        <h3 class="texto-azul negrito" style="font-size: 1.2rem; margin-bottom: 8px;">Missão</h3>
+                        <p style="color:#555; font-size:0.95rem; line-height: 1.5;">Transformar o aprendizado em uma aventura divertida, onde cada desafio ensina algo novo e cada conquista aproxima os estudantes de um futuro sustentável.</p>
+                    </div>
+                    <div class="card-apresentacao">
+                        <span class="icone-card">🔮</span>
+                        <h3 class="texto-azul negrito" style="font-size: 1.2rem; margin-bottom: 8px;">Visão</h3>
+                        <p style="color:#555; font-size:0.95rem; line-height: 1.5;">Criar um universo de jogos educativos que cresça junto com os alunos, chegando a diferentes níveis escolares e até empresas.</p>
+                    </div>
+                </div>
+
+                <h4 class="texto-azul" style="margin-top: 35px; font-size: 1.1rem; font-style: italic; font-weight: bold; color: #2e7d32;">
+                    “Cultivando o saber, cada semente vira conhecimento.”
+                </h4>
+
+                <ul class="lista-valores">
+                    <li>• Educação que inspira</li>
+                    <li>• Diversidade que acolhe</li>
+                    <li>• Criatividade que encanta</li>
+                    <li>• Sustentabilidade que transforma</li>
+                    <li>• Inclusão que fortalece</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="secao-jogos" class="container-publico oculto">
+            <div class="caixa-conteudo">
+                <span class="badge-ods" style="background: #e3f2fd; color: #1565c0;">Divertir & Aprender</span>
+                <h2 class="texto-azul negrito" style="font-size: 2rem; margin: 15px 0 25px;">Nossos Jogos Interativos</h2>
+                
+                <p class="texto-narrativo" style="text-align: center;">
+                    Nossa cultura é feita de conversas, debates, risadas, criatividade e muita autenticidade — porque aprender também pode ser uma jornada divertida. Veja as dinâmicas que preparamos:
+                </p>
+
+                <div class="grid-cards">
+                    <div class="card-apresentacao" style="border-top: 4px solid #2196f3;">
+                        <span class="icone-card">🧠</span>
+                        <h3 class="texto-azul negrito">Quizzes das ODS</h3>
+                        <p style="color:#666; font-size:0.9rem; margin-top:10px; line-height: 1.5;">Perguntas cheias de curiosidades sobre o planeta. Acerte para acumular XP, ganhar medalhas e subir de nível!</p>
+                    </div>
+                    <div class="card-apresentacao" style="border-top: 4px solid #2196f3;">
+                        <span class="icone-card">💧</span>
+                        <h3 class="texto-azul negrito">Ciclo da Água</h3>
+                        <p style="color:#666; font-size:0.9rem; margin-top:10px; line-height: 1.5;">O nosso xodó! O jogo interativo que criamos em Python totalmente adaptado para a Web. Ajude a gotinha a vencer os poluentes!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

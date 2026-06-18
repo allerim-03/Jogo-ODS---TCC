@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--Khay version-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educa: Cultivando o Saber</title>
+    <style>
+        /* Tela de transição elegante para evitar o flash branco do redirecionamento */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #475569;
+        }
+        .loader-container {
+            text-align: center;
+        }
+        .plantinha-loader {
+            font-size: 2.5rem;
+            display: inline-block;
+            animation: balanco 1.5s ease-in-out infinite alternate;
+            margin-bottom: 12px;
+        }
+        .texto-loader {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #31B54C;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+        @keyframes balanco {
+            0% { transform: scale(1) rotate(-10deg); }
+            100% { transform: scale(1.15) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-container">
+        <span class="plantinha-loader">🌱</span>
+        <p class="texto-loader">Cultivando o saber...</p>
+    </div>
+
+    <script>
+        // Controlador de Fluxo Inicial da Aplicação
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("token_usuario");
+            
+            // Simula um delayzinho de 300ms só para o usuário ver a animação fluida (opcional para o TCC)
+            setTimeout(() => {
+                if (!token) {
+                    // Se for um visitante não logado, vai para a Landing Page pública na raiz
+                    window.location.href = "home.html";
+                } else {
+                    // CORREÇÃO CIRÚRGICA: Ajustado para o nome do arquivo que usamos ('dashboard-manager.html')
+                    // Se o seu arquivo dentro da pasta dashboard se chamar apenas 'dashboard.html', basta alterar abaixo.
+                    window.location.href = "dashboard/dashboard-manager.html";
+                }
+            }, 300); 
+        });
+    </script>
+</body>
+</html>
