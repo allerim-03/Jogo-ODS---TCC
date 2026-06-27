@@ -1,0 +1,190 @@
+/* =========================================================
+   game-UI.CSS
+   Responsável por elementos de INTERFACE GLOBAL
+   (HUD, ranking, botões fixos, topbar)
+========================================================= */
+
+
+/* =========================================================
+   1. TOPBAR (BARRA SUPERIOR DO JOGO)
+   Contém: voltar + ranking + HUD
+========================================================= */
+
+.game-top-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  padding: 15px 20px;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+/* =========================================================
+   2. BOTÃO VOLTAR (NAVEGAÇÃO)
+========================================================= */
+
+/* Botão voltar */
+
+
+.game-back-btn {
+  background: var(--bright-blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#back-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* =========================================================
+   3. RANKING (MELHOR RESULTADO LOCALSTORAGE)
+========================================================= */
+
+
+
+ /* .game-ranking {position: fixed; */
+ /* fixa no viewport */
+ /* top: 70px;  */    
+     /* logo abaixo do botão Voltar */
+  /*left: 20px;  */
+        /* canto esquerdo */
+  
+  /*background: #fff8e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+font-weight: bold;
+color: #444;
+  z-index: 999;      /* garante que fique acima do tabuleiro */
+
+  */
+ .game-ranking {
+    min-width: 160px;
+
+    background: var(--white);
+
+    border-radius: 12px;
+
+    padding: 10px 14px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+#ranking h3 {
+ font-size: 15px;
+  margin-bottom: 4px;
+ /* color: #d17f00; */
+}
+
+#ranking p {
+  margin: 2px 0;
+}
+
+/* =========================================================
+   4. HUD (MOVIMENTOS / TEMPO / PONTUAÇÃO)
+========================================================= */
+ /* HUD */
+.game-hud {
+
+ /*
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  color: var(--dark-blue);
+  */
+ 
+  display: flex;
+  gap: 20px;
+
+  font-weight: bold;
+  margin-left: auto;
+
+ background: var(--white);
+  padding: 10px 15px;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+.game-hud-item {
+    display:flex;
+    gap:6px;
+    align-items:center;
+}
+
+
+  /* =========================================================
+   SCORE (HUD - PONTUAÇÃO)
+========================================================= */
+ /* destaque da pontuação */
+.game-score {
+  color: var(--banana-yellow);
+  font-weight: bold;
+  padding: 2px 6px;
+  border: 2px solid var(--banana-yellow);
+  border-radius: 6px;
+
+  background: #fffbe6;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES DE UI
+   (efeitos visuais globais de interface)
+========================================================= */
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ffde5a;
+  }
+  to {
+    text-shadow: 0 0 15px #ffde5a;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Feedback -- adicionar o tuga depois*/
+
+.game-message {
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.game-message-success {
+    background: rgba(49,181,76,.15);
+    border: 2px solid var(--garden-green);
+}
+
+.game-message-warning {
+    background: rgba(255,222,90,.15);
+    border: 2px solid var(--banana-yellow);
+}
+
+.game-message-error {
+    background: rgba(255,82,77,.15);
+    border: 2px solid var(--vivid-red);
+}

@@ -1,0 +1,255 @@
+/*
+.topbar
+.menu
+.logo
+.left
+.right
+.brand-text
+.btn-login-top
+
+*/
+/* ==========================================================================
+   NAVBAR - PLATAFORMA EDUCA
+   Utilizada por todos os perfis
+   ========================================================================== */
+
+/* ===========================
+   BARRA PRINCIPAL
+=========================== */
+
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: linear-gradient(
+        90deg,
+        #2E7D32,
+        #39A845
+    );
+
+    border-bottom: 4px solid #FFD54F;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+
+    z-index: 1000;
+}
+
+/* ===========================
+   LADOS DA NAVBAR
+=========================== */
+
+.left,
+.right{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.logo img{
+
+    width:55px;
+    height:55px;
+    object-fit:contain;
+
+}
+
+.brand-text{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.brand-text h1{
+
+    color:white;
+
+    font-size:1.3rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+}
+
+.brand-text p{
+
+    color:#FFE16A;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+.brand-text span{
+
+    color:#FFE16A;
+
+    font-size:13px;
+
+}
+/* ===========================
+   MENU
+=========================== */
+
+.menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(8px);
+
+    padding:12px 25px;
+
+    border-radius:40px;
+
+}
+
+.menu a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.menu a:hover{
+
+    color:#FFE16A;
+
+}
+
+.menu a.ativo{
+
+    color:#FFE16A;
+
+}
+
+/* ===========================
+   BOTÃO LOGIN / SAIR
+=========================== */
+
+.btn-login-top{
+
+    background:#ffffff;
+
+    color:#2E7D32;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.btn-login-top:hover{
+
+    transform:translateY(-2px);
+
+    background:yellow;
+
+}
+
+/* ===========================
+   MENU HAMBÚRGUER
+=========================== */
+
+.icone-hamburguer-plantinha{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:12px;
+
+    background:#8BC34A;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:1.4rem;
+
+    transition:.25s;
+
+}
+
+.icone-hamburguer-plantinha:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* ===========================
+   FOTO DE PERFIL
+=========================== */
+
+.foto-perfil{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid white;
+
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media (max-width:900px){
+
+    .menu{
+
+        display:none;
+
+    }
+
+}

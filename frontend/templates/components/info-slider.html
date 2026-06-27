@@ -1,0 +1,103 @@
+<!-- ==========================================================
+     INFO SLIDER
+     Tuga apresenta a plataforma
+=========================================================== -->
+
+<section class="info-slider"  id="info-slider" >
+
+    <div class="info-card">
+
+        <!-- TUGA -->
+
+        <div class="info-tuga">
+
+            <div class="speech-box">
+
+                <p id="speech-text">
+
+                    Olá! Eu sou o <strong>Tuga</strong> .
+                    Vou acompanhar você durante toda essa aventura!
+
+                </p>
+
+            </div>
+
+            <img
+                id="tuga-img"
+                src="{{ url_for('static', filename='imagens/Tuga.png') }}"
+                alt="Tuga">
+
+        </div>
+
+        <!-- TEXTO -->
+
+        <div class="info-content">
+
+            <h2 id="card-title">
+
+                Aprendendo de forma divertida
+
+            </h2>
+
+            <p id="card-description">
+
+                Aprender pode ser muito mais interessante quando
+                você participa de desafios, jogos educativos,
+                quizzes e missões sustentáveis.
+
+                Cada atividade concluída gera experiência,
+                conquistas e ajuda sua planta a crescer.
+
+            </p>
+
+        </div>
+
+        <!-- ILUSTRAÇÃO -->
+
+        <div class="info-image">
+
+            <img
+                id="card-image"
+                src="{{ url_for('static', filename='imagens/info/aprendizado.png') }}"
+                alt="Aprendizado">
+
+        </div>
+
+    </div>
+
+    <!-- BOTÕES -->
+
+    <div class="slider-controls">
+
+        <button
+            id="prev-slide"
+            class="slider-btn">
+
+            ❮
+
+        </button>
+
+        <button
+            id="next-slide"
+            class="slider-btn">
+
+            ❯
+
+        </button>
+
+    </div>
+
+    <!-- INDICADORES -->
+
+    <div class="slider-dots">
+
+        <span class="slider-dot active"></span>
+
+        <span class="slider-dot"></span>
+
+        <span class="slider-dot"></span>
+
+    </div>
+
+</section>
+

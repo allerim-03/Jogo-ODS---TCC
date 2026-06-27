@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!--
+    metricas generica
+    kpi básicas
+    -->
+<head>
+<meta charset="UTF-8">
+<title>Métricas</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+</head>
+{% include 'components/navbar.html' %}
+{% include 'components/sidebar.html' %}
+
+<body>
+<main class="dashboard-main">
+
+<div class="dashboard-container">
+
+    <section class="dashboard-header-actions">
+
+        <div class="boas-vindas-gestor">
+            <h2>📊 Métricas da Plataforma</h2>
+            <p>Indicadores gerais de uso.</p>
+        </div>
+
+    </section>
+
+    <section class="grid-cards-superiores">
+
+        <div class="card-metrica-geral">
+
+            <div class="info-score">
+                <h3>Total de Alunos</h3>
+                <span class="score-porcentagem">
+                    120
+                </span>
+            </div>
+
+            <div class="icone-trofeu">
+                👨‍🎓
+            </div>
+
+        </div>
+
+        <div class="card-metrica-geral">
+
+            <div class="info-score">
+                <h3>Quizzes Realizados</h3>
+                <span class="score-porcentagem">
+                    548
+                </span>
+            </div>
+
+            <div class="icone-trofeu">
+                🧠
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="grid-cards-superiores">
+
+        <div class="card-metrica-geral">
+
+            <div class="info-score">
+                <h3>Jogos Finalizados</h3>
+                <span class="score-porcentagem">
+                    372
+                </span>
+            </div>
+
+            <div class="icone-trofeu">
+                🎮
+            </div>
+
+        </div>
+
+        <div class="card-metrica-geral">
+
+            <div class="info-score">
+                <h3>XP Distribuído</h3>
+                <span class="score-porcentagem">
+                    82.500
+                </span>
+            </div>
+
+            <div class="icone-trofeu">
+                ⭐
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+<script src="{{ url_for('static', filename='js/components.js') }}"></script>
+</body>
+{% include 'components/footer.html' %}
+</html>

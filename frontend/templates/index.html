@@ -1,124 +1,99 @@
+<!--
+=========================================================================
+INDEX.HTML - CONTROLADOR DE ENTRADA DA APLICAÇÃO
+-------------------------------------------------------------------------
+
+Este arquivo não é uma página de conteúdo.
+
+Sua função é atuar como ponto inicial do sistema, verificando se o
+usuário já possui uma sessão ativa armazenada no navegador.
+
+Fluxo:
+
+1. Usuário acessa a aplicação
+2. Sistema verifica a existência de um token de autenticação
+3. Caso não exista token:
+      → redireciona para a Home pública (home.html)
+4. Caso exista token:
+      → redireciona para o Dashboard correspondente
+
+A tela de carregamento foi adicionada para evitar o efeito visual
+de "flash branco" durante o redirecionamento.
+
+Este arquivo funciona como um gateway entre a área pública
+e as áreas autenticadas da plataforma.
+
+Projeto: Cultivando o Saber
+FATEC - Informática para Negócios
+=========================================================================
+-->
+
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+<!--Khay version-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS KIDS - Cultivando o Saber</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Plataforma Educa: Cultivando o Saber</title>
+    <style>
+        /* Tela de transição elegante para evitar o flash branco do redirecionamento */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #475569;
+        }
+        .loader-container {
+            text-align: center;
+        }
+        .plantinha-loader {
+            font-size: 2.5rem;
+            display: inline-block;
+            animation: balanco 1.5s ease-in-out infinite alternate;
+            margin-bottom: 12px;
+        }
+        .texto-loader {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #31B54C;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+        @keyframes balanco {
+            0% { transform: scale(1) rotate(-10deg); }
+            100% { transform: scale(1.15) rotate(10deg); }
+        }
+    </style>
 </head>
-
 <body>
-<header class="topbar">
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
 
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
-        </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-        </nav>
+    <div class="loader-container">
+        <span class="plantinha-loader">🌱</span>
+        <p class="texto-loader">Cultivando o saber...</p>
     </div>
 
-    <div class="left">
-        <label for="menu-check" class="hamburger">
-            <span></span><span></span><span></span>
-        </label>
-
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>ECO-PIXEL</h1>
-                    <p>ADVENTURE</p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
-        </div>
-    </div>
-
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
-</header>
-
-
-    <section class="banner">
-    <div class="header-content">
-    </div>
-</section>
-
-    <main>
-        <section class="boas-vindas">
-            <h2>Bem-vindo!</h2>
-            <a href="escolha.html">
-                <button class="btn-login">Login</button>
-            </a>
-        </section>
-
-        <hr class="divisor">
-
-        <section class="sobre-sessao">
-            <div class="conteudo-flex">
-                <div class="texto">
-                    <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
-                    <p>aqui a gente vai explicar mais ou menos os nossos objetivos com o projeto e etc.</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 1]</p>    <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-1"> -->
-                </div>
-            </div>  
-        </section>
-
-        <section class="sobre-sessao cinza">
-            <div class="conteudo-flex reverso">
-                <div class="texto">
-                    <h3>Aprendendo de forma divertida</h3>
-                    <p>aqui podemos explicar sobre os jogos e os sistemas de pontuação para incentivar e estimular os alunos etc</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 2]</p>     <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-2"> -->
-                </div>
-            </div>
-        </section>
-
-       <section class="sobre-sessao missao-centralizada">
-    <div class="texto">
-        <h3>Nossa Missão</h3>
-        <p>nossos objetivos com esse projeto e porque escolhemos fazer esse tema ou algo assim texto para testar como está na tela esse parágrafo bem longo</p>
-        <div class="banner-final">
-           <img src="img/banner.PNG" alt="descrição" class="imagem-cenario-pag-inicial"> <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-cenario-pag-inicial"> -->
-        </div>
-    </div>
-</section>
-    </main>
-
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
-
+    <script>
+        // Controlador de Fluxo Inicial da Aplicação
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("cultivando_token");//renomeado
+            
+            // Simula um delayzinho de 300ms só para o usuário ver a animação fluida (opcional para o TCC)
+            setTimeout(() => {
+                if (!token) {
+                    // Se for um visitante não logado, vai para a Landing Page pública na raiz
+                    window.location.href = "home.html";
+                } else {
+                    // CORREÇÃO CIRÚRGICA: Ajustado para o nome do arquivo que usamos ('dashboard-manager.html')
+                    // Se o seu arquivo dentro da pasta dashboard se chamar apenas 'dashboard.html', basta alterar abaixo.
+                    window.location.href = "teacher/teacher-dashboard.html";
+                }
+            }, 300); 
+        });
+    </script>
 </body>
 </html>

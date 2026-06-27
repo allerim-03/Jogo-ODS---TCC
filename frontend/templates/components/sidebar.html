@@ -1,4 +1,140 @@
-<aside id="sidebar-gestor" class="sidebar-lateral">
+<!-- ==========================================================================
+     SIDEBAR TUGA
+     Perfis:
+     - estudante
+     - professor
+     - admin
+     ========================================================================== -->
+
+{% if perfil != 'publico' %}
+
+<aside id="sidebar-gestor" class="teacher-sidebar-lateral">
+
+    <!-- CABEÇALHO -->
+    <div class="teacher-sidebar-header">
+
+        <div class="teacher-perfil-resumo">
+
+            <div class="teacher-foto-perfil-wrapper">
+
+                {% if perfil == 'gestor' %}
+                    <span class="emoji-foto">👨‍🏫</span>
+
+                {% elif perfil == 'estudante' %}
+                    <span class="emoji-foto">🎒</span>
+
+                {% elif perfil == 'admin' %}
+                    <span class="emoji-foto">⚙️</span>
+
+                {% endif %}
+
+            </div>
+
+            <div class="perfil-info-texto">
+
+                {% if perfil == 'gestor' %}
+
+                    <h4>Professor</h4>
+                    <p>Gestor Escolar</p>
+
+                {% elif perfil == 'estudante' %}
+
+                    <h4>Aluno</h4>
+                    <p>Aprendiz Ambiental</p>
+
+                {% elif perfil == 'admin' %}
+
+                    <h4>Administrador</h4>
+                    <p>Painel do Sistema</p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <button
+            class="btn-fechar-sidebar"
+            onclick="toggleSidebar()">
+            ×
+        </button>
+
+    </div>
+
+    <!-- MENU -->
+    <nav class="teacher-sidebar-menu">
+
+        {% if perfil == 'estudante' %}
+
+            <a href="{{ url_for('routes.dashboard') }}">
+                👤 Meu Perfil
+            </a>
+
+            <a href="{{ url_for('routes.ranking') }}">
+                🏆 Ranking
+            </a>
+
+            <a href="{{ url_for('routes.games') }}">
+                🎮 Jogos
+            </a>
+
+            <a href="{{ url_for('routes.logout') }}">
+                🚪 Sair
+            </a>
+
+        {% elif perfil == 'gestor' %}
+
+            <a href="{{ url_for('routes.teacher_dashboard') }}">
+                📊 Dashboard
+            </a>
+
+            <a href="{{ url_for('routes.classroom') }}">
+                🏫 Turmas
+            </a>
+
+            <a href="{{ url_for('routes.metricas') }}">
+                📈 Métricas
+            </a>
+
+            <a href="{{ url_for('routes.relatorios') }}">
+                📑 Relatórios
+            </a>
+
+            <a href="{{ url_for('routes.logout') }}">
+                🚪 Sair
+            </a>
+
+        {% elif perfil == 'admin' %}
+
+            <a href="#">
+                👥 Usuários
+            </a>
+
+            <a href="#">
+                🏫 Escolas
+            </a>
+
+            <a href="#">
+                ⚙️ Configurações
+            </a>
+
+            <a href="{{ url_for('routes.logout') }}">
+                🚪 Sair
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</aside>
+
+{% endif %}
+
+
+
+
+
+<!--aside id="sidebar-gestor" class="sidebar-lateral">
     <div class="sidebar-header">
         <div class="perfil-resumo">
             <div class="foto-perfil-wrapper">
@@ -18,4 +154,155 @@
         <a href="#ajuda">❓ Ajuda & Suporte</a>
         <a href="#privacidade">📄 Privacidade</a>
     </nav>
+</aside--->
+
+
+<!--student version 
+<div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil">
+            <p>Nível 2</p>
+        </div>
+
+         <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="games.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="about-us.html">SOBRE NÓS</a>
+            <a href="perfil.html">PERFIL</a>  
+        </nav>
+    </div>
+        -->
+
+        <!-- SIDEBAR PROFESSOR / GESTOR 
+
+<aside id="sidebar-gestor" class="teacher-sidebar-lateral">
+
+    <div class="teacher-sidebar-header">
+
+        <div class="teacher-perfil-resumo">
+
+            <div class="teacher-foto-perfil-wrapper">
+                <span class="emoji-foto">👨‍🏫</span>
+            </div>
+
+            <div class="perfil-info-texto">
+                <h4>Prof. Carlos Silva</h4>
+                <p>Gestor Escolar</p>
+            </div>
+
+        </div>
+
+        <button
+            class="btn-fechar-sidebar"
+            onclick="toggleSidebar()">
+            ×
+        </button>
+
+    </div>
+
+    <nav class="teacher-sidebar-menu">
+
+        <a href="{{ url_for('routes.teacher_dashboard') }}">
+            📊 Dashboard
+        </a>
+
+        <a href="{{ url_for('routes.classroom') }}">
+            🏫 Turmas
+        </a>
+
+        <a href="{{ url_for('routes.metricas') }}">
+            📈 Métricas
+        </a>
+
+        <a href="{{ url_for('routes.relatorios') }}">
+            📑 Relatórios
+        </a>
+
+        <a href="{{ url_for('routes.dashboard') }}">
+            👤 Área do Aluno
+        </a>
+
+        <a href="{{ url_for('routes.logout') }}">
+            🚪 Sair
+        </a>
+
+    </nav>
+
 </aside>
+
+<script>
+function toggleSidebar() {
+    document
+        .getElementById("sidebar-gestor")
+        .classList
+        .toggle("aberto");
+}
+</script>
+
+<aside id="sidebar-gestor" class="teacher-sidebar-lateral">
+
+    {% if perfil == 'estudante' %}
+
+        <nav class="sidebar-menu">
+            <a href="#">👤 Meu Perfil</a>
+            <a href="#">🏆 Conquistas</a>
+            <a href="#">📊 Meu Progresso</a>
+            <a href="{{ url_for('routes.logout') }}">🚪 Sair</a>
+        </nav>
+
+    {% elif perfil == 'professor' %}
+
+        <nav class="sidebar-menu">
+            <a href="#">👤 Meu Perfil</a>
+            <a href="#">🏫 Turmas</a>
+            <a href="#">📊 Relatórios</a>
+            <a href="{{ url_for('routes.logout') }}">🚪 Sair</a>
+        </nav>
+
+    {% elif perfil == 'admin' %}
+
+        <nav class="sidebar-menu">
+            <a href="#">👤 Perfil</a>
+            <a href="#">👥 Usuários</a>
+            <a href="#">⚙️ Configurações</a>
+            <a href="{{ url_for('routes.logout') }}">🚪 Sair</a>
+        </nav>
+
+    {% endif %}
+
+</aside>
+
+
+// SIDEBAR ADAPTATIVA (Diferencia Gestor de Aluno na hora de abrir)
+function injetarSidebar(papel) {
+    if (document.getElementById('sidebar-gestor')) return;
+    
+    const nome = papel === 'gestor' ? 'Prof. name' : 'student-name';
+    const cargo = papel === 'gestor' ? 'Gestor Escolar' : 'Estudante • class-name';
+    const emoji = papel === 'gestor' ? '👨‍🏫' : '👧🏻(foto do perfil que será um avatar do sistemas)';
+
+    const sidebarHTML = `
+        <aside id="sidebar-gestor" class="sidebar-lateral">
+            <div class="sidebar-header">
+                <div class="perfil-resumo">
+                    <div class="foto-perfil-wrapper"><span class="emoji-foto">${emoji}</span></div>
+                    <div class="perfil-info-texto"><h4>${nome}</h4><p>${cargo}</p></div>
+                </div>
+                <button class="btn-fechar-sidebar" onclick="toggleSidebar()">×</button>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#perfil">👤 Meu Perfil</a>
+                <a href="#preferencias">🎨 Personalizar App</a>
+                <a href="#ajuda">❓ Central de Ajuda</a>
+                <a href="../login.html">🚪 Sair do Sistema</a>
+            </nav>
+        </aside>
+    `;
+    document.body.insertAdjacentHTML('beforeend', sidebarHTML);
+}
+
+
+-->

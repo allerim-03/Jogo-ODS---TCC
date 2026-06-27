@@ -5,6 +5,19 @@
    Responsabilidade: BASE VISUAL DO PROJETO
    (usado por TODAS as páginas: menu, index, jogos)
 ========================================================= */
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+/*
+ Variáveis globais
+ Reset simples
+ Fontes
+ Tipografia básica
+ Botões genéricos
+ Inputs genéricos
+ Cards genéricos
+ Barras de progresso
+ Classes utilitárias
+*/
 
 
 /* =========================================================
@@ -24,20 +37,58 @@
   --vivid-red: #FF524D;      /* Feedback crítico erro / perigo  */
   --text-color: #333333;
   --background-light: #ffffff;
+  --white: #ffffff;
+  --black: #111827;
+
+  --gray-100: #f8fafc;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-500: #64748b;
+  --gray-700: #334155;
 }
 
 
 /* =========================================================
-   2. RESET BÁSICO
+   2. BÁSICO
    Remove inconsistências entre navegadores
 ========================================================= */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    top: -150px;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background: rgba(49,181,76,0.08);
+
+    z-index: -1;
 }
 
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: -100px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(67,180,251,0.08);
+
+    z-index: -1;
+}
 /* =========================================================
    3. TIPOGRAFIA GLOBAL
 ========================================================= */
@@ -46,16 +97,27 @@
    Tipografia
    ================================ */
 
-   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
 body {
-  font-family: 'Nunito', sans-serif;
-  font-size: 11pt;
-  color: var(--text-color);
-  background-color: var(--background-light);
-  margin: 0;
-  padding: 0;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e6f7ff 0%,
+            #dff5ff 30%,
+            #f8f4d8 70%,
+            #eef6d5 100%
+        );
 }
 
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Nunito', sans-serif;
+}
+/*
+assim seria se estivesse de acordo com o guia de estilo
 h1 {
   font-family: 'Nunito', sans-serif;
   font-size: 32pt;
@@ -69,117 +131,33 @@ h2, h3 {
   font-weight: 600;
   color: var(--bright-blue);
 }
+  ////
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  */
 
-/* =========================================================
-   4. BOTÕES BASE (GENÉRICO)
-   Todos os botões do sistema herdam daqui
-========================================================= */
-button {
-  border: none;
-  border-radius: 12px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: #fff;
-}
-/* Variações de botão (uso padrão do sistema) */
-button.primary {
-  background-color: var(--garden-green);
-}
-
-button.secondary {
-  background-color: var(--bright-blue);
-}
-
-button.levelup {
-  background-color: var(--banana-yellow);
-  color: #000;
-}
-
-button.danger {
-  background-color: var(--vivid-red);
-}
-
-/* Hover */
-button:hover {
-  opacity: 0.9;
-}
 
 
 
 
 /* =========================================================
-   5. COMPONENTE CARD (BASE)
-   Usado em menu, index, telas de conteúdo
+    COMPONENTES DE UTILIDADE 
 ========================================================= */
 
-/* ================================
-   Cards de Jogos e Atividades
-   ================================ */
-.card {
-  background-color: #fff;
-  border-radius: 16px;
-  border: 2px solid var(--bright-blue);
-  padding: 20px;
-  margin: 15px;
-}
-/* variações visuais de card */
-.card.green {
-  border-color: var(--garden-green);
+
+
+/* Utilities */
+.hidden {
+    display: none !important;
 }
 
-.card.orange {
-  border-color: var(--orange);
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
 }
 
-.card.lavender {
-  border-color: var(--lavender);
-}
-
-.card.yellow {
-  border-color: var(--banana-yellow);
-}
-
-
-/* =========================================================
-   6. COMPONENTES DE UTILIDADE (REUTILIZÁVEIS)
-========================================================= */
-
-/* ================================
-   Barra de Progresso / XP
-   ================================ */
-
-
-/* Barrinha de progresso genérica (XP, loading, etc.) */
-.progress-bar {
-  width: 100%;
-  background-color: #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 12px;
-  background-color: var(--garden-green);
-  width: 0%; /* será atualizado dinamicamente */
-  transition: width 0.5s ease;
-}
-
-/* ================================
-   Mascote Tuga - Caixas de Diálogo
-   ================================ */
-
-
-/* Caixa padrão de mensagens do mascote */
-.tuga-dialog {
-  border: 3px solid var(--garden-green);
-  background-color: var(--background-light);
-  border-radius: 12px;
-  padding: 15px;
-  margin: 10px 0;
-}
-
-.tuga-dialog.blue {
-  border-color: var(--bright-blue);
+html{
+    scroll-behavior: smooth;
 }

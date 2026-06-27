@@ -1,0 +1,175 @@
+<!-- ==========================================================================
+     NAVBAR PRINCIPAL DO TUGA
+     Utilizada em:
+     - Home
+     - Dashboard Professor
+     - Dashboard Aluno
+     ========================================================================== -->
+
+<!--
+
+
+navbar professor : home,atividades ,classe , painel geral(teacher-dashboard.html), 
+
+
+
+
+ navbar aluno : home,jogos, quiz, ods, rancking,  sobre nós,perfil
+
+            <a href="#atividades">Minhas Atividades</a>
+            <a href="#conquistas">Minhas Conquistas</a>
+
+-->
+
+
+<!-- ==========================================================================
+     NAVBAR PRINCIPAL DO TUGA
+     Perfis:
+     - publico
+     x estudante
+     - professor
+     - admin
+     ========================================================================== -->
+<header class="topbar">
+
+    <!-- =========================
+         ESQUERDA
+    ========================== -->
+
+    <div class="left">
+
+
+        <div class="icone-hamburguer-plantinha"
+             onclick="toggleSidebar()">
+            ☰ 🌱
+        </div>
+        
+
+        <div class="logo">
+
+            <img
+                src="{{ url_for('static',
+                filename='imagens/logo-tuga.png') }}"
+                class="logo-img"
+                alt="Tuga">
+
+            <div class="brand-text">
+
+                <h1>Plataforma Educa</h1>
+                <p>Cultivando o Saber</p>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+
+    <!-- MENU CENTRAL -->
+    <nav class="menu">
+
+        <!-- ==========================
+             PÚBLICO
+        =========================== -->
+
+        {% if perfil == 'publico' %}
+
+            <a href="{{ url_for('routes.home') }}">
+               🏠 Início
+            </a>
+
+            <a href="{{ url_for('routes.ods') }}">
+               🌎 ODS
+            </a>
+
+           
+
+            <a href="{{ url_for('routes.about_games') }}">
+               🎮 Nossos Jogos
+            </a>
+            <a href="{{ url_for('routes.about_us') }}">
+                        👥 Sobre Nós
+                        </a>
+       
+
+        <!-- ==========================
+             PROFESSOR
+        =========================== -->
+
+        {% elif perfil == 'gestor' %}
+
+            <a href="{{ url_for('routes.home') }}">
+              🏠  Início
+            </a>
+
+            <a href="{{ url_for('routes.teacher_dashboard') }}">
+                Painel Geral
+            </a>
+
+            <a href="{{ url_for('routes.classroom') }}">
+                Diário de Classe
+            </a>
+
+            <a href="{{ url_for('routes.relatorios') }}">
+                Relatórios
+            </a>
+
+            <a href="{{ url_for('routes.metricas') }}">
+                Métricas
+            </a>
+
+        <!-- ==========================
+             ADMIN
+        =========================== -->
+
+        {% elif perfil == 'admin' %}
+
+            <a href="{{ url_for('routes.home') }}">
+              🏠  Início
+            </a>
+
+            <a href="#">
+                Usuários
+            </a>
+
+            <a href="#">
+                Escolas
+            </a>
+
+            <a href="#">
+                Relatórios
+            </a>
+
+            <a href="#">
+                Configurações
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+    <!-- LADO DIREITO -->
+    <div class="right">
+
+        {% if perfil == 'publico' %}
+
+            <a href="{{ url_for('routes.login') }}"
+               class="btn-login-top">
+                Entrar
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('routes.logout') }}"
+               class="logout-btn">
+               🚪  Sair
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</header>
+
+
+

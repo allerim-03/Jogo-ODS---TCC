@@ -3,31 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS KIDS - Sobre nós</title>
+    <title>Cultivando o saber - Sobre nós</title>
 
-    <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+      <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
 </head>
+{% include 'components/navbar.html' %}
+<header class="topbar"></header>
+<main class="container-publico">
+    <div class="caixa-conteudo">
+         <span class="badge-ods"> Nossa Equipe </span>
+          <h1 class="texto-azul negrito"> Quem Cultiva o Saber </h1>
+         <p class="texto-narrativo"> Somos estudantes da FATEC apaixonados por tecnologia, educação e sustentabilidade... </p>
+       
+<div class="grid-membros">
 
+    <!-- MEMBRO 1 -->
+    <div class="card-membro flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/pessoa1.png') }}"
+                         alt="Avatar Andrielli">
+                </div>
+
+                <h3>Andrielli Moreira de Oliveira</h3>
+                <p>Desenvolvimento Front-End</p>
+
+                <small>Clique para ver a foto</small>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/andri.png') }}"
+                         alt="Andrielli">
+                </div>
+
+                <h3>Andrielli Moreira de Oliveira</h3>
+                <p>Desenvolvimento Front-End</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MEMBRO 2 -->
+    <div class="card-membro flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/pessoa2.png') }}"
+                         alt="Avatar Kauan">
+                </div>
+
+                <h3>Kauan Gonçalves da Silva</h3>
+                <p>Banco de Dados & Mobile</p>
+
+                <small>Clique para ver a foto</small>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/kauan.png') }}"
+                         alt="Kauan">
+                </div>
+
+                <h3>Kauan Gonçalves da Silva</h3>
+                <p>Banco de Dados & Mobile</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MEMBRO 3 -->
+    <div class="card-membro flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/pessoa3.png') }}"
+                         alt="Avatar Kaylaini">
+                </div>
+
+                <h3>Kaylaini Araujo do Nascimento</h3>
+                <p>Back-End e Segurança</p>
+
+                <small>Clique para ver a foto</small>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/kay.png') }}"
+                         alt="Kaylaini">
+                </div>
+
+                <h3>Kaylaini Araujo do Nascimento</h3>
+                <p>Back-End e Segurança</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MEMBRO 4 -->
+    <div class="card-membro flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/pessoa4.png') }}"
+                         alt="Avatar Mirella">
+                </div>
+
+                <h3>Mirella Conceição Machado dos Santos</h3>
+                <p>Desenvolvimento Back-End</p>
+
+                <small>Clique para ver a foto</small>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/merella.png') }}"
+                         alt="Mirella">
+                </div>
+
+                <h3>Mirella Conceição Machado dos Santos</h3>
+                <p>Desenvolvimento Back-End</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MEMBRO 5 -->
+    <div class="card-membro flip-card">
+        <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/pessoa5.png') }}"
+                         alt="Avatar Nicoly">
+                </div>
+
+                <h3>Nicoly Ramalho Barbosa Siqueira</h3>
+                <p>Front-End & Games</p>
+
+                <small>Clique para ver a foto</small>
+            </div>
+
+            <div class="flip-card-back">
+                <div class="foto-circular">
+                    <img src="{{ url_for('static', filename='imagens/necole.png') }}"
+                         alt="Nicoly">
+                </div>
+
+                <h3>Nicoly Ramalho Barbosa Siqueira</h3>
+                <p>Front-End & Games</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</main>
+<script>
+
+document.querySelectorAll(".flip-card")
+.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.toggle("virado");
+
+    });
+
+});
+
+</script>
+<footer>
+    © 2026 FATEC - Informática para Negócios
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+<!--
 <body>
 <header class="topbar">
     <input type="checkbox" id="menu-check" class="menu-checkbox">
     <label for="menu-check" class="overlay"></label>
 
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
-        </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-        </nav>
-    </div>
+    
+       
 
     <div class="left">
         <label for="menu-check" class="hamburger">
@@ -38,8 +229,8 @@
             <div class="logo">
                 <span class="icon">🌱</span>
                 <div>
-                    <h1>ECO-PIXEL</h1>
-                    <p>ADVENTURE</p>
+                    <h1>Cultivando o saber</h1>
+                    <p>ods-kids</p>
                 </div>
             </div>
             <div class="level">
@@ -55,8 +246,8 @@
         <a href="ods.html">ODS</a>
         <a href="jogos.html">JOGOS</a>
         <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
         <a href="ranking.html">RANKING</a>
+        <a href="about-us.html">SOBRE NÓS</a>
         <a href="perfil.html">PERFIL</a>
     </nav>
 
@@ -66,7 +257,7 @@
 </header>
 
 
-    <!-- CONTEÚDO -->
+    < CONTEÚDO 
     <main>
         <section class="boas-vindas">
             <h2>Sobre nós</h2>
@@ -74,7 +265,7 @@
 
             <div class="time-container">
 
-                <!-- MEMBRO 1 -->
+                <!-- MEMBRO 1 
                 <div class="membro">
                     <div class="foto">
                         <img src="img/pessoa1.png">
@@ -85,7 +276,7 @@
                     </div>
                 </div>
 
-                <!-- MEMBRO 2 -->
+                <!-- MEMBRO 2 
                 <div class="membro">
                     <div class="foto">
                         <img src="img/pessoa2.png">
@@ -96,47 +287,7 @@
                     </div>
                 </div>
 
-                <!-- MEMBRO 3 -->
-                <div class="membro">
-                    <div class="foto">
-                        <img src="img/pessoa3.png">
-                    </div>
-                    <div class="info">
-                        <h3>Kaylaini Araujo do Nascimento</h3>
-                        <p>Descrição breve sobre o integrante.</p>
-                    </div>
-                </div>
-
-                <!-- MEMBRO 4 -->
-                <div class="membro">
-                    <div class="foto">
-                        <img src="img/pessoa4.png">
-                    </div>
-                    <div class="info">
-                        <h3>Mirella Conceição Machado dos Santos</h3>
-                        <p>Descrição breve sobre o integrante.</p>
-                    </div>
-                </div>
-
-                <!-- MEMBRO 5 -->
-                <div class="membro">
-                    <div class="foto">
-                        <img src="img/pessoa5.png">
-                    </div>
-                    <div class="info">
-                        <h3>Nicoly Ramalho Barbosa Siqueira</h3>
-                        <p>Descrição breve sobre o integrante.</p>
-                    </div>
-                </div>
-
             </div>
         </section>
     </main>
-
-    <!-- RODAPÉ -->
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
-
-</body>
-</html>
+-->

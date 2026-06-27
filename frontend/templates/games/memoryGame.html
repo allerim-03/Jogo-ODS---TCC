@@ -9,21 +9,29 @@
 
   <!-- CSS (Flask-ready) -->
   <link rel="stylesheet" href="../static/css/reset.css">
-  <link rel="stylesheet" href="../static/css/base.css">
-  <link rel="stylesheet" href="../static/css/ui.css">
-  <link rel="stylesheet" href="../static/css/memory-game.css">
+ 
+  <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/game/game-ui.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/game/memory-game.css') }}">
 </head>
 
 <body>
 
   <!-- =========================
-       TOP BAR (UI FIXA)
+       TOP BAR (game-UI FIXA)
   ========================== -->
-  <div class="top-bar">
+  <div class="game-top-bar">
  <!--barra superior responsiva-->
   <!--botão voltar-->
-    <button id="back-btn">⬅ Voltar</button>
-
+<button id="back-btn"
+        data-url="{{ url_for('routes.game_menu') }}">
+    ⬅ Voltar
+</button>
     <div id="ranking">
       <h3>🏆 Melhor Resultado</h3>
       <p id="best-score">⭐ Pontuação: 0</p>

@@ -1,88 +1,94 @@
+
+
+<!--
+=========================================================================
+ODS.HTML - OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL
+
+Página pública destinada à apresentação dos Objetivos de
+Desenvolvimento Sustentável (ODS) da Agenda 2030 da ONU.
+
+Objetivos:
+
+- Introduzir os conceitos de sustentabilidade.
+- Apresentar as principais ODS trabalhadas na plataforma.
+- Servir como material de apoio para estudantes e professores.
+- Preparar o usuário para os conteúdos gamificados disponíveis
+  após o login.
+
+Esta página não depende de autenticação e pode ser acessada
+por visitantes.
+
+* história da ONU
+* Agenda 2030
+* os 17 objetivos
+* metas
+* curiosidades
+* relação com cada jogo
+* vídeos
+* infográfico
+=========================================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS KIDS - ODS</title>
+    <title>Cultivando o saber - ODS</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+      {% include 'components/navbar.html' %}
 </head>
 
 <body>
-<header class="topbar">
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
-
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
-        </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-        </nav>
-    </div>
-
-    <div class="left">
-        <label for="menu-check" class="hamburger">
-            <span></span><span></span><span></span>
-        </label>
-
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>ECO-PIXEL</h1>
-                    <p>ADVENTURE</p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
-        </div>
-    </div>
-
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
-</header>
-
 
 
     <!-- CONTEÚDO -->
     <main>
-        <section class="boas-vindas">
-            <br>
-            <h2>ODS</h2>
-            <p>Objetivos de Desenvolvimento Sustentável</p>
 
-            <div class="jogos-container">
+        <main class="container-publico">
+
+    <div class="caixa-conteudo">
+
+        <span class="badge-ods">
+            Agenda 2030
+        </span>
+
+        <h1 class="texto-azul negrito">
+            Objetivos de Desenvolvimento Sustentável
+        </h1>
+
+        <p class="texto-narrativo">
+            Os Objetivos de Desenvolvimento Sustentável (ODS)
+            são um plano global criado pela ONU para construir
+            um mundo mais justo, inclusivo e sustentável.
+        </p>
+
+        <div class="grid-ods">
+
+            <!-- cards -->
+        
 
                 <!-- CARD ODS 1 -->
-                <div class="escolha-card">
-                    <span class="escolha-icone"></span>
-                    <h2>ODS 1</h2>
-                    <p>Descrição aqui...</p>
+               
+                <div class="card-ods ods-1">
+                    <span class="icone-ods">🚫</span>
+                    <h3>ODS 1</h3>
+                    <h4>Erradicação da Pobreza</h4>
+                    <p>
+                        Acabar com a pobreza em todas as suas formas.
+                    </p>
                 </div>
-
                 <!-- CARD ODS 2 -->
                 <div class="escolha-card">
                     <span class="escolha-icone"></span>
@@ -117,7 +123,16 @@
                     <h2>ODS 6</h2>
                     <p>Descrição aqui...</p>
                 </div>
-
+<!--
+                | ODS | Tema                  |
+| --- | --------------------- |
+| 4   | Educação de Qualidade |
+| 6   | Água Potável          |
+| 11  | Cidades Sustentáveis  |
+| 12  | Consumo Responsável   |
+| 13  | Ação Climática        |
+| 15  | Vida Terrestre        |
+-->
             </div>
         </section>
     </main>

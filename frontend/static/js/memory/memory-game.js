@@ -557,16 +557,22 @@ function verificarVitoria() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const backBtn = document.getElementById("back-btn");
+    const backBtn = document.getElementById("back-btn");
 
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
-      window.location.href = "game-menu.html";// volta para tela inicial
-      //no futuro com flask--window.history.back();
-    });
-  }
+    if (backBtn) {
+
+        backBtn.addEventListener("click", () => {
+
+            window.location.href =
+               // backBtn.dataset.url;
+                window.location.href = "/game-menu";
+
+        });
+
+    }
 
 });
+
 // ======================================
 // [FUTURO] DEV TOOLS
 // ======================================

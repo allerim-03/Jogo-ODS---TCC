@@ -1,0 +1,566 @@
+/* 
+tudin que é relacionado a professor/gestor
+.body-dashboard
+
+.dashboard-main
+.dashboard-container
+
+.dashboard-header-actions
+
+.card-metrica-geral
+
+.grid-cards-superiores
+
+.card-nivel
+.nivel-alto
+.nivel-medio
+.nivel-critico
+
+.secao-proficiencia
+
+.linha-pilula
+
+.sidebar-lateral
+.sidebar-header
+.sidebar-menu
+
+Páginas:
+
+Painel do professor
+Gestão de turmas
+Relatórios
+Métricas
+*/
+
+/* ==========================================================================
+    TELA DASHBOARD MANAGER (CLASSES EXCLUSIVAS)
+   ========================================================================== */
+.body-dashboard {
+
+background-color: #f3f7f9 !important; /* Fundo cinza claro/azulado moderno da imagem */
+}
+
+   
+
+.dashboard-main {
+    padding: 30px 20px;
+    width: 100%;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Header do Gestor */
+.dashboard-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.boas-vindas-gestor h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.seletor-turma-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dropdown-estilizado {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    font-weight: bold;
+    color: #64748b;
+    background: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.grupo-avatares {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-mini {
+    font-size: 1.3rem;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+    margin-right: -10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.contador-avatares {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-left: 15px;
+}
+
+
+
+/* Grid de Cards Superiores */
+.grid-cards-superiores {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.card-metrica-geral {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-score h3, .info-tarefas h3 {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.score-porcentagem {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2c3e50;
+    display: block;
+}
+
+.score-subtext {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.icone-trofeu {
+    font-size: 3.5rem;
+    background: #f0fdf4;
+    border-radius: 50%;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Bloco Triplo de Níveis */
+.bloco-distribuicao-niveis {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.card-nivel {
+    flex: 1;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.nivel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.num-nivel {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.emoji-nivel {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    padding: 6px;
+    font-size: 1.2rem;
+}
+
+.nivel-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #2c3e50;
+}
+
+/* Cores dos Cards baseado na paleta e imagem */
+.nivel-alto { background: var(--garden-green); }      /* Verde Lúdico */
+.nivel-medio { background: var(--banana-yellow);}     /* Amarelo Lúdico */
+.nivel-critico { background: var(--orange); }   /* Coral/Laranja Alerta */
+
+/* Seção de Proficiência / Tabela em Pílulas */
+.secao-proficiencia {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.titulo-secao-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.titulo-secao-wrapper h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.legendas-filtros {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: bold;
+}
+
+.tabela-pilulas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Rótulos superiores alinhados com as colunas */
+.tabela-header-labels {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 0.8fr 0.8fr 0.8fr;
+    padding: 0 25px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estrutura Base da Pílula de Linha */
+.linha-pilula {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 0.8fr 0.8fr 0.8fr;
+    align-items: center;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 40px; /* Transforma as linhas em pílulas ovais perfeitas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+    transition: transform 0.2s;
+}
+
+.linha-pilula:hover {
+    transform: translateY(-2px);
+}
+
+.col-aluno {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-tabela {
+    font-size: 1.5rem;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.nome-tabela {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.col-dados {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Barras de Progresso Coloridas dentro da Tabela */
+.col-barra-progresso {
+    padding-right: 30px;
+}
+/*
+.barra-fundo {
+    background-color: #edf2f7;
+    border-radius: 20px;
+    width: 100%;
+    height: 24px;
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+*/
+.progresso-alerta { background-color: #ff8469; }
+.progresso-evolucao { background-color: #ffcc4d; color: #2c3e50; }
+.progresso-excelente { background-color: #8ae462; }
+
+/* Círculos de Marcador Numérico das últimas colunas */
+.col-circulo {
+    display: flex;
+    justify-content: center;
+}
+
+.circulo-marcador {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.cor-alerta { background-color: #ffece8; color: #ff8469; }
+.cor-evolucao { background-color: #fff9e6; color: #ffcc4d; }
+.cor-excelente { background-color: #f0fdf4; color: #8ae462; }
+.cor-vazio { background-color: #f8fafc; color: #cbd5e1; }
+
+/* Fundos sutis para cada pílula de linha baseado no status */
+.linha-pilula.status-alerta { background-color: #fff6f4; }
+.linha-pilula.status-evolucao { background-color: #fffdf5; }
+.linha-pilula.status-excelente { background-color: #f9fdfa; }
+
+/* ==========================================================================
+    COMPONENTE: SIDEBAR LATERAL DO GESTOR 
+   ========================================================================== */
+.teacher-sidebar-lateral {
+    position: fixed !important; /* Força a barra a ficar presa na tela */
+    top: 0 !important;
+    left: -320px !important; /* Garante que ela comece 100% escondida fora da tela esquerda */
+    width: 300px;
+    height: 100vh;
+    background-color: #ffffff !important;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.18);
+    z-index: 99999 !important; /* Coloca a barra na camada mais alta de todas */
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* Ativação via JS */
+.teacher-sidebar-lateral.aberto{
+    left: 0 !important;
+}
+
+.teacher-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.teacher-perfil-resumo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.teacher-foto-perfil-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: #f0fdf4;
+    border: 2px solid #31B54C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    font-size:32px;
+    justify-content: center;
+}
+
+.emoji-foto {
+    font-size: 1.3rem;
+}
+
+.perfil-info-texto h4 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.perfil-info-texto p {
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.btn-fechar-sidebar {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-fechar-sidebar:hover {
+    color: #ff6b6b;
+}
+
+.teacher-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    margin-top:25px;
+    padding:20px;
+}
+
+/* Remove a formatação azul de link padrão do navegador */
+.teacher-sidebar-menu a {
+    display:flex;
+    align-items:center;
+    gap: 12x;
+    padding: 12px 18px;
+    color: #475569 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    transition: all 0.2s;
+    /*display: block;*/
+    text-align: left;
+}
+
+.teacher-sidebar-menu a:hover {
+    background-color: #f0fdf4 !important;
+    color: #31B54C !important;
+    padding-left: 22px;
+}
+
+/* A plantinha só vira um botão se tiver a classe 'clicavel' (pós-login) */
+.icone-hamburguer-plantinha.clicavel {
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.logo-banner:hover .icone-hamburguer-plantinha.clicavel {
+    transform: scale(1.2) rotate(-8deg);
+}
+
+/* Se estiver na home ou deslogado, ela fica comportada e estática */
+.icone-hamburguer-plantinha.estatica {
+    cursor: default;
+    pointer-events: none; /* Desativa qualquer interação */
+}
+
+/* ==========================================================================
+   TOPBAR E MENUS (Predominância Verde e Amarelo Institucional)
+   ========================================================================== *
+.teacher-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #31B54C; /* Garden Green Dominante (60%) *
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 1000;
+    border-bottom: 4px solid #FFDE5A; /* Linha amarela sob o cabeçalho *
+}
+
+.teacher-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}*/
+
+.teacher-info-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.teacher-info-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.teacher-banner-icon {
+    font-size: 1.8rem;
+}
+
+.brand-text h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white;
+    line-height: 1.1;
+}
+
+.brand-text p {
+    font-size: 0.8rem;
+    color: #FFDE5A; /* Amarelo Banana */
+    font-weight: bold;
+}
+
+/* Menu de Navegação *
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: #FFDE5A;
+}
+
+.btn-login-top {
+    background-color: white !important;
+    color: #31B54C !important;
+    padding: 8px 18px !important;
+    font-size: 0.95rem !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
+    width: auto !important;
+}
+
+.btn-login-top:hover {
+    background-color: #eefdf2 !important;
+}*/

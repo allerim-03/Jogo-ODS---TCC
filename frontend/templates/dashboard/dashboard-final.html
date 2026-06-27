@@ -1,0 +1,415 @@
+
+<!--painel do aluno-->
+<!--precisa ajustar melhorrrr-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+<title>Plataforma Educa - Meu Espaço</title>
+    <!-- CSS principal -->
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/student.css') }}">
+        
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/student-navbar.css') }}">
+</head>
+{% include 'components/student-navbar.html' %}
+{% include 'components/sidebar.html' %}
+<body >
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+
+            <!-- ===================================== -->
+            <!-- CABEÇALHO DO JOGADOR -->
+            <!-- ===================================== -->
+            <section class="aluno-header-banner">
+
+                <div class="texto-banner">
+ 
+                    <!-- Nome carregado pelo Flask -->
+                    <h2 id="player-name">
+                        Olá, Jogador! 
+                    </h2>
+
+                    <p>
+                        Sua jornada de hoje está pronta. Vamos cultivar conhecimento?
+                    </p>
+
+                </div>
+
+                <div class="nivel-cultivo-badge">
+                    
+                    <span>Nível Atual</span>
+
+                    <!-- Atualizado pela API -->
+                    <strong id="player-level">
+                        Nível 1
+                    </strong>
+
+                    <br>
+
+                    <!-- XP Atual -->
+                    <small id="player-xp">
+                        0 XP
+                    </small>
+
+                </div>
+
+            </section>
+
+            <div class="grid-estudante">
+                
+                <section class="card-branco">
+                    <h3>Minhas Atividades de Hoje</h3>
+                    <div class="lista-atividades-hoje">
+                        
+                        <div class="item-tarefa">
+                            <div class="info-tarefa">
+                                <h4>Quiz: Ecossistemas Brasileiros</h4>
+                                <span>Ciências • Prazo: Hoje</span>
+                            </div>
+                            <a href="#" class="btn-acao-tarefa">Começar</a>
+                        </div>
+
+                        <div class="item-tarefa">
+                            <div class="info-tarefa">
+                                <h4>Leitura: O Cortiço (Capítulo 1)</h4>
+                                <span>Português • Prazo: Amanhã</span>
+                            </div>
+                            <a href="#" class="btn-acao-tarefa">Ler agora</a>
+                        </div>
+
+                        <div class="item-tarefa concluida">
+                            <div class="info-tarefa">
+                                <h4>Desafio de Lógica: Nível 2</h4>
+                                <span>Matemática • Concluído</span>
+                            </div>
+                            <span style="color: #31B54C; font-weight: bold; font-size: 0.9rem;">Nota: 10</span>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- ===================================== -->
+                <!-- JOGOS E QUIZZES -->
+                <!-- ===================================== -->
+                <section class="card-branco">
+
+                    <h3>🎮 Jogos e Quizzes</h3>
+
+                    <div class="lista-atividades-hoje">
+
+                        <!-- Jogo da Memória -->
+                        <div class="item-tarefa">
+
+                            <div class="info-tarefa">
+                                <h4>Jogo da Memória</h4>
+                                <span>ODS 15 - Vida Terrestre</span>
+                            </div>
+
+                            <a href="/memoryGame" class="btn-acao-tarefa">
+                                Jogar
+                            </a>
+
+                        </div>
+
+                        <!-- Quiz -->
+                        <div class="item-tarefa">
+
+                            <div class="info-tarefa">
+                                <h4>Quiz ODS</h4>
+                                <span>Teste seus conhecimentos</span>
+                            </div>
+
+                            <a href="/quiz/1" class="btn-acao-tarefa">
+                                Iniciar
+                            </a>
+
+                        </div>
+
+                        <!-- Espaço para futuros jogos -->
+                        <div class="item-tarefa">
+
+                            <div class="info-tarefa">
+                                <h4>Próximos Desafios</h4>
+                                <span>Novos jogos em breve</span>
+                            </div>
+
+                            <a href="#" class="btn-acao-tarefa">
+                                Em breve
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <div class="coluna-status-aluno">
+
+                    <!-- ===================================== -->
+                    <!-- BADGES -->
+                    <!-- ===================================== -->
+                    <section class="card-branco" style="margin-bottom: 25px;">
+
+                        <h3>🏆 Minhas Badges</h3>
+
+                        <!--
+                            Será preenchido via JavaScript
+                            consumindo:
+                            GET /user/1/badges
+                        -->
+                        <div
+                            class="medalhas-container"
+                            id="badges-container">
+
+                            
+                            </div>
+
+                        </div>
+                    </section>
+                        <section class="card-branco" style="margin-bottom: 25px;">
+                        <h3>Minhas Conquistas</h3>
+                        <div class="medalhas-container">
+                            <div class="medalha-item">
+                                <span class="medalha-emoji">🥇</span>
+                                <p>Nota 10</p>
+                            </div>
+                            <div class="medalha-item">
+                                <span class="medalha-emoji">🔥</span>
+                                <p>7 Dias Seguidos</p>
+                            </div>
+                            <div class="medalha-item" style="opacity: 0.4; filter: grayscale(1);">
+                                <span class="medalha-emoji">🦉</span>
+                                <p>Sábio(a) da Noite</p>
+                            </div>
+                            <div class="medalha-item" style="opacity: 0.4; filter: grayscale(1);">
+                                <span class="medalha-emoji">👑</span>
+                                <p>Mestre do Quiz</p>
+                            </div>
+                        </div>
+                    </section>
+                       <div class="coluna-status-aluno">
+                    <section class="card-branco">
+                        <h3>Meu Desempenho</h3>
+                        <span class="progresso-titulo">Média Geral desta semana: 8.5</span>
+                        <div class="barra-fundo" style="height: 12px; margin-bottom: 20px;">
+                            <div class="barra-preenchimento progresso-excelente" style="width: 85%;"></div>
+                        </div>
+                        
+                        <span class="progresso-titulo">Frequência: 98%</span>
+                        <div class="barra-fundo" style="height: 12px;">
+                            <div class="barra-preenchimento" style="width: 98%; background-color: #31B54C;"></div>
+                        </div>
+                    
+                    </section>
+</div>
+                    <!-- ===================================== -->
+                    <!-- RANKING -->
+                    <!-- ===================================== -->
+                    <section class="card-branco">
+
+                        <h3>🥇 Ranking Geral</h3>
+
+                        <!--
+                            Será preenchido via:
+                            GET /ranking
+                        -->
+                        <div id="ranking-dashboard">
+
+                            <p>Carregando ranking...</p>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================== -->
+    <script>
+
+    // =====================================
+    // CARREGA DADOS DO JOGADOR
+    // =====================================
+
+    async function loadPlayer() {
+
+        try {
+
+            const response =
+                await fetch(
+                    "http://127.0.0.1:5000/user/1/progress"
+                );
+
+            const player =
+                await response.json();
+
+            document.getElementById(
+                "player-name"
+            ).innerText =
+                "Olá, " + player.name + "! 👋";
+
+            document.getElementById(
+                "player-level"
+            ).innerText =
+                "Nível " + player.level;
+
+            document.getElementById(
+                "player-xp"
+            ).innerText =
+                player.xp + " XP";
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Erro ao carregar jogador:",
+                error
+            );
+
+        }
+
+    }
+
+    // =====================================
+    // CARREGA RANKING
+    // =====================================
+
+    async function loadRanking() {
+
+        try {
+
+            const response =
+                 await fetch(
+        "/api/ranking"
+    );
+
+            const ranking =
+                await response.json();
+
+            let html = "";
+
+            ranking.slice(0, 5).forEach(
+                (player, index) => {
+
+                html += `
+                    <p>
+                        ${index + 1}º -
+                        ${player.name}
+                        (${player.xp} XP)
+                    </p>
+                `;
+
+            });
+
+            document.getElementById(
+                "ranking-dashboard"
+            ).innerHTML = html;
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Erro ao carregar ranking:",
+                error
+            );
+
+        }
+
+    }
+// =====================================
+// CARREGA BADGES
+// =====================================
+
+async function loadBadges() {
+
+    try {
+
+        const response =
+            await fetch(
+                "http://127.0.0.1:5000/user/1/badges"
+            );
+
+        const badges =
+            await response.json();
+
+        let html = "";
+
+        badges.forEach(badge => {
+
+            html += `
+                <div class="medalha-item">
+
+                    <span class="medalha-emoji">
+                        ${badge.icon}
+                    </span>
+
+                    <p>
+                        ${badge.name}
+                    </p>
+
+                </div>
+            `;
+        });
+
+        document.getElementById(
+            "badges-container"
+        ).innerHTML = html;
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Erro ao carregar badges:",
+            error
+        );
+
+    }
+
+}
+    // =====================================
+    // INICIALIZA DASHBOARD
+    // =====================================
+
+    loadPlayer();
+    loadRanking();
+    loadBadges();
+
+    </script>
+<script src="{{ url_for('static', filename='js/components.js') }}"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Chamando a Topbar com o parâmetro 'estudante'
+            injetarTopbar('estudante');
+            injetarFooter();
+        });
+    </script>
+</body>
+{% include 'components/footer.html' %}
+</html>
+
+
+
+            
+            
+
+
+               
+           

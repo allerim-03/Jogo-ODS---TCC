@@ -13,7 +13,7 @@ routes = Blueprint(
     __name__
 )
 @routes.route("/")
-def home():
+def teste():
     return {
         "message": "API Gamificação Cultivando o saber funcionando"
     }
@@ -34,7 +34,8 @@ from app.services.badge_service import check_and_award_badges
 #=========================
 @routes.route('/register')
 def register():
-    return render_template('register.html')
+    return render_template('auth/register.html',
+    perfil="publico")
 
 
 @routes.route('/register', methods=['POST'])
@@ -45,15 +46,25 @@ def register_post():
 
 @routes.route('/login')
 def login():
-    return render_template('login.html')
-
+    return render_template('auth/login.html')
 
 @routes.route('/login', methods=['POST'])
 def login_post():
     # TODO: autenticar usuário
     return redirect('/dashboard')
+'''
+--melhoria para o futuro
+@routes.route('/login', methods=['POST'])
+def login_post():
 
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+    tipo_usuario = request.form.get('tipo_usuario')
 
+    print(email, senha, tipo_usuario)
+
+    return redirect('/dashboard')
+'''
 @routes.route('/logout')
 def logout():
     # logout_user()
@@ -93,7 +104,9 @@ def test_badges(user_id):
 
 @routes.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+     return render_template("dashboard/dashboard-final.html",
+                            perfil="estudante"
+                            )## modelo quando tiver flask-login {% if current_user.tipo == 'estudante' %}
 
 '''
 rota para testes 
@@ -160,7 +173,11 @@ def submit_quiz():
             "level": user.level
         }
     })
+
 '''
+@routes.route("/quiz")
+def quiz():
+    return render_template("quizzes/quiz.html")
 #===========================
 # games.py
 #=========================
@@ -169,13 +186,15 @@ game_bp = Blueprint("game", __name__)
 '''
 @routes.route('/games')
 def games():
-    return render_template('games.html')
-
+    return render_template("games/games.html")
 
 @routes.route('/game/<int:id>')
 def game(id):
     return render_template('game.html')
 
+@routes.route('/about-games')
+def about_games():
+    return render_template("games/about-games.html",perfil="publico")
 '''
 @routes.route('/game/score', methods=['POST'])
 def save_score():
@@ -228,6 +247,35 @@ def game_score():
     "xp_after": user["xp"],
     "level": user["level"]
     })
+
+
+
+@routes.route('/games-index')
+def games_index():
+    return render_template(
+        'games/game-index.html'
+    )
+
+
+@routes.route('/game-menu')
+def game_menu():
+    return render_template(
+        'games/game-menu.html'
+    )
+
+
+@routes.route('/memoryGame')
+def memory_game():
+    return render_template(
+        'games/memoryGame.html'
+    )
+
+
+@routes.route('/game1')
+def game1():
+    return render_template(
+        'games/game1.html'
+    )
 #===========================
 # Ranking.py
 #=========================
@@ -241,8 +289,11 @@ def ranking():
 
 @routes.route("/ranking")
 def ranking():
+    return render_template("dashboard/ranking.html")
 
-    return render_template('ranking.html')
+@routes.route("/api/ranking")
+def api_ranking():
+    return jsonify(get_ranking())
     
 #===========================
 # Progress
@@ -267,30 +318,32 @@ def user_progress(user_id):
 #=========================
 @routes.route('/classroom/join', methods=['POST'])
 def join_classroom():
-    return redirect('/dashboard')
+    return redirect('/dashboard',
+    perfil="gestor")
 
 
 @routes.route('/classroom/create', methods=['POST'])
 def create_classroom():
-    return redirect('/dashboard')
+    return redirect('/dashboard',
+    perfil="gestor")
 
 #===========================
 # Admin.py
 #=========================
 @routes.route('/admin')
 def admin_dashboard():
-    return render_template('admin/dashboard.html')
-
+    return render_template('admin/dashboard.html',
+    perifl="admin")
 
 @routes.route('/admin/students')
 def students():
-    return render_template('admin/students.html')
-
+    return render_template('admin/students.html',
+    perfil="admin")
 
 @routes.route('/admin/quiz/create', methods=['POST'])
 def create_quiz():
-    return redirect('/admin')
-
+    return redirect('/admin',
+    perfil="admin")
 #===========================
 # User.py
 #=========================
@@ -326,3 +379,47 @@ def test_db():
         return {"message": "Banco conectado"}
 
     return {"message": "Erro"}
+
+##rotas html
+@routes.route("/teacher-dashboard")
+def teacher_dashboard():
+    return render_template("classroom/teacher-dashboard.html",
+    perfil="gestor")
+
+@routes.route("/classroom")
+def classroom():
+    return render_template("classroom/classroom.html",
+    perfil="gestor")
+
+@routes.route("/relatorios")
+def relatorios():
+    return render_template("classroom/relatorios.html",
+    perfil="gestor")
+
+@routes.route("/metricas")
+def metricas():
+    return render_template("classroom/metricas.html",
+    perfil="gestor")
+
+
+
+@routes.route('/index')
+def index():
+    return render_template('index.html',
+    perfil="publico")
+
+@routes.route('/home')
+def home():
+    return render_template('home.html',
+    perfil="publico")
+
+@routes.route('/about-us')
+def about_us():
+    return render_template('about-us.html',
+    perfil='publico')
+
+@routes.route('/ods')
+def ods():
+    return render_template('ods.html',
+    perfil='publico'
+    )

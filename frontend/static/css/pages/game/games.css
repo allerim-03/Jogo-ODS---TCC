@@ -1,0 +1,147 @@
+/*
+.jogos-container
+
+.jogo-wrapper
+
+.canvas-game
+
+.canvas-game
+*/
+
+
+/*////// JOGOS //////*/
+
+
+
+
+/*
+==============================================================================
+GAMES.CSS
+Componentes exclusivos da área de jogos
+==============================================================================
+
+.jogos-container
+.jogo-wrapper
+.capa-jogo
+.canvas-game
+
+Páginas:
+- Jogos Educativos
+- Mini Games
+- Área de Desafios
+*/
+
+/* ==========================================================================
+   CONTAINER DE JOGOS
+   Grid responsável por organizar os cards dos jogos
+   ========================================================================== */
+/* Container que segura todos os jogos */
+.jogos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* ==========================================================================
+   CARD / MOLDURA DO JOGO
+   Estrutura principal onde o jogo será renderizado
+   ========================================================================== */
+/* A moldura de cada jogo */
+.jogo-wrapper {
+    position: relative;
+    width: 600px;
+    height: 400px;
+
+    background-color: #1a1a1a;
+
+    border: 4px solid #31B54C;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   CAPA INICIAL DO JOGO
+   Tela exibida antes do jogador iniciar a partida
+   ========================================================================== */
+/* Capa que cobre o jogo antes do play */
+.capa-jogo {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        45deg,
+        #27963e,
+        #6fd38a
+    );
+
+    color: white;
+    text-align: center;
+
+    z-index: 10;
+}
+
+/* ==========================================================================
+   CANVAS DO JOGO
+   Área onde o JavaScript desenha o game
+   ========================================================================== */
+/* O canvas começa escondido */
+.canvas-game {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.game-card{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.game-card:hover{
+    transform:translateY(-5px);
+}
+
+.game-icon{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.game-card h3{
+    color:var(--garden-green);
+    margin-bottom:10px;
+}
+
+.btn-jogar{
+    display:inline-block;
+    margin-top:15px;
+    background:var(--garden-green);
+    color:white;
+    padding:10px 20px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.bloqueado{
+    opacity:.7;
+}

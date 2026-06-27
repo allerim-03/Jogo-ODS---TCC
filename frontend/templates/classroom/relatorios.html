@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatórios</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+<!--relatorios simples e genericos-->
+</head>
+{% include 'components/navbar.html' %}
+{% include 'components/sidebar.html' %}
+<body>
+
+<main class="dashboard-main">
+
+<div class="dashboard-container">
+
+    <section class="secao-proficiencia">
+
+        <div class="titulo-secao-wrapper">
+            <h3>📄 Relatórios</h3>
+        </div>
+
+        <div class="tabela-pilulas-container">
+
+            <div class="linha-pilula">
+
+                <div class="col-aluno">
+                    <span class="avatar-tabela">📊</span>
+                    <span class="nome-tabela">
+                        Desempenho Geral
+                    </span>
+                </div>
+
+                <div class="col-dados">
+                    Consolidado
+                </div>
+
+                <div class="col-dados">
+                    PDF
+                </div>
+
+                <div class="col-circulo">
+                    <div class="circulo-marcador cor-excelente">
+                        ↓
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="linha-pilula">
+
+                <div class="col-aluno">
+                    <span class="avatar-tabela">🏆</span>
+                    <span class="nome-tabela">
+                        Ranking por Turma
+                    </span>
+                </div>
+
+                <div class="col-dados">
+                    Atualizado
+                </div>
+
+                <div class="col-dados">
+                    PDF
+                </div>
+
+                <div class="col-circulo">
+                    <div class="circulo-marcador cor-evolucao">
+                        ↓
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+<script src="{{ url_for('static', filename='js/components.js') }}"></script>
+</main>
+</body>
+{% include 'components/footer.html' %}
+</html>

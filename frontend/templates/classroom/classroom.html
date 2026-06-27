@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Turmas</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+</head>
+
+{% include 'components/navbar.html' %}
+{% include 'components/sidebar.html' %}
+<!--Lista simples de alunos/turmas-->
+<body>
+
+<main class="dashboard-main">
+
+<div class="dashboard-container">
+
+    <section class="secao-proficiencia">
+
+        <div class="titulo-secao-wrapper">
+            <h3>🏫 Gestão de Turmas</h3>
+        </div>
+
+        <div class="tabela-pilulas-container">
+
+            <div class="linha-pilula status-excelente">
+
+                <div class="col-aluno">
+                    <span class="avatar-tabela">📚</span>
+                    <span class="nome-tabela">5º Ano A</span>
+                </div>
+
+                <div class="col-dados">
+                    28 alunos
+                </div>
+
+                <div class="col-dados">
+                    Média 8.9
+                </div>
+
+                <div class="col-circulo">
+                    <div class="circulo-marcador cor-excelente">
+                        A
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="linha-pilula status-evolucao">
+
+                <div class="col-aluno">
+                    <span class="avatar-tabela">📚</span>
+                    <span class="nome-tabela">5º Ano B</span>
+                </div>
+
+                <div class="col-dados">
+                    31 alunos
+                </div>
+
+                <div class="col-dados">
+                    Média 7.2
+                </div>
+
+                <div class="col-circulo">
+                    <div class="circulo-marcador cor-evolucao">
+                        B
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+<script src="{{ url_for('static', filename='js/components.js') }}"></script>
+</body>
+{% include 'components/footer.html' %}
+</html>

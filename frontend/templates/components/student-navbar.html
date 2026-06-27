@@ -1,0 +1,147 @@
+
+
+    <!-- ===========================
+         ESQUERDA
+    ============================ -->
+
+    
+ <!-- INFORMAÇÕES -->
+    <div class="student-info">
+
+        <span class="student-name">
+            {{ nome_aluno or "Aluno" }}
+        </span>
+
+        <span class="nivel">
+            ⭐ Nível {{ nivel or 2 }}
+        </span>
+
+       
+<div class="xp-bar">
+
+    <div
+        class="xp-progress"
+        data-progress="{{ progresso or 45 }}">
+    </div>
+
+</div>
+        <span class="xp">
+            {{ xp or 450 }}/1000 XP
+        </span>
+
+    </div>
+
+    
+ <!-- ===========================
+         STATUS DO JOGADOR
+    ============================ -->
+
+    <div class="student-status">
+
+        <!-- FOTO -->
+
+        <img
+
+            src="{{ url_for('static',
+            filename='imagens/avatar-default.png') }}"
+
+            class="student-foto-perfil"
+
+            alt="Perfil">
+    <div class="planta-status">
+
+        <!-- PLANTA -->
+    <img src="{{ url_for(
+    'static',
+    filename='imagens/plantas/planta' ~ nivel ~ '.png'
+    ) }}">
+    </div>
+
+</div>
+    <div class="student-left">
+
+        <!-- MENU -->
+
+        <button
+            class="student-menu-button"
+            onclick="toggleSidebar()">
+
+            ☰
+
+        </button>
+
+        <!-- LOGO -->
+
+        <div class="student-logo">
+
+            <img
+                src="{{ url_for('static',
+                filename='imagens/logo-tuga.png') }}"
+                alt="Mascote Tuga">
+
+            <div class="student-brand-text">
+
+                <h1>PLATAFORMA EDUCA</h1>
+
+                <p>Cultivando o Saber</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================
+         MENU
+    ============================ -->
+
+    <nav class="student-menu">
+
+        <a href="{{ url_for('routes.home') }}">
+            🏠 Início
+        </a>
+
+        <a href="{{ url_for('routes.games') }}">
+            🎮 Jogos
+        </a>
+
+        <a href="{{ url_for('routes.start_quiz', id=1) }}">
+            🧠 Quiz
+        </a>
+
+        <a href="{{ url_for('routes.ods') }}">
+            🌎 ODS
+        </a>
+
+        <a href="{{ url_for('routes.ranking') }}">
+            🏆 Ranking
+        </a>
+
+        <a href="{{ url_for('routes.about_us') }}">
+            👥 Sobre Nós
+        </a>
+
+    </nav>
+
+   
+ 
+
+    <!-- ===========================
+         SAIR
+    ============================ -->
+
+    <div class="student-right">
+
+        <a
+
+            href="{{ url_for('routes.logout') }}"
+
+            class="student-logout-btn">
+
+            🚪 Sair
+
+        </a>
+
+    </div>
+
+</header>

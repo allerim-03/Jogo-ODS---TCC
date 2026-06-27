@@ -1,13 +1,26 @@
 <!DOCTYPE html>
+<!--ajustar e conectar com a api-->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS KIDS - Quiz</title>
+    <title>Cultivando o Saber - Quiz</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+<link rel="stylesheet" 
+    href="{{ url_for('static', filename='css/pages/student.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/quiz.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/student-navbar.css') }}">
 </head>
-
+{% include 'components/student-navbar.html' %}
+{% include 'components/sidebar.html' %}
 <body>
 <header class="topbar">
     <input type="checkbox" id="menu-check" class="menu-checkbox">
@@ -17,16 +30,7 @@
         <div class="perfil-sidebar">
             <img src="img/foto.png" class="foto-perfil">
             <p>Nível 2</p>
-        </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-        </nav>
+     
     </div>
 
     <div class="left">
@@ -186,6 +190,52 @@
 
     // Inicia o quiz
     loadQuestion();
-</script>
 
+    async function saveXP() {
+
+    await fetch("/api/quiz/result", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            xp: score
+        })
+    });
+
+}
+showResults();
+saveXP();
+const correctAnswers = score / 100;
+//mostrar a medalha atual
+<h3 id="medal"></h3>
+//embaralhar perguntas
+questions.sort(() => Math.random() - 0.5);
+//embaralhar alternativas
+qData.options.sort(() => Math.random() - 0.5);
+</script>
+<!--tela final-->
+<div id="result-screen">
+
+    <h1>🎉 Quiz Finalizado!</h1>
+
+    <h2 id="final-score"></h2>
+
+    <p id="final-correct"></p>
+
+    <h3 id="medal"></h3>
+
+    <a href="dashboard.html"
+       class="btn-login">
+       Voltar ao Dashboard
+    </a>
+
+</div>
+{% include 'components/footer.html' %}
 </html>
+await fetch("/api/ranking/addxp", {
+    method: "POST",
+    body: JSON.stringify({
+        xp: score
+    })
+});

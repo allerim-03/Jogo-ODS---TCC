@@ -1,3 +1,19 @@
+function toggleSidebar() {
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    if (sidebar) {
+        sidebar.classList.toggle("aberto");
+    }
+
+}
+
+document.querySelectorAll(".xp-progress").forEach(bar => {
+    bar.style.width = bar.dataset.progress + "%";
+});
+/*
+
 // COMPONENTE UNIFICADO: TOPBAR TRÍPLICE (Público Oficial, Gestor e Estudante)
 function injetarTopbar(tipoUsuario = 'publico') {
     if (document.querySelector('.topbar')) return;
@@ -104,3 +120,4 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar-gestor');
     if (sidebar) sidebar.classList.toggle('aberto');
 }
+*/

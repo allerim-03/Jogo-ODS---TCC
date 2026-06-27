@@ -1,7 +1,18 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* =========================================================
+RESET.CSS
+Baseado no Meyer Reset v2.0
+https://meyerweb.com/eric/tools/css/reset/
+
+Responsabilidade:
+
+* Remover diferenças entre navegadores
+* Padronizar box model
+* Preparar imagens e formulários
+  ========================================================= */
+
+/* =========================================================
+MEYER RESET
+========================================================= */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -12,37 +23,112 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+
+margin: 0;
+padding: 0;
+border: 0;
+
+font-size: 100%;
+font: inherit;
+
+vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+/* =========================================================
+HTML5 DISPLAY RESET
+========================================================= */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+display: block;
 }
+
+/* =========================================================
+ELEMENTOS BÁSICOS
+========================================================= */
+
 body {
-	line-height: 1;
+line-height: 1;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+content: '';
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/* =========================================================
+AJUSTES MODERNOS
+========================================================= */
+
+/* Box model consistente */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+/* Imagens responsivas */
+img,
+picture {
+display: block;
+max-width: 100%;
+}
+
+/* Formulários herdam a fonte do projeto */
+button,
+input,
+select,
+textarea {
+font: inherit;
+}
+
+/* Remove decoração padrão de links */
+a {
+text-decoration: none;
+color: inherit;
+}
+
+/* Melhora comportamento de mídia */
+video,
+canvas,
+svg {
+display: block;
+max-width: 100%;
+}
+
+/* Evita overflow horizontal acidental */
+html,
+body {
+width: 100%;
+min-height: 100%;
 }

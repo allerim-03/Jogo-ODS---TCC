@@ -1,0 +1,55 @@
+<!-- Herança jinja para reutilizar imports, navbar, footer,-->
+ <!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TUGA{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/ui.css') }}">
+
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+
+    {% include 'components/navbar.html' %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'components/footer.html' %}
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
+
+
+<!-- exemplo do ranking html herdando a base.html
+ 
+{% extends 'base.html' %}
+
+{% block title %}
+Ranking
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/ranking.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="ranking-wrapper">
+    ...
+</section>
+
+{% endblock %}
+-->

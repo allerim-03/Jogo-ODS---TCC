@@ -5,11 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Plataforma Educa</title>
+  <title>Cultivando o saber - menu jogo da memória </title>
 
   <!-- CSS modular (padrão do projeto) -->
-  <link rel="stylesheet" href="../static/css/base.css">
-  <link rel="stylesheet" href="../static/css/ui.css">
+ 
+  <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
 </head>
 
 <body>
@@ -25,10 +29,10 @@
     <!-- MASCOTE -->
     <section style="margin-top:20px;">
       <img
-        src="../static/imagens/TugaPqn.png"
-        alt="Mascote Tuga"
-        style="max-width:180px; border-radius:12px;"
-      >
+    src="{{ url_for('static',
+    filename='imagens/TugaPqn.png') }}"
+    alt="Mascote Tuga"style="max-width:180px; border-radius:12px;"
+    >
     </section>
 
     <!-- BOTÃO -->
@@ -41,7 +45,10 @@
   </main>
 
   <!-- JS -->
-  <script src="../static/js/gameMenu.js"></script>
+  <script
+    src="{{ url_for('static',
+    filename='js/gameMenu.js') }}">
+</script>
 
 </body>
 </html>

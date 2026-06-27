@@ -1,0 +1,1045 @@
+/*
+.home-container
+
+.hero-content
+
+.main-title
+
+.hero-description
+
+.mascote-section
+
+.speech-bubble
+
+.action-group
+
+.container-publico
+
+.caixa-conteudo
+
+.banner
+
+Páginas:
+
+Home
+Sobre
+  
+  Apresentação do projeto
+  missão
+  equipe
+  Contato
+mascote
+*/
+
+
+
+/*
+=========================================================
+LANDING.CSS
+
+Páginas públicas da PlataformaEduca
+
+Seções:
+
+Home (Hero)
+Sobre o Projeto
+Missão
+Equipe
+Contato
+Mascote Tuga
+
+=========================================================
+*/
+
+/* ==========================================================================
+   CONFIGURAÇÕES DA LANDING PAGE (HOME)
+   ========================================================================== */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 15px;
+    color: #2c3e50;
+}
+
+.badge-ods {
+    background-color: #e8f5e9; 
+    color: #31B54C;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.highlight-blue {
+    color: #31B54C; 
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 20px 0 35px;
+}
+
+.action-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-start{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#31B54C;
+    color:#fff;
+
+    width:auto;
+    padding:15px 34px;
+
+    border:none;
+    border-radius:999px;
+
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    box-shadow:0 6px 16px rgba(49,181,76,.28);
+}
+
+.btn-start:hover{
+    background:#27963E;
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(49,181,76,.35);
+}
+
+
+.btn-register-secondary{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+    color:#31B54C;
+
+    width:auto;
+    padding:15px 34px;
+
+    border:2px solid #31B54C;
+    border-radius:999px;
+
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.05);
+}
+
+.btn-register-secondary:hover{
+
+    background:#31B54C;
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 22px rgba(49,181,76,.25);
+
+}
+/*mascote Tuga*/
+
+.mascote-section {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.speech-bubble {
+    background: white;
+    border: 2px solid #e2e8f0;
+    padding: 15px 20px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent;
+    display: block;
+    width: 0;
+}
+
+.avatar-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mascote-emoji {
+    font-size: 6rem;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.container-publico {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 65vh;
+}
+
+.caixa-conteudo {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+/* IMAGENS TELA INICIAL */
+.imagem-cenario-pag-inicial {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.imagem-ilust-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.imagem-ilust-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.landing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+.texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+
+
+/*////// TELA INICIAL, CONTEÚDO ABAIXO DO BEM VINDO //////*
+
+/* rolar tela */
+.main-landing {
+    display: block; 
+}
+
+.divisor {
+    border: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 40px auto;
+    width: 60%;
+}
+/* =========================================================
+   SEÇÕES INSTITUCIONAIS
+========================================================= */
+
+.sobre-sessao {
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(16, 50, 20, 0.4);
+    border-radius: 20px;
+    margin: 30px 10%;
+    color: white; 
+}
+
+    .sobre-sessao.cinza {
+    padding: 60px 10%;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(16, 50, 20, 0.7);
+        border-radius: 20px;
+        margin: 30px 10%;
+        color: white;
+    }
+
+
+.conteudo-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.conteudo-flex.reverso {
+    flex-direction: row-reverse;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #e0d042;
+    font-weight: bold;
+}
+
+.imagem-placeholder {
+    flex: 1;
+    height: 250px;
+    background: #e0e0e0;
+    border: 2px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.missao-centralizada .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  
+    width: 100%;
+    max-width: 100%;    
+}
+
+.missao-centralizada .banner-final {
+    width: 100%;         
+    max-width: 900px;   
+}
+
+
+
+/* 
+================================
+BANNER
+================================
+ */
+ 
+.banner {
+    width: 100%;
+    height: 400px; 
+    background-image: url("../../imagens/banner.PNG");
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/* ==========================================================
+   BANNER FINAL
+========================================================== */
+/*.banner-final {
+    margin-top: 30px;
+    height: 200px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}*/
+.banner-final{
+
+    position:relative;
+
+    margin:100px auto;
+
+    width:min(1200px,92%);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.18);
+
+}
+
+.banner-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+}
+
+/* Sobreposição */
+
+.banner-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:linear-gradient(
+        rgba(0,0,0,.18),
+        rgba(0,0,0,.35)
+    );
+
+}
+
+.banner-badge{
+
+    background:rgba(255,255,255,.9);
+
+    color:var(--garden-green);
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.banner-overlay h2{
+
+    color:white;
+
+    font-size:3rem;
+
+    margin-bottom:18px;
+
+    text-shadow:
+        3px 3px 8px rgba(0,0,0,.45);
+
+}
+
+.banner-overlay p{
+
+    color:white;
+
+    font-size:1.2rem;
+
+    max-width:600px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+.final-cta{
+
+    padding:90px 20px 50px;
+
+    text-align:center;
+
+}
+
+.final-cta h2{
+
+    font-size:3rem;
+
+    color:var(--garden-green);
+
+    margin:20px 0;
+
+}
+
+.final-cta p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+    color:#555;
+
+    font-size:1.15rem;
+
+}
+
+
+.btn-banner{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap: 10px;
+
+    margin-top:35px;
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:1.1rem;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #31B54C,
+        #4CCB63
+    );
+
+    box-shadow:
+        0 12px 28px rgba(49,181,76,.35);
+
+    transition:.3s;
+
+}
+
+.btn-banner:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 36px rgba(49,181,76,.45);
+
+}
+.mission-unlocked{
+
+    display:inline-block;
+
+    padding:8px 22px;
+
+    background:#FFF7D6;
+
+    color:#C98B00;
+
+    border-radius:50px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+}
+/* =========================================================
+   EQUIPE
+========================================================= */
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1100px;
+}
+/*adicionar no futuro
+.team-card
+.team-avatar
+.team-name
+.team-role
+*/
+
+/*responsividade*/
+/* tamanho da tela */ 
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .conteudo-flex, .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================================
+   SOBRE NÓS - CARDS FLIP
+========================================================== */
+
+.flip-card {
+
+    width: 260px;
+    height: 320px;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+}
+
+.flip-card-inner {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transition: transform 0.8s;
+
+    transform-style: preserve-3d;
+}
+
+.flip-card.virado .flip-card-inner {
+
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    background: white;
+
+    backface-visibility: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 20px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.flip-card-back {
+
+    transform: rotateY(180deg);
+}
+/* ==========================================================
+   FOTO DOS MEMBROS
+========================================================== */
+
+.foto-circular {
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 4px solid #31B54C;
+
+    margin-bottom: 10px;
+}
+
+.foto-circular img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/*==================================================
+COMO FUNCIONA
+==================================================*/
+
+.how-it-works{
+
+    padding:90px 8%;
+
+    background:#f8fff7;
+
+    text-align:center;
+
+}
+
+.how-it-works h2{
+
+    font-size:38px;
+
+    color:#2E7D32;
+
+    margin-bottom:15px;
+
+}
+
+.section-subtitle{
+
+    color:#666;
+
+    font-size:18px;
+
+    max-width:750px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+
+}
+
+.steps{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+}
+
+.step-card{
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:24px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.step-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.step-number{
+
+    position:absolute;
+
+    top:-15px;
+    left:20px;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#FFD54F;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-weight:bold;
+
+    color:#2E7D32;
+
+}
+
+.step-icon{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.step-card h3{
+
+    color:#2E7D32;
+
+    margin-bottom:15px;
+
+}
+
+.step-card p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+.btn-games{
+
+    display:inline-block;
+
+    margin-top:60px;
+
+    padding:16px 40px;
+
+    background:#31B54C;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:999px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-games:hover{
+
+    background:#2E7D32;
+
+    transform:translateY(-3px);
+
+}
+/*
+==================
+trilha de aventura
+====================
+*/
+.adventure{
+
+    padding:90px 8%;
+
+    position:relative;
+
+}
+.trail{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    position:relative;
+
+}
+
+.trail-line{
+
+    position:absolute;
+
+    top:45px;
+
+    left:10%;
+
+    right:10%;
+
+    height:10px;
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            #FFD54F,
+
+            #FFD54F 25px,
+
+            #2E7D32 25px,
+
+            #2E7D32 50px
+
+        );
+
+    border-radius:20px;
+
+}
+/*título*/
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-title h2{
+
+    font-size:42px;
+
+    color:var(--garden-green);
+
+}
+
+.section-title p{
+
+    font-size:18px;
+
+    color:#555;
+
+}
+/*etapas*/
+.trail-step{
+
+    width:220px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+/*bolas*/
+.step-circle{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:6px solid var(--banana-yellow);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+/*hover*/
+.step-circle:hover{
+
+    transform:
+
+        scale(1.12)
+
+        rotate(-8deg);
+
+}
+/*textin*/
+.trail-step h3{
+
+    margin-top:20px;
+
+    color:#2E7D32;
+
+}
+
+.trail-step p{
+
+    margin-top:10px;
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+/*Tuga trilheiro*/
+.tuga-trail{
+
+    position:absolute;
+
+    left:60px;
+
+    top:120px;
+
+    width:110px;
+
+    animation:tugaWalk 4s ease-in-out infinite;
+
+}
+/*ANIMATION GUYS,  pixar pq choras */
+@keyframes tugaWalk{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateX(40px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}

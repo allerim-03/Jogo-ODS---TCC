@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma Educa - Cadastro</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/auth.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+      {% include 'components/navbar.html' %}
 </head>
 <body>
 
@@ -12,6 +21,11 @@
 
     <main>
         <div class="boas-vindas">
+            <div class="auth-mascote">
+    <img
+    src="{{ url_for('static', filename='imagens/TugaPqn.png') }}"
+    alt="Mascote Tuga">
+</div>
             
             <div id="etapa-tipo-uso" class="login-box">
                 <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; text-align: center; color: #31B54C;">Como deseja acessar?</h2>
@@ -29,7 +43,7 @@
                 </div>
 
                 <p style="text-align: center; font-size: 0.9rem; margin-top: 20px; color: #7f8c8d;">
-                    Já tem conta? <a href="login.html" class="texto-perfil-link" style="color: #31B54C;">Faça login</a>
+                    Já tem conta? <a href="{{ url_for('routes.login') }}"class="texto-perfil-link" style="color: #31B54C;">Faça login</a>
                 </p>
             </div>
 
@@ -54,24 +68,24 @@
                 <input type="hidden" id="tipo_usuario" name="tipo_usuario" value="estudante">
 
                 <label class="rotulo-input" id="label-nome">Nome do Aluno</label>
-                <input type="text" id="nome" class="input-estilizado" placeholder="Seu nome completo" required>
+                <input type="text" id="nome" name="nome" class="input-estilizado" placeholder="Seu nome completo" required>
 
                 <label class="rotulo-input">E-mail de Acesso</label>
-                <input type="email" id="email" class="input-estilizado" placeholder="Digite seu E-mail" required>
+                <input type="email" id="email" name="email" class="input-estilizado" placeholder="Digite seu E-mail" required>
 
                 <label class="rotulo-input">Crie uma Senha</label>
-                <input type="password" id="senha" class="input-estilizado" placeholder="Mínimo 8 caracteres" required>
+                <input type="password" id="senha" name="senha" class="input-estilizado" placeholder="Mínimo 8 caracteres" required>
 
                 <button type="submit" id="btn-registrar">Criar Conta</button>
                 
                 <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #7f8c8d;">
-                    Já tem conta? <a href="login.html" class="texto-perfil-link">Faça login</a>
+                    Já tem conta? <a href="{{ url_for('routes.login') }}" class="texto-perfil-link">Faça login</a>
                 </p>
             </form>
         </div>
     </main>
 
-    <script src="../js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
         function proximoPassoCadastro(escolha) {
             const painelTriagem = document.getElementById('etapa-tipo-uso');
@@ -130,4 +144,5 @@
         window.onload = () => { selecionarPerfil('estudante'); }
     </script>
 </body>
+{% include 'components/footer.html' %}
 </html>

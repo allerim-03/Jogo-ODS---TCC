@@ -1,0 +1,733 @@
+/* 
+tudin que é relacionado a área do aluno
+.topbar
+.level
+.bar
+.progress
+
+
+
+.sidebar
+.overlay
+.perfil-sidebar
+
+.current-user
+
+
+Páginas:
+- Dashboard do aluno
+- Quiz
+- Ranking
+- Jogos
+- Perfil
+*/
+
+
+
+/*
+==================== 
+CARDS MEMBROS 
+========================
+*/
+.membro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    color: #333;
+    width: calc(50% - 20px); 
+    min-width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);             
+}
+
+.foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid #4ade80;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info h3 {
+    color: #2196f3;
+    margin-bottom: 5px;
+}
+
+/* 
+===========================================
+RODAPÉ
+===========================================
+ */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    color: white;
+}
+
+/*
+============================
+side bar
+===================
+*/
+
+/* MENU DE HAMBURGUER 
+/* Esconde o checkbox original 
+.student-menu-checkbox {
+    display: none !important;
+}*/
+
+/* Sidebar - Agora com posição fixa absoluta */
+.student-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Escondida */
+    width: 280px;
+    height: 100vh;
+    background-color: #1b5e20;
+    z-index: 9999; /* Valor bem alto para garantir que apareça */
+    transition: all 0.4s ease;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+}
+
+/* O SELETOR CORRETO: Quando o check for ativado, a sidebar que é irmã dele aparece */
+#menu-check:checked ~ .sidebar {
+    left: 0 !important;
+}
+
+/* Overlay (Fundo escuro) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998; /* Um pouco abaixo da sidebar */
+    display: none;
+}
+/*
+#menu-check:checked ~ .overlay {
+    display: block;
+}
+*/
+/* Estilo do perfil dentro da Sidebar */
+.perfil-sidebar {
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.perfil-sidebar .foto-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    border: 3px solid #fbc02d;
+    margin-bottom: 10px;
+}
+
+.links-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.links-sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.links-sidebar a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #fbc02d;
+}
+
+
+/*
+=================== 
+LEVEL E PROGRESSO 
+===================
+*/
+.level {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -2px;
+}
+
+.level span {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.bar {
+    width: 200px; 
+    height: 12px;
+    background-color: #1b5e20;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 45%;
+    height: 100%;
+    background-color: #fbc02d;
+}
+
+
+/*
+========================== 
+HEADER
+==========================
+ 
+.student-topbar {
+height: 100px; * Definindo uma altura fixa para combinar com o padding do body *
+    background-color: #2f7d32;
+    * ... resto do seu código da topbar ... *
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px; * Removido padding vertical para a height mandar *
+    box-sizing: border-box;
+}
+.student-header {
+    background: var(--garden-green);
+}
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+*
+=====
+componentes
+======
+
+
+* MENU *
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px 25px;
+    border-radius: 8px;
+
+
+    margin-left: auto; 
+    
+    width: max-content;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}*/
+
+.logout {
+    background-color: #ff3b3b;
+    color: white;
+    border: none;
+    
+    width: auto;        
+    padding: 10px 40px; 
+    
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 15px;   
+}
+
+.logout:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+
+
+/* MENU HAMBÚRGUER (Quadrado Verde) */
+
+.hamburger {
+    width: 50px;
+    height: 50px;
+    background-color: #8bc34a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px; 
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; 
+}
+
+
+.perfil-container {
+    width: 50px;          
+    height: 50px;          
+    background-color: white; 
+    border-radius: 12px;  
+    overflow: hidden;      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;    
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    transition: transform 0.2s;
+}
+
+.perfil-container:hover {
+    transform: scale(1.1); 
+    border-color: white;
+}
+
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+}
+
+.perfil-externo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 60px;  
+    height: 60px;
+    
+    background-color: white; 
+    border-radius: 12px;     
+    margin-left: 20px;     
+    overflow: hidden;        
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    flex-shrink: 0;         
+}
+
+.perfil-externo:hover {
+    transform: scale(1.1);
+}
+
+  /* Estilos específicos para a experiência do Aluno */
+        .aluno-header-banner {
+            background: linear-gradient(135deg, #31B54C 0%, #27943e 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(49, 181, 76, 0.2);
+        }
+
+        .texto-banner h2 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+        }
+
+        .texto-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .nivel-cultivo-badge {
+            background: rgba(255, 214, 0, 0.2);
+            border: 2px solid #FFDE5A;
+            padding: 15px 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .nivel-cultivo-badge span {
+            display: block;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #FFDE5A;
+        }
+
+        .nivel-cultivo-badge strong {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .grid-estudante {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 25px;
+        }
+
+        .card-branco {
+            background: white;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .card-branco h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Lista de Atividades */
+        .lista-atividades-hoje {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .item-tarefa {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border-left: 6px solid #FFDE5A;
+            transition: transform 0.2s;
+        }
+
+        .item-tarefa:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+
+        .item-tarefa.concluida {
+            border-left-color: #31B54C;
+            opacity: 0.7;
+        }
+
+        .info-tarefa h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .info-tarefa span {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .btn-acao-tarefa {
+            background: #31B54C;
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* Conquistas/Medalhas */
+        .medalhas-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .medalha-item {
+            background: #fffdf5;
+            border: 2px solid #fef3c7;
+            padding: 20px 10px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .medalha-emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .medalha-item p {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .progresso-titulo {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .current-user{
+    background:#31B54C;
+    color:white;
+    border:3px solid #FFD700;
+}
+
+
+     /* Estilos específicos para a experiência do Aluno */
+        .aluno-header-banner {
+            background: linear-gradient(135deg, #31B54C 0%, #27943e 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(49, 181, 76, 0.2);
+        }
+
+        .texto-banner h2 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+        }
+
+        .texto-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .nivel-cultivo-badge {
+            background: rgba(255, 214, 0, 0.2);
+            border: 2px solid #FFDE5A;
+            padding: 15px 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .nivel-cultivo-badge span {
+            display: block;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #FFDE5A;
+        }
+
+        .nivel-cultivo-badge strong {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .grid-estudante {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 25px;
+        }
+
+        .card-branco {
+            background: white;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .card-branco h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Lista de Atividades */
+        .lista-atividades-hoje {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .item-tarefa {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border-left: 6px solid #FFDE5A;
+            transition: transform 0.2s;
+        }
+
+        .item-tarefa:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+
+        .item-tarefa.concluida {
+            border-left-color: #31B54C;
+            opacity: 0.7;
+        }
+
+        .info-tarefa h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .info-tarefa span {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .btn-acao-tarefa {
+            background: #31B54C;
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* Conquistas/Medalhas */
+        .medalhas-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .medalha-item {
+            background: #fffdf5;
+            border: 2px solid #fef3c7;
+            padding: 20px 10px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .medalha-emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .medalha-item p {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .progresso-titulo {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: block;
+        }
+.student-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+.student-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+.student-name{
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+.nivel{
+
+    color:#FFD54F;
+
+    font-weight:bold;
+
+}
+.xp-bar{
+
+    width:140px;
+
+    height:8px;
+
+    background:#cfd8dc;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+.xp-progress{
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #FFD54F,
+        #FF9800
+    );
+
+}
+.xp{
+
+    color:white;
+
+    font-size:12px;
+
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivando o Saber - Ranking</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/student.css') }}">
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/ranking.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/student-navbar.css') }}">
+</head>
+{% include 'components/student-navbar.html' %}
+{% include 'components/sidebar.html' %}
+<body>
+<header class="topbar">
+    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <label for="menu-check" class="overlay"></label>
+
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="{{ url_for('static', filename='imagens/foto.png') }}" class="foto-perfil">
+            <p>Nível 2</p>
+        </div>
+        <nav class="links-sidebar">
+            <a href="{{ url_for('routes.home') }}">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="ranking.html">RANKING</a>
+           <a href="{{ url_for('routes.dashboard') }}">PERFIL</a>
+        </nav>
+    </div>
+
+    <div class="left">
+        <!--label for="menu-check" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+
+        <div class="info-container">
+            <div class="logo">
+                <span class="icon">🌱</span>
+                <div>
+                    <h1>ECO-PIXEL</h1>
+                    <p>ADVENTURE</p>
+                </div>
+            </div>
+            <div class="level">
+                <span class="star">★ NÍVEL 2</span>
+                <div class="bar"><div class="progress"></div></div>
+                <span class="xp">450/1000</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">HOME</a>
+        <a href="ods.html">ODS</a>
+        <a href="jogos.html">JOGOS</a>
+        <a href="quiz.html">QUIZ</a>
+        <a href="sobrenos.html">SOBRE NÓS</a>
+        <a href="ranking.html">RANKING</a>
+        <a href="dashboard.html">PERFIL</a>
+    </nav-->
+
+    <a href="{{ url_for('routes.dashboard') }}">class="perfil-externo">
+        <img src="imagens/foto.png" class="foto-perfil">
+    </a>
+</header>
+
+<main>
+
+    <section class="sobre-sessao ranking-wrapper">
+
+        <div class="texto-ranking-topo">
+            <h2>🏆 Ranking Geral</h2>
+            <p>Os maiores protetores do planeta!</p>
+        </div>
+
+        <!-- PODIUM -->
+        <div class="ranking-container">
+
+            <div class="podium-container">
+
+                <div class="podium-card second">
+                    <div class="podium-medal">🥈</div>
+                    <img src="{{ url_for('static', filename='imagens/foto.png') }}"
+                         class="podium-avatar">
+                    <span id="second-name">...</span>
+                    <span id="second-xp">...</span>
+                </div>
+
+                <div class="podium-card first">
+                    <div class="podium-medal">👑</div>
+                    <img src="{{ url_for('static', filename='imagens/foto.png') }}"
+                         class="podium-avatar">
+                    <span id="first-name">...</span>
+                    <span id="first-xp">...</span>
+                </div>
+
+                <div class="podium-card third">
+                    <div class="podium-medal">🥉</div>
+                    <img src="{{ url_for('static', filename='imagens/foto.png') }}"
+                         class="podium-avatar">
+                    <span id="third-name">...</span>
+                    <span id="third-xp">...</span>
+                </div>
+
+            </div>
+
+            <!-- LISTA -->
+            <div class="ranking-list" id="ranking-list">
+
+                <div class="ranking-loading">
+                    Carregando ranking...
+                </div>
+
+            </div>
+
+            <!-- USUÁRIO LOGADO -->
+            <div id="current-user-container"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script>
+
+async function loadRanking() {
+
+    try {
+
+        const response =
+            await fetch("http://127.0.0.1:5000/ranking");
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar ranking");
+        }
+
+        const ranking =
+            await response.json();
+
+        if (ranking.length === 0) {
+
+            document.getElementById(
+                "ranking-list"
+            ).innerHTML =
+                "<p>Nenhum jogador encontrado.</p>";
+
+            return;
+        }
+
+        // ==========================
+        // PODIUM
+        // ==========================
+
+        if (ranking[0]) {
+
+            document.getElementById(
+                "first-name"
+            ).innerText =
+                ranking[0].name;
+
+            document.getElementById(
+                "first-xp"
+            ).innerText =
+                ranking[0].xp + " XP";
+        }
+
+        if (ranking[1]) {
+
+            document.getElementById(
+                "second-name"
+            ).innerText =
+                ranking[1].name;
+
+            document.getElementById(
+                "second-xp"
+            ).innerText =
+                ranking[1].xp + " XP";
+        }
+
+        if (ranking[2]) {
+
+            document.getElementById(
+                "third-name"
+            ).innerText =
+                ranking[2].name;
+
+            document.getElementById(
+                "third-xp"
+            ).innerText =
+                ranking[2].xp + " XP";
+        }
+
+        // ==========================
+        // LISTA
+        // ==========================
+
+        let html = "";
+
+        for (let i = 3; i < ranking.length; i++) {
+
+            html += `
+                <div class="ranking-item">
+
+                    <span class="position">
+                        ${i + 1}º
+                    </span>
+
+                    <img
+                        src="{{ url_for('static', filename='img/foto.png') }}"
+                        class="item-avatar">
+
+                    <span class="player-name">
+                        ${ranking[i].name}
+                    </span>
+
+                    <span class="player-xp">
+                        ${ranking[i].xp} XP
+                    </span>
+
+                </div>
+            `;
+        }
+
+        document.getElementById(
+            "ranking-list"
+        ).innerHTML = html;
+
+        // ==========================
+        // USUÁRIO ATUAL
+        // ==========================
+
+        /*
+            Exemplo futuro:
+
+            const userResponse =
+                await fetch("/user/current");
+
+            const user =
+                await userResponse.json();
+        */
+
+        const usuarioExemplo = {
+            position: 12,
+            name: "Você",
+            xp: 450
+        };
+
+        document.getElementById(
+            "current-user-container"
+        ).innerHTML = `
+            <div class="ranking-item current-user">
+
+                <span class="position">
+                    ${usuarioExemplo.position}º
+                </span>
+
+                <img
+                    src="{{ url_for('static', filename='img/foto.png') }}"
+                    class="item-avatar">
+
+                <span class="player-name">
+                    ${usuarioExemplo.name}
+                </span>
+
+                <span class="player-xp">
+                    ${usuarioExemplo.xp} XP
+                </span>
+
+            </div>
+        `;
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        document.getElementById(
+            "ranking-list"
+        ).innerHTML = `
+            <div class="erro-ranking">
+                Não foi possível carregar o ranking.
+            </div>
+        `;
+    }
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadRanking
+);
+
+</script>
+
+</body>
+<!--footer>
+    <p>© 2026 FATEC - Informática para Negócios</p>
+</footer-->
+{% include 'components/footer.html' %}
+</html>
+

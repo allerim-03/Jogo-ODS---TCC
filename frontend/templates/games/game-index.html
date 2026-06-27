@@ -5,14 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Plataforma Educa</title>
+  <title>Cultivando o saber - game index </title>
 
   <!-- CSS (estrutura pronta para Flask) -->
   <link rel="stylesheet" href="../static/css/reset.css">
-  <link rel="stylesheet" href="../static/css/base.css">
-  <link rel="stylesheet" href="../static/css/ui.css">
-</head>
+  
+  <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
 
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+
+</head>
+{% include 'components/navbar.html' %}
 <body>
 
   <main class="card green">
@@ -31,6 +37,85 @@
         style="max-width:200px; border-radius:12px;"
       >
     </section>
+    
+<section ="dashboard-main">
+
+    <div class="dashboard-container">
+
+        <section class="aluno-header-banner">
+
+            <div class="texto-banner">
+                <h2>🎮 Central de Jogos</h2>
+
+                <p>
+                    Aprenda sobre sustentabilidade enquanto se diverte.
+                </p>
+            </div>
+
+            <div class="nivel-cultivo-badge">
+                <span>Pontos Ganhos</span>
+                <strong>450 XP</strong>
+            </div>
+
+        </section>
+
+        <div class="games-grid">
+
+            <!-- Quiz 
+            <div class="game-card">
+
+                <div class="game-icon">🧠</div>
+
+                <h3>Eco Quiz</h3>
+
+                <p>
+                    Teste seus conhecimentos sobre os ODS.
+                </p>
+
+                <a href="/quiz" class="btn-jogar">
+                    Jogar
+                </a>
+
+            </div>
+-->
+            <!-- Memória -->
+            <div class="game-card">
+
+                <div class="game-icon">🌳</div>
+
+                <h3>Jogo da Memória</h3>
+
+                <p>
+                    Encontre os pares relacionados à natureza.
+                </p>
+
+                <a href="/memoryGame" class="btn-jogar">
+                    Jogar
+                </a>
+
+            </div>
+
+            <!-- Futuro -->
+            <div class="game-card bloqueado">
+
+                <div class="game-icon">🔒</div>
+
+                <h3>Novo Desafio</h3>
+
+                <p>
+                    Em breve.
+                </p>
+
+                <button disabled>
+                    Em breve
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
     <!-- BOTÃO -->
     <section style="text-align:center; margin-top:20px;">
@@ -42,14 +127,17 @@
   </main>
 
   <!-- JS -->
-  <script>
-    document.getElementById("start-game")
-      .addEventListener("click", () => {
-        window.location.href = "game-menu.html";
-      });
-  </script>
+  
+   <script>
+document.getElementById("start-game").addEventListener("click", () => {
+    window.location.href = "/game-menu";
+});
+</script>
+
+
 
 </body>
+{% include 'components/footer.html' %}
 </html>
 
 

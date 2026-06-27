@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--generica -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard do Gestor</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+</head>
+{% include 'components/navbar.html' %}
+{% include 'components/sidebar.html' %}
+<body>
+<main class="dashboard-main">
+
+    <div class="dashboard-container">
+
+        <section class="dashboard-header-actions">
+
+            <div class="boas-vindas-gestor">
+                <h2>Olá, Gestor </h2>
+                <p>Painel de acompanhamento da plataforma.</p>
+            </div>
+
+            <div class="seletor-turma-wrapper">
+
+                <select class="dropdown-estilizado">
+                    <option>Todas as Turmas</option>
+                    <option>5º Ano A</option>
+                    <option>5º Ano B</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <section class="grid-cards-superiores">
+
+            <div class="card-metrica-geral">
+
+                <div class="info-score">
+                    <h3>Participação Geral</h3>
+                    <span class="score-porcentagem">87%</span>
+                    <span class="score-subtext">
+                        Média da plataforma
+                    </span>
+                </div>
+
+                <div class="icone-trofeu">
+                    🏆
+                </div>
+
+            </div>
+
+            <div class="bloco-distribuicao-niveis">
+
+                <div class="card-nivel nivel-alto">
+                    <span class="num-nivel">56</span>
+                    <p class="nivel-desc">
+                        Excelente desempenho
+                    </p>
+                </div>
+
+                <div class="card-nivel nivel-medio">
+                    <span class="num-nivel">38</span>
+                    <p class="nivel-desc">
+                        Em evolução
+                    </p>
+                </div>
+
+                <div class="card-nivel nivel-critico">
+                    <span class="num-nivel">12</span>
+                    <p class="nivel-desc">
+                        Precisam de apoio
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+<script src="{{ url_for('static', filename='js/components.js') }}"></script>
+</body>
+{% include 'components/footer.html' %}
+</html>
