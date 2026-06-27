@@ -119,11 +119,17 @@ def dashboard():
 #===========================
 # quiz.py
 #=========================
+from app.repositories.quiz_repository import get_all_quizzes
 @routes.route('/quizzes')
 def quizzes():
     return render_template('quizzes.html')
 
+@routes.route("/api/quizzes", methods=["GET"])
+def list_quizzes():
 
+    quizzes = get_all_quizzes()
+
+    return jsonify(quizzes), 200
 @routes.route('/quiz/<int:id>')
 def start_quiz(id):
     return render_template('quiz.html')
@@ -137,9 +143,7 @@ def submit_quiz():
     score = data["score"]
 
     xp_gained = score * 10
-    user_id = data["user_id"]
-
-    score = data["score"]
+   
 
     user, xp_gained = process_game_score(
         user_id,
