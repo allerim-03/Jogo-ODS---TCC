@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - Quiz</title>
 
-    <link rel="stylesheet"
+<link rel="stylesheet"
       href="{{ url_for('static', filename='css/base.css') }}">
 
 <link rel="stylesheet"
@@ -33,18 +33,50 @@ quiz-result.html
 {% include 'components/student-navbar.html' %}
 {% include 'components/sidebar.html' %}
 
+
+</div>
 <main class="quiz-page">
 
     <section class="quiz-container card">
 
         <div class="quiz-header">
+            <div class="tuga-message tuga-info">
 
-            <h2 id="quiz-title">
-                Carregando quiz...
-            </h2>
+                <img
+                    src="{{ url_for('static', filename='imagens/Tuga.png') }}"
+                    class="tuga-avatar"
+                    alt="Tuga">
+
+                <div class="tuga-content">
+
+                    <div class="tuga-title">
+                        Tuga
+                    </div>
+
+                    <p id="tuga-message">
+                        Leia com atenção e escolha a melhor resposta.
+                    </p>
+
+                </div>
+
+                <div
+                    id="loading"
+                    class="alert alert-info">
+                <h2 id="quiz-title"> </h2>
+                    Carregando quiz...
+
+                </div>
+         
+                
 
             <p id="quiz-theme"></p>
+            <div class="quiz-info">
 
+                <span id="quiz-difficulty" class="badge badge-info"></span>
+
+                <span id="quiz-xp" class="badge badge-level"></span>
+
+            </div>
             <div class="progress-bar quiz-bar">
 
                 <div
@@ -76,7 +108,7 @@ quiz-result.html
 
             <button
                 id="btn-next"
-                class="btn btn-primary">
+                class="btn btn-primary hidden">
 
                 Próxima
 
@@ -90,8 +122,11 @@ quiz-result.html
 
 
 <script>
-const QUIZ_ID = {{ quiz_id }};
-const USER_ID = {{ session["user_id"] }};
+
+const QUIZ_ID = {{ quiz_id|tojson }};
+
+const USER_ID = {{ session.get("user_id")|tojson }};
+
 </script>
 
 <script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>

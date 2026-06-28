@@ -124,16 +124,6 @@ from app.services.quiz_service import get_quiz_details
 from app.services.quiz_service import submit_quiz as submit_quiz_service
 
 
-# Página HTML
-@routes.route("/quizzes")
-def quizzes():
-
-    return render_template(
-        "quizzes/quiz-list.html",
-        perfil="estudante"
-    )
-
-
 # API
 @routes.route("/api/quizzes", methods=["GET"])
 def list_quizzes():
@@ -155,11 +145,46 @@ def get_quiz(quiz_id):
 
     return jsonify(quiz), 200
 
+@routes.route("/api/quizzes/<int:quiz_id>/submit", methods=["POST"])
+def submit_quiz_route(quiz_id):
 
-@routes.route("/quiz/<int:id>")
-def start_quiz(id):
-    return render_template("quizzes/quiz.html",perfil="estudante",id=id)
+    data = request.get_json()
 
+    result = submit_quiz_service(
+        quiz_id=quiz_id,
+        user_id=data["user_id"],
+        answers=data["answers"]
+    )
+
+    if result is None:
+        return jsonify({
+            "success": False,
+            "message": "Quiz not found."
+        }), 404
+
+    return jsonify(result), 200
+
+# Página HTML
+@routes.route("/quizzes")
+def quizzes():
+
+    return render_template(
+        "quizzes/quiz-list.html",
+        perfil="estudante"
+    )
+'''
+@routes.route("/quiz")
+def quiz():
+    return render_template("quizzes/quiz.html")
+'''
+@routes.route("/quiz/<int:quiz_id>")
+def start_quiz(quiz_id):
+
+    return render_template(
+        "quizzes/quiz.html",
+        perfil="estudante",
+        quiz_id=quiz_id
+    )
 @routes.route('/quiz/submit', methods=['POST'])
 def submit_game_quiz():
     data = request.json
@@ -182,24 +207,7 @@ def submit_game_quiz():
         "level": user["level"]
     })
 
-@routes.route("/api/quizzes/<int:quiz_id>/submit", methods=["POST"])
-def submit_quiz_route(quiz_id):
 
-    data = request.get_json()
-
-    result = submit_quiz_service(
-        quiz_id=quiz_id,
-        user_id=data["user_id"],
-        answers=data["answers"]
-    )
-
-    if result is None:
-        return jsonify({
-            "success": False,
-            "message": "Quiz not found."
-        }), 404
-
-    return jsonify(result), 200
 
     '''
     --TEMP: aqui depois vai virar service
@@ -224,10 +232,6 @@ def submit_quiz_route(quiz_id):
     })
 
 '''
-@routes.route("/quiz")
-def quiz():
-    return render_template("quizzes/quiz.html")
-
 
 '''
 adicionar no futuro
