@@ -1,5 +1,6 @@
 
 from database.connection import get_connection
+from datetime import date
 
 
 # ==========================================================
@@ -209,42 +210,46 @@ def get_attempt_by_id(attempt_id):
 #sistema para evitar farmar XP
 #---------
 
-def count_attempts_today(user_id, quiz_id):
 
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        SELECT COUNT(*)
-        FROM quiz_attempt
-        WHERE user_id = %s
-          AND quiz_id = %s
-          AND DATE(attempted_at) = CURDATE()
-    """, (user_id, quiz_id))
-
-    attempts = cursor.fetchone()[0]
-
-    cursor.close()
-    conn.close()
-
-    return attempts
 #busca a melhor pontuação do day
 def get_best_score_today(user_id, quiz_id):
 
     conn = get_connection()
-    cursor = conn.cursor()
+    cursor = conn.cursor()(dictionary=True)
 
     cursor.execute("""
-        SELECT MAX(score)
+        SELECT MAX(score) as best
         FROM quiz_attempt
         WHERE user_id = %s
           AND quiz_id = %s
           AND DATE(attempted_at) = CURDATE()
     """, (user_id, quiz_id))
 
-    best_score = cursor.fetchone()[0]
+    #best_score = cursor.fetchone()[0]
+    result = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    #return best_score
+    return result["best"]
+
+def count_attempts_today(user_id, quiz_id):
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT COUNT(*) as total
+        FROM quiz_attempt
+        WHERE user_id = %s
+          AND quiz_id = %s
+          AND DATE(created_at) = CURDATE()
+    """, (user_id, quiz_id))
+
+    result = cursor.fetchone()[0]
 
     cursor.close()
     conn.close()
 
-    return best_score
+    return result["total"]
+

@@ -108,3 +108,8 @@ def submit_quiz(quiz_id, user_id, answers):
         "xp_reason": xp_reason,
         "questions_result": questions_result
     }
+
+from app.repositories.quiz_repository import (
+    count_attempts_today,
+    get_best_score_today
+)
