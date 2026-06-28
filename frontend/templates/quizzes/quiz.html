@@ -16,7 +16,9 @@
 
 <link rel="stylesheet"
       href="{{ url_for('static', filename='css/pages/quiz.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/components/student-navbar.css') }}">
+
+<link rel="stylesheet"
+ href="{{ url_for('static', filename='css/components/student-navbar.css') }}">
 </head>
 
 <!--Página onde responde ao quiz
@@ -24,9 +26,8 @@
 responde:
 POST /submit
 quiz-result.html
-
-
 -->
+
 <body>
 
 {% include 'components/student-navbar.html' %}
@@ -93,9 +94,9 @@ const QUIZ_ID = {{ id }};
 
 </script>
 
-<script src="{{ url_for('static', filename='js/quiz-api.js') }}"></script>
-<script src="{{ url_for('static', filename='js/quiz-ui.js') }}"></script>
-<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz/quiz-ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz/quiz.js') }}"></script>
 
 {% include 'components/footer.html' %}
 

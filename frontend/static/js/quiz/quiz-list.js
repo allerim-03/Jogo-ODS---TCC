@@ -69,3 +69,17 @@ async function loadQuizList(){
 }
 
 window.onload = loadQuizList;
+
+document.addEventListener("DOMContentLoaded", async ()=>{
+
+    const quizzes = await getQuizzes();
+
+    const container = document.getElementById("quiz-list");
+
+    quizzes.forEach(quiz=>{
+
+        container.innerHTML += createQuizCard(quiz);
+
+    });
+
+});
