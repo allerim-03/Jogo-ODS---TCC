@@ -1,4 +1,9 @@
-//lista dos quizzes e criação dos cards
+// ===============================
+// quiz-list.js
+// Responsável por carregar a lista
+// de quizzes disponíveis.
+// ===============================
+
 function difficultyLabel(level){
 
     switch(level){
@@ -27,18 +32,16 @@ function createQuizCard(quiz){
 
             <h3>${quiz.title}</h3>
 
+            <p>${quiz.theme}</p>
+
             <div class="quiz-meta">
 
                 <span class="badge badge-info">
-
                     ${difficultyLabel(quiz.difficulty)}
-
                 </span>
 
-                <span class="quiz-xp">
-
+                <span class="badge badge-level">
                     +${quiz.xp_reward} XP
-
                 </span>
 
             </div>
@@ -56,30 +59,28 @@ function createQuizCard(quiz){
     `;
 
 }
+
 async function loadQuizList(){
 
-    const quizzes = await getQuizzes();
+    try{
 
-    const container =
-        document.getElementById("quiz-list");
+        const quizzes = await getQuizzes();
 
-    container.innerHTML =
-        quizzes.map(createQuizCard).join("");
+        const container =
+            document.getElementById("quiz-list");
+
+        container.innerHTML =
+            quizzes.map(createQuizCard).join("");
+
+    }catch(error){
+
+        console.error(error);
+
+    }
 
 }
 
-window.onload = loadQuizList;
-
-document.addEventListener("DOMContentLoaded", async ()=>{
-
-    const quizzes = await getQuizzes();
-
-    const container = document.getElementById("quiz-list");
-
-    quizzes.forEach(quiz=>{
-
-        container.innerHTML += createQuizCard(quiz);
-
-    });
-
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    loadQuizList
+);

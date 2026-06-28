@@ -88,10 +88,10 @@ quiz-result.html
 
 </main>
 
+
 <script>
-
-const QUIZ_ID = {{ id }};
-
+const QUIZ_ID = {{ quiz_id }};
+const USER_ID = {{ session["user_id"] }};
 </script>
 
 <script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>

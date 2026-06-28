@@ -1,18 +1,13 @@
 //controle dos quizzes
 //lógica do quiz (respostas, próxima pergunta, submit)
-
-document.addEventListener("DOMContentLoaded", async () => {
-
-    
-const quiz = await getQuiz(QUIZ_ID);
-    renderQuestions(quiz.questions);
-
-});
-const result = await submitQuiz(id, payload);
-
-showResult(result);
-
-
+// ======================================
+// quiz.js
+// Lógica do quiz
+// - carregar o quiz
+//-guardar resposta
+//-mudar de pergunta
+//-mostrar o resultado
+// ======================================
 
 let quiz;
 
@@ -20,14 +15,25 @@ let currentQuestion = 0;
 
 let answers = {};
 
-window.onload = async ()=>{
+//inicialização
+document.addEventListener("DOMContentLoaded", async () => {
 
-    quiz = await loadQuiz(QUIZ_ID);
+    try{
 
-    renderQuestion();
+        quiz = await getQuiz(QUIZ_ID);
 
-}
-//pergunta atual
+        renderCurrentQuestion();
+
+    }catch(error){
+
+        console.error(error);
+
+        showError("Não foi possível carregar o quiz.");
+
+    }
+
+});
+//mostrar pergunta atual
 function renderCurrentQuestion(){
 
     renderQuestion(
@@ -49,7 +55,7 @@ function renderCurrentQuestion(){
     );
 
 }
-//alternativa
+//selecionar alternativa
 function selectOption(option){
 
     const question = quiz.questions[currentQuestion];
@@ -72,16 +78,26 @@ function selectOption(option){
 //finalizar
 async function finishQuiz(){
 
-    const result = await submitQuiz(
+    try{
 
-        QUIZ_ID,
+        const result = await submitQuiz(
 
-        USER_ID,
+            QUIZ_ID,
 
-        answers
+            USER_ID,
 
-    );
+            answers
 
-    showResult(result);
+        );
+
+        showResult(result);
+
+    }catch(error){
+
+        console.error(error);
+
+        showError("Erro ao enviar o quiz.");
+
+    }
 
 }
