@@ -13,7 +13,7 @@ def save_score(
     cursor = conn.cursor()
 
     cursor.execute("""
-        INSERT INTO scores
+        INSERT INTO score
         (
             user_id,
             game_name,

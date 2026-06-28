@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--Página onde responde ao quiz
+
+responde:
+POST /submit
+quiz-result.html
+
+
+-->
 <!--ajustar e conectar com a api-->
 <html lang="pt-br">
 <head>
@@ -22,7 +30,7 @@
 {% include 'components/student-navbar.html' %}
 {% include 'components/sidebar.html' %}
 <body>
-<header class="topbar">
+<!--header class="topbar">
     <input type="checkbox" id="menu-check" class="menu-checkbox">
     <label for="menu-check" class="overlay"></label>
 
@@ -66,7 +74,7 @@
 
     <a href="perfil.html" class="perfil-externo">
         <img src="img/foto.png" class="foto-perfil">
-    </a>
+    </a-->
 </header>
 
 
@@ -110,12 +118,9 @@
     </section>
 </main>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
+   
 
-</body>
+
 
 <!--FUNCIONALIDADE DO QUIZ-->
 
@@ -231,6 +236,7 @@ qData.options.sort(() => Math.random() - 0.5);
     </a>
 
 </div>
+</body>
 {% include 'components/footer.html' %}
 </html>
 await fetch("/api/ranking/addxp", {

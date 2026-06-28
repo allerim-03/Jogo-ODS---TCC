@@ -1966,3 +1966,128 @@ Fase 10 – Sistema de Badges → Concluída
 Fase 11 – Quiz/Jogos → XP → Level → Badges → Ranking → Concluída
 
 Fase 12 – Polimento e Integração Front-End → Em andamento
+
+data 27/06/2026
+
+finalmente a parte de integração está pronta , eu sei que ficou feio mas vcs que lutem :).
+agora vou iniciar o sistema de quizzes com uma approch de fases tbm:
+1- modelagem do banco de dados
+2-backenda flask
+3-frontend (eca)
+4-fluxo do usuário
+5-testes e melhorias
+
+etapa 1 banco de dados
+mantendo o padrão de escrito em inglês, lower case e singular.
+
+## Quiz
+
+| Campo       | Tipo                            |
+| ----------- | ------------------------------- |
+| id_quiz     | INT PK                          |
+| titulo      | VARCHAR(100)                    |
+| tema        | VARCHAR(100)                    |
+| dificuldade | ENUM('facil','medio','dificil') |
+| xp          | INT                             |
+| ativo       | BOOLEAN                         |
+
+---
+
+## Pergunta
+
+| Campo            | Tipo         |
+| ---------------- | ------------ |
+| id_pergunta      | INT PK       |
+| quiz_id          | FK           |
+| pergunta         | TEXT         |
+| alternativa_a    | VARCHAR(255) |
+| alternativa_b    | VARCHAR(255) |
+| alternativa_c    | VARCHAR(255) |
+| alternativa_d    | VARCHAR(255) |
+| resposta_correta | CHAR(1)      |
+
+---
+
+## Resultado Quiz
+
+Essa tabela é importante para o ranking.
+
+| Campo           | Tipo     |
+| --------------- | -------- |
+| id_resultado    | INT PK   |
+| usuario_id      | FK       |
+| quiz_id         | FK       |
+| acertos         | INT      |
+| xp_ganho        | INT      |
+| data_realizacao | DATETIME |
+
+Assim consegue gerar:
+
+* ranking
+* histórico
+* relatórios
+* métricas do professor
+CREATE TABLE quiz (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    theme VARCHAR(100) NOT NULL,
+    difficulty ENUM('easy', 'medium', 'hard') NOT NULL,
+    xp_reward INT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
+CREATE TABLE question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    quiz_id INT NOT NULL,
+
+    question_text TEXT NOT NULL,
+
+    option_a VARCHAR(255) NOT NULL,
+    option_b VARCHAR(255) NOT NULL,
+    option_c VARCHAR(255) NOT NULL,
+    option_d VARCHAR(255) NOT NULL,
+
+    correct_option ENUM('A','B','C','D') NOT NULL,
+
+    question_order INT NOT NULL,
+
+    FOREIGN KEY (quiz_id)
+        REFERENCES quiz(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE quiz_attempt (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT NOT NULL,
+
+    quiz_id INT NOT NULL,
+
+    score INT NOT NULL,
+
+    total_questions INT NOT NULL,
+
+    xp_earned INT NOT NULL,
+
+    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id)
+        REFERENCES user(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (quiz_id)
+        REFERENCES quiz(id)
+        ON DELETE CASCADE
+);
+
+CREATE INDEX idx_question_quiz
+ON question (quiz_id);
+
+CREATE INDEX idx_attempt_user
+ON quiz_attempt (user_id);
+
+CREATE INDEX idx_attempt_quiz
+ON quiz_attempt (quiz_id);

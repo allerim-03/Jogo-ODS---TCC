@@ -120,6 +120,8 @@ def dashboard():
 # quiz.py
 #=========================
 from app.repositories.quiz_repository import get_all_quizzes
+from app.services.quiz_service import get_quiz_details
+from app.services.quiz_service import submit_quiz as submit_quiz_service
 @routes.route('/quizzes')
 def quizzes():
     return render_template('quizzes.html')
@@ -130,13 +132,28 @@ def list_quizzes():
     quizzes = get_all_quizzes()
 
     return jsonify(quizzes), 200
+
+
+@routes.route("/api/quizzes/<int:quiz_id>", methods=["GET"])
+def get_quiz(quiz_id):
+
+    quiz = get_quiz_details(quiz_id)
+
+    if quiz is None:
+        return jsonify({
+            "success": False,
+            "message": "Quiz not found."
+        }), 404
+
+    return jsonify(quiz), 200
+
 @routes.route('/quiz/<int:id>')
 def start_quiz(id):
     return render_template('quiz.html')
 
 
 @routes.route('/quiz/submit', methods=['POST'])
-def submit_quiz():
+def submit_game_quiz():
     data = request.json
 
     user_id = data["user_id"]
@@ -156,6 +173,26 @@ def submit_quiz():
         "xp": user["xp"],
         "level": user["level"]
     })
+
+@routes.route("/api/quizzes/<int:quiz_id>/submit", methods=["POST"])
+def submit_quiz_route(quiz_id):
+
+    data = request.get_json()
+
+    result = submit_quiz_service(
+        quiz_id=quiz_id,
+        user_id=data["user_id"],
+        answers=data["answers"]
+    )
+
+    if result is None:
+        return jsonify({
+            "success": False,
+            "message": "Quiz not found."
+        }), 404
+
+    return jsonify(result), 200
+
     '''
     --TEMP: aqui depois vai virar service
     user = type("User", (), {
@@ -182,6 +219,16 @@ def submit_quiz():
 @routes.route("/quiz")
 def quiz():
     return render_template("quizzes/quiz.html")
+
+
+'''
+adicionar no futuro
+gestor // (area administrativa)
+POST   /api/quizzes
+PUT    /api/quizzes/<id>
+DELETE /api/quizzes/<id>
+GET /api/users/<int:user_id>/quiz-results- historico
+'''
 #===========================
 # games.py
 #=========================
@@ -283,7 +330,11 @@ def game1():
 #===========================
 # Ranking.py
 #=========================
+from app.services.ranking_service import get_ranking_data
 
+@routes.route("/api/ranking")
+def api_ranking():
+    return jsonify(get_ranking_data())
 '''
 @routes.route('/ranking')
 def ranking():
@@ -295,9 +346,7 @@ def ranking():
 def ranking():
     return render_template("dashboard/ranking.html")
 
-@routes.route("/api/ranking")
-def api_ranking():
-    return jsonify(get_ranking())
+
     
 #===========================
 # Progress

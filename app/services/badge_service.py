@@ -9,10 +9,10 @@ def check_and_award_badges(user_id, xp, level):
     cursor = conn.cursor(dictionary=True)
 
     # pega todas as badges
-    cursor.execute("SELECT * FROM badges")
-    badges = cursor.fetchall()
+    cursor.execute("SELECT * FROM badge")
+    badge = cursor.fetchall()
 
-    for badge in badges:
+    for badge in badge:
 
         already_has = user_has_badge(
             user_id,
@@ -53,7 +53,7 @@ def user_has_badge(user_id, badge_id, cursor):
 
     cursor.execute("""
         SELECT id
-        FROM inventory_badges
+        FROM inventory_badge
         WHERE user_id = %s
         AND badge_id = %s
     """, (user_id, badge_id))
@@ -64,7 +64,7 @@ def user_has_badge(user_id, badge_id, cursor):
 def award_badge(user_id, badge_id, cursor):
 
     cursor.execute("""
-        INSERT INTO inventory_badges
+        INSERT INTO inventory_badge
         (user_id, badge_id)
         VALUES (%s, %s)
     """, (user_id, badge_id))

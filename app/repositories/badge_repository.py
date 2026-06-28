@@ -11,15 +11,15 @@ def get_user_badges(user_id):
         SELECT b.id,
                b.name,
                b.description
-        FROM inventory_badges ib
-        INNER JOIN badges b
+        FROM inventory_badge ib
+        INNER JOIN badge b
             ON ib.badge_id = b.id
         WHERE ib.user_id = %s
     """, (user_id,))
 
-    badges = cursor.fetchall()
+    badge = cursor.fetchall()
 
     cursor.close()
     conn.close()
 
-    return badges
+    return badge

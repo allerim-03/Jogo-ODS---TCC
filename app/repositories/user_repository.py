@@ -8,7 +8,7 @@ def get_user_by_id(user_id):
     cursor = conn.cursor(dictionary=True)
 
     cursor.execute(
-        "SELECT * FROM users WHERE id = %s",
+        "SELECT * FROM user WHERE id = %s",
         (user_id,)
     )
 
@@ -24,7 +24,7 @@ def update_user(user):
     cursor = conn.cursor()
 
     cursor.execute("""
-        UPDATE users
+        UPDATE user
         SET xp = %s, level = %s
         WHERE id = %s
     """, (user["xp"], user["level"], user["id"]))
@@ -46,7 +46,7 @@ def get_user_progress(user_id):
             name,
             xp,
             level
-        FROM users
+        FROM user
         WHERE id = %s
     """, (user_id,))
 
@@ -70,7 +70,7 @@ def get_ranking():
         name,
         xp,
         level
-    FROM users
+    FROM user
     ORDER BY xp DESC
     """)
 
