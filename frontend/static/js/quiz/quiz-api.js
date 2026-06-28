@@ -1,25 +1,54 @@
 // =====================================
+/// quiz-api.js 
 // Comunicação com a API Flask
 // Apenas requisições HTTP
 // =====================================
 
+
+// --------------------
+// Utilitário
+// --------------------
+
+async function handleResponse(response){
+
+    const data = await response.json();
+
+    if(!response.ok){
+
+        throw new Error(data.message || "Erro na API.");
+
+    }
+
+    return data;
+
+}
+
+
+
+// --------------------
+// Aluno
+// --------------------
+// GET
 // Lista todos os quizzes
-async function getQuizzes() {
+async function getQuizzes(){
 
     const response = await fetch("/api/quizzes");
 
-    return await response.json();
-
+    return handleResponse(response);
+ //return await response.json();
 }
 
-// Obtém um quiz específico
-async function getQuiz(quizId) {
+//quiz -- Obtém um quiz específico
+async function getQuiz(quizId){
 
     const response = await fetch(`/api/quizzes/${quizId}`);
 
-    return await response.json();
+    return handleResponse(response);
 
 }
+
+
+//submit  -- POST
 
 // Envia as respostas do aluno
 async function submitQuiz(quizId, userId, answers) {
@@ -43,17 +72,24 @@ async function submitQuiz(quizId, userId, answers) {
 
 }
 
-// GET
-getQuizzes()
-getQuiz(id)
+// --------------------
+// Gestor (futuro)
+// --------------------
 
-// POST
-submitQuiz(id, userId, answers)
+// async function createQuiz(data){}
 
-// ADMIN
-createQuiz(data)
-updateQuiz(id, data)
-deleteQuiz(id)
+// async function updateQuiz(id, data){}
 
-// RESULTADOS
-getQuizResults()
+// async function deleteQuiz(id){}
+
+
+
+// --------------------
+// Resultados (futuro)
+// --------------------
+
+// async function getQuizResults(){}
+
+
+
+
