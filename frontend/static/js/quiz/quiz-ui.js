@@ -1,10 +1,18 @@
-// =====================================
-// Renderização da interface do Quiz
-// Manipulação do DOM
-// =====================================
-function difficultyLabel(level){
 
-    switch(level){
+// =====================================
+// quiz-ui.js
+// Responsável apenas pela interface
+//Renderização da interface do Quiz
+//Manipulação do DOM
+// =====================================
+
+// ----------------------------
+// Lista de quizzes
+// ----------------------------
+
+function difficultyLabel(level) {
+
+    switch (level) {
 
         case "easy":
             return "⭐ Fácil";
@@ -21,10 +29,10 @@ function difficultyLabel(level){
     }
 
 }
-function createQuizCard(quiz){
+
+function createQuizCard(quiz) {
 
     return `
-
         <div class="card quiz-card">
 
             <h3>${quiz.title}</h3>
@@ -51,97 +59,17 @@ function createQuizCard(quiz){
             </a>
 
         </div>
-
     `;
 
 }
+
+// ----------------------------
+// Tela do quiz
+// ----------------------------
+
+
 //mostrar pergunta
-function renderQuestion(question, index, total){
-
-    document.getElementById("question-text").innerText =
-        question.question_text;
-
-    document.getElementById("progress-text").innerText =
-        `Pergunta ${index + 1} de ${total}`;
-
-    const buttons = document.querySelectorAll(".btn-option");
-
-    const options = [
-        question.option_a,
-        question.option_b,
-        question.option_c,
-        question.option_d
-    ];
-
-    buttons.forEach((button,i)=>{
-
-        button.innerText = options[i];
-
-    });
-
-}
-//barra de progresso
-function updateProgress(index,total){
-
-    const percent = ((index)/total)*100;
-
-    document.getElementById("quiz-progress").style.width =
-        `${percent}%`;
-
-}
-//resultado
-function showResult(result){
-
-    window.location.href =
-        `/quiz/result?score=${result.score}`;
-}
-//carregamento
-function showLoading() {
-
-    document.getElementById("question-text").textContent =
-        "Carregando...";
-
-}
-//erro
-function showError(message){
-
-    alert(message);
-
-}
-function showErrorMessage(message) {
-
-    document.getElementById("question-text").textContent =
-        message;
-
-}
-
-function updateProgress(current, total){
-
-    document.getElementById("progress-text").textContent =
-        `Pergunta ${current + 1} de ${total}`;
-
-    document.getElementById("quiz-progress").style.width =
-        `${((current + 1) / total) * 100}%`;
-
-}
-
-function disableButtons(){
-
-    document
-        .querySelectorAll(".btn-option")
-        .forEach(button => button.disabled = true);
-
-}
-
-function enableButtons(){
-
-    document
-        .querySelectorAll(".btn-option")
-        .forEach(button => button.disabled = false);
-
-}
-
-function renderQuestion(question){
+function renderQuestion(question) {
 
     document.getElementById("question-text").textContent =
         question.question_text;
@@ -151,39 +79,80 @@ function renderQuestion(question){
 
     container.innerHTML = "";
 
-    ["A","B","C","D"].forEach(letter =>{
+    ["A", "B", "C", "D"].forEach(letter => {
 
         const button = document.createElement("button");
 
         button.className = "btn-option";
 
-        button.dataset.option = letter;
-
         button.textContent =
             question[`option_${letter.toLowerCase()}`];
+
+        button.onclick = () => selectOption(letter);
 
         container.appendChild(button);
 
     });
 
 }
+//barra de progresso
+function updateProgress(current, total) {
 
-function showResult(result){
+    document.getElementById("progress-text").textContent =
+        `Pergunta ${current + 1} de ${total}`;
+
+    document.getElementById("quiz-progress").style.width =
+        `${((current + 1) / total) * 100}%`;
+
+}
+
+function disableButtons() {
+
+    document
+        .querySelectorAll(".btn-option")
+        .forEach(button => button.disabled = true);
+
+}
+
+function enableButtons() {
+
+    document
+        .querySelectorAll(".btn-option")
+        .forEach(button => button.disabled = false);
+
+}
+
+// ----------------------------
+// Estados da tela
+// ----------------------------
+
+//carregamento
+function showLoading() {
+
+    document.getElementById("question-text").textContent =
+        "Carregando quiz...";
+
+}
+
+//erro
+function showError(message) {
+
+    document.getElementById("question-text").textContent =
+        message;
+
+}
+
+// ----------------------------
+// Resultado
+// ----------------------------
+
+function showResult(result) {
 
     sessionStorage.setItem(
         "quizResult",
         JSON.stringify(result)
     );
 
-    window.location = "/quiz/result";
+    window.location.href = "/quiz/result";
 
 }
-function renderQuestion(question){...}
-
-function updateProgress(current,total){...}
-
-function disableButtons(){...}
-
-function showLoading(){...}
-
-function showError(message){...}
