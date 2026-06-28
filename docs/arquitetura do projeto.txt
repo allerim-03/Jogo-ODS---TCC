@@ -58,3 +58,260 @@ jogos--ods--tcc/
     ├── diagramas/
     ├── requisitos/
     └── apresentacao/
+
+    arquitetura - backend, frontend (28/06/2026)
+
+** backend  
+
+*** app 
+
+ **** init.py 
+
+ **** app.py  (main)
+
+**** routes 
+ ***** app_routes.py (provisório com todas as rotas)
+
+ ***** auth.py (futuro)
+
+ ***** users.py  (futuro)
+
+***** quiz.py (futuro)
+
+ ***** games.py (futuro)
+
+ ***** ranking.py (futuro)
+
+ ***** dashboard.py (futuro)
+
+ ***** admin.py (futuro)
+
+ **** repositories 
+
+ ***** user_repository.py 
+
+ ***** quiz_repository.py 
+
+ ***** game.py (futuro)
+
+ ***** progress.py (futuro)
+
+ ***** badge_repository.py 
+
+ ***** score_repositoty.py  
+
+**** services 
+
+***** badge_service.py
+
+***** game_service.py 
+
+ ****** ranking_service.py 
+
+ ***** security_service.py  (futuro)
+
+ ***** user_service.py 
+
+ ***** xp_service.py  
+
+***** quiz_service.py 
+ 
+
+ **** database 
+
+ ***** connection.py 
+
+ ***** migrations (futuro)
+
+ ***** scripts (futuro)
+
+ ****** create_tables.sql (futuro)
+
+ ****** insert_test.sql (futuro)
+
+ **** utils  (futuro)
+
+***** helpers.py (futuro)
+
+ ***** validators.py (futuro)
+
+ **** config 
+
+ ***** settings.py 
+
+ *** requirements.txt 
+
+ *** run.py  
+
+ 
+
+** frontend  
+
+*** pages (atualmente estamos no template)
+
+ **** index.html 
+ **** home.html 
+ **** about-us.html 
+ **** base.html (implementar)
+ **** ods.html 
+
+****auth
+ **** login.html  
+ **** register.html
+
+****classroom ( área do professor)
+ ****** teacher-dashboard.html
+ ***** métricas.html (renomear para inglês)
+ ***** relatórios.html (renomear )
+ ***** classroom.html
+ 
+****dashboard (área do aluno)
+ ***** ranking.html 
+ ***** dashboard.html
+ ***** student-profile.html
+
+****admin (fututo)
+ ***** painel.html  
+
+**** games 
+  *****about-games.html
+  *****memory-game.html
+  *****game-index.html
+  *****game-menu.html
+  *****games.html
+  ***** game1.html 
+  ***** game2.html 
+ ****quizzes
+  *****quiz.html
+  *****quiz-list.html
+  *****quiz-admin.html
+  *****quiz-result.html
+
+
+ *** static
+
+ **** css 
+
+ ***** base.css
+ ***** ui.css
+ *****reset.css
+ *****layout.css
+ *****componentes
+  ****** sidebar.css
+  ****** navbar.css
+  ****** info-slider.css
+  ******studant-navbar.css
+  ****** ods-preview.css
+  ****** journey.css
+  ****** foooter.css ( implementar)
+  ****** cards.css ( implementar)
+  ****** modal.css ( implementar)
+  ****** buttons.css ( implementar)
+  ****** forms.css ( implementar)
+ *****pages
+  ******landing.css
+  ******auth.css
+  ******teacher.css
+  ******student.css
+  ****** quiz.css
+  ****** ranking.css
+  ******games
+   *******game-ui.css
+   *******games.css
+   *******memory-gamy.css
+   *******animations.css
+
+ **** js  
+
+***** main.js 
+
+*****componentes.js
+*****game1.js
+*****gameMenu.js
+*****info-slider.js
+*****jouney.js
+*****ods-preview.js
+
+*****memory
+ ******storage.js
+ ******game-core.js
+ ******game-ui.js
+ ******memory-game.js
+*****quiz
+
+ ******quiz.js
+ ******quiz-list.js
+ ******quiz-admin.js
+ ******quiz-api.js
+ ******quiz-ui.js
+ ******quiz-result.js
+ ******quiz-ultils.js (implementar)
+
+ *** services 
+ **** api.js (implementar)
+ **** auth.js 
+
+ *** utils  (implementar)
+**** helpers.js  (implementar)
+
+ **** imagens
+  *****membros
+  *****info
+  ***** plantas
+  *****mascote-tuga
+  *****ods
+
+ **** sounds (implementar)
+
+
+
+*** components 
+
+ **** navbar.html 
+ ****sidebar.html
+ **** footer.html 
+ **** cards.html (implementar)
+ ****student-navbar.html
+ ****info-slider.html
+ ****journey.html
+
+
+
+
+
+** docs  
+
+*** relatorio.pdf  
+
+*** requisitos.md 
+
+ *** cronograma.xlsx 
+
+ *** arquitetura 
+
+ **** arquitetura_projeto.txt 
+
+ **** diagrama_UML.png  
+
+*** slides  
+
+
+** tests  
+
+*** test_connection.py 
+
+ *** test_auth.py  (implementar)
+
+*** test_quiz.py (implementar)
+
+ *** test_games.py (implementar)
+
+ **. env (implementar)
+
+ ** .gitignore  
+
+** README.md  
+
+** docker-compose.yml  (implementar)
+
+@endmindmap
