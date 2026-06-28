@@ -122,17 +122,25 @@ def dashboard():
 from app.repositories.quiz_repository import get_all_quizzes
 from app.services.quiz_service import get_quiz_details
 from app.services.quiz_service import submit_quiz as submit_quiz_service
-@routes.route('/quizzes')
-def quizzes():
-    return render_template('quizzes.html')
 
+
+# Página HTML
+@routes.route("/quizzes")
+def quizzes():
+
+    return render_template(
+        "quizzes/quiz-list.html",
+        perfil="estudante"
+    )
+
+
+# API
 @routes.route("/api/quizzes", methods=["GET"])
 def list_quizzes():
 
     quizzes = get_all_quizzes()
 
     return jsonify(quizzes), 200
-
 
 @routes.route("/api/quizzes/<int:quiz_id>", methods=["GET"])
 def get_quiz(quiz_id):
@@ -147,10 +155,10 @@ def get_quiz(quiz_id):
 
     return jsonify(quiz), 200
 
-@routes.route('/quiz/<int:id>')
-def start_quiz(id):
-    return render_template('quiz.html')
 
+@routes.route("/quiz/<int:id>")
+def start_quiz(id):
+    return render_template("quizzes/quiz.html",perfil="estudante",id=id)
 
 @routes.route('/quiz/submit', methods=['POST'])
 def submit_game_quiz():

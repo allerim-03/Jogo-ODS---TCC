@@ -69,3 +69,81 @@
     width: 100% !important;
     margin-top: 5px;
 }
+/* ==========================
+      LISTA DE QUIZZES
+========================== */
+
+.quiz-list-page{
+
+    width:100%;
+    max-width:1100px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+}
+
+.quiz-page-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.quiz-page-header h1{
+
+    color:var(--garden-green);
+
+    margin-bottom:10px;
+
+}
+
+.quiz-page-header p{
+
+    color:var(--gray-700);
+
+}
+/*Card do quizz*/
+.quiz-card{
+
+    width:320px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.quiz-card h3{
+
+    color:var(--bright-blue);
+
+}
+
+.quiz-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.quiz-xp{
+
+    font-weight:bold;
+
+    color:var(--orange);
+
+}
+
+.quiz-card .btn{
+
+    margin-top:auto;
+
+}

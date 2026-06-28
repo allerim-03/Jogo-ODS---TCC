@@ -3,3 +3,88 @@
 A página inicial dos quizzes
 GET /api/quizzes
 -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Quizzes ODS</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+
+</head>
+
+<body>
+
+<main class="quiz-list-page">
+
+    <header class="quiz-page-header">
+
+        <h1>Quizzes ODS</h1>
+
+        <p>
+            Aprenda sobre os Objetivos de Desenvolvimento Sustentável enquanto ganha XP.
+        </p>
+
+    </header>
+
+    <!-- Mensagem do Tuga -->
+
+    <section class="tuga-message tuga-info">
+
+        <img
+            class="tuga-avatar"
+            src="{{ url_for('static', filename='imagens/tuga.png') }}"
+            alt="Tuga">
+
+        <div class="tuga-content">
+
+            <div class="tuga-title">
+
+                Tuga
+
+            </div>
+
+            <p>
+
+                Escolha um quiz e descubra quanto você já sabe sobre os Objetivos de Desenvolvimento Sustentável!
+
+            </p>
+
+            <p>
+
+                💡 Você pode ganhar XP nas <strong>3 primeiras tentativas do dia</strong>, desde que mantenha ou melhore sua pontuação.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Lista -->
+
+    <section
+        id="quiz-list"
+        class="cards-grid">
+
+        <!-- preenchido pelo JS -->
+
+    </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/quiz-api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz-ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz-list.js') }}"></script>
+</body>
+  {% include 'components/footer.html' %}
+</html>
+
