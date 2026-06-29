@@ -1,1 +1,86 @@
 <!--tela interativa com o resultado da tentativa-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resultado do Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/ui.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/pages/quiz.css') }}">
+
+</head>
+
+<body>
+
+{% include 'components/student-navbar.html' %}
+{% include 'components/sidebar.html' %}
+
+<main class="quiz-page">
+
+    <section class="card quiz-result-card">
+
+        <h1>Resultado do Quiz</h1>
+
+        <div id="tuga-message"
+             class="tuga-message tuga-success">
+
+            <img
+                class="tuga-avatar"
+                src="{{ url_for('static', filename='imagens/Tuga.png') }}">
+
+            <div class="tuga-content">
+
+                <div class="tuga-title">
+                    Tuga
+                </div>
+
+                <p id="tuga-text"></p>
+
+            </div>
+
+        </div>
+
+        <div class="result-summary">
+
+            <h2 id="score"></h2>
+
+            <p id="xp"></p>
+
+            <p id="level"></p>
+
+        </div>
+
+        <hr>
+
+        <h2>Questões</h2>
+
+        <div id="questions-review"></div>
+
+        <br>
+
+        <a href="/quizzes"
+           class="btn btn-primary">
+
+            Voltar aos Quizzes
+
+        </a>
+
+    </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/quiz/quiz-result.js') }}"></script>
+
+</body>
+</html>

@@ -1,10 +1,12 @@
+
 from app.repositories.quiz_repository import (
     get_quiz_by_id,
     get_questions_by_quiz,
     get_correct_answers,
-    save_quiz_attempt
+    save_quiz_attempt,
+    count_attempts_today,
+    get_best_score_today
 )
-
 from app.services.game_service import process_game_score
 
 def get_quiz_details(quiz_id):
@@ -109,7 +111,3 @@ def submit_quiz(quiz_id, user_id, answers):
         "questions_result": questions_result
     }
 
-from app.repositories.quiz_repository import (
-    count_attempts_today,
-    get_best_score_today
-)

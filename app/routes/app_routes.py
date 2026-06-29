@@ -207,7 +207,13 @@ def submit_game_quiz():
         "level": user["level"]
     })
 
+@routes.route("/quiz/result")
+def quiz_result():
 
+    return render_template(
+        "quizzes/quiz-result.html",
+        perfil="estudante"
+    )
 
     '''
     --TEMP: aqui depois vai virar service

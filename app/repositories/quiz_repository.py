@@ -206,32 +206,31 @@ def get_attempt_by_id(attempt_id):
 
     return attempt
 
-#----
+#------------------------------
 #sistema para evitar farmar XP
-#---------
+#------------------------------
 
 
 #busca a melhor pontuação do day
 def get_best_score_today(user_id, quiz_id):
 
     conn = get_connection()
-    cursor = conn.cursor()(dictionary=True)
+    cursor = conn.cursor(dictionary=True)
 
     cursor.execute("""
-        SELECT MAX(score) as best
+        SELECT MAX(score) AS best
         FROM quiz_attempt
         WHERE user_id = %s
           AND quiz_id = %s
-          AND DATE(attempted_at) = CURDATE()
+          AND DATE(created_at) = CURDATE()
     """, (user_id, quiz_id))
 
-    #best_score = cursor.fetchone()[0]
     result = cursor.fetchone()
+
     cursor.close()
     conn.close()
 
-    #return best_score
-    return result["best"]
+    return result["best"] or 0
 
 def count_attempts_today(user_id, quiz_id):
 
@@ -239,17 +238,18 @@ def count_attempts_today(user_id, quiz_id):
     cursor = conn.cursor(dictionary=True)
 
     cursor.execute("""
-        SELECT COUNT(*) as total
+        SELECT COUNT(*) AS total
         FROM quiz_attempt
         WHERE user_id = %s
           AND quiz_id = %s
           AND DATE(created_at) = CURDATE()
     """, (user_id, quiz_id))
 
-    result = cursor.fetchone()[0]
+    result = cursor.fetchone()
 
     cursor.close()
     conn.close()
 
     return result["total"]
+    
 
