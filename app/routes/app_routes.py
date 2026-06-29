@@ -180,10 +180,13 @@ def quiz():
 @routes.route("/quiz/<int:quiz_id>")
 def start_quiz(quiz_id):
 
+    user_id = session.get("user_id", 1)#usando o usuario 1 para desenvolvimento.
+
     return render_template(
         "quizzes/quiz.html",
-        perfil="estudante",
-        quiz_id=quiz_id
+        quiz_id=quiz_id,
+        user_id=user_id,
+        perfil="estudante"
     )
 @routes.route('/quiz/submit', methods=['POST'])
 def submit_game_quiz():
