@@ -4,32 +4,7 @@
          ESQUERDA
     ============================ -->
 
-    
- <!-- INFORMAÇÕES -->
-    <div class="student-info">
-
-        <span class="student-name">
-            {{ nome_aluno or "Aluno" }}
-        </span>
-
-        <span class="nivel">
-            ⭐ Nível {{ nivel or 2 }}
-        </span>
-
-       
-<div class="xp-bar">
-
-    <div
-        class="xp-progress"
-        data-progress="{{ progresso or 45 }}">
-    </div>
-
-</div>
-        <span class="xp">
-            {{ xp or 450 }}/1000 XP
-        </span>
-
-    </div>
+ 
 
     
  <!-- ===========================
@@ -39,7 +14,7 @@
     <div class="student-status">
 
         <!-- FOTO -->
-
+        <a href="{{ url_for('routes.student_profile') }}">
         <img
 
             src="{{ url_for('static',
@@ -48,16 +23,57 @@
             class="student-foto-perfil"
 
             alt="Perfil">
-    <div class="planta-status">
+        </a>
 
-        <!-- PLANTA -->
-    <img src="{{ url_for(
-    'static',
-    filename='imagens/plantas/planta' ~ nivel ~ '.png'
-    ) }}">
+        <!-- INFORMAÇÕES -->
+    <div class="student-player-info">
+
+        <span class="student-name">
+            {{ nome_aluno }}
+        </span>
+
+        <span class="nivel">
+            ⭐ Nível {{ nivel }}
+        </span>
+
+        <div class="xp-bar">
+
+            <div
+                class="xp-progress"
+                style="width: {{ progresso }}%;">
+            </div>
+
+        </div>
+
+        <span class="xp">
+
+            {{ xp }}/1000 XP
+
+        </span>
+
     </div>
 
-</div>
+   
+
+   
+
+
+            <!-- PLANTA -->
+            <div class="planta-status">
+                
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='imagens/plantas/planta' ~ nivel ~ '.png') }}">
+
+            </div>
+
+        </div>
+   
+
+   
+
+
     <div class="student-left">
 
         <!-- MENU -->
