@@ -32,6 +32,30 @@ def get_all_quizzes():
     conn.close()
 
     return quizzes
+#lista todos os quizzes para o professor
+def get_all_quizzes_admin():
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            id,
+            title,
+            theme,
+            difficulty,
+            xp_reward,
+            is_active
+        FROM quiz
+        ORDER BY id DESC
+    """)
+
+    quizzes = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return quizzes
 #retorna dados de um quiz em especifico
 
 def get_quiz_by_id(quiz_id):
@@ -45,7 +69,8 @@ def get_quiz_by_id(quiz_id):
             title,
             theme,
             difficulty,
-            xp_reward
+            xp_reward,
+            is_active
         FROM quiz
         WHERE id = %s
     """, (quiz_id,))
@@ -57,7 +82,7 @@ def get_quiz_by_id(quiz_id):
 
     return quiz
 # cria um novo quiz
-def create_quiz(title, theme, difficulty, xp_reward):
+def create_quiz_repository(title, theme, difficulty, xp_reward):
 
     conn = get_connection()
     cursor = conn.cursor()
@@ -148,29 +173,7 @@ def delete_quiz(quiz_id):
 
     return deleted
 
-def get_all_quizzes_admin():
 
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute("""
-        SELECT
-            id,
-            title,
-            theme,
-            difficulty,
-            xp_reward,
-            is_active
-        FROM quiz
-        ORDER BY id DESC
-    """)
-
-    quizzes = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return quizzes
 #Resultados dos quizzes para o professor
 def get_quiz_results():
 
@@ -371,6 +374,25 @@ def delete_question(question_id):
     conn.close()
 
     return deleted > 0
+
+#buscar questão
+def get_question_by_id(question_id):
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM question
+        WHERE id = %s
+    """, (question_id,))
+
+    question = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return question
 # ==========================================================
 # ATTEMPTS
 # ==========================================================

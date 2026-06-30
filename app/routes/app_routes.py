@@ -190,9 +190,7 @@ def submit_quiz_route(quiz_id):
 def create_quiz_route():
 
     data = request.get_json()
-
-    quiz_id = create_quiz(data)
-
+    quiz_id = create_quiz_service(data)
     return jsonify({
         "success": True,
         "quiz_id": quiz_id

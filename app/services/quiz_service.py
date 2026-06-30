@@ -6,7 +6,6 @@ from app.repositories.quiz_repository import (
     save_quiz_attempt,
     count_attempts_today,
     get_best_score_today,
-    create_quiz,
     update_quiz,
     delete_quiz,
     get_quiz_results,
@@ -14,6 +13,7 @@ from app.repositories.quiz_repository import (
     update_question,
     delete_question
 )
+from app.repositories.quiz_repository import create_quiz_repository
 
 from app.services.game_service import process_game_score
 
@@ -119,10 +119,10 @@ def submit_quiz(quiz_id, user_id, answers):
         "questions_result": questions_result
     }
 
-#criar quiz
+#criar quiz    
 def create_quiz_service(data):
 
-    quiz_id = create_quiz(
+    quiz_id = create_quiz_repository(
         title=data["title"],
         theme=data["theme"],
         difficulty=data["difficulty"],
