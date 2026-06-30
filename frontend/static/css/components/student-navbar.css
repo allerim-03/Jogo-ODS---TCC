@@ -184,7 +184,19 @@
     border-radius:20px;
 
 }
+.student-avatar-link{
 
+    display:flex;
+
+    text-decoration:none;
+
+}
+
+.student-avatar-link:hover .student-foto-perfil{
+
+    transform:scale(1.08);
+
+}
 .student-foto-perfil{
 
     width:72px;

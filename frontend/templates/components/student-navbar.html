@@ -14,7 +14,7 @@
     <div class="student-status">
 
         <!-- FOTO -->
-        <a href="{{ url_for('routes.student_profile') }}">
+        <a href="{{ url_for('routes.student_profile') }}" class="student-avatar-link">
         <img
 
             src="{{ url_for('static',
@@ -54,10 +54,6 @@
     </div>
 
    
-
-   
-
-
             <!-- PLANTA -->
             <div class="planta-status">
                 
@@ -121,7 +117,7 @@
             🎮 Jogos
         </a>
 
-        <a href="{{ url_for('routes.start_quiz', quiz_id=1) }}">
+        <a href="{{ url_for('routes.quizzes') }}">
             🧠 Quiz
         </a>
 
