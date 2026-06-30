@@ -139,6 +139,7 @@ from app.services.quiz_service import (
     update_quiz_service,
     delete_quiz_service
 )
+
 from app.services.quiz_service import (
     get_quiz_results_service
 )
@@ -146,6 +147,11 @@ from app.services.quiz_service import (
     create_question_service,
     update_question_service,
     delete_question_service
+)
+from app.repositories.quiz_repository import (
+    get_all_quizzes,
+    get_all_quizzes_admin,
+    get_quiz_results
 )
 # API
 @routes.route("/api/quizzes", methods=["GET"])
@@ -409,6 +415,14 @@ def quiz_admin():
 
     return render_template(
         "quizzes/quiz-admin.html",
+        perfil="professor"
+    )
+@routes.route("/admin/quizzes/<int:quiz_id>/questions")
+def question_admin(quiz_id):
+
+    return render_template(
+        "quizzes/quiz-question-admin.html",
+        quiz_id=quiz_id,
         perfil="professor"
     )
 '''

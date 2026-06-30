@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}
+Gerenciar Perguntas
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/quiz-admin.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-page">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Perguntas do Quiz
+            </h1>
+
+            <p id="quiz-title">
+                Carregando...
+            </p>
+
+        </div>
+
+        <button
+            class="btn btn-secondary"
+            onclick="window.location='/admin/quizzes'">
+
+            ← Voltar
+
+        </button>
+
+    </div>
+
+    <!-- ===============================
+            NOVA PERGUNTA
+    ================================ -->
+
+    <div class="card">
+
+        <h2 id="question-form-title">
+
+            Nova Pergunta
+
+        </h2>
+
+        <textarea
+            id="question-text"
+            rows="3"
+            placeholder="Digite a pergunta"></textarea>
+
+        <input
+            id="option-a"
+            type="text"
+            placeholder="Alternativa A">
+
+        <input
+            id="option-b"
+            type="text"
+            placeholder="Alternativa B">
+
+        <input
+            id="option-c"
+            type="text"
+            placeholder="Alternativa C">
+
+        <input
+            id="option-d"
+            type="text"
+            placeholder="Alternativa D">
+
+        <select id="correct-option">
+
+            <option value="A">Resposta correta: A</option>
+
+            <option value="B">Resposta correta: B</option>
+
+            <option value="C">Resposta correta: C</option>
+
+            <option value="D">Resposta correta: D</option>
+
+        </select>
+
+        <input
+            id="question-order"
+            type="number"
+            min="1"
+            placeholder="Ordem">
+
+        <button
+            id="btn-save-question"
+            class="btn btn-primary">
+
+            Salvar Pergunta
+
+        </button>
+
+    </div>
+
+    <!-- ===============================
+            LISTA
+    ================================ -->
+
+    <table class="quiz-table">
+
+        <thead>
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Pergunta</th>
+
+                <th>Resposta</th>
+
+                <th width="180">
+                    Ações
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="question-table-body">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+const quizId = {{ quiz_id }};
+
+</script>
+
+<script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/quiz/quiz-admin-ui.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/quiz/quiz-admin.js') }}"></script>
+
+{% endblock %}

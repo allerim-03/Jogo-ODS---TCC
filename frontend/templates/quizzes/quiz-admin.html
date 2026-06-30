@@ -94,6 +94,7 @@ Painel de Quizzes
         + Novo Quiz
     </button>
 
+
     <div id="quiz-form-card" class="card hidden">
 
         <h2 id="form-title">
@@ -170,6 +171,7 @@ Painel de Quizzes
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>
-<script src="{{ url_for('static', filename='js/quiz/quiz-admin-ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/quiz/quiz-admin.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz/quiz-admin-ui.js') }}"></script>
+
 {% endblock %}

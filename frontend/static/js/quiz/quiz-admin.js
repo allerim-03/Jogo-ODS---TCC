@@ -1,13 +1,11 @@
 //crud do gestor-- controle para quiz-admin.html
 
+
+console.log("quiz-admin carregado");
 let quizzes = [];
 
 let editingQuiz = null;
-quizzes = await getAdminQuizzes();
 
-updateDashboard(quizzes);
-
-renderQuizTable(quizzes);
 // =======================================
 // Inicialização
 // =======================================
@@ -16,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document
         .getElementById("btn-new-quiz")
-        .addEventListener("click", newQuiz);
+        .addEventListener("click", showQuizForm);
 
     document
         .getElementById("btn-save")
@@ -36,6 +34,8 @@ async function loadQuizzes(){
     try{
 
         quizzes = await getAdminQuizzes();
+
+        updateDashboard(quizzes);
 
         renderTable();
 
@@ -121,21 +121,27 @@ function renderTable(){
 // Novo Quiz
 // =======================================
 
-function newQuiz(){
+//function newQuiz(){
 
-    editingQuiz = null;
+  //  editingQuiz = null;
 
-    document.getElementById("form-title").textContent =
-        "Novo Quiz";
+    //document.getElementById("form-title").textContent =
+      //  "Novo Quiz";
 
-    clearForm();
+    //clearForm();
+
+    //document
+      //  .getElementById("quiz-form-card")
+        //.classList.remove("hidden");
+
+//}
+function showQuizForm(){
 
     document
         .getElementById("quiz-form-card")
         .classList.remove("hidden");
 
 }
-
 
 // =======================================
 // Editar
@@ -254,9 +260,7 @@ async function removeQuiz(id){
 // =======================================
 
 function manageQuestions(id){
-
-    window.location.href = `/quiz-admin/${id}/questions`;
-
+    window.location.href = `/admin/quizzes/${id}/questions`;
 }
 
 

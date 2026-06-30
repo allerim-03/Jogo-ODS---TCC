@@ -146,7 +146,8 @@ def update_quiz_service(quiz_id, data):
         title=data["title"],
         theme=data["theme"],
         difficulty=data["difficulty"],
-        xp_reward=data["xp_reward"]
+        xp_reward=data["xp_reward"],
+        is_active=data["is_active"]
     )
 
     return {
