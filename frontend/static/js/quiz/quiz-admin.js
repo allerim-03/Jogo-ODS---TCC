@@ -255,13 +255,7 @@ async function removeQuiz(id){
 }
 
 
-// =======================================
-// Perguntas
-// =======================================
 
-function manageQuestions(id){
-    window.location.href = `/admin/quizzes/${id}/questions`;
-}
 
 
 // =======================================
@@ -277,5 +271,235 @@ function clearForm(){
     document.getElementById("quiz-difficulty").value = "Fácil";
 
     document.getElementById("quiz-xp").value = 100;
+
+}
+// =======================================
+// PERGUNTAS
+// =======================================
+
+let questions = [];
+
+let editingQuestion = null;
+
+let currentQuizId = null;
+
+
+// =======================================
+// Inicialização da página de perguntas
+// =======================================
+
+async function initQuestionPage(quizId){
+
+    currentQuizId = quizId;
+
+    document
+        .getElementById("btn-new-question")
+        ?.addEventListener("click", showQuestionForm);
+
+    document
+        .getElementById("btn-save-question")
+        ?.addEventListener("click", saveQuestion);
+
+    await loadQuestions();
+
+}
+
+
+// =======================================
+// Carrega perguntas
+// =======================================
+
+async function loadQuestions(){
+
+    try{
+
+        questions = await getQuestions(currentQuizId);
+
+        renderQuestionTable();
+
+    }catch(error){
+
+        alert(error.message);
+
+    }
+
+}
+
+
+// =======================================
+// Renderiza tabela
+// =======================================
+
+function renderQuestionTable(){
+
+    const tbody =
+        document.getElementById("question-table-body");
+
+    if(!tbody) return;
+
+    tbody.innerHTML = "";
+
+    questions.forEach(question=>{
+
+        tbody.innerHTML += `
+
+        <tr>
+
+            <td>${question.question_order}</td>
+
+            <td>${question.question_text}</td>
+
+            <td>${question.correct_option}</td>
+
+            <td>
+
+                <button
+                    class="btn btn-edit"
+                    onclick="editQuestion(${question.id})">
+
+                    Editar
+
+                </button>
+
+                <button
+                    class="btn btn-delete"
+                    onclick="removeQuestion(${question.id})">
+
+                    Excluir
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+// =======================================
+// Perguntas
+// =======================================
+
+function manageQuestions(id){
+    window.location.href = `/admin/quizzes/${id}/questions`;
+}
+function showQuestionForm(){
+
+    editingQuestion = null;
+
+    clearQuestionForm();
+
+    document
+        .getElementById("question-form-card")
+        .classList.remove("hidden");
+
+}
+function editQuestion(id){
+
+    editingQuestion =
+        questions.find(q=>q.id===id);
+
+    if(!editingQuestion) return;
+
+    document.getElementById("question-text").value =
+        editingQuestion.question_text;
+
+    document.getElementById("option-a").value =
+        editingQuestion.option_a;
+
+    document.getElementById("option-b").value =
+        editingQuestion.option_b;
+
+    document.getElementById("option-c").value =
+        editingQuestion.option_c;
+
+    document.getElementById("option-d").value =
+        editingQuestion.option_d;
+
+    document.getElementById("correct-option").value =
+        editingQuestion.correct_option;
+
+    document.getElementById("question-order").value =
+        editingQuestion.question_order;
+
+    document
+        .getElementById("question-form-card")
+        .classList.remove("hidden");
+
+}
+async function saveQuestion(){
+
+    const data={
+
+        quiz_id:currentQuizId,
+
+        question_text:
+            document.getElementById("question-text").value,
+
+        option_a:
+            document.getElementById("option-a").value,
+
+        option_b:
+            document.getElementById("option-b").value,
+
+        option_c:
+            document.getElementById("option-c").value,
+
+        option_d:
+            document.getElementById("option-d").value,
+
+        correct_option:
+            document.getElementById("correct-option").value,
+
+        question_order:
+            Number(document.getElementById("question-order").value)
+
+    };
+
+    if(editingQuestion){
+
+        await updateQuestion(editingQuestion.id,data);
+
+    }else{
+
+        await createQuestion(data);
+
+    }
+
+    clearQuestionForm();
+
+    document
+        .getElementById("question-form-card")
+        .classList.add("hidden");
+
+    await loadQuestions();
+
+}
+async function removeQuestion(id){
+
+    if(!confirm("Excluir pergunta?")) return;
+
+    await deleteQuestion(id);
+
+    await loadQuestions();
+
+}
+function clearQuestionForm(){
+
+    document.getElementById("question-text").value="";
+
+    document.getElementById("option-a").value="";
+
+    document.getElementById("option-b").value="";
+
+    document.getElementById("option-c").value="";
+
+    document.getElementById("option-d").value="";
+
+    document.getElementById("correct-option").value="A";
+
+    document.getElementById("question-order").value=1;
 
 }

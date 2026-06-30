@@ -347,5 +347,72 @@ async function getQuizResults(){
 // async function getQuizResults(){}
 
 
+// --------------------
+// Perguntas (Gestor)
+// --------------------
 
+// Lista as perguntas de um quiz
+async function getQuestions(quizId){
+
+    const response = await fetch(`/api/quizzes/${quizId}`);
+
+    const quiz = await handleResponse(response);
+
+    return quiz.questions;
+
+}
+
+
+// Cria uma pergunta
+async function createQuestion(data){
+
+    const response = await fetch("/api/questions",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(data)
+
+    });
+
+    return handleResponse(response);
+
+}
+
+
+// Atualiza uma pergunta
+async function updateQuestion(questionId,data){
+
+    const response = await fetch(`/api/questions/${questionId}`,{
+
+        method:"PUT",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(data)
+
+    });
+
+    return handleResponse(response);
+
+}
+
+
+// Exclui uma pergunta
+async function deleteQuestion(questionId){
+
+    const response = await fetch(`/api/questions/${questionId}`,{
+
+        method:"DELETE"
+
+    });
+
+    return handleResponse(response);
+
+}
 
