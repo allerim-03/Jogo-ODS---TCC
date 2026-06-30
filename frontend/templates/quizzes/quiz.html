@@ -121,13 +121,16 @@ quiz-result.html
 </main>
 
 
+
+
 <script>
 
 const QUIZ_ID = {{ quiz_id|tojson }};
-
-const USER_ID = {{ session.get("user_id")|tojson }};
+const USER_ID = {{ user_id|tojson }};
 
 </script>
+
+
 
 <script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>
 <script src="{{ url_for('static', filename='js/quiz/quiz-ui.js') }}"></script>

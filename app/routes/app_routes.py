@@ -6,7 +6,8 @@ from flask import (
     request,
     jsonify,
     render_template,
-    redirect
+    redirect,
+    session
 )
 routes = Blueprint(
     "routes",
@@ -177,6 +178,7 @@ def quizzes():
 def quiz():
     return render_template("quizzes/quiz.html")
 '''
+'''
 @routes.route("/quiz/<int:quiz_id>")
 def start_quiz(quiz_id):
 
@@ -188,6 +190,19 @@ def start_quiz(quiz_id):
         user_id=user_id,
         perfil="estudante"
     )
+'''
+@routes.route("/quiz/<int:quiz_id>")
+def start_quiz(quiz_id):
+
+    user_id = session.get("user_id", 1)
+
+    return render_template(
+        "quizzes/quiz.html",
+        quiz_id=quiz_id,
+        user_id=user_id,
+        perfil="estudante"
+    )
+
 @routes.route('/quiz/submit', methods=['POST'])
 def submit_game_quiz():
     data = request.json
