@@ -293,7 +293,14 @@ def delete_question_route(question_id):
         }),404
 
     return jsonify(result),200
-# Página HTML
+
+@routes.route("/api/quizzes/admin", methods=["GET"])
+def list_admin_quizzes():
+
+    quizzes = get_all_quizzes_admin()
+
+    return jsonify(quizzes), 200
+# Página HTML-quiz
 @routes.route("/quizzes")
 def quizzes():
 

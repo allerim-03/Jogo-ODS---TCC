@@ -7,3 +7,91 @@ ativar/desativar
 visualizar estatísticas
 
 -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="admin-page">
+
+    <h1>Painel de Quizzes</h1>
+
+    <button id="btn-new-quiz" class="btn btn-success">
+        + Novo Quiz
+    </button>
+
+    <div id="quiz-form-card" class="card hidden">
+
+        <h2 id="form-title">
+            Novo Quiz
+        </h2>
+
+        <input
+            id="quiz-title"
+            type="text"
+            placeholder="Título">
+
+        <input
+            id="quiz-theme"
+            type="text"
+            placeholder="Tema">
+
+        <select id="quiz-difficulty">
+
+            <option value="Fácil">Fácil</option>
+
+            <option value="Médio">Médio</option>
+
+            <option value="Difícil">Difícil</option>
+
+        </select>
+
+        <input
+            id="quiz-xp"
+            type="number"
+            value="100">
+
+        <button
+            id="btn-save"
+            class="btn btn-primary">
+
+            Salvar
+
+        </button>
+
+    </div>
+
+    <table class="quiz-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Título</th>
+
+                <th>Tema</th>
+
+                <th>Dificuldade</th>
+
+                <th>XP</th>
+
+                <th>Status</th>
+
+                <th>Ações</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="quiz-table-body">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/quiz/quiz-admin.js') }}"></script>
+
+{% endblock %}
