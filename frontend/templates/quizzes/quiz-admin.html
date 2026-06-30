@@ -9,12 +9,87 @@ visualizar estatísticas
 -->
 {% extends "base.html" %}
 
+{% block title %}
+Painel de Quizzes
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/quiz-admin.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/teacher.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <div class="admin-page">
 
     <h1>Painel de Quizzes</h1>
+<!-- ======================================
+            ESTATÍSTICAS
+======================================= -->
 
+    <div class="quiz-dashboard">
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                📚
+            </div>
+
+            <div>
+
+                <span class="dashboard-number"
+                    id="total-quizzes">
+                    0
+                </span>
+
+                <p>Total de Quizzes</p>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <span class="dashboard-number"
+                    id="active-quizzes">
+                    0
+                </span>
+
+                <p>Quizzes Ativos</p>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🚫
+            </div>
+
+            <div>
+
+                <span class="dashboard-number"
+                    id="inactive-quizzes">
+                    0
+                </span>
+
+                <p>Quizzes Inativos</p>
+
+            </div>
+
+        </div>
+
+    </div>
     <button id="btn-new-quiz" class="btn btn-success">
         + Novo Quiz
     </button>
@@ -92,6 +167,9 @@ visualizar estatísticas
 
 </div>
 
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz/quiz-api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/quiz/quiz-admin-ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/quiz/quiz-admin.js') }}"></script>
-
 {% endblock %}

@@ -400,6 +400,29 @@ PUT    /api/quizzes/<id>
 DELETE /api/quizzes/<id>
 GET /api/users/<int:user_id>/quiz-results- historico
 '''
+# ==========================
+# PAINEL ADMIN - QUIZZES
+# ==========================
+
+@routes.route("/admin/quizzes")
+def quiz_admin():
+
+    return render_template(
+        "quizzes/quiz-admin.html",
+        perfil="professor"
+    )
+'''
+--versão com login e autenticação
+@routes.route("/admin/quizzes")
+@login_required
+@teacher_required
+def quiz_admin():
+
+    return render_template(
+        "quizzes/quiz-admin.html",
+        perfil="professor"
+    )
+    '''
 #===========================
 # games.py
 #=========================

@@ -3,7 +3,11 @@
 let quizzes = [];
 
 let editingQuiz = null;
+quizzes = await getAdminQuizzes();
 
+updateDashboard(quizzes);
+
+renderQuizTable(quizzes);
 // =======================================
 // Inicialização
 // =======================================
