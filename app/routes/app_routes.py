@@ -142,6 +142,11 @@ from app.services.quiz_service import (
 from app.services.quiz_service import (
     get_quiz_results_service
 )
+from app.services.quiz_service import (
+    create_question_service,
+    update_question_service,
+    delete_question_service
+)
 # API
 @routes.route("/api/quizzes", methods=["GET"])
 def list_quizzes():
@@ -251,6 +256,45 @@ def quiz_results():
     results = get_quiz_results_service()
 
     return jsonify(results), 200
+@routes.route("/api/questions", methods=["POST"])
+def create_question_route():
+
+    data = request.get_json()
+
+    result = create_question_service(data)
+
+    return jsonify(result),201
+@routes.route("/api/questions/<int:question_id>", methods=["PUT"])
+def update_question_route(question_id):
+
+    data = request.get_json()
+
+    result = update_question_service(
+        question_id,
+        data
+    )
+
+    if result is None:
+
+        return jsonify({
+            "success":False,
+            "message":"Pergunta não encontrada."
+        }),404
+
+    return jsonify(result),200
+@routes.route("/api/questions/<int:question_id>", methods=["DELETE"])
+def delete_question_route(question_id):
+
+    result = delete_question_service(question_id)
+
+    if result is None:
+
+        return jsonify({
+            "success":False,
+            "message":"Pergunta não encontrada."
+        }),404
+
+    return jsonify(result),200
 # Página HTML
 @routes.route("/quizzes")
 def quizzes():

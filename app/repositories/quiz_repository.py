@@ -260,8 +260,117 @@ def get_correct_answers(quiz_id):
     conn.close()
 
     return answers
+#criar pergunta
+def create_question(
+    quiz_id,
+    question_text,
+    option_a,
+    option_b,
+    option_c,
+    option_d,
+    correct_option,
+    question_order
+):
 
+    conn = get_connection()
+    cursor = conn.cursor()
 
+    cursor.execute("""
+        INSERT INTO question
+        (
+            quiz_id,
+            question_text,
+            option_a,
+            option_b,
+            option_c,
+            option_d,
+            correct_option,
+            question_order
+        )
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+    """,(
+        quiz_id,
+        question_text,
+        option_a,
+        option_b,
+        option_c,
+        option_d,
+        correct_option,
+        question_order
+    ))
+
+    conn.commit()
+
+    question_id = cursor.lastrowid
+
+    cursor.close()
+    conn.close()
+
+    return question_id
+#atualizar pergunta
+def update_question(
+    question_id,
+    question_text,
+    option_a,
+    option_b,
+    option_c,
+    option_d,
+    correct_option,
+    question_order
+):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE question
+        SET
+            question_text=%s,
+            option_a=%s,
+            option_b=%s,
+            option_c=%s,
+            option_d=%s,
+            correct_option=%s,
+            question_order=%s
+        WHERE id=%s
+    """,(
+        question_text,
+        option_a,
+        option_b,
+        option_c,
+        option_d,
+        correct_option,
+        question_order,
+        question_id
+    ))
+
+    conn.commit()
+
+    updated = cursor.rowcount
+
+    cursor.close()
+    conn.close()
+
+    return updated > 0
+#excluir pergunta
+def delete_question(question_id):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        DELETE FROM question
+        WHERE id=%s
+    """,(question_id,))
+
+    conn.commit()
+
+    deleted = cursor.rowcount
+
+    cursor.close()
+    conn.close()
+
+    return deleted > 0
 # ==========================================================
 # ATTEMPTS
 # ==========================================================

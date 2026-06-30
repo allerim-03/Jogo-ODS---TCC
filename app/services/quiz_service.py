@@ -9,7 +9,10 @@ from app.repositories.quiz_repository import (
     create_quiz,
     update_quiz,
     delete_quiz,
-    get_quiz_results
+    get_quiz_results,
+    create_question,
+    update_question,
+    delete_question
 )
 
 from app.services.game_service import process_game_score
@@ -166,3 +169,52 @@ def delete_quiz_service(quiz_id):
 def get_quiz_results_service():
 
     return get_quiz_results()
+
+####perguntas 
+
+def create_question_service(data):
+
+    question_id = create_question(
+        quiz_id=data["quiz_id"],
+        question_text=data["question_text"],
+        option_a=data["option_a"],
+        option_b=data["option_b"],
+        option_c=data["option_c"],
+        option_d=data["option_d"],
+        correct_option=data["correct_option"],
+        question_order=data["question_order"]
+    )
+
+    return {
+        "success": True,
+        "question_id": question_id
+    }
+def update_question_service(question_id,data):
+
+    success = update_question(
+        question_id=question_id,
+        question_text=data["question_text"],
+        option_a=data["option_a"],
+        option_b=data["option_b"],
+        option_c=data["option_c"],
+        option_d=data["option_d"],
+        correct_option=data["correct_option"],
+        question_order=data["question_order"]
+    )
+
+    if not success:
+        return None
+
+    return {
+        "success":True
+    }
+def delete_question_service(question_id):
+
+    success = delete_question(question_id)
+
+    if not success:
+        return None
+
+    return {
+        "success":True
+    }
