@@ -134,8 +134,14 @@ def student_profile():
 from app.repositories.quiz_repository import get_all_quizzes
 from app.services.quiz_service import get_quiz_details
 from app.services.quiz_service import submit_quiz as submit_quiz_service
-
-
+from app.services.quiz_service import (
+    create_quiz_service,
+    update_quiz_service,
+    delete_quiz_service
+)
+from app.services.quiz_service import (
+    get_quiz_results_service
+)
 # API
 @routes.route("/api/quizzes", methods=["GET"])
 def list_quizzes():
@@ -175,7 +181,76 @@ def submit_quiz_route(quiz_id):
         }), 404
 
     return jsonify(result), 200
+@routes.route("/api/quizzes", methods=["POST"])
+def create_quiz_route():
 
+    data = request.get_json()
+
+    quiz_id = create_quiz(data)
+
+    return jsonify({
+        "success": True,
+        "quiz_id": quiz_id
+    }), 201
+@routes.route("/api/quizzes/<int:quiz_id>", methods=["PUT"])
+def update_quiz_route(quiz_id):
+
+    data = request.get_json()
+    result = update_quiz_service(quiz_id, data)
+
+    if result is None:
+        return jsonify({
+            "success": False,
+            "message": "Quiz não encontrado."
+        }), 404
+
+    return jsonify(result), 200
+'''
+    success = update_quiz(quiz_id, data)
+
+    if not success:
+
+        return jsonify({
+            "success": False,
+            "message": "Quiz não encontrado."
+        }), 404
+
+    return jsonify({
+        "success": True
+    }), 200
+'''
+    
+@routes.route("/api/quizzes/<int:quiz_id>", methods=["DELETE"])
+def delete_quiz_route(quiz_id):
+    result = delete_quiz_service(quiz_id)
+
+    if result is None:
+        return jsonify({
+            "success": False,
+            "message": "Quiz não encontrado."
+        }), 404
+
+    return jsonify(result), 200
+'''
+    success = delete_quiz(quiz_id)
+
+    if not success:
+
+        return jsonify({
+            "success": False,
+            "message": "Quiz não encontrado."
+        }), 404
+
+    return jsonify({
+        "success": True
+    }), 200
+'''
+@routes.route("/api/quizzes/results", methods=["GET"])
+def quiz_results():
+
+    results = get_quiz_results_service()
+
+    return jsonify(results), 200
 # Página HTML
 @routes.route("/quizzes")
 def quizzes():

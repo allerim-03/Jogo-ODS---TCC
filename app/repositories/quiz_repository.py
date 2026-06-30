@@ -56,7 +56,150 @@ def get_quiz_by_id(quiz_id):
     conn.close()
 
     return quiz
+# cria um novo quiz
+def create_quiz(title, theme, difficulty, xp_reward):
 
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO quiz
+        (
+            title,
+            theme,
+            difficulty,
+            xp_reward,
+            is_active
+        )
+        VALUES
+        (%s,%s,%s,%s,TRUE)
+    """, (
+        title,
+        theme,
+        difficulty,
+        xp_reward
+    ))
+
+    conn.commit()
+
+    quiz_id = cursor.lastrowid
+
+    cursor.close()
+    conn.close()
+
+    return quiz_id
+# atualiza os dados de um quiz
+def update_quiz(
+    quiz_id,
+    title,
+    theme,
+    difficulty,
+    xp_reward,
+    is_active
+):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE quiz
+        SET
+            title = %s,
+            theme = %s,
+            difficulty = %s,
+            xp_reward = %s,
+            is_active = %s
+        WHERE id = %s
+    """, (
+        title,
+        theme,
+        difficulty,
+        xp_reward,
+        is_active,
+        quiz_id
+    ))
+
+    conn.commit()
+
+    updated = cursor.rowcount > 0
+
+    cursor.close()
+    conn.close()
+
+    return updated
+
+def delete_quiz(quiz_id):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        UPDATE quiz
+        SET is_active = FALSE
+        WHERE id = %s
+    """, (quiz_id,))
+
+    conn.commit()
+
+    deleted = cursor.rowcount > 0
+
+    cursor.close()
+    conn.close()
+
+    return deleted
+
+def get_all_quizzes_admin():
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            id,
+            title,
+            theme,
+            difficulty,
+            xp_reward,
+            is_active
+        FROM quiz
+        ORDER BY id DESC
+    """)
+
+    quizzes = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return quizzes
+#Resultados dos quizzes para o professor
+def get_quiz_results():
+
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT
+            qa.id,
+            u.name AS student,
+            q.title AS quiz,
+            qa.score,
+            qa.total_questions,
+            qa.xp_earned,
+            qa.completed_at
+        FROM quiz_attempt qa
+        INNER JOIN user u
+            ON qa.user_id = u.id
+        INNER JOIN quiz q
+            ON qa.quiz_id = q.id
+        ORDER BY qa.completed_at DESC;
+    """)
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return results
 
 # ==========================================================
 # QUESTIONS

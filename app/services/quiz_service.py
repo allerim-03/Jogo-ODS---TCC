@@ -5,8 +5,13 @@ from app.repositories.quiz_repository import (
     get_correct_answers,
     save_quiz_attempt,
     count_attempts_today,
-    get_best_score_today
+    get_best_score_today,
+    create_quiz,
+    update_quiz,
+    delete_quiz,
+    get_quiz_results
 )
+
 from app.services.game_service import process_game_score
 
 def get_quiz_details(quiz_id):
@@ -111,3 +116,53 @@ def submit_quiz(quiz_id, user_id, answers):
         "questions_result": questions_result
     }
 
+#criar quiz
+def create_quiz_service(data):
+
+    quiz_id = create_quiz(
+        title=data["title"],
+        theme=data["theme"],
+        difficulty=data["difficulty"],
+        xp_reward=data["xp_reward"]
+    )
+
+    return {
+        "success": True,
+        "quiz_id": quiz_id
+    }
+#atualiza quiz
+def update_quiz_service(quiz_id, data):
+
+    quiz = get_quiz_by_id(quiz_id)
+
+    if quiz is None:
+        return None
+
+    update_quiz(
+        quiz_id=quiz_id,
+        title=data["title"],
+        theme=data["theme"],
+        difficulty=data["difficulty"],
+        xp_reward=data["xp_reward"]
+    )
+
+    return {
+        "success": True
+    }
+#desativar por exclusão lógica 
+def delete_quiz_service(quiz_id):
+
+    quiz = get_quiz_by_id(quiz_id)
+
+    if quiz is None:
+        return None
+
+    delete_quiz(quiz_id)
+
+    return {
+        "success": True
+    }
+#resultados dos quizzes p/ professor
+def get_quiz_results_service():
+
+    return get_quiz_results()
