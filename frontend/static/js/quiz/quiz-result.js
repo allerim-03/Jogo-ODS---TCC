@@ -17,56 +17,77 @@ document.getElementById("xp").textContent =
 document.getElementById("level").textContent =
 `Nível ${result.level}`;
 //mensagem Tuga
-const text = document.getElementById("tuga-text");
+const tugaText = document.getElementById("tuga-text");
 
-switch(result.xp_reason){
 
-    case "score_improved":
+if(result.score === result.total_questions){
 
-        text.textContent =
-        "Parabéns! Você melhorou seu desempenho e ganhou XP!";
+    tugaText.textContent =
+    "Perfeito! Você dominou este conteúdo.Melhorou seu desempenho e ganhou XP!";
 
-        break;
-
-    case "score_not_improved":
-
-        text.textContent =
-        "Você concluiu o quiz, mas precisa superar sua melhor pontuação de hoje para ganhar XP.";
-
-        break;
-
-    case "daily_limit":
-
-        text.textContent =
-        "Você atingiu o limite diário de tentativas com recompensa de XP. Continue praticando!";
-
-        break;
-
-    default:
-
-        text.textContent =
-        "Quiz finalizado!";
 }
+else if(result.score >= result.total_questions*0.7){
+
+    tugaText.textContent =
+    "🌟 Excelente! Continue assim.";
+
+}
+else if(result.score >= result.total_questions*0.5){
+
+    tugaText.textContent =
+    " Bom trabalho! Revise algumas questões para melhorar ainda mais.";
+
+}
+else{
+
+    tugaText.textContent =
+    " Não desanime! Revise o conteúdo e tente novamente.";
+
+}
+
+
 //mostrar cada questão
+let optionsHTML = "";
+
+Object.entries(question.options).forEach(([letter,text])=>{
+
+    let css = "btn-option";
+
+    if(letter === question.correct_answer){
+
+        css += " correct";
+
+    }
+    else if(letter === question.user_answer){
+
+        css += " wrong";
+
+    }
+
+    optionsHTML += `
+        <button class="${css}">
+            ${letter}) ${text}
+        </button>
+    `;
+
+});
 const container =
 document.getElementById("questions-review");
 
 result.questions_result.forEach(question => {
-
     container.innerHTML += `
 
-    <div class="card">
+<div class="card">
 
-        <h3>${question.question}</h3>
+    <h3>${question.question}</h3>
 
-        <p>
+    ${optionsHTML}
 
-            Sua resposta:
-            <strong>${question.user_answer ?? "-"}</strong>
+</div>
 
-        </p>
-
-        <p>
+`;
+    
+'''
 
             Resposta correta:
             <strong>${question.correct_answer}</strong>
@@ -92,5 +113,27 @@ result.questions_result.forEach(question => {
     <br>
 
     `;
-
+'''
 });
+//quantidade de tentativas
+document.getElementById("correct-count").textContent =
+    `${result.score} de ${result.total_questions}`;
+
+document.getElementById("attempts-left").textContent =
+    `${result.attempts_left}/3`;
+
+  
+
+const retry =
+    document.getElementById("btn-retry");
+
+if(retry){
+
+    retry.addEventListener("click",()=>{
+
+        window.location.href =
+        `/quiz/${result.quiz_id}`;
+
+    });
+
+}

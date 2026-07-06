@@ -84,7 +84,9 @@
 
                 <label class="rotulo-input">Sua Senha</label>
                 <input type="password" id="senha" name="senha" class="input-estilizado" placeholder="Digite sua senha" required>
-
+                <div id="erro-login"
+                      class="oculto erro-login">
+                </div>
                 <button type="submit" id="btn-entrar">Entrar</button>
                 
                 <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #7f8c8d;">
@@ -95,7 +97,16 @@
     </main>
 
    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>
+   
+    <script src="{{ url_for('static', filename='js/services/auth.js') }}"></script>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>
+
+
+
+ <!--script>
         function proximoPassoLogin(escolha) {
             const painelTriagem = document.getElementById('etapa-tipo-uso');
             const formLogin = document.getElementById('form-login');
@@ -147,10 +158,4 @@
         }
 
         window.onload = () => { selecionarPerfilLogin('estudante'); }
-    </script>
-</body>
-{% include 'components/footer.html' %}
-</html>
-
-
-
+    </script-->

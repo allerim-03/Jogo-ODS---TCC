@@ -33,7 +33,29 @@
     <section class="card quiz-result-card">
 
         <h1>Resultado do Quiz</h1>
+<div class="result-stats card">
 
+    <div class="result-item">
+
+        <span class="result-number" id="correct-count">
+            0
+        </span>
+
+        <span>Acertos</span>
+
+    </div>
+
+    <div class="result-item">
+
+        <span class="result-number" id="attempts-left">
+            0/3
+        </span>
+
+        <span>Tentativas restantes</span>
+
+    </div>
+
+</div>
         <div id="tuga-message"
              class="tuga-message tuga-success">
 
@@ -57,26 +79,42 @@
 
             <h2 id="score"></h2>
 
+            <p id="score-text"></p>
+
             <p id="xp"></p>
 
             <p id="level"></p>
+
+            <p id="attempts"></p>
 
         </div>
 
         <hr>
 
         <h2>Questões</h2>
+        <div class="result-actions">
 
-        <div id="questions-review"></div>
+                <button
+                    id="btn-retry"
+                    class="btn btn-secondary">
 
-        <br>
+                    Tentar novamente
 
-        <a href="/quizzes"
-           class="btn btn-primary">
+                </button>
 
-            Voltar aos Quizzes
+                <a
+                    href="/quizzes"
+                    class="btn btn-primary">
 
-        </a>
+                    Voltar aos Quizzes
+
+                </a>
+
+            </div>
+
+        
+
+       
 
     </section>
 

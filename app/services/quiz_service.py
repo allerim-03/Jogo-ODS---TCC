@@ -75,6 +75,7 @@ def submit_quiz(quiz_id, user_id, answers):
     xp_reason = None
 
     attempts_today = count_attempts_today(user_id, quiz_id)
+    attempts_left = max(0, 3 - (attempts_today + 1))
     best_score = get_best_score_today(user_id, quiz_id)
 
     if attempts_today >= 3:
@@ -116,9 +117,9 @@ def submit_quiz(quiz_id, user_id, answers):
         "xp_after": user["xp"],
         "level": user["level"],
         "xp_reason": xp_reason,
+        "attempts_left": attempts_left,
         "questions_result": questions_result
     }
-
 #criar quiz    
 def create_quiz_service(data):
 

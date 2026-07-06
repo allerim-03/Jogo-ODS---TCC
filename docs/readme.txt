@@ -1309,7 +1309,7 @@ Tabela principal renomeada para seguir o padrão em inglês:
 ## users
 
 ```sql
-CREATE TABLE users (
+CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -1322,7 +1322,7 @@ CREATE TABLE users (
 ## scores
 
 ```sql
-CREATE TABLE scores (
+CREATE TABLE score (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     game_name VARCHAR(50) NOT NULL,
@@ -1346,10 +1346,10 @@ CREATE TABLE badges (
 );
 ```
 
-## inventory_badges
+## inventory_badge
 
 ```sql
-CREATE TABLE inventory_badges (
+CREATE TABLE inventory_badge (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     badge_id INT NOT NULL,

@@ -56,14 +56,21 @@ function renderCurrentQuestion(){
 
 }
 //selecionar alternativa
+
+const buttons =
+    document.querySelectorAll(".btn-option");
+
+buttons.forEach(btn=>{
+
+    btn.disabled = true;
+
+});
 function selectOption(option){
 
     const question = quiz.questions[currentQuestion];
-
     answers[question.id] = option;
 
     currentQuestion++;
-
     if(currentQuestion < quiz.questions.length){
 
         renderCurrentQuestion();
@@ -74,7 +81,13 @@ function selectOption(option){
 
     }
 
-}
+ }
+
+   
+
+    
+
+
 //finalizar
 async function finishQuiz(){
 
@@ -89,7 +102,17 @@ async function finishQuiz(){
             answers
 
         );
+        correct_answers
+        if(opcao === respostaCorreta){
 
+    botao.classList.add("correct");
+
+}
+else if(opcao === respostaAluno){
+
+    botao.classList.add("wrong");
+
+}
         showResult(result);
 
     }catch(error){

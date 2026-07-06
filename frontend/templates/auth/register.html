@@ -86,7 +86,14 @@
     </main>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>
+    <script src="{{ url_for('static', filename='js/services/auth.js') }}"></script>
+
+</body>
+{% include 'components/footer.html' %}
+</html>
+
+
+    <!--script>
         function proximoPassoCadastro(escolha) {
             const painelTriagem = document.getElementById('etapa-tipo-uso');
             const formCadastro = document.getElementById('form-cadastro');
@@ -142,7 +149,4 @@
         }
 
         window.onload = () => { selecionarPerfil('estudante'); }
-    </script>
-</body>
-{% include 'components/footer.html' %}
-</html>
+    </script-->
