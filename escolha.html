@@ -6,6 +6,23 @@
     <title>ODS KIDS - Cultivando o Saber</title>
 
     <link rel="stylesheet" href="style.css">
+    <style>
+        .escolha-icone {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            margin-bottom: 10px;
+        }
+
+        .aluno-card .escolha-icone {
+            background-image: url('img/aluno.png');
+        }
+
+        .professor-card .escolha-icone {
+            background-image: url('img/prof.png');
+        }
+    </style>
 </head>
 
 <body>
@@ -65,32 +82,32 @@
     </a>
 </header>
 
-        <main>
-            <section class="boas-vindas">
-                <h2 class="titulo-branco">Bem-vindo!</h2>
-                <p class="sub-branco">Quem é você?</p>
+<main>
+    <section class="boas-vindas">
+        <h2 class="titulo-branco">Bem-vindo!</h2>
+        <p class="sub-branco">Quem é você?</p>
 
-                <div class="escolha-container">
+        <div class="escolha-container">
 
-        <div class="escolha-card aluno-card" onclick="window.location.href='login.html'">
-            <span class="escolha-icone"></span>
-            <h2>Aluno</h2>
-            <p>Quero aprender brincando!</p>
+            <div class="escolha-card aluno-card" onclick="window.location.href='login.html'">
+                <span class="escolha-icone"></span>
+                <h2>Aluno</h2>
+                <p>Quero aprender brincando!</p>
+            </div>
+
+            <div class="escolha-card professor-card" onclick="window.location.href='login-professor.html'">
+                <span class="escolha-icone"></span>
+                <h2>Gestor</h2>
+                <p>Quero acompanhar meus alunos.</p>
+            </div>
+
         </div>
+    </section>
+</main>
 
-        <div class="escolha-card professor-card" onclick="window.location.href='login-professor.html'">
-            <span class="escolha-icone"></span>
-            <h2>Gestor</h2>
-            <p>Quero acompanhar meus alunos.</p>
-        </div>
+<footer>
+    <p>© 2026 FATEC - Informática para Negócios</p>
+</footer>
 
-    </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2026 FATEC - Informática para Negócios</p>
-        </footer>
-
-    </body>
-    </html>
+</body>
+</html>
