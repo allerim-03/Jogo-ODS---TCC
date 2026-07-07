@@ -1,0 +1,651 @@
+/*
+//ui.css
+
+local dos Componentes reutilizaveis
+
+ Botões
+
+ Inputs
+
+ Cards
+
+ Modais
+
+ Alertas
+
+Progress-bar
+
+ Badges
+
+Tooltips
+*/
+
+
+
+/* =========================================================
+    BOTÕES BASE (GENÉRICO)
+   Todos os botões do sistema herdam daqui
+========================================================= */
+
+/* Variações de botão (uso padrão do sistema) */
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--garden-green);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--bright-blue);
+    color: white;
+}
+
+
+.btn-levelup {
+  background-color: var(--banana-yellow);
+  color: #000;
+}
+
+.btn-danger {
+  background-color: var(--vivid-red);
+}
+
+/* Hover */
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-option:disabled{
+    cursor:not-allowed;
+    opacity:0.7;
+}
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    background:#F44336;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+}
+
+.logout-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#D32F2F;
+
+}
+/* =========================================================
+    COMPONENTE CARD (BASE)
+   Usado em menu, index, telas de conteúdo
+========================================================= */
+
+/* ================================
+   Cards de Jogos e Atividades
+   ================================ */
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    border: 2px solid var(--bright-blue);
+
+    padding: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* variações visuais de card */
+.card.green {
+  border-color: var(--garden-green);
+}
+
+.card.orange {
+  border-color: var(--orange);
+}
+
+.card.lavender {
+  border-color: var(--lavender);
+}
+
+.card.yellow {
+  border-color: var(--banana-yellow);
+}
+.card-success {
+    border-color: var(--garden-green);
+}
+
+.card-warning {
+    border-color: var(--orange);
+}
+
+.card-special {
+    border-color: var(--lavender);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: var(--bright-blue);
+    box-shadow: 0 0 0 3px rgba(67,180,251,0.15);
+}
+/* =========================================================
+   COMPONENTES DE UTILIDADE (REUTILIZÁVEIS)
+========================================================= */
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+}
+
+.logo p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: bold;
+}
+/* ================================
+   Barra de Progresso / XP
+   ================================ */
+
+
+/* Barrinha de progresso genérica (XP, loading, etc.) */
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 12px;
+    width: 0%;/* será atualizado dinamicamente */
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--garden-green),
+            #52d36d
+        );
+
+    transition: width 0.5s ease;
+}
+
+/* ================================
+   Mascote Tuga - Caixas de Diálogo
+   ================================ */
+
+
+/* Caixa padrão de mensagens do mascote */
+.tuga-dialog {
+  border: 3px solid var(--garden-green);
+  background-color: var(--background-light);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.tuga-dialog.blue {
+  border-color: var(--bright-blue);
+}
+
+.tuga-dialog.yellow {
+    border-color: var(--banana-yellow);
+}
+
+/* =========================================================
+   MODAIS
+   Janelas de confirmação, avisos e formulários rápidos
+========================================================= */
+
+/* Fundo escurecido atrás do modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* Caixa principal do modal */
+.modal {
+    background: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Cabeçalho */
+.modal-header {
+    margin-bottom: 16px;
+}
+
+/* Corpo */
+.modal-body {
+    margin-bottom: 20px;
+}
+
+/* Rodapé */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* =========================================================
+   ALERTAS
+   Mensagens de sucesso, aviso, erro e informação
+========================================================= */
+
+.alert {
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    margin: 10px 0;
+
+    font-weight: 600;
+
+    border-left: 6px solid;
+}
+
+/* Sucesso */
+.alert-success {
+    background: #f0fdf4;
+    border-color: var(--garden-green);
+    color: #166534;
+}
+
+/* Informação */
+.alert-info {
+    background: #eff6ff;
+    border-color: var(--bright-blue);
+    color: #1d4ed8;
+}
+
+/* Aviso */
+.alert-warning {
+    background: #fff7ed;
+    border-color: var(--orange);
+    color: #c2410c;
+}
+
+/* Erro */
+.alert-danger {
+    background: #fef2f2;
+    border-color: var(--vivid-red);
+    color: #b91c1c;
+}
+/* =========================================================
+   BADGES
+   Pequenos indicadores de status e pontuação
+========================================================= */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Badge verde */
+.badge-success {
+    background: var(--garden-green);
+    color: white;
+}
+
+/* Badge azul */
+.badge-info {
+    background: var(--bright-blue);
+    color: white;
+}
+
+/* Badge amarela (XP, pontos) */
+.badge-level {
+    background: var(--banana-yellow);
+    color: var(--black);
+}
+
+/* Badge vermelha */
+.badge-danger {
+    background: var(--vivid-red);
+    color: white;
+}
+.badge-alertas {
+    background-color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.num-alerta {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+/* =========================================================
+   TOOLTIPS
+   Pequenas dicas ao passar o mouse
+========================================================= */
+
+/* Container do tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Texto da dica */
+.tooltip-text {
+    position: absolute;
+
+    bottom: 120%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: var(--gray-700);
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.2s ease;
+
+    z-index: 100;
+}
+
+/* DICA */
+.dica {
+    margin-top: 15px;
+    padding: 10px;
+    background: #c6f6d5;
+    border: 2px solid #22c55e;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #065f46;
+}
+/* Exibir tooltip */
+.tooltip:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================================
+   TUGA MESSAGE
+   Sistema oficial de mensagens da PlataformaEduca
+========================================================= */
+
+.tuga-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    margin: 12px 0;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Avatar do mascote */
+.tuga-avatar {
+    flex-shrink: 0;
+
+    width: 64px;
+    height: 64px;
+
+    object-fit: contain;
+}
+
+/* Área do texto */
+.tuga-content {
+    flex: 1;
+}
+
+/* Nome do mascote */
+.tuga-title {
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+/* =========================================================
+   TUGA - SUCESSO
+========================================================= */
+
+.tuga-success {
+    border-left: 6px solid var(--garden-green);
+    background: #f0fdf4;
+}
+
+.tuga-success .tuga-title {
+    color: var(--garden-green);
+}
+/* =========================================================
+   TUGA - INFORMAÇÃO
+========================================================= */
+
+.tuga-info {
+    border-left: 6px solid var(--bright-blue);
+    background: #eff6ff;
+}
+
+.tuga-info .tuga-title {
+    color: var(--bright-blue);
+}
+/* =========================================================
+   TUGA - RECOMPENSA
+========================================================= */
+
+.tuga-reward {
+    border-left: 6px solid var(--banana-yellow);
+    background: #fffdf0;
+}
+
+.tuga-reward .tuga-title {
+    color: #c59c00;
+}
+/* =========================================================
+   TUGA - ATENÇÃO
+========================================================= */
+
+.tuga-warning {
+    border-left: 6px solid var(--orange);
+    background: #fff7ed;
+}
+
+.tuga-warning .tuga-title {
+    color: var(--orange);
+}
+/* =========================================================
+   TUGA - ERRO
+========================================================= */
+
+.tuga-danger {
+    border-left: 6px solid var(--vivid-red);
+    background: #fef2f2;
+}
+
+.tuga-danger .tuga-title {
+    color: var(--vivid-red);
+}
+.tuga-tooltip {
+    position: relative;
+}
+/*
+==============
+ public.css
+ ==============
+ */
+.grid-membros{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.card-membro{
+    background:#f9fbf9;
+    border:1px solid #e1ede1;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.2s;
+}
+
+.card-membro:hover{
+    transform:translateY(-5px);
+}
+
+.avatar-membro{
+    width:80px;
+    height:80px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#e8f5e9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+}
+
+.card-membro h3{
+    color:#1565c0;
+    margin-bottom:8px;
+}
+
+.card-membro p{
+    color:#666;
+}
+/*
+=====================
+ods
+======================
+*/
+.grid-ods{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.card-ods{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    border:1px solid #e5e7eb;
+    transition:.2s;
+}
+
+.card-ods:hover{
+    transform:translateY(-5px);
+}
+
+.icone-ods{
+    font-size:2.5rem;
+    display:block;
+    margin-bottom:10px;
+}
