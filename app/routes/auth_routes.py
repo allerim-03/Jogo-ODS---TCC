@@ -10,6 +10,7 @@ Responsabilidade:
 
 As regras de negócio NÃO ficam aqui.
 Toda a lógica é delegada para auth_service.py.
+--recebe requisições HTTP e retorna respostas.
 ===========================================================================
 """
 

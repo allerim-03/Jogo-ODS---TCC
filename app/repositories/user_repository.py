@@ -47,6 +47,8 @@
 # Dessa forma, a camada de serviços não precisa conhecer comandos SQL nem
 # detalhes da conexão com o banco, mantendo a aplicação organizada e de
 # fácil manutenção.
+
+#acesso ao banco de dados.
 # =============================================================================
 
 

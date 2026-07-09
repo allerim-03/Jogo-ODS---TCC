@@ -9,6 +9,7 @@ Responsável por:
 - Geração de Token JWT
 
 Centraliza todas as operações relacionadas à segurança da aplicação.
+criptografia, validação de senhas e geração de tokens.
 ===========================================================================
 """
 

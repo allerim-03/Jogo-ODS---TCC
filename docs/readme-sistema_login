@@ -1,0 +1,84 @@
+(09/07/2026)- inicio da adaptação do sistema de login criado pela khay.
+implementação em 11 fases com contrução + testes.
+
+1. Banco de dados (`user`)
+2. Model (`User`)
+3. Repository (`user_repository.py`)
+4. Security Service (`security_service.py`)
+5. Auth Service (`auth_service.py`)
+6. Auth Routes (`auth_routes.py`)
+7. Testes no Postman
+8. Integração com `auth.js`
+9. Ajustes no `main.js`
+10. Proteção das rotas e páginas
+11. Teste completo do fluxo (cadastro → login → dashboard → logout)
+
+
+ 📂 Arquivos envolvidos
+
+ Backend
+
+
+app/
+│
+├── models/
+│   └── user.py
+│
+├── repositories/
+│   └── user_repository.py
+│
+├── services/
+│   ├── auth_service.py
+│   └── security_service.py
+│
+├── routes/
+│   └── auth_routes.py
+├── middleware/
+│   └── auth_middleware.py
+│
+├── app.py
+│
+└── config.py
+
+
+---
+
+Frontend
+
+frontend/
+
+auth/
+
+├── login.html
+├── register.html
+
+js/
+
+├── auth.js
+├── main.js
+
+
+----
+fase 01 - banco de Dados
+1. Verificar a tabela `user`
+
+Conferir se possui todos os campos necessários.
+
+id
+nome
+email
+senha
+role
+idade
+instituicao
+xp
+level
+created_at
+updated_at
+
+
+Teste
+
+* conferir estrutura no MySQL
+* conferir constraints
+* email UNIQUE

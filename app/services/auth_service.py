@@ -13,13 +13,14 @@ Responsabilidade:
 
 Este arquivo concentra TODA a regra de negócio da autenticação.
 As rotas apenas chamam estas funções.
+
+regras de autenticação (cadastro, login, validações de usuário e perfil).
 ===========================================================================
 """
 
-from werkzeug.security import (
-    generate_password_hash,
-    check_password_hash
-)
+from app.services.security_service import criptografar_senha
+
+
 
 from flask_jwt_extended import create_access_token
 
@@ -81,7 +82,8 @@ def cadastrar_usuario(data):
     # Criptografia da senha
     # -----------------------------
 
-    senha_hash = generate_password_hash(senha)
+   
+    senha_hash = criptografar_senha(senha)
 
     # -----------------------------
     # Novo usuário
