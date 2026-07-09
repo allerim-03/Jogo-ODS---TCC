@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODS KIDS - Cultivando o Saber</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -65,188 +64,105 @@
     </a>
 </header>
 
-
-    <section class="banner">
-    <div class="header-content">
-    </div>
+<section class="banner">
+    <div class="header-content"></div>
 </section>
 
-    <main>
-        <section class="boas-vindas">
-            <h2>Bem-vindo!</h2>
-            <a href="escolha.html">
-                <button class="btn-login">Login</button>
-            </a>
-        </section>
+<main>
+    <section class="boas-vindas">
+        <h2>Bem-vindo!</h2>
+        <a href="escolha.html">
+            <button class="btn-login">Login</button>
+        </a>
+    </section>
 
-        <hr class="divisor">
+    <hr class="divisor">
 
-        <section class="sobre-sessao">
-            <div class="conteudo-flex">
-                <div class="texto">
-                    <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
-                    <p>aAprender pode ser muito mais interessante quando você participa de desafios, jogos educativos, quizzes e missões sustentáveis. Cada atividade gera experiência, conquistas e ajuda sua planta a crescer.</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 1]</p>    <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-1"> -->
-                </div>
-            </div>  
-        </section>
-
-        <section class="sobre-sessao cinza">
-            <div class="conteudo-flex reverso">
-                <div class="texto">
-                    <h3>Aprendendo de forma divertida</h3>
-                    <p>Aprender pode ser muito mais interessante quando você participa de desafios, jogos educativos, quizzes e missões sustentáveis. Cada atividade gera experiência, conquistas e ajuda sua planta a crescer.</p>
-                </div>
-                <div class="imagem-placeholder">
-                    <p>[Imagem Ilustrativa 2]</p>     <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-ilust-2"> -->
-                </div>
+    <section class="sobre-sessao">
+        <div class="conteudo-flex">
+            <div class="texto">
+                <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
+                <p>Aprender pode ser muito mais interessante quando você participa de desafios, jogos educativos, quizzes e missões sustentáveis. Cada atividade gera experiência, conquistas e ajuda sua planta a crescer.</p>
             </div>
-        </section>  
+            <div class="imagem-placeholder">
+                <p>[Imagem Ilustrativa 1]</p>
+            </div>
+        </div>  
+    </section>
 
-       <section class="sobre-sessao missao-centralizada">
-    <div class="texto">
-        <h3>Nossa Missão</h3>
-        <p>Nossa missão é cultivar conhecimento através da tecnologia, despertando a consciência ambiental e tornando o aprendizado uma experiência divertida para todos.</p>
-        <div class="banner-final">
-           <img src="img/banner.PNG" alt="descrição" class="imagem-cenario-pag-inicial"> <!-- quando tiver a imagem: <img src="img/nome.png" alt="descrição" class="imagem-cenario-pag-inicial"> -->
+    <section class="sobre-sessao cinza">
+        <div class="conteudo-flex reverso">
+            <div class="texto">
+                <h3>Aprendendo de forma divertida</h3>
+                <p>Aprender pode ser muito mais interessante quando você participa de desafios, jogos educativos, quizzes e missões sustentáveis. Cada atividade gera experiência, conquistas e ajuda sua planta a crescer.</p>
+            </div>
+            <div class="imagem-placeholder">
+                <p>[Imagem Ilustrativa 2]</p>
+            </div>
         </div>
-    </div>
+    </section>  
+
+    <section class="sobre-sessao missao-centralizada">
+        <div class="texto">
+            <h3>Nossa Missão</h3>
+            <p>Nossa missão é cultivar knowledge através da tecnologia, despertando a consciência ambiental e tornando o aprendizado uma experiência divertida para todos.</p>
+            <div class="banner-final">
+               <img src="img/banner.PNG" alt="descrição" class="imagem-cenario-pag-inicial">
+            </div>
+        </div>
 </section>
 
-
-
-
-
-<!-- TRILHA
-       DO TUGA   
-            ANIMADINHO  -->
-
-
-
-            
-<!--apresentção do Tuga de como a plataforma funciona : -->
- 
 <section id="journey" class="journey">
- 
     <div class="journey-title">
- 
-        <h2> Jornada Sustentável</h2>
- 
-        <p>
-            Clique em cada etapa e descubra como sua aventura acontece.
-</p>
- 
+        <h2>Jornada Sustentável</h2>
+        <p>Clique em cada etapa e descubra como sua aventura acontece.</p>
     </div>
  
     <div class="journey-map">
- 
-        <img
-            id="journey-tuga"
-            src="{{ url_for('static',
-            filename='imagens/Tuga.png') }}">
+        <img id="journey-tuga" src="img/Tuga.png" alt="Tuga">
  
         <div class="journey-line"></div>
  
-        <div class="journey-step step-1 active"
-              data-step="0">
- 
-            <div class="step-icon">
-                📝
-</div>
- 
+        <div class="journey-step step-1 active" data-step="0">
+            <div class="step-icon">📝</div>
             <span>Cadastro</span>
- 
         </div>
  
-        <div class="journey-step step-2"
-             data-step="1">
- 
-            <div class="step-icon">
-                🎮
-</div>
- 
+        <div class="journey-step step-2" data-step="1">
+            <div class="step-icon">🎮</div>
             <span>Jogos</span>
- 
         </div>
  
-        <div class="journey-step step-3"
-             data-step="2">
- 
-            <div class="step-icon">
-                🌱
-</div>
- 
+        <div class="journey-step step-3" data-step="2">
+            <div class="step-icon">🌱</div>
             <span>Evolução</span>
- 
         </div>
  
-        <div class="journey-step step-4"
-             data-step="3">
- 
-            <div class="step-icon">
-                🌎
-</div>
- 
+        <div class="journey-step step-4" data-step="3">
+            <div class="step-icon">🌎</div>
             <span>ODS</span>
- 
         </div>
  
-        <div class="journey-step step-5"
-             data-step="4">
- 
-            <div class="step-icon">
-                🏆
-</div>
- 
+        <div class="journey-step step-5" data-step="4">
+            <div class="step-icon">🏆</div>
             <span>Guardião</span>
- 
         </div>
- 
     </div>
  
     <div class="journey-card">
- 
-        <h3 id="journey-title">
- 
-            Comece sua aventura
- 
-        </h3>
- 
-        <p id="journey-description">
- 
-            Crie sua conta e prepare-se para conhecer o Tuga.
- 
-       
-<div class="journey-action">
- 
-    <a
-        id="journey-btn"
-        href="#"
-        class="btn-games">
- 
-        Conheça nossos jogos
- 
-    </a>
- 
-</div> </p>
-</div>
- 
+        <h3 id="journey-title">Comece sua aventura</h3>
+        <p id="journey-description">Crie sua conta e prepare-se para conhecer o Tuga.</p>
+        <div class="journey-action">
+            <a id="journey-btn" href="#" class="btn-games">Conheça nossos jogos</a>
+        </div>
+    </div>
 </section>
+</main>
 
+<footer>
+    <p>© 2026 FATEC - Informática para Negócios</p>
+</footer>
 
-
-
-
-
-
-
-    </main>
-
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
-
+<script src="journey.js"></script>
 </body>
 </html>
