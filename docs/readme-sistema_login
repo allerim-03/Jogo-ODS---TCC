@@ -60,25 +60,129 @@ js/
 
 ----
 fase 01 - banco de Dados
-1. Verificar a tabela `user`
+1. Verificar a tabela `user` (futuramente renomear porque o kauan falou que não é legal um user, podemos nomear para plataform_user ou app_user)
 
 Conferir se possui todos os campos necessários.
 
-id
-nome
-email
-senha
-role
-idade
-instituicao
-xp
-level
-created_at
-updated_at
 
+| Campo       | Tipo                              |uso
+| ----------- | --------------------------------- |---
+| id          | INT                               |PK
+| name        | VARCHAR(100)                      |NOME COMPLETO
+| email       | VARCHAR(150) UNIQUE               |LOGIN
+| password    | VARCHAR(255)                      |HASH BYCRIPT
+| role        | ENUM('student','teacher','admin') |CONTROLE DE ACESSO
+| age         | INT                               |PERFIL* conferir futuramente regra com lgpd
+| institution | VARCHAR(150)                      |PERFIL
+| xp          | INT                               |GAMIFICAÇÃO
+| level       | INT                               |GAMIFICAÇÃO
+| is_active   | BOOLEAN                           |BLOQUEAR USUARIO FUTURAMENTE
+| created_at  | DATETIME                          |AUDITORIA
+| updated_at  | DATETIME                          |AUDITORIA
 
+----Padronização do banco em inglês
 Teste
 
 * conferir estrutura no MySQL
 * conferir constraints
 * email UNIQUE
+Regras de negócio 
+
+ Tipos de usuário
+
+*Student (student)
+
+  * Pode criar conta normalmente.
+  * Pode usar e-mail acadêmico ou e-mail pessoal.
+  * Pode entrar em uma turma utilizando um código de convite.
+
+*Teacher (teacher)
+
+  * Pode criar conta normalmente (idealmente com e-mail institucional/acadêmico).
+  * Depois de criar uma turma, o sistema gera um **invite code** para os alunos.
+
+* Admin (`admin`)
+
+  * Criado apenas manualmente pelo sistema/banco de dados.
+  * Não aparece na tela de cadastro.
+
+Isso será fácil de implementar futuramente no `auth_service.py`.
+
+----||--
+fase 02
+FASE 2 — Model
+
+ 2. Finalizar User Model
+
+Conferir
+
+* construtor
+* atributos
+* to_dict()
+
+Exemplo
+
+python
+User(
+    nome,
+    email,
+    senha,
+    role,
+    idade,
+    instituicao
+)
+Teste
+Criar um objeto User no Python.
+
+Verificar
+ python
+user.to_dict()
+
+
+
+Arquivo
+
+models/user.py
+
+
+Responsabilidade:
+
+Somente representar um usuário.
+Nada de SQL.
+Nada de JWT.
+Nada de Flask.
+
+
+O construtor :
+
+python
+User(
+    nome,
+    email,
+    senha,
+    role="aluno",
+    idade=None,
+    instituicao=None,
+    xp=0,
+    level=1,
+    ativo=True
+)
+
+método:
+
+python
+to_dict()
+
+
+que **não deve retornar a senha**.
+
+python
+{
+    "id": 1,
+    "nome": "...",
+    "email": "...",
+    "role": "...",
+    "xp": 50,
+    "level": 2
+}
+
