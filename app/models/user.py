@@ -1,3 +1,17 @@
+'''
+o que é model ?
+na arquitetura o model não é sqlalchelmy
+é uma classe que representa um usuario do plataforma,
+Ele deve:
+representar um registro da tabela user;
+armazenar os dados do usuário;
+facilitar a comunicação entre Repository e Services;
+converter o objeto em dicionário (to_dict())
+Repository cria um objeto User. --> Services trabalham com esse objeto.--> Routes apenas retornam JSON
+
+
+'''
+
 #classes / tabela do banco
 '''
 from app import db
@@ -47,27 +61,92 @@ class Usuario(db.Model):
         default=1
     )
     '''
-class Usuario:
+from datetime import datetime
+
+
+class User:
+    """
+    Represents a user of the educational platform.
+
+    This class only stores user data.
+    It does not access the database or contain business logic.
+    """
 
     def __init__(
         self,
         id=None,
-        nome=None,
-        senha=None,
+        name=None,
+        email=None,
+        password=None,
+        role="student",
+        age=None,
+        institution=None,
         xp=0,
-        level=1
+        level=1,
+        is_active=True,
+        created_at=None,
+        updated_at=None
     ):
         self.id = id
-        self.nome = nome
-        self.senha = senha
+        self.name = name
+        self.email = email
+        self.password = password
+        self.role = role
+        self.age = age
+        self.institution = institution
         self.xp = xp
         self.level = level
+        self.is_active = is_active
+        self.created_at = created_at
+        self.updated_at = updated_at
 
     def __repr__(self):
+        '''
+        especial para testes e depuração
+        '''
         return (
-            f"<Usuario "
-            f"id={self.id}, "
-            f"nome={self.nome}, "
-            f"xp={self.xp}, "
-            f"level={self.level}>"
-        )
+                f"User("
+                f"id={self.id}, "
+                f"name='{self.name}', "
+                f"email='{self.email}', "
+                f"role='{self.role}', "
+                f"xp={self.xp}, "
+                f"level={self.level})"
+    )
+    def to_dict(self):
+        '''
+        comunicação com a API, sem retornar a senha
+        '''
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "role": self.role,
+            "age": self.age,
+            "institution": self.institution,
+            "xp": self.xp,
+            "level": self.level,
+            "is_active": self.is_active,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+    }
+
+    @classmethod
+    def from_dict(cls, data):
+        '''
+        método de fábrica para facilitar a criação do objeto a partir de um dicionário.
+        '''
+        return cls(
+            id=data.get("id"),
+            name=data.get("name"),
+            email=data.get("email"),
+            password=data.get("password"),
+            role=data.get("role", "student"),
+            age=data.get("age"),
+            institution=data.get("institution"),
+            xp=data.get("xp", 0),
+            level=data.get("level", 1),
+            is_active=data.get("is_active", True),
+            created_at=data.get("created_at"),
+            updated_at=data.get("updated_at"),
+    )
