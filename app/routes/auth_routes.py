@@ -16,10 +16,9 @@ Toda a lógica é delegada para auth_service.py.
 
 from flask import Blueprint, request, jsonify
 
-from app.services.auth_service import (
-    cadastrar_usuario,
-    autenticar_usuario
-)
+from app.services.auth_service import AuthService
+
+auth_service = AuthService()
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -28,14 +27,14 @@ auth_bp = Blueprint("auth", __name__)
 # Cadastro
 # ==========================================================================
 
-@auth_bp.route("/api/cadastro", methods=["POST"])
-def cadastro():
+@auth_bp.route("/api/register", methods=["POST"])
+def register():
 
     data = request.get_json()
 
-    resultado = cadastrar_usuario(data)
+    result = auth_service.register_user(data)
 
-    return jsonify(resultado["body"]), resultado["status"]
+    return jsonify(result["body"]), result["status"]
 
 
 # ==========================================================================
@@ -47,6 +46,10 @@ def login():
 
     data = request.get_json()
 
-    resultado = autenticar_usuario(data)
+    result = auth_service.login_user(data)
 
-    return jsonify(resultado["body"]), resultado["status"]
+    return jsonify(result["body"]), result["status"]
+
+#POST /api/logout (futuro)
+
+#GET /api/me (futuro)

@@ -21,39 +21,42 @@ from werkzeug.security import (
 from flask_jwt_extended import create_access_token
 
 
+class SecurityService:
 # ==========================================================================
 # Criptografa uma senha
 # ==========================================================================
 
-def criptografar_senha(senha):
+    def hash_password(self,password):
 
-    return generate_password_hash(senha)
+        return generate_password_hash(password)
 
 
 # ==========================================================================
 # Verifica se a senha está correta
 # ==========================================================================
 
-def verificar_senha(hash_salvo, senha_digitada):
+    def verify_password(self, password_hash, password):
 
-    return check_password_hash(
-        hash_salvo,
-        senha_digitada
-    )
+        return check_password_hash(
+            password_hash,
+            password
+        )
 
 
 # ==========================================================================
 # Gera JWT
+#token for authenticated user.
 # ==========================================================================
 
-def gerar_token(usuario):
+    def generate_token(self,user):
 
-    return create_access_token(
+        return create_access_token(
 
-        identity=str(usuario.id),
+            identity=str(user.id),
 
-        additional_claims={
-            "role": usuario.role
-        }
+            additional_claims={
+                "role": user.role,
+                 "email": user.email
+            }
 
-    )
+        )

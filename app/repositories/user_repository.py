@@ -53,116 +53,221 @@
 
 
 from database.connection import get_connection
+from app.models.user import User
 
+
+
+class UserRepository:
+
+
+    def get_by_email(self, email):
+
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM user
+            WHERE email = %s
+            """,
+            (email,)
+        )
+
+        data = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+
+        if data:
+            return User.from_dict(data)
+
+        return None
+
+
+    #criar usuario//salvar
+    def create(self, user):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+
+        cursor.execute(
+            """
+            INSERT INTO user
+            (
+                name,
+                email,
+                password,
+                role,
+                age,
+                institution
+            )
+            VALUES (%s,%s,%s,%s,%s,%s)
+            """,
+            (
+                user.name,
+                user.email,
+                user.password,
+                user.role,
+                user.age,
+                user.institution
+            )
+        )
+
+
+        conn.commit()
+
+        user.id = cursor.lastrowid
+
+
+        cursor.close()
+        conn.close()
+
+
+        return user
+
+
+
+    def get_by_id(self, user_id):
+
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM user
+            WHERE id = %s
+            """,
+            (user_id,)
+        )
+
+
+        data = cursor.fetchone()
+
+
+        cursor.close()
+        conn.close()
+
+
+        if data:
+            return User.from_dict(data)
+
+        return None
+
+
+
+    def update(self, user):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+
+        cursor.execute(
+            """
+            UPDATE user
+            SET xp=%s,
+                level=%s
+            WHERE id=%s
+            """,
+            (
+                user.xp,
+                user.level,
+                user.id
+            )
+        )
+
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+
+
+    def get_progress(self, user_id):
+
+        conn = get_connection()
+
+        cursor = conn.cursor(dictionary=True)
+
+
+        cursor.execute(
+            """
+            SELECT
+                id,
+                name,
+                xp,
+                level
+            FROM user
+            WHERE id=%s
+            """,
+            (user_id,)
+        )
+
+
+        data = cursor.fetchone()
+
+
+        cursor.close()
+        conn.close()
+
+
+        return data
+
+
+
+    def get_ranking(self):
+
+        conn = get_connection()
+
+        cursor = conn.cursor(dictionary=True)
+
+
+        cursor.execute(
+            """
+            SELECT
+                id,
+                name,
+                xp,
+                level
+            FROM user
+            ORDER BY xp DESC
+            """
+        )
+
+
+        ranking = cursor.fetchall()
+
+
+        cursor.close()
+        conn.close()
+
+
+        return ranking
+    
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém arquivos antigos funcionando durante migração
+# =====================================================
+_repository = UserRepository()
+
+
+def get_user_by_id(user_id):
+        return _repository.get_by_id(user_id)
 
 
 def buscar_por_email(email):
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+        return _repository.get_by_email(email)
 
-    cursor.execute(
-        "SELECT * FROM user WHERE email = %s",
-        (email,)
-    )
 
-    usuario = cursor.fetchone()
+def salvar(user):
+        return _repository.create(user)
 
-    cursor.close()
-    conn.close()
-
-    return usuario
-
-def salvar(nome, email, senha, role):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO user
-        (name, email, senha, role)
-        VALUES (%s,%s,%s,%s)
-    """, (nome, email, senha, role))
-
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
-def get_user_by_id(user_id):
-
-    conn = get_connection()
-
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute(
-        "SELECT * FROM user WHERE id = %s",
-        (user_id,)
-    )
-
-    user = cursor.fetchone()
-
-    cursor.close()
-    conn.close()
-
-    return user
 
 def update_user(user):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        UPDATE user
-        SET xp = %s, level = %s
-        WHERE id = %s
-    """, (user["xp"], user["level"], user["id"]))
-
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
-def get_user_progress(user_id):
-
-    conn = get_connection()
-
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute("""
-        SELECT
-            id,
-            name,
-            xp,
-            level
-        FROM user
-        WHERE id = %s
-    """, (user_id,))
-
-    user = cursor.fetchone()
-
-    cursor.close()
-    conn.close()
-
-    return user
-
-def get_ranking():
-
-    conn = get_connection()
-
-    cursor = conn.cursor(dictionary=True)
-
-    
-    cursor.execute("""
-    SELECT
-        id,
-        name,
-        xp,
-        level
-    FROM user
-    ORDER BY xp DESC
-    """)
-
-    ranking = cursor.fetchall()
-
-    cursor.close()
-    conn.close()
-
-    return ranking
+        return _repository.update(user)

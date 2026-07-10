@@ -116,6 +116,8 @@ class User:
     def to_dict(self):
         '''
         comunicação com a API, sem retornar a senha
+        Convert User object to dictionary.
+        Password is intentionally omitted
         '''
         return {
             "id": self.id,
@@ -127,8 +129,15 @@ class User:
             "xp": self.xp,
             "level": self.level,
             "is_active": self.is_active,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
+            "created_at": (
+            self.created_at.isoformat()
+            if self.created_at else None
+            ),
+
+            "updated_at": (
+            self.updated_at.isoformat()
+            if self.updated_at else None
+            )
     }
 
     @classmethod
@@ -144,8 +153,8 @@ class User:
             role=data.get("role", "student"),
             age=data.get("age"),
             institution=data.get("institution"),
-            xp=data.get("xp", 0),
-            level=data.get("level", 1),
+            xp=data.get("xp") or 0,
+            level=data.get("level") or 1,
             is_active=data.get("is_active", True),
             created_at=data.get("created_at"),
             updated_at=data.get("updated_at"),

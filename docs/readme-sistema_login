@@ -185,4 +185,223 @@ python
     "xp": 50,
     "level": 2
 }
+--||--
+fase 03
+FASE 3 — Repository
+
+3. Finalizar user_repository.py
+
+Funções mínimas
+
+
+buscar\_por\_email()
+
+buscar\_por\_id()
+
+salvar()
+
+atualizar()
+
+listar()
+
+ranking()
+progress()
+
+Testes
+
+Criar pequenos scripts
+buscar\_por\_email()
+salvar()
+buscar\_por\_id()
+Sem passar pelo Flask
+Arquivo
+
+repositories/user_repository.py
+
+Responsabilidade:
+Toda comunicação com o banco.
+Nunca colocar regra de negócio aqui.
+
+Funções mínimas:
+
+buscar_por_email()
+buscar_por_id()
+salvar()
+atualizar()
+listar()
+ranking()
+progress()
+--||--
+fase 04
+
+Etapa 4 — Security Service
+
+Arquivo
+
+services/security_service.py
+
+
+Responsabilidade:
+
+Toda parte de segurança.
+
+Funções:
+
+criptografar_senha()
+
+verificar_senha()
+
+gerar_token()
+
+validar_token()
+
+Nada de SQL aqui.
+
+Nada de Repository.
+--pip install Flask-JWT-Extended
+
+--||--
+fase 05
+services/auth_service.py
+(coloquei todos os services num sistema de classe-objeto, com os nomes em inglês para padronização.)
+--||--
+fase 06
+Etapa 6 — Routes
+
+Arquivo
+
+routes/auth_routes.py
+
+Ele deve ser extremamente pequeno.
+
+Fluxo:
+
+Request
+↓
+Service
+↓
+JSON
+Nada de SQL.
+Nada de bcrypt.
+Nada de JWT.
+Tudo isso fica no Service.
+Rotas
+
+POST /api/cadastro
+POST /api/login
+Somente
+request
+↓
+service
+↓
+
+jsonify
+
+### Testes
+Subir Flask.
+Sem frontend.
+
+
+FASE 7 — Postman
+
+ 7. Testar todas as rotas
+
+# Cadastro
+
+ Cadastro válido
+
+201
+---
+ Email duplicado
+
+400
+---
+Campo vazio
+
+400
+
+---
+ Professor
+
+201
+---
+ Aluno
+
+201
+
+---
+ Pessoal
+
+201
+
+---
+
+Login
+
+Correto
+200
+
+Retorna
+token
+
+user
+
+role
+
+---
+
+ Senha errada
+
+401
+
+---
+ Usuário inexistente
+
+404
+
+---
+
+ Perfil errado
+
+403
+
+---
+ JWT
+
+Copiar token.
+
+Testar rota protegida.
+
+---
+FASE 8 — Frontend
+8. Integrar auth.js
+Cadastro
+↓
+POST
+↓
+API
+↓
+Sucesso
+↓
+Tela de sucesso
+---
+Login
+↓
+POST
+↓
+API
+↓
+Salvar
+
+token
+usuario
+↓
+Redirecionar
+---
+ Testes
+Cadastro completo
+↓
+Login
+↓
+Logout
 

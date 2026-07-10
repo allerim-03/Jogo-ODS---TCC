@@ -4,10 +4,9 @@
 from app.services.xp_service import add_xp
 from app.services.badge_service import check_and_award_badges
 
-from app.repositories.user_repository import (
-    get_user_by_id,
-    update_user
-)
+from app.repositories.user_repository import UserRepository
+
+user_repository = UserRepository()
 
 from app.repositories.score_repository import save_score
 
@@ -19,8 +18,8 @@ def process_game_score(
     game_name="quiz_ods"
 ):
 
-    user = get_user_by_id(user_id)
-    xp_before = user["xp"]
+    user = user_repository.get_by_id(user_id)
+    xp_before = user.xp
 
     # Se não foi informado, utiliza a regra padrão (jogos)
     if xp_gained is None:
@@ -32,18 +31,18 @@ def process_game_score(
         xp_gained
     )
 
-    update_user(user)
+    user_repository.update(user)
 
     # Verifica badges
     check_and_award_badges(
-        user["id"],
-        user["xp"],
-        user["level"]
+        user.id,
+        user.xp,
+        user.level
     )
 
     # Salva pontuação
     save_score(
-        user["id"],
+        user.id,
         game_name,
         score,
         xp_gained

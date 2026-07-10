@@ -19,6 +19,9 @@ if __name__ == "__main__":
     app.run(debug=True)
 '''
 from flask import Flask
+from flask_jwt_extended import JWTManager
+
+jwt = JWTManager()
 
 def create_app():
     app = Flask(__name__,
@@ -26,25 +29,33 @@ def create_app():
         static_folder="../frontend/static"
                 
                 )
+    # JWT Configuration
+    app.config["JWT_SECRET_KEY"] = "chave-temporaria-dev"
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = False
 
+
+    jwt.init_app(app)
     # IMPORT DO SEU BLUEPRINT ÚNICO TEMPORÁRIO
     from app.routes.app_routes import routes
-
+    from app.routes.auth_routes import auth_bp
+    
     app.register_blueprint(routes)
-
+    app.register_blueprint(auth_bp)
     return app
+
+
 '''from app.routes.auth import auth_bp'''
 '''from app.routes.dashboard import dashboard_bp'''
 '''from app.routes.quiz import quiz_bp'''
 '''from app.routes.game import game_bp'''
 '''from app.routes.ranking import ranking_bp'''
 '''
-    from routes.auth import auth_bp
+    from routes.auth import auth_bp--feito
     from routes.users import users_bp
     from routes.games import games_bp
     from routes.ranking import ranking_bp
 
-    app.register_blueprint(auth_bp)
+    app.register_blueprint(auth_bp)--feito
     app.register_blueprint(users_bp)
     app.register_blueprint(games_bp)
     app.register_blueprint(ranking_bp)

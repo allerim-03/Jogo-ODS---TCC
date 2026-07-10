@@ -142,14 +142,22 @@ function ajustarCamposEspecificos() {
     // Uso institucional
     const perfil =
         document.getElementById("cadastro-perfil")?.value;
-
-    if (perfil === "aluno") {
+    //aluno
+    if (perfil === "student") {
 
         grupoIdade?.classList.remove("oculto");
 
         grupoInstituicao?.classList.add("oculto");
+        //teacher
+    } else if(perfil == 'teacher') {
 
-    } else {
+        grupoIdade?.classList.add("oculto");
+
+        grupoInstituicao?.classList.remove("oculto");
+
+    }
+        // admin (caso exista futuramente)
+    else {
 
         grupoIdade?.classList.add("oculto");
 
@@ -158,7 +166,7 @@ function ajustarCamposEspecificos() {
     }
 
 }
-
+         
 /* ==========================================================================
    2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN
    ========================================================================== */
@@ -174,7 +182,7 @@ if (formLogin) {
         const email =
             document.getElementById("login-email").value;
 
-        const senha =
+        const password =
             document.getElementById("login-senha").value;
 
         const erroDiv =
@@ -183,49 +191,40 @@ if (formLogin) {
         const btnEntrar =
             document.getElementById("btn-entrar");
 
-        // Uso pessoal envia "pessoal".
-        // Uso institucional envia o perfil escolhido.
-        const perfil =
+        // Uso pessoal = student
+        // Uso institucional = perfil escolhido
+        const role =
             usoSelecionado === "pessoal"
-                ? "pessoal"
+                ? "student"
                 : document.getElementById("login-perfil").value;
 
         erroDiv.classList.add("oculto");
 
-        btnEntrar.textContent = "Carregando...";
+        btnEntrar.textContent = "Entrando...";
 
         btnEntrar.disabled = true;
 
         try {
 
-            const resposta = await fetch(
-                "http://localhost:5000/api/login",
+            const resposta = await fetch("/api/login"//fetch("http://localhost:5000/api/login",
                 {
                     method: "POST",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify({
                         email,
-                        senha,
-                        perfil
+                        password,
+                        role
                     })
+
                 }
             );
 
-            const dados = await resposta.json();
 
-            if (!resposta.ok) {
-
-                throw new Error(
-                    dados.message ||
-                    "Erro ao efetuar login."
-                );
-
-            }
-
-            console.log("Resposta do servidor:", dados);
-
+/*
             // Compatibilidade com diferentes formatos da API
             const usuario =
                 dados.user ||
@@ -251,13 +250,42 @@ if (formLogin) {
 
             }
 
+           */
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+
+                throw new Error(
+                    dados.message ||
+                    "Erro ao efetuar login."
+                );
+
+            }
+
+            console.log("Resposta do servidor:", dados);
+
+            const usuario = dados.user;
+
+            const token = dados.access_token;
+
+            // Salva o token JWT
+            localStorage.setItem(
+                "token_usuario",
+                token
+            );
+
+            // Salva os dados do usuário
             localStorage.setItem(
                 "usuario",
                 JSON.stringify(usuario)
             );
+            localStorage.setItem(
+                "current_user",
+                JSON.stringify(usuario)
+            );
 
-            // Fluxo do aluno
-            if (papel === "aluno") {
+            // Fluxo do estudante
+            if (usuario.role === "student") {
 
                 const etapaTurma =
                     document.getElementById("etapa-turma");
@@ -271,27 +299,43 @@ if (formLogin) {
                     etapaTurma.classList.remove("oculto");
 
                     const primeiroNome =
-                        usuario.nome.split(" ")[0];
+                        usuario.name.split(" ")[0];
 
                     document.getElementById(
                         "nome-aluno-boas-vindas"
                     ).textContent =
                         `👋 Olá, ${primeiroNome}!`;
 
-                } else {
+                }
+                else {
 
-                    window.location.href =
-                        "/dashboard";
+                    window.location.href = "/dashboard";
 
                 }
 
             }
 
-            // Professor / Gestor
-            else {
+            // Professor
+            else if (usuario.role === "teacher") {
 
                 window.location.href =
                     "/teacher/dashboard";
+
+            }
+
+            // Admin
+            else if (usuario.role === "admin") {
+
+                window.location.href =
+                    "/admin/dashboard";
+
+            }
+
+            else {
+
+                throw new Error(
+                    "Perfil de usuário inválido."
+                );
 
             }
 
@@ -364,22 +408,34 @@ if (formCadastro) {
 
         }
 
-        let perfilFinal = "pessoal";
+        let perfilFinal = "student";
         let idade = null;
         let instituicao = null;
 
         // Perfil escolhido no uso institucional
         if (usoSelecionado === "institucional") {
 
-            perfilFinal =
+            const perfilSelecionado =
                 document.getElementById("cadastro-perfil").value;
+
+            if (perfilSelecionado === "aluno") {
+
+                perfilFinal = "student";
+
+            }
+
+            else if (perfilSelecionado === "professor") {
+
+                perfilFinal = "teacher";
+
+            }
 
         }
 
         // Dados específicos
         if (
-            perfilFinal === "aluno" ||
-            perfilFinal === "pessoal"
+            perfilFinal === "teacher" ||
+            perfilFinal === "student"
         ) {
 
             const campoIdade =
@@ -424,13 +480,12 @@ if (formCadastro) {
                     },
                     body: JSON.stringify({
 
-                        nome,
+                        name: nome,
                         email,
-                        senha,
-                        uso: usoSelecionado,
-                        perfil: perfilFinal,
-                        idade,
-                        instituicao
+                        password: senha,
+                        role: perfilFinal,
+                        age: idade,
+                        institution: instituicao
 
                     })
                 }
@@ -442,11 +497,12 @@ if (formCadastro) {
 
                 throw new Error(
                     dados.message ||
+                    dados.error ||
                     "Erro ao realizar o cadastro."
                 );
 
             }
-
+        
             document.getElementById("texto-sucesso").textContent =
                 dados.message ||
                 "Sua conta foi criada com sucesso!";

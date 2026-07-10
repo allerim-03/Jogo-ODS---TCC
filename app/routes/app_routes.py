@@ -19,40 +19,29 @@ def teste():
         "message": "API Gamificação Cultivando o saber funcionando"
     }
 from app.services.game_service import process_game_score 
-from app.repositories.user_repository import (
-    get_user_by_id,
-    update_user,
-    get_ranking,
-    get_user_progress
-)# ou mysql direto
+from app.repositories.user_repository import UserRepository
+user_repository = UserRepository()
+# ou mysql direto
 from app.services.xp_service import add_xp
 from app.services.badge_service import check_and_award_badges
 
 # futuramente trocar por services
 
 #===========================
-# auth.py
+# auth.py pages
 #=========================
 @routes.route('/register')
 def register():
-    return render_template('auth/register.html',
-    perfil="publico")
-
-
-@routes.route('/register', methods=['POST'])
-def register_post():
-    # TODO: criar usuário no banco
-    return redirect('/login')
-
+    return render_template('auth/register.html',profile="public")
 
 @routes.route('/login')
 def login():
     return render_template('auth/login.html')
-
-@routes.route('/login', methods=['POST'])
-def login_post():
-    # TODO: autenticar usuário
-    return redirect('/dashboard')
+@routes.route('/logout')
+def logout():
+    # logout_user()
+    # futuramente podemos limpar cookies/sessão
+    return redirect('/login')
 '''
 --melhoria para o futuro
 @routes.route('/login', methods=['POST'])
@@ -66,10 +55,7 @@ def login_post():
 
     return redirect('/dashboard')
 '''
-@routes.route('/logout')
-def logout():
-    # logout_user()
-    return redirect('/login')
+
 
 #===========================
 # Badge.py
@@ -86,7 +72,7 @@ def user_badges(user_id):
 @routes.route("/test-badges/<int:user_id>")
 def test_badges(user_id):
 
-    user = get_user_by_id(user_id)
+    user = user_repository.get_by_id(user_id)
 
     check_and_award_badges(
         user["id"],

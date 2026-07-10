@@ -1,11 +1,14 @@
 
 
-from app.repositories.user_repository import get_ranking
+from app.repositories.user_repository import UserRepository
+
+
+user_repository = UserRepository()
 
 
 def get_ranking_data():
 
-    return get_ranking()
+    return user_repository.get_ranking()
 
 
 ''' futuro rancking route
@@ -60,5 +63,11 @@ for posicao, usuario in enumerate(usuarios, start=1):
     })
 
 return jsonify(ranking)
+from app.repositories.user_repository import get_ranking
+from app.repositories.user_repository import UserRepository
+user_repository = UserRepository()
 
+def get_ranking_data():
+
+    return get_ranking()
 '''
