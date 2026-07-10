@@ -1,1295 +1,1198 @@
+// ==========================================================================
+// AUTH.JS
+// Controle de autenticação da Plataforma cultivando o saber
+//
+// Responsabilidades:
+//
+// • Fluxo das telas de Login/Cadastro
+// • Comunicação com a API Flask
+// • Armazenamento do JWT
+// • Controle visual da interface
+//
+// Backend:
+// Python + Flask
+// JWT Authentication
+// ==========================================================================
+
+
 
 // ==========================================================================
-// Controle do fluxo de autenticação
+// CONFIGURAÇÕES
 // ==========================================================================
+
+const API_BASE_URL = "http://localhost:5000/api";
 
 let usoSelecionado = "pessoal";
 
 
+
 // ==========================================================================
-// 1. TRANSIÇÃO ENTRE TELAS
+// HELPERS
+// ==========================================================================
+
+function $(id) {
+
+    return document.getElementById(id);
+
+}
+
+function mostrar(elemento) {
+
+    elemento?.classList.remove("oculto");
+
+}
+
+function esconder(elemento) {
+
+    elemento?.classList.add("oculto");
+
+}
+
+function mostrarErro(id, mensagem) {
+
+    const erro = $(id);
+
+    if (!erro) return;
+
+    erro.textContent = mensagem;
+
+    mostrar(erro);
+
+}
+
+function limparErro(id) {
+
+    esconder($(id));
+
+}
+
+function alterarBotao(botao, texto, desabilitado = false) {
+
+    if (!botao) return;
+
+    botao.textContent = texto;
+
+    botao.disabled = desabilitado;
+
+}
+
+
+
+// ==========================================================================
+// SESSÃO DO USUÁRIO
+// ==========================================================================
+
+function salvarSessao(usuario, token) {
+
+    if (token) {
+
+        localStorage.setItem(
+            "token_usuario",
+            token
+        );
+
+    }
+
+    localStorage.setItem(
+        "usuario",
+        JSON.stringify(usuario)
+    );
+
+}
+
+function obterUsuario() {
+
+    const usuario = localStorage.getItem("usuario");
+
+    return usuario
+        ? JSON.parse(usuario)
+        : null;
+
+}
+
+function obterToken() {
+
+    return localStorage.getItem("token_usuario");
+
+}
+
+function limparSessao() {
+
+    localStorage.removeItem("usuario");
+
+    localStorage.removeItem("token_usuario");
+
+}
+
+
+
+// ==========================================================================
+// CHAMADAS À API
+// ==========================================================================
+
+async function enviarRequisicao(endpoint, metodo, dados) {
+
+    const resposta = await fetch(
+
+        `${API_BASE_URL}${endpoint}`,
+
+        {
+
+            method: metodo,
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify(dados)
+
+        }
+
+    );
+
+    const json = await resposta.json();
+
+    if (!resposta.ok) {
+
+        throw new Error(
+
+            json.message ||
+            "Erro ao comunicar com o servidor."
+
+        );
+
+    }
+
+    return json;
+
+}
+
+
+
+// ==========================================================================
+// CONTROLE DAS TELAS
 // ==========================================================================
 
 function irParaFormulario(tipoUso) {
 
     usoSelecionado = tipoUso;
 
-    // ---------- Login ----------
-    const campoPerfilLogin =
-        document.getElementById("campo-perfil");
+    // ---------------- Login ----------------
 
-    const tituloLogin =
-        document.getElementById("titulo-login");
+    const campoPerfilLogin = $("campo-perfil");
+
+    const tituloLogin = $("titulo-login");
 
     if (tituloLogin) {
 
         if (tipoUso === "institucional") {
 
-            campoPerfilLogin?.classList.remove("oculto");
+            mostrar(campoPerfilLogin);
 
             tituloLogin.textContent =
                 "Acesso Escolar 🏫";
 
-        } else {
+        }
 
-            campoPerfilLogin?.classList.add("oculto");
+        else {
+
+            esconder(campoPerfilLogin);
 
             tituloLogin.textContent =
                 "Acesso Pessoal 🏠";
 
         }
 
-        document
-            .getElementById("etapa-selecao")
-            ?.classList.add("oculto");
+        esconder($("etapa-selecao"));
 
-        document
-            .getElementById("form-login")
-            ?.classList.remove("oculto");
+        mostrar($("form-login"));
 
     }
 
-    // ---------- Cadastro ----------
+    // ---------------- Cadastro ----------------
+
     const grupoPerfilCadastro =
-        document.getElementById("grupo-perfil");
+        $("grupo-perfil");
 
     if (grupoPerfilCadastro) {
 
         if (tipoUso === "institucional") {
 
-            grupoPerfilCadastro.classList.remove("oculto");
+            mostrar(grupoPerfilCadastro);
 
-        } else {
+        }
 
-            grupoPerfilCadastro.classList.add("oculto");
+        else {
+
+            esconder(grupoPerfilCadastro);
 
         }
 
         ajustarCamposEspecificos();
 
-        document
-            .getElementById("etapa-selecao")
-            ?.classList.add("oculto");
+        esconder($("etapa-selecao"));
 
-        document
-            .getElementById("form-register")
-            ?.classList.remove("oculto");
+        mostrar($("form-register"));
 
     }
 
 }
 
 
+
 // ==========================================================================
-// Voltar para a primeira etapa
+// Voltar para seleção inicial
 // ==========================================================================
 
 function voltarParaSelecao() {
 
-    document
-        .getElementById("form-login")
-        ?.classList.add("oculto");
+    esconder($("form-login"));
 
-    document
-        .getElementById("form-register")
-        ?.classList.add("oculto");
+    esconder($("form-register"));
 
-    document
-        .getElementById("etapa-selecao")
-        ?.classList.remove("oculto");
+    mostrar($("etapa-selecao"));
 
-    document
-        .getElementById("erro-login")
-        ?.classList.add("oculto");
+    limparErro("erro-login");
 
-    document
-        .getElementById("erro-cadastro")
-        ?.classList.add("oculto");
+    limparErro("erro-cadastro");
 
 }
 
 
+
 // ==========================================================================
-// Ajusta os campos específicos do cadastro
+// Ajusta campos específicos do cadastro
 // ==========================================================================
 
 function ajustarCamposEspecificos() {
 
     const grupoIdade =
-        document.getElementById("grupo-idade");
+        $("grupo-idade");
 
     const grupoInstituicao =
-        document.getElementById("grupo-instituicao");
+        $("grupo-instituicao");
 
-    // Não está na página de cadastro
+    // Não está na tela de cadastro
+
     if (!grupoIdade && !grupoInstituicao) {
 
         return;
 
     }
 
+    // -------------------------------------------------
     // Uso pessoal
+    // -------------------------------------------------
+
     if (usoSelecionado === "pessoal") {
 
-        grupoIdade?.classList.remove("oculto");
+        mostrar(grupoIdade);
 
-        grupoInstituicao?.classList.add("oculto");
+        esconder(grupoInstituicao);
 
         return;
 
     }
 
+    // -------------------------------------------------
     // Uso institucional
-    const perfil =
-        document.getElementById("cadastro-perfil")?.value;
-    //aluno
-    if (perfil === "student") {
+    // -------------------------------------------------
 
-        grupoIdade?.classList.remove("oculto");
+    const perfil = $("cadastro-perfil")?.value;
 
-        grupoInstituicao?.classList.add("oculto");
-        //teacher
-    } else if(perfil == 'teacher') {
+    if (perfil === "aluno") {
 
-        grupoIdade?.classList.add("oculto");
+        mostrar(grupoIdade);
 
-        grupoInstituicao?.classList.remove("oculto");
+        esconder(grupoInstituicao);
 
     }
-        // admin (caso exista futuramente)
+
     else {
 
-        grupoIdade?.classList.add("oculto");
+        esconder(grupoIdade);
 
-        grupoInstituicao?.classList.remove("oculto");
+        mostrar(grupoInstituicao);
 
     }
 
 }
-         
-/* ==========================================================================
-   2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN
-   ========================================================================== */
+// ==========================================================================
+// 2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN
+// ==========================================================================
 
-const formLogin = document.getElementById("form-autenticacao");
+const formLogin = $("form-autenticacao");
 
 if (formLogin) {
 
-    formLogin.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        const email =
-            document.getElementById("login-email").value;
-
-        const password =
-            document.getElementById("login-senha").value;
-
-        const erroDiv =
-            document.getElementById("erro-login");
-
-        const btnEntrar =
-            document.getElementById("btn-entrar");
-
-        // Uso pessoal = student
-        // Uso institucional = perfil escolhido
-        const role =
-            usoSelecionado === "pessoal"
-                ? "student"
-                : document.getElementById("login-perfil").value;
-
-        erroDiv.classList.add("oculto");
-
-        btnEntrar.textContent = "Entrando...";
-
-        btnEntrar.disabled = true;
-
-        try {
-
-            const resposta = await fetch("/api/login"//fetch("http://localhost:5000/api/login",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        email,
-                        password,
-                        role
-                    })
-
-                }
-            );
-
-
-/*
-            // Compatibilidade com diferentes formatos da API
-            const usuario =
-                dados.user ||
-                dados.usuario ||
-                dados;
-
-            const papel =
-                usuario.role ||
-                usuario.perfil ||
-                usuario.tipo;
-
-            const token =
-                dados.access_token ||
-                dados.token;
-
-            // Salva sessão local
-            if (token) {
-
-                localStorage.setItem(
-                    "token_usuario",
-                    token
-                );
-
-            }
-
-           */
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-
-                throw new Error(
-                    dados.message ||
-                    "Erro ao efetuar login."
-                );
-
-            }
-
-            console.log("Resposta do servidor:", dados);
-
-            const usuario = dados.user;
-
-            const token = dados.access_token;
-
-            // Salva o token JWT
-            localStorage.setItem(
-                "token_usuario",
-                token
-            );
-
-            // Salva os dados do usuário
-            localStorage.setItem(
-                "usuario",
-                JSON.stringify(usuario)
-            );
-            localStorage.setItem(
-                "current_user",
-                JSON.stringify(usuario)
-            );
-
-            // Fluxo do estudante
-            if (usuario.role === "student") {
-
-                const etapaTurma =
-                    document.getElementById("etapa-turma");
-
-                if (etapaTurma) {
-
-                    document
-                        .getElementById("form-login")
-                        .classList.add("oculto");
-
-                    etapaTurma.classList.remove("oculto");
-
-                    const primeiroNome =
-                        usuario.name.split(" ")[0];
-
-                    document.getElementById(
-                        "nome-aluno-boas-vindas"
-                    ).textContent =
-                        `👋 Olá, ${primeiroNome}!`;
-
-                }
-                else {
-
-                    window.location.href = "/dashboard";
-
-                }
-
-            }
-
-            // Professor
-            else if (usuario.role === "teacher") {
-
-                window.location.href =
-                    "/teacher/dashboard";
-
-            }
-
-            // Admin
-            else if (usuario.role === "admin") {
-
-                window.location.href =
-                    "/admin/dashboard";
-
-            }
-
-            else {
-
-                throw new Error(
-                    "Perfil de usuário inválido."
-                );
-
-            }
-
-        }
-
-        catch (erro) {
-
-            console.error(erro);
-
-            erroDiv.textContent =
-                erro.message;
-
-            erroDiv.classList.remove("oculto");
-
-        }
-
-        finally {
-
-            btnEntrar.textContent =
-                "Entrar";
-
-            btnEntrar.disabled = false;
-
-        }
-
-    });
+    formLogin.addEventListener("submit", realizarLogin);
 
 }
-/* ==========================================================================
-   3. PROCESSAMENTO DO FORMULÁRIO DE CADASTRO (REGISTER)
-   ========================================================================== */
 
-const formCadastro = document.getElementById("form-cadastro");
 
-if (formCadastro) {
 
-    formCadastro.addEventListener("submit", async (e) => {
+// ==========================================================================
+// Realiza o login
+// ==========================================================================
 
-        e.preventDefault();
+async function realizarLogin(evento) {
 
-        const nome =
-            document.getElementById("cad-nome").value;
+    evento.preventDefault();
 
-        const email =
-            document.getElementById("cad-email").value;
+    limparErro("erro-login");
 
-        const senha =
-            document.getElementById("cad-senha").value;
+    const btnEntrar = $("btn-entrar");
 
-        const confirmaSenha =
-            document.getElementById("cad-confirma").value;
+    alterarBotao(
+        btnEntrar,
+        "Entrando...",
+        true
+    );
 
-        const erroDiv =
-            document.getElementById("erro-cadastro");
+    try {
 
-        const btnCadastrar =
-            document.getElementById("btn-cadastrar");
+        const dadosLogin = obterDadosLogin();
 
-        erroDiv.classList.add("oculto");
+        const resposta = await enviarRequisicao(
 
-        // Validação das senhas
-        if (senha !== confirmaSenha) {
+            "/login",
 
-            erroDiv.textContent =
-                "As senhas informadas não coincidem.";
+            "POST",
 
-            erroDiv.classList.remove("oculto");
+            dadosLogin
 
-            return;
+        );
 
-        }
+        processarLogin(resposta);
 
-        let perfilFinal = "student";
-        let idade = null;
-        let instituicao = null;
+    }
 
-        // Perfil escolhido no uso institucional
-        if (usoSelecionado === "institucional") {
+    catch (erro) {
 
-            const perfilSelecionado =
-                document.getElementById("cadastro-perfil").value;
+        console.error("Erro no login:", erro);
 
-            if (perfilSelecionado === "aluno") {
+        mostrarErro(
+            "erro-login",
+            erro.message
+        );
 
-                perfilFinal = "student";
+    }
 
-            }
+    finally {
 
-            else if (perfilSelecionado === "professor") {
+        alterarBotao(
+            btnEntrar,
+            "Entrar",
+            false
+        );
 
-                perfilFinal = "teacher";
-
-            }
-
-        }
-
-        // Dados específicos
-        if (
-            perfilFinal === "teacher" ||
-            perfilFinal === "student"
-        ) {
-
-            const campoIdade =
-                document.getElementById("cad-idade");
-
-            if (campoIdade && campoIdade.value) {
-
-                idade =
-                    parseInt(campoIdade.value);
-
-            }
-
-        }
-
-        else if (perfilFinal === "professor") {
-
-            const campoInstituicao =
-                document.getElementById("cad-instituicao");
-
-            if (campoInstituicao) {
-
-                instituicao =
-                    campoInstituicao.value;
-
-            }
-
-        }
-
-        btnCadastrar.textContent =
-            "Processando...";
-
-        btnCadastrar.disabled = true;
-
-        try {
-
-            const resposta = await fetch(
-                "http://localhost:5000/api/cadastro",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-
-                        name: nome,
-                        email,
-                        password: senha,
-                        role: perfilFinal,
-                        age: idade,
-                        institution: instituicao
-
-                    })
-                }
-            );
-
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-
-                throw new Error(
-                    dados.message ||
-                    dados.error ||
-                    "Erro ao realizar o cadastro."
-                );
-
-            }
-        
-            document.getElementById("texto-sucesso").textContent =
-                dados.message ||
-                "Sua conta foi criada com sucesso!";
-
-            // Esconde formulário
-            const telaCadastro =
-                document.getElementById("form-register") ||
-                document.getElementById("etapa-formulario");
-
-            if (telaCadastro) {
-
-                telaCadastro.classList.add("oculto");
-
-            }
-
-            // Mostra tela de sucesso
-            const telaSucesso =
-                document.getElementById("etapa-sucesso");
-
-            if (telaSucesso) {
-
-                telaSucesso.classList.remove("oculto");
-
-            }
-
-            formCadastro.reset();
-
-        }
-
-        catch (erro) {
-
-            console.error(erro);
-
-            erroDiv.textContent =
-                erro.message;
-
-            erroDiv.classList.remove("oculto");
-
-        }
-
-        finally {
-
-            btnCadastrar.textContent =
-                "Cadastrar";
-
-            btnCadastrar.disabled = false;
-
-        }
-
-    });
+    }
 
 }
 
-/* ==========================================================================
-   4. FUNÇÕES DO CÓDIGO DA TURMA
-   (Fluxo exclusivo do aluno)
-   ========================================================================== */
 
-function validarTurma() {
 
-    const codigo =
-        document.getElementById("codigo-turma").value.trim();
+// ==========================================================================
+// Obtém os dados digitados pelo usuário
+// ==========================================================================
 
-    const erroTurma =
-        document.getElementById("erro-turma");
+function obterDadosLogin() {
 
-    erroTurma.classList.add("oculto");
+    const role =
 
-    if (codigo.length !== 6) {
+        usoSelecionado === "pessoal"
 
-        erroTurma.textContent =
-            "O código deve conter exatamente 6 caracteres.";
+            ? "student"
 
-        erroTurma.classList.remove("oculto");
+            : converterPerfil(
+
+                $("login-perfil")?.value ||
+                $("tipo_usuario")?.value
+            );
+
+    return {
+
+        email: $("login-email").value.trim(),
+
+        password: $("login-senha").value,
+
+        role
+
+    };
+
+}
+
+
+
+// ==========================================================================
+// Processa a resposta da API
+// ==========================================================================
+
+function processarLogin(resposta) {
+
+    const usuario =
+
+        resposta.user ||
+
+        resposta.usuario ||
+
+        resposta;
+
+    const token =
+
+        resposta.access_token ||
+
+        resposta.token;
+
+    salvarSessao(
+
+        usuario,
+
+        token
+
+    );
+
+    redirecionarUsuario(usuario);
+
+}
+
+
+
+// ==========================================================================
+// Redireciona conforme o perfil
+// ==========================================================================
+
+function redirecionarUsuario(usuario) {
+
+    switch (usuario.role) {
+
+        // --------------------------------------------------------------
+        // Aluno
+        // --------------------------------------------------------------
+
+        case "student":
+
+            iniciarFluxoAluno(usuario);
+
+            break;
+
+        // --------------------------------------------------------------
+        // Professor
+        // --------------------------------------------------------------
+
+        case "teacher":
+
+            window.location.href =
+                "/teacher/dashboard";
+
+            break;
+
+        // --------------------------------------------------------------
+        // Administrador
+        // --------------------------------------------------------------
+
+        case "admin":
+
+            // TODO
+            // Criar painel administrativo.
+
+            window.location.href =
+                "/admin/dashboard";
+
+            break;
+
+        // --------------------------------------------------------------
+
+        default:
+
+            window.location.href =
+                "/dashboard";
+
+    }
+
+}
+
+
+
+// ==========================================================================
+// Fluxo exclusivo do aluno
+// ==========================================================================
+
+function iniciarFluxoAluno(usuario) {
+
+    const etapaTurma = $("etapa-turma");
+
+    // --------------------------------------------------------------
+    // Caso exista a etapa de código da turma
+    // --------------------------------------------------------------
+
+    if (etapaTurma) {
+
+        esconder($("form-login"));
+
+        mostrar(etapaTurma);
+
+        const primeiroNome =
+
+            usuario.name
+                ?.split(" ")[0]
+
+            ||
+
+            "Aluno";
+
+        const titulo =
+
+            $("nome-aluno-boas-vindas");
+
+        if (titulo) {
+
+            titulo.textContent =
+                `👋 Olá, ${primeiroNome}!`;
+
+        }
 
         return;
 
     }
 
-    // Futuramente será feita uma chamada à API
-    // para validar o código da turma.
+    // --------------------------------------------------------------
+    // Fluxo padrão
+    // --------------------------------------------------------------
 
-    alert("Turma conectada com sucesso! Bem-vindo à jornada!");
+    window.location.href =
+        "/dashboard";
+
+}
+
+
+
+// ==========================================================================
+// Conversão do perfil do HTML para o Backend
+// ==========================================================================
+//
+// HTML:
+//
+// estudante
+// professor
+//
+// Backend:
+//
+// student
+// teacher
+// admin
+//
+// ==========================================================================
+
+function converterPerfil(perfil) {
+
+    switch (perfil) {
+
+        case "estudante":
+        case "aluno":
+
+            return "student";
+
+        case "professor":
+        case "gestor":
+
+            return "teacher";
+
+        case "admin":
+
+            return "admin";
+
+        default:
+
+            return "student";
+
+    }
+
+}
+// ==========================================================================
+// 3. PROCESSAMENTO DO FORMULÁRIO DE CADASTRO (REGISTER)
+// ==========================================================================
+
+const formCadastro = $("form-cadastro");
+
+if (formCadastro) {
+
+    formCadastro.addEventListener(
+        "submit",
+        realizarCadastro
+    );
+
+}
+
+
+
+// ==========================================================================
+// Realiza o cadastro
+// ==========================================================================
+
+async function realizarCadastro(evento) {
+
+    evento.preventDefault();
+
+    limparErro("erro-cadastro");
+
+    const btnCadastrar = $("btn-cadastrar");
+
+    alterarBotao(
+
+        btnCadastrar,
+
+        "Cadastrando...",
+
+        true
+
+    );
+
+    try {
+
+        validarCadastro();
+
+        const dadosCadastro =
+            obterDadosCadastro();
+
+        const resposta =
+            await enviarRequisicao(
+
+                "/cadastro",
+
+                "POST",
+
+                dadosCadastro
+
+            );
+
+        processarCadastro(resposta);
+
+    }
+
+    catch (erro) {
+
+        console.error("Erro no cadastro:", erro);
+
+        mostrarErro(
+
+            "erro-cadastro",
+
+            erro.message
+
+        );
+
+    }
+
+    finally {
+
+        alterarBotao(
+
+            btnCadastrar,
+
+            "Cadastrar",
+
+            false
+
+        );
+
+    }
+
+}
+
+
+
+// ==========================================================================
+// Validação dos campos
+// ==========================================================================
+
+function validarCadastro() {
+
+    const senha =
+        $("cad-senha").value;
+
+    const confirmar =
+        $("cad-confirma").value;
+
+    if (senha !== confirmar) {
+
+        throw new Error(
+            "As senhas informadas não coincidem."
+        );
+
+    }
+
+}
+
+
+
+// ==========================================================================
+// Obtém os dados do formulário
+// ==========================================================================
+
+function obterDadosCadastro() {
+
+    let role = "student";
+
+    let age = null;
+
+    let institution = null;
+
+    // ---------------------------------------------------------
+    // Perfil escolhido
+    // ---------------------------------------------------------
+
+    if (usoSelecionado === "institucional") {
+
+        role = converterPerfil(
+
+            $("cadastro-perfil")?.value
+
+        );
+
+    }
+
+    // ---------------------------------------------------------
+    // Idade
+    // ---------------------------------------------------------
+
+    if (role === "student") {
+
+        const campoIdade =
+            $("cad-idade");
+
+        if (
+
+            campoIdade &&
+            campoIdade.value
+
+        ) {
+
+            age =
+                parseInt(campoIdade.value);
+
+        }
+
+    }
+
+    // ---------------------------------------------------------
+    // Instituição
+    // ---------------------------------------------------------
+
+    if (role === "teacher") {
+
+        institution =
+            $("cad-instituicao")?.value.trim();
+
+    }
+
+    return {
+
+        name:
+            $("cad-nome").value.trim(),
+
+        email:
+            $("cad-email").value.trim(),
+
+        password:
+            $("cad-senha").value,
+
+        role,
+
+        age,
+
+        institution
+
+    };
+
+}
+
+
+
+// ==========================================================================
+// Processa a resposta da API
+// ==========================================================================
+
+function processarCadastro(resposta) {
+
+    const mensagem =
+
+        resposta.message ||
+
+        "Conta criada com sucesso!";
+
+    const textoSucesso =
+        $("texto-sucesso");
+
+    if (textoSucesso) {
+
+        textoSucesso.textContent =
+            mensagem;
+
+    }
+
+    esconder(
+
+        $("form-cadastro")
+
+    );
+
+    mostrar(
+
+        $("etapa-sucesso")
+
+    );
+
+    formCadastro.reset();
+
+}
+
+
+
+// ==========================================================================
+// Tela de sucesso
+// ==========================================================================
+//
+// Futuramente:
+//
+// • Enviar e-mail de confirmação.
+// • Fazer login automático.
+// • Redirecionar para onboarding.
+// • Solicitar confirmação de e-mail.
+//
+// ==========================================================================
+
+function continuarParaLogin() {
+
+    window.location.href = "/login";
+
+}
+// ==========================================================================
+// 4. FUNÇÕES DO CÓDIGO DA TURMA
+// (Fluxo exclusivo do aluno)
+// ==========================================================================
+
+function validarTurma() {
+
+    const codigo = $("codigo-turma")?.value.trim();
+
+    limparErro("erro-turma");
+
+    if (!codigo || codigo.length !== 6) {
+
+        mostrarErro(
+            "erro-turma",
+            "O código deve conter exatamente 6 caracteres."
+        );
+
+        return;
+
+    }
+
+    // ----------------------------------------------------------------------
+    // TODO
+    // Validar o código da turma na API.
+    //
+    // POST /api/classes/join
+    //
+    // Após implementar:
+    //  • validar existência da turma;
+    //  • matricular aluno;
+    //  • retornar mensagem de sucesso/erro.
+    // ----------------------------------------------------------------------
+
+    alert("Turma conectada com sucesso!");
 
     window.location.href = "/dashboard";
 
 }
+
+
 
 function pularTurma() {
 
+    // ----------------------------------------------------------------------
+    // TODO
+    // Permitir posteriormente exigir obrigatoriamente
+    // a vinculação a uma turma.
+    // ----------------------------------------------------------------------
+
     window.location.href = "/dashboard";
 
 }
-/* ==========================================================================
-   5. FUNÇÕES DE INTERFACE (LOGIN E CADASTRO)
-   ========================================================================== */
 
-/* ---------- LOGIN ---------- */
 
-function proximoPassoLogin(escolha) {
 
-    const painel =
-        document.getElementById("etapa-tipo-uso");
+// ==========================================================================
+// 5. INTERFACE - LOGIN
+// ==========================================================================
 
-    const formulario =
-        document.getElementById("form-login");
+function proximoPassoLogin(tipoUso) {
 
-    const seletores =
-        document.getElementById("container-seletores-finais");
+    usoSelecionado = tipoUso;
 
-    const rotulo =
-        document.getElementById("rotulo-perfil-dinamico");
+    esconder($("etapa-tipo-uso"));
 
-    painel.classList.add("oculto");
-    formulario.classList.remove("oculto");
+    mostrar($("form-login"));
 
-    if (escolha === "pessoal") {
+    const mostrarPerfil =
+        tipoUso === "institucional";
 
-        seletores.classList.add("oculto");
-        rotulo.classList.add("oculto");
-
-    } else {
-
-        seletores.classList.remove("oculto");
-        rotulo.classList.remove("oculto");
-
-    }
+    mostrarOuEsconderPerfil(
+        mostrarPerfil
+    );
 
     selecionarPerfilLogin("estudante");
 
 }
 
+
+
 function selecionarPerfilLogin(perfil) {
 
-    const form =
-        document.getElementById("form-login");
+    $("tipo_usuario").value = perfil;
 
-    const input =
-        document.getElementById("tipo_usuario");
+    atualizarEstadoFormulario(
 
-    const estudante =
-        document.getElementById("opcao-estudante");
+        "form-login",
 
-    const professor =
-        document.getElementById("opcao-professor");
+        perfil,
 
-    const botao =
-        document.getElementById("btn-entrar");
+        "opcao-estudante",
 
-    input.value = perfil;
+        "opcao-professor"
 
-    if (perfil === "estudante") {
-
-        form.classList.remove("estado-professor");
-        form.classList.add("estado-estudante");
-
-        estudante.className =
-            "quadrinho-opcao ativo-estudante";
-
-        professor.className =
-            "quadrinho-opcao";
-
-    } else {
-
-        form.classList.remove("estado-estudante");
-        form.classList.add("estado-professor");
-
-        estudante.className =
-            "quadrinho-opcao";
-
-        professor.className =
-            "quadrinho-opcao ativo-professor";
-
-    }
-
-    botao.textContent = "Entrar";
+    );
 
 }
+
+
 
 function voltarAoInicioLogin() {
 
-    document
-        .getElementById("form-login")
-        .classList.add("oculto");
+    esconder($("form-login"));
 
-    document
-        .getElementById("etapa-tipo-uso")
-        .classList.remove("oculto");
+    mostrar($("etapa-tipo-uso"));
+
+    limparErro("erro-login");
 
 }
 
 
-/* ---------- CADASTRO ---------- */
 
-function proximoPassoCadastro(escolha) {
+// ==========================================================================
+// 6. INTERFACE - CADASTRO
+// ==========================================================================
 
-    const painel =
-        document.getElementById("etapa-tipo-uso");
+function proximoPassoCadastro(tipoUso) {
 
-    const formulario =
-        document.getElementById("form-cadastro");
+    usoSelecionado = tipoUso;
 
-    const seletores =
-        document.getElementById("container-seletores-finais");
+    esconder($("etapa-tipo-uso"));
 
-    const rotulo =
-        document.getElementById("rotulo-perfil-dinamico");
+    mostrar($("form-cadastro"));
 
-    painel.classList.add("oculto");
-    formulario.classList.remove("oculto");
+    const mostrarPerfil =
+        tipoUso === "institucional";
 
-    if (escolha === "pessoal") {
-
-        seletores.classList.add("oculto");
-        rotulo.classList.add("oculto");
-
-    } else {
-
-        seletores.classList.remove("oculto");
-        rotulo.classList.remove("oculto");
-
-    }
+    mostrarOuEsconderPerfil(
+        mostrarPerfil
+    );
 
     selecionarPerfil("estudante");
 
 }
 
+
+
 function selecionarPerfil(perfil) {
 
-    const form =
-        document.getElementById("form-cadastro");
+    $("tipo_usuario").value = perfil;
 
-    const input =
-        document.getElementById("tipo_usuario");
+    atualizarEstadoFormulario(
 
-    const estudante =
-        document.getElementById("opcao-estudante");
+        "form-cadastro",
 
-    const professor =
-        document.getElementById("opcao-professor");
+        perfil,
 
-    const labelNome =
-        document.getElementById("label-nome");
+        "opcao-estudante",
 
-    const botao =
-        document.getElementById("btn-registrar");
+        "opcao-professor"
 
-    input.value = perfil;
+    );
 
-    if (perfil === "estudante") {
+    atualizarLabelNome(perfil);
 
-        form.classList.remove("estado-professor");
-        form.classList.add("estado-estudante");
-
-        estudante.className =
-            "quadrinho-opcao ativo-estudante";
-
-        professor.className =
-            "quadrinho-opcao";
-
-        if (labelNome)
-            labelNome.textContent =
-                "Nome do Aluno";
-
-    } else {
-
-        form.classList.remove("estado-estudante");
-        form.classList.add("estado-professor");
-
-        estudante.className =
-            "quadrinho-opcao";
-
-        professor.className =
-            "quadrinho-opcao ativo-professor";
-
-        if (labelNome)
-            labelNome.textContent =
-                "Nome do Professor / Gestor";
-
-    }
-
-    botao.textContent = "Criar Conta";
+    ajustarCamposEspecificos();
 
 }
+
+
 
 function voltarAoInicioCadastro() {
 
-    document
-        .getElementById("form-cadastro")
-        .classList.add("oculto");
+    esconder($("form-cadastro"));
 
-    document
-        .getElementById("etapa-tipo-uso")
-        .classList.remove("oculto");
+    mostrar($("etapa-tipo-uso"));
+
+    limparErro("erro-cadastro");
 
 }
 
 
-/* ---------- Inicialização ---------- */
 
-document.addEventListener("DOMContentLoaded", () => {
+// ==========================================================================
+// Helpers da Interface
+// ==========================================================================
 
-    if (document.getElementById("form-login")) {
+function mostrarOuEsconderPerfil(mostrarSeletores) {
 
-        selecionarPerfilLogin("estudante");
+    if (mostrarSeletores) {
+
+        mostrar($("container-seletores-finais"));
+
+        mostrar($("rotulo-perfil-dinamico"));
 
     }
 
-    if (document.getElementById("form-cadastro")) {
+    else {
 
-        selecionarPerfil("estudante");
+        esconder($("container-seletores-finais"));
+
+        esconder($("rotulo-perfil-dinamico"));
 
     }
 
-});
-/* arquivo antigo e duplicado talvez usar para basear e fazer pequenas alterações futuras
-// Variável global de controle de fluxo dentro do módulo de autenticação
-let usoSelecionado = 'pessoal';
-/* ==========================================================================
-   1. FUNÇÕES DE TRANSIÇÃO DE TELAS (Otimizadas para ambos os formulários)
-   ========================================================================== *
+}
 
-function irParaFormulario(tipoUso) {
-    usoSelecionado = tipoUso;
-    
-    // Elementos da tela de Login (se existirem na página atual)
-    const campoPerfilLogin = document.getElementById('campo-perfil');
-    const tituloLogin = document.getElementById('titulo-login');
-    
-    // Elementos da tela de Cadastro/Registro (se existirem na página atual)
-    const grupoPerfilCadastro = document.getElementById('grupo-perfil');
 
-    // Se estiver na tela de Login
-    if (tituloLogin) {
-        if (tipoUso === 'institucional') {
-            campoPerfilLogin.classList.remove('oculto');
-            tituloLogin.textContent = "Acesso Escolar 🏫";
-        } else {
-            campoPerfilLogin.classList.add('oculto');
-            tituloLogin.textContent = "Acesso Pessoal 🏠";
-        }
+
+function atualizarEstadoFormulario(
+
+    formularioId,
+
+    perfil,
+
+    estudanteId,
+
+    professorId
+
+) {
+
+    const formulario = $(formularioId);
+
+    const estudante = $(estudanteId);
+
+    const professor = $(professorId);
+
+    if (!formulario) return;
+
+    formulario.classList.remove(
+
+        "estado-estudante",
+
+        "estado-professor"
+
+    );
+
+    formulario.classList.add(
+
+        perfil === "estudante"
+
+            ? "estado-estudante"
+
+            : "estado-professor"
+
+    );
+
+    estudante?.classList.remove("ativo-estudante");
+
+    professor?.classList.remove("ativo-professor");
+
+    if (perfil === "estudante") {
+
+        estudante?.classList.add("ativo-estudante");
+
     }
 
-    // Se estiver na tela de Cadastro
-    if (grupoPerfilCadastro) {
-        if (tipoUso === 'institucional') {
-            grupoPerfilCadastro.classList.remove('oculto');
-        } else {
-            grupoPerfilCadastro.classList.add('oculto');
-        }
-        // Ajusta os campos específicos de Aluno (idade) ou Professor (instituição)
-        ajustarCamposEspecificos();
+    else {
+
+        professor?.classList.add("ativo-professor");
+
     }
 
-    // Transição universal: esconde a caixinha de seleção e mostra a do formulário
-    document.getElementById('etapa-selecao').classList.add('oculto');
-    document.getElementById('etapa-formulario').classList.remove('oculto');
 }
 
-function voltarParaSelecao() {
-    document.getElementById('etapa-formulario').classList.add('oculto');
-    document.getElementById('etapa-selecao').classList.remove('oculto');
-    
-    // Limpa mensagens de erro ocultando-as
-    const erroLogin = document.getElementById('erro-login');
-    const erroCadastro = document.getElementById('erro-cadastro');
-    if (erroLogin) erroLogin.classList.add('oculto');
-    if (erroCadastro) erroCadastro.classList.add('oculto');
+
+
+function atualizarLabelNome(perfil) {
+
+    const label = $("label-nome");
+
+    if (!label) return;
+
+    label.textContent =
+
+        perfil === "estudante"
+
+            ? "Nome do Estudante"
+
+            : "Nome do Professor / Gestor";
+
 }
 
-function ajustarCamposEspecificos() {
-    const grupoIdade = document.getElementById('grupo-idade');
-    const grupoInstituicao = document.getElementById('grupo-institicao');
-    
-    if (!grupoIdade || !grupoInstituicao) return; // Segurança caso não esteja na tela de cadastro
 
-    // Se for uso pessoal, age por padrão como Aluno (pede idade), ocultando escola
-    if (usoSelecionado === 'pessoal') {
-        grupoIdade.classList.remove('oculto');
-        grupoInstituicao.classList.add('oculto');
-        return;
+
+// ==========================================================================
+// Inicialização
+// ==========================================================================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        // --------------------------------------------------------------
+        // Configuração inicial das telas
+        // --------------------------------------------------------------
+
+        if ($("form-login")) {
+
+            selecionarPerfilLogin("estudante");
+
+        }
+
+        if ($("form-cadastro")) {
+
+            selecionarPerfil("estudante");
+
+        }
+
+        // --------------------------------------------------------------
+        // Atualiza os campos quando o perfil muda
+        // --------------------------------------------------------------
+
+        $("cadastro-perfil")
+            ?.addEventListener(
+
+                "change",
+
+                ajustarCamposEspecificos
+
+            );
+
+        // --------------------------------------------------------------
+        // TODO
+        // Caso exista um JWT válido:
+        //
+        // • verificar expiração;
+        // • consultar usuário na API;
+        // • redirecionar automaticamente.
+        // --------------------------------------------------------------
+
     }
 
-    // Se for escolar, analisa o valor selecionado no select de perfil
-    const perfil = document.getElementById('cadastro-perfil').value;
-    if (perfil === 'aluno') {
-        grupoIdade.classList.remove('oculto');
-        grupoInstituicao.classList.add('oculto');
-    } else {
-        grupoIdade.classList.add('oculto');
-        grupoInstituicao.classList.remove('oculto');
-    }
-}
-
-
-
-
-/*1. FUNÇÕES DE TRANSIÇÃO DE TELAS
-
-function irParaFormulario(tipoUso) {
-    usoSelecionado = tipoUso;
-    
-    const campoPerfilLogin = document.getElementById('campo-perfil');
-    const tituloLogin = document.getElementById('titulo-login');
-    const grupoPerfilCadastro = document.getElementById('grupo-perfil');
-
-    // Se estiver na página de Login
-    if (tituloLogin) {
-        if (tipoUso === 'institucional') {
-            if (campoPerfilLogin) campoPerfilLogin.classList.remove('oculto');
-            tituloLogin.textContent = "Acesso Escolar 🏫";
-        } else {
-            if (campoPerfilLogin) campoPerfilLogin.classList.add('oculto');
-            tituloLogin.textContent = "Acesso Pessoal 🏠";
-        }
-        document.getElementById('etapa-selecao').classList.add('oculto');
-        document.getElementById('form-login').classList.remove('oculto');
-    }
-
-    // Se estiver na página de Cadastro
-    if (grupoPerfilCadastro) {
-        if (tipoUso === 'institucional') {
-            grupoPerfilCadastro.classList.remove('oculto');
-        } else {
-            grupoPerfilCadastro.classList.add('oculto');
-        }
-        ajustarCamposEspecificos();
-        
-        document.getElementById('etapa-selecao').classList.add('oculto');
-        document.getElementById('form-register').classList.remove('oculto');
-    }
-}
-
-function voltarParaSelecao() {
-    const telaLogin = document.getElementById('form-login');
-    const telaRegister = document.getElementById('form-register');
-    
-    if (telaLogin) telaLogin.classList.add('oculto');
-    if (telaRegister) telaRegister.classList.add('oculto');
-    
-    document.getElementById('etapa-selecao').classList.remove('oculto');
-    
-    const erroLogin = document.getElementById('erro-login');
-    const erroCadastro = document.getElementById('erro-cadastro');
-    if (erroLogin) erroLogin.classList.add('oculto');
-    if (erroCadastro) erroCadastro.classList.add('oculto');
-}
-
-function ajustarCamposEspecificos() {
-    const grupoInstituicao = document.getElementById('grupo-instituicao');
-    if (!grupoInstituicao) return; 
-
-    if (usoSelecionado === 'pessoal') {
-        grupoInstituicao.classList.add('oculto');
-        return;
-    }
-
-    const perfil = document.getElementById('cadastro-perfil').value;
-    if (perfil === 'aluno') {
-        grupoInstituicao.classList.add('oculto');
-    } else {
-        grupoInstituicao.classList.remove('oculto');
-    }
-}
-
-
-* ==========================================================================
-   2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN
-   ========================================================================== *
-
-const formLogin = document.getElementById('form-autenticacao');
-if (formLogin) {
-    formLogin.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const email = document.getElementById('login-email').value;
-        const senha = document.getElementById('login-senha').value;
-        const erroDiv = document.getElementById('erro-login');
-        const btnEntrar = document.getElementById('btn-entrar');
-
-        // Se o uso for pessoal, a role enviada é 'pessoal', senão pega do select ('aluno'/'professor')
-        const perfil = usoSelecionado === 'pessoal' ? 'pessoal' : document.getElementById('login-perfil').value;
-
-        erroDiv.classList.add('oculto');
-        btnEntrar.textContent = "Carregando...";
-        btnEntrar.disabled = true;
-
-        try {
-            const resposta = await fetch('http://localhost:5000/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha, perfil })
-            });
-
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-                throw new Error(dados.message || 'Erro ao efetuar login.');
-            }
-
-            // Armazena a sessão localmente
-            localStorage.setItem('token_usuario', dados.access_token);
-            localStorage.setItem('usuario', JSON.stringify(dados.user));
-
-            // Fluxo condicional igual ao do Vue antigo
-            if (dados.user.role === 'aluno') {
-                document.getElementById('nome-aluno-boas-vindas').textContent = `👋 ${dados.user.nome}`;
-                document.getElementById('etapa-formulario').classList.add('oculto');
-                document.getElementById('etapa-turma').classList.remove('oculto');
-            } else {
-                // Professor ou Pessoal vão direto para o Dashboard correspondente
-                window.location.href = '../dashboard/dashboard.html'; 
-            }
-
-        } catch (erro) {
-            erroDiv.textContent = erro.message;
-            erroDiv.classList.remove('oculto');
-        } finally {
-            btnEntrar.textContent = "Entrar ➔";
-            btnEntrar.disabled = false;
-        }
-    });
-}
-
-*2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN*
-
-const formLogin = document.getElementById('form-autenticacao');
-if (formLogin) {
-    formLogin.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const email = document.getElementById('login-email').value;
-        const senha = document.getElementById('login-senha').value;
-        const erroDiv = document.getElementById('erro-login');
-        const btnEntrar = document.getElementById('btn-entrar');
-
-        const perfil = usoSelecionado === 'pessoal' ? 'pessoal' : document.getElementById('login-perfil').value;
-
-        erroDiv.classList.add('oculto');
-        btnEntrar.textContent = "Carregando...";
-        btnEntrar.disabled = true;
-
-        try {
-            const resposta = await fetch('http://localhost:5000/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha, perfil })
-            });
-
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-                throw new Error(dados.message || 'Erro ao efetuar login.');
-            }
-
-            console.log("=== RESPOSTA DO SERVER ===", dados);
-
-            const usuarioObj = dados.user || dados.usuario || dados;
-            const papelUsuario = usuarioObj.role || usuarioObj.perfil || usuarioObj.tipo;
-
-            //Salvamento do Token obtido do Flask
-            localStorage.setItem('token_usuario', dados.token);
-            localStorage.setItem('usuario', JSON.stringify(usuarioObj));
-
-            //Mapeando 'aluno' conforme o banco
-            if (papelUsuario === 'aluno') {
-                document.getElementById('form-login').classList.add('oculto');
-                
-                const etapaTurma = document.getElementById('etapa-turma');
-                if (etapaTurma) {
-                    etapaTurma.classList.remove('oculto');
-                    const primeiroNome = usuarioObj.nome.split(' ')[0];
-                    document.getElementById('nome-aluno-boas-vindas').innerText = `👋 Olá, ${primeiroNome}!`;
-                } else {
-                    window.location.href = '../dashboard/profile-student.html';
-                }
-            } else {
-                window.location.href = '../dashboard/dashboard-manager.html';
-            }
-            
-        } catch (erro) {
-            console.error("Erro no login:", erro);
-            erroDiv.textContent = erro.message;
-            erroDiv.classList.remove('oculto');
-        } finally {
-            btnEntrar.textContent = "Entrar";
-            btnEntrar.disabled = false;
-        }
-    });
-}
-
-* ==========================================================================
-   3. PROCESSAMENTO DO FORMULÁRIO DE CADASTRO (REGISTER)
-   ========================================================================== *
-
-const formCadastro = document.getElementById('form-cadastro');
-if (formCadastro) {
-    formCadastro.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const nome = document.getElementById('cad-nome').value;
-        const email = document.getElementById('cad-email').value;
-        const senha = document.getElementById('cad-senha').value;
-        const confirmaSenha = document.getElementById('cad-confirma').value;
-        const erroDiv = document.getElementById('erro-cadastro');
-        const btnCadastrar = document.getElementById('btn-cadastrar');
-
-        erroDiv.classList.add('oculto');
-
-        // Validação básica de segurança no Front
-        if (senha !== confirmaSenha) {
-            erroDiv.textContent = "As senhas informadas não coincidem.";
-            erroDiv.classList.remove('oculto');
-            return;
-        }
-
-        let perfilFinal = 'pessoal';
-        let idade = null;
-        let instituicao = null;
-
-        if (usoSelecionado === 'institucional') {
-            perfilFinal = document.getElementById('cadastro-perfil').value;
-        }
-
-        // Mapeamento dinâmico dos atributos extras aceitos pelo backend
-        if (perfilFinal === 'aluno' || perfilFinal === 'pessoal') {
-            const campoIdade = document.getElementById('cad-idade').value;
-            idade = campoIdade ? parseInt(campoIdade) : null;
-        } else if (perfilFinal === 'professor') {
-            instituicao = document.getElementById('cad-instituicao').value;
-        }
-
-        btnCadastrar.textContent = "Processando...";
-        btnCadastrar.disabled = true;
-
-        try {
-            const resposta = await fetch('http://localhost:5000/api/cadastro', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    nome,
-                    email,
-                    senha,
-                    uso: usoSelecionado,
-                    perfil: perfilFinal,
-                    idade,
-                    instituicao
-                })
-            });
-
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-                throw new Error(dados.message || 'Erro ao realizar o cadastro.');
-            }
-
-            // Transição para o estado de sucesso
-            document.getElementById('texto-sucesso').textContent = dados.message || "A sua conta ecológica foi criada com sucesso!";
-            document.getElementById('etapa-formulario').classList.add('oculto');
-            document.getElementById('etapa-sucesso').classList.remove('oculto');
-
-            formCadastro.reset();
-
-        } catch (erro) {
-            erroDiv.textContent = erro.message;
-            erroDiv.classList.remove('oculto');
-        } finally {
-            btnCadastrar.textContent = "Cadastrar ➔";
-            btnCadastrar.disabled = false;
-        }
-    });
-}
-*3. PROCESSAMENTO DO FORMULÁRIO DE CADASTRO (REGISTER)*
-
-const formCadastro = document.getElementById('form-cadastro');
-if (formCadastro) {
-    formCadastro.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const nome = document.getElementById('cad-nome').value;
-        const email = document.getElementById('cad-email').value;
-        const senha = document.getElementById('cad-senha').value;
-        const confirmaSenha = document.getElementById('cad-confirma').value;
-        const erroDiv = document.getElementById('erro-cadastro');
-        const btnCadastrar = document.getElementById('btn-cadastrar');
-
-        erroDiv.classList.add('oculto');
-
-        if (senha !== confirmaSenha) {
-            erroDiv.textContent = "As senhas informadas não coincidem.";
-            erroDiv.classList.remove('oculto');
-            return;
-        }
-
-        let perfilFinal = 'pessoal';
-        let instituicao = null;
-
-        if (usoSelecionado === 'institucional') {
-            perfilFinal = document.getElementById('cadastro-perfil').value;
-        }
-
-        if (perfilFinal === 'professor') {
-            instituicao = document.getElementById('cad-instituicao').value;
-        }
-
-        btnCadastrar.textContent = "Processando...";
-        btnCadastrar.disabled = true;
-
-        try {
-            const resposta = await fetch('http://localhost:5000/api/cadastro', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    nome,
-                    email,
-                    senha,
-                    uso: usoSelecionado,
-                    perfil: perfilFinal,
-                    instituicao
-                })
-            });
-
-            const dados = await resposta.json();
-
-            if (!resposta.ok) {
-                throw new Error(dados.message || 'Erro ao realizar o cadastro.');
-            }
-
-            document.getElementById('texto-sucesso').textContent = dados.message || "Conta criada com sucesso!";
-            document.getElementById('form-register').classList.add('oculto');
-            document.getElementById('etapa-sucesso').classList.remove('oculto');
-
-            formCadastro.reset();
-
-        } catch (erro) {
-            erroDiv.textContent = erro.message;
-            erroDiv.classList.remove('oculto');
-        } finally {
-            btnCadastrar.textContent = "Criar Conta ➔";
-            btnCadastrar.disabled = false;
-        }
-    });
-}
-
-* ==========================================================================
-   4. FUNÇÕES DO CÓDIGO DA TURMA (Exclusivo do fluxo de login do Aluno)
-   ========================================================================== *
-
-function validarTurma() {
-    const codigo = document.getElementById('codigo-turma').value;
-    const erroTurma = document.getElementById('erro-turma');
-
-    if (codigo.length < 6) {
-        erroTurma.textContent = 'O código deve conter exatamente 6 caracteres.';
-        erroTurma.classList.remove('oculto');
-        return;
-    }
-
-    alert("Turma conectada com sucesso! Bem-vindo à jornada!");
-    window.location.href = '../dashboard/dashboard.html';
-}
-
-function pularTurma() {
-    window.location.href = '../dashboard/dashboard.html';
-}
-
-
-
-
-
-
-*4. FUNÇÕES DE FLUXO ADICIONAL (Código da Turma)*
-function validarTurma() {
-    const codigo = document.getElementById('codigo-turma').value;
-    const erroTurma = document.getElementById('erro-turma');
-
-    if (codigo.length < 6) {
-        erroTurma.textContent = 'O código deve conter exatamente 6 caracteres.';
-        erroTurma.classList.remove('oculto');
-        return;
-    }
-
-    alert("Turma conectada com sucesso! Bem-vindo à jornada!");
-    window.location.href = '../dashboard/profile-student.html';
-}
-
-function pularTurma() {
-    window.location.href = '../dashboard/profile-student.html';
-}
-*/
+);
