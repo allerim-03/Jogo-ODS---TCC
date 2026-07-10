@@ -102,3 +102,163 @@
     </footer>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educa - Login</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ui.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pages/auth.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+      {% include 'components/navbar.html' %}
+</head>
+<body>
+
+    <!--header class="topbar">
+        <div class="left">
+            <div class="logo">
+                <h1>Plataforma Educa</h1>
+                <p>Cultivando o Saber</p>
+            </div>
+        </div>
+    </header-->
+
+    <main>
+        <div class="boas-vindas">
+            <h2 class="titulo-branco">Bem-vindo!</h2>
+            <p class="sub-branco">Venha aprender brincando</p>
+                <img src="{{ url_for('static', filename='imagens/TugaPqn.png') }}" alt="Mascote Tuga">
+                <h1 class="texto-azul negrito">Login</h1>
+                <p>Faça login para continuar aprendendo!</p>
+        </div>
+            <div id="etapa-tipo-uso" class="login-box">
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; text-align: center; color: #31B54C;">Como deseja acessar?</h2>
+                <p class="sub-branco" style="text-align: center; margin-bottom: 25px;">Escolha o tipo de uso na plataforma para continuar.</p>
+                
+                <div class="seletor-perfil-container">
+                    <div class="quadrinho-opcao" onclick="proximoPassoLogin('personal')">
+                        <span>🏡</span>
+                        <p>Uso Pessoal</p>
+                    </div>
+                    <div class="quadrinho-opcao" onclick="proximoPassoLogin('institucional')">
+                        <span>🏫</span>
+                        <p>Uso Institucional</p>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 0.9rem; margin-top: 20px; color: #7f8c8d;">
+                    Não tem uma conta? <a href="{{ url_for('routes.register') }}" class="texto-perfil-link" style="color: #31B54C;">Cadastre-se</a>
+                </p>
+            </div>
+
+           <form
+    id="form-login"
+    class="login-box estado-estudante oculto" 
+
+                <button type="button" class="btn-voltar" onclick="voltarAoInicioLogin()" style="background: transparent !important; border: none !important; box-shadow: none !important; color: #7f8c8d; font-weight: bold; cursor: pointer; margin-bottom: 15px; text-align: left; width: auto; padding: 0; outline: none !important;">← Voltar ao Início</button>
+                
+                <h2 class="titulo-dinamico" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; transition: color 0.3s; text-align: center;">Acesse sua Conta</h2>
+                <p class="sub-branco" style="text-align: center;">Pronto para continuar a sua jornada?</p>
+                
+                <label id="rotulo-perfil-dinamico" class="rotulo-input" style="margin-top: 15px;">INFORME SEU PERFIL</label>
+                
+                <div class="seletor-perfil-container" id="container-seletores-finais">
+                    <div id="opcao-estudante" class="quadrinho-opcao ativo-estudante" onclick="selecionarPerfilLogin('student')">
+                        <span>🎒</span>
+                        <p>Estudante</p>
+                    </div>
+                    <div id="opcao-professor" class="quadrinho-opcao" onclick="selecionarPerfilLogin('teacher')">
+                        <span>👩‍🏫</span>
+                        <p>Gestor</p>
+                    </div>
+                </div>
+                <input type="hidden" id="login-role" value="student">
+                <input type="hidden" id="login-use" value="personal">
+                <label class="rotulo-input">Seu E-mail</label>
+                <input type="email" id="login-email" class="input-estilizado" placeholder="Digite seu e-mail" required>
+                <label class="rotulo-input">Sua Senha</label>
+                <input type="password" id="login-password" class="input-estilizado" placeholder="Digite sua senha" required>
+                <div id="erro-login"
+                      class="oculto erro-login">
+                </div>
+                <button type="submit" id="btn-entrar">Entrar</button>
+                
+                <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #7f8c8d;">
+                    Não tem uma conta? <a href="{{ url_for('routes.register') }}" class="texto-perfil-link">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+   
+    <script src="{{ url_for('static', filename='js/services/auth.js') }}"></script>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>
+
+
+
+ <!--script>
+        function proximoPassoLogin(escolha) {
+            const painelTriagem = document.getElementById('etapa-tipo-uso');
+            const formLogin = document.getElementById('form-login');
+            const seletoresFinais = document.getElementById('container-seletores-finais');
+            const rotuloPerfil = document.getElementById('rotulo-perfil-dinamico');
+
+            painelTriagem.classList.add('oculto');
+            formLogin.classList.remove('oculto');
+
+            if (escolha === 'pessoal') {
+                seletoresFinais.classList.add('oculto');
+                rotuloPerfil.classList.add('oculto');
+                selecionarPerfilLogin('estudante');
+            } else {
+                seletoresFinais.classList.remove('oculto');
+                rotuloPerfil.classList.remove('oculto');
+                selecionarPerfilLogin('estudante');
+            }
+        }
+
+        function selecionarPerfilLogin(perfil) {
+            const caixaForm = document.getElementById('form-login');
+            const inputTipo = document.getElementById('tipo_usuario');
+            const optEstudante = document.getElementById('opcao-estudante');
+            const optProfessor = document.getElementById('opcao-professor');
+            const btnEntrar = document.getElementById('btn-entrar');
+
+            inputTipo.value = perfil;
+
+            if (perfil === 'estudante') {
+                caixaForm.classList.remove('estado-professor');
+                caixaForm.classList.add('estado-estudante');
+                optEstudante.className = "quadrinho-opcao ativo-estudante";
+                optProfessor.className = "quadrinho-opcao";
+                btnEntrar.innerText = "Entrar";
+            } else {
+                caixaForm.classList.remove('estado-estudante');
+                caixaForm.classList.add('estado-professor');
+                optEstudante.className = "quadrinho-opcao";
+                optProfessor.className = "quadrinho-opcao ativo-professor";
+                btnEntrar.innerText = "Entrar";
+            }
+        }
+
+        function voltarAoInicioLogin() {
+            const formLogin = document.getElementById('form-login');
+            formLogin.classList.add('oculto');
+            document.getElementById('etapa-tipo-uso').classList.remove('oculto');
+        }
+
+        window.onload = () => { selecionarPerfilLogin('estudante'); }
+    </script-->
