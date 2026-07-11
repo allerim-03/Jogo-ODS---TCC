@@ -18,7 +18,7 @@
 // ==========================================================================
 // CONFIGURAÇÕES
 // ==========================================================================
-
+//para evitar a repetição de strings
 const STORAGE_TOKEN = "token_usuario";
 
 const STORAGE_USER = "usuario";

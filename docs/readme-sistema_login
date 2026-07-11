@@ -405,6 +405,37 @@ Login
 ↓
 Logout
 
+FASE 09 - MAIN.JS
+
+1.criei as contantes
+2.helpers
+3. centralizar o logout
+4.maneira de mudança de perfil
+5. parei de usar caminhos relativos para que todas que funcionasse mesmo com mudança de pasta
+6. função para descobrir o painel
+7.diminuição do header, com a criação de um global
+ futuro : com api (GET /api/auth/me) para a sessão expirar automaticamente.
+
+ fase 10 - frontend
+ -login.html
+* campos hidden
+* mensagens de erro
+* tela de sucesso
+
+ -register.html
+* uso pessoal/institucional
+* estudante/professor
+* idade
+* instituição
+* tela de sucesso
+
+ -auth.css
+* links
+* imports JS
+* CSS
+* nomes dos botões
+* action dos forms (removidos, tudo usar fetch)
+
 --||--
 11/07/2026
 
