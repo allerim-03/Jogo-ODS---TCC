@@ -1,152 +1,442 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma Educa - Cadastro</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Plataforma Educa - Cadastro
+    </title>
+
+    <!-- ==========================================================
+         CSS
+    =========================================================== -->
+
     <link rel="stylesheet"
-      href="{{ url_for('static', filename='css/base.css') }}">
+          href="{{ url_for('static', filename='css/base.css') }}">
 
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='css/ui.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/ui.css') }}">
 
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='css/pages/auth.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
-      {% include 'components/navbar.html' %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/pages/auth.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/components/navbar.css') }}">
+
 </head>
+
 <body>
 
-    <header class="topbar"></header>
+    <!-- ==========================================================
+         NAVBAR
+    =========================================================== -->
+
+    {% include 'components/navbar.html' %}
+
 
     <main>
+
+        <!-- ======================================================
+             BOAS-VINDAS
+        ======================================================= -->
+
         <div class="boas-vindas">
-            <div class="auth-mascote">
-    <img
-    src="{{ url_for('static', filename='imagens/TugaPqn.png') }}"
-    alt="Mascote Tuga">
-</div>
-            
-            <div id="etapa-tipo-uso" class="login-box">
-                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; text-align: center; color: #31B54C;">Como deseja acessar?</h2>
-                <p class="sub-branco" style="text-align: center; margin-bottom: 25px;">Escolha o tipo de uso na plataforma para continuar.</p>
-                
-                <div class="seletor-perfil-container">
-                    <div class="quadrinho-opcao" onclick="proximoPassoCadastro('pessoal')">
-                        <span>🏡</span>
-                        <p>Uso Pessoal</p>
-                    </div>
-                    <div class="quadrinho-opcao" onclick="proximoPassoCadastro('institucional')">
-                        <span>🏫</span>
-                        <p>Uso Institucional</p>
-                    </div>
+
+            <h2 class="titulo-branco">
+
+                Bem-vindo!
+
+            </h2>
+
+            <p class="sub-branco">
+
+                Comece agora sua jornada de aprendizagem.
+
+            </p>
+
+            <img
+                src="{{ url_for('static', filename='imagens/TugaPqn.png') }}"
+                alt="Mascote Tuga">
+
+            <h1 class="texto-azul negrito">
+
+                Cadastro
+
+            </h1>
+
+            <p>
+
+                Crie sua conta para começar a aprender.
+
+            </p>
+
+        </div>
+
+        <!-- ======================================================
+             ETAPA 1 - ESCOLHA DO TIPO DE USO
+        ======================================================= -->
+
+        <section
+            id="etapa-tipo-uso"
+            class="login-box">
+
+            <h2 class="titulo-etapa">
+
+                Como deseja se cadastrar?
+
+            </h2>
+
+            <p class="descricao-etapa">
+
+                Escolha o tipo de uso para estruturar seu perfil.
+
+            </p>
+
+            <div class="seletor-perfil-container">
+
+                <div
+                    class="quadrinho-opcao"
+                    onclick="proximoPassoCadastro('personal')">
+
+                    <span>🏡</span>
+
+                    <p>
+
+                        Uso Pessoal
+
+                    </p>
+
                 </div>
 
-                <p style="text-align: center; font-size: 0.9rem; margin-top: 20px; color: #7f8c8d;">
-                    Já tem conta? <a href="{{ url_for('routes.login') }}"class="texto-perfil-link" style="color: #31B54C;">Faça login</a>
-                </p>
+                <div
+                    class="quadrinho-opcao"
+                    onclick="proximoPassoCadastro('institutional')">
+
+                    <span>🏫</span>
+
+                    <p>
+
+                        Uso Institucional
+
+                    </p>
+
+                </div>
+
             </div>
 
-            <form id="form-cadastro" class="login-box estado-estudante oculto">
-                <button type="button" class="btn-voltar" onclick="voltarAoInicioLogin()" style="background: transparent !important; border: none !important; box-shadow: none !important; color: #7f8c8d; font-weight: bold; cursor: pointer; margin-bottom: 15px; text-align: left; width: auto; padding: 0; outline: none !important;">← Voltar ao Início</button>
-                <h2 class="titulo-dinamico" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; transition: color 0.3s; text-align: center;">Crie sua Conta!</h2>
-                <p class="sub-branco" style="text-align: center;">Escolha seu perfil</p>
+            <p class="auth-link">
 
-                <label id="rotulo-perfil-dinamico" class="rotulo-input" style="margin-top: 15px;">QUEM É VOCÊ NA PLATAFORMA?</label>
-                
-                <div class="seletor-perfil-container" id="container-seletores-finais">
-                    <div id="opcao-estudante" class="quadrinho-opcao ativo-estudante" onclick="selecionarPerfil('estudante')">
-                        <span>🎒</span>
-                        <p>Estudante</p>
-                    </div>
-                    <div id="opcao-professor" class="quadrinho-opcao" onclick="selecionarPerfil('professor')">
-                        <span>👩‍🏫</span>
-                        <p>Gestor</p>
-                    </div>
-                </div>
+                Já possui uma conta?
 
-                <input type="hidden" id="tipo_usuario" name="tipo_usuario" value="estudante">
+                <a
+                    href="{{ url_for('routes.login') }}"
+                    class="texto-perfil-link">
 
-                <label class="rotulo-input" id="label-nome">Nome do Aluno</label>
-                <input type="text" id="nome" name="nome" class="input-estilizado" placeholder="Seu nome completo" required>
+                    Faça login
 
-                <label class="rotulo-input">E-mail de Acesso</label>
-                <input type="email" id="email" name="email" class="input-estilizado" placeholder="Digite seu E-mail" required>
+                </a>
 
-                <label class="rotulo-input">Crie uma Senha</label>
-                <input type="password" id="senha" name="senha" class="input-estilizado" placeholder="Mínimo 8 caracteres" required>
+            </p>
 
-                <button type="submit" id="btn-registrar">Criar Conta</button>
-                
-                <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; color: #7f8c8d;">
-                    Já tem conta? <a href="{{ url_for('routes.login') }}" class="texto-perfil-link">Faça login</a>
+        </section>
+                <!-- ======================================================
+             ETAPA 2 - FORMULÁRIO DE CADASTRO
+        ======================================================= -->
+
+        <form
+            id="form-cadastro"
+            class="login-box estado-estudante oculto">
+
+            <button
+                type="button"
+                class="btn-voltar"
+                onclick="voltarAoInicioCadastro()">
+
+                ← Voltar
+
+            </button>
+
+            <h2 class="titulo-dinamico">
+
+                Crie sua Conta
+
+            </h2>
+
+            <p class="subtitulo-auth">
+
+                Preencha os dados abaixo para começar.
+
+            </p>
+
+            <!-- ==================================================
+                 PERFIL (APENAS USO INSTITUCIONAL)
+            =================================================== -->
+
+            <div
+                id="grupo-perfil"
+                class="oculto">
+
+                <label class="rotulo-input">
+
+                    QUEM É VOCÊ NA PLATAFORMA?
+
+                </label>
+
+                <select
+                    id="cadastro-perfil"
+                    class="input-estilizado"
+                    onchange="ajustarCamposEspecificos()">
+
+                    <option value="student">
+
+                        Estudante
+
+                    </option>
+
+                    <option value="teacher">
+
+                        Professor / Gestor
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ==================================================
+                 NOME
+            =================================================== -->
+
+            <label class="rotulo-input">
+
+                Nome Completo
+
+            </label>
+
+            <input
+                type="text"
+                id="cad-nome"
+                class="input-estilizado"
+                placeholder="Digite seu nome completo"
+                required>
+
+
+            <!-- ==================================================
+                 EMAIL
+            =================================================== -->
+
+            <label class="rotulo-input">
+
+                E-mail
+
+            </label>
+
+            <input
+                type="email"
+                id="cad-email"
+                class="input-estilizado"
+                placeholder="Digite seu e-mail"
+                required>
+
+
+            <!-- ==================================================
+                 SENHA
+            =================================================== -->
+
+            <label class="rotulo-input">
+
+                Senha
+
+            </label>
+
+            <input
+                type="password"
+                id="cad-senha"
+                class="input-estilizado"
+                placeholder="Mínimo de 6 caracteres"
+                required>
+
+
+            <!-- ==================================================
+                 CONFIRMAR SENHA
+            =================================================== -->
+
+            <label class="rotulo-input">
+
+                Confirmar Senha
+
+            </label>
+
+            <input
+                type="password"
+                id="cad-confirma"
+                class="input-estilizado"
+                placeholder="Digite novamente a senha"
+                required>
+                            <!-- ==================================================
+                 IDADE
+                 Exibido para:
+                 - Uso Pessoal
+                 - Estudante
+            =================================================== -->
+
+            <div
+                id="grupo-idade">
+
+                <label class="rotulo-input">
+
+                    Idade
+
+                </label>
+
+                <input
+                    type="number"
+                    id="cad-idade"
+                    class="input-estilizado"
+                    placeholder="Informe sua idade"
+                    min="5"
+                    max="120">
+
+            </div>
+
+
+            <!-- ==================================================
+                 INSTITUIÇÃO
+                 Exibido apenas para Professor/Gestor
+            =================================================== -->
+
+            <div
+                id="grupo-instituicao"
+                class="oculto">
+
+                <label class="rotulo-input">
+
+                    Instituição / Escola
+
+                </label>
+
+                <input
+                    type="text"
+                    id="cad-instituicao"
+                    class="input-estilizado"
+                    placeholder="Nome da instituição">
+
+            </div>
+
+
+            <!-- ==================================================
+                 MENSAGEM DE ERRO
+            =================================================== -->
+
+            <div
+                id="erro-cadastro"
+                class="erro-login oculto">
+
+            </div>
+
+
+            <!-- ==================================================
+                 BOTÃO
+            =================================================== -->
+
+            <button
+                type="submit"
+                id="btn-cadastrar">
+
+                Criar Conta
+
+            </button>
+
+
+            <!-- ==================================================
+                 LINK PARA LOGIN
+            =================================================== -->
+
+            <p class="auth-link">
+
+                Já possui uma conta?
+
+                <a
+                    href="{{ url_for('routes.login') }}"
+                    class="texto-perfil-link">
+
+                    Faça login
+
+                </a>
+
+            </p>
+
+        </form>
+                <!-- ======================================================
+             ETAPA 3 - CADASTRO REALIZADO
+             (Exibida após resposta positiva da API)
+        ======================================================= -->
+
+        <section
+            id="etapa-sucesso"
+            class="login-box oculto">
+
+            <div class="auth-sucesso">
+
+                <span class="icone-sucesso">
+                    🌱
+                </span>
+
+                <h2 class="titulo-etapa">
+
+                    Cadastro realizado!
+
+                </h2>
+
+                <p
+                    id="texto-sucesso"
+                    class="descricao-etapa">
+
+                    Sua conta foi criada com sucesso.
+
                 </p>
-            </form>
-        </div>
+
+                <a
+                    href="{{ url_for('routes.login') }}"
+                    class="btn-submit">
+
+                    Ir para o Login
+
+                </a>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/services/auth.js') }}"></script>
+
+    <!-- ==========================================================
+         SCRIPTS
+    =========================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/main.js') }}">
+    </script>
+
+    <script
+        src="{{ url_for('static', filename='js/services/auth.js') }}">
+    </script>
+
+
+    <!-- ==========================================================
+         FOOTER
+    =========================================================== -->
+
+    {% include 'components/footer.html' %}
 
 </body>
-{% include 'components/footer.html' %}
+
 </html>
-
-
-    <!--script>
-        function proximoPassoCadastro(escolha) {
-            const painelTriagem = document.getElementById('etapa-tipo-uso');
-            const formCadastro = document.getElementById('form-cadastro');
-            const seletoresFinais = document.getElementById('container-seletores-finais');
-            const rotuloPerfil = document.getElementById('rotulo-perfil-dinamico');
-
-            painelTriagem.classList.add('oculto');
-            formCadastro.classList.remove('oculto');
-
-            if (escolha === 'pessoal') {
-                seletoresFinais.classList.add('oculto');
-                rotuloPerfil.classList.add('oculto');
-                selecionarPerfil('estudante');
-                document.getElementById('label-nome').innerText = "Nome do Usuário";
-            } else {
-                seletoresFinais.classList.remove('oculto');
-                rotuloPerfil.classList.remove('oculto');
-                selecionarPerfil('estudante');
-            }
-        }
-
-        function selecionarPerfil(perfil) {
-            const caixaForm = document.getElementById('form-cadastro');
-            const inputTipo = document.getElementById('tipo_usuario');
-            const optEstudante = document.getElementById('opcao-estudante');
-            const optProfessor = document.getElementById('opcao-professor');
-            const lblNome = document.getElementById('label-nome');
-            const btnReg = document.getElementById('btn-registrar');
-
-            inputTipo.value = perfil;
-
-            if (perfil === 'estudante') {
-                caixaForm.classList.remove('estado-professor');
-                caixaForm.classList.add('estado-estudante');
-                optEstudante.className = "quadrinho-opcao ativo-estudante";
-                optProfessor.className = "quadrinho-opcao";
-                lblNome.innerText = "Nome do Aluno";
-                btnReg.innerText = "Criar Conta";
-            } else {
-                caixaForm.classList.remove('estado-estudante');
-                caixaForm.classList.add('estado-professor');
-                optEstudante.className = "quadrinho-opcao";
-                optProfessor.className = "quadrinho-opcao ativo-professor";
-                lblNome.innerText = "Nome do Professor / Gestor";
-                btnReg.innerText = "Criar Conta";
-            }
-        }
-
-        function voltarAoInicioCadastro() {
-            const formCadastro = document.getElementById('form-cadastro');
-            formCadastro.classList.add('oculto');
-            document.getElementById('etapa-tipo-uso').classList.remove('oculto');
-        }
-
-        window.onload = () => { selecionarPerfil('estudante'); }
-    </script-->
