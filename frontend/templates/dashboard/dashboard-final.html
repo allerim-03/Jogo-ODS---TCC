@@ -401,8 +401,13 @@ async function loadBadges() {
             injetarFooter();
         });
     </script>
-</body>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/services/api.js') }}"></script>
 {% include 'components/footer.html' %}
+</body>
+
 </html>
 
 

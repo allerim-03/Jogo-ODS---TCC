@@ -1,15 +1,15 @@
 (09/07/2026)- inicio da adaptação do sistema de login criado pela khay.
 implementação em 11 fases com contrução + testes.
 
-1. Banco de dados (`user`)
-2. Model (`User`)
-3. Repository (`user_repository.py`)
-4. Security Service (`security_service.py`)
-5. Auth Service (`auth_service.py`)
-6. Auth Routes (`auth_routes.py`)
+1. Banco de dados ('user')
+2. Model ('User')
+3. Repository ('user_repository.py')
+4. Security Service ('security_service.py')
+5. Auth Service ('auth_service.py')
+6. Auth Routes ('auth_routes.py')
 7. Testes no Postman
-8. Integração com `auth.js`
-9. Ajustes no `main.js`
+8. Integração com 'auth.js'
+9. Ajustes no 'main.js'
 10. Proteção das rotas e páginas
 11. Teste completo do fluxo (cadastro → login → dashboard → logout)
 
@@ -39,8 +39,6 @@ app/
 ├── app.py
 │
 └── config.py
-
-
 ---
 
 Frontend
@@ -429,12 +427,40 @@ FASE 09 - MAIN.JS
 * instituição
 * tela de sucesso
 
+Frontend- Uso Pessoal/ Backend- personal
+Frontend - Uso Institucional/ Backend - institutional
+Frontend - Estudante/ Backend- student
+Frontend - Professor/ Backend - teacher
+Frontend- Administrador/ Backend - admin
+
  -auth.css
 * links
 * imports JS
 * CSS
 * nomes dos botões
 * action dos forms (removidos, tudo usar fetch)
+
+FASE 10 — Rotas protegidas
+
+10. Proteger páginas
+
+Criar middleware
+
+Exemplo:
+dashboard
+
+games
+
+ranking
+
+quiz
+
+profile
+
+Se
+
+sem token = redirecionar login
+
 
 --||--
 11/07/2026
@@ -448,3 +474,27 @@ V-persistência (localstorage,token,)
 VI-logout
 VII-segurança (senha,jwt,rota)
 VIII- integração (login, dashboard,perfil,quiz,games,ranking,logout)
+
+
+att. esquici de fazer algumas tarefas :
+FASE 7
+Criar api.js
+
+
+FASE 8
+Persistência da sessão
+
+FASE 9
+Proteção das páginas HTML
+
+
+FASE 10
+Middleware Flask
+
+
+FASE 11
+Fluxo completo Login → Dashboard → Logout
+
+
+FASE 12
+Checklist QA (~90 testes)

@@ -133,11 +133,13 @@ document.getElementById("start-game").addEventListener("click", () => {
     window.location.href = "/game-menu";
 });
 </script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+<script src="{{ url_for('static', filename='js/services/api.js') }}"></script>
 
-
-</body>
 {% include 'components/footer.html' %}
+</body>
+
 </html>
 
 
