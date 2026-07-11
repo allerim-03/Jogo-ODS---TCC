@@ -1,31 +1,120 @@
+/*auth.css
+
+   Utilizado por:
+   - login.html
+   - register.html
+
+   Fluxos :
+   • Login
+   • Cadastro
+   • Escolha do tipo de uso
+   • Seleção de perfil
+   • Cadastro institucional
+   • Cadastro pessoal
+   • Tela de sucesso
+   */
+
 
 /*
 tudin que é de sistema de login, para deixar o código mais organizado 
+
+->BOAS-VINDAS
 .boas-vindas
 .sub-branco
 
+->CARD
 .login-box
+.login-box form
+.login-box button 
 
-.estado-estudante
-.estado-professor
+->TÍTULOS
+.titulo-branco
+.texto-azul
+
+.titulo-dinamico
+.subtitulo-auth
+
+.titulo-etapa
+.descricao-etapa
+
+->SELETOR
+.login-box.estado-estudante 
+.login-box.estado-estudante .titulo-dinamico 
+.login-box.estado-estudante button 
+.login-box.estado-estudante button:hover 
+.login-box.estado-estudante .input-estilizado:focus 
+.login-box.estado-estudante .texto-perfil-link 
+
+.login-box.estado-professor 
+.login-box.estado-professor .titulo-dinamico 
+.login-box.estado-professor button
+.login-box.estado-professor button:hover 
+.login-box.estado-professor .input-estilizado:focus
+.login-box.estado-professor .texto-perfil-link
 
 .seletor-perfil-container
-.quadrinho-opcao
+.rotulo-perfil
+.quadrinho-opcao 
+.quadrinho-opcao span 
+.quadrinho-opcao p 
+.quadrinho-opcao:hover
+.quadrinho-opcao.ativo-estudante 
+.quadrinho-opcao.ativo-estudante p 
+.quadrinho-opcao.ativo-professor
+.quadrinho-opcao.ativo-professor p 
 
-.rotulo-input
-.input-estilizado
 
-.texto-perfil-link
+->FORMULÁRIO
+.rotulo-input 
+.input-estilizado 
+.input-estilizado:focus
+.input-estilizado::placeholder
+.campo-grupo
 
-.btn-voltar
+->BOTÕES
+.btn-voltar 
+.btn-voltar:hover 
 
-.oculto
+->LINKS
+.texto-perfil-link 
+.auth-link
 
-telas:
+->ERROS
+.erro-login,
+.erro-cadastro
+
+->TELA DE SUCESSO
+.sucesso-box
+.sucesso-box span
+.sucesso-box h2
+.sucesso-box p
+
+->MASCOTE
+.auth-mascote
+.auth-mascote img
+
+->UTILITÁRIOS
+.oculto 
+
+->RESPONSIVIDADE
+@media (max-width:768px)
+    .login-box
+    .seletor-perfil-container
+    .quadrinho-opcao
+    .titulo-dinamico
+
+@media (max-width:480px){
+
+    .login-box
+    .titulo-dinamico
+    .titulo-etapa
+    .boas-vindas img
+
+TELAS:
 -login
 -cadastro
-- seleção aluno/professor
 -fluxo de triagem
+- seleção aluno/professor
 */
 
 /* ==========================================================================
@@ -62,13 +151,81 @@ telas:
     text-align: left;
     transition: all 0.3s ease;
     border: 4px solid #cbd5e1;
+    animation:fadeIn .35s ease;
 }
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
 .login-box form{
     width:100%;
 }
 
 .login-box button{
+    width:100%;
     margin-top:8px;
+}
+
+/*
+=================
+  titulo 
+==================
+*/
+
+.titulo-branco{
+
+    font-size:2.5rem;
+    font-weight:800;
+
+}
+
+.texto-azul{
+
+    color:var(--ocean-blue);
+
+}
+.titulo-dinamico{
+    font-size:2.2rem;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:5px;
+    transition:color .3s;
+}
+
+.subtitulo-auth{
+    text-align:center;
+    margin-bottom:18px;
+}
+
+
+/* ==========================================================
+   ETAPA DE SELEÇÃO
+========================================================== */
+
+.titulo-etapa{
+    font-size:1.8rem;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:15px;
+    color:var(--garden-green);
+}
+
+.descricao-etapa{
+    text-align:center;
+    margin-bottom:25px;
+    color:#7f8c8d;
+    font-size:.95rem;
 }
 
 /* ==========================================================
@@ -116,6 +273,7 @@ telas:
     display:block;
 }
 
+
 .quadrinho-opcao {
     flex: 1;
     border: 2px solid var(--gray-200);
@@ -140,8 +298,13 @@ telas:
     font-size: 0.9rem;
     color: var(--gray-500);
 }
+.quadrinho-opcao:hover{
+    transform:translateY(-2px);
+}
 
 /* Quadrinhos ativos adaptados */
+
+
 .quadrinho-opcao.ativo-estudante {
     border-color: var(--banana-yellow);
     background-color: white;
@@ -149,12 +312,16 @@ telas:
 }
 .quadrinho-opcao.ativo-estudante p { color: #e6b800; }
 
+
+
 .quadrinho-opcao.ativo-professor {
     border-color: var(--garden-green);
     background-color: white;
     box-shadow: 0 4px 12px rgba(49, 181, 76, 0.15);
 }
 .quadrinho-opcao.ativo-professor p { color: #31B54C; }
+
+
 
 
 /* ==========================================================
@@ -179,61 +346,21 @@ telas:
     outline: none;
     transition: border-color 0.2s;
 }
-
-.auth-form .btn-submit {
-    width: 100%;
+.input-estilizado:focus{
+    box-shadow:0 0 0 4px rgba(49,181,76,.12);
 }
-.titulo-dinamico{
-    font-size:2.2rem;
-    font-weight:800;
-    text-align:center;
-    margin-bottom:5px;
-    transition:color .3s;
+.input-estilizado::placeholder{
+    color:#94a3b8;
 }
 
-.subtitulo-auth{
-    text-align:center;
+.campo-grupo{
+    display:flex;
+    flex-direction:column;
     margin-bottom:18px;
 }
 
-/* ==========================================================
-   LINKS
-========================================================== */
-
-.texto-perfil-link {
-    text-decoration: none; 
-    font-weight: bold;
-}
-
-.auth-link{
-    text-align:center;
-    margin-top:18px;
-    font-size:.9rem;
-    color:#7f8c8d;
-}
-
-
-/* ==========================================================
-   UTILITÁRIOS
-========================================================== */
-
-/* Classe utilitária para alternar os painéis */
-
-.oculto { display: none !important; }
-
-.erro-login{
-    display:block;
-    width:100%;
-    margin-bottom:15px;
-    padding:10px 14px;
-    border-radius:10px;
-    background:#fdecec;
-    color:#c0392b;
-    font-size:.9rem;
-}
-
 /* ==========================================================================
-   ELEMENTOS PARA O FLUXO DE ETAPAS (TRIAGEM)
+ (Botões)  ELEMENTOS PARA O FLUXO DE ETAPAS (TRIAGEM)
    ========================================================================== */
 .btn-voltar {
     background: transparent;
@@ -253,30 +380,57 @@ telas:
     color: #2c3e50; 
     text-decoration: underline; 
 }
-
 /* ==========================================================
-   ETAPA DE SELEÇÃO
+   LINKS
 ========================================================== */
 
-.titulo-etapa{
-    font-size:1.8rem;
-    font-weight:800;
-    text-align:center;
-    margin-bottom:15px;
-    color:var(--garden-green);
+.texto-perfil-link {
+    text-decoration: none; 
+    font-weight: bold;
 }
 
-.descricao-etapa{
+.auth-link{
     text-align:center;
-    margin-bottom:25px;
+    margin-top:18px;
+    font-size:.9rem;
     color:#7f8c8d;
-    font-size:.95rem;
+}
+/*================================================
+         (Mensagens)  erros 
+==================================================*/
+.erro-login,
+.erro-cadastro{
+
+    display:block;
+    width:100%;
+    margin-bottom:15px;
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    background:#fdecec;
+    color:#c0392b;
+
+    font-size:.9rem;
+
 }
 
-
-/*tela de sucesso*/
+/*=========================================
+tela de sucesso
+==========================================*/
 .sucesso-box{
-    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+}
+.sucesso-box span{
+
+    font-size:3.5rem;
+    margin-bottom:12px;
+
 }
 
 .sucesso-box h2{
@@ -287,13 +441,41 @@ telas:
 .sucesso-box p{
     margin-bottom:25px;
 }
-.campo-grupo{
+
+
+
+/*=========================================== 
+   mascote Tuga
+=============================================*/
+.auth-mascote{
+
     display:flex;
-    flex-direction:column;
-    margin-bottom:18px;
+    justify-content:center;
+    margin:20px 0;
+
 }
 
-/*responsividade*/
+.auth-mascote img{
+
+    width:180px;
+    height:auto;
+
+}
+/* ==========================================================
+   UTILITÁRIOS
+========================================================== */
+
+/* Classe utilitária para alternar os painéis */
+
+.oculto { display: none !important; }
+
+
+
+
+
+/*=======================================
+responsividade
+==========================================*/
 
 @media (max-width:768px){
 
@@ -315,6 +497,40 @@ telas:
     }
 
 }
+
+@media (max-width:480px){
+
+    .login-box{
+
+        padding:20px;
+        border-radius:16px;
+
+    }
+
+    .titulo-dinamico{
+
+        font-size:1.6rem;
+
+    }
+
+    .titulo-etapa{
+
+        font-size:1.5rem;
+
+    }
+
+    .boas-vindas img{
+
+        width:140px;
+
+    }
+
+}
+
+
+
+
+
 /*
 ==============
 elementos que estavam no style 01
