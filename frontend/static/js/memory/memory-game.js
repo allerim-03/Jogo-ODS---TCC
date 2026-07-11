@@ -1,3 +1,4 @@
+//-- atualizar para seguir rest api
 //lógica do jogo
 /* funcionalidade
 - mostrar cartas para baixo

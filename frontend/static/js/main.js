@@ -10,7 +10,7 @@
 // • Logout
 //
 // Backend:
-// Flask + JWT
+// Flask + JWT + API REST
 // ==========================================================================
 
 
@@ -23,7 +23,7 @@ const STORAGE_TOKEN = "token_usuario";
 
 const STORAGE_USER = "usuario";
 
-
+const HOME = "/home";
 
 // ==========================================================================
 // HELPERS
@@ -55,7 +55,8 @@ function esconder(elemento) {
 
 function getToken() {
 
-    return localStorage.getItem(STORAGE_TOKEN);
+    //return localStorage.getItem(STORAGE_TOKEN);
+    return API.getToken();
 
 }
 
@@ -88,7 +89,6 @@ function usuarioEstaLogado() {
 function limparSessao() {
 
     localStorage.removeItem(STORAGE_TOKEN);
-
     localStorage.removeItem(STORAGE_USER);
 
 }
@@ -107,7 +107,7 @@ function obterDashboard(usuario) {
 
     }
 
-    switch (usuario.role) {
+    switch (usuario?.role) {
 
         case "teacher":
 
@@ -124,39 +124,6 @@ function obterDashboard(usuario) {
     }
 
 }
-
-
-
-// ==========================================================================
-// INICIALIZAÇÃO
-// ==========================================================================
-
-document.addEventListener(
-
-    "DOMContentLoaded",
-
-    () => {
-
-        renderizarLayoutGlobal();
-
-        // --------------------------------------------------------------
-        // TODO
-        //
-        // Verificar automaticamente se o JWT continua válido.
-        //
-        // GET /api/auth/me
-        //
-        // Caso esteja expirado:
-        //
-        // • limpar sessão
-        // • voltar para login
-        //
-        // --------------------------------------------------------------
-
-    }
-
-);
-
 
 
 // ==========================================================================
@@ -439,28 +406,28 @@ function fazerLogout() {
 
 /**
  * Remove todos os dados da sessão.
- */
+
 function limparSessao() {
 
     localStorage.removeItem("token_usuario");
     localStorage.removeItem("usuario");
 
 }
-
+ */
 
 /**
  * Verifica se existe usuário autenticado.
- */
+ 
 function usuarioEstaLogado() {
 
     return localStorage.getItem("token_usuario") !== null;
 
 }
 
-
+*/
 /**
  * Obtém usuário salvo localmente.
- */
+
 function obterUsuario() {
 
     try {
@@ -481,7 +448,7 @@ function obterUsuario() {
 
     }
 
-}
+} */
 
 
 /**
@@ -489,7 +456,7 @@ function obterUsuario() {
  */
 function obterPapelUsuario() {
 
-    const usuario = obterUsuario();
+    const usuario =  getUsuario();
 
     return (
         usuario.role ||
@@ -499,6 +466,7 @@ function obterPapelUsuario() {
     );
 
 }
+
 
 
 /* ==========================================================================
@@ -567,14 +535,59 @@ function obterPaginaPainel() {
     }
 
 }
+// ==========================================================================
+// INICIALIZAÇÃO
+// ==========================================================================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+     async() => {
+
+        renderizarLayoutGlobal();
+        // --------------------------------------------------------------
+        //
+        //
+        // Verificar automaticamente se o JWT continua válido.
+        //
+        // GET /api/auth/me
+        //
+        // Caso esteja expirado:
+        //
+        // • limpar sessão
+        // • voltar para login
+        //
+        // --------------------------------------------------------------
+
+        if (!API.getToken()) {
+
+            return;
+
+        }
+
+        try {
+
+            const usuario = await API.get("/auth/me");
+
+            localStorage.setItem(
+                "usuario",
+                JSON.stringify(usuario)
+            );
+
+        }
+
+        catch (erro) {
+
+            limparSessao();
+
+            window.location.href = "/login";
+
+        }
 
 
-/* ==========================================================================
-   INICIALIZAÇÃO
-   ========================================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    renderizarLayoutGlobal();
+    }
 
-});
+);

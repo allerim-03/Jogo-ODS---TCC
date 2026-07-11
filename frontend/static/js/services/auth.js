@@ -86,10 +86,8 @@ function salvarSessao(usuario, token) {
 
     if (token) {
 
-        localStorage.setItem(
-            "token_usuario",
-            token
-        );
+       API.saveToken(token);
+       
 
     }
 
@@ -110,26 +108,28 @@ function obterUsuario() {
 
 }
 
-function obterToken() {
-
-    return localStorage.getItem("token_usuario");
-
-}
 
 function limparSessao() {
 
     localStorage.removeItem("usuario");
 
-    localStorage.removeItem("token_usuario");
+    API.removeToken();
 
 }
+
 
 
 
 // ==========================================================================
 // CHAMADAS À API
 // ==========================================================================
+/*function limparSessao() {
 
+    localStorage.removeItem("usuario");
+
+    localStorage.removeItem("token_usuario");
+
+}
 async function enviarRequisicao(endpoint, metodo, dados) {
 
     const resposta = await fetch(
@@ -167,7 +167,7 @@ async function enviarRequisicao(endpoint, metodo, dados) {
 
     return json;
 
-}
+}*/
 
 
 
@@ -355,11 +355,9 @@ async function realizarLogin(evento) {
 
         const dadosLogin = obterDadosLogin();
 
-        const resposta = await enviarRequisicao(
+        const resposta = await API.post(
 
             "/login",
-
-            "POST",
 
             dadosLogin
 
@@ -414,9 +412,9 @@ function obterDadosLogin() {
 
     return {
 
-        email: $("login-email").value.trim(),
+        email: $("login-email").value.trim().toLowerCase(),
 
-        password: $("login-senha").value,
+        password: $("login-senha").value.trim(),
 
         role
 
@@ -445,7 +443,7 @@ function processarLogin(resposta) {
         resposta.access_token ||
 
         resposta.token;
-
+    if (token) {
     salvarSessao(
 
         usuario,
@@ -453,7 +451,7 @@ function processarLogin(resposta) {
         token
 
     );
-
+    }
     redirecionarUsuario(usuario);
 
 }
@@ -657,16 +655,10 @@ async function realizarCadastro(evento) {
         const dadosCadastro =
             obterDadosCadastro();
 
-        const resposta =
-            await enviarRequisicao(
-
-                "/cadastro",
-
-                "POST",
-
-                dadosCadastro
-
-            );
+        const resposta = await API.post(
+            "/register",
+            dadosCadastro
+        );
 
         processarCadastro(resposta);
 
@@ -720,6 +712,25 @@ function validarCadastro() {
 
         throw new Error(
             "As senhas informadas não coincidem."
+        );
+
+    }
+    if (!$("cad-nome").value.trim()) {
+
+    throw new Error("Informe seu nome.");
+
+    }
+
+    if (!$("cad-email").value.trim()) {
+
+        throw new Error("Informe um e-mail.");
+
+    }
+
+    if ($("cad-senha").value.length < 6) {
+
+        throw new Error(
+            "A senha deve possuir pelo menos 6 caracteres."
         );
 
     }
@@ -794,10 +805,10 @@ function obterDadosCadastro() {
             $("cad-nome").value.trim(),
 
         email:
-            $("cad-email").value.trim(),
+            $("cad-email").value.trim().toLowerCase(),
 
         password:
-            $("cad-senha").value,
+            $("cad-senha").value.trim(),
 
         role,
 
@@ -825,6 +836,13 @@ function processarCadastro(resposta) {
 
     const textoSucesso =
         $("texto-sucesso");
+    if (resposta.token || resposta.access_token) {
+
+    processarLogin(resposta);
+
+    return;
+
+}
 
     if (textoSucesso) {
 
@@ -901,6 +919,49 @@ function validarTurma() {
     //  • validar existência da turma;
     //  • matricular aluno;
     //  • retornar mensagem de sucesso/erro.
+
+
+    /*
+    async function validarTurma() {
+
+    const codigo = $("codigo-turma").value.trim();
+
+    limparErro("erro-turma");
+
+    if (!codigo || codigo.length !== 6) {
+
+        mostrarErro(
+            "erro-turma",
+            "O código deve conter exatamente 6 caracteres."
+        );
+
+        return;
+
+    }
+
+    try {
+
+        await API.post("/classes/join", {
+
+            code: codigo
+
+        });
+
+        window.location.href = "/dashboard";
+
+    }
+
+    catch (erro) {
+
+        mostrarErro(
+            "erro-turma",
+            erro.message
+        );
+
+    }
+
+}
+    */
     // ----------------------------------------------------------------------
 
     alert("Turma conectada com sucesso!");
@@ -1185,14 +1246,62 @@ document.addEventListener(
             );
 
         // --------------------------------------------------------------
-        // TODO
+        // 
         // Caso exista um JWT válido:
         //
         // • verificar expiração;
         // • consultar usuário na API;
         // • redirecionar automaticamente.
         // --------------------------------------------------------------
+        // Verifica se existe um token salvo
+
+        if (API.getToken()) {
+
+            try {
+
+                const usuario = await API.get("/auth/me");
+
+                redirecionarUsuario(usuario);
+
+            }
+
+            catch {
+
+                API.removeToken();
+
+            }
+
+        }
+
 
     }
 
 );
+
+/*FUTURO TODO REORGANIZAR O CÓDIGO ESTÁ ENORME
+-recuperação de senha;
+-confirmação de e-mail;
+-redefinição de senha;
+-código da turma;
+-atualização de perfil
+
+auth.js (INICIALIZAÇÃO)
+import "./login.js";
+import "./register.js";
+import "./session.js";
+
+NO HTML
+<script src="api.js"></script>
+<script src="session.js"></script>
+<script src="login.js"></script>
+<script src="register.js"></script>
+<script src="ui-auth.js"></script>
+<script src="auth.js"></script>
+
+login.js
+register.js
+session.js
+ui-auth.js
+classroom.js
+api.js
+*/

@@ -20,7 +20,7 @@ if __name__ == "__main__":
 '''
 from flask import Flask
 from flask_jwt_extended import JWTManager
-
+from flask_cors import CORS
 jwt = JWTManager()
 
 def create_app():
@@ -29,6 +29,21 @@ def create_app():
         static_folder="../frontend/static"
                 
                 )
+    #CORS(app) temporario durante o desenvolvimento por conta do live server
+    CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://127.0.0.1:5500",
+                "http://localhost:5500"
+            ]
+        }
+    }
+)
+
+
+
     # JWT Configuration
     app.config["JWT_SECRET_KEY"] = "chave-temporaria-dev"
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = False
