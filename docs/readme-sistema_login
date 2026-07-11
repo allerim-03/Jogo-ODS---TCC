@@ -405,3 +405,15 @@ Login
 ↓
 Logout
 
+--||--
+11/07/2026
+
+inicio da fase 11 de testes no sistema de login
+I-testes backend postman (parcialmente feitas)
+II- verificar salvamento do bd local
+III- frontend ( cadastro aluno, cadastro professor,cadastro aluno turma)
+IV- interface (botoes,formularios,titulo,label,mensagens,navbar)
+V-persistência (localstorage,token,)
+VI-logout
+VII-segurança (senha,jwt,rota)
+VIII- integração (login, dashboard,perfil,quiz,games,ranking,logout)
