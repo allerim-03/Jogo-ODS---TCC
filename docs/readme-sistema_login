@@ -479,18 +479,30 @@ VIII- integração (login, dashboard,perfil,quiz,games,ranking,logout)
 att. esquici de fazer algumas tarefas :
 FASE 7
 Criar api.js
-
+ sistema de rest API que retira os fech e centraliza para todo o sistema
+ todo- adptar games, quizes para rest api.
 
 FASE 8
 Persistência da sessão
+mudanças no main.js com token
 
 FASE 9
 Proteção das páginas HTML
-
-
+criação de middleware
+auth-guard.js que deve ser importado em todas as páginas protegidas (quiz,ranking,jogos,dashboards...)
 FASE 10
 Middleware Flask
-
+FASE 10
+│
+├── 10.1 Frontend
+│     ├── Auth Guard
+│     ├── Rotas protegidas
+│     └── Redirecionamentos
+│
+└── 10.2 Backend
+      ├── login_required
+      ├── JWT obrigatório
+      └── Proteção das APIs
 
 FASE 11
 Fluxo completo Login → Dashboard → Logout
