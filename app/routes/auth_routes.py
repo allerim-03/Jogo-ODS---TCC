@@ -53,3 +53,18 @@ def login():
 #POST /api/logout (futuro)
 
 #GET /api/me (futuro)
+#POST /refresh
+
+'''
+--melhoria para o futuro
+@routes.route('/login', methods=['POST'])
+def login_post():
+
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+    tipo_usuario = request.form.get('tipo_usuario')
+
+    print(email, senha, tipo_usuario)
+
+    return redirect('/dashboard')
+'''

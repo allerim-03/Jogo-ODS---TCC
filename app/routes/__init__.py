@@ -1,0 +1,12 @@
+def register_routes(app):
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(page_bp)
+    app.register_blueprint(dashboard_bp)
+    app.register_blueprint(quiz_bp)
+    app.register_blueprint(game_bp)
+    app.register_blueprint(ranking_bp)
+    app.register_blueprint(progress_bp)
+    app.register_blueprint(classroom_bp)
+    app.register_blueprint(admin_bp)
+    app.register_blueprint(user_bp)
+    app.register_blueprint(badge_bp)

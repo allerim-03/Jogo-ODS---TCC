@@ -24,7 +24,12 @@ user_repository = UserRepository()
 # ou mysql direto
 from app.services.xp_service import add_xp
 from app.services.badge_service import check_and_award_badges
+from app.middleware.auth_middleware import login_required
 
+
+@dashboard_bp.route("/dashboard")
+@login_required
+def dashboard():
 # futuramente trocar por services
 
 #===========================
