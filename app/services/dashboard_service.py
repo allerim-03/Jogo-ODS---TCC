@@ -79,12 +79,14 @@ class DashboardService:
 
     def statistics(self, user_id):
 
-        progress = ProgressRepository.get_user_progress(user_id)
+        progress = progress_repository.get_user_progress(user_id)
+        stats = progress_repository.get_statistics(user_id)
 
         return {
             "xp": progress["xp"],
             "level": progress["level"],
-            "completed_games": progress["games"],
-            "completed_quizzes": progress["quizzes"],
-            "badges": progress["badges"]
+            "completed_games": stats["games_completed"],
+            "completed_quizzes": stats["quizzes_completed"],
+            "total_xp": stats["total_xp"],
+            "current_level": stats["current_level"]
         }

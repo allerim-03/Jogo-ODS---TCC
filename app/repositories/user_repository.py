@@ -25,8 +25,8 @@
 #   • buscar usuários por e-mail;
 #   • cadastrar novos usuários;
 #   • atualizar informações;
-#   • consultar progresso;
-#   • consultar ranking.
+#   • consultar progresso; (progress_repository)
+#   • consultar ranking.(ranking_repository)
 #
 # Conexão com o banco
 # -------------------
@@ -160,7 +160,7 @@ class UserRepository:
 
 
 
-    def update(self, user):
+    def update_progress(self, user):
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -186,7 +186,34 @@ class UserRepository:
         cursor.close()
         conn.close()
 
+    
 
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém arquivos antigos funcionando durante migração
+# =====================================================
+_repository = UserRepository()
+
+
+def get_user_by_id(user_id):
+        return _repository.get_by_id(user_id)
+
+
+def buscar_por_email(email):
+        return _repository.get_by_email(email)
+
+
+def salvar(user):
+        return _repository.create(user)
+
+
+def update_user(user):
+        return _repository.update(user)
+
+
+
+'''
+(função migrada para progress_repository)
 
     def get_progress(self, user_id):
 
@@ -196,7 +223,7 @@ class UserRepository:
 
 
         cursor.execute(
-            """
+            
             SELECT
                 id,
                 name,
@@ -204,7 +231,7 @@ class UserRepository:
                 level
             FROM user
             WHERE id=%s
-            """,
+            ,
             (user_id,)
         )
 
@@ -217,9 +244,6 @@ class UserRepository:
 
 
         return data
-
-
-
     def get_ranking(self):
 
         conn = get_connection()
@@ -248,26 +272,4 @@ class UserRepository:
 
 
         return ranking
-    
-
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Mantém arquivos antigos funcionando durante migração
-# =====================================================
-_repository = UserRepository()
-
-
-def get_user_by_id(user_id):
-        return _repository.get_by_id(user_id)
-
-
-def buscar_por_email(email):
-        return _repository.get_by_email(email)
-
-
-def salvar(user):
-        return _repository.create(user)
-
-
-def update_user(user):
-        return _repository.update(user)
+'''
