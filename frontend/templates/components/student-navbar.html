@@ -14,7 +14,7 @@
     <div class="student-status">
 
         <!-- FOTO -->
-        <a href="{{ url_for('routes.student_profile') }}" class="student-avatar-link">
+        <a href="{{ url_for('pages.student_profile') }}" class="student-avatar-link">
         <img
 
             src="{{ url_for('static',
@@ -109,27 +109,27 @@
 
     <nav class="student-menu">
 
-        <a href="{{ url_for('routes.home') }}">
+        <a href="{{ url_for('pages.home') }}">
             🏠 Início
         </a>
 
-        <a href="{{ url_for('routes.games') }}">
+        <a href="{{ url_for('pages.games') }}">
             🎮 Jogos
         </a>
 
-        <a href="{{ url_for('routes.quizzes') }}">
+        <a href="{{ url_for('pages.quizzes') }}">
             🧠 Quiz
         </a>
 
-        <a href="{{ url_for('routes.ods') }}">
+        <a href="{{ url_for('pages.ods') }}">
             🌎 ODS
         </a>
 
-        <a href="{{ url_for('routes.ranking') }}">
+        <a href="{{ url_for('pages.ranking') }}">
             🏆 Ranking
         </a>
 
-        <a href="{{ url_for('routes.about_us') }}">
+        <a href="{{ url_for('pages.about_us') }}">
             👥 Sobre Nós
         </a>
 
@@ -146,7 +146,7 @@
 
         <a
 
-            href="{{ url_for('routes.logout') }}"
+            href="{{ url_for('pages.logout') }}"
 
             class="student-logout-btn">
 

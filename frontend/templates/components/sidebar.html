@@ -66,41 +66,41 @@
 
         {% if perfil == 'estudante' %}
 
-            <a href="{{ url_for('routes.dashboard') }}">
+            <a href="{{ url_for('pages.dashboard') }}">
                 👤 Meu Perfil
             </a>
 
-            <a href="{{ url_for('routes.ranking') }}">
+            <a href="{{ url_for('pages.ranking') }}">
                 🏆 Ranking
             </a>
 
-            <a href="{{ url_for('routes.games') }}">
+            <a href="{{ url_for('pages.games') }}">
                 🎮 Jogos
             </a>
 
-            <a href="{{ url_for('routes.logout') }}">
+            <a href="{{ url_for('pages.logout') }}">
                 🚪 Sair
             </a>
 
         {% elif perfil == 'gestor' %}
 
-            <a href="{{ url_for('routes.teacher_dashboard') }}">
+            <a href="{{ url_for('pages.teacher_dashboard') }}">
                 📊 Dashboard
             </a>
 
-            <a href="{{ url_for('routes.classroom') }}">
+            <a href="{{ url_for('pages.classroom') }}">
                 🏫 Turmas
             </a>
 
-            <a href="{{ url_for('routes.metricas') }}">
+            <a href="{{ url_for('pages.metricas') }}">
                 📈 Métricas
             </a>
 
-            <a href="{{ url_for('routes.relatorios') }}">
+            <a href="{{ url_for('pages.relatorios') }}">
                 📑 Relatórios
             </a>
 
-            <a href="{{ url_for('routes.logout') }}">
+            <a href="{{ url_for('pages.logout') }}">
                 🚪 Sair
             </a>
 
@@ -118,7 +118,7 @@
                 ⚙️ Configurações
             </a>
 
-            <a href="{{ url_for('routes.logout') }}">
+            <a href="{{ url_for('pages.logout') }}">
                 🚪 Sair
             </a>
 

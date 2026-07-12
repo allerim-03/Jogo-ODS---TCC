@@ -74,20 +74,20 @@ navbar professor : home,atividades ,classe , painel geral(teacher-dashboard.html
 
         {% if perfil == 'publico' %}
 
-            <a href="{{ url_for('routes.home') }}">
+            <a href="{{ url_for('pages.home') }}">
                🏠 Início
             </a>
 
-            <a href="{{ url_for('routes.ods') }}">
+            <a href="{{ url_for('pages.ods') }}">
                🌎 ODS
             </a>
 
            
 
-            <a href="{{ url_for('routes.about_games') }}">
+            <a href="{{ url_for('pages.about_games') }}">
                🎮 Nossos Jogos
             </a>
-            <a href="{{ url_for('routes.about_us') }}">
+            <a href="{{ url_for('pages.about_us') }}">
                         👥 Sobre Nós
                         </a>
        
@@ -98,23 +98,23 @@ navbar professor : home,atividades ,classe , painel geral(teacher-dashboard.html
 
         {% elif perfil == 'gestor' %}
 
-            <a href="{{ url_for('routes.home') }}">
+            <a href="{{ url_for('pages.home') }}">
               🏠  Início
             </a>
 
-            <a href="{{ url_for('routes.teacher_dashboard') }}">
+            <a href="{{ url_for('pages.teacher_dashboard') }}">
                 Painel Geral
             </a>
 
-            <a href="{{ url_for('routes.classroom') }}">
+            <a href="{{ url_for('pages.classroom') }}">
                 Diário de Classe
             </a>
 
-            <a href="{{ url_for('routes.relatorios') }}">
+            <a href="{{ url_for('pages.relatorios') }}">
                 Relatórios
             </a>
 
-            <a href="{{ url_for('routes.metricas') }}">
+            <a href="{{ url_for('pages.metricas') }}">
                 Métricas
             </a>
 
@@ -124,7 +124,7 @@ navbar professor : home,atividades ,classe , painel geral(teacher-dashboard.html
 
         {% elif perfil == 'admin' %}
 
-            <a href="{{ url_for('routes.home') }}">
+            <a href="{{ url_for('pages.home') }}">
               🏠  Início
             </a>
 
@@ -153,14 +153,14 @@ navbar professor : home,atividades ,classe , painel geral(teacher-dashboard.html
 
         {% if perfil == 'publico' %}
 
-            <a href="{{ url_for('routes.login') }}"
+            <a href="{{ url_for('pages.login') }}"
                class="btn-login-top">
                 Entrar
             </a>
 
         {% else %}
 
-            <a href="{{ url_for('routes.logout') }}"
+            <a href="{{ url_for('pages.logout') }}"
                class="logout-btn">
                🚪  Sair
             </a>
