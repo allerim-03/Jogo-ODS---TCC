@@ -298,3 +298,8 @@ def students():
 # ======================================
 #outras pages 
 # ======================================
+@page_bp.route("/")
+def teste():
+    return {
+        "message": "API Gamificação Cultivando o saber funcionando"
+    }

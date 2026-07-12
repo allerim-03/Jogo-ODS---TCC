@@ -144,7 +144,10 @@ def api_login_required(view):
 
 
         # Disponibiliza o usuário para a rota
-        g.current_user = user
+        
+        
+
+        g.current_user = user_repository.get_by_id(user_id)
 
 
         return view(*args, **kwargs)
