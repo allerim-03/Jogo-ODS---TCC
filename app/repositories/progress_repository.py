@@ -6,6 +6,8 @@ Responsabilidade:
 - Consultar informações de progresso do usuário.
 - Não contém regras de negócio.
 - Apenas acessa o banco de dados.
+
+progresso consolidado do usuário.
 ===========================================================================
 """
 
@@ -80,15 +82,38 @@ class ProgressRepository:
         cursor = connection.cursor(dictionary=True)
 
         query = """
-            SELECT
-                games_completed,
-                quizzes_completed,
-                total_xp,
-                current_level
-            FROM user_statistics
-            WHERE user_id = %s
-        """
+        
+        SELECT
+    (
+        SELECT COUNT(*)
+        FROM score
+        WHERE user_id = %s
+    ) AS games_completed,
 
+    (
+        SELECT COUNT(*)
+        FROM quiz_attempt
+        WHERE user_id = %s
+    ) AS quizzes_completed,
+
+    (
+        SELECT COUNT(*)
+        FROM inventory_badge
+        WHERE user_id = %s
+    ) AS badges,
+
+    (
+        SELECT xp
+        FROM user
+        WHERE id = %s
+    ) AS total_xp,
+
+    (
+        SELECT level
+        FROM user
+        WHERE id = %s
+    ) AS current_level
+                     """
         cursor.execute(query, (user_id,))
         statistics = cursor.fetchone()
 

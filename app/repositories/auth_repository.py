@@ -14,129 +14,148 @@ Não contém regras de negócio.
 from database.connection import get_connection
 
 
-# ==========================================================================
-# Buscar usuário por e-mail
-# ==========================================================================
+class AuthRepository:
 
-def get_user_by_email(email):
+    # ==========================================================================
+    # Buscar usuário por e-mail
+    # ==========================================================================
 
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
+    def get_user_by_email(self, email):
 
-    cursor.execute(
-        """
-        SELECT *
-        FROM users
-        WHERE email = %s
-        LIMIT 1
-        """,
-        (email,)
-    )
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
 
-    user = cursor.fetchone()
+        cursor.execute("""
+            SELECT *
+            FROM user
+            WHERE email = %s
+            LIMIT 1
+        """, (email,))
 
-    cursor.close()
-    connection.close()
+        user = cursor.fetchone()
 
-    return user
+        cursor.close()
+        connection.close()
 
-
-# ==========================================================================
-# Buscar usuário por ID
-# ==========================================================================
-
-def get_user_by_id(user_id):
-
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
-
-    cursor.execute(
-        """
-        SELECT *
-        FROM users
-        WHERE id = %s
-        LIMIT 1
-        """,
-        (user_id,)
-    )
-
-    user = cursor.fetchone()
-
-    cursor.close()
-    connection.close()
-
-    return user
+        return user
 
 
-# ==========================================================================
-# Criar usuário
-# ==========================================================================
+    # ==========================================================================
+    # Buscar usuário por ID
+    # ==========================================================================
 
-def create_user(user_data):
+    def get_user_by_id(self, user_id):
 
-    connection = get_connection()
-    cursor = connection.cursor()
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
 
-    cursor.execute(
-        """
-        INSERT INTO users
-        (
-            name,
-            email,
-            password,
-            role,
-            use_type
-        )
-        VALUES
-        (
-            %s,
-            %s,
-            %s,
-            %s,
-            %s
-        )
-        """,
-        (
-            user_data["name"],
-            user_data["email"],
-            user_data["password"],
-            user_data["role"],
-            user_data["use_type"]
-        )
-    )
+        cursor.execute("""
+            SELECT *
+            FROM user
+            WHERE id = %s
+            LIMIT 1
+        """, (user_id,))
 
-    connection.commit()
+        user = cursor.fetchone()
 
-    user_id = cursor.lastrowid
+        cursor.close()
+        connection.close()
 
-    cursor.close()
-    connection.close()
-
-    return user_id
+        return user
 
 
-# ==========================================================================
-# Atualizar senha
-# ==========================================================================
+    # ==========================================================================
+    # Criar usuário
+    # ==========================================================================
 
-def update_password(user_id, password_hash):
+    def create_user(self, user_data):
 
-    connection = get_connection()
-    cursor = connection.cursor()
+        connection = get_connection()
+        cursor = connection.cursor()
 
-    cursor.execute(
-        """
-        UPDATE users
-        SET password = %s
-        WHERE id = %s
-        """,
-        (
+        cursor.execute("""
+            INSERT INTO user
+            (
+                name,
+                email,
+                password,
+                role,
+                use_type,
+                age,
+                institution
+            )
+            VALUES
+            (
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s
+            )
+            """ , (
+                    user_data["name"],
+                    user_data["email"],
+                    user_data["password"],
+                    user_data["role"],
+                    user_data.get("use_type", "individual"),
+                    user_data.get("age"),
+                    user_data.get("institution")
+                ))
+
+        connection.commit()
+
+        user_id = cursor.lastrowid
+
+        cursor.close()
+        connection.close()
+
+        return user_id
+
+
+    # ==========================================================================
+    # Atualizar senha
+    # ==========================================================================
+
+    def update_password(self, user_id, password_hash):
+
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        cursor.execute("""
+            UPDATE user
+            SET password = %s
+            WHERE id = %s
+        """, (
             password_hash,
             user_id
-        )
-    )
+        ))
 
-    connection.commit()
+        connection.commit()
 
-    cursor.close()
-    connection.close()
+        cursor.close()
+        connection.close()
+
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# =====================================================
+
+_repository = AuthRepository()
+
+
+def get_user_by_email(email):
+    return _repository.get_user_by_email(email)
+
+
+def get_user_by_id(user_id):
+    return _repository.get_user_by_id(user_id)
+
+
+def create_user(user_data):
+    return _repository.create_user(user_data)
+
+
+def update_password(user_id, password_hash):
+    return _repository.update_password(user_id, password_hash)
