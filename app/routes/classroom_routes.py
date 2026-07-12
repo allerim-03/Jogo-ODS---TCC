@@ -1,12 +1,4 @@
-#classrooms
 
-#join
-
-#leave
-
-#students
-
-#teacher
 
 """
 ===========================================================================
@@ -15,6 +7,11 @@ CLASSROOM ROUTES
 Responsável pelas APIs de salas de aula.
 
 Todas as regras ficam em classroom_service.py
+#classrooms
+#join
+#leave
+#students
+#teacher
 ===========================================================================
 """
 

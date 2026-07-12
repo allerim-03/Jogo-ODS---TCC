@@ -13,8 +13,8 @@
 #==============================
 #importes
 #=====================================
-
-
+from app.middleware.auth_middleware import api_login_required
+from flask import Blueprint, jsonify, request
 from app.repositories.quiz_repository import get_all_quizzes
 from app.services.quiz_service import get_quiz_details
 from app.services.quiz_service import submit_quiz as submit_quiz_service

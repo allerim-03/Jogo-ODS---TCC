@@ -17,12 +17,12 @@
 from flask import Blueprint, jsonify
 
 from app.middleware.auth_middleware import api_login_required
-from app.services.progress_service import ProgressService
+from app.services.game_service import process_game_score
 
 
 progress_bp = Blueprint("progress", __name__)
 
-progress_service = ProgressService()
+
 
 
 # ==========================================================================
@@ -33,7 +33,7 @@ progress_service = ProgressService()
 @api_login_required
 def user_progress(user_id):
 
-    result = progress_service.get_user_progress(user_id)
+    result =process_game_score(user_id)
 
     return jsonify(result)
 
@@ -58,7 +58,7 @@ def user_progress(user_id):
 # PAINEL ADMIN - QUIZZES
 # ==========================
 
-@quiz_bp.route('/quiz/submit', methods=['POST'])
+@progress_bp.route('/quiz/submit', methods=['POST'])
 @api_login_required
 def submit_game_quiz():
     data = request.json

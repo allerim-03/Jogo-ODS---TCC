@@ -225,7 +225,7 @@ def quiz_result():
 # PAINEL ADMIN - QUIZZES
 # ==========================
 
-@quiz_bp.route("/admin/quizzes")
+@page_bp.route("/admin/quizzes")
 @page_login_required
 def quiz_admin():
 
@@ -233,7 +233,7 @@ def quiz_admin():
         "quizzes/quiz-admin.html",
         profile=g.current_user["role"]
     )
-@quiz_bp.route("/admin/quizzes/<int:quiz_id>/questions")
+@page_bp.route("/admin/quizzes/<int:quiz_id>/questions")
 @page_login_required
 def question_admin(quiz_id):
 
@@ -286,12 +286,12 @@ def metricas():
 # admin pages 
 # ======================================
 
-@routes.route('/admin')
+@page.route('/admin')
 def admin_dashboard():
     return render_template('admin/dashboard.html',
     profile=g.current_user["role"])
 
-@routes.route('/admin/students')
+@page.route('/admin/students')
 def students():
     return render_template('admin/students.html',
     profile=g.current_user["role"])

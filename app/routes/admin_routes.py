@@ -81,12 +81,11 @@ def delete_school(school_id):
     #usuarios
     #====
 
-    #listar usuarios
-    @admin_bp.route(
+#listar usuarios
+@admin_bp.route(
     "/api/admin/users",
     methods=["GET"]
-)
-    
+)   
 @api_login_required
 @admin_required
 def users():
