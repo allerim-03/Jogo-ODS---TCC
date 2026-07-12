@@ -9,7 +9,7 @@ from app.routes.classroom_routes import classroom_bp
 from app.routes.admin_routes import admin_bp
 from app.routes.user_routes import user_bp
 from app.routes.badge_routes import badge_bp
-
+from app.routes.dev_routes import dev_bp
 
 def register_routes(app):
     app.register_blueprint(auth_bp)
@@ -23,3 +23,4 @@ def register_routes(app):
     app.register_blueprint(admin_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(badge_bp)
+    app.register_blueprint(dev_bp)
