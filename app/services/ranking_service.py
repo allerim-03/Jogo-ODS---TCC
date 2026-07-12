@@ -4,11 +4,11 @@ from app.repositories.user_repository import UserRepository
 
 
 user_repository = UserRepository()
+class RankingService:
 
+    def get_ranking_data(self):
 
-def get_ranking_data():
-
-    return user_repository.get_ranking()
+        return user_repository.get_ranking()
 
 
 ''' futuro rancking route

@@ -24,7 +24,7 @@ from app.services.quiz_service import (
     delete_quiz_service
 )
 from app.services.quiz_service import QuizService
-quiz_service = QuizService()
+'''
 from app.services.quiz_service import (
     get_quiz_results_service
 )
@@ -32,7 +32,7 @@ from app.services.quiz_service import (
     create_question_service,
     update_question_service,
     delete_question_service
-)
+)'''
 from app.repositories.quiz_repository import (
     get_all_quizzes,
     get_all_quizzes_admin,
@@ -40,7 +40,7 @@ from app.repositories.quiz_repository import (
 )
 
 
-
+quiz_service = QuizService()
 
 quiz_bp = Blueprint("quizzes", __name__)
 

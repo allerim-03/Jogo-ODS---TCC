@@ -22,7 +22,7 @@ class GameRepository:
     # GAME
     # ==========================================================================
 
-    def get_game_by_id(game_id):
+    def get_game_by_id(self,game_id):
         """
         Busca um jogo.
         """
@@ -47,7 +47,7 @@ class GameRepository:
         return game
     #istar todos os jogos
     
-    def get_all_games():
+    def get_all_games(self):
         """
         Lista todos os jogos.
         """

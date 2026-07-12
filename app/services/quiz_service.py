@@ -17,7 +17,7 @@ from app.repositories.quiz_repository import create_quiz_repository
 
 from app.services.game_service import process_game_score
 class QuizService:
-    def get_quiz_details(quiz_id):
+    def get_quiz_details(self,quiz_id):
 
         quiz = get_quiz_by_id(quiz_id)
 
@@ -30,7 +30,7 @@ class QuizService:
     #objeto final que será enviado para a API.
 
 
-    def submit_quiz(quiz_id, user_id, answers):
+    def submit_quiz(self,quiz_id, user_id, answers):
 
         quiz = get_quiz_by_id(quiz_id)
 
@@ -114,14 +114,14 @@ class QuizService:
             "total_questions": total_questions,
             "xp_gained": xp_gained,
             "xp_before": xp_before,
-            "xp_after": user["xp"],
-            "level": user["level"],
+            "xp_after": user.xp,
+            "level": user.level,
             "xp_reason": xp_reason,
             "attempts_left": attempts_left,
             "questions_result": questions_result
         }
     #criar quiz    
-    def create_quiz_service(data):
+    def create_quiz_service(self,data):
 
         quiz_id = create_quiz_repository(
             title=data["title"],
@@ -135,7 +135,7 @@ class QuizService:
             "quiz_id": quiz_id
         }
     #atualiza quiz
-    def update_quiz_service(quiz_id, data):
+    def update_quiz_service(self,quiz_id, data):
 
         quiz = get_quiz_by_id(quiz_id)
 
@@ -155,7 +155,7 @@ class QuizService:
             "success": True
         }
     #desativar por exclusão lógica 
-    def delete_quiz_service(quiz_id):
+    def delete_quiz_service(self,quiz_id):
 
         quiz = get_quiz_by_id(quiz_id)
 
@@ -168,13 +168,13 @@ class QuizService:
             "success": True
         }
     #resultados dos quizzes p/ professor
-    def get_quiz_results_service():
+    def get_quiz_results_service(self):
 
         return get_quiz_results()
 
     ####perguntas 
 
-    def create_question_service(data):
+    def create_question_service(self,data):
 
         question_id = create_question(
             quiz_id=data["quiz_id"],
@@ -191,7 +191,7 @@ class QuizService:
             "success": True,
             "question_id": question_id
         }
-    def update_question_service(question_id,data):
+    def update_question_service(self,question_id,data):
 
         success = update_question(
             question_id=question_id,
@@ -210,7 +210,7 @@ class QuizService:
         return {
             "success":True
         }
-    def delete_question_service(question_id):
+    def delete_question_service(self,question_id):
 
         success = delete_question(question_id)
 

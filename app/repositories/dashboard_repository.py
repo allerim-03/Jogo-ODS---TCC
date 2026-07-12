@@ -10,115 +10,115 @@ Responsabilidade:
 
 from database.connection import get_connection
 
+class DashboardRepository:
+    # ==========================================================================
+    # Resumo do aluno
+    # ==========================================================================
 
-# ==========================================================================
-# Resumo do aluno
-# ==========================================================================
+    def get_student_dashboard(self,user_id):
+        """
+        Retorna as informações principais do dashboard do estudante.
+        """
 
-def get_student_dashboard(user_id):
-    """
-    Retorna as informações principais do dashboard do estudante.
-    """
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
 
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
+        cursor.execute("""
+            SELECT
+                id,
+                name,
+                xp,
+                level
+            FROM users
+            WHERE id = %s
+        """, (user_id,))
 
-    cursor.execute("""
-        SELECT
-            id,
-            name,
-            xp,
-            level
-        FROM users
-        WHERE id = %s
-    """, (user_id,))
+        user = cursor.fetchone()
 
-    user = cursor.fetchone()
+        cursor.close()
+        connection.close()
 
-    cursor.close()
-    connection.close()
-
-    return user
-
-
-# ==========================================================================
-# Estatísticas gerais
-# ==========================================================================
-
-def get_student_statistics(user_id):
-    """
-    Retorna estatísticas do estudante.
-    """
-
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
-
-    cursor.execute("""
-        SELECT
-            COUNT(*) AS quizzes_completed
-        FROM quiz_attempts
-        WHERE user_id = %s
-    """, (user_id,))
-
-    stats = cursor.fetchone()
-
-    cursor.close()
-    connection.close()
-
-    return stats
+        return user
 
 
-# ==========================================================================
-# Jogos concluídos
-# ==========================================================================
+    # ==========================================================================
+    # Estatísticas gerais
+    # ==========================================================================
 
-def get_completed_games(user_id):
+    def get_student_statistics(self,user_id):
+        """
+        Retorna estatísticas do estudante.
+        """
 
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
 
-    cursor.execute("""
-        SELECT
-            COUNT(*) AS games_completed
-        FROM game_scores
-        WHERE user_id = %s
-    """, (user_id,))
+        cursor.execute("""
+            SELECT
+                COUNT(*) AS quizzes_completed
+            FROM quiz_attempts
+            WHERE user_id = %s
+        """, (user_id,))
 
-    result = cursor.fetchone()
+        stats = cursor.fetchone()
 
-    cursor.close()
-    connection.close()
+        cursor.close()
+        connection.close()
 
-    return result
+        return stats
 
 
-# ==========================================================================
-# Últimas atividades
-# ==========================================================================
+    # ==========================================================================
+    # Jogos concluídos
+    # ==========================================================================
 
-def get_recent_activity(user_id):
+    def get_completed_games(self,user_id):
 
-    connection = get_connection()
-    cursor = connection.cursor(dictionary=True)
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
 
-    cursor.execute("""
-        SELECT
-            game_name,
-            score,
-            xp_earned,
-            played_at
-        FROM game_scores
-        WHERE user_id = %s
-        ORDER BY played_at DESC
-        LIMIT 10
-    """, (user_id,))
+        cursor.execute("""
+            SELECT
+                COUNT(*) AS games_completed
+            FROM game_scores
+            WHERE user_id = %s
+        """, (user_id,))
 
-    activities = cursor.fetchall()
+        result = cursor.fetchone()
 
-    cursor.close()
-    connection.close()
+        cursor.close()
+        connection.close()
 
-    return activities
+        return result
+
+
+    # ==========================================================================
+    # Últimas atividades
+    # ==========================================================================
+
+    def get_recent_activity(self,user_id):
+
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute("""
+            SELECT
+                game_name,
+                score,
+                xp_earned,
+                played_at
+            FROM game_scores
+            WHERE user_id = %s
+            ORDER BY played_at DESC
+            LIMIT 10
+        """, (user_id,))
+
+        activities = cursor.fetchall()
+
+        cursor.close()
+        connection.close()
+
+        return activities
 
 '''
 melhorias futuras:

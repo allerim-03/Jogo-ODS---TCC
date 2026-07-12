@@ -15,7 +15,7 @@ resultados das partidas, histórico, estatísticas e últimos jogos.
 ===========================================================================
 """
 class ScoreRepository:
-    def save_score(
+    def save_score(self,
         user_id,
         game_name,
         points,
@@ -51,7 +51,7 @@ class ScoreRepository:
     # SCORE
     # ==========================================================================
 
-    def save_game_score(user_id, game_id, score, xp_gained):
+    def save_game_score(self,user_id, game_id, score, xp_gained):
         """
         Salva o resultado de uma partida.
         """
@@ -92,7 +92,7 @@ class ScoreRepository:
     # HISTORY
     # ==========================================================================
 
-    def get_user_game_history(user_id):
+    def get_user_game_history(self,user_id):
         """
         Histórico de partidas do usuário.
         """
@@ -167,7 +167,7 @@ class ScoreRepository:
     # STATISTICS
     # ==========================================================================
 
-    def get_user_game_statistics(user_id):
+    def get_user_game_statistics(self,user_id):
         """
         Estatísticas gerais do usuário.
         """

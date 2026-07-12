@@ -10,7 +10,7 @@ class QuizRepository:
     # ==========================================================
 
     #listinha com todos os quizes
-    def get_all_quizzes():
+    def get_all_quizzes(self):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -35,7 +35,7 @@ class QuizRepository:
 
         return quizzes
     #lista todos os quizzes para o professor
-    def get_all_quizzes_admin():
+    def get_all_quizzes_admin(self):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -60,7 +60,7 @@ class QuizRepository:
         return quizzes
     #retorna dados de um quiz em especifico
 
-    def get_quiz_by_id(quiz_id):
+    def get_quiz_by_id(self,quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -84,7 +84,7 @@ class QuizRepository:
 
         return quiz
     # cria um novo quiz
-    def create_quiz_repository(title, theme, difficulty, xp_reward):
+    def create_quiz_repository(self,title, theme, difficulty, xp_reward):
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -116,7 +116,7 @@ class QuizRepository:
 
         return quiz_id
     # atualiza os dados de um quiz
-    def update_quiz(
+    def update_quiz(self,
         quiz_id,
         title,
         theme,
@@ -155,7 +155,7 @@ class QuizRepository:
 
         return updated
 
-    def delete_quiz(quiz_id):
+    def delete_quiz(self,quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -177,7 +177,7 @@ class QuizRepository:
 
 
     #Resultados dos quizzes para o professor
-    def get_quiz_results():
+    def get_quiz_results(self):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -211,7 +211,7 @@ class QuizRepository:
     # ==========================================================
 
     #retorna a pergunta sem revelar a alternativa correta
-    def get_questions_by_quiz(quiz_id):
+    def get_questions_by_quiz(self,quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -238,7 +238,7 @@ class QuizRepository:
         return questions
 
     # retorna  a resposta correta para validação no backend
-    def get_correct_answers(quiz_id):
+    def get_correct_answers(self,quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -266,7 +266,7 @@ class QuizRepository:
 
         return answers
     #criar pergunta
-    def create_question(
+    def create_question(self,
         quiz_id,
         question_text,
         option_a,
@@ -313,7 +313,7 @@ class QuizRepository:
 
         return question_id
     #atualizar pergunta
-    def update_question(
+    def update_question(self,
         question_id,
         question_text,
         option_a,
@@ -358,7 +358,7 @@ class QuizRepository:
 
         return updated > 0
     #excluir pergunta
-    def delete_question(question_id):
+    def delete_question(self,question_id):
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -378,7 +378,7 @@ class QuizRepository:
         return deleted > 0
 
     #buscar questão
-    def get_question_by_id(question_id):
+    def get_question_by_id(self,question_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -400,7 +400,7 @@ class QuizRepository:
     # ==========================================================
 
     #registra tentativa do aluno
-    def save_quiz_attempt(
+    def save_quiz_attempt(self,
         user_id,
         quiz_id,
         score,
@@ -436,7 +436,7 @@ class QuizRepository:
         conn.close()
 
     #consulta historico de tentativas por usuario
-    def get_attempts_by_user(user_id):
+    def get_attempts_by_user(self,user_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -464,7 +464,7 @@ class QuizRepository:
         return attempts
 
     #busca uma tentaiva em especifico
-    def get_attempt_by_id(attempt_id):
+    def get_attempt_by_id(self,attempt_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -488,7 +488,7 @@ class QuizRepository:
 
 
     #busca a melhor pontuação do day
-    def get_best_score_today(user_id, quiz_id):
+    def get_best_score_today(self,user_id, quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -508,7 +508,7 @@ class QuizRepository:
 
         return result["best"] or 0
 
-    def count_attempts_today(user_id, quiz_id):
+    def count_attempts_today(self,user_id, quiz_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
