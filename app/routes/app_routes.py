@@ -1,5 +1,5 @@
 #temporario para todas as rotas
-
+'''
 
 from flask import (
     Blueprint,
@@ -47,7 +47,7 @@ def logout():
     # logout_user()
     # futuramente podemos limpar cookies/sessão
     return redirect('/login')
-'''
+
 --melhoria para o futuro
 @routes.route('/login', methods=['POST'])
 def login_post():
@@ -59,7 +59,7 @@ def login_post():
     print(email, senha, tipo_usuario)
 
     return redirect('/dashboard')
-'''
+
 
 
 #===========================
@@ -100,14 +100,14 @@ def dashboard():
                             perfil="estudante"
                             )## modelo quando tiver flask-login {% if current_user.tipo == 'estudante' %}
 
-'''
+
 rota para testes 
 @routes.route("/dashboard")
 def dashboard():
     return {
         "message": "dashboard ok"
     }
-    '''
+   
 @routes.route("/dashboard/student/profile")
 def student_profile():
 
@@ -205,7 +205,7 @@ def update_quiz_route(quiz_id):
         }), 404
 
     return jsonify(result), 200
-'''
+
     success = update_quiz(quiz_id, data)
 
     if not success:
@@ -218,7 +218,7 @@ def update_quiz_route(quiz_id):
     return jsonify({
         "success": True
     }), 200
-'''
+
     
 @routes.route("/api/quizzes/<int:quiz_id>", methods=["DELETE"])
 def delete_quiz_route(quiz_id):
@@ -231,7 +231,7 @@ def delete_quiz_route(quiz_id):
         }), 404
 
     return jsonify(result), 200
-'''
+
     success = delete_quiz(quiz_id)
 
     if not success:
@@ -244,7 +244,7 @@ def delete_quiz_route(quiz_id):
     return jsonify({
         "success": True
     }), 200
-'''
+
 @routes.route("/api/quizzes/results", methods=["GET"])
 def quiz_results():
 
@@ -305,12 +305,11 @@ def quizzes():
         "quizzes/quiz-list.html",
         perfil="estudante"
     )
-'''
+
 @routes.route("/quiz")
 def quiz():
     return render_template("quizzes/quiz.html")
-'''
-'''
+
 @routes.route("/quiz/<int:quiz_id>")
 def start_quiz(quiz_id):
 
@@ -322,7 +321,7 @@ def start_quiz(quiz_id):
         user_id=user_id,
         perfil="estudante"
     )
-'''
+
 @routes.route("/quiz/<int:quiz_id>")
 def start_quiz(quiz_id):
 
@@ -365,7 +364,7 @@ def quiz_result():
         perfil="estudante"
     )
 
-    '''
+   
     --TEMP: aqui depois vai virar service
     user = type("User", (), {
         "id": user_id,
@@ -387,16 +386,14 @@ def quiz_result():
         }
     })
 
-'''
 
-'''
 adicionar no futuro
 gestor // (area administrativa)
 POST   /api/quizzes
 PUT    /api/quizzes/<id>
 DELETE /api/quizzes/<id>
 GET /api/users/<int:user_id>/quiz-results- historico
-'''
+
 # ==========================
 # PAINEL ADMIN - QUIZZES
 # ==========================
@@ -416,7 +413,7 @@ def question_admin(quiz_id):
         quiz_id=quiz_id,
         perfil="professor"
     )
-'''
+
 --versão com login e autenticação
 @routes.route("/admin/quizzes")
 @login_required
@@ -427,13 +424,13 @@ def quiz_admin():
         "quizzes/quiz-admin.html",
         perfil="professor"
     )
-    '''
+    
 #===========================
 # games.py
 #=========================
-'''
+
 game_bp = Blueprint("game", __name__)
-'''
+
 @routes.route('/games')
 def games():
     return render_template("games/games.html")
@@ -445,7 +442,7 @@ def game(id):
 @routes.route('/about-games')
 def about_games():
     return render_template("games/about-games.html",perfil="publico")
-'''
+
 @routes.route('/game/score', methods=['POST'])
 def save_score():
     data = request.json
@@ -473,7 +470,7 @@ def save_score():
             "level": user.level
         }
     })@game_bp.route("/game/score", methods=["POST"])
-    '''
+   
 
 
 @routes.route("/game/score", methods=["POST"])
@@ -534,12 +531,12 @@ from app.services.ranking_service import get_ranking_data
 @routes.route("/api/ranking")
 def api_ranking():
     return jsonify(get_ranking_data())
-'''
+
 @routes.route('/ranking')
 def ranking():
     return render_template('ranking.html')
     return jsonify(ranking_data)
-'''
+
 
 @routes.route("/ranking")
 def ranking():
@@ -600,7 +597,6 @@ def create_quiz():
 # User.py
 #=========================
 #rotas user.py
-'''
 from flask import Blueprint, request, jsonify
 
 
@@ -618,7 +614,6 @@ def criar_usuario():
     db.session.add(novo_usuario)
     db.session.commit()
     return jsonify({"message": "Usuário criado com sucesso!"}), 201
-'''
 
 
 #teste banco de dados conecta
@@ -675,3 +670,4 @@ def ods():
     return render_template('ods.html',
     perfil='publico'
     )
+    '''
