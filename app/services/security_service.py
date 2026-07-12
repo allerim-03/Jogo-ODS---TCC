@@ -56,7 +56,8 @@ class SecurityService:
 
             additional_claims={
                 "role": user.role,
-                 "email": user.email
+                 "email": user.email,
+                 "use_type": user.use_type
             }
 
         )
