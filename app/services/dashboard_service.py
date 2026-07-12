@@ -12,29 +12,19 @@ As consultas ao banco ficam nos repositories.
 ===========================================================================
 """
 
-from app.repositories.user_repository import (
-    get_user_by_id
-)
+from app.repositories.user_repository import UserRepository
+from app.repositories.progress_repository import ProgressRepository
+from app.repositories.ranking_repository import RankingRepository
+from app.repositories.badge_repository import BadgeRepository
+from app.repositories.quiz_repository import QuizRepository
+from app.repositories.game_repository import GameRepository
 
-from app.repositories.progress_repository import (
-    get_user_progress
-)
-
-from app.repositories.ranking_repository import (
-    get_user_ranking
-)
-
-from app.repositories.badge_repository import (
-    get_user_badges
-)
-
-from app.repositories.quiz_repository import (
-    get_recent_quizzes
-)
-
-from app.repositories.game_repository import (
-    get_recent_games
-)
+user_repository = UserRepository()
+progress_repository = ProgressRepository()
+ranking_repository = RankingRepository()
+badge_repository = BadgeRepository()
+quiz_repository = QuizRepository()
+game_repository = GameRepository()
 
 
 class DashboardService:
@@ -45,12 +35,12 @@ class DashboardService:
 
     def student_dashboard(self, user_id):
 
-        user = get_user_by_id(user_id)
-        progress = get_user_progress(user_id)
-        ranking = get_user_ranking(user_id)
-        badges = get_user_badges(user_id)
-        quizzes = get_recent_quizzes(user_id)
-        games = get_recent_games(user_id)
+        user = UserRepository.get_user_by_id(user_id)
+        progress = ProgressRepository.get_user_progress(user_id)
+        ranking = RankingRepository.get_user_ranking(user_id)
+        badges = BadgeRepository.get_user_badges(user_id)
+        quizzes = QuizRepository.get_recent_quizzes(user_id)
+        games = GameRepository.get_recent_games(user_id)
 
         return {
             "user": user,
@@ -89,7 +79,7 @@ class DashboardService:
 
     def statistics(self, user_id):
 
-        progress = get_user_progress(user_id)
+        progress = ProgressRepository.get_user_progress(user_id)
 
         return {
             "xp": progress["xp"],
