@@ -60,9 +60,12 @@ def login():
 def me():
 
     return jsonify({
-    "success": True,
-    "user": g.current_user.to_dict()
-})
+
+        "success": True,
+
+        "user": g.current_user.to_dict()
+
+    })
 #POST /refresh
 
 '''

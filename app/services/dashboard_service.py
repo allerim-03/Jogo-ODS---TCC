@@ -90,3 +90,8 @@ class DashboardService:
             "total_xp": stats["total_xp"],
             "current_level": stats["current_level"]
         }
+_dashboard_service = DashboardService()
+
+
+def get_dashboard_service():
+    return _dashboard_service
