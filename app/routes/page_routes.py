@@ -286,12 +286,12 @@ def metricas():
 # admin pages 
 # ======================================
 
-@page.route('/admin')
+@page_bp.route('/admin')
 def admin_dashboard():
     return render_template('admin/dashboard.html',
     profile=g.current_user["role"])
 
-@page.route('/admin/students')
+@page_bp.route('/admin/students')
 def students():
     return render_template('admin/students.html',
     profile=g.current_user["role"])
