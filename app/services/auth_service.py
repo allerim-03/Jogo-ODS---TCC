@@ -48,7 +48,10 @@ class AuthService:
         )
 
         age = data.get("age")
-
+        use_type = data.get(
+            "use_type",
+            "individual"
+        )
         institution = data.get("institution")
 
         # -----------------------------
@@ -102,7 +105,7 @@ class AuthService:
             role=role,
 
             age=age,
-
+            use_type=use_type,
             institution=institution
         )
 

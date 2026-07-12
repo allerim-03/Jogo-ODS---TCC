@@ -81,6 +81,7 @@ class User:
         role="student",
         age=None,
         institution=None,
+        use_type="individual",
         xp=0,
         level=1,
         is_active=True,
@@ -92,6 +93,7 @@ class User:
         self.email = email
         self.password = password
         self.role = role
+        self.use_type = use_type
         self.age = age
         self.institution = institution
         self.xp = xp
@@ -126,6 +128,7 @@ class User:
             "role": self.role,
             "age": self.age,
             "institution": self.institution,
+            "use_type": self.use_type,
             "xp": self.xp,
             "level": self.level,
             "is_active": self.is_active,
@@ -151,6 +154,7 @@ class User:
             email=data.get("email"),
             password=data.get("password"),
             role=data.get("role", "student"),
+            use_type=data.get("use_type", "individual"),
             age=data.get("age"),
             institution=data.get("institution"),
             xp=data.get("xp") or 0,
