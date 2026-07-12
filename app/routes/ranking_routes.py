@@ -12,13 +12,4 @@ from app.services.ranking_service import get_ranking_data
 @routes.route("/api/ranking")
 def api_ranking():
     return jsonify(get_ranking_data())
-'''
-@routes.route('/ranking')
-def ranking():
-    return render_template('ranking.html')
-    return jsonify(ranking_data)
-'''
 
-@routes.route("/ranking")
-def ranking():
-    return render_template("dashboard/ranking.html")

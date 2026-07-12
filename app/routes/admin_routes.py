@@ -1,14 +1,16 @@
-##somente administração
+#
+#------------------------- 
+#somente administração
+#----------------------------
 
 #create school
-
 #delete school
-
 #manage users
-
 #manage quizzes
-
 #reports
+
+#===================
+# importes
 
 #===========================
 # Admin.py

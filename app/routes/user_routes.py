@@ -11,12 +11,19 @@
 #===========================
 # User.py
 #=========================
-#rotas user.py
+
+
+#imports
 '''
 from flask import Blueprint, request, jsonify
 
 
 usuario_bp = Blueprint("usuario", __name__)
+'''
+
+#rotas user.py
+'''
+
 
 @usuario_bp.route("/usuarios", methods=["GET"])
 def listar_usuarios():

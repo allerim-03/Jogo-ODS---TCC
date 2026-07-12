@@ -15,11 +15,6 @@
 #
 
 
-
-
-#===========================
-# quiz.py
-#=========================
 from app.repositories.quiz_repository import get_all_quizzes
 from app.services.quiz_service import get_quiz_details
 from app.services.quiz_service import submit_quiz as submit_quiz_service
@@ -42,6 +37,11 @@ from app.repositories.quiz_repository import (
     get_all_quizzes_admin,
     get_quiz_results
 )
+
+#===========================
+# quiz.py
+#=========================
+
 # API
 @routes.route("/api/quizzes", methods=["GET"])
 def list_quizzes():
@@ -149,6 +149,10 @@ def quiz_results():
     results = get_quiz_results_service()
 
     return jsonify(results), 200
+
+#==============
+#questões
+#======================
 @routes.route("/api/questions", methods=["POST"])
 def create_question_route():
 
@@ -195,97 +199,7 @@ def list_admin_quizzes():
     quizzes = get_all_quizzes_admin()
 
     return jsonify(quizzes), 200
-# Página HTML-quiz
-@routes.route("/quizzes")
-def quizzes():
 
-    return render_template(
-        "quizzes/quiz-list.html",
-        perfil="estudante"
-    )
-'''
-@routes.route("/quiz")
-def quiz():
-    return render_template("quizzes/quiz.html")
-'''
-'''
-@routes.route("/quiz/<int:quiz_id>")
-def start_quiz(quiz_id):
-
-    user_id = session.get("user_id", 1)#usando o usuario 1 para desenvolvimento.
-
-    return render_template(
-        "quizzes/quiz.html",
-        quiz_id=quiz_id,
-        user_id=user_id,
-        perfil="estudante"
-    )
-'''
-@routes.route("/quiz/<int:quiz_id>")
-def start_quiz(quiz_id):
-
-    user_id = session.get("user_id", 1)
-
-    return render_template(
-        "quizzes/quiz.html",
-        quiz_id=quiz_id,
-        user_id=user_id,
-        perfil="estudante"
-    )
-
-@routes.route('/quiz/submit', methods=['POST'])
-def submit_game_quiz():
-    data = request.json
-
-    user_id = data["user_id"]
-    score = data["score"]
-
-    xp_gained = score * 10
-   
-
-    user, xp_gained = process_game_score(
-        user_id,
-        score
-    )
-
-    return jsonify({
-        "message": "Quiz finalizado",
-        "xp_gained": xp_gained,
-        "xp": user["xp"],
-        "level": user["level"]
-    })
-
-@routes.route("/quiz/result")
-def quiz_result():
-
-    return render_template(
-        "quizzes/quiz-result.html",
-        perfil="estudante"
-    )
-
-    '''
-    --TEMP: aqui depois vai virar service
-    user = type("User", (), {
-        "id": user_id,
-        "xp": 0,
-        "level": 1
-    })()
-
-    user = add_xp(user, xp_gained)
-    
-  
-    check_and_award_badges(user.id, user.xp, user.level)
-
-    return jsonify({
-        "success": True,
-        "xp_gained": xp_gained,
-        "user": {
-            "xp": user.xp,
-            "level": user.level
-        }
-    })
-
-'''
 
 '''
 adicionar no futuro
@@ -314,6 +228,29 @@ def question_admin(quiz_id):
         quiz_id=quiz_id,
         perfil="professor"
     )
+
+
+@routes.route('/quiz/submit', methods=['POST'])
+def submit_game_quiz():
+    data = request.json
+
+    user_id = data["user_id"]
+    score = data["score"]
+
+    xp_gained = score * 10
+   
+
+    user, xp_gained = process_game_score(
+        user_id,
+        score
+    )
+
+    return jsonify({
+        "message": "Quiz finalizado",
+        "xp_gained": xp_gained,
+        "xp": user["xp"],
+        "level": user["level"]
+    })
 '''
 --versão com login e autenticação
 @routes.route("/admin/quizzes")
