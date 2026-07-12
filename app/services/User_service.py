@@ -122,3 +122,141 @@ class UserService:
             "success": True,
             "statistics": stats
         }
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém rotas antigas funcionando durante migração
+# =====================================================
+
+def get_profile_service(user_id):
+
+    from app.repositories.user_repository import get_user_by_id
+
+    user = get_user_by_id(user_id)
+
+    if not user:
+        return None
+
+    return user.to_dict()
+
+
+
+def update_profile_service(
+    user_id,
+    data
+):
+
+    from app.repositories.user_repository import update_user_profile
+
+
+    updated = update_user_profile(
+        user_id=user_id,
+        name=data.get("name"),
+        age=data.get("age"),
+        institution=data.get("institution")
+    )
+
+
+    return {
+        "success": updated
+    }
+
+
+
+def update_avatar_service(
+    user_id,
+    avatar
+):
+
+    from app.repositories.user_repository import update_avatar
+
+
+    updated = update_avatar(
+        user_id,
+        avatar
+    )
+
+
+    return {
+        "success": updated
+    }
+
+
+
+def update_preferences_service(
+    user_id,
+    preferences
+):
+
+    from app.repositories.user_repository import update_preferences
+
+
+    updated = update_preferences(
+        user_id,
+        preferences
+    )
+
+
+    return {
+        "success": updated
+    }
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Alteração de senha
+# =====================================================
+
+def change_password_service(
+    user_id,
+    data
+):
+
+    from app.repositories.user_repository import update_password
+    from app.services.security_service import SecurityService
+
+
+    security_service = SecurityService()
+
+
+    new_password = data.get("password")
+
+
+    if not new_password:
+
+        return {
+            "status":400,
+            "body":{
+                "success":False,
+                "message":"Password is required."
+            }
+        }
+
+
+    password_hash = security_service.hash_password(
+        new_password
+    )
+
+
+    updated = update_password(
+        user_id,
+        password_hash
+    )
+
+
+    if not updated:
+
+        return {
+            "status":400,
+            "body":{
+                "success":False,
+                "message":"Password was not updated."
+            }
+        }
+
+
+    return {
+        "status":200,
+        "body":{
+            "success":True,
+            "message":"Password updated successfully."
+        }
+    }

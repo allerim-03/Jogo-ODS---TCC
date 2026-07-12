@@ -69,3 +69,22 @@ class BadgeService:
             VALUES (%s, %s)
         """, (user_id, badge_id))
 
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém serviços antigos funcionando durante migração
+# =====================================================
+
+_badge_service = BadgeService()
+
+
+def check_and_award_badges(
+    user_id,
+    xp,
+    level
+):
+
+    return _badge_service.check_and_award_badges(
+        user_id,
+        xp,
+        level
+    )

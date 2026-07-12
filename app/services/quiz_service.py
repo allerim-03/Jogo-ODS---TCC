@@ -220,3 +220,84 @@ class QuizService:
         return {
             "success":True
         }
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém rotas antigas funcionando durante migração
+# =====================================================
+
+_quiz_service = QuizService()
+
+
+def get_quiz_details(quiz_id):
+
+    return _quiz_service.get_quiz_details(
+        quiz_id
+    )
+
+
+def submit_quiz(
+    quiz_id,
+    user_id,
+    answers
+):
+
+    return _quiz_service.submit_quiz(
+        quiz_id,
+        user_id,
+        answers
+    )
+
+
+def create_quiz_service(data):
+
+    return _quiz_service.create_quiz_service(
+        data
+    )
+
+
+def update_quiz_service(
+    quiz_id,
+    data
+):
+
+    return _quiz_service.update_quiz_service(
+        quiz_id,
+        data
+    )
+
+
+def delete_quiz_service(quiz_id):
+
+    return _quiz_service.delete_quiz_service(
+        quiz_id
+    )
+
+
+def get_quiz_results_service():
+
+    return _quiz_service.get_quiz_results_service()
+
+
+def create_question_service(data):
+
+    return _quiz_service.create_question_service(
+        data
+    )
+
+
+def update_question_service(
+    question_id,
+    data
+):
+
+    return _quiz_service.update_question_service(
+        question_id,
+        data
+    )
+
+
+def delete_question_service(question_id):
+
+    return _quiz_service.delete_question_service(
+        question_id
+    )

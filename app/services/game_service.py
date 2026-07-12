@@ -50,3 +50,24 @@ class GameService:
         )
 
         return user, xp_gained, xp_before
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém serviços antigos funcionando durante migração
+# =====================================================
+
+_game_service = GameService()
+
+
+def process_game_score(
+    user_id,
+    score,
+    xp_gained=None,
+    game_name="quiz_ods"
+):
+
+    return _game_service.process_game_score(
+        user_id,
+        score,
+        xp_gained,
+        game_name
+    )

@@ -210,8 +210,200 @@ def salvar(user):
 def update_user(user):
         return _repository.update(user)
 
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém serviços antigos funcionando durante migração
+# =====================================================
+
+def update_user_profile(
+    user_id,
+    name=None,
+    age=None,
+    institution=None
+):
+
+    conn = get_connection()
+    cursor = conn.cursor()
 
 
+    cursor.execute(
+        """
+        UPDATE user
+        SET
+            name = COALESCE(%s, name),
+            age = COALESCE(%s, age),
+            institution = COALESCE(%s, institution)
+        WHERE id = %s
+        """,
+        (
+            name,
+            age,
+            institution,
+            user_id
+        )
+    )
+
+
+    conn.commit()
+
+    updated = cursor.rowcount > 0
+
+
+    cursor.close()
+    conn.close()
+
+
+    return updated
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Serviços de perfil do usuário
+# =====================================================
+
+
+# -----------------------------------------------------
+# Atualizar avatar
+# -----------------------------------------------------
+
+def update_avatar(
+    user_id,
+    avatar
+):
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+
+    cursor.execute(
+        """
+        UPDATE user
+        SET avatar = %s
+        WHERE id = %s
+        """,
+        (
+            avatar,
+            user_id
+        )
+    )
+
+
+    conn.commit()
+
+    updated = cursor.rowcount > 0
+
+
+    cursor.close()
+    conn.close()
+
+
+    return updated
+
+
+
+# -----------------------------------------------------
+# Atualizar preferências
+# -----------------------------------------------------
+
+def update_preferences(
+    user_id,
+    preferences
+):
+
+    """
+    Temporariamente mantido.
+
+    Futuramente pode utilizar uma tabela:
+    
+    user_preferences
+        id
+        user_id
+        preference_name
+        preference_value
+
+    """
+
+    return True
+
+
+
+# -----------------------------------------------------
+# Atualizar senha
+# -----------------------------------------------------
+
+def update_password(
+    user_id,
+    password_hash
+):
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+
+    cursor.execute(
+        """
+        UPDATE user
+        SET password = %s
+        WHERE id = %s
+        """,
+        (
+            password_hash,
+            user_id
+        )
+    )
+
+
+    conn.commit()
+
+    updated = cursor.rowcount > 0
+
+
+    cursor.close()
+    conn.close()
+
+
+    return updated
+
+
+
+# -----------------------------------------------------
+# Estatísticas do usuário
+# -----------------------------------------------------
+
+def get_user_statistics(
+    user_id
+):
+
+    conn = get_connection()
+
+    cursor = conn.cursor(dictionary=True)
+
+
+    cursor.execute(
+        """
+        SELECT
+            id,
+            name,
+            xp,
+            level
+        FROM user
+        WHERE id = %s
+        """,
+        (
+            user_id,
+        )
+    )
+
+
+    statistics = cursor.fetchone()
+
+
+    cursor.close()
+    conn.close()
+
+
+    return statistics
 '''
 (função migrada para progress_repository)
 
