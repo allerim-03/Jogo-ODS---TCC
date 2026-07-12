@@ -202,3 +202,25 @@ class ScoreRepository:
         conn.close()
 
         return stats
+    
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# Mantém serviços antigos funcionando
+# =====================================================
+
+_repository = ScoreRepository()
+
+
+def save_score(
+    user_id,
+    game_name,
+    points,
+    xp_earned
+):
+
+    return _repository.save_score(
+        user_id,
+        game_name,
+        points,
+        xp_earned
+    )
