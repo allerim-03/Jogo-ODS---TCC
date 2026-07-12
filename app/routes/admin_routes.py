@@ -17,10 +17,6 @@
 #=========================
 
 
-@routes.route('/admin/quiz/create', methods=['POST'])
-def create_quiz():
-    return redirect('/admin',
-    perfil="admin")
 
 """
 ===========================================================================
@@ -90,6 +86,7 @@ def delete_school(school_id):
     "/api/admin/users",
     methods=["GET"]
 )
+    
 @api_login_required
 @admin_required
 def users():
