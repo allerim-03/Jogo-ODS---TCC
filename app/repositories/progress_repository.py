@@ -29,7 +29,7 @@ class ProgressRepository:
                 name,
                 xp,
                 level
-            FROM users
+            FROM user
             WHERE id = %s
         """
 
@@ -96,3 +96,22 @@ class ProgressRepository:
         connection.close()
 
         return statistics
+
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# =====================================================
+
+_repository = ProgressRepository()
+
+
+def get_user_progress(user_id):
+    return _repository.get_user_progress(user_id)
+
+
+def get_xp_history(user_id):
+    return _repository.get_xp_history(user_id)
+
+
+def get_statistics(user_id):
+    return _repository.get_statistics(user_id)
