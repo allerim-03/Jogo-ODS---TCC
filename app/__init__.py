@@ -50,12 +50,10 @@ def create_app():
 
 
     jwt.init_app(app)
-    # IMPORT DO SEU BLUEPRINT ÚNICO TEMPORÁRIO
-    from app.routes.app_routes import routes
-    from app.routes.auth_routes import auth_bp
-    
-    app.register_blueprint(routes)
-    app.register_blueprint(auth_bp)
+    from app.routes import register_routes
+
+    register_routes(app)
+   
     return app
 
 
@@ -76,7 +74,12 @@ def create_app():
     app.register_blueprint(ranking_bp)
 
     return app
-
+ # IMPORT DO SEU BLUEPRINT ÚNICO TEMPORÁRIO
+    from app.routes.app_routes import routes
+    from app.routes.auth_routes import auth_bp
+    
+    app.register_blueprint(routes)
+    app.register_blueprint(auth_bp)
 
 
 
