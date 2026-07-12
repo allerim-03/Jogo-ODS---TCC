@@ -10,9 +10,9 @@
 
 #DELETE
 
-#
+#==============================
 #importes
-#
+#=====================================
 
 
 from app.repositories.quiz_repository import get_all_quizzes
@@ -23,7 +23,8 @@ from app.services.quiz_service import (
     update_quiz_service,
     delete_quiz_service
 )
-
+from app.services.quiz_service import QuizService
+quiz_service = QuizService()
 from app.services.quiz_service import (
     get_quiz_results_service
 )
@@ -38,19 +39,26 @@ from app.repositories.quiz_repository import (
     get_quiz_results
 )
 
+
+
+
+quiz_bp = Blueprint("quizzes", __name__)
+
 #===========================
 # quiz.py
 #=========================
 
 # API
-@routes.route("/api/quizzes", methods=["GET"])
+@quiz_bp.route("/api/quizzes", methods=["GET"])
+@api_login_required
 def list_quizzes():
 
     quizzes = get_all_quizzes()
 
     return jsonify(quizzes), 200
 
-@routes.route("/api/quizzes/<int:quiz_id>", methods=["GET"])
+@quiz_bp.route("/api/quizzes/<int:quiz_id>", methods=["GET"])
+@api_login_required
 def get_quiz(quiz_id):
 
     quiz = get_quiz_details(quiz_id)
@@ -63,14 +71,15 @@ def get_quiz(quiz_id):
 
     return jsonify(quiz), 200
 
-@routes.route("/api/quizzes/<int:quiz_id>/submit", methods=["POST"])
+@quiz_bp.route("/api/quizzes/<int:quiz_id>/submit", methods=["POST"])
+@api_login_required
 def submit_quiz_route(quiz_id):
 
     data = request.get_json()
 
     result = submit_quiz_service(
         quiz_id=quiz_id,
-        user_id=data["user_id"],
+       user_id = g.current_user["id"],
         answers=data["answers"]
     )
 
@@ -81,7 +90,9 @@ def submit_quiz_route(quiz_id):
         }), 404
 
     return jsonify(result), 200
-@routes.route("/api/quizzes", methods=["POST"])
+@quiz_bp.route("/api/quizzes", methods=["POST"])
+# adicionar @teacher_required
+@api_login_required
 def create_quiz_route():
 
     data = request.get_json()
@@ -90,7 +101,9 @@ def create_quiz_route():
         "success": True,
         "quiz_id": quiz_id
     }), 201
-@routes.route("/api/quizzes/<int:quiz_id>", methods=["PUT"])
+@quiz_bp.route("/api/quizzes/<int:quiz_id>", methods=["PUT"])
+@api_login_required
+# adicionar @teacher_required
 def update_quiz_route(quiz_id):
 
     data = request.get_json()
@@ -118,7 +131,9 @@ def update_quiz_route(quiz_id):
     }), 200
 '''
     
-@routes.route("/api/quizzes/<int:quiz_id>", methods=["DELETE"])
+@quiz_bp.route("/api/quizzes/<int:quiz_id>", methods=["DELETE"])
+@api_login_required
+# adicionar @teacher_required
 def delete_quiz_route(quiz_id):
     result = delete_quiz_service(quiz_id)
 
@@ -143,7 +158,8 @@ def delete_quiz_route(quiz_id):
         "success": True
     }), 200
 '''
-@routes.route("/api/quizzes/results", methods=["GET"])
+@quiz_bp.route("/api/quizzes/results", methods=["GET"])
+@api_login_required
 def quiz_results():
 
     results = get_quiz_results_service()
@@ -153,7 +169,8 @@ def quiz_results():
 #==============
 #questões
 #======================
-@routes.route("/api/questions", methods=["POST"])
+@quiz_bp.route("/api/questions", methods=["POST"])
+@api_login_required
 def create_question_route():
 
     data = request.get_json()
@@ -161,7 +178,9 @@ def create_question_route():
     result = create_question_service(data)
 
     return jsonify(result),201
-@routes.route("/api/questions/<int:question_id>", methods=["PUT"])
+@quiz_bp.route("/api/questions/<int:question_id>", methods=["PUT"])
+@api_login_required
+# adicionar @teacher_required
 def update_question_route(question_id):
 
     data = request.get_json()
@@ -179,7 +198,8 @@ def update_question_route(question_id):
         }),404
 
     return jsonify(result),200
-@routes.route("/api/questions/<int:question_id>", methods=["DELETE"])
+@quiz_bp.route("/api/questions/<int:question_id>", methods=["DELETE"])
+@api_login_required
 def delete_question_route(question_id):
 
     result = delete_question_service(question_id)
@@ -193,7 +213,8 @@ def delete_question_route(question_id):
 
     return jsonify(result),200
 
-@routes.route("/api/quizzes/admin", methods=["GET"])
+@quiz_bp.route("/api/quizzes/admin", methods=["GET"])
+@api_login_required
 def list_admin_quizzes():
 
     quizzes = get_all_quizzes_admin()
@@ -209,48 +230,7 @@ PUT    /api/quizzes/<id>
 DELETE /api/quizzes/<id>
 GET /api/users/<int:user_id>/quiz-results- historico
 '''
-# ==========================
-# PAINEL ADMIN - QUIZZES
-# ==========================
 
-@routes.route("/admin/quizzes")
-def quiz_admin():
-
-    return render_template(
-        "quizzes/quiz-admin.html",
-        perfil="professor"
-    )
-@routes.route("/admin/quizzes/<int:quiz_id>/questions")
-def question_admin(quiz_id):
-
-    return render_template(
-        "quizzes/quiz-question-admin.html",
-        quiz_id=quiz_id,
-        perfil="professor"
-    )
-
-
-@routes.route('/quiz/submit', methods=['POST'])
-def submit_game_quiz():
-    data = request.json
-
-    user_id = data["user_id"]
-    score = data["score"]
-
-    xp_gained = score * 10
-   
-
-    user, xp_gained = process_game_score(
-        user_id,
-        score
-    )
-
-    return jsonify({
-        "message": "Quiz finalizado",
-        "xp_gained": xp_gained,
-        "xp": user["xp"],
-        "level": user["level"]
-    })
 '''
 --versão com login e autenticação
 @routes.route("/admin/quizzes")

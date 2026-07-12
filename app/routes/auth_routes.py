@@ -13,15 +13,17 @@ Toda a lógica é delegada para auth_service.py.
 --recebe requisições HTTP e retorna respostas.
 ===========================================================================
 """
+from flask import Blueprint, request, jsonify, g
 
-from flask import Blueprint, request, jsonify
+from app.middleware.auth_middleware import api_login_required
 
 from app.services.auth_service import AuthService
 
-auth_service = AuthService()
-
 auth_bp = Blueprint("auth", __name__)
-
+# ==========================================================================
+# Services
+# ==========================================================================
+auth_service = AuthService()
 
 # ==========================================================================
 # Cadastro
@@ -30,7 +32,7 @@ auth_bp = Blueprint("auth", __name__)
 @auth_bp.route("/api/register", methods=["POST"])
 def register():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = auth_service.register_user(data)
 
@@ -44,7 +46,7 @@ def register():
 @auth_bp.route("/api/login", methods=["POST"])
 def login():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = auth_service.login_user(data)
 
@@ -52,7 +54,15 @@ def login():
 
 #POST /api/logout (futuro)
 
-#GET /api/me (futuro)
+#GET /api/me 
+@auth_bp.route("/api/me")
+@api_login_required
+def me():
+
+    return jsonify({
+        "success": True,
+        "user": g.current_user
+    })
 #POST /refresh
 
 '''

@@ -1,27 +1,125 @@
-#GET profile
 
-#PUT profile
-
-#avatar
-
-#preferences
-
-#password
 
 #===========================
 # User.py
 #=========================
 
-
-#imports
-'''
-from flask import Blueprint, request, jsonify
-
-
-usuario_bp = Blueprint("usuario", __name__)
-'''
-
 #rotas user.py
+#GET profile
+#PUT profile
+#avatar
+#preferences
+#password
+
+"""
+===========================================================================
+USER ROUTES
+
+Responsável pelas APIs do usuário.
+
+Toda regra de negócio fica em user_service.py
+===========================================================================
+"""
+
+from flask import Blueprint, request, jsonify, g
+
+from app.middleware.auth_middleware import api_login_required
+
+from app.services.user_service import (
+    get_profile_service,
+    update_profile_service,
+    update_avatar_service,
+    update_preferences_service,
+    change_password_service
+)
+
+user_bp = Blueprint(
+    "user",
+    __name__
+)
+
+#perfil
+@user_bp.route(
+    "/api/users/me",
+    methods=["GET"]
+)
+@api_login_required
+def profile():
+
+    result = get_profile_service(
+        g.current_user
+    )
+
+    return jsonify(result), 200
+#atualizar perfil
+@user_bp.route(
+    "/api/users/me",
+    methods=["PUT"]
+)
+@api_login_required
+def update_profile():
+
+    data = request.get_json()
+
+    result = update_profile_service(
+        g.current_user,
+        data
+    )
+
+    return jsonify(result["body"]), result["status"]
+
+#avatar
+@user_bp.route(
+    "/api/users/me/avatar",
+    methods=["PUT"]
+)
+@api_login_required
+def update_avatar():
+
+    data = request.get_json()
+
+    result = update_avatar_service(
+        g.current_user,
+        data
+    )
+
+    return jsonify(result["body"]), result["status"]
+
+#preferencias
+@user_bp.route(
+    "/api/users/me/preferences",
+    methods=["PUT"]
+)
+@api_login_required
+def update_preferences():
+
+    data = request.get_json()
+
+    result = update_preferences_service(
+        g.current_user,
+        data
+    )
+
+    return jsonify(result["body"]), result["status"]
+
+#alterar senha
+@user_bp.route(
+    "/api/users/me/password",
+    methods=["PUT"]
+)
+@api_login_required
+def change_password():
+
+    data = request.get_json()
+
+    result = change_password_service(
+        g.current_user,
+        data
+    )
+
+    return jsonify(result["body"]), result["status"]
+
+
 '''
 
 

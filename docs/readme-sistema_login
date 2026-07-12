@@ -503,7 +503,7 @@ FASE 10
       ├── login_required
       ├── JWT obrigatório
       └── Proteção das APIs
-
+(Blueprint + Service + Repository + api_login_required)
 FASE 11
 Fluxo completo Login → Dashboard → Logout
 
