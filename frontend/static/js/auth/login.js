@@ -15,7 +15,7 @@ const formLogin = $("form-autenticacao");
 
 if (formLogin) {
 
-    formLogin.addEventListener("submit", realizarLogin);
+    formLogin.addEventListener("submit", login);
 
 }
 
@@ -25,7 +25,23 @@ if (formLogin) {
 // Realiza o login
 // ==========================================================================
 
-async function realizarLogin(evento) {
+
+const dadosLogin = obterDadosLogin();
+
+const erro = validarFormularioLogin(dadosLogin);
+
+if (erro) {
+
+    mostrarErro(
+        "erro-login",
+        erro
+    );
+
+    return;
+
+}
+
+async function login(evento) {
 
     evento.preventDefault();
 
@@ -88,7 +104,7 @@ function obterDadosLogin() {
 
     const role =
 
-        usoSelecionado === "pessoal"
+        usoSelecionado === "individual"
 
             ? "student"
 
@@ -118,13 +134,7 @@ function obterDadosLogin() {
 
 function processarLogin(resposta) {
 
-    const usuario =
-
-        resposta.user ||
-
-        resposta.usuario ||
-
-        resposta;
+    const usuario = resposta.user;
 
     const token =
 
@@ -132,7 +142,7 @@ function processarLogin(resposta) {
 
         resposta.token;
     if (token) {
-    salvarSessao(
+    session.salvarSessao(
 
         usuario,
 
@@ -143,6 +153,52 @@ function processarLogin(resposta) {
     redirecionarUsuario(usuario);
 
 }
+// ==========================================================================
+// Fluxo exclusivo do aluno
+// ==========================================================================
+
+function iniciarFluxoAluno(usuario) {
+
+    const etapaTurma = $("etapa-turma");
+
+    // --------------------------------------------------------------
+    // Caso exista a etapa de código da turma
+    // --------------------------------------------------------------
+
+    if (etapaTurma) {
+
+        esconder($("form-login"));
+
+        mostrar(etapaTurma);
+
+        const primeiroNome =
+            usuario?.name?.split(" ")[0] || "Aluno";
+
+        const titulo =
+
+            $("nome-aluno-boas-vindas");
+
+        if (titulo) {
+
+            titulo.textContent =
+                `👋 Olá, ${primeiroNome}!`;
+
+        }
+
+        return;
+
+    }
+
+    // --------------------------------------------------------------
+    // Fluxo padrão
+    // --------------------------------------------------------------
+
+    window.location.href =
+        "/dashboard";
+
+}
+
+
 
 
 

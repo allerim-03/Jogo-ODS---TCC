@@ -7,11 +7,63 @@ voltarAoInicioCadastro()
 
 ajustarCamposEspecificos()
 
-enviarCadastro()
+realizarCadastro()
+
+validarCadastro()
+DOMContentLoaded()
+
+↓
+
+proximoPassoCadastro()
+
+↓
+
+selecionarPerfil()
+
+↓
+
+ajustarCamposEspecificos()
+
+↓
 
 validarCadastro()
 
+↓
+
+obterDadosCadastro()
+
+↓
+
+enviarCadastro()
+
 */
+// ==========================================================================
+// CONFIGURAÇÕES
+// ==========================================================================
+
+
+
+let usoSelecionado = "individual";
+// ==========================================================================
+// 6. INTERFACE - CADASTRO
+// ==========================================================================
+
+
+function proximoPassoCadastro(tipoUso) {
+
+    usoSelecionado = tipoUso;
+
+    esconder($("etapa-tipo-uso"));
+
+    mostrar($("form-cadastro"));
+
+    mostrarOuEsconderGrupoPerfil(
+        tipoUso === "institutional"
+    );
+
+    selecionarPerfil("student");
+
+}
 // ==========================================================================
 // 3. PROCESSAMENTO DO FORMULÁRIO DE CADASTRO (REGISTER)
 // ==========================================================================
@@ -123,12 +175,19 @@ function validarCadastro() {
     throw new Error("Informe seu nome.");
 
     }
+    const email = $("cad-email").value.trim();
 
-    if (!$("cad-email").value.trim()) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        throw new Error("Informe um e-mail.");
+    if (!regex.test(email)) {
+
+        throw new Error(
+            "Informe um e-mail válido."
+        );
 
     }
+
+
 
     if ($("cad-senha").value.length < 6) {
 
@@ -183,9 +242,8 @@ function obterDadosCadastro() {
             campoIdade.value
 
         ) {
-
-            age =
-                parseInt(campoIdade.value);
+            age = parseInt(campoIdade.value, 10);
+           
 
         }
 
@@ -195,31 +253,42 @@ function obterDadosCadastro() {
     // Instituição
     // ---------------------------------------------------------
 
-    if (role === "teacher") {
+    if (
 
-        institution =
-            $("cad-instituicao")?.value.trim();
+    role === "teacher" &&
 
-    }
+    !institution 
 
-    return {
+) {
 
-        name:
-            $("cad-nome").value.trim(),
+    throw new Error(
 
-        email:
-            $("cad-email").value.trim().toLowerCase(),
+        "Informe a instituição."
 
-        password:
-            $("cad-senha").value.trim(),
+    );
 
-        role,
+}
 
-        age,
+        return {
 
-        institution
+            name:
+                $("cad-nome").value.trim(),
 
-    };
+            email:
+                $("cad-email").value.trim().toLowerCase(),
+
+            password:
+                $("cad-senha").value.trim(),
+
+            role,
+
+            use_type: usoSelecionado,
+
+            age,
+
+            institution
+
+        };
 
 }
 

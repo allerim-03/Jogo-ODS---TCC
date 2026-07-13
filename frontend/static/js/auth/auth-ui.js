@@ -1,4 +1,6 @@
-/* funções visuais compartilhadas com auth
+/* 
+auth-ui.js
+funções visuais compartilhadas com auth
 somente componentes visuais
 mostrar()
 
@@ -18,17 +20,66 @@ fecharModal()
 
 
 */
+// ==========================================================================
+// HELPERS
+// ==========================================================================
+
+function $(id) {
+
+    return document.getElementById(id);
+
+}
+
+function mostrar(elemento) {
+
+    elemento?.classList.remove("oculto");
+
+}
+
+function esconder(elemento) {
+
+    elemento?.classList.add("oculto");
+
+}
+
+function mostrarErro(id, mensagem) {
+
+    const erro = $(id);
+
+    if (!erro) return;
+
+    erro.textContent = mensagem;
+
+    mostrar(erro);
+
+}
+
+function limparErro(id) {
+
+    esconder($(id));
+
+}
+
+function alterarBotao(botao, texto, desabilitado = false) {
+
+    if (!botao) return;
+
+    botao.textContent = texto;
+
+    botao.disabled = desabilitado;
+
+}
 
 // ==========================================================================
-// CONTROLE DAS TELAS
+// CONTROLE DAS TELAS -- FLUXO VISUAL
 // ==========================================================================
 
 function irParaFormulario(tipoUso) {
 
     usoSelecionado = tipoUso;
-    $("tipo_uso").value = tipoUso;
+   /* $("tipo_uso").value = tipoUso;*/
 
-    // ---------------- Login ----------------
+  /*  // ---------------- Login ----------------
 
     const campoPerfilLogin = $("campo-perfil");
 
@@ -89,9 +140,7 @@ function irParaFormulario(tipoUso) {
     }
 
 }
-
-
-
+*/
 // ==========================================================================
 // Voltar para seleção inicial
 // ==========================================================================
@@ -99,18 +148,14 @@ function irParaFormulario(tipoUso) {
 function voltarParaSelecao() {
 
     esconder($("form-login"));
+    esconder($("form-cadastro"));
 
-    esconder($("form-register"));
-
-    mostrar($("etapa-selecao"));
+    mostrar($("etapa-tipo-uso"));
 
     limparErro("erro-login");
-
     limparErro("erro-cadastro");
 
 }
-
-
 
 // ==========================================================================
 // 5. INTERFACE - LOGIN
@@ -119,23 +164,28 @@ function voltarParaSelecao() {
 function proximoPassoLogin(tipoUso) {
 
     usoSelecionado = tipoUso;
-    $("tipo_uso").value = tipoUso;
 
     esconder($("etapa-tipo-uso"));
 
     mostrar($("form-login"));
 
-    const mostrarPerfil =
-        tipoUso === "institucional";
+    const campoPerfil = $("campo-perfil");
 
-    mostrarOuEsconderPerfil(
-        mostrarPerfil
-    );
+    if (!campoPerfil) return;
 
-    selecionarPerfilLogin("estudante");
+    if (tipoUso === "institutional") {
+
+        mostrar(campoPerfil);
+
+    } else {
+
+        esconder(campoPerfil);
+
+    }
+
+    selecionarPerfilLogin("student");
 
 }
-
 
 
 function selecionarPerfilLogin(perfil) {
@@ -156,8 +206,6 @@ function selecionarPerfilLogin(perfil) {
 
 }
 
-
-
 function voltarAoInicioLogin() {
 
     esconder($("form-login"));
@@ -167,39 +215,29 @@ function voltarAoInicioLogin() {
     limparErro("erro-login");
 
 }
-
-
-
 // ==========================================================================
 // 6. INTERFACE - CADASTRO
 // ==========================================================================
 
-function proximoPassoCadastro(tipoUso) {
-
-    usoSelecionado = tipoUso;
-    $("tipo_uso").value = tipoUso;
-
-    esconder($("etapa-tipo-uso"));
-
-    mostrar($("form-cadastro"));
-
-    const mostrarPerfil =
-        tipoUso === "institucional";
-
-    mostrarOuEsconderPerfil(
-        mostrarPerfil
-    );
-
-    selecionarPerfil("student");
-
-}
 
 
 function selecionarPerfil(perfil) {
 
-    $("tipo_usuario").value = perfil;
+    const tipoUsuario = $("tipo_usuario");
 
-    $("cadastro-perfil").value = perfil;
+    const cadastroPerfil = $("cadastro-perfil");
+
+    if (tipoUsuario) {
+
+        tipoUsuario.value = perfil;
+
+    }
+
+    if (cadastroPerfil) {
+
+        cadastroPerfil.value = perfil;
+
+    }
 
     atualizarEstadoFormulario(
         "form-cadastro",
@@ -211,33 +249,8 @@ function selecionarPerfil(perfil) {
     atualizarLabelNome(perfil);
 
     ajustarCamposEspecificos();
+
 }
-
-/*function selecionarPerfil(perfil) {
-
-   usoSelecionado = tipoUso;
-
-    $("#tipo_uso").value = tipoUso;
-
-    atualizarEstadoFormulario(
-
-        "form-cadastro",
-
-        perfil,
-
-        "opcao-estudante",
-
-        "opcao-professor"
-
-    );
-
-    atualizarLabelNome(perfil);
-
-    ajustarCamposEspecificos();
-
-}*/
-
-
 
 function voltarAoInicioCadastro() {
 
@@ -249,32 +262,27 @@ function voltarAoInicioCadastro() {
 
 }
 
-
 // ==========================================================================
 // Helpers da Interface
 // ==========================================================================
 
-function mostrarOuEsconderPerfil(mostrarSeletores) {
+function mostrarOuEsconderPerfil(exibir) {
 
-    if (mostrarSeletores) {
+    const grupoPerfil = $("grupo-perfil");
 
-        mostrar($("container-seletores-finais"));
+    if (!grupoPerfil) return;
 
-        mostrar($("rotulo-perfil-dinamico"));
+    if (exibir) {
 
-    }
+        mostrar(grupoPerfil);
 
-    else {
+    } else {
 
-        esconder($("container-seletores-finais"));
-
-        esconder($("rotulo-perfil-dinamico"));
+        esconder(grupoPerfil);
 
     }
 
 }
-
-
 
 function atualizarEstadoFormulario(
 
@@ -304,21 +312,21 @@ function atualizarEstadoFormulario(
 
     );
 
-    formulario.classList.add(
 
-        perfil === "estudante"
+    if (perfil === "student") {
 
-            ? "estado-estudante"
+        formulario.classList.add("estado-estudante");
 
-            : "estado-professor"
+    } else {
 
-    );
+        formulario.classList.add("estado-professor");
 
+    }
     estudante?.classList.remove("ativo-estudante");
 
     professor?.classList.remove("ativo-professor");
 
-    if (perfil === "estudante") {
+    if (perfil === "student") {
 
         estudante?.classList.add("ativo-estudante");
 
@@ -331,9 +339,6 @@ function atualizarEstadoFormulario(
     }
 
 }
-
-
-
 function atualizarLabelNome(perfil) {
 
     const label = $("label-nome");
@@ -342,13 +347,15 @@ function atualizarLabelNome(perfil) {
 
     label.textContent =
 
-        perfil === "estudante"
+        perfil === "student"
 
             ? "Nome do Estudante"
 
             : "Nome do Professor / Gestor";
 
 }
+
+
 
 // ==========================================================================
 // Tela de sucesso
@@ -370,6 +377,36 @@ function continuarParaLogin() {
 }
 
 
+
+
+
+
+
+
+
+// ==========================================================================
+// Exibe ou oculta o seletor de perfil do cadastro
+// ==========================================================================
+
+function mostrarOuEsconderGrupoPerfil(exibir) {
+
+    const grupo = $("grupo-perfil");
+
+    if (!grupo) return;
+
+    if (exibir) {
+
+        mostrar(grupo);
+
+    }
+
+    else {
+
+        esconder(grupo);
+
+    }
+
+}
 
 // ==========================================================================
 // Ajusta campos específicos do cadastro
@@ -395,7 +432,7 @@ function ajustarCamposEspecificos() {
     // Uso pessoal
     // -------------------------------------------------
 
-    if (usoSelecionado === "pessoal") {
+    if (usoSelecionado === "individual") {
 
         mostrar(grupoIdade);
 
@@ -411,7 +448,7 @@ function ajustarCamposEspecificos() {
 
     const perfil = $("cadastro-perfil")?.value;
 
-    if (perfil === "estudante") {
+    if (perfil === "student") {
 
         mostrar(grupoIdade);
 
@@ -428,113 +465,9 @@ function ajustarCamposEspecificos() {
     }
 
 }
-// ==========================================================================
-// Redireciona conforme o perfil
-// ==========================================================================
-
-function redirecionarUsuario(usuario) {
-
-    switch (usuario.role) {
-
-        // --------------------------------------------------------------
-        // Aluno
-        // --------------------------------------------------------------
-
-        case "student":
-
-            iniciarFluxoAluno(usuario);
-
-            break;
-
-        // --------------------------------------------------------------
-        // Professor
-        // --------------------------------------------------------------
-
-        case "teacher":
-
-            window.location.href =
-                "/teacher/dashboard";
-
-            break;
-
-        // --------------------------------------------------------------
-        // Administrador
-        // --------------------------------------------------------------
-
-        case "admin":
-
-            // TODO
-            // Criar painel administrativo.
-
-            window.location.href =
-                "/admin/dashboard";
-
-            break;
-
-        // --------------------------------------------------------------
-
-        default:
-
-            window.location.href =
-                "/dashboard";
-
-    }
-
-}
 
 
-
-// ==========================================================================
-// Fluxo exclusivo do aluno
-// ==========================================================================
-
-function iniciarFluxoAluno(usuario) {
-
-    const etapaTurma = $("etapa-turma");
-
-    // --------------------------------------------------------------
-    // Caso exista a etapa de código da turma
-    // --------------------------------------------------------------
-
-    if (etapaTurma) {
-
-        esconder($("form-login"));
-
-        mostrar(etapaTurma);
-
-        const primeiroNome =
-
-            usuario.name
-                ?.split(" ")[0]
-
-            ||
-
-            "Aluno";
-
-        const titulo =
-
-            $("nome-aluno-boas-vindas");
-
-        if (titulo) {
-
-            titulo.textContent =
-                `👋 Olá, ${primeiroNome}!`;
-
-        }
-
-        return;
-
-    }
-
-    // --------------------------------------------------------------
-    // Fluxo padrão
-    // --------------------------------------------------------------
-
-    window.location.href =
-        "/dashboard";
-
-}
-
+====================================================
 
 
 // ==========================================================================
@@ -579,100 +512,3 @@ function converterPerfil(perfil) {
     }
 
 }
-// ==========================================================================
-// 4. FUNÇÕES DO CÓDIGO DA TURMA
-// (Fluxo exclusivo do aluno)
-// ==========================================================================
-
-function validarTurma() {
-
-    const codigo = $("codigo-turma")?.value.trim();
-
-    limparErro("erro-turma");
-
-    if (!codigo || codigo.length !== 6) {
-
-        mostrarErro(
-            "erro-turma",
-            "O código deve conter exatamente 6 caracteres."
-        );
-
-        return;
-
-    }
-
-    // ----------------------------------------------------------------------
-    // TODO
-    // Validar o código da turma na API.
-    //
-    // POST /api/classes/join
-    //
-    // Após implementar:
-    //  • validar existência da turma;
-    //  • matricular aluno;
-    //  • retornar mensagem de sucesso/erro.
-
-
-    /*
-    async function validarTurma() {
-
-    const codigo = $("codigo-turma").value.trim();
-
-    limparErro("erro-turma");
-
-    if (!codigo || codigo.length !== 6) {
-
-        mostrarErro(
-            "erro-turma",
-            "O código deve conter exatamente 6 caracteres."
-        );
-
-        return;
-
-    }
-
-    try {
-
-        await API.post("/classes/join", {
-
-            code: codigo
-
-        });
-
-        window.location.href = "/dashboard";
-
-    }
-
-    catch (erro) {
-
-        mostrarErro(
-            "erro-turma",
-            erro.message
-        );
-
-    }
-
-}
-    */
-    // ----------------------------------------------------------------------
-
-    alert("Turma conectada com sucesso!");
-
-    window.location.href = "/dashboard";
-
-}
-
-
-
-function pularTurma() {
-
-    // ----------------------------------------------------------------------
-    // TODO
-    // Permitir posteriormente exigir obrigatoriamente
-    // a vinculação a uma turma.
-    // ----------------------------------------------------------------------
-
-    window.location.href = "/dashboard";
-
-}
-

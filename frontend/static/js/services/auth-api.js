@@ -1,114 +1,33 @@
 /* 
-auth service 
-Login, cadastro, refresh token */
-// ==========================================================================
-// CONFIGURAÇÕES
-// ==========================================================================
-
-const API_BASE_URL = "http://localhost:5000/api";
-
-let usoSelecionado = "pessoal";
+ auth-api.js service 
+Login, cadastro, refresh token
 
 
-// ==========================================================================
-// HELPERS
-// ==========================================================================
 
-function $(id) {
+• processarCadastro()
 
-    return document.getElementById(id);
+• processarLogin()
 
-}
+• fazerLogin()
 
-function mostrar(elemento) {
+• fazerCadastro()
 
-    elemento?.classList.remove("oculto");
+• fazerLogout()
 
-}
+• verificarSessao()
 
-function esconder(elemento) {
+• refreshToken() (futuro)
 
-    elemento?.classList.add("oculto");
+*/
 
-}
 
-function mostrarErro(id, mensagem) {
 
-    const erro = $(id);
 
-    if (!erro) return;
-
-    erro.textContent = mensagem;
-
-    mostrar(erro);
-
-}
-
-function limparErro(id) {
-
-    esconder($(id));
-
-}
-
-function alterarBotao(botao, texto, desabilitado = false) {
-
-    if (!botao) return;
-
-    botao.textContent = texto;
-
-    botao.disabled = desabilitado;
-
-}
 
 
 // ==========================================================================
 // CHAMADAS À API
 // ==========================================================================
-/*function limparSessao() {
-
-    localStorage.removeItem("usuario");
-
-    localStorage.removeItem("token_usuario");
-
-}
-async function enviarRequisicao(endpoint, metodo, dados) {
-
-    const resposta = await fetch(
-
-        `${API_BASE_URL}${endpoint}`,
-
-        {
-
-            method: metodo,
-
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
-
-            body: JSON.stringify(dados)
-
-        }
-
-    );
-
-    const json = await resposta.json();
-
-    if (!resposta.ok) {
-
-        throw new Error(
-
-            json.message ||
-            "Erro ao comunicar com o servidor."
-
-        );
-
-    }
-
-    return json;
-
-}*/
 
 
 // ==========================================================================
@@ -125,13 +44,13 @@ function processarCadastro(resposta) {
 
     const textoSucesso =
         $("texto-sucesso");
-    if (resposta.token || resposta.access_token) {
+    if (resposta.token) {
 
-    processarLogin(resposta);
+        processarLogin(resposta);
 
-    return;
+        return;
 
-}
+    }
 
     if (textoSucesso) {
 
@@ -152,9 +71,11 @@ function processarCadastro(resposta) {
 
     );
 
-    formCadastro.reset();
+    const formCadastro = $("form-cadastro");
 
-}
+    formCadastro?.reset();
+
+    }
 
 
 // ==========================================================================
@@ -165,7 +86,7 @@ document.addEventListener(
 
     "DOMContentLoaded",
 
-    () => {
+     async () => {
 
         // --------------------------------------------------------------
         // Configuração inicial das telas
@@ -210,7 +131,7 @@ document.addEventListener(
 
             try {
 
-                const usuario = await API.get("/auth/me");
+                const usuario = await API.get("/me");
 
                 redirecionarUsuario(usuario);
 
