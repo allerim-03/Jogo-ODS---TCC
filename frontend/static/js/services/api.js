@@ -11,12 +11,14 @@
    • Facilita trocar a URL da API futuramente.
 
    Utilizado por:
-   - auth.js
-   - dashboard.js
-   - ranking.js
-   - quiz.js
-   - games.js
-   - profile.js
+- auth_api.js
+- login.js
+- register.js
+- dashboard.js
+- ranking.js
+- quiz.js
+- games.js
+- profile.js
    ========================================================================== */
 
 
@@ -25,6 +27,7 @@
    ========================================================================== */
 
 const API_BASE_URL = "http://localhost:5000/api";
+/* para quando colocar no ar const API_BASE_URL = "/api"; */
 
 
 /* ==========================================================================
@@ -99,7 +102,7 @@ function getHeaders() {
  * PUT e DELETE.
  */
 async function apiRequest(endpoint, options = {}) {
-
+try {
     const response = await fetch(
 
         `${API_BASE_URL}${endpoint}`,
@@ -113,9 +116,25 @@ async function apiRequest(endpoint, options = {}) {
         }
 
     );
+}
+catch {
 
-    const data = await response.json();
+    throw new Error(
+        "Não foi possível conectar ao servidor."
+    );
 
+}
+
+    /*const data = await response.json();*/
+    const contentType = response.headers.get("content-type");
+
+    let data = {};
+
+    if (contentType && contentType.includes("application/json")) {
+
+        data = await response.json();
+
+    }
     if (!response.ok) {
 
         throw new Error(
@@ -195,6 +214,19 @@ async function del(endpoint) {
     });
 
 }
+/* metodo patch*/
+
+async function patch(endpoint, body) {
+
+    return apiRequest(endpoint, {
+
+        method: "PATCH",
+
+        body: JSON.stringify(body)
+
+    });
+
+}
 
 
 /* ==========================================================================
@@ -208,6 +240,8 @@ window.API = {
     post,
 
     put,
+
+    patch,
 
     delete: del,
 
