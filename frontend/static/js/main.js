@@ -179,7 +179,7 @@ function renderizarHeaderPublico(header) {
 
                 <div
                     class="logo-banner"
-                    onclick="window.location.href='/'">
+                    onclick="window.location.href='/home'">
 
                     <span class="banner-icon">
                         🌱
@@ -283,7 +283,7 @@ function renderizarHeaderLogado(
 
                     class="logo-banner"
 
-                    onclick="window.location.href='/'">
+                    onclick="window.location.href='/home'">
 
                     <span class="banner-icon">
 
@@ -313,7 +313,7 @@ function renderizarHeaderLogado(
 
             </a>
 
-            <a href="/profile">
+            <a href="/dashboard/profile">
 
                 MEU PERFIL
 
@@ -352,11 +352,11 @@ function alternarAbaPublica(aba) {
 
         window.location.pathname !== "/" &&
 
-        window.location.pathname !== "/home"
+        window.location.pathname !== "/"
 
     ) {
 
-        window.location.href = "/";
+        window.location.href = "/home";
 
         return;
 

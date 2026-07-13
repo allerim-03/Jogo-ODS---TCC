@@ -102,7 +102,7 @@
 
                 <div
                     class="quadrinho-opcao"
-                    onclick="proximoPassoCadastro('personal')">
+                    onclick="proximoPassoCadastro('individual')">
 
                     <span>🏡</span>
 
@@ -152,7 +152,16 @@
         <form
             id="form-cadastro"
             class="login-box estado-estudante oculto">
-
+                <input
+                    type="hidden"
+                    id="tipo_usuario"
+                    name="role"
+                    value="student">
+                    <input
+                    type="hidden"
+                    id="tipo_uso"
+                    name="use_type"
+                    value="individual">
             <button
                 type="button"
                 class="btn-voltar"
@@ -188,10 +197,10 @@
 
                 </label>
 
-                <select
+                    <select
                     id="cadastro-perfil"
                     class="input-estilizado"
-                    onchange="ajustarCamposEspecificos()">
+                    onchange="selecionarPerfil(this.value)">
 
                     <option value="student">
 

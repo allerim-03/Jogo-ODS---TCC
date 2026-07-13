@@ -566,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.location.href =
                // backBtn.dataset.url;
-                window.location.href = "/game-menu";
+                window.location.href = "/game/menu";
 
         });
 

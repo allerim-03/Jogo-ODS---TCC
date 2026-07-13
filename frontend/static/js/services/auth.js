@@ -25,7 +25,6 @@ const API_BASE_URL = "http://localhost:5000/api";
 let usoSelecionado = "pessoal";
 
 
-
 // ==========================================================================
 // HELPERS
 // ==========================================================================
@@ -178,6 +177,7 @@ async function enviarRequisicao(endpoint, metodo, dados) {
 function irParaFormulario(tipoUso) {
 
     usoSelecionado = tipoUso;
+    $("tipo_uso").value = tipoUso;
 
     // ---------------- Login ----------------
 
@@ -205,9 +205,10 @@ function irParaFormulario(tipoUso) {
 
         }
 
-        esconder($("etapa-selecao"));
+            esconder($("etapa-tipo-uso"));
+            mostrar($("form-cadastro"));
 
-        mostrar($("form-login"));
+           
 
     }
 
@@ -302,7 +303,7 @@ function ajustarCamposEspecificos() {
 
     const perfil = $("cadastro-perfil")?.value;
 
-    if (perfil === "aluno") {
+    if (perfil === "estudante") {
 
         mostrar(grupoIdade);
 
@@ -993,6 +994,7 @@ function pularTurma() {
 function proximoPassoLogin(tipoUso) {
 
     usoSelecionado = tipoUso;
+    $("tipo_uso").value = tipoUso;
 
     esconder($("etapa-tipo-uso"));
 
@@ -1050,6 +1052,7 @@ function voltarAoInicioLogin() {
 function proximoPassoCadastro(tipoUso) {
 
     usoSelecionado = tipoUso;
+    $("tipo_uso").value = tipoUso;
 
     esconder($("etapa-tipo-uso"));
 
@@ -1062,15 +1065,34 @@ function proximoPassoCadastro(tipoUso) {
         mostrarPerfil
     );
 
-    selecionarPerfil("estudante");
+    selecionarPerfil("student");
 
 }
-
 
 
 function selecionarPerfil(perfil) {
 
     $("tipo_usuario").value = perfil;
+
+    $("cadastro-perfil").value = perfil;
+
+    atualizarEstadoFormulario(
+        "form-cadastro",
+        perfil,
+        "opcao-estudante",
+        "opcao-professor"
+    );
+
+    atualizarLabelNome(perfil);
+
+    ajustarCamposEspecificos();
+}
+
+/*function selecionarPerfil(perfil) {
+
+   usoSelecionado = tipoUso;
+
+    $("#tipo_uso").value = tipoUso;
 
     atualizarEstadoFormulario(
 
@@ -1088,7 +1110,7 @@ function selecionarPerfil(perfil) {
 
     ajustarCamposEspecificos();
 
-}
+}*/
 
 
 
@@ -1228,7 +1250,7 @@ document.addEventListener(
 
         if ($("form-cadastro")) {
 
-            selecionarPerfil("estudante");
+            selecionarPerfil("student");
 
         }
 
