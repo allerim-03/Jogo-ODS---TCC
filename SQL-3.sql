@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `badges`
+--
+
+DROP TABLE IF EXISTS `badges`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `badges` (
+  `id_badges` int NOT NULL AUTO_INCREMENT,
+  `name_badges` varchar(20) NOT NULL,
+  `descripition_badges` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_badges`),
+  UNIQUE KEY `name_reward` (`name_badges`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `badges`
+--
+
+LOCK TABLES `badges` WRITE;
+/*!40000 ALTER TABLE `badges` DISABLE KEYS */;
+/*!40000 ALTER TABLE `badges` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `classroom`
 --
 
@@ -24,12 +49,12 @@ DROP TABLE IF EXISTS `classroom`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `classroom` (
   `id_classroom` int NOT NULL AUTO_INCREMENT,
-  `id_school` int NOT NULL,
   `name_classroom` varchar(100) NOT NULL,
   `schedule_classroom` enum('Matutino','Vespertino','Noturno','Integral') DEFAULT NULL,
-  `code_classroom` char(8) NOT NULL,
+  `code_classroom` int DEFAULT NULL,
   PRIMARY KEY (`id_classroom`),
-  UNIQUE KEY `token_classroom` (`code_classroom`)
+  UNIQUE KEY `token_classroom` (`code_classroom`),
+  UNIQUE KEY `code_classroom` (`code_classroom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -75,13 +100,13 @@ DROP TABLE IF EXISTS `educational_background`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `educational_background` (
-  `id_teacher` int NOT NULL,
   `id_course` int NOT NULL,
   `date_graduation` date NOT NULL,
-  PRIMARY KEY (`id_teacher`,`id_course`),
-  KEY `id_course` (`id_course`),
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_course`),
+  KEY `fk_teacher_course` (`id_user`),
   CONSTRAINT `educational_background_ibfk_1` FOREIGN KEY (`id_course`) REFERENCES `course` (`id_course`),
-  CONSTRAINT `educational_background_ibfk_2` FOREIGN KEY (`id_teacher`) REFERENCES `teacher` (`id_teacher`)
+  CONSTRAINT `fk_teacher_course` FOREIGN KEY (`id_user`) REFERENCES `teacher` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -143,30 +168,30 @@ LOCK TABLES `gender` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `inventory`
+-- Table structure for table `inventory_badges`
 --
 
-DROP TABLE IF EXISTS `inventory`;
+DROP TABLE IF EXISTS `inventory_badges`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventory` (
+CREATE TABLE `inventory_badges` (
   `id_reward` int NOT NULL,
-  `id_student` int NOT NULL,
   `date_reward` date NOT NULL,
-  PRIMARY KEY (`id_reward`,`id_student`),
-  KEY `id_student` (`id_student`),
-  CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`id_reward`) REFERENCES `reward` (`id_reward`),
-  CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`id_student`) REFERENCES `student` (`id_student`)
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_reward`),
+  KEY `fk_student_inventory` (`id_user`),
+  CONSTRAINT `fk_student_inventory` FOREIGN KEY (`id_user`) REFERENCES `student` (`id_user`),
+  CONSTRAINT `inventory_badges_ibfk_1` FOREIGN KEY (`id_reward`) REFERENCES `badges` (`id_badges`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventory`
+-- Dumping data for table `inventory_badges`
 --
 
-LOCK TABLES `inventory` WRITE;
-/*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
+LOCK TABLES `inventory_badges` WRITE;
+/*!40000 ALTER TABLE `inventory_badges` DISABLE KEYS */;
+/*!40000 ALTER TABLE `inventory_badges` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -178,13 +203,13 @@ DROP TABLE IF EXISTS `pending_task`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pending_task` (
   `id_task` int NOT NULL,
-  `id_student` int NOT NULL,
   `dealivery_day_task` datetime NOT NULL,
   `status_task` enum('Em andamento','Finalizada','Entregue') NOT NULL,
-  PRIMARY KEY (`id_task`,`id_student`),
-  KEY `id_student` (`id_student`),
-  CONSTRAINT `pending_task_ibfk_1` FOREIGN KEY (`id_task`) REFERENCES `task` (`id_task`),
-  CONSTRAINT `pending_task_ibfk_2` FOREIGN KEY (`id_student`) REFERENCES `student` (`id_student`)
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_task`),
+  KEY `fk_student_task` (`id_user`),
+  CONSTRAINT `fk_student_task` FOREIGN KEY (`id_user`) REFERENCES `student` (`id_user`),
+  CONSTRAINT `pending_task_ibfk_1` FOREIGN KEY (`id_task`) REFERENCES `task` (`id_task`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -198,31 +223,6 @@ LOCK TABLES `pending_task` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reward`
---
-
-DROP TABLE IF EXISTS `reward`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reward` (
-  `id_reward` int NOT NULL AUTO_INCREMENT,
-  `name_reward` varchar(20) NOT NULL,
-  `description_reward` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_reward`),
-  UNIQUE KEY `name_reward` (`name_reward`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reward`
---
-
-LOCK TABLES `reward` WRITE;
-/*!40000 ALTER TABLE `reward` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reward` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `schedule_classroom`
 --
 
@@ -230,12 +230,12 @@ DROP TABLE IF EXISTS `schedule_classroom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedule_classroom` (
-  `id_teacher` int NOT NULL,
   `id_classroom` int NOT NULL,
   `subject_schedule_classroom` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`id_teacher`,`id_classroom`),
-  KEY `id_classroom` (`id_classroom`),
-  CONSTRAINT `schedule_classroom_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `teacher` (`id_teacher`),
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_classroom`),
+  KEY `fk_professor_turma` (`id_user`),
+  CONSTRAINT `fk_professor_turma` FOREIGN KEY (`id_user`) REFERENCES `teacher` (`id_user`),
   CONSTRAINT `schedule_classroom_ibfk_2` FOREIGN KEY (`id_classroom`) REFERENCES `classroom` (`id_classroom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -259,14 +259,14 @@ DROP TABLE IF EXISTS `score`;
 CREATE TABLE `score` (
   `id_score` int NOT NULL AUTO_INCREMENT,
   `id_game` int NOT NULL,
-  `id_student` int NOT NULL,
   `amount_score` int DEFAULT NULL,
   `time_score` time DEFAULT NULL,
+  `id_user` int NOT NULL,
   PRIMARY KEY (`id_score`),
   KEY `id_game` (`id_game`),
-  KEY `id_student` (`id_student`),
-  CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_game`) REFERENCES `game` (`id_game`),
-  CONSTRAINT `score_ibfk_2` FOREIGN KEY (`id_student`) REFERENCES `student` (`id_student`)
+  KEY `fk_student_game` (`id_user`),
+  CONSTRAINT `fk_student_game` FOREIGN KEY (`id_user`) REFERENCES `student` (`id_user`),
+  CONSTRAINT `score_ibfk_1` FOREIGN KEY (`id_game`) REFERENCES `game` (`id_game`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -287,21 +287,12 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `student` (
-  `id_student` int NOT NULL AUTO_INCREMENT,
-  `name_student` varchar(120) NOT NULL,
-  `birth_student` date NOT NULL,
-  `registration_student` varchar(100) NOT NULL,
-  `email_student` varchar(120) NOT NULL,
-  `password_student` varchar(255) NOT NULL,
-  `id_gender` int DEFAULT NULL,
-  `id_classroom` int NOT NULL,
-  `experience_student` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_student`),
-  UNIQUE KEY `email_student` (`email_student`),
-  KEY `id_gender` (`id_gender`),
-  KEY `id_classroom` (`id_classroom`),
-  CONSTRAINT `student_ibfk_1` FOREIGN KEY (`id_gender`) REFERENCES `gender` (`id_gender`),
-  CONSTRAINT `student_ibfk_2` FOREIGN KEY (`id_classroom`) REFERENCES `classroom` (`id_classroom`)
+  `id_user` int NOT NULL,
+  `code_classroom` int NOT NULL,
+  PRIMARY KEY (`id_user`),
+  KEY `fk_student_classroom_code` (`code_classroom`),
+  CONSTRAINT `fk_student_classroom_code` FOREIGN KEY (`code_classroom`) REFERENCES `classroom` (`code_classroom`),
+  CONSTRAINT `fk_student_user` FOREIGN KEY (`id_user`) REFERENCES `user_plataform` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -323,15 +314,15 @@ DROP TABLE IF EXISTS `task`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `task` (
   `id_task` int NOT NULL AUTO_INCREMENT,
-  `id_teacher` int NOT NULL,
   `id_classroom` int NOT NULL,
   `title_task` int NOT NULL,
   `description_task` int NOT NULL,
   `deadline_task` datetime DEFAULT NULL,
-  PRIMARY KEY (`id_task`,`id_teacher`,`id_classroom`),
-  KEY `id_teacher` (`id_teacher`),
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_task`,`id_classroom`),
   KEY `id_classroom` (`id_classroom`),
-  CONSTRAINT `task_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `teacher` (`id_teacher`),
+  KEY `fk_task_teacher` (`id_user`),
+  CONSTRAINT `fk_task_teacher` FOREIGN KEY (`id_user`) REFERENCES `teacher` (`id_user`),
   CONSTRAINT `task_ibfk_2` FOREIGN KEY (`id_classroom`) REFERENCES `classroom` (`id_classroom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -353,17 +344,9 @@ DROP TABLE IF EXISTS `teacher`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teacher` (
-  `id_teacher` int NOT NULL AUTO_INCREMENT,
-  `name_teacher` varchar(120) NOT NULL,
-  `main_email_teacher` varchar(100) NOT NULL,
-  `personal_email_teacher` varchar(100) NOT NULL,
-  `birthday` date NOT NULL,
-  `id_gender` int DEFAULT NULL,
-  PRIMARY KEY (`id_teacher`),
-  UNIQUE KEY `main_email_teacher` (`main_email_teacher`),
-  UNIQUE KEY `personal_email_teacher` (`personal_email_teacher`),
-  KEY `id_gender` (`id_gender`),
-  CONSTRAINT `teacher_ibfk_1` FOREIGN KEY (`id_gender`) REFERENCES `gender` (`id_gender`)
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_user`),
+  CONSTRAINT `fk_teacher_user` FOREIGN KEY (`id_user`) REFERENCES `user_plataform` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -375,6 +358,39 @@ LOCK TABLES `teacher` WRITE;
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `user_plataform`
+--
+
+DROP TABLE IF EXISTS `user_plataform`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_plataform` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
+  `name_user` varchar(120) NOT NULL,
+  `birth_user` date NOT NULL,
+  `registration_user` varchar(20) DEFAULT NULL,
+  `main_email` varchar(120) NOT NULL,
+  `personal_email` varchar(120) DEFAULT NULL,
+  `password_user` varchar(20) NOT NULL,
+  `id_gender` int DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `main_email` (`main_email`),
+  UNIQUE KEY `personal_email` (`personal_email`),
+  KEY `id_gender` (`id_gender`),
+  CONSTRAINT `user_plataform_ibfk_1` FOREIGN KEY (`id_gender`) REFERENCES `gender` (`id_gender`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_plataform`
+--
+
+LOCK TABLES `user_plataform` WRITE;
+/*!40000 ALTER TABLE `user_plataform` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_plataform` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -385,4 +401,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-05 22:52:02
+-- Dump completed on 2026-07-13 20:57:38
