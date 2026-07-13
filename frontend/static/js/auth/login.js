@@ -1,7 +1,7 @@
 /*Tela de login
 
 -fluxo de login
-login()
+realizarLogin()
 validarFormularioLogin()
 enviarLogin()
 lembrarUsuario()
@@ -11,37 +11,100 @@ lembrarUsuario()
 // 2. PROCESSAMENTO DO FORMULÁRIO DE LOGIN
 // ==========================================================================
 
-const formLogin = $("form-autenticacao");
+function mostrarOuEsconderGrupoPerfil(exibir) {
 
-if (formLogin) {
+    const grupo = $("grupo-perfil");
 
-    formLogin.addEventListener("submit", login);
+    if (!grupo) return;
+
+    if (exibir) {
+
+        mostrar(grupo);
+
+    }
+
+    else {
+
+        esconder(grupo);
+
+    }
 
 }
-
-
 
 // ==========================================================================
 // Realiza o login
 // ==========================================================================
 
 
-const dadosLogin = obterDadosLogin();
+const formLogin = $("form-autenticacao");
 
-const erro = validarFormularioLogin(dadosLogin);
+if (formLogin) {
 
-if (erro) {
-
-    mostrarErro(
-        "erro-login",
-        erro
-    );
-
-    return;
+    formLogin.addEventListener("submit", realizarLogin);
 
 }
 
-async function login(evento) {
+async function realizarLogin(evento) {
+
+    evento.preventDefault();
+
+    limparErro("erro-login");
+
+    const btnEntrar = $("btn-entrar");
+
+    alterarBotao(
+        btnEntrar,
+        "Entrando...",
+        true
+    );
+
+    try {
+
+        const dadosLogin = obterDadosLogin();
+
+        const erro = validarFormularioLogin(dadosLogin);
+
+        if (erro) {
+
+            mostrarErro(
+                "erro-login",
+                erro
+            );
+
+            return;
+        }
+
+        const resposta = await API.post(
+            "/login",
+            dadosLogin
+        );
+
+        processarLogin(resposta);
+
+    }
+
+    catch (erro) {
+
+        mostrarErro(
+            "erro-login",
+            erro.message
+        );
+
+    }
+
+    finally {
+
+        alterarBotao(
+            btnEntrar,
+            "Entrar",
+            false
+        );
+
+    }
+
+}
+
+async function realizarLogin(evento) {
 
     evento.preventDefault();
 
@@ -167,7 +230,7 @@ function iniciarFluxoAluno(usuario) {
 
     if (etapaTurma) {
 
-        esconder($("form-login"));
+        esconder($("form-autenticacao"));
 
         mostrar(etapaTurma);
 

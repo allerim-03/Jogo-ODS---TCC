@@ -139,8 +139,8 @@ function irParaFormulario(tipoUso) {
 
     }
 
-}
-*/
+
+*/}
 // ==========================================================================
 // Voltar para seleção inicial
 // ==========================================================================
@@ -190,8 +190,14 @@ function proximoPassoLogin(tipoUso) {
 
 function selecionarPerfilLogin(perfil) {
 
-    $("tipo_usuario").value = perfil;
+    const tipoUsuario = $("tipo_usuario");
 
+    if (tipoUsuario) {
+
+        tipoUsuario.value = perfil;
+
+    }
+    /*$("login-perfil")?.value = perfil;*/
     atualizarEstadoFormulario(
 
         "form-login",
@@ -205,6 +211,10 @@ function selecionarPerfilLogin(perfil) {
     );
 
 }
+
+   
+
+ 
 
 function voltarAoInicioLogin() {
 
@@ -220,6 +230,21 @@ function voltarAoInicioLogin() {
 // ==========================================================================
 
 
+
+function proximoPassoCadastro(tipoUso) {
+
+    usoSelecionado = tipoUso;
+
+    esconder($("etapa-tipo-uso"));
+    mostrar($("form-cadastro"));
+
+    mostrarOuEsconderGrupoPerfil(
+        tipoUso === "institutional"
+    );
+
+    selecionarPerfil("student");
+
+}
 
 function selecionarPerfil(perfil) {
 
@@ -265,7 +290,7 @@ function voltarAoInicioCadastro() {
 // ==========================================================================
 // Helpers da Interface
 // ==========================================================================
-
+/*
 function mostrarOuEsconderPerfil(exibir) {
 
     const grupoPerfil = $("grupo-perfil");
@@ -282,7 +307,7 @@ function mostrarOuEsconderPerfil(exibir) {
 
     }
 
-}
+}*/
 
 function atualizarEstadoFormulario(
 
@@ -467,7 +492,7 @@ function ajustarCamposEspecificos() {
 }
 
 
-====================================================
+
 
 
 // ==========================================================================
@@ -509,6 +534,5 @@ function converterPerfil(perfil) {
 
             return "student";
 
-    }
+    }}
 
-}

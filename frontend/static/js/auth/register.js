@@ -47,7 +47,25 @@ let usoSelecionado = "individual";
 // ==========================================================================
 // 6. INTERFACE - CADASTRO
 // ==========================================================================
+function mostrarOuEsconderGrupoPerfil(exibir) {
 
+    const grupo = $("grupo-perfil");
+
+    if (!grupo) return;
+
+    if (exibir) {
+
+        mostrar(grupo);
+
+    }
+
+    else {
+
+        esconder(grupo);
+
+    }
+
+}
 
 function proximoPassoCadastro(tipoUso) {
 
@@ -291,6 +309,24 @@ function obterDadosCadastro() {
         };
 
 }
+document.addEventListener("DOMContentLoaded", () => {
 
+    $("cadastro-perfil")?.addEventListener(
+
+        "change",
+
+        () => {
+
+            selecionarPerfil(
+
+                $("cadastro-perfil").value
+
+            );
+
+        }
+
+    );
+
+});
 
 
