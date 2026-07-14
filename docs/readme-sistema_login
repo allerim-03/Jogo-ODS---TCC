@@ -405,13 +405,13 @@ Logout
 
 FASE 09 - MAIN.JS
 
-1.criei as contantes
-2.helpers
+1. criei as contantes
+2. helpers
 3. centralizar o logout
-4.maneira de mudança de perfil
+4. maneira de mudança de perfil
 5. parei de usar caminhos relativos para que todas que funcionasse mesmo com mudança de pasta
 6. função para descobrir o painel
-7.diminuição do header, com a criação de um global
+7. diminuição do header, com a criação de um global
  futuro : com api (GET /api/auth/me) para a sessão expirar automaticamente.
 
  fase 10 - frontend
@@ -427,11 +427,11 @@ FASE 09 - MAIN.JS
 * instituição
 * tela de sucesso
 
-Frontend- Uso Pessoal/ Backend- personal
+Frontend - Uso Pessoal/ Backend- personal
 Frontend - Uso Institucional/ Backend - institutional
 Frontend - Estudante/ Backend- student
 Frontend - Professor/ Backend - teacher
-Frontend- Administrador/ Backend - admin
+Frontend - Administrador/ Backend - admin
 
  -auth.css
 * links
@@ -465,7 +465,7 @@ sem token = redirecionar login
 --||--
 11/07/2026
 
-inicio da fase 11 de testes no sistema de login
+Inicio da fase 11 de testes no sistema de login
 I-testes backend postman (parcialmente feitas)
 II- verificar salvamento do bd local
 III- frontend ( cadastro aluno, cadastro professor,cadastro aluno turma)
@@ -490,6 +490,7 @@ FASE 9
 Proteção das páginas HTML
 criação de middleware
 auth-guard.js que deve ser importado em todas as páginas protegidas (quiz,ranking,jogos,dashboards...)
+
 FASE 10
 Middleware Flask
 FASE 10
