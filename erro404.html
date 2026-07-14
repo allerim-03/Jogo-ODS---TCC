@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 - Página não encontrada | Eco-Pixel Adventure</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(#4CAF50,#6DB85C);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:90%;
+    max-width:650px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+.logo{
+    color:#2E7D32;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.logo span{
+    display:block;
+    color:#4CAF50;
+    font-size:14px;
+}
+
+img{
+    width:220px;
+    margin:20px 0;
+    image-rendering:pixelated;
+}
+
+.erro{
+    font-size:90px;
+    color:#2E7D32;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#2E7D32;
+    margin-bottom:15px;
+    font-size:38px;
+}
+
+p{
+    color:#666;
+    font-size:18px;
+    margin-bottom:35px;
+    line-height:1.5;
+}
+
+.botao{
+    display:inline-block;
+    background:#FFC107;
+    color:#1B5E20;
+    text-decoration:none;
+    padding:16px 35px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+    box-shadow:0 6px 0 #D79B00;
+}
+
+.botao:hover{
+    transform:translateY(-3px);
+}
+
+.grama{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:40px;
+    background:#2E7D32;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        ECO-PIXEL
+        <span>ADVENTURE</span>
+    </div>
+
+    <div class="erro">404</div>
+
+    <img src="img/penguin.png" alt="Pinguim Pixel">
+
+    <h1>Ops, página não encontrada!</h1>
+
+    <p>
+        Parece que este caminho ainda não foi explorado.
+        Nosso pequeno aventureiro não conseguiu encontrar esta página.
+    </p>
+
+    <a href="index.html" class="botao">
+        ⬅ Voltar para o Início
+    </a>
+
+</div>
+
+<div class="grama"></div>
+
+</body>
+</html> 
