@@ -235,7 +235,7 @@ function obterDadosCadastro() {
     // Perfil escolhido
     // ---------------------------------------------------------
 
-    if (usoSelecionado === "institucional") {
+    if (usoSelecionado === "institutional") {
 
         role = converterPerfil(
 

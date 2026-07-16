@@ -26,7 +26,8 @@
    CONFIGURAÇÃO DA API
    ========================================================================== */
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "/api";
+/*"http://localhost:5000/api"; -> se estiver em um servidor diferente*/
 /* para quando colocar no ar const API_BASE_URL = "/api"; */
 
 
@@ -102,39 +103,45 @@ function getHeaders() {
  * PUT e DELETE.
  */
 async function apiRequest(endpoint, options = {}) {
-try {
-    const response = await fetch(
 
-        `${API_BASE_URL}${endpoint}`,
+    let response;
 
-        {
+    try {
 
-            headers: getHeaders(),
+        response = await fetch(
 
-            ...options
+            `${API_BASE_URL}${endpoint}`,
 
-        }
+            {
+                headers: getHeaders(),
+                ...options
+            }
 
-    );
-}
-catch {
+        );
 
-    throw new Error(
-        "Não foi possível conectar ao servidor."
-    );
+    }
+    catch (erro) {
 
-}
+        throw new Error(
+            "Não foi possível conectar ao servidor."
+        );
 
-    /*const data = await response.json();*/
-    const contentType = response.headers.get("content-type");
+    }
+
+    const contentType =
+        response.headers.get("content-type");
 
     let data = {};
 
-    if (contentType && contentType.includes("application/json")) {
+    if (
+        contentType &&
+        contentType.includes("application/json")
+    ) {
 
         data = await response.json();
 
     }
+
     if (!response.ok) {
 
         throw new Error(

@@ -50,7 +50,7 @@
 
 #acesso ao banco de dados.
 # =============================================================================
-
+## TO-DO renomear para user_plataform
 
 from database.connection import get_connection
 from app.models.user import User

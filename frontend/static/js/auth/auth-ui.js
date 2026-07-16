@@ -87,7 +87,7 @@ function irParaFormulario(tipoUso) {
 
     if (tituloLogin) {
 
-        if (tipoUso === "institucional") {
+        if (tipoUso === "institutional") {
 
             mostrar(campoPerfilLogin);
 
@@ -119,7 +119,7 @@ function irParaFormulario(tipoUso) {
 
     if (grupoPerfilCadastro) {
 
-        if (tipoUso === "institucional") {
+        if (tipoUso === "institutional") {
 
             mostrar(grupoPerfilCadastro);
 
