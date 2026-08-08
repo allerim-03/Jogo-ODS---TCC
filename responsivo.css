@@ -1,0 +1,45 @@
+/* TABLET / CELULAR */
+@media (max-width: 768px) {
+
+    .conteudo-flex,
+    .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+/* CELULAR PEQUENO */
+@media (max-width: 480px) {
+
+    .podium-container {
+        gap: 8px;
+    }
+
+    .podium-card {
+        padding: 12px 5px;
+    }
+
+    .podium-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .podium-card.first .podium-avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .podium-name {
+        font-size: 0.8rem;
+    }
+
+    .podium-xp {
+        font-size: 0.75rem;
+    }
+
+    .podium-medal {
+        font-size: 1.6rem;
+    }
+
+}

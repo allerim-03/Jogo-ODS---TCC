@@ -1,0 +1,72 @@
+.escolha-container {
+    display: flex;
+    gap: 30px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.escolha-card {
+    background: #eaeaea;
+
+    border-radius: 20px;
+
+    padding: 45px 55px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.15);
+
+    color: #333;
+}
+
+.escolha-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.2);
+}
+
+.escolha-icone {
+    font-size: 3rem;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+.escolha-card p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* ALUNO */
+.aluno-card {
+    border: 2px solid #3a86ff;
+}
+
+.aluno-card h2 {
+    color: #1a4fd6;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+/* PROFESSOR */
+.professor-card {
+    border: 2px solid #972fff;
+}
+
+.professor-card h2 {
+    color: #972fff;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}

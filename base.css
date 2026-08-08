@@ -1,0 +1,43 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CORPO */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(
+        180deg,
+        #3a7bd5 0%,
+        #00d2ff 25%,
+        #76b852 75%,
+        #8dc26f 100%
+    );
+
+    background-attachment: fixed;
+    color: white;
+    padding-top: 100px;
+}
+
+main {
+    flex: 1;
+}
+
+/* Classes utilitárias */
+.negrito {
+    font-weight: bold !important;
+}
+
+.texto-azul {
+    color: #3a86ff !important;
+}
+
+.texto-verde {
+    color: #22c55e !important;
+}
