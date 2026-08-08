@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,6 +8,7 @@
 
     <title>Eco-Pixel Adventure</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/botoes.css">
@@ -22,6 +24,13 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+        /* Esconde o checkbox, mas mantém ele funcionando */
+        #menu-check {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,16 +43,65 @@
     <div class="sidebar">
 
         <div class="perfil-sidebar">
-            <img
-                src="img/foto.png"
-                class="foto-perfil"
-                alt="Foto de perfil"
-            >
-
+            <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
             <p>Nível 2</p>
         </div>
 
         <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+        </nav>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+
+        <!-- ESQUERDA / LOGO -->
+        <div class="left">
+
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+
+                <div class="logo">
+                    <span class="icon">🌱</span>
+
+                    <div>
+                        <h1>ECO-PIXEL</h1>
+                        <p>ADVENTURE</p>
+                    </div>
+                </div>
+
+                <div class="level">
+
+                    <span class="star">★ NÍVEL 2</span>
+
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+
+                    <span class="xp">450/1000</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+        <nav class="menu">
 
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -55,93 +113,22 @@
 
         </nav>
 
-    </div>
 
+        <!-- FOTO DE PERFIL -->
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
 
-    <!-- TOPO -->
-    <div class="left">
-
-        <label for="menu-check" class="hamburger">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </label>
-
-
-        <div class="info-container">
-
-            <div class="logo">
-
-                <span class="icon">🌱</span>
-
-                <div>
-
-                    <h1>ECO-PIXEL</h1>
-                    <p>ADVENTURE</p>
-
-                </div>
-
-            </div>
-
-
-            <div class="level">
-
-                <span class="star">
-                    ★ NÍVEL 2
-                </span>
-
-                <div class="bar">
-                    <div class="progress"></div>
-                </div>
-
-                <span class="xp">
-                    450/1000
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- NAVBAR -->
-    <nav class="menu">
-
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-
-    </nav>
-
-
-    <!-- FOTO DE PERFIL -->
-    <a href="perfil.html" class="perfil-externo">
-
-        <img
-            src="img/foto.png"
-            class="foto-perfil"
-            alt="Perfil"
-        >
-
-    </a>
+    </header>
 
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
-
         <!-- BANNER PRINCIPAL -->
         <div class="banner"></div>
 
 
-        <!-- DIVISOR -->
         <hr class="divisor">
 
 
@@ -152,9 +139,7 @@
 
                 <div class="texto">
 
-                    <h3>
-                        Sobre o Eco-Pixel/ODS KIDS
-                    </h3>
+                    <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
 
                     <p>
                         Aprender pode ser muito mais interessante quando você
@@ -165,13 +150,8 @@
 
                 </div>
 
-
                 <div class="imagem-placeholder">
-
-                    <p>
-                        [Imagem Ilustrativa 1]
-                    </p>
-
+                    <p>[Imagem Ilustrativa 1]</p>
                 </div>
 
             </div>
@@ -186,9 +166,7 @@
 
                 <div class="texto">
 
-                    <h3>
-                        Aprendendo de forma divertida
-                    </h3>
+                    <h3>Aprendendo de forma divertida</h3>
 
                     <p>
                         Aprender pode ser muito mais interessante quando você
@@ -199,13 +177,8 @@
 
                 </div>
 
-
                 <div class="imagem-placeholder">
-
-                    <p>
-                        [Imagem Ilustrativa 2]
-                    </p>
-
+                    <p>[Imagem Ilustrativa 2]</p>
                 </div>
 
             </div>
@@ -218,9 +191,7 @@
 
             <div class="texto">
 
-                <h3>
-                    Nossa Missão
-                </h3>
+                <h3>Nossa Missão</h3>
 
                 <p>
                     Nossa missão é cultivar conhecimento através da tecnologia,
@@ -236,100 +207,56 @@
         <!-- JORNADA -->
         <div class="journey-map">
 
-
-            <!-- TUGA -->
             <img
                 id="journey-tuga"
                 src="img/TugaPqn.png"
                 alt="Tuga"
             >
 
-
-            <!-- LINHA -->
             <div class="journey-line"></div>
 
 
-            <!-- ETAPA 1 -->
-            <div
-                class="journey-step step-1 active"
-                data-step="0"
-            >
+            <div class="journey-step step-1 active" data-step="0">
 
-                <div class="step-icon">
-                    📝
-                </div>
+                <div class="step-icon">📝</div>
 
-                <span>
-                    Cadastro
-                </span>
+                <span>Cadastro</span>
 
             </div>
 
 
-            <!-- ETAPA 2 -->
-            <div
-                class="journey-step step-2"
-                data-step="1"
-            >
+            <div class="journey-step step-2" data-step="1">
 
-                <div class="step-icon">
-                    🎮
-                </div>
+                <div class="step-icon">🎮</div>
 
-                <span>
-                    Jogos
-                </span>
+                <span>Jogos</span>
 
             </div>
 
 
-            <!-- ETAPA 3 -->
-            <div
-                class="journey-step step-3"
-                data-step="2"
-            >
+            <div class="journey-step step-3" data-step="2">
 
-                <div class="step-icon">
-                    🌱
-                </div>
+                <div class="step-icon">🌱</div>
 
-                <span>
-                    Evolução
-                </span>
+                <span>Evolução</span>
 
             </div>
 
 
-            <!-- ETAPA 4 -->
-            <div
-                class="journey-step step-4"
-                data-step="3"
-            >
+            <div class="journey-step step-4" data-step="3">
 
-                <div class="step-icon">
-                    🌎
-                </div>
+                <div class="step-icon">🌎</div>
 
-                <span>
-                    ODS
-                </span>
+                <span>ODS</span>
 
             </div>
 
 
-            <!-- ETAPA 5 -->
-            <div
-                class="journey-step step-5"
-                data-step="4"
-            >
+            <div class="journey-step step-5" data-step="4">
 
-                <div class="step-icon">
-                    🏆
-                </div>
+                <div class="step-icon">🏆</div>
 
-                <span>
-                    Guardião
-                </span>
+                <span>Guardião</span>
 
             </div>
 
@@ -347,7 +274,6 @@
                 Crie sua conta e prepare-se para conhecer o Tuga.
             </p>
 
-
             <div class="journey-action">
 
                 <a
@@ -362,7 +288,6 @@
 
         </div>
 
-
     </main>
 
 
@@ -375,7 +300,7 @@
 
     </footer>
 
-
 </body>
 
 </html>
+```
