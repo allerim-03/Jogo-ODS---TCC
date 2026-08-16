@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const steps = document.querySelectorAll('.journey-step');
     const tuga = document.getElementById('journey-tuga');
+    const container = document.querySelector('.journey-map');
     
     const infoTitle = document.getElementById('journey-title');
     const infoDescription = document.getElementById('journey-description');
@@ -40,11 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
         steps.forEach(s => s.classList.remove('active'));
         stepElement.classList.add('active');
 
-        const stepX = stepElement.offsetLeft; 
-        const stepWidth = stepElement.offsetWidth;
+        const containerRect = container.getBoundingClientRect();
+        const stepRect = stepElement.getBoundingClientRect();
         const tugaWidth = tuga.offsetWidth || 80;
 
-        const posicaoFinalX = stepX + (stepWidth / 2) - (tugaWidth / 2);
+        const stepCenterX = (stepRect.left - containerRect.left) + (stepRect.width / 2);
+        const posicaoFinalX = stepCenterX - (tugaWidth / 2);
+
         tuga.style.left = `${posicaoFinalX}px`;
 
         const stepIndex = stepElement.getAttribute('data-step');
@@ -70,10 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    setTimeout(() => {
+    window.addEventListener('load', () => {
         const firstStep = document.querySelector('.journey-step[data-step="0"]');
         if (firstStep) {
             atualizarEtapa(firstStep);
         }
-    }, 200);
+    });
+
+    window.addEventListener('resize', () => {
+        const activeStep = document.querySelector('.journey-step.active');
+        if (activeStep) {
+            atualizarEtapa(activeStep);
+        }
+    });
 });
