@@ -17,7 +17,11 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin:80px 0 60px 0; 
+    width: 85%;
+    max-width: 1000px;
+    margin: 80px auto 60px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .journey-step.active {
@@ -89,10 +93,13 @@
 .journey-card {
     background: white;
     border-radius: 25px;
-    padding: 35px;
-    margin-top: 50px;
+    padding: 35px 40px;
+    width: 85%;
+    max-width: 1000px;
+    margin: 50px auto 0 auto;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    box-sizing: border-box;
 }
 
 .journey-card h3 {
