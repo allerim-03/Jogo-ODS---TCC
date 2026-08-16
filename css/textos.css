@@ -1,0 +1,58 @@
+/* =========================================
+   TEXTOS
+   ========================================= */
+
+/* BOAS-VINDAS */
+.boas-vindas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.boas-vindas h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.titulo-branco {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.sub-branco {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* TEXTOS DAS SEÇÕES */
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #e0d042;
+    font-weight: bold;
+}
+
+.texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* CLASSES UTILITÁRIAS */
+.negrito {
+    font-weight: bold !important;
+}
+
+.texto-azul {
+    color: #3a86ff !important;
+}
+
+.texto-verde {
+    color: #22c55e !important;
+}
