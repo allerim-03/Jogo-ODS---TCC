@@ -13,12 +13,12 @@
         flex-direction: column;
 
         background: linear-gradient(
-            180deg,
-            #3a7bd5 0%,
-            #00d2ff 25%,
-            #76b852 75%,
-            #8dc26f 100%
-        );
+    180deg,
+    #6fa8c4 0%,
+    #72c8cf 35%,
+    #8bc98b 70%,
+    #a8ce83 100%
+);
 
         background-attachment: fixed;
         color: white;
