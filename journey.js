@@ -40,21 +40,29 @@ document.addEventListener("DOMContentLoaded", function () {
     function atualizarEtapa(stepElement) {
         if (!stepElement || !tuga || !container) return;
 
-        // Atualiza a classe ativa das etapas
+        // 1. Atualiza a classe ativa visualmente
         steps.forEach(s => s.classList.remove('active'));
         stepElement.classList.add('active');
 
-        // Cálculo exato de posicionamento centralizado do Tuga
+        // 2. Calcula a posição exata
         const containerRect = container.getBoundingClientRect();
         const stepRect = stepElement.getBoundingClientRect();
         const tugaWidth = tuga.offsetWidth || 80;
 
-        const stepCenterX = (stepRect.left - containerRect.left) + (stepRect.width / 2);
-        const posicaoFinalX = stepCenterX - (tugaWidth / 2);
+        let posicaoFinalX = 0;
 
+        if (containerRect.width > 0) {
+            const stepCenterX = (stepRect.left - containerRect.left) + (stepRect.width / 2);
+            posicaoFinalX = stepCenterX - (tugaWidth / 2);
+        } else {
+            // Fallback para carregamento assíncrono
+            posicaoFinalX = stepElement.offsetLeft + (stepElement.offsetWidth / 2) - (tugaWidth / 2);
+        }
+
+        // Move a tartaruga
         tuga.style.left = `${posicaoFinalX}px`;
 
-        // Atualização dos textos do card
+        // 3. Atualiza os dados do card explicativo
         const stepIndex = stepElement.getAttribute('data-step');
         const data = stepData[stepIndex];
 
@@ -74,22 +82,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Evento de clique corrigido usando e.currentTarget
+    // Eventos de clique nas etapas
     steps.forEach(step => {
         step.addEventListener('click', function (e) {
             atualizarEtapa(e.currentTarget);
         });
     });
 
-    // Inicialização ao carregar a página
-    window.addEventListener('load', () => {
+    // Função de inicialização do primeiro passo
+    function inicializar() {
         const firstStep = document.querySelector('.journey-step[data-step="0"]');
         if (firstStep) {
             atualizarEtapa(firstStep);
         }
-    });
+    }
 
-    // Recálculo ao redimensionar a tela
+    // Executa assim que o layout e imagens carregarem
+    if (document.readyState === 'complete') {
+        inicializar();
+    } else {
+        window.addEventListener('load', inicializar);
+    }
+
+    // Recalcula a posição ao redimensionar a tela
     window.addEventListener('resize', () => {
         const activeStep = document.querySelector('.journey-step.active');
         if (activeStep) {
