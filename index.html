@@ -203,69 +203,113 @@
         </section>
 
 
-        <!-- JORNADA DO TUGA -->
-        <div class="journey-map">
+        
+<section id="journey" class="journey">
 
-            <img
-                id="journey-tuga"
-                src="img/TugaPqn.png"
-                alt="Tuga"
-            >
+    <div class="journey-title">
 
-            <div class="journey-line"></div>
+        <h2> Jornada Sustentável</h2>
 
-            <div class="journey-step step-1 active" data-step="0">
-                <div class="step-icon">📝</div>
-                <span>Cadastro</span>
+        <p>
+            Clique em cada etapa e descubra como sua aventura acontece.
+        </p>
+
+    </div>
+
+    <div class="journey-map">
+
+        <img
+            id="journey-tuga"
+            src="{{ url_for('static',
+            filename='imagens/tuga/Tuga.png') }}">
+
+        <div class="journey-line"></div>
+
+        <div class="journey-step step-1 active"
+              data-step="0">
+
+            <div class="step-icon">
+                📝
             </div>
 
-            <div class="journey-step step-2" data-step="1">
-                <div class="step-icon">🎮</div>
-                <span>Jogos</span>
-            </div>
-
-            <div class="journey-step step-3" data-step="2">
-                <div class="step-icon">🌱</div>
-                <span>Evolução</span>
-            </div>
-
-            <div class="journey-step step-4" data-step="3">
-                <div class="step-icon">🌎</div>
-                <span>ODS</span>
-            </div>
-
-            <div class="journey-step step-5" data-step="4">
-                <div class="step-icon">🏆</div>
-                <span>Guardião</span>
-            </div>
+            <span>Cadastro</span>
 
         </div>
 
+        <div class="journey-step step-2"
+             data-step="1">
 
-        <!-- CARD DA JORNADA -->
-        <div class="journey-card">
-
-            <h3 id="journey-title">
-                Comece sua aventura
-            </h3>
-
-            <p id="journey-description">
-                Crie sua conta e prepare-se para conhecer o Tuga.
-            </p>
-
-            <div class="journey-action">
-
-                <a
-                    id="journey-btn"
-                    href="#"
-                    class="btn-games"
-                >
-                    Conheça nossos jogos
-                </a>
-
+            <div class="step-icon">
+                🎮
             </div>
 
+            <span>Jogos</span>
+
         </div>
+
+        <div class="journey-step step-3"
+             data-step="2">
+
+            <div class="step-icon">
+                🌱
+            </div>
+
+            <span>Evolução</span>
+
+        </div>
+
+        <div class="journey-step step-4"
+             data-step="3">
+
+            <div class="step-icon">
+                🌎
+            </div>
+
+            <span>ODS</span>
+
+        </div>
+
+        <div class="journey-step step-5"
+             data-step="4">
+
+            <div class="step-icon">
+                🏆
+            </div>
+
+            <span>Guardião</span>
+
+        </div>
+
+    </div>
+
+    <div class="journey-card">
+
+        <h3 id="journey-title">
+
+            Comece sua aventura
+
+        </h3>
+
+        <p id="journey-description">
+
+            Crie sua conta e prepare-se para conhecer o Tuga.
+
+       
+<div class="journey-action">
+
+    <a
+        id="journey-btn"
+        href="#"
+        class="btn-games">
+
+        Conheça nossos jogos
+
+    </a>
+
+</div> </p>
+    </div>
+
+</section>
 
     </main>
 
