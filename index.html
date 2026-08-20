@@ -1,611 +1,310 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 
     <title>Eco-Pixel Adventure</title>
 
-
-
     <!-- CSS -->
-
     <link rel="stylesheet" href="css/base.css">
-
     <link rel="stylesheet" href="css/banner.css">
-
     <link rel="stylesheet" href="css/botoes.css">
-
     <link rel="stylesheet" href="css/cards.css">
-
     <link rel="stylesheet" href="css/escolha.css">
-
     <link rel="stylesheet" href="css/formularios.css">
-
     <link rel="stylesheet" href="css/jogos.css">
-
     <link rel="stylesheet" href="css/journey.css">
-
     <link rel="stylesheet" href="css/navbar.css">
-
     <link rel="stylesheet" href="css/quiz.css">
-
     <link rel="stylesheet" href="css/ranking.css">
-
     <link rel="stylesheet" href="css/rodape.css">
-
     <link rel="stylesheet" href="css/sidebar.css">
-
     <link rel="stylesheet" href="css/sobre.css">
-
     <link rel="stylesheet" href="css/textos.css">
 
-
-
     <style>
-
         /* Esconde o checkbox, mas mantém ele funcionando */
-
         #menu-check {
-
             display: none;
-
         }
-
     </style>
-
 </head>
-
-
 
 <body>
 
-
-
     <!-- CHECKBOX DO MENU HAMBÚRGUER -->
-
     <input type="checkbox" id="menu-check">
 
 
-
-
-
     <!-- SIDEBAR -->
-
     <div class="sidebar">
 
-
-
         <div class="perfil-sidebar">
-
             <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
-
             <p>Nível 2</p>
-
         </div>
 
-
-
         <nav class="links-sidebar">
-
             <a href="index.html">HOME</a>
-
             <a href="ods.html">ODS</a>
-
             <a href="jogos.html">JOGOS</a>
-
             <a href="quiz.html">QUIZ</a>
-
             <a href="sobrenos.html">SOBRE NÓS</a>
-
             <a href="ranking.html">RANKING</a>
-
             <a href="perfil.html">PERFIL</a>
-
         </nav>
-
-
 
     </div>
 
 
-
+    <!-- OVERLAY (Fecha a sidebar ao clicar fora) -->
+    <label for="menu-check" class="overlay"></label>
 
 
     <!-- NAVBAR -->
-
     <header class="topbar">
 
-
-
         <!-- ESQUERDA / LOGO -->
-
         <div class="left">
 
-
-
             <label for="menu-check" class="hamburger">
-
                 <span></span>
-
                 <span></span>
-
                 <span></span>
-
             </label>
-
-
 
             <div class="info-container">
 
-
-
                 <div class="logo">
-
                     <span class="icon">🌱</span>
 
-
-
                     <div>
-
                         <h1>ECO-PIXEL</h1>
-
                         <p>ADVENTURE</p>
-
                     </div>
-
                 </div>
-
-
 
                 <div class="level">
 
-
-
                     <span class="star">★ NÍVEL 2</span>
 
-
-
                     <div class="bar">
-
                         <div class="progress"></div>
-
                     </div>
-
-
 
                     <span class="xp">450/1000</span>
 
-
-
                 </div>
 
-
-
             </div>
-
-
 
         </div>
 
 
-
-
-
         <!-- MENU -->
-
         <nav class="menu">
 
-
-
             <a href="index.html">HOME</a>
-
             <a href="ods.html">ODS</a>
-
             <a href="jogos.html">JOGOS</a>
-
             <a href="quiz.html">QUIZ</a>
-
             <a href="sobrenos.html">SOBRE NÓS</a>
-
             <a href="ranking.html">RANKING</a>
-
             <a href="perfil.html">PERFIL</a>
-
-
 
         </nav>
 
 
-
-
-
         <!-- FOTO DE PERFIL -->
-
         <a href="perfil.html" class="perfil-externo">
-
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
-
         </a>
-
-
 
     </header>
 
 
-
-
-
     <!-- CONTEÚDO PRINCIPAL -->
-
     <main>
 
-
-
         <!-- BANNER PRINCIPAL -->
-
         <div class="banner"></div>
-
-
-
 
 
         <hr class="divisor">
 
 
-
-
-
         <!-- SOBRE O ECO-PIXEL -->
-
         <section class="sobre-sessao">
-
-
 
             <div class="conteudo-flex">
 
-
-
                 <div class="texto">
-
-
 
                     <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
 
-
-
                     <p>
-
                         Aprender pode ser muito mais interessante quando você
-
                         participa de desafios, jogos educativos, quizzes e
-
                         missões sustentáveis. Cada atividade gera experiência,
-
                         conquistas e ajuda sua planta a crescer.
-
                     </p>
 
-
-
                 </div>
-
-
 
                 <div class="imagem-placeholder">
-
                     <p>[Imagem Ilustrativa 1]</p>
-
                 </div>
-
-
 
             </div>
 
-
-
         </section>
-
-
-
 
 
         <!-- APRENDENDO DE FORMA DIVERTIDA -->
-
         <section class="sobre-sessao cinza">
-
-
 
             <div class="conteudo-flex reverso">
 
-
-
                 <div class="texto">
-
-
 
                     <h3>Aprendendo de forma divertida</h3>
 
-
-
                     <p>
-
                         Aprender pode ser muito mais interessante quando você
-
                         participa de desafios, jogos educativos, quizzes e
-
                         missões sustentáveis. Cada atividade gera experiência,
-
                         conquistas e ajuda sua planta a crescer.
-
                     </p>
 
-
-
                 </div>
-
-
 
                 <div class="imagem-placeholder">
-
                     <p>[Imagem Ilustrativa 2]</p>
-
                 </div>
-
-
 
             </div>
 
-
-
         </section>
-
-
-
 
 
         <!-- NOSSA MISSÃO -->
-
         <section class="sobre-sessao missao-centralizada">
-
-
 
             <div class="texto">
 
-
-
                 <h3>Nossa Missão</h3>
 
-
-
                 <p>
-
                     Nossa missão é cultivar conhecimento através da tecnologia,
-
                     despertando a consciência ambiental e tornando o aprendizado
-
                     uma experiência divertida para todos.
-
                 </p>
 
-
-
             </div>
-
-
 
         </section>
 
 
-
-
-
         <!-- JORNADA -->
-
         <div class="journey-map">
 
-
-
             <img
-
                 id="journey-tuga"
-
                 src="img/TugaPqn.png"
-
                 alt="Tuga"
-
             >
-
-
 
             <div class="journey-line"></div>
 
 
-
-
-
             <div class="journey-step step-1 active" data-step="0">
-
-
 
                 <div class="step-icon">📝</div>
 
-
-
                 <span>Cadastro</span>
 
-
-
             </div>
-
-
-
 
 
             <div class="journey-step step-2" data-step="1">
 
-
-
                 <div class="step-icon">🎮</div>
-
-
 
                 <span>Jogos</span>
 
-
-
             </div>
-
-
-
 
 
             <div class="journey-step step-3" data-step="2">
 
-
-
                 <div class="step-icon">🌱</div>
-
-
 
                 <span>Evolução</span>
 
-
-
             </div>
-
-
-
 
 
             <div class="journey-step step-4" data-step="3">
 
-
-
                 <div class="step-icon">🌎</div>
-
-
 
                 <span>ODS</span>
 
-
-
             </div>
-
-
-
 
 
             <div class="journey-step step-5" data-step="4">
 
-
-
                 <div class="step-icon">🏆</div>
-
-
 
                 <span>Guardião</span>
 
-
-
             </div>
 
-
-
         </div>
-
-
-
 
 
         <!-- CARD DA JORNADA -->
-
         <div class="journey-card">
 
-
-
             <h3 id="journey-title">
-
                 Comece sua aventura
-
             </h3>
 
-
-
             <p id="journey-description">
-
                 Crie sua conta e prepare-se para conhecer o Tuga.
-
             </p>
-
-
 
             <div class="journey-action">
 
-
-
                 <a
-
                     id="journey-btn"
-
                     href="#"
-
                     class="btn-games"
-
                 >
-
                     Conheça nossos jogos
-
                 </a>
-
-
 
             </div>
 
-
-
         </div>
-
-
 
     </main>
 
 
-
-
-
     <!-- RODAPÉ -->
-
     <footer>
 
-
-
         <p>
-
             © 2026 FATEC - Informática para Negócios
-
         </p>
-
-
 
     </footer>
 
-
-
     <script src="js/journey.js"></script>
 
-
-
 </body>
-
-
 
 </html>
