@@ -38,9 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function atualizarEtapa(stepElement) {
+        if (!stepElement || !tuga || !container) return;
+
+        // Atualiza a classe ativa das etapas
         steps.forEach(s => s.classList.remove('active'));
         stepElement.classList.add('active');
 
+        // Cálculo exato de posicionamento centralizado do Tuga
         const containerRect = container.getBoundingClientRect();
         const stepRect = stepElement.getBoundingClientRect();
         const tugaWidth = tuga.offsetWidth || 80;
@@ -50,29 +54,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tuga.style.left = `${posicaoFinalX}px`;
 
+        // Atualização dos textos do card
         const stepIndex = stepElement.getAttribute('data-step');
         const data = stepData[stepIndex];
 
         if (data) {
-            infoTitle.innerText = data.title;
-            infoDescription.innerText = data.description;
+            if (infoTitle) infoTitle.innerText = data.title;
+            if (infoDescription) infoDescription.innerText = data.description;
 
-            if (data.showButton) {
-                infoBtn.innerText = data.btnText;
-                infoBtn.href = data.btnLink;
-                infoBtn.style.display = "inline-block";
-            } else {
-                infoBtn.style.display = "none";
+            if (infoBtn) {
+                if (data.showButton) {
+                    infoBtn.innerText = data.btnText;
+                    infoBtn.href = data.btnLink;
+                    infoBtn.style.display = "inline-block";
+                } else {
+                    infoBtn.style.display = "none";
+                }
             }
         }
     }
 
+    // Evento de clique corrigido usando e.currentTarget
     steps.forEach(step => {
-        step.addEventListener('click', function () {
-            atualizarEtapa(this);
+        step.addEventListener('click', function (e) {
+            atualizarEtapa(e.currentTarget);
         });
     });
 
+    // Inicialização ao carregar a página
     window.addEventListener('load', () => {
         const firstStep = document.querySelector('.journey-step[data-step="0"]');
         if (firstStep) {
@@ -80,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Recálculo ao redimensionar a tela
     window.addEventListener('resize', () => {
         const activeStep = document.querySelector('.journey-step.active');
         if (activeStep) {
