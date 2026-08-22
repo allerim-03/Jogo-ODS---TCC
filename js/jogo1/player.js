@@ -8,12 +8,12 @@ for (let i = 1; i <= 4; i++) {
 
 const jogadorJogo1 = {
     x: 100,
-    y: 200,
-    largura: 80,      
-    altura: 80,      
+    y: 100,
+    largura: 80,
+    altura: 80,
     velocidadeX: 5,
     velocidadeY: 0,
-    forcaPulo: -13,   // Pulo levemente ajustado para o novo tamanho
+    forcaPulo: -13,
     gravidade: 0.6,
     noChao: false,
     
@@ -44,11 +44,11 @@ const jogadorJogo1 = {
             this.noChao = false;
         }
 
-        // Gravidade e Colisão com Chão
+        // Gravidade
         this.velocidadeY += this.gravidade;
         this.y += this.velocidadeY;
 
-        // Ajuste no pé da gota (subindo 10px para pisar certinho na areia do cenário)
+        // Ajuste da linha do chão para pisar na areia
         const alturaAjustadaChao = alturaChao - 10;
 
         if (this.y + this.altura >= alturaAjustadaChao) {
@@ -57,9 +57,10 @@ const jogadorJogo1 = {
             this.noChao = true;
         }
 
+        // Trava apenas o início do mapa à esquerda
         if (this.x < 0) this.x = 0;
 
-        // Animação
+        // Animação de caminhada
         if (movendo) {
             this.contadorTempo++;
             if (this.contadorTempo >= this.velocidadeAnimacao) {

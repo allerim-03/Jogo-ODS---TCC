@@ -3,18 +3,16 @@ const imgFundo = new Image();
 imgFundo.src = "img/cenario.png";
 
 const cenarioJogo1 = {
-    larguraMapa: 2000,
+    larguraTile: 500, // Largura original da arte
     alturaChao: 360,
     cameraX: 0,
 
     atualizarCamera: function(jogadorX, larguraCanvas) {
+        // Câmera segue o jogador sem trava limite no final
         this.cameraX = jogadorX - larguraCanvas / 3;
 
         if (this.cameraX < 0) {
             this.cameraX = 0;
-        }
-        if (this.cameraX > this.larguraMapa - larguraCanvas) {
-            this.cameraX = this.larguraMapa - larguraCanvas;
         }
     },
 
@@ -39,27 +37,19 @@ const cenarioJogo1 = {
     },
 
     desenharJogo: function(ctx, larguraCanvas, alturaCanvas) {
-        // Desativa o suavizamento para manter o Pixel Art nítido
         ctx.imageSmoothingEnabled = false;
 
         if (imgFundo.complete && imgFundo.naturalWidth !== 0) {
-            // Escala a imagem de 500x100px para preencher os 2000x400px com Scroll
-            ctx.drawImage(
-                imgFundo,
-                -this.cameraX, 0,
-                this.larguraMapa, alturaCanvas
-            );
+            // Calcula a posição do offset para o loop infinito (Parallax)
+            const larguraRedimensionada = larguraCanvas; // 600px na tela
+            const offsetX = -(this.cameraX % larguraRedimensionada);
+
+            // Desenha duas cópias do fundo lado a lado para garantir cobertura contínua
+            ctx.drawImage(imgFundo, offsetX, 0, larguraRedimensionada, alturaCanvas);
+            ctx.drawImage(imgFundo, offsetX + larguraRedimensionada, 0, larguraRedimensionada, alturaCanvas);
         } else {
-            // Cor reserva de fundo caso a imagem demore para carregar
             ctx.fillStyle = "#74b9ff";
             ctx.fillRect(0, 0, larguraCanvas, alturaCanvas);
         }
-
-        // Chão/Solo transparente/invisível para a física funcionar mantendo o visual da arte
-        // (Se quiser um chão visível desenhado por código, desderive a cor verde abaixo)
-        /*
-        ctx.fillStyle = "#2ed573";
-        ctx.fillRect(-this.cameraX, this.alturaChao, this.larguraMapa, alturaCanvas - this.alturaChao);
-        */
     }
 };
