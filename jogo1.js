@@ -3,10 +3,7 @@ const ctx = canvas.getContext("2d");
 
 let estado = "menu";
 
-let x = 100;
-let y = 100;
-
-// Botão Play
+// Dimensões e posição do botão PLAY no menu inicial
 const botaoPlay = {
     x: 220,
     y: 180,
@@ -14,70 +11,37 @@ const botaoPlay = {
     altura: 60
 };
 
-function desenharMenu() {
-    // Fundo
-    ctx.fillStyle = "#1e3a5f";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Título
-    ctx.fillStyle = "white";
-    ctx.font = "36px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("Ciclo da Água", canvas.width / 2, 100);
-
-    // Botão
-    ctx.fillStyle = "#2ecc71";
-    ctx.fillRect(
-        botaoPlay.x,
-        botaoPlay.y,
-        botaoPlay.largura,
-        botaoPlay.altura
-    );
-
-    ctx.fillStyle = "white";
-    ctx.font = "28px Arial";
-    ctx.fillText(
-        "PLAY",
-        canvas.width / 2,
-        botaoPlay.y + 40
-    );
-}
-
-function desenharJogo() {
+// Loop principal de animação e atualização
+function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "skyblue";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Jogador
-    ctx.fillStyle = "blue";
-    ctx.beginPath();
-    ctx.arc(x, y, 20, 0, Math.PI * 2);
-    ctx.fill();
-}
-
-function loop() {
-
     if (estado === "menu") {
-        desenharMenu();
-    }
+        cenarioJogo1.desenharMenu(ctx, canvas.width, canvas.height, botaoPlay);
+    } 
 
     if (estado === "jogando") {
-        desenharJogo();
+        // Atualiza a física do jogador e o posicionamento da câmera
+        jogadorJogo1.atualizar(cenarioJogo1.alturaChao);
+        cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
+
+        // Desenha o cenário e o jogador com a rolagem lateral
+        cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
+        jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
     }
 
     requestAnimationFrame(loop);
 }
 
-// Clique no botão Play
+// Escuta o clique do mouse para iniciar o jogo a partir da tela de menu
 canvas.addEventListener("click", (e) => {
-
     if (estado !== "menu") return;
 
     const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    const mouseY = (e.clientY - rect.top) * scaleY;
 
     if (
         mouseX >= botaoPlay.x &&
@@ -89,15 +53,5 @@ canvas.addEventListener("click", (e) => {
     }
 });
 
-// Movimento
-document.addEventListener("keydown", (e) => {
-
-    if (estado !== "jogando") return;
-
-    if (e.key === "ArrowRight") x += 10;
-    if (e.key === "ArrowLeft") x -= 10;
-    if (e.key === "ArrowUp") y -= 10;
-    if (e.key === "ArrowDown") y += 10;
-});
-
+// Inicializa a execução
 loop();
