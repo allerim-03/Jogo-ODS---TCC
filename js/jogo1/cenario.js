@@ -1,20 +1,18 @@
-// Gerenciador de Cenário e Câmera
-const cenarioJogo1 = {
-    larguraMapa: 2000, // Comprimento total da fase
-    alturaChao: 360,   // Altura em Y onde o solo começa
-    cameraX: 0,        // Posição atual da câmera no eixo X
+// Carregamento da imagem do cenário (500x100 Pixel Art)
+const imgFundo = new Image();
+imgFundo.src = "img/cenario.png";
 
-    // Atualiza a câmera para seguir o jogador centralizado na tela
+const cenarioJogo1 = {
+    larguraMapa: 2000,
+    alturaChao: 360,
+    cameraX: 0,
+
     atualizarCamera: function(jogadorX, larguraCanvas) {
-        // Trava a câmera no meio da tela do jogador
         this.cameraX = jogadorX - larguraCanvas / 3;
 
-        // Limite da câmera no início do mapa
         if (this.cameraX < 0) {
             this.cameraX = 0;
         }
-
-        // Limite da câmera no fim do mapa
         if (this.cameraX > this.larguraMapa - larguraCanvas) {
             this.cameraX = this.larguraMapa - larguraCanvas;
         }
@@ -41,21 +39,27 @@ const cenarioJogo1 = {
     },
 
     desenharJogo: function(ctx, larguraCanvas, alturaCanvas) {
-        // Fundo (Céu)
-        ctx.fillStyle = "#74b9ff";
-        ctx.fillRect(0, 0, larguraCanvas, alturaCanvas);
+        // Desativa o suavizamento para manter o Pixel Art nítido
+        ctx.imageSmoothingEnabled = false;
 
-        // Chão contínuo que se move com a câmera
+        if (imgFundo.complete && imgFundo.naturalWidth !== 0) {
+            // Escala a imagem de 500x100px para preencher os 2000x400px com Scroll
+            ctx.drawImage(
+                imgFundo,
+                -this.cameraX, 0,
+                this.larguraMapa, alturaCanvas
+            );
+        } else {
+            // Cor reserva de fundo caso a imagem demore para carregar
+            ctx.fillStyle = "#74b9ff";
+            ctx.fillRect(0, 0, larguraCanvas, alturaCanvas);
+        }
+
+        // Chão/Solo transparente/invisível para a física funcionar mantendo o visual da arte
+        // (Se quiser um chão visível desenhado por código, desderive a cor verde abaixo)
+        /*
         ctx.fillStyle = "#2ed573";
         ctx.fillRect(-this.cameraX, this.alturaChao, this.larguraMapa, alturaCanvas - this.alturaChao);
-
-        // Nuvens decorativas acompanhando a câmera
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-        ctx.beginPath();
-        ctx.arc(300 - this.cameraX * 0.5, 80, 40, 0, Math.PI * 2);
-        ctx.arc(700 - this.cameraX * 0.5, 100, 50, 0, Math.PI * 2);
-        ctx.arc(1200 - this.cameraX * 0.5, 70, 45, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.closePath();
+        */
     }
 };
