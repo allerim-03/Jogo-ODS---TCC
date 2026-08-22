@@ -4,12 +4,13 @@ const controlesJogo1 = {
     baixo: false,
     esquerda: false,
     direita: false,
-    espaco: false
+    espaco: false,
+    enter: false
 };
 
 // Teclas que têm o scroll da página bloqueado
 const teclasBloqueadasJogo1 = [
-    "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " ", "Spacebar"
+    "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " ", "Spacebar", "Enter"
 ];
 
 // Captura quando a tecla é pressionada
@@ -25,6 +26,7 @@ document.addEventListener("keydown", (e) => {
     if (tecla === "arrowleft" || tecla === "a") controlesJogo1.esquerda = true;
     if (tecla === "arrowright" || tecla === "d") controlesJogo1.direita = true;
     if (e.key === " " || e.key === "Spacebar") controlesJogo1.espaco = true;
+    if (e.key === "Enter") controlesJogo1.enter = true;
 });
 
 // Captura quando a tecla é solta
@@ -36,4 +38,5 @@ document.addEventListener("keyup", (e) => {
     if (tecla === "arrowleft" || tecla === "a") controlesJogo1.esquerda = false;
     if (tecla === "arrowright" || tecla === "d") controlesJogo1.direita = false;
     if (e.key === " " || e.key === "Spacebar") controlesJogo1.espaco = false;
+    if (e.key === "Enter") controlesJogo1.enter = false;
 });
