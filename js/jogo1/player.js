@@ -1,4 +1,4 @@
-// Carregamento dos sprites de Andando
+// Carregamento dos sprites de Andando (32x32)
 const spritesWalk = [];
 for (let i = 1; i <= 4; i++) {
     const img = new Image();
@@ -17,16 +17,26 @@ const jogadorJogo1 = {
     gravidade: 0.6,
     noChao: false,
     
-    // Controle de Animação
+    // Animação e Estados
     frameAtual: 0,
     contadorTempo: 0,
     velocidadeAnimacao: 8,
     olhandoDireita: true,
+    estaMorto: false,
+
+    resetar: function() {
+        this.x = 100;
+        this.y = 100;
+        this.velocidadeY = 0;
+        this.estaMorto = false;
+        this.frameAtual = 0;
+    },
 
     atualizar: function(alturaChao) {
+        if (this.estaMorto) return; // Paraisa a física ao morrer
+
         let movendo = false;
 
-        // Movimentação
         if (controlesJogo1.esquerda) {
             this.x -= this.velocidadeX;
             this.olhandoDireita = false;
@@ -38,17 +48,14 @@ const jogadorJogo1 = {
             movendo = true;
         }
 
-        // Pulo
         if ((controlesJogo1.cima || controlesJogo1.espaco) && this.noChao) {
             this.velocidadeY = this.forcaPulo;
             this.noChao = false;
         }
 
-        // Gravidade
         this.velocidadeY += this.gravidade;
         this.y += this.velocidadeY;
 
-        // Ajuste da linha do chão para pisar na areia
         const alturaAjustadaChao = alturaChao - 10;
 
         if (this.y + this.altura >= alturaAjustadaChao) {
@@ -57,10 +64,8 @@ const jogadorJogo1 = {
             this.noChao = true;
         }
 
-        // Trava apenas o início do mapa à esquerda
         if (this.x < 0) this.x = 0;
 
-        // Animação de caminhada
         if (movendo) {
             this.contadorTempo++;
             if (this.contadorTempo >= this.velocidadeAnimacao) {
@@ -76,11 +81,19 @@ const jogadorJogo1 = {
     desenhar: function(ctx, cameraX) {
         ctx.imageSmoothingEnabled = false;
 
+        // Visual de Morte (Placeholder até colocarmos a animação)
+        if (this.estaMorto) {
+            ctx.save();
+            ctx.fillStyle = "rgba(231, 76, 60, 0.6)";
+            ctx.fillRect(this.x - cameraX, this.y, this.largura, this.altura);
+            ctx.restore();
+            return;
+        }
+
         const imgAtual = spritesWalk[this.frameAtual];
         const posX = this.x - cameraX;
 
         ctx.save();
-
         if (!this.olhandoDireita) {
             ctx.translate(posX + this.largura, this.y);
             ctx.scale(-1, 1);
@@ -92,7 +105,6 @@ const jogadorJogo1 = {
                 ctx.drawImage(imgAtual, posX, this.y, this.largura, this.altura);
             }
         }
-
         ctx.restore();
     }
 };

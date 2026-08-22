@@ -4,19 +4,26 @@ const interativosJogo1 = {
     totalObjetivo: 10,
     tempoUltimoItem: 0,
     distanciaInteracao: 70,
+    
+    // Distância inicial mínima até o primeiro objeto aparecer
+    proximaDistancia: 800, 
 
     atualizar: function(jogador) {
-        // Gera um novo item no caminho a cada distância percorrida
-        if (jogador.x - this.tempoUltimoItem > 400) {
+        // Verifica se o jogador andou a distância aleatória sorteada
+        if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
             this.itens.push({
-                x: jogador.x + 500,
+                x: jogador.x + 600, // Surge um pouco fora da tela à direita
                 y: 300,
                 largura: 40,
                 altura: 40,
                 interagido: false,
-                cor: "#e67e22" // Laranja
+                cor: "#e67e22"
             });
+            
             this.tempoUltimoItem = jogador.x;
+
+            // Sorteia uma nova distância bem mais espaçada (entre 700px e 1400px)
+            this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
         }
 
         // Interação com ENTER
@@ -29,10 +36,10 @@ const interativosJogo1 = {
 
                     if (distancia <= this.distanciaInteracao) {
                         item.interagido = true;
-                        item.cor = "#2ecc71"; // Fica verde ao interagir
+                        item.cor = "#2ecc71";
                         this.contadorConcluidos++;
                         
-                        controlesJogo1.enter = false; // Trava o Enter para não contar duas vezes
+                        controlesJogo1.enter = false;
                         break;
                     }
                 }
@@ -47,7 +54,6 @@ const interativosJogo1 = {
             const posX = item.x - cameraX;
 
             if (posX > -60 && posX < 850) {
-                // Desenha o bloco
                 ctx.fillStyle = item.cor;
                 ctx.fillRect(posX, item.y, item.largura, item.altura);
 
@@ -55,7 +61,6 @@ const interativosJogo1 = {
                 ctx.lineWidth = 2;
                 ctx.strokeRect(posX, item.y, item.largura, item.altura);
 
-                // Dica [ENTER]
                 if (!item.interagido) {
                     const centroJogadorX = jogador.x + jogador.largura / 2;
                     const centroItemX = item.x + item.largura / 2;
@@ -73,7 +78,6 @@ const interativosJogo1 = {
     },
 
     desenharHUD: function(ctx, larguraCanvas) {
-        // Caixa do contador (canto superior direito)
         ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
         ctx.fillRect(larguraCanvas - 150, 15, 130, 40);
 
@@ -81,7 +85,6 @@ const interativosJogo1 = {
         ctx.lineWidth = 2;
         ctx.strokeRect(larguraCanvas - 150, 15, 130, 40);
 
-        // Texto 0/10
         ctx.fillStyle = "#ffffff";
         ctx.font = "bold 20px Arial";
         ctx.textAlign = "center";
