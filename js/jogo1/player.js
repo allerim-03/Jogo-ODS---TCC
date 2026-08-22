@@ -9,8 +9,8 @@ for (let i = 1; i <= 4; i++) {
 const jogadorJogo1 = {
     x: 100,
     y: 200,
-    largura: 64,      // Aumentado de 32 para 64 (ficou bem mais visível!)
-    altura: 64,       // Aumentado de 32 para 64
+    largura: 80,      
+    altura: 80,      
     velocidadeX: 5,
     velocidadeY: 0,
     forcaPulo: -13,   // Pulo levemente ajustado para o novo tamanho
