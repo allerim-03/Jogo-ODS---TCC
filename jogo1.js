@@ -20,13 +20,18 @@ function loop() {
     } 
 
     if (estado === "jogando") {
-        // Atualiza a física do jogador e o posicionamento da câmera
+        // 1. Atualiza a física do jogador, câmera e objetos interativos
         jogadorJogo1.atualizar(cenarioJogo1.alturaChao);
         cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
+        interativosJogo1.atualizar(jogadorJogo1);
 
-        // Desenha o cenário e o jogador com a rolagem lateral
+        // 2. Desenha o cenário, itens e jogador com a rolagem lateral
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
+        interativosJogo1.desenhar(ctx, cenarioJogo1.cameraX, jogadorJogo1);
         jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
+
+        // 3. Desenha a interface fixa (Contador 0/10) no topo da tela
+        interativosJogo1.desenharHUD(ctx, canvas.width);
     }
 
     requestAnimationFrame(loop);
