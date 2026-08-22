@@ -17,9 +17,13 @@ function dispararMorte() {
 function reiniciarJogo() {
     jogadorJogo1.resetar();
     plataformasJogo1.resetar();
+    
+    // Reseta o estado do gerenciador de interativos
     interativosJogo1.itens = [];
     interativosJogo1.contadorConcluidos = 0;
     interativosJogo1.tempoUltimoItem = 0;
+    interativosJogo1.proximaDistancia = 800;
+
     estado = "jogando";
 }
 
@@ -36,7 +40,13 @@ function loop() {
         jogadorJogo1.atualizar(cenarioJogo1.alturaChao);
         cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
         plataformasJogo1.atualizar(jogadorJogo1, dispararMorte);
-        interativosJogo1.atualizar(jogadorJogo1);
+        
+        // Chamada atualizada repassando poças e plataformas para evitar spawn sobre a água
+        interativosJogo1.atualizar(
+            jogadorJogo1,
+            plataformasJogo1.listaPocas,
+            plataformasJogo1.listaPlataformas
+        );
 
         // 2. Renderização
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);

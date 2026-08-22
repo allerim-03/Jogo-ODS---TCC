@@ -4,29 +4,74 @@ const interativosJogo1 = {
     totalObjetivo: 10,
     tempoUltimoItem: 0,
     distanciaInteracao: 70,
-    
-    // Distância inicial mínima até o primeiro objeto aparecer
     proximaDistancia: 800, 
 
-    atualizar: function(jogador) {
-        // Verifica se o jogador andou a distância aleatória sorteada
-        if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
+    // Garante que a caixa não nasça flutuando sobre uma poça
+    caixaEstaSobrePoca: function(caixaX, larguraCaixa, listaPocas) {
+        if (!listaPocas) return false;
+
+        for (let poca of listaPocas) {
+            if (
+                caixaX + larguraCaixa + 20 > poca.x &&
+                caixaX - 20 < poca.x + poca.largura
+            ) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    // Gera o item no chão (seco) ou em cima de uma plataforma
+    gerarItem: function(xBase, listaPocas, listaPlataformas) {
+        const largura = 40;
+        const altura = 40;
+
+        // 50% de chance de tentar spawnar em plataforma (se houver alguma)
+        const tentarPlataforma = Math.random() > 0.5;
+
+        if (tentarPlataforma && listaPlataformas && listaPlataformas.length > 0) {
+            const platSorteada = listaPlataformas[listaPlataformas.length - 1];
+            const xPlat = platSorteada.x + (platSorteada.largura / 2) - (largura / 2);
+
             this.itens.push({
-                x: jogador.x + 600, // Surge um pouco fora da tela à direita
-                y: 300,
-                largura: 40,
-                altura: 40,
+                x: xPlat,
+                y: platSorteada.y - altura, // Fica sobre a plataforma
+                largura: largura,
+                altura: altura,
                 interagido: false,
                 cor: "#e67e22"
             });
-            
-            this.tempoUltimoItem = jogador.x;
+            return;
+        }
 
-            // Sorteia uma nova distância bem mais espaçada (entre 700px e 1400px)
+        // Se for no chão, busca posição segura (fora da água)
+        let xChao = xBase + 600;
+        let tentativas = 0;
+
+        while (this.caixaEstaSobrePoca(xChao, largura, listaPocas) && tentativas < 10) {
+            xChao += 120;
+            tentativas++;
+        }
+
+        this.itens.push({
+            x: xChao,
+            y: 320, // Altura exata do chão (360 - 40)
+            largura: largura,
+            altura: altura,
+            interagido: false,
+            cor: "#e67e22"
+        });
+    },
+
+    atualizar: function(jogador, listaPocas, listaPlataformas) {
+        // Verifica spawn com base na distância sorteada
+        if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
+            this.gerarItem(jogador.x, listaPocas, listaPlataformas);
+            this.tempoUltimoItem = jogador.x;
             this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
         }
 
-        // Interação com ENTER
+        // Interação com a tecla ENTER
         if (controlesJogo1.enter) {
             for (let item of this.itens) {
                 if (!item.interagido) {
@@ -36,7 +81,7 @@ const interativosJogo1 = {
 
                     if (distancia <= this.distanciaInteracao) {
                         item.interagido = true;
-                        item.cor = "#2ecc71";
+                        item.cor = "#2ecc71"; // Fica verde ao coletar
                         this.contadorConcluidos++;
                         
                         controlesJogo1.enter = false;
@@ -61,6 +106,7 @@ const interativosJogo1 = {
                 ctx.lineWidth = 2;
                 ctx.strokeRect(posX, item.y, item.largura, item.altura);
 
+                // Mostra a dica [ENTER] se o jogador estiver perto
                 if (!item.interagido) {
                     const centroJogadorX = jogador.x + jogador.largura / 2;
                     const centroItemX = item.x + item.largura / 2;
