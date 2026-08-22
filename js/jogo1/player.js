@@ -1,4 +1,4 @@
-// Carregamento dos sprites de Andando (32x32)
+// Carregamento dos sprites de Andando
 const spritesWalk = [];
 for (let i = 1; i <= 4; i++) {
     const img = new Image();
@@ -9,11 +9,11 @@ for (let i = 1; i <= 4; i++) {
 const jogadorJogo1 = {
     x: 100,
     y: 200,
-    largura: 32,
-    altura: 32,
+    largura: 64,      // Aumentado de 32 para 64 (ficou bem mais visível!)
+    altura: 64,       // Aumentado de 32 para 64
     velocidadeX: 5,
     velocidadeY: 0,
-    forcaPulo: -12,
+    forcaPulo: -13,   // Pulo levemente ajustado para o novo tamanho
     gravidade: 0.6,
     noChao: false,
     
@@ -48,15 +48,18 @@ const jogadorJogo1 = {
         this.velocidadeY += this.gravidade;
         this.y += this.velocidadeY;
 
-        if (this.y + this.altura >= alturaChao) {
-            this.y = alturaChao - this.altura;
+        // Ajuste no pé da gota (subindo 10px para pisar certinho na areia do cenário)
+        const alturaAjustadaChao = alturaChao - 10;
+
+        if (this.y + this.altura >= alturaAjustadaChao) {
+            this.y = alturaAjustadaChao - this.altura;
             this.velocidadeY = 0;
             this.noChao = true;
         }
 
         if (this.x < 0) this.x = 0;
 
-        // Animação roda quando está se movendo (ou trava no frame 0 ao parar)
+        // Animação
         if (movendo) {
             this.contadorTempo++;
             if (this.contadorTempo >= this.velocidadeAnimacao) {
@@ -64,7 +67,7 @@ const jogadorJogo1 = {
                 this.frameAtual = (this.frameAtual + 1) % 4;
             }
         } else {
-            this.frameAtual = 0; // Frame parado padrão
+            this.frameAtual = 0;
             this.contadorTempo = 0;
         }
     },
