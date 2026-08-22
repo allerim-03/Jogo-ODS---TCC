@@ -2,35 +2,71 @@ const plataformasJogo1 = {
     listaPlataformas: [],
     listaPocas: [],
     tempoUltimoGerado: 0,
-    intervaloGeracao: 550, // Distância de caminhada para surgir novos obstáculos
+    distanciaModulo: 1100, // Comprimento de cada bloco de fase
+
+    // Biblioteca de Padrões (Level Design)
+    modulos: [
+        // Módulo 1: Poça pequena + Escada subindo
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 200, y: 345, largura: 100, altura: 15 }
+                ],
+                plataformas: [
+                    { x: xBase + 100, y: 250, largura: 120, altura: 16 },
+                    { x: xBase + 350, y: 220, largura: 100, altura: 16 },
+                    { x: xBase + 500, y: 170, largura: 100, altura: 16 },
+                    { x: xBase + 650, y: 120, largura: 120, altura: 16 }
+                ]
+            };
+        },
+
+        // Módulo 2: Poça grande no chão + Plataforma longa de travessia
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 300, y: 345, largura: 350, altura: 15 }
+                ],
+                plataformas: [
+                    { x: xBase + 150, y: 240, largura: 110, altura: 16 },
+                    { x: xBase + 350, y: 200, largura: 250, altura: 16 },
+                    { x: xBase + 680, y: 240, largura: 110, altura: 16 }
+                ]
+            };
+        },
+
+        // Módulo 3: Alternância de pulos (Chão -> Plataforma -> Chão)
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 150, y: 345, largura: 90, altura: 15 },
+                    { x: xBase + 500, y: 345, largura: 120, altura: 15 }
+                ],
+                plataformas: [
+                    { x: xBase + 280, y: 230, largura: 140, altura: 16 },
+                    { x: xBase + 650, y: 190, largura: 130, altura: 16 }
+                ]
+            };
+        }
+    ],
 
     atualizar: function(jogador, callbackMorte) {
-        // Gera novos caminhos à frente do jogador
-        if (jogador.x - this.tempoUltimoGerado > this.intervaloGeracao) {
-            const xBase = jogador.x + 650; // Surge fora da tela visível
+        // Sorteia um Módulo estruturado completo quando o jogador avança
+        if (jogador.x - this.tempoUltimoGerado > this.distanciaModulo || this.tempoUltimoGerado === 0) {
+            const xBase = jogador.x === 100 ? 400 : jogador.x + 600;
 
-            // 1. Gera poça d'água no chão (Morte)
-            if (Math.random() > 0.3) {
-                this.listaPocas.push({
-                    x: xBase,
-                    y: 345, // Nível do chão
-                    largura: 100,
-                    altura: 15
-                });
-            }
+            // Escolhe um padrão da lista
+            const indiceSorteado = Math.floor(Math.random() * this.modulos.length);
+            const moduloNovo = this.modulos[indiceSorteado](xBase);
 
-            // 2. Gera plataforma flutuante (Segurança)
-            this.listaPlataformas.push({
-                x: xBase - 20,
-                y: Math.floor(Math.random() * (250 - 180 + 1)) + 180, // Altura aleatória
-                largura: 130,
-                altura: 20
-            });
+            // Adiciona as poças e plataformas do padrão sorteado
+            this.listaPocas.push(...moduloNovo.pocas);
+            this.listaPlataformas.push(...moduloNovo.plataformas);
 
-            this.tempoUltimoGerado = jogador.x;
+            this.tempoUltimoGerado = jogador.x === 100 ? 100 : jogador.x;
         }
 
-        // --- COLISÃO COM PLATAFORMAS (Pouso) ---
+        // --- COLISÃO COM PLATAFORMAS ---
         for (let plat of this.listaPlataformas) {
             if (
                 jogador.x + jogador.largura > plat.x &&
@@ -45,14 +81,14 @@ const plataformasJogo1 = {
             }
         }
 
-        // --- COLISÃO COM POÇAS D'ÁGUA (Morte) ---
+        // --- COLISÃO COM POÇAS (Morte) ---
         for (let poca of this.listaPocas) {
             if (
                 jogador.x + jogador.largura - 15 > poca.x &&
                 jogador.x + 15 < poca.x + poca.largura &&
                 jogador.y + jogador.altura >= poca.y + 5
             ) {
-                callbackMorte(); // Ativa a tela de Game Over
+                callbackMorte();
                 break;
             }
         }
@@ -61,10 +97,10 @@ const plataformasJogo1 = {
     desenhar: function(ctx, cameraX) {
         ctx.imageSmoothingEnabled = false;
 
-        // Desenha Poças D'água (Obstáculo fatal)
+        // Desenha Poças D'água (Azul escuro)
         for (let poca of this.listaPocas) {
             const posX = poca.x - cameraX;
-            if (posX > -120 && posX < 850) {
+            if (posX > -150 && posX < 850) {
                 ctx.fillStyle = "#2980b9";
                 ctx.fillRect(posX, poca.y, poca.largura, poca.altura);
                 ctx.strokeStyle = "#3498db";
@@ -73,10 +109,10 @@ const plataformasJogo1 = {
             }
         }
 
-        // Desenha Plataformas (Placa roxa/madeira)
+        // Desenha Plataformas Flutuantes (Roxo/Madeira)
         for (let plat of this.listaPlataformas) {
             const posX = plat.x - cameraX;
-            if (posX > -150 && posX < 850) {
+            if (posX > -200 && posX < 850) {
                 ctx.fillStyle = "#8e44ad";
                 ctx.fillRect(posX, plat.y, plat.largura, plat.altura);
                 ctx.strokeStyle = "#ffffff";
