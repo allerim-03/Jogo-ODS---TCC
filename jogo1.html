@@ -1,128 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Pixel Adventure - Jogo 1</title>
-
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
-    
+    <title>Teste Jogo 1: Ciclo da Água</title>
     <style>
-        .jogo-foco-container {
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
         }
-        .canvas-gameplay {
-            background-color: #111; /* Fundo escuro para o jogo se destacar */
-            border: 4px solid #f39c12; /* Borda combinando com o amarelo do seu botão */
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+
+        h1 {
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        canvas {
+            border: 3px solid #f39c12;
             border-radius: 8px;
-            margin-top: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            background-color: #74b9ff;
         }
     </style>
 </head>
-
 <body>
-<header class="topbar">
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
 
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
-        </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-        </nav>
-    </div>
+    <h1>Teste Jogo 1: Ciclo da Água</h1>
+    <p>Ajude o Gota a completar sua jornada no ciclo da água!</p>
 
-    <div class="left">
-        <label for="menu-check" class="hamburger">
-            <span></span><span></span><span></span>
-        </label>
+    <!-- Canvas principal do jogo (600x400) -->
+    <canvas id="canvas-jogo-1" width="600" height="400"></canvas>
 
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>ECO-PIXEL</h1>
-                    <p>ADVENTURE</p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
-        </div>
-    </div>
-
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
-</header>
-
-    <main>
-        <section class="boas-vindas jogo-foco-container">
-            <br> <br>
-            <h2>Teste Jogo 1: Ciclo da Água</h2>
-            <p>Ajude o Gota a completar sua jornada no ciclo da água!</p>
-            
-            <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-gameplay"></canvas>
-            
-            <br>
-            <a href="jogos.html" class="btn-login" style="text-decoration: none; padding: 10px 20px;">Voltar para Jogos</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
-
-   
-    <!-- Importações -->
-<script src="js/jogo1/controles.js"></script>
-<script src="js/jogo1/interativos.js"></script>
-<script src="js/jogo1/player.js"></script>
-<script src="js/jogo1/cenario.js"></script>
-
-<!-- Script principal -->
-<script src="jogo1.js"></script>
-
+    <!-- Scripts na ordem correta de dependência -->
+    <script src="js/jogo1/controles.js"></script>
+    <script src="js/jogo1/interativos.js"></script>
+    <script src="js/jogo1/plataformas.js"></script>
+    <script src="js/jogo1/player.js"></script>
+    <script src="js/jogo1/cenario.js"></script>
+    <script src="jogo1.js"></script>
 
 </body>
 </html>

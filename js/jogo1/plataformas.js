@@ -2,35 +2,35 @@ const plataformasJogo1 = {
     listaPlataformas: [],
     listaPocas: [],
     tempoUltimoGerado: 0,
-    intervaloGeracao: 600, // Espaçamento entre obstáculos
+    intervaloGeracao: 550, // Distância de caminhada para surgir novos obstáculos
 
     atualizar: function(jogador, callbackMorte) {
-        // Gera novas plataformas e poças à frente conforme o jogador anda
+        // Gera novos caminhos à frente do jogador
         if (jogador.x - this.tempoUltimoGerado > this.intervaloGeracao) {
-            const xBase = jogador.x + 700;
+            const xBase = jogador.x + 650; // Surge fora da tela visível
 
-            // Sorteia se gera uma poça no chão ou plataforma suspensa
+            // 1. Gera poça d'água no chão (Morte)
             if (Math.random() > 0.3) {
                 this.listaPocas.push({
                     x: xBase,
-                    y: 345, // Alinhado ao nível da areia
-                    largura: 90,
+                    y: 345, // Nível do chão
+                    largura: 100,
                     altura: 15
                 });
             }
 
-            // Gera plataforma flutuante (pode aparecer junto ou sozinha)
+            // 2. Gera plataforma flutuante (Segurança)
             this.listaPlataformas.push({
-                x: xBase - 30,
-                y: Math.floor(Math.random() * (260 - 180 + 1)) + 180, // Altura aleatória
-                largura: 120,
+                x: xBase - 20,
+                y: Math.floor(Math.random() * (250 - 180 + 1)) + 180, // Altura aleatória
+                largura: 130,
                 altura: 20
             });
 
             this.tempoUltimoGerado = jogador.x;
         }
 
-        // --- COLISÃO COM PLATAFORMAS (Pousar em cima) ---
+        // --- COLISÃO COM PLATAFORMAS (Pouso) ---
         for (let plat of this.listaPlataformas) {
             if (
                 jogador.x + jogador.largura > plat.x &&
@@ -47,13 +47,12 @@ const plataformasJogo1 = {
 
         // --- COLISÃO COM POÇAS D'ÁGUA (Morte) ---
         for (let poca of this.listaPocas) {
-            // Caixa de colisão reduzida para o impacto ser justo
             if (
                 jogador.x + jogador.largura - 15 > poca.x &&
                 jogador.x + 15 < poca.x + poca.largura &&
                 jogador.y + jogador.altura >= poca.y + 5
             ) {
-                callbackMorte(); // Dispara o Game Over
+                callbackMorte(); // Ativa a tela de Game Over
                 break;
             }
         }
@@ -62,10 +61,10 @@ const plataformasJogo1 = {
     desenhar: function(ctx, cameraX) {
         ctx.imageSmoothingEnabled = false;
 
-        // Desenha Poças D'água (Azul escuro)
+        // Desenha Poças D'água (Obstáculo fatal)
         for (let poca of this.listaPocas) {
             const posX = poca.x - cameraX;
-            if (posX > -100 && posX < 850) {
+            if (posX > -120 && posX < 850) {
                 ctx.fillStyle = "#2980b9";
                 ctx.fillRect(posX, poca.y, poca.largura, poca.altura);
                 ctx.strokeStyle = "#3498db";
@@ -74,11 +73,11 @@ const plataformasJogo1 = {
             }
         }
 
-        // Desenha Plataformas (Sola/Madeira)
+        // Desenha Plataformas (Placa roxa/madeira)
         for (let plat of this.listaPlataformas) {
             const posX = plat.x - cameraX;
             if (posX > -150 && posX < 850) {
-                ctx.fillStyle = "#8e44ad"; // Placeholder roxo/madeira
+                ctx.fillStyle = "#8e44ad";
                 ctx.fillRect(posX, plat.y, plat.largura, plat.altura);
                 ctx.strokeStyle = "#ffffff";
                 ctx.lineWidth = 2;

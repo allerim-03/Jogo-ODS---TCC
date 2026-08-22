@@ -33,10 +33,11 @@ const jogadorJogo1 = {
     },
 
     atualizar: function(alturaChao) {
-        if (this.estaMorto) return; // Paraisa a física ao morrer
+        if (this.estaMorto) return; // Congela a movimentação/física em caso de morte
 
         let movendo = false;
 
+        // Suporte total a WASD e Setinhas
         if (controlesJogo1.esquerda) {
             this.x -= this.velocidadeX;
             this.olhandoDireita = false;
@@ -53,9 +54,11 @@ const jogadorJogo1 = {
             this.noChao = false;
         }
 
+        // Aplicação da gravidade
         this.velocidadeY += this.gravidade;
         this.y += this.velocidadeY;
 
+        // Ajuste da linha do chão (Areia)
         const alturaAjustadaChao = alturaChao - 10;
 
         if (this.y + this.altura >= alturaAjustadaChao) {
@@ -64,8 +67,10 @@ const jogadorJogo1 = {
             this.noChao = true;
         }
 
+        // Trava apenas o início do mapa à esquerda
         if (this.x < 0) this.x = 0;
 
+        // Lógica dos frames de animação
         if (movendo) {
             this.contadorTempo++;
             if (this.contadorTempo >= this.velocidadeAnimacao) {
@@ -81,7 +86,7 @@ const jogadorJogo1 = {
     desenhar: function(ctx, cameraX) {
         ctx.imageSmoothingEnabled = false;
 
-        // Visual de Morte (Placeholder até colocarmos a animação)
+        // Visual temporário de Morte (placeholder para os futuros sprites)
         if (this.estaMorto) {
             ctx.save();
             ctx.fillStyle = "rgba(231, 76, 60, 0.6)";

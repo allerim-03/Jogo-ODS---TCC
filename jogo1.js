@@ -3,14 +3,17 @@ const ctx = canvas.getContext("2d");
 
 let estado = "menu"; // "menu", "jogando", "gameover"
 
+// Botões da interface
 const botaoPlay = { x: 220, y: 180, largura: 160, altura: 60 };
 const botaoReplay = { x: 220, y: 220, largura: 160, altura: 50 };
 
+// Disparado quando o jogador colide com a água
 function dispararMorte() {
     estado = "gameover";
     jogadorJogo1.estaMorto = true;
 }
 
+// Reinicia todas as variáveis para uma nova tentativa
 function reiniciarJogo() {
     jogadorJogo1.resetar();
     plataformasJogo1.resetar();
@@ -20,6 +23,7 @@ function reiniciarJogo() {
     estado = "jogando";
 }
 
+// Loop principal de renderização e física
 function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -28,33 +32,34 @@ function loop() {
     } 
 
     if (estado === "jogando") {
-        // Lógica de movimentação e física
+        // 1. Lógica e Física
         jogadorJogo1.atualizar(cenarioJogo1.alturaChao);
         cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
         plataformasJogo1.atualizar(jogadorJogo1, dispararMorte);
         interativosJogo1.atualizar(jogadorJogo1);
 
-        // Desenhar tudo
+        // 2. Renderização
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         interativosJogo1.desenhar(ctx, cenarioJogo1.cameraX, jogadorJogo1);
         jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
+        
+        // 3. HUD
         interativosJogo1.desenharHUD(ctx, canvas.width);
     }
 
-    // Tela congelada de Game Over
+    // Tela de Game Over (Congela o estado atual do jogo no fundo)
     if (estado === "gameover") {
-        // Congela o fundo onde parou
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         interativosJogo1.desenhar(ctx, cenarioJogo1.cameraX, jogadorJogo1);
         jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
 
-        // Pop-up escuro
+        // Overlay escuro
         ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Mensagem "OH NÃO!"
+        // Mensagem de alerta
         ctx.fillStyle = "#e74c3c";
         ctx.font = "bold 38px Arial";
         ctx.textAlign = "center";
@@ -79,7 +84,7 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-// Escuta cliques nos botões PLAY e REPLAY
+// Escuta cliques do mouse para os botões da UI
 canvas.addEventListener("click", (e) => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -107,4 +112,5 @@ canvas.addEventListener("click", (e) => {
     }
 });
 
+// Inicialização
 loop();
