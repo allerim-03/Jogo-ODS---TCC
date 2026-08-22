@@ -3,12 +3,11 @@ const imgFundo = new Image();
 imgFundo.src = "img/cenario.png";
 
 const cenarioJogo1 = {
-    larguraTile: 500, // Largura original da arte
     alturaChao: 360,
     cameraX: 0,
 
     atualizarCamera: function(jogadorX, larguraCanvas) {
-        // Câmera segue o jogador sem trava limite no final
+        // Câmera segue o jogador continuamente
         this.cameraX = jogadorX - larguraCanvas / 3;
 
         if (this.cameraX < 0) {
@@ -40,11 +39,15 @@ const cenarioJogo1 = {
         ctx.imageSmoothingEnabled = false;
 
         if (imgFundo.complete && imgFundo.naturalWidth !== 0) {
-            // Calcula a posição do offset para o loop infinito (Parallax)
-            const larguraRedimensionada = larguraCanvas; // 600px na tela
+            // Mantém a proporção exata de 500x100 projetada para a altura do Canvas (400px)
+            // 100px altura -> 400px canvas (escala de 4x)
+            // 500px largura -> 2000px largura no canvas
+            const larguraRedimensionada = (alturaCanvas / imgFundo.naturalHeight) * imgFundo.naturalWidth;
+
+            // Calcula o deslocamento contínuo em loop
             const offsetX = -(this.cameraX % larguraRedimensionada);
 
-            // Desenha duas cópias do fundo lado a lado para garantir cobertura contínua
+            // Desenha a imagem principal e a próxima para emendar sem cortes
             ctx.drawImage(imgFundo, offsetX, 0, larguraRedimensionada, alturaCanvas);
             ctx.drawImage(imgFundo, offsetX + larguraRedimensionada, 0, larguraRedimensionada, alturaCanvas);
         } else {
