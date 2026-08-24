@@ -79,9 +79,10 @@ class User:
         email=None,
         password=None,
         role="student",
+        use_type="individual",
         age=None,
         institution=None,
-        use_type="individual",
+        avatar=None,
         xp=0,
         level=1,
         is_active=True,
@@ -96,6 +97,7 @@ class User:
         self.use_type = use_type
         self.age = age
         self.institution = institution
+        self.avatar = avatar
         self.xp = xp
         self.level = level
         self.is_active = is_active
@@ -103,63 +105,75 @@ class User:
         self.updated_at = updated_at
 
     def __repr__(self):
-        '''
-        especial para testes e depuração
-        '''
+        """
+        Representation used for tests and debugging.
+        """
         return (
-                f"User("
-                f"id={self.id}, "
-                f"name='{self.name}', "
-                f"email='{self.email}', "
-                f"role='{self.role}', "
-                f"xp={self.xp}, "
-                f"level={self.level})"
-    )
+            f"User("
+            f"id={self.id}, "
+            f"name='{self.name}', "
+            f"email='{self.email}', "
+            f"role='{self.role}', "
+            f"xp={self.xp}, "
+            f"avatar='{self.avatar}', "
+            f"level={self.level})"
+        )
+
     def to_dict(self):
-        '''
-        comunicação com a API, sem retornar a senha
-        Convert User object to dictionary.
-        Password is intentionally omitted
-        '''
+        """
+        Converts the User object to a dictionary.
+
+        Password is intentionally omitted.
+        """
+
         return {
             "id": self.id,
             "name": self.name,
             "email": self.email,
             "role": self.role,
+            "use_type": self.use_type,
             "age": self.age,
             "institution": self.institution,
-            "use_type": self.use_type,
+            "avatar": self.avatar,
             "xp": self.xp,
             "level": self.level,
             "is_active": self.is_active,
+
             "created_at": (
-            self.created_at.isoformat()
-            if self.created_at else None
+                self.created_at.isoformat()
+                if self.created_at else None
             ),
 
             "updated_at": (
-            self.updated_at.isoformat()
-            if self.updated_at else None
+                self.updated_at.isoformat()
+                if self.updated_at else None
             )
-    }
+        }
 
     @classmethod
     def from_dict(cls, data):
-        '''
-        método de fábrica para facilitar a criação do objeto a partir de um dicionário.
-        '''
+        """
+        Creates a User object from a dictionary.
+        """
+
         return cls(
             id=data.get("id"),
             name=data.get("name"),
             email=data.get("email"),
             password=data.get("password"),
+
             role=data.get("role", "student"),
             use_type=data.get("use_type", "individual"),
+
             age=data.get("age"),
             institution=data.get("institution"),
+            avatar=data.get("avatar"),
+
             xp=data.get("xp") or 0,
             level=data.get("level") or 1,
+
             is_active=data.get("is_active", True),
+
             created_at=data.get("created_at"),
             updated_at=data.get("updated_at"),
-    )
+        )
