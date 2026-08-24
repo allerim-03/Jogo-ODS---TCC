@@ -56,9 +56,11 @@ from database.connection import get_connection
 from app.models.user import User
 
 
-
 class UserRepository:
 
+    # =====================================================
+    # BUSCAR USUÁRIO POR E-MAIL
+    # =====================================================
 
     def get_by_email(self, email):
 
@@ -68,7 +70,7 @@ class UserRepository:
         cursor.execute(
             """
             SELECT *
-            FROM user
+            FROM user_plataform
             WHERE email = %s
             """,
             (email,)
@@ -79,79 +81,86 @@ class UserRepository:
         cursor.close()
         conn.close()
 
-
         if data:
             return User.from_dict(data)
 
         return None
 
 
-    #criar usuario//salvar
+    # =====================================================
+    # CRIAR USUÁRIO
+    # =====================================================
+
     def create(self, user):
 
         conn = get_connection()
         cursor = conn.cursor()
 
-
         cursor.execute(
             """
-            INSERT INTO user
+            INSERT INTO user_plataform
             (
                 name,
                 email,
                 password,
                 role,
+                use_type,
                 age,
-                institution
+                institution,
+                avatar,
+                xp,
+                level,
+                is_active
             )
-            VALUES (%s,%s,%s,%s,%s,%s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """,
             (
                 user.name,
                 user.email,
                 user.password,
                 user.role,
+                user.use_type,
                 user.age,
-                user.institution
+                user.institution,
+                user.avatar,
+                user.xp,
+                user.level,
+                user.is_active
             )
         )
-
 
         conn.commit()
 
         user.id = cursor.lastrowid
 
-
         cursor.close()
         conn.close()
-
 
         return user
 
 
+    # =====================================================
+    # BUSCAR USUÁRIO POR ID
+    # =====================================================
 
     def get_by_id(self, user_id):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
 
-
         cursor.execute(
             """
             SELECT *
-            FROM user
+            FROM user_plataform
             WHERE id = %s
             """,
             (user_id,)
         )
 
-
         data = cursor.fetchone()
-
 
         cursor.close()
         conn.close()
-
 
         if data:
             return User.from_dict(data)
@@ -159,19 +168,68 @@ class UserRepository:
         return None
 
 
+    # =====================================================
+    # ATUALIZAR USUÁRIO
+    # =====================================================
+
+    def update(self, user):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE user_plataform
+            SET
+                name = %s,
+                email = %s,
+                role = %s,
+                use_type = %s,
+                age = %s,
+                institution = %s,
+                avatar = %s,
+                is_active = %s
+            WHERE id = %s
+            """,
+            (
+                user.name,
+                user.email,
+                user.role,
+                user.use_type,
+                user.age,
+                user.institution,
+                user.avatar,
+                user.is_active,
+                user.id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount > 0
+
+        cursor.close()
+        conn.close()
+
+        return updated
+
+
+    # =====================================================
+    # ATUALIZAR PROGRESSO
+    # =====================================================
 
     def update_progress(self, user):
 
         conn = get_connection()
         cursor = conn.cursor()
 
-
         cursor.execute(
             """
-            UPDATE user
-            SET xp=%s,
-                level=%s
-            WHERE id=%s
+            UPDATE user_plataform
+            SET
+                xp = %s,
+                level = %s
+            WHERE id = %s
             """,
             (
                 user.xp,
@@ -180,40 +238,38 @@ class UserRepository:
             )
         )
 
-
         conn.commit()
 
         cursor.close()
         conn.close()
 
-    
 
-# =====================================================
+# =========================================================
 # COMPATIBILIDADE TEMPORÁRIA
-# Mantém arquivos antigos funcionando durante migração
-# =====================================================
+# =========================================================
+
 _repository = UserRepository()
 
 
 def get_user_by_id(user_id):
-        return _repository.get_by_id(user_id)
+    return _repository.get_by_id(user_id)
 
 
 def buscar_por_email(email):
-        return _repository.get_by_email(email)
+    return _repository.get_by_email(email)
 
 
 def salvar(user):
-        return _repository.create(user)
+    return _repository.create(user)
 
 
 def update_user(user):
-        return _repository.update(user)
+    return _repository.update(user)
 
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Mantém serviços antigos funcionando durante migração
-# =====================================================
+
+# =========================================================
+# ATUALIZAR PERFIL
+# =========================================================
 
 def update_user_profile(
     user_id,
@@ -225,10 +281,9 @@ def update_user_profile(
     conn = get_connection()
     cursor = conn.cursor()
 
-
     cursor.execute(
         """
-        UPDATE user
+        UPDATE user_plataform
         SET
             name = COALESCE(%s, name),
             age = COALESCE(%s, age),
@@ -243,27 +298,19 @@ def update_user_profile(
         )
     )
 
-
     conn.commit()
 
     updated = cursor.rowcount > 0
 
-
     cursor.close()
     conn.close()
 
-
     return updated
 
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Serviços de perfil do usuário
-# =====================================================
 
-
-# -----------------------------------------------------
-# Atualizar avatar
-# -----------------------------------------------------
+# =========================================================
+# ATUALIZAR AVATAR
+# =========================================================
 
 def update_avatar(
     user_id,
@@ -271,13 +318,11 @@ def update_avatar(
 ):
 
     conn = get_connection()
-
     cursor = conn.cursor()
-
 
     cursor.execute(
         """
-        UPDATE user
+        UPDATE user_plataform
         SET avatar = %s
         WHERE id = %s
         """,
@@ -287,23 +332,19 @@ def update_avatar(
         )
     )
 
-
     conn.commit()
 
     updated = cursor.rowcount > 0
 
-
     cursor.close()
     conn.close()
-
 
     return updated
 
 
-
-# -----------------------------------------------------
-# Atualizar preferências
-# -----------------------------------------------------
+# =========================================================
+# ATUALIZAR PREFERÊNCIAS
+# =========================================================
 
 def update_preferences(
     user_id,
@@ -314,22 +355,20 @@ def update_preferences(
     Temporariamente mantido.
 
     Futuramente pode utilizar uma tabela:
-    
+
     user_preferences
         id
         user_id
         preference_name
         preference_value
-
     """
 
     return True
 
 
-
-# -----------------------------------------------------
-# Atualizar senha
-# -----------------------------------------------------
+# =========================================================
+# ATUALIZAR SENHA
+# =========================================================
 
 def update_password(
     user_id,
@@ -337,13 +376,11 @@ def update_password(
 ):
 
     conn = get_connection()
-
     cursor = conn.cursor()
-
 
     cursor.execute(
         """
-        UPDATE user
+        UPDATE user_plataform
         SET password = %s
         WHERE id = %s
         """,
@@ -353,32 +390,26 @@ def update_password(
         )
     )
 
-
     conn.commit()
 
     updated = cursor.rowcount > 0
 
-
     cursor.close()
     conn.close()
-
 
     return updated
 
 
-
-# -----------------------------------------------------
-# Estatísticas do usuário
-# -----------------------------------------------------
+# =========================================================
+# ESTATÍSTICAS DO USUÁRIO
+# =========================================================
 
 def get_user_statistics(
     user_id
 ):
 
     conn = get_connection()
-
     cursor = conn.cursor(dictionary=True)
-
 
     cursor.execute(
         """
@@ -387,21 +418,16 @@ def get_user_statistics(
             name,
             xp,
             level
-        FROM user
+        FROM user_plataform
         WHERE id = %s
         """,
-        (
-            user_id,
-        )
+        (user_id,)
     )
-
 
     statistics = cursor.fetchone()
 
-
     cursor.close()
     conn.close()
-
 
     return statistics
 '''
