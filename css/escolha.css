@@ -319,3 +319,108 @@
         height: 180px;
     }
 }
+
+/* =========================================
+   BLOCOS EXPLICATIVOS BRANCOS (CARD DUAL)
+   ========================================= */
+
+.secao-explicativa {
+    max-width: 1000px;
+    margin: 20px auto 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* O card branco central */
+.bloco-info {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 35px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+/* Garante o texto na esquerda e imagem na direita */
+.bloco-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.bloco-texto h2 {
+    font-family: 'Nunito', sans-serif;
+    color: #2E7D32; /* Verde no mesmo tom da sua imagem */
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bloco-texto p {
+    font-family: 'Poppins', sans-serif;
+    color: #4A5568;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Botão azul do link */
+.btn-saiba-mais {
+    display: inline-block;
+    background-color: #43B4FB;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #2196F3;
+    transform: translateY(-2px);
+}
+
+/* Moldura tracejada para a imagem ilustrativa */
+.bloco-imagem-placeholder {
+    width: 280px;
+    height: 190px;
+    border: 2px dashed #64B5F6;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8FAFC;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.bloco-imagem-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Ajuste Responsivo para telas menores */
+@media (max-width: 768px) {
+    .bloco-info, 
+    .bloco-info.bloco-invertido {
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .bloco-imagem-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+}
