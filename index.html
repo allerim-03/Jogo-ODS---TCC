@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Eco-Pixel Adventure - Home</title>
+    <title>Eco-Pixel Adventure</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="global.css">
@@ -25,7 +25,12 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
-
+    <style>
+        /* Esconde o checkbox, mas mantém ele funcionando */
+        #menu-check {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,8 +38,10 @@
     <!-- CHECKBOX DO MENU HAMBÚRGUER -->
     <input type="checkbox" id="menu-check">
 
+
     <!-- SIDEBAR -->
     <div class="sidebar">
+
         <div class="perfil-sidebar">
             <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
             <p>Nível 2</p>
@@ -49,14 +56,20 @@
             <a href="ranking.html">RANKING</a>
             <a href="perfil.html">PERFIL</a>
         </nav>
+
     </div>
 
-    <!-- OVERLAY -->
+
+    <!-- OVERLAY (Fecha a sidebar ao clicar fora) -->
     <label for="menu-check" class="overlay"></label>
+
 
     <!-- NAVBAR -->
     <header class="topbar">
+
+        <!-- ESQUERDA / LOGO -->
         <div class="left">
+
             <label for="menu-check" class="hamburger">
                 <span></span>
                 <span></span>
@@ -64,8 +77,10 @@
             </label>
 
             <div class="info-container">
+
                 <div class="logo">
                     <span class="icon">🌱</span>
+
                     <div>
                         <h1>ECO-PIXEL</h1>
                         <p>ADVENTURE</p>
@@ -73,16 +88,25 @@
                 </div>
 
                 <div class="level">
+
                     <span class="star">★ NÍVEL 2</span>
+
                     <div class="bar">
                         <div class="progress"></div>
                     </div>
+
                     <span class="xp">450/1000</span>
+
                 </div>
+
             </div>
+
         </div>
 
+
+        <!-- MENU -->
         <nav class="menu">
+
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
             <a href="jogos.html">JOGOS</a>
@@ -90,63 +114,128 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
             <a href="ranking.html">RANKING</a>
             <a href="perfil.html">PERFIL</a>
+
         </nav>
 
+
+        <!-- FOTO DE PERFIL -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
+
     </header>
+
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
-        <!-- HERO / BANNER DINÂMICO -->
-        <section class="hero-section">
-            <h2>A PLATAFORMA DE APRENDIZAGEM SUSTENTÁVEL DAS MELHORES ESCOLAS!</h2>
-            <p>Transforme o aprendizado ecológico em uma jornada épica de desafios, jogos interativos e evolução constante com o Tuga.</p>
-            <div class="banner"></div>
+        <!-- BANNER PRINCIPAL -->
+        <br><br><br><br><br>
+        <div class="banner"></div>
+
+
+        <hr class="divisor">
+
+
+        <!-- SOBRE O ECO-PIXEL -->
+        <section class="sobre-sessao">
+
+            <div class="conteudo-flex">
+
+                <div class="texto">
+
+                    <h3>Sobre o Eco-Pixel/ODS KIDS</h3>
+
+                    <p>
+                        Aprender pode ser muito mais interessante quando você
+                        participa de desafios, jogos educativos, quizzes e
+                        missões sustentáveis. Cada atividade gera experiência,
+                        conquistas e ajuda sua planta a crescer.
+                    </p>
+
+                </div>
+
+                <div class="imagem-placeholder">
+                    <p>[Imagem Ilustrativa 1]</p>
+                </div>
+
+            </div>
+
         </section>
 
-        <!-- GRID DE PILARES / DESTAQUES (Estilo Elefante Letrado) -->
+
+        <!-- APRENDENDO DE FORMA DIVERTIDA -->
+        <section class="sobre-sessao cinza">
+
+            <div class="conteudo-flex reverso">
+
+                <div class="texto">
+
+                    <h3>Aprendendo de forma divertida</h3>
+
+                    <p>
+                        Aprender pode ser muito mais interessante quando você
+                        participa de desafios, jogos educativos, quizzes e
+                        missões sustentáveis. Cada atividade gera experiência,
+                        conquistas e ajuda sua planta a crescer.
+                    </p>
+
+                </div>
+
+                <div class="imagem-placeholder">
+                    <p>[Imagem Ilustrativa 2]</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOSSA MISSÃO DE IMPACTO -->
+        <section class="impact-block">
+            <h3>Nossa Missão</h3>
+            <p>
+                Cultivar conhecimento através da tecnologia, despertando a consciência ambiental e tornando a educação para a sustentabilidade uma experiência acessível e divertida para todos.
+            </p>
+        </section>
+
+
+        <!-- PILARES DE DESTAQUE -->
         <section class="pillars-container">
             <div class="pillar-card">
                 <span class="pillar-icon">🎮</span>
-                <h3>JOGOS EDUCATIVOS</h3>
-                <p>Missões práticas em pixel art onde cada ação correta ajuda a limpar o meio ambiente e salvar o ecossistema.</p>
-                <a href="jogos.html" class="btn-games">Explorar Jogos</a>
+                <h3>Jogos Educativos</h3>
+                <p>Desafios interativos e dinâmicos com a temática de sustentabilidade para colocar seu aprendizado em prática.</p>
+                <a href="jogos.html" class="btn-games">Jogar Agora</a>
             </div>
 
             <div class="pillar-card">
                 <span class="pillar-icon">🧠</span>
-                <h3>QUIZZES INTERATIVOS</h3>
-                <p>Teste seus conhecimentos sobre os Objetivos de Desenvolvimento Sustentável (ODS) de forma divertida e dinâmica.</p>
-                <a href="quiz.html" class="btn-games">Fazer Quiz</a>
+                <h3>Quizzes Interativos</h3>
+                <p>Teste seus conhecimentos sobre as ODS, acumule experiência e evolua de nível na plataforma.</p>
+                <a href="quiz.html" class="btn-games">Responder Quiz</a>
             </div>
 
             <div class="pillar-card">
                 <span class="pillar-icon">🏆</span>
-                <h3>RANKING & EVOLUÇÃO</h3>
-                <p>Acompanhe seu progresso, ganhe pontos de experiência (XP), faça sua plantinha crescer e dispute posições no ranking.</p>
+                <h3>Ranking Geral</h3>
+                <p>Acompanhe sua pontuação, supere outros alunos e torne-se um dos maiores Guardiões do planeta.</p>
                 <a href="ranking.html" class="btn-games">Ver Ranking</a>
             </div>
         </section>
 
-        <!-- BLOCO DE IMPACTO CRIATIVO -->
-        <div class="impact-block">
-            <h3>APRENDER BRINCANDO FAZ TODA A DIFERENÇA!</h3>
-            <p>De acordo com especialistas, pequenas doses diárias de atividades interativas estimulam o raciocínio ecológico, gerando hábitos conscientes que duram para a vida inteira.</p>
-        </div>
 
-        <!-- SEÇÃO DA JORNADA DA AVENTURA -->
-        <section id="journey" class="journey">
-
+        <!-- TRILHA DA JORNADA INTERATIVA -->
+        <section class="journey">
             <div class="journey-title">
-                <h2>Jornada Sustentável</h2>
-                <p>Clique em cada etapa e descubra como sua aventura acontece.</p>
+                <h2>Sua Jornada Sustentável</h2>
+                <p>Acompanhe seu progresso e descubra novas etapas no mapa</p>
             </div>
 
             <div class="journey-map">
+
                 <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
+
                 <div class="journey-line"></div>
 
                 <div class="journey-step step-1 active" data-step="0">
@@ -173,20 +262,21 @@
                     <div class="step-icon">🏆</div>
                     <span>Guardião</span>
                 </div>
+
             </div>
 
-            <!-- CARD DA JORNADA INTERATIVO -->
+            <!-- CARD DINÂMICO DA JORNADA -->
             <div class="journey-card">
                 <h3 id="journey-title">Comece sua aventura</h3>
                 <p id="journey-description">Crie sua conta e prepare-se para conhecer o Tuga.</p>
                 <div class="journey-action">
-                    <a id="journey-btn" href="jogos.html" class="btn-games">Conheça nossos jogos</a>
+                    <a id="journey-btn" href="#" class="btn-games">Conheça nossos jogos</a>
                 </div>
             </div>
-
         </section>
 
     </main>
+
 
     <!-- RODAPÉ -->
     <footer>
