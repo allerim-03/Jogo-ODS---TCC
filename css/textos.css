@@ -1,7 +1,6 @@
 /* =========================================
    TEXTOS.CSS - Tipografia e Estilos de Texto
    ========================================= */
-
 /* BOAS-VINDAS / CABEÇALHOS DE PÁGINA */
 .boas-vindas {
     display: flex;
@@ -15,24 +14,38 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
-    color: #FFFFFF;
+    color: #4CAE50; /* Convertido de branco para Garden Green */
     margin-bottom: 10px;
 }
 
 .titulo-branco {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    color: #FFFFFF;
+    color: #4CAE50; /* Convertido para Garden Green para não sumir no fundo claro */
     font-size: 3rem;
 }
 
 .sub-branco {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    color: #FFFFFF;
+    color: #1A1A1A; /* Convertido para escuro de alto contraste */
     font-size: 1.1rem;
     margin-bottom: 20px;
     opacity: 0.95;
+}
+
+/* CONTAINER DOS BOTÕES DE BOAS-VINDAS */
+.botoes-boas-vindas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.botoes-boas-vindas .btn-principal {
+    min-width: 160px;
 }
 
 /* TEXTOS REUTILIZÁVEIS DE SEÇÃO */
