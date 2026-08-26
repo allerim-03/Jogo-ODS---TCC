@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const infoDescription = document.getElementById('journey-description');
     const infoBtn = document.getElementById('journey-btn');
 
-    // Configuração dos dados de cada etapa da jornada
     const stepData = {
         "0": {
             title: "Comece sua Aventura",
@@ -47,23 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function atualizarEtapa(stepElement) {
-        if (!stepElement || !tuga || !container) return;
+        if (!stepElement) return;
 
-        // 1. Destaque visual da bolinha selecionada
+        // 1. Alterna classe ativa nas bolinhas
         steps.forEach(s => s.classList.remove('active'));
         stepElement.classList.add('active');
 
-        // 2. Cálculo dinâmico para posicionar o Tuga centralizado na bolinha
-        const containerRect = container.getBoundingClientRect();
-        const stepRect = stepElement.getBoundingClientRect();
-        const tugaWidth = tuga.offsetWidth || 80;
+        // 2. Reposiciona o Tuga
+        if (tuga && container) {
+            const containerRect = container.getBoundingClientRect();
+            const stepRect = stepElement.getBoundingClientRect();
+            const tugaWidth = tuga.offsetWidth || 70;
 
-        const stepCenterX = (stepRect.left - containerRect.left) + (stepRect.width / 2);
-        const posicaoFinalX = stepCenterX - (tugaWidth / 2);
+            const stepCenterX = (stepRect.left - containerRect.left) + (stepRect.width / 2);
+            const posicaoFinalX = stepCenterX - (tugaWidth / 2);
 
-        tuga.style.left = `${posicaoFinalX}px`;
+            tuga.style.left = `${posicaoFinalX}px`;
+        }
 
-        // 3. Atualização do Card de informações
+        // 3. Atualiza textos do Card
         const stepIndex = stepElement.getAttribute('data-step');
         const data = stepData[stepIndex];
 
@@ -83,32 +84,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Evento de clique em cada ícone da jornada
+    // Garante escuta nos elementos e em seus filhos (ícone/texto)
     steps.forEach(step => {
-        step.addEventListener('click', function () {
-            atualizarEtapa(this);
+        step.style.cursor = "pointer"; // Garante cursor de clique
+        step.addEventListener('click', function (e) {
+            // Pega o contêiner .journey-step mesmo se clicar no span ou ícone interno
+            const targetStep = e.currentTarget;
+            atualizarEtapa(targetStep);
         });
     });
 
-    // Função para inicializar na primeira etapa
-    function initJourney() {
+    // Posição inicial
+    setTimeout(() => {
         const firstStep = document.querySelector('.journey-step[data-step="0"]');
-        if (firstStep) {
-            atualizarEtapa(firstStep);
-        }
-    }
+        if (firstStep) atualizarEtapa(firstStep);
+    }, 100);
 
-    // Garante que o alinhamento é feito após imagens carregarem
-    window.addEventListener('load', initJourney);
-
-    // Ajusta o alinhamento caso a janela seja redimensionada
+    // Recalcula se a janela mudar de tamanho
     window.addEventListener('resize', () => {
         const activeStep = document.querySelector('.journey-step.active');
-        if (activeStep) {
-            atualizarEtapa(activeStep);
-        }
+        if (activeStep) atualizarEtapa(activeStep);
     });
-
-    // Chamada imediata inicial para evitar atrasos visuais
-    initJourney();
 });
