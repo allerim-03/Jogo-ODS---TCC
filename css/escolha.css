@@ -39,6 +39,7 @@
     display: block;
     user-select: none;
     border-radius: 17px;
+    pointer-events: none;
 }
 
 .escolha-card:hover {
