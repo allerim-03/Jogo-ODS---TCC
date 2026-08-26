@@ -81,135 +81,72 @@
 </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
         <section class="boas-vindas">
             <br> <br> <br> <br> <br>
 
-            <!-- AQUI ENTRA O NOVO BLOCO EXPLICATIVO -->
-            <!-- SEÇÃO DE BLOCOS EXPLICATIVOS -->
-<section class="secao-explicativa">
+            <!-- 1. TÍTULO PRINCIPAL NO TOPO DA TELA -->
+            <div class="titulo-principal-topo">
+                <h2>Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+                <p>Descubra como pequenas ações podem transformar o mundo!</p>
+            </div>
 
-    <!-- BLOCO 1: Texto na Esquerda, Imagem na Direita -->
-    <div class="bloco-info">
-        <div class="bloco-texto">
-            <h2>O que é a ONU e a Agenda 2030?</h2>
-            <p>
-                A <strong>Organização das Nações Unidas (ONU)</strong> reúne países do mundo todo para promover a paz e o desenvolvimento. Em 2015, foi criada a <strong>Agenda 2030</strong>, um plano de ação global para erradicar a pobreza, proteger o planeta e garantir que todas as pessoas vivam em paz e prosperidade.
-            </p>
-            <a href="https://brasil.un.org/pt-br/sdgs" target="_blank" rel="noopener noreferrer" class="btn-saiba-mais">
-                Conhecer site da ONU 🌐
-            </a>
-        </div>
-        <div class="bloco-imagem-placeholder">
-            <img src="img/ods1.png" alt="Ilustração ONU e Agenda 2030">
-        </div>
-    </div>
+            <!-- 2. CARDS BRANCOS EXPLICATIVOS -->
+            <section class="secao-explicativa">
 
-    <!-- BLOCO 2: Imagem na Esquerda, Texto na Direita -->
-    <div class="bloco-info bloco-invertido">
-        <div class="bloco-imagem-placeholder">
-            <img src="img/ods2.png" alt="Ilustração ODS">
-        </div>
-        <div class="bloco-texto">
-            <h2>O que são os 17 Objetivos (ODS)?</h2>
-            <p>
-                Os <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong> são 17 metas universais criadas para resolver os maiores desafios da nossa sociedade. Elas cobrem temas como saúde, educação, igualdade de gênero, água potável, energia limpa e preservação da vida terrestre e marinha.
-            </p>
-        </div>
-    </div>
+                <!-- BLOCO 1: Texto na Esquerda, Imagem na Direita -->
+                <div class="bloco-info">
+                    <div class="bloco-texto">
+                        <p>
+                            A <strong>Organização das Nações Unidas (ONU)</strong> reúne países do mundo todo para promover a paz e o desenvolvimento. Em 2015, foi criada a <strong>Agenda 2030</strong>, um plano de ação global para erradicar a pobreza, proteger o planeta e garantir que todas as pessoas vivam em paz e prosperidade.
+                        </p>
+                        <a href="https://brasil.un.org/pt-br/sdgs" target="_blank" rel="noopener noreferrer" class="btn-saiba-mais">
+                            Conhecer site da ONU 🌐
+                        </a>
+                    </div>
+                    <div class="bloco-imagem-placeholder">
+                        <img src="img/ods1.png" alt="Ilustração ONU e Agenda 2030">
+                    </div>
+                </div>
 
-</section>
+                <!-- BLOCO 2: Imagem na Esquerda, Texto na Direita -->
+                <div class="bloco-info bloco-invertido">
+                    <div class="bloco-imagem-placeholder">
+                        <img src="img/ods2.png" alt="Ilustração ODS">
+                    </div>
+                    <div class="bloco-texto">
+                        <p>
+                            Os <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong> são 17 metas universais criadas para resolver os maiores desafios da nossa sociedade. Elas cobrem temas como saúde, educação, igualdade de gênero, água potável, energia limpa e preservação da vida terrestre e marinha.
+                        </p>
+                    </div>
+                </div>
 
+            </section>
+
+            <!-- 3. SUBTÍTULO DAS ODS -->
             <h2>ODS</h2>
             <p>Objetivos de Desenvolvimento Sustentável — Clique em um objetivo para saber mais!</p>
 
+            <!-- 4. GRID COM AS 17 ODS (4 POR LINHA) -->
             <div class="jogos-container">
-
-                <!-- CARD ODS 1 -->
-                <div class="escolha-card" onclick="abrirModal(1)">
-                    <img src="img/ods1.png" alt="ODS 1 - Erradicação da Pobreza">
-                </div>
-
-                <!-- CARD ODS 2 -->
-                <div class="escolha-card" onclick="abrirModal(2)">
-                    <img src="img/ods2.png" alt="ODS 2 - Fome Zero e Agricultura Sustentável">
-                </div>
-
-                <!-- CARD ODS 3 -->
-                <div class="escolha-card" onclick="abrirModal(3)">
-                    <img src="img/ods3.png" alt="ODS 3 - Saúde e Bem-Estar">
-                </div>
-
-                <!-- CARD ODS 4 -->
-                <div class="escolha-card" onclick="abrirModal(4)">
-                    <img src="img/ods4.png" alt="ODS 4 - Educação de Qualidade">
-                </div>
-
-                <!-- CARD ODS 5 -->
-                <div class="escolha-card" onclick="abrirModal(5)">
-                    <img src="img/ods5.png" alt="ODS 5 - Igualdade de Gênero">
-                </div>
-
-                <!-- CARD ODS 6 -->
-                <div class="escolha-card" onclick="abrirModal(6)">
-                    <img src="img/ods6.png" alt="ODS 6 - Água Potável e Saneamento">
-                </div>
-
-                <!-- CARD ODS 7 -->
-                <div class="escolha-card" onclick="abrirModal(7)">
-                    <img src="img/ods7.png" alt="ODS 7 - Energia Limpa e Acessível">
-                </div>
-
-                <!-- CARD ODS 8 -->
-                <div class="escolha-card" onclick="abrirModal(8)">
-                    <img src="img/ods8.png" alt="ODS 8 - Trabalho Decente e Crescimento Econômico">
-                </div>
-
-                <!-- CARD ODS 9 -->
-                <div class="escolha-card" onclick="abrirModal(9)">
-                    <img src="img/ods9.png" alt="ODS 9 - Indústria, Inovação e Infraestrutura">
-                </div>
-
-                <!-- CARD ODS 10 -->
-                <div class="escolha-card" onclick="abrirModal(10)">
-                    <img src="img/ods10.png" alt="ODS 10 - Redução das Desigualdades">
-                </div>
-
-                <!-- CARD ODS 11 -->
-                <div class="escolha-card" onclick="abrirModal(11)">
-                    <img src="img/ods11.png" alt="ODS 11 - Cidades e Comunidades Sustentáveis">
-                </div>
-
-                <!-- CARD ODS 12 -->
-                <div class="escolha-card" onclick="abrirModal(12)">
-                    <img src="img/ods12.png" alt="ODS 12 - Consumo e Produção Responsáveis">
-                </div>
-
-                <!-- CARD ODS 13 -->
-                <div class="escolha-card" onclick="abrirModal(13)">
-                    <img src="img/ods13.png" alt="ODS 13 - Ação Contra a Mudança Global do Clima">
-                </div>
-
-                <!-- CARD ODS 14 -->
-                <div class="escolha-card" onclick="abrirModal(14)">
-                    <img src="img/ods14.png" alt="ODS 14 - Vida na Água">
-                </div>
-
-                <!-- CARD ODS 15 -->
-                <div class="escolha-card" onclick="abrirModal(15)">
-                    <img src="img/ods15.png" alt="ODS 15 - Vida Terrestre">
-                </div>
-
-                <!-- CARD ODS 16 -->
-                <div class="escolha-card" onclick="abrirModal(16)">
-                    <img src="img/ods16.png" alt="ODS 16 - Paz, Justiça e Instituições Eficazes">
-                </div>
-
-                <!-- CARD ODS 17 -->
-                <div class="escolha-card" onclick="abrirModal(17)">
-                    <img src="img/ods17.png" alt="ODS 17 - Parcerias e Meios de Implementação">
-                </div>
-
+                <div class="escolha-card" onclick="abrirModal(1)"><img src="img/ods1.png" alt="ODS 1"></div>
+                <div class="escolha-card" onclick="abrirModal(2)"><img src="img/ods2.png" alt="ODS 2"></div>
+                <div class="escolha-card" onclick="abrirModal(3)"><img src="img/ods3.png" alt="ODS 3"></div>
+                <div class="escolha-card" onclick="abrirModal(4)"><img src="img/ods4.png" alt="ODS 4"></div>
+                <div class="escolha-card" onclick="abrirModal(5)"><img src="img/ods5.png" alt="ODS 5"></div>
+                <div class="escolha-card" onclick="abrirModal(6)"><img src="img/ods6.png" alt="ODS 6"></div>
+                <div class="escolha-card" onclick="abrirModal(7)"><img src="img/ods7.png" alt="ODS 7"></div>
+                <div class="escolha-card" onclick="abrirModal(8)"><img src="img/ods8.png" alt="ODS 8"></div>
+                <div class="escolha-card" onclick="abrirModal(9)"><img src="img/ods9.png" alt="ODS 9"></div>
+                <div class="escolha-card" onclick="abrirModal(10)"><img src="img/ods10.png" alt="ODS 10"></div>
+                <div class="escolha-card" onclick="abrirModal(11)"><img src="img/ods11.png" alt="ODS 11"></div>
+                <div class="escolha-card" onclick="abrirModal(12)"><img src="img/ods12.png" alt="ODS 12"></div>
+                <div class="escolha-card" onclick="abrirModal(13)"><img src="img/ods13.png" alt="ODS 13"></div>
+                <div class="escolha-card" onclick="abrirModal(14)"><img src="img/ods14.png" alt="ODS 14"></div>
+                <div class="escolha-card" onclick="abrirModal(15)"><img src="img/ods15.png" alt="ODS 15"></div>
+                <div class="escolha-card" onclick="abrirModal(16)"><img src="img/ods16.png" alt="ODS 16"></div>
+                <div class="escolha-card" onclick="abrirModal(17)"><img src="img/ods17.png" alt="ODS 17"></div>
             </div>
         </section>
     </main>
