@@ -24,110 +24,6 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
-
-    <style>
-        #menu-check {
-            display: none;
-        }
-        /* Correção essencial para o topo não cortar por causa da topbar fixa */
-        main {
-            padding-top: 90px;
-        }
-        
-        /* Estilos dinâmicos inspirados em plataformas interativas */
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px 20px 20px;
-        }
-        .hero-section h2 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 2.2rem;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
-        }
-        .hero-section p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            color: #f8fafc;
-            max-width: 700px;
-            margin: 0 auto 25px auto;
-        }
-        
-        .pillars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .pillar-card {
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 4px solid #E3F2FD;
-        }
-        
-        .pillar-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: #43B4FB;
-        }
-        
-        .pillar-icon {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        
-        .pillar-card h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.4rem;
-            color: #1A1A1A;
-            margin-bottom: 12px;
-        }
-        
-        .pillar-card p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            color: #64748B;
-            line-height: 1.4;
-            margin-bottom: 20px;
-        }
-
-        .impact-block {
-            background: linear-gradient(135deg, #0284c7, #0d9488);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            margin: 50px 0;
-            border-radius: 30px;
-            max-width: 1150px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .impact-block h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .impact-block p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            max-width: 750px;
-            margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-    </style>
 </head>
 
 <body>
@@ -209,7 +105,7 @@
             <div class="banner"></div>
         </section>
 
-        <!-- GRID DE PILARES / DESTAQUES (Estilo Elefante Letrado) -->
+        <!-- GRID DE PILARES / DESTAQUES -->
         <section class="pillars-container">
             <div class="pillar-card">
                 <span class="pillar-icon">🎮</span>
@@ -239,45 +135,54 @@
             <p>De acordo com especialistas, pequenas doses diárias de atividades interativas estimulam o raciocínio ecológico, gerando hábitos conscientes que duram para a vida inteira.</p>
         </div>
 
-        <!-- JORNADA DA AVENTURA -->
-        <div class="journey-map">
-            <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
-            <div class="journey-line"></div>
-
-            <div class="journey-step step-1 active" data-step="0">
-                <div class="step-icon">📝</div>
-                <span>Cadastro</span>
+        <!-- SEÇÃO DA JORNADA SUSTENTÁVEL COMPLETA -->
+        <section id="journey" class="journey">
+            
+            <div class="journey-title">
+                <h2>Jornada Sustentável</h2>
+                <p>Clique em cada etapa e descubra como sua aventura acontece.</p>
             </div>
 
-            <div class="journey-step step-2" data-step="1">
-                <div class="step-icon">🎮</div>
-                <span>Jogos</span>
+            <div class="journey-map">
+                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
+                <div class="journey-line"></div>
+
+                <div class="journey-step step-1 active" data-step="0">
+                    <div class="step-icon">📝</div>
+                    <span>Cadastro</span>
+                </div>
+
+                <div class="journey-step step-2" data-step="1">
+                    <div class="step-icon">🎮</div>
+                    <span>Jogos</span>
+                </div>
+
+                <div class="journey-step step-3" data-step="2">
+                    <div class="step-icon">🌱</div>
+                    <span>Evolução</span>
+                </div>
+
+                <div class="journey-step step-4" data-step="3">
+                    <div class="step-icon">🌎</div>
+                    <span>ODS</span>
+                </div>
+
+                <div class="journey-step step-5" data-step="4">
+                    <div class="step-icon">🏆</div>
+                    <span>Guardião</span>
+                </div>
             </div>
 
-            <div class="journey-step step-3" data-step="2">
-                <div class="step-icon">🌱</div>
-                <span>Evolução</span>
+            <div class="journey-card">
+                <h3 id="journey-title">Comece sua aventura</h3>
+                <p id="journey-description">Crie sua conta e prepare-se para conhecer o Tuga.</p>
+                
+                <div class="journey-action">
+                    <a id="journey-btn" href="jogos.html" class="btn-games">Conheça nossos jogos</a>
+                </div>
             </div>
 
-            <div class="journey-step step-4" data-step="3">
-                <div class="step-icon">🌎</div>
-                <span>ODS</span>
-            </div>
-
-            <div class="journey-step step-5" data-step="4">
-                <div class="step-icon">🏆</div>
-                <span>Guardião</span>
-            </div>
-        </div>
-
-        <!-- CARD DA JORNADA INTERATIVO -->
-        <div class="journey-card">
-            <h3 id="journey-title">Comece sua aventura</h3>
-            <p id="journey-description">Crie sua conta e prepare-se para conhecer o Tuga.</p>
-            <div class="journey-action">
-                <a id="journey-btn" href="jogos.html" class="btn-games">Conheça nossos jogos</a>
-            </div>
-        </div>
+        </section>
 
     </main>
 
