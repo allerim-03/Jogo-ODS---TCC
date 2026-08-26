@@ -12,7 +12,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F8FAFC; /* Alterado de #F0F7FF para o neutro quase branco */
+    background-color: #F8FAFC !important; /* Alterado de #F0F7FF para o neutro quase branco */
     color: #1A1A1A;
     line-height: 1.6;
     min-height: 100vh;
