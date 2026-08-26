@@ -1,20 +1,20 @@
+/* =========================================
+   BOTOES.CSS - Botões e Ações (Border Radius: 12px)
+   ========================================= */
+
 /* BOTÃO PADRÃO (Ação / Primário) */
 button {
     width: 100%;
     padding: 12px 24px;
-
     border: none;
-    border-radius: 12px; /* Border radius padrão do guia */
-
-    background-color: #4CAF50; /* Garden Green */
+    border-radius: 12px;
+    background-color: #4CAE50; /* Garden Green */
     color: #FFFFFF;
     cursor: pointer;
-
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1rem;
-
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
@@ -41,19 +41,16 @@ button:active {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-
     background-color: #FFDE5A; /* Banana Yellow */
     color: #1A1A1A;
-
     border: none;
     border-radius: 12px;
-
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
 .btn-login:hover {
-    background-color: #f7d443;
+    opacity: 0.95;
     transform: translateY(-2px);
 }
 
@@ -61,36 +58,32 @@ button:active {
     transform: translateY(0);
 }
 
-/* VARIAÇÃO: BOTÃO ALERTA / CRÍTICO (Logout / Excluir) */
+/* VARIAÇÃO: BOTÃO ALERTA / CRÍTICO */
 .btn-danger {
     background-color: #FF524D; /* Vivid Red */
     color: #FFFFFF;
 }
 
 .btn-danger:hover {
-    background-color: #e0443f;
+    opacity: 0.9;
 }
 
-/* BOTÃO DOS JOGOS (Card / Navegação de jogos) */
+/* BOTÃO DOS JOGOS (Card / Navegação) */
 .btn-games {
     display: inline-block;
-    background-color: #4CAF50; /* Garden Green Sólido */
-
+    background-color: #4CAE50; /* Garden Green Sólido */
     color: #FFFFFF !important;
     text-decoration: none;
-
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-
     padding: 12px 26px;
     border-radius: 12px;
-
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
     text-align: center;
 }
 
 .btn-games:hover {
-    background-color: #439e47;
+    opacity: 0.95;
     transform: translateY(-2px);
     color: #FFFFFF !important;
 }

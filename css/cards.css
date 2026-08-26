@@ -1,5 +1,5 @@
 /* =========================================
-   CARDS DE ATIVIDADES & SEÇÕES (ELEFANTE LETRADO)
+   CARDS.CSS - Cards de Atividades e Módulos (Border Radius: 16px)
    ========================================= */
 .container-cards {
     display: grid;
@@ -10,16 +10,14 @@
     margin: 0 auto;
 }
 
-/* CARD ELEVADO INFANTIL */
+/* CARD ELEVADO */
 .card-modulo {
     background: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 16px; /* Padronizado para 16px */
     padding: 24px;
     text-align: center;
-    border: 3px solid #E3F2FD;
-    /* Sombras suaves e profundidade estilo Elefante Letrado */
-    box-shadow: 0 10px 20px rgba(67, 180, 251, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    border: 3px solid #43B4FB; /* Bright Blue */
+    transition: transform 0.25s ease, border-color 0.25s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,22 +26,21 @@
 }
 
 .card-modulo:hover {
-    transform: translateY(-8px);
-    border-color: #43B4FB;
-    box-shadow: 0 16px 30px rgba(67, 180, 251, 0.2);
+    transform: translateY(-6px);
+    border-color: #4CAE50; /* Garden Green */
 }
 
-/* ÍCONE / ILUSTRAÇÃO DO CARD */
+/* ÍCONE DO CARD */
 .card-icone-wrapper {
     width: 90px;
     height: 90px;
-    background-color: #E8F5E9;
+    background-color: #F8FAFC;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    border: 3px solid #4CAF50;
+    border: 3px solid #4CAE50;
 }
 
 .card-icone-wrapper img {
@@ -54,9 +51,9 @@
 
 /* TEXTOS DO CARD */
 .card-titulo {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 600;
     color: #1A1A1A;
     margin-bottom: 8px;
 }
@@ -64,12 +61,12 @@
 .card-descricao {
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
-    color: #666666;
+    color: #1A1A1A;
     margin-bottom: 20px;
     flex-grow: 1;
 }
 
-/* BADGE DE STATUS / XP (TOPO DO CARD) */
+/* BADGE DE XP (TOPO DO CARD) */
 .card-badge {
     position: absolute;
     top: 15px;

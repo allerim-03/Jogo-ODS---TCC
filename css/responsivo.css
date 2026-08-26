@@ -1,5 +1,5 @@
 /* =========================================
-   DIRETRIZES RESPONSIVAS (MOBILE MIN. 320PX)
+   RESPONSIVO.CSS - Diretrizes Responsivas (Mobile Min. 320px)
    ========================================= */
 
 /* TABLET E DISPOSITIVOS MÓVEIS */
@@ -52,7 +52,8 @@
         font-size: 1.4rem;
     }
 
-    .login-box, .quiz-container {
+    .login-box, 
+    .quiz-container {
         width: 100%;
         padding: 20px 15px;
     }

@@ -1,5 +1,5 @@
 /* =========================================
-   BARRA DE NAVEGAÇÃO PRINCIPAL (NAVBAR)
+   NAVBAR.CSS - Barra de Navegação Principal
    ========================================= */
 .topbar {
     height: 100px;
@@ -9,11 +9,9 @@
     left: 0;
     z-index: 1000;
     width: 100%;
-
     display: flex;
     align-items: center;
     padding: 0 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .left {
@@ -32,7 +30,7 @@
 .logo h1 {
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 24px;
     color: #FFFFFF;
     line-height: 1;
@@ -44,8 +42,8 @@
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
-    color: #FFDE5A; /* Banana Yellow para destaque */
-    font-weight: 600;
+    color: #FFDE5A; /* Banana Yellow */
+    font-weight: 700;
 }
 
 /* NÍVEL E BARRA DE XP DA NAVBAR */
@@ -68,14 +66,14 @@
     width: 180px;
     height: 12px;
     background-color: #E0E0E0; /* Fundo cinza padrão */
-    border-radius: 999px; /* Padronizado: 999px para Barras de Progresso */
+    border-radius: 999px; /* 999px para Barras de Progresso */
     overflow: hidden;
 }
 
 .progress {
     width: 45%;
     height: 100%;
-    background-color: #4CAF50; /* Preenchimento Garden Green */
+    background-color: #4CAE50; /* Garden Green */
     border-radius: 999px;
 }
 
@@ -84,11 +82,9 @@
     display: flex;
     align-items: center;
     gap: 25px;
-
     background-color: rgba(255, 255, 255, 0.15);
     padding: 10px 25px;
     border-radius: 12px;
-
     margin-left: auto;
     width: max-content;
 }
@@ -99,7 +95,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase; /* Uppercase padrão do guia */
+    text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.2s ease;
     padding-bottom: 4px;
@@ -109,33 +105,29 @@
     color: #FFDE5A; /* Banana Yellow no hover */
 }
 
-/* Link de página ativa com sublinhado Garden Green */
 .menu a.active {
-    border-bottom: 3px solid #4CAF50;
+    border-bottom: 3px solid #4CAE50; /* Garden Green */
 }
 
 /* BOTÃO DE LOGOUT */
 .logout {
-    background-color: #FF524D; /* Vivid Red (Feedback Crítico/Ação de Sair) */
+    background-color: #FF524D; /* Vivid Red */
     color: #FFFFFF;
     border: none;
-
     width: auto;
     padding: 10px 24px;
-
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
-
     border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: opacity 0.2s ease, transform 0.1s ease;
     margin-left: 15px;
 }
 
 .logout:hover {
-    background-color: #e0443f;
+    opacity: 0.9;
     transform: translateY(-1px);
 }
 
@@ -147,15 +139,12 @@
 .perfil-container {
     width: 45px;
     height: 45px;
-
     background-color: #FFFFFF;
     border-radius: 12px;
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-left: 15px;
     border: 2px solid #FFFFFF;
     transition: transform 0.2s ease;
@@ -175,16 +164,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 50px;
     height: 50px;
-
     background-color: #FFFFFF;
     border-radius: 12px;
     margin-left: 20px;
     overflow: hidden;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
     flex-shrink: 0;
 }

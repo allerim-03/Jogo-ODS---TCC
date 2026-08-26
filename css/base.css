@@ -1,4 +1,6 @@
-/* RESET E CONFIGURAÇÕES GERAIS */
+/* =========================================
+   BASE.CSS - Configurações Gerais e utilitários
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +8,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* CORPO DA PÁGINA */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    
-    /* Fundo sólido Bright Blue (Estrutural) */
-    background-color: #43B4FB;
+    background-color: #43B4FB; /* Bright Blue (Estrutural) */
     color: #1A1A1A;
     padding-top: 100px;
 }
@@ -22,9 +21,9 @@ main {
     flex: 1;
 }
 
-/* CLASSES UTILITÁRIAS */
+/* CLASSES UTILITÁRIAS DE CORES E TEXTO */
 .negrito {
-    font-weight: bold !important;
+    font-weight: 700 !important;
 }
 
 .texto-azul {
@@ -32,7 +31,7 @@ main {
 }
 
 .texto-verde {
-    color: #4CAF50 !important; /* Garden Green */
+    color: #4CAE50 !important; /* Garden Green */
 }
 
 .texto-amarelo {

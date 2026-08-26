@@ -1,5 +1,5 @@
 /* =========================================
-   SIDEBAR E NAVEGAÇÃO LATERAL
+   SIDEBAR.CSS - Sidebar e Navegação Lateral
    ========================================= */
 .menu-checkbox {
     display: none !important;
@@ -9,7 +9,7 @@
 .hamburger {
     width: 48px;
     height: 48px;
-    background-color: #4CAF50; /* Garden Green */
+    background-color: #4CAE50; /* Garden Green */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,11 +17,11 @@
     gap: 5px;
     cursor: pointer;
     border-radius: 12px;
-    transition: background-color 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .hamburger:hover {
-    background-color: #439e47;
+    opacity: 0.9;
 }
 
 .hamburger span {
@@ -38,15 +38,12 @@
     left: -300px;
     width: 280px;
     height: 100vh;
-
     background-color: #43B4FB; /* Bright Blue */
     z-index: 9999;
     transition: left 0.3s ease;
     padding: 30px 20px;
-
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2);
 }
 
 #menu-check:checked ~ .sidebar {
