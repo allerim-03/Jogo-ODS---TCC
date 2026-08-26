@@ -103,24 +103,26 @@ const dadosODS = {
     }
 };
 
-function abrirModal(numeroODS) {
-    const ods = dadosODS[numeroODS];
-    if (!ods) return;
+function abrirModal(id) {
+    const modal = document.getElementById('ods-modal');
+    
+    // Atualiza os dados do modal com base na ODS clicada
+    document.getElementById('modal-tag').innerText = `ODS ${id}`;
+    document.getElementById('modal-titulo').innerText = odsDados[id].titulo;
+    document.getElementById('modal-descricao').innerText = odsDados[id].descricao;
+    
+    // CAMINHO CORRETO DAS SUAS IMAGENS:
+    document.getElementById('modal-img').src = `img/ods${id}.png`;
 
-    document.getElementById("modal-tag").textContent = ods.tag;
-    document.getElementById("modal-titulo").textContent = ods.titulo;
-    document.getElementById("modal-descricao").textContent = ods.descricao;
-    document.getElementById("modal-img").src = ods.imagem;
-
-    document.getElementById("ods-modal").classList.add("ativo");
+    modal.classList.add('ativo');
 }
 
 function fecharModal() {
-    document.getElementById("ods-modal").classList.remove("ativo");
+    document.getElementById('ods-modal').classList.remove('ativo');
 }
 
 function fecharModalFora(event) {
-    if (event.target.id === "ods-modal") {
+    if (event.target.id === 'ods-modal') {
         fecharModal();
     }
 }
