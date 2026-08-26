@@ -4,56 +4,43 @@
 
 .jogos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* CARD APENAS COM IMAGEM */
 .escolha-card {
     background-color: #FFFFFF;
     border-radius: 20px;
-    padding: 25px 20px;
+    padding: 0; /* Zerado para a imagem ocupar todo o card */
     text-align: center;
     border: 3px solid #E3F2FD;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Corta as bordas da imagem no formato do card */
+}
+
+/* ESTILO E AJUSTE DA IMAGEM DENTRO DO CARD */
+.escolha-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    border-radius: 17px;
 }
 
 .escolha-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.02);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
     border-color: #43B4FB;
-}
-
-.escolha-icone {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-    display: block;
-    line-height: 1;
-}
-
-.escolha-card h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.4rem;
-    color: #1A1A1A;
-    margin: 0 0 8px 0;
-}
-
-.escolha-card p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: #64748B;
-    margin: 0;
-    line-height: 1.3;
 }
 
 /* =========================================
@@ -202,21 +189,9 @@
 
 @media (max-width: 600px) {
     .jogos-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
         gap: 12px;
         padding: 10px;
-    }
-
-    .escolha-card {
-        padding: 15px 10px;
-    }
-
-    .escolha-card h2 {
-        font-size: 1.1rem;
-    }
-
-    .escolha-card p {
-        font-size: 0.85rem;
     }
 
     .modal-card {
