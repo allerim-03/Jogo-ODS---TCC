@@ -4,19 +4,22 @@
 
 .jogos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
+    /* Define colunas com tamanho fixo de 270px ou adapta no mobile */
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 24px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
+    justify-items: center; /* Centraliza os cards no grid */
 }
 
-/* CARD APENAS COM IMAGEM */
+/* CARD FIXO COM 270px x 270px */
 .escolha-card {
+    width: 270px;
+    height: 270px;
     background-color: #FFFFFF;
     border-radius: 20px;
     padding: 0; /* Zerado para a imagem ocupar todo o card */
-    text-align: center;
     border: 3px solid #E3F2FD;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     cursor: pointer;
@@ -24,14 +27,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Corta as bordas da imagem no formato do card */
+    overflow: hidden; /* Corta o excesso da imagem nas bordas */
+    box-sizing: border-box;
 }
 
-/* ESTILO E AJUSTE DA IMAGEM DENTRO DO CARD */
 .escolha-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Corta a imagem mantendo a proporção para preencher o quadrado */
+    object-position: center; /* Mantém a imagem centralizada ao cortar */
     display: block;
     user-select: none;
     border-radius: 17px;
