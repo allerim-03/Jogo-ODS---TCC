@@ -1,6 +1,20 @@
-/* =========================================
-   RANKING - ESTILO ELEFANTE LETRADO / GAMIFICADO
-   ========================================= */
+body, html {
+    background-color: #43B4FB !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+main, 
+.main-container, 
+.conteudo-principal, 
+.content-wrapper,
+#app {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 
 .ranking-wrapper {
     display: flex;
@@ -9,29 +23,46 @@
     width: 100%;
     max-width: 850px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 0 15px;
+    background: transparent !important;
 }
 
-/* CONTAINER CENTRAL COM APARÊNCIA DE CARD FLUTUANTE */
 .ranking-container {
     width: 100%;
-    background: #FFFFFF;
-    border-radius: 24px;
-    padding: 35px 30px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    border: 3px solid #E3F2FD;
+    background-color: #FFFFFF !important;
+    border-radius: 24px !important;
+    padding: 35px 25px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15) !important;
+    border: 3px solid #E3F2FD !important;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-/* =========================================
-   PÓDIO (1º, 2º e 3º LUGAR)
-   ========================================= */
+.texto-ranking-topo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.texto-ranking-topo h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.texto-ranking-topo p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #FFFFFF;
+}
+
 .podium-container {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinha todos pela base para a altura funcionar */
+    align-items: flex-end;
     gap: 15px;
     margin-bottom: 10px;
     width: 100%;
@@ -40,7 +71,7 @@
 .podium-card {
     background-color: #FFFFFF;
     border-radius: 20px;
-    padding: 20px 15px;
+    padding: 18px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,35 +79,34 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     flex: 1;
     max-width: 200px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .podium-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* ESTRUTURA DE ALTURAS DO PÓDIO */
 .podium-card.first {
-    order: 2; /* Fica no centro */
+    order: 2;
     height: 220px;
-    border: 3px solid #FFDE5A; /* Banana Yellow */
+    border: 3px solid #FFDE5A;
     background: linear-gradient(180deg, #FFFDF0 0%, #FFFFFF 100%);
-    box-shadow: 0 10px 25px rgba(255, 222, 90, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 222, 90, 0.35);
 }
 
 .podium-card.second {
-    order: 1; /* Fica na esquerda */
+    order: 1;
     height: 185px;
-    border: 3px solid #43B4FB; /* Bright Blue */
+    border: 3px solid #43B4FB;
 }
 
 .podium-card.third {
-    order: 3; /* Fica na direita */
+    order: 3;
     height: 165px;
-    border: 3px solid #4CAF50; /* Garden Green */
+    border: 3px solid #4CAF50;
 }
 
-/* MEDALHAS E AVATARES DO PÓDIO */
 .podium-medal {
     font-size: 2rem;
     margin-bottom: 6px;
@@ -89,7 +119,7 @@
     border-radius: 50%;
     border: 3px solid #43B4FB;
     object-fit: cover;
-    background-color: #FFF;
+    background-color: #FFFFFF;
 }
 
 .podium-card.first .podium-avatar {
@@ -115,13 +145,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
-    color: #31B54C; /* Garden Green */
+    color: #31B54C;
     margin-top: 2px;
 }
 
-/* =========================================
-   LISTA DE POSIÇÕES (4º EM DIANTE)
-   ========================================= */
 .ranking-list {
     display: flex;
     flex-direction: column;
@@ -178,19 +205,55 @@
     color: #31B54C;
 }
 
-/* CARD DO JOGADOR ATUAL (VOCÊ) */
 .ranking-item.current-user {
-    background-color: #E8F5E9;
-    border: 2px solid #4CAF50;
+    background-color: #E8F5E9 !important;
+    border: 2px solid #4CAF50 !important;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+    margin-top: 8px;
 }
 
 .ranking-item.current-user .position,
 .ranking-item.current-user .player-name {
-    color: #1B5E20;
+    color: #1B5E20 !important;
     font-weight: 700;
 }
 
 .ranking-item.current-user .player-xp {
-    color: #2E7D32;
+    color: #2E7D32 !important;
+}
+
+@media (max-width: 600px) {
+    .podium-container {
+        gap: 8px;
+    }
+
+    .podium-card {
+        padding: 12px 6px;
+    }
+
+    .podium-card.first { height: 180px; }
+    .podium-card.second { height: 155px; }
+    .podium-card.third { height: 140px; }
+
+    .podium-avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .podium-card.first .podium-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .podium-name {
+        font-size: 0.85rem;
+    }
+
+    .podium-xp {
+        font-size: 0.8rem;
+    }
+
+    .ranking-container {
+        padding: 20px 12px;
+    }
 }
