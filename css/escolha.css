@@ -216,3 +216,106 @@
         font-size: 1.4rem;
     }
 }
+
+/* =========================================
+   SEÇÃO DE BLOCOS EXPLICATIVOS (LAYOUT DUAL)
+   ========================================= */
+
+.secao-explicativa {
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Card Branco Base */
+.bloco-info {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 35px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border: 3px solid #E3F2FD;
+    box-sizing: border-box;
+}
+
+/* Textos dentro do Bloco */
+.bloco-texto {
+    flex: 1;
+}
+
+.bloco-texto h2 {
+    font-family: 'Nunito', sans-serif;
+    color: #2E7D32; /* Verde idêntico ao da imagem */
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.bloco-texto p {
+    font-family: 'Poppins', sans-serif;
+    color: #4A5568;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Botão Link */
+.btn-saiba-mais {
+    display: inline-block;
+    background-color: #43B4FB;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #2196F3;
+    transform: translateY(-2px);
+}
+
+/* Placeholder tracejado para Imagem (como na sua foto) */
+.bloco-imagem-placeholder {
+    width: 320px;
+    height: 200px;
+    border: 2px dashed #64B5F6;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8FAFC;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.bloco-imagem-placeholder img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+    .bloco-info, 
+    .bloco-info.bloco-invertido {
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .bloco-imagem-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+}
