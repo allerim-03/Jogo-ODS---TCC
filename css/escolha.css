@@ -1,65 +1,238 @@
 /* =========================================
-   CARDS E SELEÇÃO DE PERFIL (ESCOLHA)
+   CONTAINER E CARDS DE ESCOLHA DAS ODS
    ========================================= */
-.escolha-container {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+
+.jogos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .escolha-card {
     background-color: #FFFFFF;
-    border-radius: 16px; /* Padronizado: 16px para Cards */
-    padding: 40px 45px;
+    border-radius: 20px;
+    padding: 25px 20px;
     text-align: center;
+    border: 3px solid #E3F2FD;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    color: #1A1A1A;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .escolha-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    border-color: #43B4FB;
 }
 
 .escolha-icone {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
     display: block;
-    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.escolha-card h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
 }
 
 .escolha-card p {
     font-family: 'Poppins', sans-serif;
-    color: #555555; /* Texto secundário sobre fundo claro */
+    font-weight: 500;
     font-size: 0.95rem;
+    color: #64748B;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* =========================================
+   QUADRANTE / MODAL DE DETALHES (FLUTUANTE)
+   ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-overlay.ativo {
+    display: flex;
+}
+
+.modal-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    max-width: 650px;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    border: 4px solid #43B4FB;
+    animation: popup 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #FF5252;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.modal-fechar:hover {
+    background: #E53935;
+    transform: scale(1.1);
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.modal-tag {
+    background-color: #FFDE5A;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.modal-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: #1A1A1A;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.modal-imagem-container {
+    width: 100%;
+    height: 180px;
+    background-color: #F1F5F9;
+    border-radius: 16px;
+    border: 2px dashed #CBD5E1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.modal-imagem-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal-texto h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #334155;
+    margin: 0 0 8px 0;
+}
+
+.modal-texto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #475569;
     line-height: 1.5;
+    margin: 0;
 }
 
-/* VARIAÇÃO: PERFIL ALUNO */
-.aluno-card {
-    border: 2px solid #43B4FB; /* Bright Blue */
-}
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================= */
 
-.aluno-card h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #43B4FB; /* Bright Blue */
-    margin-bottom: 8px;
-    font-size: 1.5rem;
-}
+@media (max-width: 600px) {
+    .jogos-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 10px;
+    }
 
-/* VARIAÇÃO: PERFIL PROFESSOR */
-.professor-card {
-    border: 2px solid #DB95FD; /* Lavender */
-}
+    .escolha-card {
+        padding: 15px 10px;
+    }
 
-.professor-card h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #DB95FD; /* Lavender */
-    margin-bottom: 8px;
-    font-size: 1.5rem;
+    .escolha-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .escolha-card p {
+        font-size: 0.85rem;
+    }
+
+    .modal-card {
+        padding: 20px 15px;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .modal-imagem-container {
+        height: 140px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
 }
