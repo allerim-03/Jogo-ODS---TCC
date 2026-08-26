@@ -1,51 +1,87 @@
 /* =========================================
    TEXTOS.CSS - Tipografia e Estilos de Texto
    ========================================= */
+
 /* BOAS-VINDAS / CABEÇALHOS DE PÁGINA */
 .boas-vindas {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 30px;
+    padding: 20px 20px 10px 20px;
+    margin-bottom: 20px;
+    background-color: #F8FAFC !important; /* Força fundo neutro */
 }
 
 .boas-vindas h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
-    color: #4CAE50; /* Convertido de branco para Garden Green */
+    color: #4CAE50 !important; /* Garden Green */
     margin-bottom: 10px;
 }
 
-.titulo-branco {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    color: #4CAE50; /* Convertido para Garden Green para não sumir no fundo claro */
-    font-size: 3rem;
-}
-
+.sub-titulo,
 .sub-branco {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    color: #1A1A1A; /* Convertido para escuro de alto contraste */
+    color: #1A1A1A !important; /* Escuro de alto contraste */
     font-size: 1.1rem;
     margin-bottom: 20px;
     opacity: 0.95;
 }
 
-/* CONTAINER DOS BOTÕES DE BOAS-VINDAS */
+/* BOTÕES 3D DE BOAS-VINDAS */
 .botoes-boas-vindas {
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .botoes-boas-vindas .btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    background-color: #4CAE50;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #388E3C, 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-decoration: none !important;
     min-width: 160px;
+}
+
+.botoes-boas-vindas .btn-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #388E3C, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.botoes-boas-vindas .btn-principal:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #388E3C, 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.botoes-boas-vindas .btn-secundario {
+    background-color: #43B4FB;
+    box-shadow: 0 4px 0 #1E88E5, 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.botoes-boas-vindas .btn-secundario:hover {
+    box-shadow: 0 6px 0 #1E88E5, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.botoes-boas-vindas .btn-secundario:active {
+    box-shadow: 0 1px 0 #1E88E5, 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* TEXTOS REUTILIZÁVEIS DE SEÇÃO */
@@ -58,7 +94,7 @@
     font-weight: 600;
     font-size: 1.6rem;
     margin-bottom: 12px;
-    color: #4CAE50; /* Garden Green */
+    color: #4CAE50;
 }
 
 .texto p {
@@ -66,26 +102,12 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.6;
-    color: #1A1A1A; /* Alto contraste sobre fundo claro */
+    color: #1A1A1A;
 }
 
 /* CLASSES UTILITÁRIAS DE COR E PESO */
-.negrito {
-    font-weight: 700 !important;
-}
-
-.texto-azul {
-    color: #43B4FB !important; /* Bright Blue */
-}
-
-.texto-verde {
-    color: #4CAE50 !important; /* Garden Green */
-}
-
-.texto-amarelo {
-    color: #FFDE5A !important; /* Banana Yellow */
-}
-
-.texto-vermelho {
-    color: #FF524D !important; /* Vivid Red */
-}
+.negrito { font-weight: 700 !important; }
+.texto-azul { color: #43B4FB !important; }
+.texto-verde { color: #4CAE50 !important; }
+.texto-amarelo { color: #FFDE5A !important; }
+.texto-vermelho { color: #FF524D !important; }
