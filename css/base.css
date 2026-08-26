@@ -1,43 +1,44 @@
-    /* RESET */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    /* CORPO */
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
+/* CORPO DA PÁGINA */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* Fundo sólido Bright Blue (Estrutural) */
+    background-color: #43B4FB;
+    color: #1A1A1A;
+    padding-top: 100px;
+}
 
-        background: linear-gradient(
-    180deg,
-    #6fa8c4 0%,
-    #72c8cf 35%,
-    #8bc98b 70%,
-    #a8ce83 100%
-);
+main {
+    flex: 1;
+}
 
-        background-attachment: fixed;
-        color: white;
-        padding-top: 100px;
-    }
+/* CLASSES UTILITÁRIAS */
+.negrito {
+    font-weight: bold !important;
+}
 
-    main {
-        flex: 1;
-    }
+.texto-azul {
+    color: #43B4FB !important; /* Bright Blue */
+}
 
-    /* Classes utilitárias */
-    .negrito {
-        font-weight: bold !important;
-    }
+.texto-verde {
+    color: #4CAF50 !important; /* Garden Green */
+}
 
-    .texto-azul {
-        color: #3a86ff !important;
-    }
+.texto-amarelo {
+    color: #FFDE5A !important; /* Banana Yellow */
+}
 
-    .texto-verde {
-        color: #22c55e !important;
-    }
+.texto-vermelho {
+    color: #FF524D !important; /* Vivid Red */
+}

@@ -1,51 +1,52 @@
-/* CHECKBOX */
+/* =========================================
+   SIDEBAR E NAVEGAÇÃO LATERAL
+   ========================================= */
 .menu-checkbox {
     display: none !important;
 }
 
-/* HAMBÚRGUER */
+/* BOTÃO HAMBÚRGUER */
 .hamburger {
-    width: 50px;
-    height: 50px;
-
-    background-color: #8bc34a;
-
+    width: 48px;
+    height: 48px;
+    background-color: #4CAF50; /* Garden Green */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     gap: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.hamburger:hover {
+    background-color: #439e47;
 }
 
 .hamburger span {
-    width: 25px;
+    width: 24px;
     height: 3px;
-    background-color: white;
+    background-color: #FFFFFF;
+    border-radius: 2px;
 }
 
-/* SIDEBAR */
+/* SIDEBAR PAINEL */
 .sidebar {
     position: fixed;
     top: 0;
     left: -300px;
-
     width: 280px;
     height: 100vh;
 
-    background-color: #1b5e20;
+    background-color: #43B4FB; /* Bright Blue */
     z-index: 9999;
-
-    transition: all 0.4s ease;
-
-    padding: 40px 20px;
+    transition: left 0.3s ease;
+    padding: 30px 20px;
 
     display: flex;
     flex-direction: column;
-
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2);
 }
 
 #menu-check:checked ~ .sidebar {
@@ -57,12 +58,9 @@
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
-    background: rgba(0, 0, 0, 0.6);
-
+    background: rgba(0, 0, 0, 0.4);
     z-index: 9998;
     display: none;
 }
@@ -71,45 +69,43 @@
     display: block;
 }
 
-/* PERFIL DA SIDEBAR */
+/* PERFIL DENTRO DA SIDEBAR */
 .perfil-sidebar {
     text-align: center;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
 .perfil-sidebar .foto-perfil {
-    width: 100px;
-    height: 100px;
-
-    border-radius: 15px;
-    border: 3px solid #fbc02d;
-
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #FFDE5A; /* Banana Yellow */
     margin-bottom: 10px;
+    object-fit: cover;
 }
 
-/* LINKS */
+/* LINKS DA SIDEBAR */
 .links-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .links-sidebar a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
-    font-weight: bold;
-
-    padding: 12px;
-    border-radius: 8px;
-
-    transition: 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .links-sidebar a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fbc02d;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #FFDE5A; /* Banana Yellow */
 }

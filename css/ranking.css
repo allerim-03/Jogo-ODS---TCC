@@ -1,9 +1,11 @@
+/* =========================================
+   PAINEL DE RANKING (GAMIFICAÇÃO)
+   ========================================= */
 .ranking-wrapper {
+    display: flex;
     flex-direction: column;
     align-items: center;
-
     max-width: 800px;
-
     margin: 40px auto;
 }
 
@@ -13,79 +15,73 @@
 }
 
 .texto-ranking-topo h2 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
 }
 
 .texto-ranking-topo p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #FFFFFF;
 }
 
 .ranking-container {
     width: 100%;
     max-width: 650px;
-
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
 }
 
+/* PÓDIO (1º, 2º e 3º LUGAR) */
 .podium-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
     gap: 15px;
-
     margin-bottom: 30px;
     padding: 10px;
-
     width: 100%;
 }
 
 .podium-card {
-    background: rgba(255, 255, 255, 0.9);
-
-    border-radius: 20px;
-
+    background-color: #FFFFFF;
+    border-radius: 16px;
     padding: 20px 10px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     flex: 1;
-
-    transition: transform 0.2s;
-
-    border: 2px solid #3a86ff;
+    transition: transform 0.2s ease;
+    border: 2px solid #43B4FB; /* Bright Blue Padrão */
 }
 
 .podium-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
+/* 1º LUGAR: Fundo Amarelo Claro + Borda Banana Yellow */
 .podium-card.first {
     min-height: 190px;
-    border-color: #fbc02d;
-    background: #fff;
+    border-color: #FFDE5A;
+    background-color: #FFFDF0;
 }
 
+/* 2º LUGAR: Borda Bright Blue */
 .podium-card.second {
     min-height: 160px;
-    border-color: #972fff;
+    border-color: #43B4FB;
 }
 
+/* 3º LUGAR: Borda Garden Green */
 .podium-card.third {
     min-height: 140px;
-    border-color: #22c55e;
+    border-color: #4CAF50;
 }
 
 .podium-medal {
@@ -96,137 +92,103 @@
 .podium-avatar {
     width: 55px;
     height: 55px;
-
     border-radius: 50%;
-
-    border: 3px solid #3a86ff;
-
-    background-color: white;
-
+    border: 3px solid #43B4FB;
+    background-color: #FFFFFF;
     object-fit: cover;
 }
 
 .podium-card.first .podium-avatar {
     width: 65px;
     height: 65px;
-    border-color: #fbc02d;
+    border-color: #FFDE5A;
 }
 
 .podium-name {
-    font-weight: bold;
-    color: #1a4fd6;
-
-    font-size: 1rem;
-
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 0.95rem;
     margin-top: 8px;
-
     text-align: center;
 }
 
+/* XP em Garden Green Bold */
 .podium-xp {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     font-size: 0.9rem;
-    color: #22c55e;
-
-    font-weight: bold;
-
+    color: #31B54C; /* Cor oficial do XP no Guia */
     margin-top: 3px;
 }
 
-/* LISTA */
+/* LISTA DE POSIÇÕES (4º EM DIANTE) */
 .ranking-list {
     display: flex;
     flex-direction: column;
-
-    gap: 12px;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0, 0, 0, 0.15);
-
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .ranking-item {
     display: flex;
     align-items: center;
-
-    padding: 12px 15px;
-
-    background: white;
-
+    padding: 12px 18px;
+    background-color: #FFFFFF;
     border-radius: 12px;
-
-    border-left: 5px solid #22c55e;
+    border-left: 5px solid #4CAF50; /* Garden Green */
 }
 
 .ranking-item .position {
-    font-weight: bold;
-    font-size: 1.1rem;
-
-    color: #444;
-
-    width: 45px;
-
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #555555;
+    width: 40px;
     text-align: left;
 }
 
 .item-avatar {
     width: 40px;
     height: 40px;
-
     border-radius: 50%;
-
     margin-right: 15px;
-
-    background: #e0e0e0;
-
+    background-color: #E0E0E0;
     object-fit: cover;
-
-    border: 1.5px solid #3a86ff;
+    border: 2px solid #43B4FB;
 }
 
 .player-name {
     flex-grow: 1;
-
-    font-weight: bold;
-
-    color: #333;
-
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1A1A1A;
     text-align: left;
 }
 
 .player-xp {
-    font-weight: bold;
-    color: #1a4fd6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #31B54C; /* Garden Green */
 }
 
-.ranking-container a {
-    display: inline-block;
-    margin: 15px auto 0;
-}
-
+/* JOGADOR ATUAL NA LISTA */
 .ranking-item.current-user {
-    background: #c6f6d5;
-
-    border-left: 5px solid #1b5e20;
-
-    border-top: 2px dashed #1b5e20;
-    border-bottom: 2px dashed #1b5e20;
-
-    margin-top: 10px;
+    background-color: #E8F5E9; /* Verde claro */
+    border-left: 5px solid #4CAF50;
+    border-top: 2px solid #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    margin-top: 6px;
 }
 
 .ranking-item.current-user .position,
 .ranking-item.current-user .player-name {
-    color: #065f46;
+    color: #1A1A1A;
 }
 
 .ranking-item.current-user .player-xp {
-    color: #1b5e20;
+    color: #31B54C;
 }

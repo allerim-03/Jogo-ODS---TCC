@@ -1,7 +1,14 @@
+/* =========================================
+   ESTRUTURA E ESTILOS DO QUIZ
+   ========================================= */
 .quiz-container {
     width: 100%;
     max-width: 500px;
     padding: 20px;
+    background: #FFFFFF;
+    border-radius: 16px; /* Padronizado: 16px para Cards */
+    border: 2px solid #43B4FB; /* Bright Blue */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .quiz-header {
@@ -10,63 +17,55 @@
 }
 
 #question-text {
-    color: #1a4fd6;
-
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #1A1A1A;
     margin-bottom: 25px;
-
-    font-size: 1.4rem;
-
+    font-size: 1.3rem;
     min-height: 60px;
 }
 
 .options-container {
     display: flex;
     flex-direction: column;
-
     gap: 12px;
 }
 
 .btn-option {
-    background: white;
-
-    border: 2px solid #3a86ff;
-
-    color: #333;
-
+    background-color: #FFFFFF;
+    border: 2px solid #43B4FB; /* Bright Blue */
+    color: #1A1A1A;
     padding: 15px;
-
-    border-radius: 12px;
-
+    border-radius: 12px; /* Padronizado: 12px para elementos interativos */
     cursor: pointer;
-
-    font-size: 1rem;
-    font-weight: bold;
-
-    transition: 0.2s;
-
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     text-align: left;
-
     width: 100%;
 }
 
 .btn-option:hover {
-    background: #eef4ff;
-    transform: scale(1.02);
+    background-color: #F0F9FF;
+    transform: translateY(-2px);
 }
 
+/* FEEDBACK CORRETO (Garden Green) */
 .btn-option.correct {
-    background-color: #c6f6d5 !important;
-    border-color: #22c55e !important;
-    color: #15803d;
+    background-color: #E8F5E9 !important;
+    border-color: #4CAF50 !important;
+    color: #2E7D32 !important;
 }
 
+/* FEEDBACK INCORRETO (Vivid Red) */
 .btn-option.wrong {
-    background-color: #fed7d7 !important;
-    border-color: #f56565 !important;
-    color: #c53030;
+    background-color: #FFEBEE !important;
+    border-color: #FF524D !important;
+    color: #C62828 !important;
 }
 
 .quiz-bar {
     width: 100% !important;
-    margin-top: 5px;
+    margin-top: 10px;
 }

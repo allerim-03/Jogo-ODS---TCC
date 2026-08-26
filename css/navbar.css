@@ -1,7 +1,9 @@
-/* HEADER */
+/* =========================================
+   BARRA DE NAVEGAÇÃO PRINCIPAL (NAVBAR)
+   ========================================= */
 .topbar {
     height: 100px;
-    background-color: #2f7d32;
+    background-color: #43B4FB; /* Bright Blue (Estrutural) */
     position: fixed;
     top: 0;
     left: 0;
@@ -11,6 +13,7 @@
     display: flex;
     align-items: center;
     padding: 0 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .left {
@@ -28,7 +31,10 @@
 
 .logo h1 {
     margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 24px;
+    color: #FFFFFF;
     line-height: 1;
     white-space: nowrap;
     display: flex;
@@ -36,91 +42,113 @@
 
 .logo p {
     margin: 0;
-    font-size: 14px;
-    opacity: 0.9;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #FFDE5A; /* Banana Yellow para destaque */
+    font-weight: 600;
 }
 
-/* LEVEL */
+/* NÍVEL E BARRA DE XP DA NAVBAR */
 .level {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: -2px;
 }
 
 .level span {
-    font-size: 14px;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFDE5A; /* Banana Yellow exclusivo para Gamificação */
     white-space: nowrap;
 }
 
 .bar {
-    width: 200px;
+    width: 180px;
     height: 12px;
-    background-color: #1b5e20;
-    border-radius: 10px;
+    background-color: #E0E0E0; /* Fundo cinza padrão */
+    border-radius: 999px; /* Padronizado: 999px para Barras de Progresso */
     overflow: hidden;
 }
 
 .progress {
     width: 45%;
     height: 100%;
-    background-color: #fbc02d;
+    background-color: #4CAF50; /* Preenchimento Garden Green */
+    border-radius: 999px;
 }
 
-/* MENU */
+/* MENU DE NAVEGAÇÃO */
 .menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 10px 25px;
-    border-radius: 8px;
+    border-radius: 12px;
 
     margin-left: auto;
     width: max-content;
 }
 
 .menu a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase; /* Uppercase padrão do guia */
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    padding-bottom: 4px;
 }
 
-/* LOGOUT */
+.menu a:hover {
+    color: #FFDE5A; /* Banana Yellow no hover */
+}
+
+/* Link de página ativa com sublinhado Garden Green */
+.menu a.active {
+    border-bottom: 3px solid #4CAF50;
+}
+
+/* BOTÃO DE LOGOUT */
 .logout {
-    background-color: #ff3b3b;
-    color: white;
+    background-color: #FF524D; /* Vivid Red (Feedback Crítico/Ação de Sair) */
+    color: #FFFFFF;
     border: none;
 
     width: auto;
-    padding: 10px 40px;
+    padding: 10px 24px;
 
-    font-weight: bold;
-    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
     text-transform: uppercase;
 
     border-radius: 12px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     margin-left: 15px;
 }
 
 .logout:hover {
-    background-color: #e60000;
-    transform: scale(1.05);
+    background-color: #e0443f;
+    transform: translateY(-1px);
 }
 
-/* PERFIL */
-.perfil-container {
-    width: 50px;
-    height: 50px;
+.logout:active {
+    transform: translateY(0);
+}
 
-    background-color: white;
+/* CONTAINER DE FOTO DE PERFIL */
+.perfil-container {
+    width: 45px;
+    height: 45px;
+
+    background-color: #FFFFFF;
     border-radius: 12px;
     overflow: hidden;
 
@@ -129,14 +157,12 @@
     align-items: center;
 
     margin-left: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-
-    transition: transform 0.2s;
+    border: 2px solid #FFFFFF;
+    transition: transform 0.2s ease;
 }
 
 .perfil-container:hover {
-    transform: scale(1.1);
-    border-color: white;
+    transform: scale(1.05);
 }
 
 .foto-perfil {
@@ -150,19 +176,19 @@
     align-items: center;
     justify-content: center;
 
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 12px;
     margin-left: 20px;
     overflow: hidden;
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
     flex-shrink: 0;
 }
 
 .perfil-externo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }

@@ -1,58 +1,77 @@
 /* =========================================
-   TEXTOS
+   ESTILOS DE TIPOGRAFIA E TEXTOS
    ========================================= */
 
-/* BOAS-VINDAS */
+/* BOAS-VINDAS / CABEÇALHOS DE PÁGINA */
 .boas-vindas {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .boas-vindas h2 {
-    font-size: 2.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #FFFFFF;
     margin-bottom: 10px;
 }
 
 .titulo-branco {
-    color: white;
-    font-size: 3.5rem;
-    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sub-branco {
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.1rem;
     margin-bottom: 20px;
+    opacity: 0.95;
 }
 
-/* TEXTOS DAS SEÇÕES */
+/* TEXTOS REUTILIZÁVEIS DE SEÇÃO */
 .texto {
     flex: 1;
 }
 
 .texto h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #e0d042;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #4CAF50; /* Garden Green */
 }
 
 .texto p {
-    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: #1A1A1A; /* Alto contraste sobre fundo claro */
 }
 
-/* CLASSES UTILITÁRIAS */
+/* CLASSES UTILITÁRIAS DE COR E PESO */
 .negrito {
-    font-weight: bold !important;
+    font-weight: 700 !important;
 }
 
 .texto-azul {
-    color: #3a86ff !important;
+    color: #43B4FB !important; /* Bright Blue */
 }
 
 .texto-verde {
-    color: #22c55e !important;
+    color: #4CAF50 !important; /* Garden Green */
+}
+
+.texto-amarelo {
+    color: #FFDE5A !important; /* Banana Yellow */
+}
+
+.texto-vermelho {
+    color: #FF524D !important; /* Vivid Red */
 }

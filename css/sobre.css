@@ -1,44 +1,48 @@
+/* =========================================
+   ESTRUTURA DA SEÇÃO SOBRE
+   ========================================= */
 main {
     display: block;
 }
 
+/* DIVISOR DA PÁGINA */
 .divisor {
     border: 0;
     height: 2px;
-
-    background: rgba(255, 255, 255, 0.3);
-
+    background-color: rgba(255, 255, 255, 0.4);
     margin: 40px auto;
-
     width: 60%;
 }
 
+/* CARDS DE SEÇÃO SOBRE (Estrutura Branca sobre Fundo Bright Blue) */
 .sobre-sessao {
-    padding: 60px 10%;
-
+    padding: 40px 5%;
     display: flex;
     justify-content: center;
 
-    background-color: rgba(16, 50, 20, 0.4);
+    background-color: #FFFFFF;
+    border: 2px solid #43B4FB; /* Bright Blue */
+    border-radius: 16px; /* Padronizado: 16px para Cards */
 
-    border-radius: 20px;
-
-    margin: 30px 10%;
-
-    color: white;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1000px;
+    color: #1A1A1A;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .sobre-sessao.cinza {
-    background-color: rgba(16, 50, 20, 0.7);
+    background-color: #F8FAFC;
+    border-color: #4CAF50; /* Variada para Garden Green */
 }
 
+/* LAYOUT FLEXÍVEL */
 .conteudo-flex {
     display: flex;
     align-items: center;
-
     gap: 40px;
-
     max-width: 1000px;
+    width: 100%;
 }
 
 .conteudo-flex.reverso {
@@ -50,58 +54,49 @@ main {
 }
 
 .texto h3 {
-    font-size: 1.8rem;
-
-    margin-bottom: 15px;
-
-    color: #e0d042;
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #4CAF50; /* Garden Green */
 }
 
 .texto p {
-    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
     line-height: 1.6;
-
-    color: rgba(255, 255, 255, 0.9);
+    color: #555555; /* Texto secundário em fundo claro */
 }
 
+/* PLACEHOLDERS E BANNERS */
 .imagem-placeholder {
     flex: 1;
-
     height: 250px;
-
-    background: #e0e0e0;
-
-    border: 2px dashed #bbb;
-
+    background-color: #F0F4F8;
+    border: 2px dashed #43B4FB; /* Bright Blue */
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .banner-final {
     margin-top: 30px;
-
     height: 200px;
-
-    background: #ccc;
-
+    background-color: #E0E0E0;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 15px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .missao-centralizada .texto {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     text-align: center;
-
     width: 100%;
     max-width: 100%;
 }
@@ -117,10 +112,7 @@ main {
 .imagem-ilust-2 {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    border-radius: 10px;
-
+    border-radius: 12px;
     display: block;
 }

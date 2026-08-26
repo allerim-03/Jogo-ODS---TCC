@@ -1,3 +1,6 @@
+/* =========================================
+   CONTAINER E ESTRUTURA DOS JOGOS
+   ========================================= */
 .jogos-container {
     display: flex;
     flex-wrap: wrap;
@@ -9,65 +12,60 @@
     margin: 0 auto;
 }
 
-/* JOGO */
+/* WAPPER DO JOGO (CARD PRINCIPAL) */
 .jogo-wrapper {
     position: relative;
-
     width: 600px;
     height: 400px;
 
-    background-color: #1a1a1a;
-
-    border: 4px solid #4caf50;
-    border-radius: 12px;
+    background-color: #1A1A1A;
+    border: 4px solid #4CAF50; /* Garden Green */
+    border-radius: 16px; /* Padronizado: 16px para Cards */
 
     overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* CAPA */
+/* CAPA DO JOGO (Antes do Play) */
 .capa-jogo {
     position: absolute;
-
     width: 100%;
     height: 100%;
 
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
 
-    background:
-        linear-gradient(
-            45deg,
-            #2e7d32,
-            #81c784
-        );
-
-    color: white;
+    /* Removido gradiente; aplicado Garden Green Sólido (Frutiger Plana) */
+    background-color: #4CAF50;
+    color: #FFFFFF;
 
     z-index: 10;
 }
 
-/* CANVAS */
+.capa-jogo h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* CANVAS DO JOGO */
 .canvas-game {
     display: none;
-
     width: 100%;
     height: 100%;
 }
 
-/* TIME */
+/* CONTAINER DOS TIMERS / PAINÉIS */
 .time-container {
     display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
-
     gap: 25px;
 
     margin-top: 30px;
-
     width: 100%;
     max-width: 1100px;
 }
