@@ -1,5 +1,5 @@
 /* =========================================
-   1. TÍTULO NO TOPO DA PÁGINA
+   1. TÍTULO NO TOPO DA PÁGINA (H1 — Nunito Bold)
    ========================================= */
 .titulo-principal-topo {
     text-align: center;
@@ -10,20 +10,20 @@
     font-family: 'Nunito', sans-serif;
     color: #FFFFFF;
     font-size: 2.2rem;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .titulo-principal-topo p {
     font-family: 'Poppins', sans-serif;
-    color: #E0F2FE;
+    color: #FFFFFF;
     font-size: 1.1rem;
+    font-weight: 400;
     margin-top: 6px;
 }
 
 /* =========================================
-   2. BLOCOS EXPLICATIVOS BRANCOS (CARD DUAL)
+   2. BLOCOS EXPLICATIVOS BRANCOS (CARD DUAL - Radius 16px)
    ========================================= */
 .secao-explicativa {
     max-width: 1000px;
@@ -36,18 +36,16 @@
 
 .bloco-info {
     background: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 16px; /* Conforme guia: cards possuem 16px */
     padding: 30px 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    border: 3px solid #E3F2FD;
+    border: 3px solid #43B4FB; /* Bright Blue */
     box-sizing: border-box;
 }
 
-/* Inverte a ordem no segundo bloco (Imagem na Esquerda, Texto na Direita) */
 .bloco-info.bloco-invertido {
     flex-direction: row-reverse;
 }
@@ -57,45 +55,48 @@
     text-align: left;
 }
 
+/* Títulos de Painéis (H2) — Montserrat SemiBold */
 .bloco-texto h2 {
-    font-family: 'Nunito', sans-serif;
-    color: #2E7D32;
-    font-size: 1.7rem;
-    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    color: #4CAE50; /* Garden Green */
+    font-size: 1.6rem;
+    font-weight: 600;
     margin-top: 0;
     margin-bottom: 12px;
 }
 
+/* Texto de Leitura / Parágrafos — Poppins Regular #1A1A1A */
 .bloco-texto p {
     font-family: 'Poppins', sans-serif;
-    color: #4A5568;
-    font-size: 0.98rem;
+    color: #1A1A1A;
+    font-size: 1.0rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
+/* Botões de Ação — Radius 12px, Montserrat Bold */
 .btn-saiba-mais {
     display: inline-block;
-    background-color: #43B4FB;
+    background-color: #43B4FB; /* Bright Blue */
     color: #FFFFFF;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
     padding: 10px 20px;
-    border-radius: 12px;
+    border-radius: 12px; /* Conforme guia: botões possuem 12px */
     text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-saiba-mais:hover {
-    background-color: #2196F3;
+    opacity: 0.9;
     transform: translateY(-2px);
 }
 
 .bloco-imagem-placeholder {
     width: 280px;
     height: 190px;
-    border: 2px dashed #64B5F6;
+    border: 2px dashed #43B4FB;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -112,12 +113,13 @@
     max-height: 100%;
     object-fit: contain;
 }
+
 /* =========================================
-   GRID COM 4 COLUNAS FIXAS DE ODS POR LINHA
+   3. GRID COM 4 COLUNAS FIXAS DE ODS (Radius 16px)
    ========================================= */
 .jogos-container {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important; /* Força 4 colunas iguais */
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 16px !important;
     width: 100% !important;
     max-width: 1100px !important;
@@ -130,12 +132,11 @@
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
     background-color: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 16px; /* Conforme guia: 16px */
     padding: 0;
-    border: 3px solid #E3F2FD;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 3px solid #43B4FB; /* Borda colorida estrutural Bright Blue */
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,18 +151,17 @@
     object-position: center;
     display: block;
     user-select: none;
-    border-radius: 17px;
+    border-radius: 13px;
     pointer-events: none;
 }
 
 .escolha-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    border-color: #43B4FB;
+    transform: translateY(-4px);
+    border-color: #4CAE50; /* Garden Green no hover */
 }
 
 /* =========================================
-   4. QUADRANTE / MODAL DE DETALHES (FLUTUANTE)
+   4. MODAL DE DETALHES (Radius 16px)
    ========================================= */
 .modal-overlay {
     position: fixed;
@@ -170,7 +170,6 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -185,50 +184,31 @@
 
 .modal-card {
     background: #FFFFFF;
-    border-radius: 24px;
+    border-radius: 16px; /* Conforme guia: 16px */
     max-width: 650px;
     width: 100%;
     padding: 30px;
     position: relative;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-    border: 4px solid #43B4FB;
-    animation: popup 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid #43B4FB;
     box-sizing: border-box;
-}
-
-@keyframes popup {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .modal-fechar {
     position: absolute;
     top: 15px;
     right: 20px;
-    background: #FF5252;
+    background: #FF524D; /* Vivid Red reservado para ações de fechar/cancelar */
     color: #FFFFFF;
     border: none;
-    font-size: 1.5rem;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 12px; /* Botão 12px */
     cursor: pointer;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.15s ease, background-color 0.15s ease;
-}
-
-.modal-fechar:hover {
-    background: #E53935;
-    transform: scale(1.1);
 }
 
 .modal-header {
@@ -236,22 +216,22 @@
 }
 
 .modal-tag {
-    background-color: #FFDE5A;
+    background-color: #FFDE5A; /* Banana Yellow para gamificação / recompensa */
     color: #1A1A1A;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     padding: 4px 14px;
     border-radius: 12px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: inline-block;
     margin-bottom: 8px;
 }
 
 .modal-header h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     color: #1A1A1A;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin: 0;
 }
 
@@ -265,9 +245,9 @@
 .modal-imagem-container {
     width: 100%;
     height: 180px;
-    background-color: #F1F5F9;
+    background-color: #F8FAFC;
     border-radius: 16px;
-    border: 2px dashed #CBD5E1;
+    border: 2px dashed #43B4FB;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -283,10 +263,10 @@
 }
 
 .modal-texto h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     font-size: 1.1rem;
-    color: #334155;
+    color: #1A1A1A;
     margin: 0 0 8px 0;
 }
 
@@ -294,21 +274,19 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 0.95rem;
-    color: #475569;
+    color: #1A1A1A;
     line-height: 1.5;
     margin: 0;
 }
 
 /* =========================================
-   5. RESPONSIVIDADE (MOBILE E TABLET)
+   5. RESPONSIVIDADE
    ========================================= */
-@media (max-width: 900px) {
-    .jogos-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
+    .jogos-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
     .bloco-info, 
     .bloco-info.bloco-invertido {
         flex-direction: column;
@@ -322,11 +300,10 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .jogos-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 10px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
     }
 
     .modal-card {
@@ -340,9 +317,5 @@
 
     .modal-imagem-container {
         height: 140px;
-    }
-
-    .modal-header h2 {
-        font-size: 1.4rem;
     }
 }
