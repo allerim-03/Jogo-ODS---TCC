@@ -319,3 +319,85 @@
         height: 140px;
     }
 }
+
+
+/*=========================================
+   ESCOLHA DE CADASTRO
+   ========================================= */
+
+   /* =========================================
+   AJUSTES ESPECÍFICOS: TELA DE BOAS-VINDAS
+   ========================================= */
+
+/* Centraliza a seção e ajusta o fundo neutro */
+.boas-vindas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #F8FAFC !important;
+}
+
+/* Corrigi os títulos para alto contraste */
+.boas-vindas .titulo-branco {
+    font-family: 'Nunito', sans-serif;
+    color: #4CAE50 !important; /* Garden Green */
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.boas-vindas .sub-branco {
+    font-family: 'Poppins', sans-serif;
+    color: #1A1A1A !important;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Coloca os dois cards lado a lado */
+.escolha-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Sobrescreve o estilo do grid/quadrado APENAS para os cards de perfil */
+.escolha-container .escolha-card {
+    aspect-ratio: auto !important; /* Restaura a altura proporcional */
+    width: 280px !important;
+    padding: 30px 20px !important;
+    flex-direction: column !important; /* Empilha foto, título e texto */
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Ajusta as imagens de perfil dentro do card */
+.escolha-container .escolha-icone {
+    display: block !important;
+    width: 80px !important;
+    height: 80px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin-bottom: 15px !important;
+}
+
+/* Ajusta a tipografia interna dos cards de perfil */
+.escolha-container .escolha-card h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4CAE50;
+    margin: 0 0 8px 0;
+}
+
+.escolha-container .escolha-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    margin: 0;
+}
