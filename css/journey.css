@@ -18,7 +18,7 @@
 .journey-title h2 {
     font-family: 'Nunito', sans-serif;
     font-size: 2.2rem;
-    color: #ffffff; /* Texto em branco como no layout original */
+    color: #1A1A1A; /* Texto em branco como no layout original */
     font-weight: 800;
     margin-bottom: 4px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -87,7 +87,7 @@
     height: 70px;
     border-radius: 50%;
     background-color: #ffffff;
-    border: 4px solid #ffffff;
+    border: 4px solid #4CAF50 ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +120,7 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1rem;
-    color: #ffffff; /* Textos abaixo das bolinhas em branco */
+    color: #1A1A1A; /* Textos abaixo das bolinhas em branco */
     text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
