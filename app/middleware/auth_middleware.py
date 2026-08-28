@@ -71,7 +71,90 @@ Se o token for inválido:
 
 ===========================================================================
 """
+from functools import wraps
 
+from flask import jsonify, g
+
+from flask_jwt_extended import (
+    verify_jwt_in_request,
+    get_jwt_identity
+)
+
+from flask_jwt_extended.exceptions import JWTExtendedException
+
+from app.repositories.user_repository import UserRepository
+
+
+user_repository = UserRepository()
+
+
+def api_login_required(view):
+
+    """
+    Decorator utilizado para proteger rotas da API.
+
+    Qualquer rota que possuir esse decorator
+    exigirá um JWT válido.
+    """
+
+    @wraps(view)
+    def wrapper(*args, **kwargs):
+
+        try:
+
+            # --------------------------------------------------------------
+            # Verifica se existe um JWT válido no Header Authorization
+            # --------------------------------------------------------------
+
+            verify_jwt_in_request()
+
+        except JWTExtendedException:
+
+            return jsonify({
+                "success": False,
+                "message": "Unauthorized."
+            }), 401
+
+        # --------------------------------------------------------------
+        # Recupera o ID salvo no JWT
+        # --------------------------------------------------------------
+
+        user_id = get_jwt_identity()
+
+        try:
+            user_id = int(user_id)
+
+        except (TypeError, ValueError):
+
+            return jsonify({
+                "success": False,
+                "message": "Invalid user identity."
+            }), 401
+
+        # --------------------------------------------------------------
+        # Busca o usuário no banco
+        # --------------------------------------------------------------
+
+        user = user_repository.get_by_id(user_id)
+
+        if not user:
+
+            return jsonify({
+                "success": False,
+                "message": "User not found."
+            }), 404
+
+        # --------------------------------------------------------------
+        # Disponibiliza o usuário para a rota
+        # --------------------------------------------------------------
+
+        g.current_user = user
+
+        return view(*args, **kwargs)
+
+    return wrapper
+
+'''
 from functools import wraps
 
 from flask import jsonify, g
@@ -156,7 +239,7 @@ def api_login_required(view):
     return wrapper
   
 
-'''
+
 
 versão com autenticação manual
 from functools import wraps
