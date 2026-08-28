@@ -1,8 +1,7 @@
 /* =========================================
-   CONTAINER E ESTRUTURA DOS JOGOS (CARROSSEL)
+   CONTAINER E ESTRUTURA DOS JOGOS (CARROSSEL SLIDER)
    ========================================= */
 
-/* Envolvente principal para alinhar as setas e os cards */
 .carousel-wrapper {
     display: flex;
     align-items: center;
@@ -11,17 +10,17 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 15px;
+    overflow: hidden; /* Esconde o que passar dos limites laterais */
+    padding: 20px 0;
 }
 
+/* A trilha que efetivamente desliza pro lado */
 .jogos-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px 0;
-    width: 100%;
-    overflow: hidden;
+    gap: 30px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Animação fluida de deslizamento */
+    will-change: transform;
 }
 
 /* CARDS INATIVOS (LATERAIS) */
@@ -32,15 +31,14 @@
     flex-shrink: 0;
 
     background-color: #1A1A1A;
-    border: 4px solid #4CAF50; /* Garden Green */
+    border: 4px solid #4CAF50;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 
-    /* Efeito de diminuição e transparência */
     opacity: 0.4;
     filter: blur(1px);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease, width 0.4s ease, height 0.4s ease;
     pointer-events: none;
 }
 
@@ -54,6 +52,7 @@
     z-index: 5;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
+
 
 /* CAPA DO JOGO (Antes do Play) */
 .capa-jogo {
@@ -86,8 +85,11 @@
     height: 100%;
 }
 
-/* RESET E ESTILO DAS SETAS DE NAVEGAÇÃO */
+/* BOTÕES DE NAVEGAÇÃO FIXOS NAS PONTAS */
 button.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 50px !important;
     height: 50px !important;
     min-width: 50px !important;
@@ -105,16 +107,24 @@ button.nav-btn {
     
     border: none !important;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, background-color 0.2s ease !important;
-    z-index: 20;
-    flex-shrink: 0;
+    z-index: 30;
 }
 
 button.nav-btn:hover {
     background-color: #388E3C !important;
     opacity: 1 !important;
     transform: scale(1.1) !important;
+}
+
+/* Posiciona cada seta na extremidade correspondente */
+button.nav-btn.prev {
+    left: 10px;
+}
+
+button.nav-btn.next {
+    right: 10px;
 }
 
 /* CONTAINER DOS TIMERS / PAINÉIS */
