@@ -184,10 +184,16 @@
                     <input type="text" id="nome-usuario" name="nome" class="form-input" value="Guardião do Eco" required maxlength="25">
                 </div>
 
-                <!-- CAMPO: SUBTÍTULO / FRASE -->
+                <!-- CAMPO: SUBTÍTULO / FRASE (SELEÇÃO PRÉ-DEFINIDA) -->
                 <div class="form-grupo">
                     <label for="titulo-usuario" class="form-label">Título da Sua Jornada:</label>
-                    <input type="text" id="titulo-usuario" name="titulo" class="form-input" value="Protetor da Natureza" maxlength="40">
+                    <select id="titulo-usuario" name="titulo" class="form-input form-select">
+                        <option value="Protetor da Natureza" selected>Protetor da Natureza</option>
+                        <option value="Guardião da Biodiversidade">Guardião da Biodiversidade</option>
+                        <option value="Defensor da Água Potável">Defensor da Água Potável</option>
+                        <option value="Herói do Clima">Herói do Clima</option>
+                        <option value="Agente da Reciclagem">Agente da Reciclagem</option>
+                    </select>
                 </div>
 
                 <!-- BOTÕES DE AÇÃO -->
