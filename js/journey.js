@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Comece sua Aventura",
             description: "Cadastre-se para registrar seu desempenho!",
             showButton: true,
-            btnText:  "Perfil",
+            btnText:  " Criar Perfil",
             btnLink: "perfil.html"
         },
         "1": {
