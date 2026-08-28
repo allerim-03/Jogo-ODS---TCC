@@ -32,7 +32,7 @@ main.perfil-container {
     color: var(--text-dark);
 }
 
-/* Header Card (Perfil + Nível + XP) - FIXO SEM INFLAR */
+/* Header Card (Perfil + Nível + XP) */
 .perfil-header-card {
     width: 100%;
     background-color: #FFFFFF;
@@ -43,13 +43,6 @@ main.perfil-container {
     align-items: center;
     gap: 24px;
     box-sizing: border-box;
-    transform: none !important;
-    transition: none !important;
-}
-
-.perfil-header-card:hover {
-    transform: none !important;
-    box-shadow: none !important;
 }
 
 .perfil-avatar-wrapper {
@@ -141,7 +134,7 @@ main.perfil-container {
     border-radius: var(--border-radius-bar);
 }
 
-/* Card Mascote Tuga - FIXO SEM INFLAR */
+/* Card Mascote Tuga */
 .tuga-card {
     width: 100%;
     background-color: #FFFFFF;
@@ -152,8 +145,6 @@ main.perfil-container {
     align-items: center;
     gap: 16px;
     box-sizing: border-box;
-    transform: none !important;
-    transition: none !important;
 }
 
 .tuga-avatar {
@@ -206,7 +197,7 @@ main.perfil-container {
     gap: 12px;
 }
 
-/* EFEITO HOVER APENAS NAS ESTATÍSTICAS (ITEMS INTERNOS) */
+/* EFEITO HOVER APENAS NAS ESTATÍSTICAS */
 .stat-item {
     display: flex;
     align-items: center;
@@ -355,4 +346,24 @@ main.perfil-container {
     .perfil-acoes {
         justify-content: center;
     }
+}
+
+/* ==========================================
+   BLOQUEIO FORÇADO DE ANIMAÇÃO NOS CARDS
+   ========================================== */
+main.perfil-container .perfil-header-card,
+main.perfil-container .tuga-card,
+main.perfil-container .card-estatisticas,
+main.perfil-container .card-insignias {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+main.perfil-container .perfil-header-card:hover,
+main.perfil-container .tuga-card:hover,
+main.perfil-container .card-estatisticas:hover,
+main.perfil-container .card-insignias:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
