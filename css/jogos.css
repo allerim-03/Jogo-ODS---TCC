@@ -15,13 +15,16 @@
     padding: 20px 0;
 }
 
-/* A trilha que efetivamente desliza pro lado */
+/* A trilha que desliza */
 .jogos-container {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Alinha à esquerda para o cálculo de posição ser exato */
     gap: 30px;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Animação fluida de deslizamento */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform;
+    position: absolute; /* Evita interferência de margens do wrapper */
+    left: 0;
 }
 
 /* CARDS INATIVOS (LATERAIS) */
