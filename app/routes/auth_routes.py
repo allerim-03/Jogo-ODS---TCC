@@ -16,17 +16,20 @@ Toda a lógica é delegada para auth_service.py.
 from flask import Blueprint, request, jsonify, g
 
 from app.middleware.auth_middleware import api_login_required
-
 from app.services.auth_service import AuthService
 
+
 auth_bp = Blueprint("auth", __name__)
-# ==========================================================================
-# Services
-# ==========================================================================
-auth_service = AuthService()
 
 # ==========================================================================
-# Cadastro
+# SERVICE
+# ==========================================================================
+
+auth_service = AuthService()
+
+
+# ==========================================================================
+# CADASTRO
 # ==========================================================================
 
 @auth_bp.route("/api/register", methods=["POST"])
@@ -40,7 +43,7 @@ def register():
 
 
 # ==========================================================================
-# Login
+# LOGIN
 # ==========================================================================
 
 @auth_bp.route("/api/login", methods=["POST"])
@@ -52,21 +55,33 @@ def login():
 
     return jsonify(result["body"]), result["status"]
 
-#POST /api/logout (futuro)
 
-#GET /api/me 
-@auth_bp.route("/api/me")
+# ==========================================================================
+# USUÁRIO AUTENTICADO
+# ==========================================================================
+
+@auth_bp.route("/api/me", methods=["GET"])
 @api_login_required
 def me():
 
     return jsonify({
-
         "success": True,
-
         "user": g.current_user.to_dict()
-
     })
-#POST /refresh
+
+
+# ==========================================================================
+# LOGOUT
+# ==========================================================================
+# POST /api/logout
+# Futuramente podemos implementar logout/invalidação de token.
+
+
+# ==========================================================================
+# REFRESH TOKEN
+# ==========================================================================
+# POST /api/refresh
+# Futuramente podemos implementar renovação do JWT.
 
 '''
 --melhoria para o futuro
