@@ -22,18 +22,19 @@ from flask_jwt_extended import create_access_token
 
 
 class SecurityService:
-# ==========================================================================
-# Criptografa uma senha
-# ==========================================================================
 
-    def hash_password(self,password):
+    # ==========================================================================
+    # CRIPTOGRAFA UMA SENHA
+    # ==========================================================================
+
+    def hash_password(self, password):
 
         return generate_password_hash(password)
 
 
-# ==========================================================================
-# Verifica se a senha está correta
-# ==========================================================================
+    # ==========================================================================
+    # VERIFICA SE A SENHA ESTÁ CORRETA
+    # ==========================================================================
 
     def verify_password(self, password_hash, password):
 
@@ -43,21 +44,18 @@ class SecurityService:
         )
 
 
-# ==========================================================================
-# Gera JWT
-#token for authenticated user.
-# ==========================================================================
+    # ==========================================================================
+    # GERA TOKEN JWT
+    # ==========================================================================
 
-    def generate_token(self,user):
+    def generate_token(self, user):
 
         return create_access_token(
-
             identity=str(user.id),
 
             additional_claims={
                 "role": user.role,
-                 "email": user.email,
-                 "use_type": user.use_type
+                "email": user.email,
+                "use_type": user.use_type
             }
-
         )
