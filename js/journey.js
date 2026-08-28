@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const stepData = {
         "0": {
             title: "Comece sua Aventura",
-            description: "Crie sua conta na plataforma para registrar suas conquistas e salvar seu progresso no jogo.",
+            description: "Cadastre-se para registrar seu desempenho!",
             showButton: true,
-            btnText: "Criar Conta / Perfil",
+            btnText:  "Perfil",
             btnLink: "perfil.html"
         },
         "1": {
