@@ -15,7 +15,7 @@
     padding: 20px 0;
 }
 
-/* A trilha que desliza */
+/* A trilha que desliza (Corrigido alinhamento vertical) */
 .jogos-container {
     display: flex;
     align-items: center;
@@ -23,6 +23,7 @@
     position: absolute;
     left: 0;
     top: 50%;
+    transform: translateY(-50%); /* Centraliza perfeitamente no meio vertical */
     margin: 0;
     padding: 0;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -58,7 +59,6 @@
     z-index: 5;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
-
 
 /* CAPA DO JOGO (Antes do Play) */
 .capa-jogo {
@@ -96,15 +96,15 @@ button.nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 64px !important;         /* Aumentado de 50px para 64px */
-    height: 64px !important;        /* Aumentado de 50px para 64px */
+    width: 64px !important;
+    height: 64px !important;
     min-width: 64px !important;
     padding: 0 !important;
     border-radius: 50% !important;
     
     background-color: #4CAF50 !important;
     color: #FFFFFF !important;
-    font-size: 28px !important;     /* Aumentado o símbolo da seta */
+    font-size: 28px !important;
     line-height: 1 !important;
     
     display: flex !important;
@@ -121,7 +121,7 @@ button.nav-btn {
 button.nav-btn:hover {
     background-color: #388E3C !important;
     opacity: 1 !important;
-    transform: translateY(-50%) scale(1.12) !important; /* Preserva a centralização vertical no hover */
+    transform: translateY(-50%) scale(1.12) !important;
 }
 
 button.nav-btn:active {
@@ -143,7 +143,7 @@ button.nav-btn.next {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
     width: 100%;
     max-width: 1100px;
 }

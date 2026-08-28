@@ -115,9 +115,9 @@
 }
 
 /* =========================================
-   3. GRID COM 4 COLUNAS FIXAS DE ODS (Radius 16px)
+   3. GRID COM 4 COLUNAS FIXAS DE ODS (EXCLUSIVO PARA ODS-GRID)
    ========================================= */
-.jogos-container {
+.ods-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 16px !important;
@@ -283,7 +283,7 @@
    5. RESPONSIVIDADE
    ========================================= */
 @media (max-width: 768px) {
-    .jogos-container {
+    .ods-grid {
         grid-template-columns: repeat(3, 1fr) !important;
     }
     
@@ -301,7 +301,7 @@
 }
 
 @media (max-width: 480px) {
-    .jogos-container {
+    .ods-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
     }
@@ -320,16 +320,9 @@
     }
 }
 
-
-/*=========================================
-   ESCOLHA DE CADASTRO
+/* =========================================
+   6. ESCOLHA DE CADASTRO / BOAS-VINDAS
    ========================================= */
-
-   /* =========================================
-   AJUSTES ESPECÍFICOS: TELA DE BOAS-VINDAS
-   ========================================= */
-
-/* Centraliza a seção e ajusta o fundo neutro */
 .boas-vindas {
     display: flex;
     flex-direction: column;
@@ -339,7 +332,6 @@
     background-color: #F8FAFC !important;
 }
 
-/* Corrigi os títulos para alto contraste */
 .boas-vindas .titulo-branco {
     font-family: 'Nunito', sans-serif;
     color: #4CAE50 !important; /* Garden Green */
@@ -355,7 +347,6 @@
     margin-bottom: 30px;
 }
 
-/* Coloca os dois cards lado a lado */
 .escolha-container {
     display: flex;
     justify-content: center;
@@ -365,17 +356,15 @@
     max-width: 800px;
 }
 
-/* Sobrescreve o estilo do grid/quadrado APENAS para os cards de perfil */
 .escolha-container .escolha-card {
-    aspect-ratio: auto !important; /* Restaura a altura proporcional */
+    aspect-ratio: auto !important;
     width: 280px !important;
     padding: 30px 20px !important;
-    flex-direction: column !important; /* Empilha foto, título e texto */
+    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
 }
 
-/* Ajusta as imagens de perfil dentro do card */
 .escolha-container .escolha-icone {
     display: block !important;
     width: 80px !important;
@@ -386,7 +375,6 @@
     margin-bottom: 15px !important;
 }
 
-/* Ajusta a tipografia interna dos cards de perfil */
 .escolha-container .escolha-card h2 {
     font-family: 'Nunito', sans-serif;
     font-size: 1.6rem;
