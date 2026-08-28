@@ -87,32 +87,38 @@
             <h2>Escolha um jogo</h2>
             <p>Divirta-se enquanto aprende sobre sustentabilidade 🌱</p>
 
-            <div class="jogos-container">
+            <div class="carousel-wrapper">
+                <button class="nav-btn prev" id="btn-prev">&#10094;</button>
 
-                <div class="jogo-wrapper">
-                    <div id="capa-jogo-1" class="capa-jogo">
-                        <h3>JOGO 1</h3>
-                        <a href="jogo1.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                <div class="jogos-container">
+
+                    <div class="jogo-wrapper" data-index="0">
+                        <div id="capa-jogo-1" class="capa-jogo">
+                            <h3>JOGO 1</h3>
+                            <a href="jogo1.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                        </div>
+                        <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-game"></canvas>
                     </div>
-                    <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-game"></canvas>
+
+                    <div class="jogo-wrapper active" data-index="1">
+                        <div id="capa-jogo-2" class="capa-jogo">
+                            <h3>JOGO 2</h3>
+                            <a href="jogo2.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                        </div>
+                        <canvas id="canvas-jogo-2" width="600" height="400" class="canvas-game"></canvas>
+                    </div>
+
+                    <div class="jogo-wrapper" data-index="2">
+                        <div id="capa-jogo-3" class="capa-jogo">
+                            <h3>JOGO 3</h3>
+                            <a href="jogo3.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                        </div>
+                        <canvas id="canvas-jogo-3" width="600" height="400" class="canvas-game"></canvas>
+                    </div>
+
                 </div>
 
-                <div class="jogo-wrapper">
-                    <div id="capa-jogo-2" class="capa-jogo">
-                        <h3>JOGO 2</h3>
-                        <a href="jogo2.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
-                    </div>
-                    <canvas id="canvas-jogo-2" width="600" height="400" class="canvas-game"></canvas>
-                </div>
-
-                <div class="jogo-wrapper">
-                    <div id="capa-jogo-3" class="capa-jogo">
-                        <h3>JOGO 3</h3>
-                        <a href="jogo3.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
-                    </div>
-                    <canvas id="canvas-jogo-3" width="600" height="400" class="canvas-game"></canvas>
-                </div>
-
+                <button class="nav-btn next" id="btn-next">&#10095;</button>
             </div>
         </section>
     </main>
@@ -122,7 +128,7 @@
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/telajogos.js"></script>
 
 </body>
 </html>
