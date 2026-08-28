@@ -22,6 +22,7 @@ from app.repositories.user_repository import UserRepository
 from app.services.security_service import SecurityService
 
 
+
 class AuthService:
 
     def __init__(self):
@@ -63,7 +64,6 @@ class AuthService:
         # ----------------------------------------------------------------------
 
         if not name or not email or not password:
-
             return {
                 "status": 400,
                 "body": {
@@ -79,7 +79,6 @@ class AuthService:
         # ----------------------------------------------------------------------
 
         if role not in ("student", "teacher"):
-
             return {
                 "status": 400,
                 "body": {
@@ -93,7 +92,6 @@ class AuthService:
         # ----------------------------------------------------------------------
 
         if use_type not in ("individual", "institutional"):
-
             return {
                 "status": 400,
                 "body": {
@@ -107,7 +105,6 @@ class AuthService:
         # ----------------------------------------------------------------------
 
         if use_type == "institutional" and not institution:
-
             return {
                 "status": 400,
                 "body": {
@@ -125,7 +122,6 @@ class AuthService:
         existing_user = self.user_repository.get_by_email(email)
 
         if existing_user:
-
             return {
                 "status": 400,
                 "body": {
@@ -160,7 +156,6 @@ class AuthService:
         # ----------------------------------------------------------------------
 
         try:
-
             created_user = self.user_repository.create(user)
 
             return {
@@ -173,7 +168,6 @@ class AuthService:
             }
 
         except Exception:
-
             return {
                 "status": 500,
                 "body": {
@@ -182,112 +176,109 @@ class AuthService:
                 }
             }
 
-        # ==========================================================================
-        # LOGIN
-        # ==========================================================================
+    # ==========================================================================
+    # LOGIN
+    # ==========================================================================
 
-        def login_user(self, data):
+    def login_user(self, data):
 
-            email = data.get("email")
-            password = data.get("password")
-            role = data.get("role")
+        email = data.get("email")
+        password = data.get("password")
+        role = data.get("role")
 
-            # ----------------------------------------------------------------------
-            # Validação
-            # ----------------------------------------------------------------------
+        # ----------------------------------------------------------------------
+        # Validação
+        # ----------------------------------------------------------------------
 
-            if not email or not password:
-
-                return {
-                    "status": 400,
-                    "body": {
-                        "success": False,
-                        "message": "Email and password are required."
-                    }
-                }
-
-            # ----------------------------------------------------------------------
-            # Busca usuário
-            # ----------------------------------------------------------------------
-
-            user = self.user_repository.get_by_email(email)
-
-            if not user:
-
-                return {
-                    "status": 404,
-                    "body": {
-                        "success": False,
-                        "message": "User not found."
-                    }
-                }
-
-            # ----------------------------------------------------------------------
-            # Verifica se a conta está ativa
-            # ----------------------------------------------------------------------
-
-            if not user.is_active:
-
-                return {
-                    "status": 403,
-                    "body": {
-                        "success": False,
-                        "message": "Account disabled."
-                    }
-                }
-
-            # ----------------------------------------------------------------------
-            # Verifica senha
-            # ----------------------------------------------------------------------
-
-            if not self.security_service.verify_password(
-                user.password,
-                password
-            ):
-
-                return {
-                    "status": 401,
-                    "body": {
-                        "success": False,
-                        "message": "Invalid email or password."
-                    }
-                }
-
-            # ----------------------------------------------------------------------
-            # Verifica perfil
-            # ----------------------------------------------------------------------
-
-            if role and user.role != role:
-
-                return {
-                    "status": 403,
-                    "body": {
-                        "success": False,
-                        "message": (
-                            f"This account is registered as {user.role}, "
-                            f"but you tried to log in as {role}."
-                        )
-                    }
-                }
-
-            # ----------------------------------------------------------------------
-            # Gera JWT
-            # ----------------------------------------------------------------------
-
-            token = self.security_service.generate_token(user)
-
-            # ----------------------------------------------------------------------
-            # Sucesso
-            # ----------------------------------------------------------------------
-
+        if not email or not password:
             return {
-                "status": 200,
+                "status": 400,
                 "body": {
-                    "success": True,
-                    "token": token,
-                    "user": user.to_dict()
+                    "success": False,
+                    "message": "Email and password are required."
                 }
             }
+
+        # ----------------------------------------------------------------------
+        # Busca usuário
+        # ----------------------------------------------------------------------
+
+        user = self.user_repository.get_by_email(email)
+
+        if not user:
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "User not found."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Verifica se a conta está ativa
+        # ----------------------------------------------------------------------
+
+        if not user.is_active:
+            return {
+                "status": 403,
+                "body": {
+                    "success": False,
+                    "message": "Account disabled."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Verifica senha
+        # ----------------------------------------------------------------------
+
+        if not self.security_service.verify_password(
+            user.password,
+            password
+        ):
+            return {
+                "status": 401,
+                "body": {
+                    "success": False,
+                    "message": "Invalid email or password."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Verifica perfil
+        # ----------------------------------------------------------------------
+
+        if role and user.role != role:
+            return {
+                "status": 403,
+                "body": {
+                    "success": False,
+                    "message": (
+                        f"This account is registered as {user.role}, "
+                        f"but you tried to log in as {role}."
+                    )
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Gera JWT
+        # ----------------------------------------------------------------------
+
+        token = self.security_service.generate_token(user)
+
+        # ----------------------------------------------------------------------
+        # Sucesso
+        # ----------------------------------------------------------------------
+
+        return {
+            "status": 200,
+            "body": {
+                "success": True,
+                "token": token,
+                "user": user.to_dict()
+            }
+        }
+
+
 
         '''
         token = create_access_token(
