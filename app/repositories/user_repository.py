@@ -52,15 +52,16 @@
 # =============================================================================
 ## TO-DO renomear para user_plataform
 
+
 from database.connection import get_connection
 from app.models.user import User
 
 
 class UserRepository:
 
-    # =====================================================
+    # ==========================================================================
     # BUSCAR USUÁRIO POR E-MAIL
-    # =====================================================
+    # ==========================================================================
 
     def get_by_email(self, email):
 
@@ -87,9 +88,9 @@ class UserRepository:
         return None
 
 
-    # =====================================================
+    # ==========================================================================
     # CRIAR USUÁRIO
-    # =====================================================
+    # ==========================================================================
 
     def create(self, user):
 
@@ -139,9 +140,9 @@ class UserRepository:
         return user
 
 
-    # =====================================================
+    # ==========================================================================
     # BUSCAR USUÁRIO POR ID
-    # =====================================================
+    # ==========================================================================
 
     def get_by_id(self, user_id):
 
@@ -168,9 +169,9 @@ class UserRepository:
         return None
 
 
-    # =====================================================
+    # ==========================================================================
     # ATUALIZAR USUÁRIO
-    # =====================================================
+    # ==========================================================================
 
     def update(self, user):
 
@@ -214,9 +215,137 @@ class UserRepository:
         return updated
 
 
-    # =====================================================
+    # ==========================================================================
+    # ATUALIZAR PERFIL
+    # ==========================================================================
+
+    def update_profile(
+        self,
+        user_id,
+        name=None,
+        age=None,
+        institution=None
+    ):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE user_plataform
+            SET
+                name = COALESCE(%s, name),
+                age = COALESCE(%s, age),
+                institution = COALESCE(%s, institution)
+            WHERE id = %s
+            """,
+            (
+                name,
+                age,
+                institution,
+                user_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount > 0
+
+        cursor.close()
+        conn.close()
+
+        return updated
+
+
+    # ==========================================================================
+    # ATUALIZAR AVATAR
+    # ==========================================================================
+
+    def update_avatar(
+        self,
+        user_id,
+        avatar
+    ):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE user_plataform
+            SET avatar = %s
+            WHERE id = %s
+            """,
+            (
+                avatar,
+                user_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount > 0
+
+        cursor.close()
+        conn.close()
+
+        return updated
+
+
+    # ==========================================================================
+    # ATUALIZAR PREFERÊNCIAS
+    # ==========================================================================
+
+    def update_preferences(
+        self,
+        user_id,
+        preferences
+    ):
+
+        # Ainda não existe tabela de preferências.
+        # Mantido como ponto de extensão para implementação futura.
+
+        return True
+
+
+    # ==========================================================================
+    # ATUALIZAR SENHA
+    # ==========================================================================
+
+    def update_password(
+        self,
+        user_id,
+        password_hash
+    ):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE user_plataform
+            SET password = %s
+            WHERE id = %s
+            """,
+            (
+                password_hash,
+                user_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount > 0
+
+        cursor.close()
+        conn.close()
+
+        return updated
+
+
+    # ==========================================================================
     # ATUALIZAR PROGRESSO
-    # =====================================================
+    # ==========================================================================
 
     def update_progress(self, user):
 
@@ -240,196 +369,44 @@ class UserRepository:
 
         conn.commit()
 
+        updated = cursor.rowcount > 0
+
         cursor.close()
         conn.close()
 
-
-# =========================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# =========================================================
-
-_repository = UserRepository()
+        return updated
 
 
-def get_user_by_id(user_id):
-    return _repository.get_by_id(user_id)
+    # ==========================================================================
+    # ESTATÍSTICAS DO USUÁRIO
+    # ==========================================================================
 
+    def get_user_statistics(self, user_id):
 
-def buscar_por_email(email):
-    return _repository.get_by_email(email)
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
 
-
-def salvar(user):
-    return _repository.create(user)
-
-
-def update_user(user):
-    return _repository.update(user)
-
-
-# =========================================================
-# ATUALIZAR PERFIL
-# =========================================================
-
-def update_user_profile(
-    user_id,
-    name=None,
-    age=None,
-    institution=None
-):
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        UPDATE user_plataform
-        SET
-            name = COALESCE(%s, name),
-            age = COALESCE(%s, age),
-            institution = COALESCE(%s, institution)
-        WHERE id = %s
-        """,
-        (
-            name,
-            age,
-            institution,
-            user_id
+        cursor.execute(
+            """
+            SELECT
+                id,
+                name,
+                xp,
+                level
+            FROM user_plataform
+            WHERE id = %s
+            """,
+            (user_id,)
         )
-    )
 
-    conn.commit()
+        statistics = cursor.fetchone()
 
-    updated = cursor.rowcount > 0
+        cursor.close()
+        conn.close()
 
-    cursor.close()
-    conn.close()
-
-    return updated
+        return statistics
 
 
-# =========================================================
-# ATUALIZAR AVATAR
-# =========================================================
-
-def update_avatar(
-    user_id,
-    avatar
-):
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        UPDATE user_plataform
-        SET avatar = %s
-        WHERE id = %s
-        """,
-        (
-            avatar,
-            user_id
-        )
-    )
-
-    conn.commit()
-
-    updated = cursor.rowcount > 0
-
-    cursor.close()
-    conn.close()
-
-    return updated
-
-
-# =========================================================
-# ATUALIZAR PREFERÊNCIAS
-# =========================================================
-
-def update_preferences(
-    user_id,
-    preferences
-):
-
-    """
-    Temporariamente mantido.
-
-    Futuramente pode utilizar uma tabela:
-
-    user_preferences
-        id
-        user_id
-        preference_name
-        preference_value
-    """
-
-    return True
-
-
-# =========================================================
-# ATUALIZAR SENHA
-# =========================================================
-
-def update_password(
-    user_id,
-    password_hash
-):
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        UPDATE user_plataform
-        SET password = %s
-        WHERE id = %s
-        """,
-        (
-            password_hash,
-            user_id
-        )
-    )
-
-    conn.commit()
-
-    updated = cursor.rowcount > 0
-
-    cursor.close()
-    conn.close()
-
-    return updated
-
-
-# =========================================================
-# ESTATÍSTICAS DO USUÁRIO
-# =========================================================
-
-def get_user_statistics(
-    user_id
-):
-
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-
-    cursor.execute(
-        """
-        SELECT
-            id,
-            name,
-            xp,
-            level
-        FROM user_plataform
-        WHERE id = %s
-        """,
-        (user_id,)
-    )
-
-    statistics = cursor.fetchone()
-
-    cursor.close()
-    conn.close()
-
-    return statistics
 '''
 (função migrada para progress_repository)
 

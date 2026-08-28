@@ -25,19 +25,16 @@ from flask import Blueprint, request, jsonify, g
 
 from app.middleware.auth_middleware import api_login_required
 
-from app.services.user_service import (
-    get_profile_service,
-    update_profile_service,
-    update_avatar_service,
-    update_preferences_service,
-    change_password_service
-)
+from app.services.user_service import UserService
 
 
 user_bp = Blueprint(
     "user",
     __name__
 )
+
+
+user_service = UserService()
 
 
 # ==========================================================================
@@ -51,11 +48,11 @@ user_bp = Blueprint(
 @api_login_required
 def profile():
 
-    result = get_profile_service(
+    result = user_service.get_profile(
         g.current_user
     )
 
-    return jsonify(result), 200
+    return jsonify(result["body"]), result["status"]
 
 
 # ==========================================================================
@@ -71,7 +68,7 @@ def update_profile():
 
     data = request.get_json() or {}
 
-    result = update_profile_service(
+    result = user_service.update_profile(
         g.current_user,
         data
     )
@@ -92,7 +89,7 @@ def update_avatar():
 
     data = request.get_json() or {}
 
-    result = update_avatar_service(
+    result = user_service.update_avatar(
         g.current_user,
         data
     )
@@ -113,7 +110,7 @@ def update_preferences():
 
     data = request.get_json() or {}
 
-    result = update_preferences_service(
+    result = user_service.update_preferences(
         g.current_user,
         data
     )
@@ -134,12 +131,13 @@ def change_password():
 
     data = request.get_json() or {}
 
-    result = change_password_service(
+    result = user_service.change_password(
         g.current_user,
         data
     )
 
     return jsonify(result["body"]), result["status"]
+
 
 
 '''

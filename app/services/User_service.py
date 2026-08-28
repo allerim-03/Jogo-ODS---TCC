@@ -20,243 +20,273 @@ Persistência fica no user_repository.
 ===========================================================================
 """
 
-from app.repositories.user_repository import (
-    get_user_by_id,
-    update_user_profile,
-    update_avatar,
-    update_preferences,
-    update_password,
-    get_user_statistics
-)
+from app.repositories.user_repository import UserRepository
+from app.services.security_service import SecurityService
+
+
+# ==========================================================================
+# AVATARES DISPONÍVEIS
+# ==========================================================================
+
+AVAILABLE_AVATARS = {
+    "avatar_01",
+    "avatar_02",
+    "avatar_03",
+    "avatar_04",
+    "avatar_05"
+}
 
 
 class UserService:
 
-    # ======================================================================
-    # Perfil
-    # ======================================================================
+    def __init__(self):
 
-    def get_profile(self, user_id):
+        self.user_repository = UserRepository()
+        self.security_service = SecurityService()
 
-        user = get_user_by_id(user_id)
+
+    # ==========================================================================
+    # PERFIL
+    # ==========================================================================
+
+    def get_profile(self, user):
 
         if user is None:
+
             return {
-                "success": False,
-                "message": "User not found."
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "User not found."
+                }
             }
 
         return {
-            "success": True,
-            "user": user
+            "status": 200,
+            "body": {
+                "success": True,
+                "user": user.to_dict()
+            }
         }
 
-    # ======================================================================
-    # Atualizar Perfil
-    # ======================================================================
 
-    def update_profile(self, user_id, data):
+    # ==========================================================================
+    # ATUALIZAR PERFIL
+    # ==========================================================================
 
-        updated = update_user_profile(user_id, data)
+    def update_profile(self, user, data):
+
+        name = data.get("name")
+        age = data.get("age")
+        institution = data.get("institution")
+
+        # ----------------------------------------------------------------------
+        # Tratamento dos campos de texto
+        # ----------------------------------------------------------------------
+
+        if isinstance(name, str):
+            name = name.strip()
+
+        if isinstance(institution, str):
+            institution = institution.strip()
+
+        # ----------------------------------------------------------------------
+        # Atualização
+        # ----------------------------------------------------------------------
+
+        updated = self.user_repository.update_profile(
+            user.id,
+            name=name,
+            age=age,
+            institution=institution
+        )
 
         if not updated:
 
             return {
-                "success": False,
-                "message": "User not found."
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "User not found."
+                }
             }
 
         return {
-            "success": True,
-            "message": "Profile updated successfully."
-        }
-
-    # ======================================================================
-    # Avatar
-    # ======================================================================
-
-    def update_avatar(self, user_id, avatar_url):
-
-        update_avatar(user_id, avatar_url)
-
-        return {
-            "success": True,
-            "message": "Avatar updated successfully."
-        }
-
-    # ======================================================================
-    # Preferências
-    # ======================================================================
-
-    def update_preferences(self, user_id, preferences):
-
-        update_preferences(user_id, preferences)
-
-        return {
-            "success": True,
-            "message": "Preferences updated successfully."
-        }
-
-    # ======================================================================
-    # Senha
-    # ======================================================================
-
-    def update_password(self, user_id, password):
-
-        update_password(user_id, password)
-
-        return {
-            "success": True,
-            "message": "Password updated successfully."
-        }
-
-    # ======================================================================
-    # Estatísticas do usuário
-    # ======================================================================
-
-    def statistics(self, user_id):
-
-        stats = get_user_statistics(user_id)
-
-        return {
-            "success": True,
-            "statistics": stats
-        }
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Mantém rotas antigas funcionando durante migração
-# =====================================================
-
-def get_profile_service(user_id):
-
-    from app.repositories.user_repository import get_user_by_id
-
-    user = get_user_by_id(user_id)
-
-    if not user:
-        return None
-
-    return user.to_dict()
-
-
-
-def update_profile_service(
-    user_id,
-    data
-):
-
-    from app.repositories.user_repository import update_user_profile
-
-
-    updated = update_user_profile(
-        user_id=user_id,
-        name=data.get("name"),
-        age=data.get("age"),
-        institution=data.get("institution")
-    )
-
-
-    return {
-        "success": updated
-    }
-
-
-
-def update_avatar_service(
-    user_id,
-    avatar
-):
-
-    from app.repositories.user_repository import update_avatar
-
-
-    updated = update_avatar(
-        user_id,
-        avatar
-    )
-
-
-    return {
-        "success": updated
-    }
-
-
-
-def update_preferences_service(
-    user_id,
-    preferences
-):
-
-    from app.repositories.user_repository import update_preferences
-
-
-    updated = update_preferences(
-        user_id,
-        preferences
-    )
-
-
-    return {
-        "success": updated
-    }
-
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Alteração de senha
-# =====================================================
-
-def change_password_service(
-    user_id,
-    data
-):
-
-    from app.repositories.user_repository import update_password
-    from app.services.security_service import SecurityService
-
-
-    security_service = SecurityService()
-
-
-    new_password = data.get("password")
-
-
-    if not new_password:
-
-        return {
-            "status":400,
-            "body":{
-                "success":False,
-                "message":"Password is required."
+            "status": 200,
+            "body": {
+                "success": True,
+                "message": "Profile updated successfully."
             }
         }
 
 
-    password_hash = security_service.hash_password(
-        new_password
-    )
+    # ==========================================================================
+    # ATUALIZAR AVATAR
+    # ==========================================================================
 
+    def update_avatar(self, user, data):
 
-    updated = update_password(
-        user_id,
-        password_hash
-    )
+        avatar = data.get("avatar")
 
+        # ----------------------------------------------------------------------
+        # Verifica se o avatar foi informado
+        # ----------------------------------------------------------------------
 
-    if not updated:
+        if not avatar:
+
+            return {
+                "status": 400,
+                "body": {
+                    "success": False,
+                    "message": "Avatar is required."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Verifica se o avatar pertence à lista disponível
+        # ----------------------------------------------------------------------
+
+        if avatar not in AVAILABLE_AVATARS:
+
+            return {
+                "status": 400,
+                "body": {
+                    "success": False,
+                    "message": "Invalid avatar."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Atualiza avatar
+        # ----------------------------------------------------------------------
+
+        updated = self.user_repository.update_avatar(
+            user.id,
+            avatar
+        )
+
+        if not updated:
+
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "User not found."
+                }
+            }
 
         return {
-            "status":400,
-            "body":{
-                "success":False,
-                "message":"Password was not updated."
+            "status": 200,
+            "body": {
+                "success": True,
+                "message": "Avatar updated successfully.",
+                "avatar": avatar
             }
         }
 
 
-    return {
-        "status":200,
-        "body":{
-            "success":True,
-            "message":"Password updated successfully."
+    # ==========================================================================
+    # PREFERÊNCIAS
+    # ==========================================================================
+
+    def update_preferences(self, user, preferences):
+
+        updated = self.user_repository.update_preferences(
+            user.id,
+            preferences
+        )
+
+        return {
+            "status": 200,
+            "body": {
+                "success": True,
+                "message": "Preferences updated successfully."
+            }
         }
-    }
+
+
+    # ==========================================================================
+    # ALTERAR SENHA
+    # ==========================================================================
+
+    def change_password(self, user, data):
+
+        new_password = data.get("password")
+
+        # ----------------------------------------------------------------------
+        # Validação
+        # ----------------------------------------------------------------------
+
+        if not new_password:
+
+            return {
+                "status": 400,
+                "body": {
+                    "success": False,
+                    "message": "Password is required."
+                }
+            }
+
+        # ----------------------------------------------------------------------
+        # Criptografa nova senha
+        # ----------------------------------------------------------------------
+
+        password_hash = self.security_service.hash_password(
+            new_password
+        )
+
+        # ----------------------------------------------------------------------
+        # Atualiza senha
+        # ----------------------------------------------------------------------
+
+        updated = self.user_repository.update_password(
+            user.id,
+            password_hash
+        )
+
+        if not updated:
+
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "Password was not updated."
+                }
+            }
+
+        return {
+            "status": 200,
+            "body": {
+                "success": True,
+                "message": "Password updated successfully."
+            }
+        }
+
+
+    # ==========================================================================
+    # ESTATÍSTICAS DO USUÁRIO
+    # ==========================================================================
+
+    def get_statistics(self, user):
+
+        statistics = self.user_repository.get_user_statistics(
+            user.id
+        )
+
+        if statistics is None:
+
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "User not found."
+                }
+            }
+
+        return {
+            "status": 200,
+            "body": {
+                "success": True,
+                "statistics": statistics
+            }
+        }
