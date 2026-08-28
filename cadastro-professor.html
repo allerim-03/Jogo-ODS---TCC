@@ -81,35 +81,51 @@
 </header>
 
     <main>
-
-
-
-    <section class="boas-vindas">
-         <h2 class="titulo-branco">Bem-vindo!</h2>
+        <section class="boas-vindas">
+            <h2 class="titulo-branco">Bem-vindo!</h2>
             <p class="sub-branco">Venha aprender brincando</p>
-        <div class="login-box professor-box">
+            <div class="login-box professor-box">
 
-            <img src="img/TugaPqn.png">
-            <h1 class="negrito">Cadastro</h1>
+                <img src="img/TugaPqn.png">
+                <h1 class="negrito">Cadastro</h1>
 
-            <form>
-                <label>Nome</label>
-                <input type="text" placeholder="Digite o nome" required>
+                <form>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
 
-                <label>Email</label>
-                <input type="email" placeholder="Digite o email" required>
+                    <label for="id_gender">Gênero</label>
+                    <select id="id_gender" name="id_gender" required>
+                        <option value="" disabled selected>Selecione o gênero</option>
+                        <option value="1">Feminino</option>
+                        <option value="2">Masculino</option>
+                        <option value="3">Não-binário</option>
+                        <option value="4">Prefiro não informar</option>
+                    </select>
 
-                <label>Senha</label>
-                <input type="password" placeholder="Escolha a senha" required>
+                    <label for="data_nascimento">Data de Nascimento</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
 
-                <label>Repita a senha</label>
-                <input type="password" placeholder="Confirme sua senha" required>
+                    <label for="matricula">Número da Matrícula (Opcional)</label>
+                    <input type="text" id="matricula" name="matricula" placeholder="Digite a matrícula">
 
-                <button type="submit">Criar</button>
-            </form>
+                    <label for="email_org">E-mail Organizacional</label>
+                    <input type="email" id="email_org" name="email_org" placeholder="exemplo@organizacao.com" required>
 
-            <p class="cadastro">Já tem uma conta? <a href="login-professor.html" class="negrito">Faça login aqui</a></p>
-        </div>
+                    <label for="email_secundario">E-mail Secundário</label>
+                    <input type="email" id="email_secundario" name="email_secundario" placeholder="exemplo@gmail.com" required>
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Escolha a senha" required>
+
+                    <label for="confirmar_senha">Confirmação de Senha</label>
+                    <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
+
+                    <button type="submit">Criar</button>
+                </form>
+
+                <p class="cadastro">Já tem uma conta? <a href="login-professor.html" class="negrito">Faça login aqui</a></p>
+            </div>
+        </section>
     </main>
 
     <footer>
