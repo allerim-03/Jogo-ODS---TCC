@@ -1,1 +1,213 @@
-<!-- a -!-> 
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - Eco-Pixel Adventure</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/perfil.css">
+
+    <style>
+        /* Esconde o checkbox, mas mantém ele funcionando */
+        #menu-check {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CHECKBOX DO MENU HAMBÚRGUER -->
+    <input type="checkbox" id="menu-check">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+            <p>Nível 2</p>
+        </div>
+
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html" class="active">PERFIL</a>
+        </nav>
+    </div>
+
+    <!-- OVERLAY -->
+    <label for="menu-check" class="overlay"></label>
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+        <div class="left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>ECO-PIXEL</h1>
+                        <p>ADVENTURE</p>
+                    </div>
+                </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html" class="active">PERFIL</a>
+        </nav>
+
+        <!-- FOTO DE PERFIL -->
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="perfil-container">
+        
+        <!-- CABEÇALHO DO PERFIL DO JOGADOR -->
+        <section class="perfil-header-card">
+            <div class="perfil-avatar-wrapper">
+                <img src="img/foto.png" alt="Foto do Jogador" class="perfil-avatar-main">
+                <span class="badge-nivel">★ NÍVEL 2</span>
+            </div>
+            <div class="perfil-detalhes">
+                <h2>Guardião do Eco</h2>
+                <p class="perfil-subtitulo">Protetor da Natureza | Cadastrado em 2026</p>
+                
+                <div class="xp-container-perfil">
+                    <div class="xp-info">
+                        <span>Progresso de Experiência</span>
+                        <strong class="xp-valor">450 / 1000 XP</strong>
+                    </div>
+                    <div class="bar-perfil">
+                        <div class="progress-perfil" style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENSAGEM DO MASCOTE TUGA -->
+        <section class="tuga-card">
+            <img src="img/TugaPqn.png" alt="Mascote Tuga" class="tuga-avatar">
+            <div class="tuga-balao">
+                <h4>🐢 Mensagem do Tuga:</h4>
+                <p>Você já concluiu 2 missões de preservação ambiental esta semana! Continue jogando para subir no Ranking e desbloquear o ODS 15!</p>
+            </div>
+        </section>
+
+        <!-- CONQUISTAS E STATS -->
+        <section class="perfil-grid">
+            
+            <!-- CARD DE ESTATÍSTICAS -->
+            <div class="card-estatisticas">
+                <h3>Estatísticas da Jornada</h3>
+                <div class="stats-list">
+                    <div class="stat-item">
+                        <span class="stat-icon">🎮</span>
+                        <div>
+                            <strong>14</strong>
+                            <p>Jogos Concluídos</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">❓</span>
+                        <div>
+                            <strong>85%</strong>
+                            <p>Acertos nos Quizzes</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🏆</span>
+                        <div>
+                            <strong>#12</strong>
+                            <p>Posição no Ranking Global</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD DE INSÍGNIAS / ODS CONQUISTADOS -->
+            <div class="card-insignias">
+                <h3>Insígnias & ODS Liberados</h3>
+                <div class="insignias-grid">
+                    <div class="insignia-item obtida">
+                        <span class="insignia-icon">💧</span>
+                        <p>ODS 6: Água Potável</p>
+                    </div>
+                    <div class="insignia-item obtida">
+                        <span class="insignia-icon">🦁</span>
+                        <p>ODS 15: Vida Terrestre</p>
+                    </div>
+                    <div class="insignia-item bloqueada">
+                        <span class="insignia-icon">🔒</span>
+                        <p>ODS 13: Ação Climática</p>
+                    </div>
+                    <div class="insignia-item bloqueada">
+                        <span class="insignia-icon">🔒</span>
+                        <p>ODS 12: Consumo</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CONFIGURAÇÕES / AÇÕES DA CONTA -->
+        <section class="perfil-acoes">
+            <a href="editar-perfil.html" class="btn-principal">Editar Perfil</a>
+            <a href="index.html" class="btn-principal btn-perigo">✕ Sair da Conta</a>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+</body>
+
+</html>
