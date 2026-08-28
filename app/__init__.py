@@ -21,6 +21,8 @@ if __name__ == "__main__":
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
+
+
 jwt = JWTManager()
 
 def create_app():
