@@ -32,7 +32,7 @@ main.perfil-container {
     color: var(--text-dark);
 }
 
-/* Header Card (Perfil + Nível + XP) */
+/* Header Card (Perfil + Nível + XP) - FIXO SEM INFLAR */
 .perfil-header-card {
     width: 100%;
     background-color: #FFFFFF;
@@ -43,6 +43,13 @@ main.perfil-container {
     align-items: center;
     gap: 24px;
     box-sizing: border-box;
+    transform: none !important;
+    transition: none !important;
+}
+
+.perfil-header-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .perfil-avatar-wrapper {
@@ -134,7 +141,7 @@ main.perfil-container {
     border-radius: var(--border-radius-bar);
 }
 
-/* Card Mascote Tuga */
+/* Card Mascote Tuga - FIXO SEM INFLAR */
 .tuga-card {
     width: 100%;
     background-color: #FFFFFF;
@@ -145,6 +152,8 @@ main.perfil-container {
     align-items: center;
     gap: 16px;
     box-sizing: border-box;
+    transform: none !important;
+    transition: none !important;
 }
 
 .tuga-avatar {
@@ -197,7 +206,7 @@ main.perfil-container {
     gap: 12px;
 }
 
-/* EFEITO HOVER NAS ESTATÍSTICAS */
+/* EFEITO HOVER APENAS NAS ESTATÍSTICAS (ITEMS INTERNOS) */
 .stat-item {
     display: flex;
     align-items: center;
@@ -238,7 +247,7 @@ main.perfil-container {
     gap: 12px;
 }
 
-/* EFEITO HOVER EM CADA INSÍGNIA */
+/* EFEITO HOVER APENAS EM CADA INSÍGNIA */
 .insignia-item {
     background-color: var(--bg-light);
     border-radius: var(--border-radius-btn);
