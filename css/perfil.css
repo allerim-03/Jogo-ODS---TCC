@@ -4,9 +4,12 @@
 
 :root {
     --green-garden: #4CAF50;
+    --green-dark: #388E3C;
     --blue-bright: #43B4FB;
+    --blue-dark: #29b6f6;
     --yellow-banana: #FFDE5A;
     --red-vivid: #FF524D;
+    --red-dark: #E53935;
     --bg-light: #F4F9F5;
     --text-dark: #1A1A1A;
     --text-muted: #555555;
@@ -15,7 +18,7 @@
     --border-radius-bar: 999px;
 }
 
-/* Reset da tag main para impedir que CSS global esprema a página */
+/* Reset da tag main */
 main.perfil-container {
     width: 100% !important;
     max-width: 960px !important;
@@ -50,12 +53,20 @@ main.perfil-container {
     flex-shrink: 0;
 }
 
+/* EFEITO HOVER APENAS NA FOTO DE PERFIL */
 .perfil-avatar-main {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     border: 4px solid var(--green-garden);
     object-fit: cover;
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.perfil-avatar-main:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 14px rgba(76, 175, 80, 0.3);
 }
 
 .badge-nivel {
@@ -186,6 +197,7 @@ main.perfil-container {
     gap: 12px;
 }
 
+/* EFEITO HOVER NAS ESTATÍSTICAS */
 .stat-item {
     display: flex;
     align-items: center;
@@ -193,6 +205,13 @@ main.perfil-container {
     background-color: var(--bg-light);
     padding: 10px 14px;
     border-radius: var(--border-radius-btn);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .stat-icon {
@@ -219,6 +238,7 @@ main.perfil-container {
     gap: 12px;
 }
 
+/* EFEITO HOVER EM CADA INSÍGNIA */
 .insignia-item {
     background-color: var(--bg-light);
     border-radius: var(--border-radius-btn);
@@ -228,6 +248,13 @@ main.perfil-container {
     flex-direction: column;
     align-items: center;
     gap: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.insignia-item:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 4px 12px rgba(67, 180, 251, 0.2);
 }
 
 .insignia-item.obtida {
@@ -235,7 +262,7 @@ main.perfil-container {
 }
 
 .insignia-item.bloqueada {
-    opacity: 0.5;
+    opacity: 0.6;
     border: 2px dashed #CCCCCC;
 }
 
@@ -250,7 +277,9 @@ main.perfil-container {
     margin: 0;
 }
 
-/* Botões de Ação da Conta */
+/* ==========================================
+   BOTÕES DE AÇÃO DA CONTA (GUIA DE ESTILO)
+   ========================================== */
 .perfil-acoes {
     width: 100%;
     display: flex;
@@ -258,8 +287,49 @@ main.perfil-container {
     gap: 16px;
 }
 
-.btn-perigo {
+.perfil-acoes .btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background-color: var(--blue-bright);
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: var(--border-radius-btn);
+    box-shadow: 0 4px 0 var(--blue-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    cursor: pointer;
+}
+
+.perfil-acoes .btn-principal:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 0 var(--blue-dark);
+}
+
+.perfil-acoes .btn-principal:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 0 var(--blue-dark);
+}
+
+/* Botão Vermelho (Sair da Conta) */
+.perfil-acoes .btn-perigo {
     background-color: var(--red-vivid) !important;
+    box-shadow: 0 4px 0 var(--red-dark) !important;
+}
+
+.perfil-acoes .btn-perigo:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 0 var(--red-dark) !important;
+}
+
+.perfil-acoes .btn-perigo:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 0 var(--red-dark) !important;
 }
 
 /* Responsividade */
@@ -271,5 +341,9 @@ main.perfil-container {
 
     .perfil-grid {
         grid-template-columns: 1fr;
+    }
+
+    .perfil-acoes {
+        justify-content: center;
     }
 }
