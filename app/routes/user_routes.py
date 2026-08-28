@@ -33,12 +33,17 @@ from app.services.user_service import (
     change_password_service
 )
 
+
 user_bp = Blueprint(
     "user",
     __name__
 )
 
-#perfil
+
+# ==========================================================================
+# PERFIL
+# ==========================================================================
+
 @user_bp.route(
     "/api/users/me",
     methods=["GET"]
@@ -51,7 +56,12 @@ def profile():
     )
 
     return jsonify(result), 200
-#atualizar perfil
+
+
+# ==========================================================================
+# ATUALIZAR PERFIL
+# ==========================================================================
+
 @user_bp.route(
     "/api/users/me",
     methods=["PUT"]
@@ -59,7 +69,7 @@ def profile():
 @api_login_required
 def update_profile():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = update_profile_service(
         g.current_user,
@@ -68,7 +78,11 @@ def update_profile():
 
     return jsonify(result["body"]), result["status"]
 
-#avatar
+
+# ==========================================================================
+# ATUALIZAR AVATAR
+# ==========================================================================
+
 @user_bp.route(
     "/api/users/me/avatar",
     methods=["PUT"]
@@ -76,7 +90,7 @@ def update_profile():
 @api_login_required
 def update_avatar():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = update_avatar_service(
         g.current_user,
@@ -85,7 +99,11 @@ def update_avatar():
 
     return jsonify(result["body"]), result["status"]
 
-#preferencias
+
+# ==========================================================================
+# ATUALIZAR PREFERÊNCIAS
+# ==========================================================================
+
 @user_bp.route(
     "/api/users/me/preferences",
     methods=["PUT"]
@@ -93,7 +111,7 @@ def update_avatar():
 @api_login_required
 def update_preferences():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = update_preferences_service(
         g.current_user,
@@ -102,7 +120,11 @@ def update_preferences():
 
     return jsonify(result["body"]), result["status"]
 
-#alterar senha
+
+# ==========================================================================
+# ALTERAR SENHA
+# ==========================================================================
+
 @user_bp.route(
     "/api/users/me/password",
     methods=["PUT"]
@@ -110,7 +132,7 @@ def update_preferences():
 @api_login_required
 def change_password():
 
-    data = request.get_json()
+    data = request.get_json() or {}
 
     result = change_password_service(
         g.current_user,
