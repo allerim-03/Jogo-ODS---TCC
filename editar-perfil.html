@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar Perfil - Eco-Pixel Adventure</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/editar-perfil.css">
+
+    <style>
+        #menu-check {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CHECKBOX DO MENU HAMBÚRGUER -->
+    <input type="checkbox" id="menu-check">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="perfil-sidebar">
+            <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+            <p>Nível 2</p>
+        </div>
+
+        <nav class="links-sidebar">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html" class="active">PERFIL</a>
+        </nav>
+    </div>
+
+    <!-- OVERLAY -->
+    <label for="menu-check" class="overlay"></label>
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+        <div class="left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>ECO-PIXEL</h1>
+                        <p>ADVENTURE</p>
+                    </div>
+                </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html" class="active">PERFIL</a>
+        </nav>
+
+        <!-- FOTO DE PERFIL -->
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="editar-perfil-container">
+
+        <div class="editar-card">
+            <div class="editar-header">
+                <h2>✏️ Editar Perfil</h2>
+                <p>Personalize seu Guardião do Eco e escolha seu mascote de avatar!</p>
+            </div>
+
+            <form action="perfil.html" method="GET" class="editar-form">
+                
+                <!-- SELEÇÃO DE AVATAR (ANIMAIS) -->
+                <div class="form-grupo">
+                    <label class="form-label">Escolha seu Avatar de Animais:</label>
+                    
+                    <div class="avatars-grid">
+                        
+                        <!-- Opção 1: Tartaruga (Selecionada por padrão) -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="tuga" checked>
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🐢</span>
+                                <span class="avatar-nome">Tartaruga Tuga</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 2: Peixe -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="peixe">
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🐟</span>
+                                <span class="avatar-nome">Peixe Glub</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 3: Leão -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="leao">
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🦁</span>
+                                <span class="avatar-nome">Leão da Savana</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 4: Macaco -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="macaco">
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🐒</span>
+                                <span class="avatar-nome">Mico-Leão</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 5: Arara -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="arara">
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🦜</span>
+                                <span class="avatar-nome">Arara-Azul</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 6: Capivara -->
+                        <label class="avatar-option">
+                            <input type="radio" name="avatar" value="capivara">
+                            <div class="avatar-card">
+                                <span class="avatar-icon">🦦</span>
+                                <span class="avatar-nome">Capivara Eco</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- CAMPO: NOME DO JOGADOR -->
+                <div class="form-grupo">
+                    <label for="nome-usuario" class="form-label">Nome do Guardião:</label>
+                    <input type="text" id="nome-usuario" name="nome" class="form-input" value="Guardião do Eco" required maxlength="25">
+                </div>
+
+                <!-- CAMPO: SUBTÍTULO / FRASE -->
+                <div class="form-grupo">
+                    <label for="titulo-usuario" class="form-label">Título da Sua Jornada:</label>
+                    <input type="text" id="titulo-usuario" name="titulo" class="form-input" value="Protetor da Natureza" maxlength="40">
+                </div>
+
+                <!-- BOTÕES DE AÇÃO -->
+                <div class="editar-acoes">
+                    <a href="perfil.html" class="btn-principal btn-cancelar">Cancelar</a>
+                    <button type="submit" class="btn-principal btn-salvar">Salvar Alterações</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+</body>
+
+</html>
