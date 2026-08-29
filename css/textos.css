@@ -145,6 +145,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     flex-shrink: 0;
+    object-fit: contain;
 }
 
 /* CLASSES UTILITÁRIAS DE COR E PESO */
