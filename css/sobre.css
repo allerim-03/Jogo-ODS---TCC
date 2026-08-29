@@ -1,37 +1,37 @@
 /* =========================================
-   SOBRE.CSS - Ajustado com estilo Tela 404
+   SOBRE.CSS - Padronizado com Global/Base
    ========================================= */
 
-/* ESTRUTURA PRINCIPAL E EMPURRÃO PARA BAIXO DA NAVBAR */
+/* ESTRUTURA PRINCIPAL */
 main.sobre-main-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px 20px 60px 20px;
-    margin-top: 110px; /* Garante que a caixa fique totalmente abaixo da navbar fixa */
-    min-height: calc(100vh - 170px);
+    min-height: calc(100vh - 100px);
     box-sizing: border-box;
 }
 
-/* CARD BRANCO CENTRALIZADO (ESTILO EXACTO TELA 404) */
+/* CARD BRANCO CENTRALIZADO */
 .card-sobre-central {
     background-color: #FFFFFF;
     width: 100%;
     max-width: 850px;
     padding: 40px;
-    border-radius: 24px; /* Bordas bem arredondadas igual a tela 404 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     text-align: center;
+    border: 1px solid #E0E0E0;
 }
 
-/* CABEÇALHO DA CAIXA (IGUAL TELA 404) */
+/* CABEÇALHO DA PÁGINA */
 .header-sobre {
     text-align: center;
     margin-bottom: 30px;
 }
 
 .subtitulo-app {
-    color: #4CAF50;
+    color: #43B4FB; /* Bright Blue padronizado */
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 1.5px;
@@ -42,18 +42,14 @@ main.sobre-main-container {
 }
 
 .titulo-verde {
-    font-family: 'Montserrat', sans-serif;
-    color: #1b5e20;
-    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    color: #4CAE50; /* Garden Green */
+    font-weight: 800;
     font-size: 2.2rem;
     margin: 0;
 }
 
-.alinhado-centro {
-    text-align: center;
-}
-
-/* DIVISOR INTERNO DA PÁGINA */
+/* DIVISOR INTERNO */
 .divisor {
     border: 0;
     height: 1px;
@@ -62,7 +58,7 @@ main.sobre-main-container {
     width: 100%;
 }
 
-/* BLOCO INFORMATIVO DE PROJETO E TEXTOS */
+/* SEÇÃO DE INFORMAÇÕES E CONTEÚDO DO PROJETO */
 .secao-info {
     text-align: left;
 }
@@ -80,8 +76,8 @@ main.sobre-main-container {
 
 .bloco-texto h2.titulo-secao {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.3rem;
+    font-weight: 700;
+    font-size: 1.4rem;
     color: #4CAE50;
     margin-top: 0;
     margin-bottom: 12px;
@@ -105,7 +101,7 @@ main.sobre-main-container {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background-color: #ffffff;
+    background-color: #F8FAFC;
 }
 
 .bloco-imagem-placeholder img {
@@ -114,7 +110,7 @@ main.sobre-main-container {
     display: block;
 }
 
-/* ESTILO DOS TÓPICOS LINEARES (MISSÃO, VISÃO, VALORES) */
+/* SEÇÕES LINEARES (MISSÃO, VISÃO, VALORES) */
 .secao-topico-linear {
     display: flex;
     align-items: center;
@@ -124,9 +120,9 @@ main.sobre-main-container {
 .icone-topico {
     font-size: 2rem;
     background-color: #F8FAFC;
-    border: 1px solid #E0E0E0;
-    width: 55px;
-    height: 55px;
+    border: 2px solid #43B4FB;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -134,7 +130,7 @@ main.sobre-main-container {
     flex-shrink: 0;
 }
 
-/* ESTRUTURA DA EQUIPE DE DESENVOLVIMENTO */
+/* SEÇÃO DA EQUIPE */
 .secao-equipe {
     margin-top: 10px;
 }
@@ -147,11 +143,12 @@ main.sobre-main-container {
 .badge-area {
     display: inline-block;
     background-color: #E8F5E9;
-    color: #2E7D32;
+    color: #4CAE50;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
-    padding: 4px 14px;
-    border-radius: 12px;
+    padding: 6px 16px;
+    border-radius: 20px;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
@@ -163,20 +160,21 @@ main.sobre-main-container {
     gap: 15px;
 }
 
-/* CARDS INDIVIDUAIS DOS MEMBROS DA EQUIPE */
+/* CARDS DOS INTEGRANTES DA EQUIPE */
 .membro {
-    background-color: #F8FAFC;
-    border: 1px solid #E0E0E0;
-    border-radius: 12px;
+    background-color: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    border-radius: 16px;
     padding: 15px;
     width: 130px;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .membro:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    border-color: #4CAE50;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .membro .foto img {
@@ -194,10 +192,9 @@ main.sobre-main-container {
     margin: 4px 0 0 0;
 }
 
-/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+/* RESPONSIVIDADE */
 @media (max-width: 650px) {
     main.sobre-main-container {
-        margin-top: 90px;
         padding: 15px;
     }
 
