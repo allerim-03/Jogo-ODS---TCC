@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             btnLink: "perfil.html"
         },
         "3": {
-            title: "Conheça as ODS",
+            title: "Conheça os ODS",
             description: "Responda a quizzes e descubra os Objetivos de Desenvolvimento Sustentável.",
             showButton: true,
             btnText: "Responder Quiz",
