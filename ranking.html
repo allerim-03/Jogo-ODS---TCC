@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cultivando o Saber- Ranking</title>
+    <title>Cultivando o Saber - Ranking</title>
+    
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -22,71 +23,73 @@
     <link rel="stylesheet" href="css/textos.css">
 </head>
 
-<body>
-<header class="topbar">
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
+<body class="pagina-ranking">
 
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
+    <!-- NAVBAR -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+                <p>Nível 2</p>
+            </div>
+            <nav class="links-sidebar">
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+            </nav>
         </div>
-        <nav class="links-sidebar">
+
+        <div class="left">
+            <label for="menu-check" class="hamburger">
+                <span></span><span></span><span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>Cultivando o Saber</h1>
+                    </div>
+                </div>
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar"><div class="progress"></div></div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
             <a href="jogos.html">JOGOS</a>
             <a href="quiz.html">QUIZ</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
             <a href="ranking.html">RANKING</a>
             <a href="perfil.html">PERFIL</a>
         </nav>
-    </div>
 
-    <div class="left">
-        <label for="menu-check" class="hamburger">
-            <span></span><span></span><span></span>
-        </label>
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
 
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>Cultivando o Saber</h1>
-                    <p></p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
-        </div>
-    </div>
-
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
-</header>
-
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <section class="sobre-sessao ranking-wrapper">
+        <section class="ranking-wrapper">
             <div class="texto-ranking-topo">
-                <br><br><br>
                 <h2>Ranking</h2>
-                <p>Os melhores protetores do planeta! :)</p> <br>
+                <p>Os melhores protetores do planeta! :)</p>
             </div>
 
             <div class="ranking-container">
+                <!-- PÓDIO -->
                 <div class="podium-container">
                     <div class="podium-card second">
                         <div class="podium-medal">🥈</div>
@@ -110,6 +113,7 @@
                     </div>
                 </div>
 
+                <!-- LISTA -->
                 <div class="ranking-list">
                     <div class="ranking-item">
                         <span class="position">4º</span>
@@ -130,26 +134,23 @@
                         <img src="img/foto.png" class="item-avatar" alt="Player">
                         <span class="player-name">Nome6</span>
                         <span class="player-xp">1.600 XP</span>
- </div>
+                    </div>
 
-                        <div class="ranking-item current-user">
+                    <div class="ranking-item current-user">
                         <span class="position">12º</span>
                         <img src="img/foto.png" class="item-avatar" alt="Você">
                         <span class="player-name">Você</span>
                         <span class="player-xp">450 XP</span>
-                   
+                    </div>
                 </div>
-
-                <br>
-                 </a>
             </div>
         </section>
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
 </body>
 </html>
-                        
