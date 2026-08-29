@@ -1,59 +1,40 @@
+
 from database.connection import get_connection
+
+
 """
 ===========================================================================
-score REPOSITORY
+SCORE REPOSITORY
 
-Responsável exclusivamente pelo acesso ao banco de dados referente as pontuações.
+Responsável exclusivamente pelo acesso ao banco de dados referente
+às pontuações dos jogos.
 
 NÃO possui regras de negócio.
 
-Funções previstas:
-- salvar pontuação
-- buscar histórico
-- estatísticas
-resultados das partidas, histórico, estatísticas e últimos jogos.
+Responsabilidades:
+- salvar pontuação;
+- buscar histórico;
+- buscar jogos recentes;
+- obter estatísticas.
 ===========================================================================
 """
+
+
 class ScoreRepository:
-    def save_score(self,
+
+    # ======================================================================
+    # SALVAR PONTUAÇÃO
+    # ======================================================================
+
+    def save_game_score(
+        self,
         user_id,
-        game_name,
-        points,
-        xp_earned
+        game_id,
+        score,
+        xp_gained
     ):
-
-        conn = get_connection()
-
-        cursor = conn.cursor()
-
-        cursor.execute("""
-            INSERT INTO score
-            (
-                user_id,
-                game_name,
-                points,
-                xp_earned
-            )
-            VALUES
-            (%s,%s,%s,%s)
-        """, (
-            user_id,
-            game_name,
-            points,
-            xp_earned
-        ))
-
-        conn.commit()
-
-        cursor.close()
-        conn.close()
-    # ==========================================================================
-    # SCORE
-    # ==========================================================================
-
-    def save_game_score(self,user_id, game_id, score, xp_gained):
         """
-        Salva o resultado de uma partida.
+        Salva o resultado de uma partida na tabela score.
         """
 
         conn = get_connection()
@@ -61,14 +42,14 @@ class ScoreRepository:
 
         cursor.execute(
             """
-            INSERT INTO game_scores
+            INSERT INTO score
             (
                 user_id,
                 game_id,
-                score,
-                xp_gained
+                points,
+                xp_earned
             )
-            VALUES (%s,%s,%s,%s)
+            VALUES (%s, %s, %s, %s)
             """,
             (
                 user_id,
@@ -88,13 +69,16 @@ class ScoreRepository:
         return score_id
 
 
-    # ==========================================================================
-    # HISTORY
-    # ==========================================================================
+    # ======================================================================
+    # HISTÓRICO DE PARTIDAS
+    # ======================================================================
 
-    def get_user_game_history(self,user_id):
+    def get_user_game_history(
+        self,
+        user_id
+    ):
         """
-        Histórico de partidas do usuário.
+        Retorna o histórico de partidas do usuário.
         """
 
         conn = get_connection()
@@ -103,14 +87,20 @@ class ScoreRepository:
         cursor.execute(
             """
             SELECT
-                id,
-                game_id,
-                score,
-                xp_gained,
-                played_at
-            FROM game_scores
-            WHERE user_id = %s
-            ORDER BY played_at DESC
+                s.id,
+                s.game_id,
+                g.name_game,
+                s.points,
+                s.xp_earned,
+                s.played_at
+            FROM score s
+
+            INNER JOIN games g
+                ON s.game_id = g.id
+
+            WHERE s.user_id = %s
+
+            ORDER BY s.played_at DESC
             """,
             (user_id,)
         )
@@ -122,13 +112,18 @@ class ScoreRepository:
 
         return history
 
-    # ==========================================================================
-    # RECENT GAMES
-    # ==========================================================================
 
-    def get_recent_games(self, user_id, limit=5):
+    # ======================================================================
+    # JOGOS RECENTES
+    # ======================================================================
+
+    def get_recent_games(
+        self,
+        user_id,
+        limit=5
+    ):
         """
-        Últimos jogos realizados pelo usuário.
+        Retorna os últimos jogos realizados pelo usuário.
         """
 
         conn = get_connection()
@@ -137,19 +132,27 @@ class ScoreRepository:
         cursor.execute(
             """
             SELECT
-                gs.game_id,
-                g.title,
-                gs.score,
-                gs.xp_gained,
-                gs.played_at
-            FROM game_scores gs
+                s.game_id,
+                g.name_game,
+                s.points,
+                s.xp_earned,
+                s.played_at
+
+            FROM score s
+
             INNER JOIN games g
-                ON gs.game_id = g.id
-            WHERE gs.user_id = %s
-            ORDER BY gs.played_at DESC
+                ON s.game_id = g.id
+
+            WHERE s.user_id = %s
+
+            ORDER BY s.played_at DESC
+
             LIMIT %s
             """,
-            (user_id, limit)
+            (
+                user_id,
+                limit
+            )
         )
 
         games = cursor.fetchall()
@@ -160,16 +163,16 @@ class ScoreRepository:
         return games
 
 
+    # ======================================================================
+    # ESTATÍSTICAS
+    # ======================================================================
 
-
-
-    # ==========================================================================
-    # STATISTICS
-    # ==========================================================================
-
-    def get_user_game_statistics(self,user_id):
+    def get_user_game_statistics(
+        self,
+        user_id
+    ):
         """
-        Estatísticas gerais do usuário.
+        Retorna estatísticas gerais dos jogos realizados pelo usuário.
         """
 
         conn = get_connection()
@@ -181,15 +184,15 @@ class ScoreRepository:
 
                 COUNT(*) AS matches,
 
-                SUM(score) AS total_score,
+                COALESCE(SUM(points), 0) AS total_score,
 
-                SUM(xp_gained) AS total_xp,
+                COALESCE(SUM(xp_earned), 0) AS total_xp,
 
-                AVG(score) AS average_score,
+                COALESCE(AVG(points), 0) AS average_score,
 
-                MAX(score) AS best_score
+                COALESCE(MAX(points), 0) AS best_score
 
-            FROM game_scores
+            FROM score
 
             WHERE user_id = %s
             """,
@@ -202,25 +205,11 @@ class ScoreRepository:
         conn.close()
 
         return stats
-    
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# Mantém serviços antigos funcionando
-# =====================================================
-
-_repository = ScoreRepository()
 
 
-def save_score(
-    user_id,
-    game_name,
-    points,
-    xp_earned
-):
+# ==========================================================================
+# INSTÂNCIA DO REPOSITORY
+# ==========================================================================
 
-    return _repository.save_score(
-        user_id,
-        game_name,
-        points,
-        xp_earned
-    )
+score_repository = ScoreRepository()
+
