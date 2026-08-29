@@ -1,19 +1,21 @@
-body, html {
-    background-color: #43B4FB;
+/* =========================================
+   RANKING.CSS - Estilos da Página de Ranking
+   ========================================= */
+
+body.pagina-ranking, 
+html {
+    background-color: #43B4FB !important;
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-main, 
-.main-container, 
-.conteudo-principal, 
-.content-wrapper,
-#app {
+main {
     background: transparent !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    padding-top: 100px; /* Garante que o topo fique visível abaixo da topbar */
 }
 
 .ranking-wrapper {
@@ -22,9 +24,30 @@ main,
     align-items: center;
     width: 100%;
     max-width: 850px;
-    margin: 30px auto;
+    margin: 0 auto 40px auto;
     padding: 0 15px;
     background: transparent !important;
+}
+
+.texto-ranking-topo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.texto-ranking-topo h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #FFFFFF !important;
+    margin: 0 0 5px 0;
+}
+
+.texto-ranking-topo p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #FFFFFF !important;
+    margin: 0;
 }
 
 .ranking-container {
@@ -37,28 +60,10 @@ main,
     display: flex;
     flex-direction: column;
     gap: 30px;
+    box-sizing: border-box;
 }
 
-.texto-ranking-topo {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.texto-ranking-topo h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 2.2rem;
-    color: #FFFFFF;
-    margin-bottom: 5px;
-}
-
-.texto-ranking-topo p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 1.05rem;
-    color: #FFFFFF;
-}
-
+/* PÓDIO */
 .podium-container {
     display: flex;
     justify-content: center;
@@ -80,6 +85,7 @@ main,
     flex: 1;
     max-width: 200px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
 }
 
 .podium-card:hover {
@@ -149,6 +155,7 @@ main,
     margin-top: 2px;
 }
 
+/* LISTA DE JOGADORES */
 .ranking-list {
     display: flex;
     flex-direction: column;
@@ -205,6 +212,7 @@ main,
     color: #31B54C;
 }
 
+/* USUÁRIO ATUAL */
 .ranking-item.current-user {
     background-color: #E8F5E9 !important;
     border: 2px solid #4CAF50 !important;
@@ -222,6 +230,7 @@ main,
     color: #2E7D32 !important;
 }
 
+/* RESPONSIVIDADE */
 @media (max-width: 600px) {
     .podium-container {
         gap: 8px;
