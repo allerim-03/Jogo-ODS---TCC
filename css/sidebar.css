@@ -38,7 +38,7 @@
     left: -300px;
     width: 280px;
     height: 100vh;
-    background-color: #43B4FB; /* Bright Blue */
+    background-color: #1b5e20; /* Verde escuro*/
     z-index: 9999;
     transition: left 0.3s ease;
     padding: 30px 20px;
