@@ -84,6 +84,32 @@
     box-shadow: 0 1px 0 #1E88E5, 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ESTRUTURA DOS CARDS DE CONTEÚDO (HOME) */
+.sobre-sessao {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sobre-sessao.cinza {
+    background-color: #F8FAFC;
+}
+
+.conteudo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.conteudo-flex.reverso {
+    flex-direction: row-reverse;
+}
+
 /* TEXTOS REUTILIZÁVEIS DE SEÇÃO */
 .texto {
     flex: 1;
@@ -105,9 +131,39 @@
     color: #1A1A1A;
 }
 
+/* QUADRO DA IMAGEM ILUSTRATIVA */
+.imagem-placeholder {
+    width: 320px;
+    height: 200px;
+    border: 2px dashed #CBD5E1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    color: #94A3B8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
 /* CLASSES UTILITÁRIAS DE COR E PESO */
 .negrito { font-weight: 700 !important; }
 .texto-azul { color: #43B4FB !important; }
 .texto-verde { color: #4CAE50 !important; }
 .texto-amarelo { color: #FFDE5A !important; }
 .texto-vermelho { color: #FF524D !important; }
+
+/* RESPONSIVIDADE PARA TELAS MENORES */
+@media (max-width: 768px) {
+    .conteudo-flex,
+    .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagem-placeholder {
+        width: 100%;
+        max-width: 320px;
+    }
+}
