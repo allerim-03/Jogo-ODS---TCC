@@ -1,5 +1,5 @@
 /* =========================================
-   SOBRE.CSS - Estrutura da Seção Sobre
+   SOBRE.CSS - Ajustado com estilo Tela 404
    ========================================= */
 
 /* FUNDO VERDE DA PÁGINA */
@@ -10,31 +10,43 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* ESTRUTURA PRINCIPAL E CENTRALIZAÇÃO */
+/* ESTRUTURA PRINCIPAL E EMPURRÃO PARA BAIXO DA NAVBAR */
 main.sobre-main-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 50px 20px 60px 20px; /* Aumentado padding-top para não encostar na navbar */
-    min-height: calc(100vh - 120px);
+    padding: 20px 20px 60px 20px;
+    margin-top: 110px; /* Garante que a caixa fique totalmente abaixo da navbar fixa */
+    min-height: calc(100vh - 170px);
     box-sizing: border-box;
 }
 
-/* CARD BRANCO CENTRALIZADO */
+/* CARD BRANCO CENTRALIZADO (ESTILO EXACTO TELA 404) */
 .card-sobre-central {
     background-color: #FFFFFF;
     width: 100%;
     max-width: 850px;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 24px; /* Bordas bem arredondadas igual a tela 404 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO DA CAIXA (IGUAL TELA 404) */
 .header-sobre {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.subtitulo-app {
+    color: #4CAF50;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .titulo-verde {
@@ -49,7 +61,7 @@ main.sobre-main-container {
     text-align: center;
 }
 
-/* DIVISOR DA PÁGINA INTERNO DO CARD */
+/* DIVISOR INTERNO DA PÁGINA */
 .divisor {
     border: 0;
     height: 1px;
@@ -190,10 +202,11 @@ main.sobre-main-container {
     margin: 4px 0 0 0;
 }
 
-/* COMPATIBILIDADE RESPONSIVA */
+/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
 @media (max-width: 650px) {
     main.sobre-main-container {
-        padding-top: 30px;
+        margin-top: 90px;
+        padding: 15px;
     }
 
     .card-sobre-central {
