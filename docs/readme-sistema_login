@@ -511,3 +511,404 @@ Fluxo completo Login → Dashboard → Logout
 
 FASE 12
 Checklist QA (~90 testes)
+
+---29/08
+# Sistema de Login e Autenticação
+
+A plataforma possui um sistema de autenticação baseado em **JWT (JSON Web Token)**, desenvolvido no backend com **Python e Flask**. O sistema é responsável pelo cadastro, login, controle de acesso às rotas protegidas e gerenciamento das informações do usuário autenticado.
+
+## Estrutura atual
+
+O fluxo de autenticação está organizado da seguinte forma:
+
+```text
+Frontend
+   │
+   │ Requisição HTTP
+   ▼
+auth_routes.py
+   │
+   ▼
+AuthService
+   │
+   ├── Validação dos dados
+   ├── Verificação do usuário
+   ├── Criptografia da senha
+   └── Geração do JWT
+   │
+   ▼
+UserRepository
+   │
+   ▼
+MySQL
+```
+
+Para acessar rotas protegidas:
+
+```text
+Frontend
+   │
+   │ Authorization: Bearer <JWT>
+   ▼
+auth_middleware.py
+   │
+   ├── Valida o JWT
+   ├── Recupera o ID do usuário
+   └── Busca o usuário no banco
+   │
+   ▼
+g.current_user
+   │
+   ▼
+Rota protegida
+```
+
+---
+
+## Cadastro
+
+O cadastro é realizado através da rota:
+
+```text
+POST /api/register
+```
+
+Os dados são enviados em formato JSON.
+
+Exemplo:
+
+```json
+{
+    "name": "Usuário Teste",
+    "email": "teste@teste.com",
+    "password": "123456",
+    "role": "student",
+    "use_type": "individual"
+}
+```
+
+O `AuthService` realiza as validações antes de criar o usuário.
+
+### Validações implementadas
+
+* Nome, e-mail e senha são obrigatórios;
+* O e-mail é normalizado para letras minúsculas;
+* Espaços extras no nome e no e-mail são removidos;
+* O e-mail não pode estar previamente cadastrado;
+* O `role` deve ser `student` ou `teacher`;
+* O `use_type` deve ser `individual` ou `institutional`;
+* Contas institucionais devem informar uma instituição.
+
+O administrador não é criado pelo cadastro público. O cadastro normal aceita apenas os perfis `student` e `teacher`.
+
+---
+
+## Senhas
+
+As senhas **não são armazenadas diretamente no banco de dados**.
+
+Antes de serem armazenadas, são transformadas em um hash utilizando o `SecurityService`, através das funções de segurança do Werkzeug.
+
+O fluxo é:
+
+```text
+Senha informada
+      │
+      ▼
+SecurityService
+      │
+      ▼
+Hash da senha
+      │
+      ▼
+user_plataform
+```
+
+Durante o login, a senha informada é comparada com o hash armazenado.
+
+---
+
+## Login
+
+O login é realizado através da rota:
+
+```text
+POST /api/login
+```
+
+Exemplo:
+
+```json
+{
+    "email": "teste@teste.com",
+    "password": "123456",
+    "role": "student"
+}
+```
+
+O sistema:
+
+1. Valida e-mail e senha;
+2. Busca o usuário no banco;
+3. Verifica a senha;
+4. Verifica se a conta está ativa;
+5. Valida o perfil informado, quando fornecido;
+6. Gera um JWT;
+7. Retorna o token e os dados públicos do usuário.
+
+Exemplo de resposta:
+
+```json
+{
+    "success": true,
+    "token": "<JWT>",
+    "user": {
+        "id": 1,
+        "name": "Usuário Teste",
+        "email": "teste@teste.com",
+        "role": "student",
+        "use_type": "individual",
+        "xp": 0,
+        "level": 1
+    }
+}
+```
+
+A senha não é retornada na resposta da API.
+
+---
+
+## JWT
+
+Após o login, o backend gera um **JSON Web Token (JWT)**.
+
+O token contém informações necessárias para identificar e autorizar o usuário, incluindo:
+
+```text
+user id
+role
+email
+use_type
+```
+
+O token deve ser enviado nas requisições para rotas protegidas através do header:
+
+```text
+Authorization: Bearer <token>
+```
+
+Exemplo:
+
+```text
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
+```
+
+Durante os testes da API, foi utilizado o Postman para realizar o login e posteriormente enviar o token nas requisições protegidas.
+
+---
+
+## Middleware de autenticação
+
+As rotas que exigem autenticação utilizam o decorator:
+
+```python
+@api_login_required
+```
+
+O middleware:
+
+1. Verifica a existência de um JWT;
+2. Valida o token;
+3. Recupera o ID do usuário;
+4. Busca o usuário atualizado no banco de dados;
+5. Disponibiliza o usuário através de:
+
+```python
+g.current_user
+```
+
+Dessa forma, as rotas não precisam confiar em um `user_id` enviado pelo frontend para identificar o usuário autenticado.
+
+---
+
+## Endpoint `/api/me`
+
+Foi implementado um endpoint para recuperar os dados do usuário atualmente autenticado:
+
+```text
+GET /api/me
+```
+
+A rota exige um JWT válido.
+
+O usuário é identificado através do token e seus dados são recuperados do banco.
+
+Exemplo:
+
+```json
+{
+    "success": true,
+    "user": {
+        "id": 1,
+        "name": "Usuário Teste",
+        "email": "teste@teste.com",
+        "role": "student",
+        "use_type": "individual",
+        "xp": 0,
+        "level": 1
+    }
+}
+```
+
+---
+
+# Gerenciamento do usuário
+
+Além do login e cadastro, foram implementadas rotas autenticadas para gerenciamento da conta.
+
+### Consultar perfil
+
+```text
+GET /api/users/me
+```
+
+### Atualizar perfil
+
+```text
+PUT /api/users/me
+```
+
+Permite atualizar informações básicas, como:
+
+* nome;
+* idade;
+* instituição.
+
+### Atualizar avatar
+
+```text
+PUT /api/users/me/avatar
+```
+
+O sistema utiliza **avatares pré-definidos**, em vez de permitir o envio de imagens arbitrárias.
+
+### Alterar senha
+
+```text
+PUT /api/users/me/password
+```
+
+A nova senha também passa pelo processo de geração de hash antes de ser armazenada.
+
+### Preferências
+
+A rota de preferências foi mantida na estrutura do sistema, porém sua implementação completa foi definida como **melhoria futura**.
+
+---
+
+# Alterações realizadas na arquitetura
+
+Durante a evolução do projeto, a estrutura inicial de usuários foi reorganizada.
+
+A tabela utilizada atualmente é:
+
+```text
+user_plataform
+```
+
+Ela armazena informações como:
+
+```text
+id
+name
+email
+password
+role
+use_type
+age
+institution
+avatar
+xp
+level
+is_active
+created_at
+updated_at
+```
+
+Também foi realizada uma reorganização do código para separar melhor as responsabilidades:
+
+```text
+app/
+│
+├── models/
+│   └── user.py
+│
+├── repositories/
+│   └── user_repository.py
+│
+├── services/
+│   ├── auth_service.py
+│   ├── security_service.py
+│   └── user_service.py
+│
+├── middleware/
+│   └── auth_middleware.py
+│
+└── routes/
+    ├── auth_routes.py
+    └── user_routes.py
+```
+
+### Responsabilidades
+
+**`User`**
+
+Representa os dados do usuário.
+
+**`UserRepository`**
+
+Responsável pela comunicação com o banco de dados.
+
+**`AuthService`**
+
+Responsável pelas regras de cadastro e login.
+
+**`SecurityService`**
+
+Responsável pelo hash e verificação de senhas e pela geração do JWT.
+
+**`auth_middleware.py`**
+
+Protege as rotas que exigem autenticação.
+
+**`UserService`**
+
+Responsável pelas operações relacionadas ao perfil do usuário.
+
+**`auth_routes.py` e `user_routes.py`**
+
+Responsáveis por receber as requisições HTTP e encaminhá-las para os respectivos serviços.
+
+---
+
+# Estado atual da autenticação
+
+Atualmente, o sistema possui:
+
+* Cadastro de usuários;
+* Login;
+* Autenticação utilizando JWT;
+* Validação de token;
+* Controle de acesso às rotas protegidas;
+* Controle de perfil (`student` e `teacher`);
+* Controle de tipo de conta (`individual` e `institutional`);
+* Verificação de conta ativa;
+* Hash de senhas;
+* Alteração de senha;
+* Consulta do usuário autenticado;
+* Atualização de perfil;
+* Sistema de avatares pré-definidos;
+* Integração com MySQL;
+* Separação entre rotas, serviços, repositórios, modelos e middleware.
+
+A estrutura foi preparada para que os demais módulos da plataforma, como **quiz, jogos, XP, badges, ranking e progresso**, utilizem o usuário autenticado através do JWT, evitando a necessidade de enviar o identificador do usuário manualmente nas requisições.

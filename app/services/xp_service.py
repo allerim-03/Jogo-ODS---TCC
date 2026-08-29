@@ -1,6 +1,10 @@
 
-#adciona xp
-#calcula service
+from app.repositories.user_repository import UserRepository
+
+
+# ==========================================================================
+# CONFIGURAÇÃO DOS NÍVEIS
+# ==========================================================================
 
 LEVELS = [
     (1, 0),
@@ -11,34 +15,89 @@ LEVELS = [
 ]
 
 
-def calculate_level(xp):
-    level = 1
+class XPService:
 
-    for lvl, required in LEVELS:
-        if xp >= required:
-            level = lvl
-        else:
-            break
+    def __init__(self):
 
-    return level
+        self.user_repository = UserRepository()
 
 
-def add_xp(user, amount):
-    if amount < 0:
-        raise ValueError("XP não pode ser negativo")
+    # ==========================================================================
+    # CALCULAR NÍVEL
+    # ==========================================================================
 
-    # suporta dict OU objeto
-    current_xp = user["xp"] if isinstance(user, dict) else user.xp
+    def calculate_level(self, xp):
 
-    new_xp = current_xp + amount
-    new_level = calculate_level(new_xp)
+        level = 1
 
-    # atualiza dict OU objeto
-    if isinstance(user, dict):
-        user["xp"] = new_xp
-        user["level"] = new_level
-    else:
+        for lvl, required_xp in LEVELS:
+
+            if xp >= required_xp:
+                level = lvl
+            else:
+                break
+
+        return level
+
+
+    # ==========================================================================
+    # ADICIONAR XP
+    # ==========================================================================
+
+    def add_xp(self, user, amount):
+
+        if amount < 0:
+
+            raise ValueError(
+                "XP não pode ser negativo."
+            )
+
+        # ----------------------------------------------------------------------
+        # XP atual
+        # ----------------------------------------------------------------------
+
+        current_xp = user.xp
+
+        # ----------------------------------------------------------------------
+        # Novo XP
+        # ----------------------------------------------------------------------
+
+        new_xp = current_xp + amount
+
+        # ----------------------------------------------------------------------
+        # Calcula novo nível
+        # ----------------------------------------------------------------------
+
+        old_level = user.level
+
+        new_level = self.calculate_level(
+            new_xp
+        )
+
+        # ----------------------------------------------------------------------
+        # Atualiza objeto
+        # ----------------------------------------------------------------------
+
         user.xp = new_xp
         user.level = new_level
 
-    return user
+        # ----------------------------------------------------------------------
+        # Salva no banco
+        # ----------------------------------------------------------------------
+
+        self.user_repository.update_progress(
+            user
+        )
+
+        # ----------------------------------------------------------------------
+        # Retorno
+        # ----------------------------------------------------------------------
+
+        return {
+            "user": user,
+            "xp_gained": amount,
+            "xp": new_xp,
+            "level": new_level,
+            "level_up": new_level > old_level
+        }
+
