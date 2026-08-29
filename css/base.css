@@ -8,18 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #F8FAFC !important; /* Bright Blue (Estrutural) */
-    color: #1A1A1A;
-    padding-top: 100px;
-}
-
-main {
-    flex: 1;
-}
 
 /* CLASSES UTILITÁRIAS DE CORES E TEXTO */
 .negrito {
