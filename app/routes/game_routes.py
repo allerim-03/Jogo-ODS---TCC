@@ -28,10 +28,74 @@ from app.middleware.auth_middleware import api_login_required
 from app.services.game_service import GameService
 
 
+game_bp = Blueprint(
+    "game",
+    __name__
+)
+
+game_service = GameService()
+
+
+# ==========================================================================
+# REGISTRAR PONTUAÇÃO DE UM JOGO
+# ==========================================================================
+
+@game_bp.route(
+    "/api/games/score",
+    methods=["POST"]
+)
+@api_login_required
+def game_score():
+
+    data = request.get_json() or {}
+
+    score = data.get("score")
+
+    # ----------------------------------------------------------------------
+    # Validação
+    # ----------------------------------------------------------------------
+
+    if score is None:
+
+        return jsonify({
+            "success": False,
+            "message": "Score is required."
+        }), 400
+
+    # ----------------------------------------------------------------------
+    # Processamento da pontuação
+    # ----------------------------------------------------------------------
+
+    result = game_service.process_game_score(
+        user_id=g.current_user.id,
+        score=score
+    )
+
+    user, xp_gained, xp_before = result
+
+    # ----------------------------------------------------------------------
+    # Resposta
+    # ----------------------------------------------------------------------
+
+    return jsonify({
+        "success": True,
+        "message": "Game score processed successfully.",
+        "score": score,
+        "xp_gained": xp_gained,
+        "xp": user.xp,
+        "level": user.level
+    }), 200
+'''
+from flask import Blueprint, jsonify, request, g
+
+from app.middleware.auth_middleware import api_login_required
+from app.services.game_service import GameService
+
+
 game_bp = Blueprint("game", __name__)
 
 game_service = GameService()
-'''
+
 @routes.route('/game/score', methods=['POST'])
 def save_score():
     data = request.json
@@ -83,7 +147,7 @@ def game_score():
     "xp_after": user["xp"],
     "level": user["level"]
     })
-'''
+
 @game_bp.route("/api/games/score", methods=["POST"])
 @api_login_required
 def game_score():
@@ -97,3 +161,4 @@ def game_score():
 
     return jsonify(result["body"]), result["status"]
 #POST /api/games/<game_slug>/score
+'''
