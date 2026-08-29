@@ -15,7 +15,7 @@ main {
     background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding-top: 100px; /* Garante que o topo fique visível abaixo da topbar */
+    padding-top: 100px; /* Espaço para não ficar atrás da navbar */
 }
 
 .ranking-wrapper {
@@ -38,7 +38,7 @@ main {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
-    color: #FFFFFF !important;
+    color: #4CAE50 !important; /* Cor verde idêntica à imagem */
     margin: 0 0 5px 0;
 }
 
