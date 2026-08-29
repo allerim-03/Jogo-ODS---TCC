@@ -1,81 +1,217 @@
 /* =========================================
-   SOBRE.CSS - Estilos Exclusivos da Página "Sobre Nós"
-   (Com escopo restrito para não afetar index.html nem outras páginas)
+   SOBRE.CSS - Ajustado com estilo Tela 404
    ========================================= */
 
-/* Escopo principal da página Sobre */
-.pagina-sobre {
+/* ESTRUTURA PRINCIPAL E EMPURRÃO PARA BAIXO DA NAVBAR */
+main.sobre-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 20px 60px 20px;
+    margin-top: 110px; /* Garante que a caixa fique totalmente abaixo da navbar fixa */
+    min-height: calc(100vh - 170px);
+    box-sizing: border-box;
+}
+
+/* CARD BRANCO CENTRALIZADO (ESTILO EXACTO TELA 404) */
+.card-sobre-central {
+    background-color: #FFFFFF;
     width: 100%;
-    padding: 20px 0;
+    max-width: 850px;
+    padding: 40px;
+    border-radius: 24px; /* Bordas bem arredondadas igual a tela 404 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
 }
 
-/* Hero / Topo da página Sobre */
-.pagina-sobre .sobre-hero {
+/* CABEÇALHO DA CAIXA (IGUAL TELA 404) */
+.header-sobre {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #FFFFFF;
-    border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.pagina-sobre .sobre-hero h1 {
-    font-family: 'Montserrat', sans-serif;
+.subtitulo-app {
     color: #4CAF50;
-    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.pagina-sobre .sobre-hero p {
-    font-family: 'Poppins', sans-serif;
-    color: #4A4A4A;
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* Seção de Integrantes / Equipe */
-.pagina-sobre .equipe-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.pagina-sobre .membro-card {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid #43B4FB;
-    transition: transform 0.25s ease;
-}
-
-.pagina-sobre .membro-card:hover {
-    transform: translateY(-5px);
-    border-color: #4CAF50;
-}
-
-.pagina-sobre .membro-card img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 12px;
-    border: 2px solid #4CAF50;
-}
-
-.pagina-sobre .membro-card h3 {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    display: block;
     font-family: 'Montserrat', sans-serif;
-    color: #1A1A1A;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
-.pagina-sobre .membro-card p {
+.titulo-verde {
+    font-family: 'Montserrat', sans-serif;
+    color: #1b5e20;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.alinhado-centro {
+    text-align: center;
+}
+
+/* DIVISOR INTERNO DA PÁGINA */
+.divisor {
+    border: 0;
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 30px auto;
+    width: 100%;
+}
+
+/* BLOCO INFORMATIVO DE PROJETO E TEXTOS */
+.secao-info {
+    text-align: left;
+}
+
+.bloco-conteudo-projeto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.bloco-texto {
+    flex: 1;
+}
+
+.bloco-texto h2.titulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #4CAE50;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bloco-texto p {
     font-family: 'Poppins', sans-serif;
-    color: #666666;
-    font-size: 0.9rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #1A1A1A;
+    margin-bottom: 10px;
+}
+
+.bloco-imagem-placeholder {
+    width: 140px;
+    height: 140px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: #ffffff;
+}
+
+.bloco-imagem-placeholder img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+/* ESTILO DOS TÓPICOS LINEARES (MISSÃO, VISÃO, VALORES) */
+.secao-topico-linear {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icone-topico {
+    font-size: 2rem;
+    background-color: #F8FAFC;
+    border: 1px solid #E0E0E0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ESTRUTURA DA EQUIPE DE DESENVOLVIMENTO */
+.secao-equipe {
+    margin-top: 10px;
+}
+
+.categoria-equipe {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.badge-area {
+    display: inline-block;
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 14px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* CARDS INDIVIDUAIS DOS MEMBROS DA EQUIPE */
+.membro {
+    background-color: #F8FAFC;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 15px;
+    width: 130px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.membro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.membro .foto img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.membro h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1A1A1A;
+    margin: 4px 0 0 0;
+}
+
+/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+@media (max-width: 650px) {
+    main.sobre-main-container {
+        margin-top: 90px;
+        padding: 15px;
+    }
+
+    .card-sobre-central {
+        padding: 25px 15px;
+    }
+
+    .bloco-conteudo-projeto,
+    .secao-topico-linear {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bloco-texto {
+        text-align: center;
+    }
 }
