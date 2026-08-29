@@ -3,7 +3,7 @@
 # Converte Score em XP e aplica o progresso do usuário
 # ==========================================================================
 
-from app.services.xp_service import add_xp
+from app.services.xp_service import XPService
 from app.services.badge_service import check_and_award_badges
 
 from app.repositories.user_repository import UserRepository
@@ -16,6 +16,7 @@ class GameService:
 
         self.user_repository = UserRepository()
         self.score_repository = ScoreRepository()
+        self.xp_service = XPService()
 
 
     # ======================================================================
@@ -94,13 +95,9 @@ class GameService:
         # Atualiza XP e nível
         # ------------------------------------------------------------------
 
-        add_xp(
+        self.xp_service.add_xp(
             user,
             xp_gained
-        )
-
-        self.user_repository.update_progress(
-            user
         )
 
 
@@ -165,7 +162,6 @@ def process_game_score(
         score=score,
         xp_gained=xp_gained
     )
-
 
 '''# converte score em xp
 # aplica progresso (xp + badge)
