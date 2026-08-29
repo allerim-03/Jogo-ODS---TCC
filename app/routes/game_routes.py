@@ -49,11 +49,19 @@ def game_score():
 
     data = request.get_json() or {}
 
+    # ----------------------------------------------------------------------
+    # Validação dos dados
+    # ----------------------------------------------------------------------
+
+    game_id = data.get("game_id")
     score = data.get("score")
 
-    # ----------------------------------------------------------------------
-    # Validação
-    # ----------------------------------------------------------------------
+    if game_id is None:
+
+        return jsonify({
+            "success": False,
+            "message": "Game ID is required."
+        }), 400
 
     if score is None:
 
@@ -63,28 +71,27 @@ def game_score():
         }), 400
 
     # ----------------------------------------------------------------------
-    # Processamento da pontuação
+    # Processamento
     # ----------------------------------------------------------------------
 
     result = game_service.process_game_score(
+
         user_id=g.current_user.id,
+
+        game_id=game_id,
+
         score=score
     )
-
-    user, xp_gained, xp_before = result
 
     # ----------------------------------------------------------------------
     # Resposta
     # ----------------------------------------------------------------------
 
-    return jsonify({
-        "success": True,
-        "message": "Game score processed successfully.",
-        "score": score,
-        "xp_gained": xp_gained,
-        "xp": user.xp,
-        "level": user.level
-    }), 200
+    return jsonify(
+        result["body"]
+    ), result["status"]
+
+
 '''
 from flask import Blueprint, jsonify, request, g
 
