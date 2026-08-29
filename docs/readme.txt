@@ -2091,3 +2091,206 @@ ON quiz_attempt (user_id);
 
 CREATE INDEX idx_attempt_quiz
 ON quiz_attempt (quiz_id);
+
+
+--- 29/08 sistema de gamificação
+# Sistema de Gamificação
+
+A plataforma utiliza um sistema de gamificação para incentivar a participação dos alunos nas atividades relacionadas à sustentabilidade e aos ODS.
+
+O sistema é baseado principalmente em:
+
+* **Score:** pontuação obtida pelo jogador em cada atividade;
+* **XP:** experiência recebida a partir da pontuação;
+* **Nível:** determinado pela quantidade de XP acumulada;
+* **Badges:** conquistas atribuídas de acordo com o progresso do usuário;
+* **Ranking:** classificação dos usuários de acordo com seu desempenho;
+* **Histórico:** registro das partidas realizadas.
+
+## Fluxo da gamificação
+
+O JavaScript de cada jogo é responsável apenas por calcular a pontuação da partida.
+
+```text
+Jogador finaliza o jogo
+        │
+        ▼
+JavaScript calcula o Score
+        │
+        ▼
+POST /api/games/score
+        │
+        ▼
+GameService
+        │
+        ├── Converte Score → XP
+        ├── Atualiza XP
+        ├── Recalcula o nível
+        ├── Verifica Badges
+        ├── Salva o histórico
+        └── Atualiza o Ranking
+        │
+        ▼
+Banco de Dados
+```
+
+A separação permite que diferentes minijogos utilizem o mesmo sistema de gamificação.
+
+Por exemplo, o **Jogo da Memória**, a **Esteira da Reciclagem** e o **Quiz** podem possuir regras diferentes para calcular o Score, mas todos utilizam o mesmo processamento de XP, nível, badges e ranking no backend.
+
+## XP e níveis
+
+Atualmente, a conversão de Score para XP utiliza a regra:
+
+```text
+XP = Score × 10
+```
+
+Os níveis são definidos de acordo com o XP acumulado:
+
+| Nível | XP necessário |
+| ----: | ------------: |
+|     1 |             0 |
+|     2 |           100 |
+|     3 |           250 |
+|     4 |           500 |
+|     5 |          1000 |
+
+O `xp_service.py` possui a responsabilidade de adicionar XP e calcular automaticamente o nível correspondente.
+
+## Histórico de partidas
+
+Os resultados dos jogos são armazenados na tabela `score`, contendo informações como:
+
+* usuário;
+* jogo;
+* pontuação;
+* XP obtido;
+* data da partida.
+
+A estrutura permite futuramente utilizar esses dados para:
+
+* histórico do jogador;
+* estatísticas;
+* ranking;
+* acompanhamento de evolução;
+* comparação de desempenho.
+
+---
+
+# Melhorias planejadas
+
+O sistema atual possui a estrutura principal da gamificação, porém alguns pontos ainda estão em processo de reorganização e melhoria.
+
+### 1. Padronização das tabelas de jogos
+
+A estrutura está sendo reorganizada para utilizar:
+
+**`games`**
+
+Responsável pelo catálogo de jogos disponíveis.
+
+**`score`**
+
+Responsável pelo histórico das pontuações obtidas pelos usuários.
+
+A intenção é relacionar cada pontuação ao `game_id`, evitando armazenar repetidamente o nome do jogo em cada partida.
+
+### 2. Revisão do `GameService`
+
+O `GameService` será ajustado para utilizar a nova estrutura de banco e concentrar corretamente o fluxo:
+
+```text
+Score
+  ↓
+XP
+  ↓
+Level
+  ↓
+Badges
+  ↓
+Score/Histórico
+  ↓
+Ranking
+```
+
+Também será necessário alinhar os nomes dos métodos entre as rotas, serviços e repositórios.
+
+### 3. Padronização das rotas
+
+As rotas de jogos serão reorganizadas para utilizar uma estrutura consistente, por exemplo:
+
+```text
+POST /api/games/score
+```
+
+ou futuramente:
+
+```text
+POST /api/games/<game_slug>/score
+```
+
+A identificação do usuário deverá utilizar o usuário autenticado pelo JWT, evitando depender de um `user_id` enviado pelo frontend.
+
+### 4. Integração dos novos minijogos
+
+Novos jogos poderão utilizar o mesmo sistema sem precisar implementar novamente a lógica de XP.
+
+Cada jogo será responsável somente por calcular seu próprio Score.
+
+Exemplo:
+
+```text
+Jogo da Memória
+→ Score baseado em movimentos e tempo
+
+Esteira da Reciclagem
+→ Score baseado em acertos, erros e tempo
+
+Quiz
+→ Score baseado em respostas corretas
+```
+
+Depois disso, todos enviam o resultado ao mesmo sistema de gamificação.
+
+### 5. Evolução do sistema de badges
+
+O sistema de badges será ampliado para contemplar diferentes tipos de conquistas, como:
+
+* completar determinada quantidade de jogos;
+* atingir determinados níveis;
+* acumular determinada quantidade de XP;
+* obter pontuações específicas;
+* conquistas relacionadas aos ODS.
+
+### 6. Melhorias futuras no ranking
+
+O ranking poderá ser aprimorado para apresentar:
+
+* posição do usuário;
+* XP acumulado;
+* pontuação;
+* ranking geral;
+* ranking por jogo;
+* ranking por período.
+
+### 7. Estatísticas e dashboard
+
+Os dados armazenados poderão alimentar um dashboard com informações como:
+
+* partidas realizadas;
+* pontuação total;
+* melhor pontuação;
+* média de pontuação;
+* XP acumulado;
+* nível atual;
+* badges conquistadas;
+* evolução do jogador.
+
+---
+
+## Estado atual
+
+A estrutura principal da gamificação já está definida, incluindo **Score, XP, níveis, badges, ranking e histórico**.
+
+O próximo passo é **padronizar e integrar as tabelas `games` e `score` ao `GameService`, `ScoreRepository` e às rotas da API**, antes de conectar os novos minijogos ao sistema.
