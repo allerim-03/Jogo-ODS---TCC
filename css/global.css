@@ -1,9 +1,10 @@
 /* =========================================
-   GLOBAL.CSS - Estilos Globais, Hero e Pilares
+   GLOBAL.CSS - Reset, Configurações Base e Componentes
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600&display=swap');
 
+/* RESET E CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
@@ -11,11 +12,22 @@
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    background-color: #F8FAFC !important; /* Alterado de #F0F7FF para o neutro quase branco */
+    background-color: #F8FAFC !important;
     color: #1A1A1A;
     line-height: 1.6;
-    min-height: 100vh;
+    padding-top: 100px;
+}
+
+main {
+    flex: 1;
+}
+
+#menu-check {
+    display: none;
 }
 
 /* TIPOGRAFIA BASE DO GUIA */
@@ -40,15 +52,28 @@ h3 {
     color: #43B4FB; /* Bright Blue */
 }
 
-main {
-    padding-top: 100px !important;
+/* CLASSES UTILITÁRIAS DE CORES E TEXTO */
+.negrito {
+    font-weight: 700 !important;
 }
 
-#menu-check {
-    display: none;
+.texto-azul {
+    color: #43B4FB !important; /* Bright Blue */
 }
 
-/* BOTÃO PRINCIPAL 3D */
+.texto-verde {
+    color: #4CAE50 !important; /* Garden Green */
+}
+
+.texto-amarelo {
+    color: #FFDE5A !important; /* Banana Yellow */
+}
+
+.texto-vermelho {
+    color: #FF524D !important; /* Vivid Red */
+}
+
+/* BOTÕES 3D */
 .btn-principal {
     display: inline-flex;
     align-items: center;
@@ -101,14 +126,14 @@ main {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
-    color: #4CAE50; /* Alterado de branco para Garden Green no fundo claro */
+    color: #4CAE50;
     margin-bottom: 10px;
 }
 
 .hero-section p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
-    color: #1A1A1A; /* Alterado de branco para escuro de alto contraste */
+    color: #1A1A1A;
     max-width: 700px;
     margin: 0 auto 25px auto;
 }
@@ -164,9 +189,9 @@ main {
     flex-grow: 1;
 }
 
-/* BLOCO DE IMPACTO (Mantido Bright Blue com Texto Branco por ser um Card Destaque) */
+/* BLOCO DE IMPACTO */
 .impact-block {
-    background-color: #43B4FB; /* Bright Blue */
+    background-color: #43B4FB;
     color: #FFFFFF;
     padding: 50px 25px;
     text-align: center;
