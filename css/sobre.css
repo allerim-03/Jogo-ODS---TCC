@@ -2,7 +2,7 @@
    SOBRE.CSS - Estrutura da Seção Sobre
    ========================================= */
 
-/* FUNDO VERDE DA PÁGINA (Estilo Tela 404) */
+/* FUNDO VERDE DA PÁGINA */
 body {
     background-color: #4CAF50;
     margin: 0;
@@ -11,15 +11,16 @@ body {
 }
 
 /* ESTRUTURA PRINCIPAL E CENTRALIZAÇÃO */
-main {
+main.sobre-main-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+    align-items: flex-start;
+    padding: 50px 20px 60px 20px; /* Aumentado padding-top para não encostar na navbar */
     min-height: calc(100vh - 120px);
+    box-sizing: border-box;
 }
 
-/* CARD BRANCO CENTRALIZADO (Estilo Tela 404) */
+/* CARD BRANCO CENTRALIZADO */
 .card-sobre-central {
     background-color: #FFFFFF;
     width: 100%;
@@ -33,37 +34,19 @@ main {
 /* CABEÇALHO */
 .header-sobre {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.subtitulo-app {
-    color: #4CAF50;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    display: block;
+    margin-bottom: 25px;
 }
 
 .titulo-verde {
     font-family: 'Montserrat', sans-serif;
     color: #1b5e20;
     font-weight: 700;
-    font-size: 2rem;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin: 0;
 }
 
 .alinhado-centro {
     text-align: center;
-}
-
-.subtitulo-equipe {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    color: #666;
-    font-size: 0.95rem;
-    margin-top: -5px;
-    margin-bottom: 25px;
 }
 
 /* DIVISOR DA PÁGINA INTERNO DO CARD */
@@ -95,7 +78,8 @@ main {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 1.3rem;
-    color: #4CAE50; /* Garden Green */
+    color: #4CAE50;
+    margin-top: 0;
     margin-bottom: 12px;
 }
 
@@ -108,15 +92,47 @@ main {
     margin-bottom: 10px;
 }
 
+.bloco-imagem-placeholder {
+    width: 140px;
+    height: 140px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: #ffffff;
+}
+
 .bloco-imagem-placeholder img {
-    width: 90px;
+    width: 80px;
     height: auto;
     display: block;
 }
 
+/* ESTILO DOS TÓPICOS LINEARES (MISSÃO, VISÃO, VALORES) */
+.secao-topico-linear {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icone-topico {
+    font-size: 2rem;
+    background-color: #F8FAFC;
+    border: 1px solid #E0E0E0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 /* ESTRUTURA DA EQUIPE DE DESENVOLVIMENTO */
 .secao-equipe {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .categoria-equipe {
@@ -149,7 +165,7 @@ main {
     border: 1px solid #E0E0E0;
     border-radius: 12px;
     padding: 15px;
-    width: 140px;
+    width: 130px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -171,24 +187,21 @@ main {
     font-weight: 600;
     font-size: 0.85rem;
     color: #1A1A1A;
-    margin: 4px 0;
-}
-
-.membro p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.75rem;
-    color: #4CAE50;
-    font-weight: 600;
-    margin: 0;
+    margin: 4px 0 0 0;
 }
 
 /* COMPATIBILIDADE RESPONSIVA */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+    main.sobre-main-container {
+        padding-top: 30px;
+    }
+
     .card-sobre-central {
         padding: 25px 15px;
     }
 
-    .bloco-conteudo-projeto {
+    .bloco-conteudo-projeto,
+    .secao-topico-linear {
         flex-direction: column;
         text-align: center;
     }
