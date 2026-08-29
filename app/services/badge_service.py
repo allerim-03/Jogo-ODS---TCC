@@ -1,78 +1,157 @@
 from database.connection import get_connection
 
-# verifica badge
-# dá badge
+
+# ==========================================================================
+# BADGE SERVICE
+# Verifica e concede badges aos usuários
+# ==========================================================================
+
 class BadgeService:
-    def check_and_award_badges(self,user_id, xp, level):
+
+    # ======================================================================
+    # VERIFICAR E CONCEDER BADGES
+    # ======================================================================
+
+    def check_and_award_badges(
+        self,
+        user_id,
+        xp,
+        level
+    ):
 
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
 
-        # pega todas as badges
-        cursor.execute("SELECT * FROM badge")
-        badge = cursor.fetchall()
+        try:
 
-        for badge in badge:
+            # ------------------------------------------------------------------
+            # Busca todas as badges
+            # ------------------------------------------------------------------
 
-            already_has = user_has_badge(
-                user_id,
-                badge["id"],
-                cursor
+            cursor.execute(
+                "SELECT * FROM badge"
             )
 
-            if already_has:
-                continue
+            badges = cursor.fetchall()
 
-            if (
-                badge["requirement_type"] == "xp"
-                and xp >= badge["requirement_value"]
-            ):
-                award_badge(
+
+            # ------------------------------------------------------------------
+            # Verifica cada badge
+            # ------------------------------------------------------------------
+
+            for badge in badges:
+
+                already_has = self.user_has_badge(
                     user_id,
                     badge["id"],
                     cursor
                 )
 
-            if (
-                badge["requirement_type"] == "level"
-                and level >= badge["requirement_value"]
-            ):
-                award_badge(
-                    user_id,
-                    badge["id"],
-                    cursor
-                )
-
-        conn.commit()
-
-        cursor.close()
-        conn.close()
+                if already_has:
+                    continue
 
 
-    def user_has_badge(self,user_id, badge_id, cursor):
+                # --------------------------------------------------------------
+                # Badge por XP
+                # --------------------------------------------------------------
+
+                if (
+                    badge["requirement_type"] == "xp"
+                    and xp >= badge["requirement_value"]
+                ):
+
+                    self.award_badge(
+                        user_id,
+                        badge["id"],
+                        cursor
+                    )
+
+
+                # --------------------------------------------------------------
+                # Badge por nível
+                # --------------------------------------------------------------
+
+                elif (
+                    badge["requirement_type"] == "level"
+                    and level >= badge["requirement_value"]
+                ):
+
+                    self.award_badge(
+                        user_id,
+                        badge["id"],
+                        cursor
+                    )
+
+
+            # ------------------------------------------------------------------
+            # Confirma alterações
+            # ------------------------------------------------------------------
+
+            conn.commit()
+
+
+        except Exception:
+
+            conn.rollback()
+
+            raise
+
+
+        finally:
+
+            cursor.close()
+            conn.close()
+
+
+    # ======================================================================
+    # VERIFICAR SE USUÁRIO JÁ POSSUI BADGE
+    # ======================================================================
+
+    def user_has_badge(
+        self,
+        user_id,
+        badge_id,
+        cursor
+    ):
 
         cursor.execute("""
             SELECT id
             FROM inventory_badge
             WHERE user_id = %s
             AND badge_id = %s
-        """, (user_id, badge_id))
+        """, (
+            user_id,
+            badge_id
+        ))
 
         return cursor.fetchone() is not None
 
 
-    def award_badge(self,user_id, badge_id, cursor):
+    # ======================================================================
+    # CONCEDER BADGE
+    # ======================================================================
+
+    def award_badge(
+        self,
+        user_id,
+        badge_id,
+        cursor
+    ):
 
         cursor.execute("""
             INSERT INTO inventory_badge
             (user_id, badge_id)
             VALUES (%s, %s)
-        """, (user_id, badge_id))
+        """, (
+            user_id,
+            badge_id
+        ))
 
-# =====================================================
+
+# ==========================================================================
 # COMPATIBILIDADE TEMPORÁRIA
 # Mantém serviços antigos funcionando durante migração
-# =====================================================
+# ==========================================================================
 
 _badge_service = BadgeService()
 
