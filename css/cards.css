@@ -2,8 +2,8 @@
    CARDS.CSS - Cards de Atividades e Módulos (Border Radius: 16px)
    ========================================= */
 .container-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 25px;
     padding: 20px;
     max-width: 1100px;
