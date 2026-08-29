@@ -1,6 +1,10 @@
 /* =========================================
-   CARDS.CSS - Cards de Atividades e Módulos (Border Radius: 16px)
+   CARDS.CSS - Sistema Unificado de Cards
    ========================================= */
+
+/* -----------------------------------------
+   1. CARDS VERTICAIS EM GRADE (Módulos/Jogos)
+   ----------------------------------------- */
 .container-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -10,13 +14,12 @@
     margin: 0 auto;
 }
 
-/* CARD ELEVADO */
 .card-modulo {
     background: #FFFFFF;
-    border-radius: 16px; /* Padronizado para 16px */
+    border-radius: 16px;
     padding: 24px;
     text-align: center;
-    border: 3px solid #43B4FB; /* Bright Blue */
+    border: 3px solid #43B4FB;
     transition: transform 0.25s ease, border-color 0.25s ease;
     display: flex;
     flex-direction: column;
@@ -27,10 +30,9 @@
 
 .card-modulo:hover {
     transform: translateY(-6px);
-    border-color: #4CAE50; /* Garden Green */
+    border-color: #4CAF50;
 }
 
-/* ÍCONE DO CARD */
 .card-icone-wrapper {
     width: 90px;
     height: 90px;
@@ -40,7 +42,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-    border: 3px solid #4CAE50;
+    border: 3px solid #4CAF50;
 }
 
 .card-icone-wrapper img {
@@ -49,7 +51,6 @@
     object-fit: contain;
 }
 
-/* TEXTOS DO CARD */
 .card-titulo {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
@@ -66,16 +67,104 @@
     flex-grow: 1;
 }
 
-/* BADGE DE XP (TOPO DO CARD) */
 .card-badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: #FFDE5A; /* Banana Yellow */
+    background-color: #FFDE5A;
     color: #1A1A1A;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
     padding: 4px 12px;
     border-radius: 12px;
+}
+
+/* -----------------------------------------
+   2. CARDS HORIZONTAIS DE APRESENTAÇÃO (Home/Index)
+   ----------------------------------------- */
+.secao-cards-home {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card-home-item {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent;
+}
+
+.card-home-item.borda-verde {
+    border: 2px solid #4CAF50;
+}
+
+.card-home-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card-home-flex.invertido {
+    flex-direction: row-reverse;
+}
+
+.card-home-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.card-home-texto h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #4CAF50;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.card-home-texto p {
+    font-family: 'Poppins', sans-serif;
+    color: #4A4A4A;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.card-home-img-placeholder {
+    width: 320px;
+    height: 180px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card-home-flex, 
+    .card-home-flex.invertido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-home-texto {
+        text-align: center;
+    }
+
+    .card-home-img-placeholder {
+        width: 100%;
+    }
 }
