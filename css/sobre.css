@@ -1,214 +1,167 @@
 /* =========================================
-   SOBRE.CSS - Padronizado com Global/Base
+   ESTILOS DOS MODAIS - SOBRE NÓS
    ========================================= */
 
-/* ESTRUTURA PRINCIPAL */
-main.sobre-main-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px 20px 60px 20px;
-    min-height: calc(100vh - 100px);
-    box-sizing: border-box;
+.membro {
+    cursor: pointer;
 }
 
-/* CARD BRANCO CENTRALIZADO */
-.card-sobre-central {
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 850px;
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    border: 1px solid #E0E0E0;
+/* Fundo escurecido ao abrir o modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 9998;
+    display: none;
 }
 
-/* CABEÇALHO DA PÁGINA */
-.header-sobre {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.subtitulo-app {
-    color: #43B4FB; /* Bright Blue padronizado */
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
+.modal-overlay.active {
     display: block;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 6px;
-    text-transform: uppercase;
 }
 
-.titulo-verde {
-    font-family: 'Nunito', sans-serif;
-    color: #4CAE50; /* Garden Green */
-    font-weight: 800;
-    font-size: 2.2rem;
-    margin: 0;
-}
-
-/* DIVISOR INTERNO */
-.divisor {
-    border: 0;
-    height: 1px;
-    background-color: #E0E0E0;
-    margin: 30px auto;
-    width: 100%;
-}
-
-/* SEÇÃO DE INFORMAÇÕES E CONTEÚDO DO PROJETO */
-.secao-info {
+/* Card Principal do Popup Modal */
+.modal-membro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 580px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: 2px solid #4CAE50; /* Contorno verde fino */
+    padding: 30px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+    box-sizing: border-box;
     text-align: left;
 }
 
-.bloco-conteudo-projeto {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.modal-membro.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.bloco-texto {
-    flex: 1;
-}
-
-.bloco-texto h2.titulo-secao {
-    font-family: 'Montserrat', sans-serif;
+/* Botão Fechar (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    background-color: #FF5A5A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
     font-weight: 700;
-    font-size: 1.4rem;
-    color: #4CAE50;
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-.bloco-texto p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #1A1A1A;
-    margin-bottom: 10px;
-}
-
-.bloco-imagem-placeholder {
-    width: 140px;
-    height: 140px;
-    border: 2px dashed #43B4FB;
-    border-radius: 16px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    background-color: #F8FAFC;
+    transition: background-color 0.2s ease;
 }
 
-.bloco-imagem-placeholder img {
-    width: 80px;
-    height: auto;
-    display: block;
+.modal-close:hover {
+    background-color: #E04343;
 }
 
-/* SEÇÕES LINEARES (MISSÃO, VISÃO, VALORES) */
-.secao-topico-linear {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.icone-topico {
-    font-size: 2rem;
-    background-color: #F8FAFC;
-    border: 2px solid #43B4FB;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-/* SEÇÃO DA EQUIPE */
-.secao-equipe {
-    margin-top: 10px;
-}
-
-.categoria-equipe {
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.badge-area {
+/* Tag FRONT-END / BACK-END do Modal */
+.badge-tag-modal {
     display: inline-block;
     background-color: #E8F5E9;
     color: #4CAE50;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.8rem;
     padding: 6px 16px;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
-.time-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* CARDS DOS INTEGRANTES DA EQUIPE */
-.membro {
-    background-color: #FFFFFF;
-    border: 2px solid #E0E0E0;
-    border-radius: 16px;
-    padding: 15px;
-    width: 130px;
-    text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.membro:hover {
-    transform: translateY(-4px);
-    border-color: #4CAE50;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-.membro .foto img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.membro h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
+/* Nome do Colaborador */
+.modal-nome {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
     color: #1A1A1A;
-    margin: 4px 0 0 0;
+    margin: 0 0 20px 0;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 650px) {
-    main.sobre-main-container {
-        padding: 15px;
-    }
+/* Layout Flex: Foto na Esquerda, Texto na Direita */
+.modal-corpo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
-    .card-sobre-central {
-        padding: 25px 15px;
-    }
+/* Moldura da Foto com Borda Pontilhada Verde */
+.modal-foto-box {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    border: 2px dashed #4CAE50;
+    border-radius: 16px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
 
-    .bloco-conteudo-projeto,
-    .secao-topico-linear {
+.modal-foto-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Textos da Direita */
+.modal-info {
+    flex-grow: 1;
+}
+
+.modal-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+}
+
+.modal-info p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsividade do Modal */
+@media (max-width: 580px) {
+    .modal-corpo {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    .bloco-texto {
-        text-align: center;
+    .modal-foto-box {
+        width: 110px;
+        height: 110px;
+    }
+
+    .modal-membro {
+        padding: 25px 20px;
     }
 }
