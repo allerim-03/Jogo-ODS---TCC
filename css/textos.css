@@ -8,14 +8,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 100px 20px 10px 20px; /* Distância exata para o menu fixo */
+    padding: 20px 20px 10px 20px !important; /* Reduzido de 100px para 20px */
     margin-bottom: 20px;
     background-color: #F8FAFC !important;
 }
 
 .titulo-principal-topo {
-    margin-top: 0;
-    padding-top: 0;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .boas-vindas h2 {
@@ -23,7 +23,7 @@
     font-weight: 800;
     font-size: 2.2rem;
     color: #4CAE50 !important; /* Garden Green */
-    margin-top: 0;
+    margin-top: 0 !important;
     margin-bottom: 10px;
 }
 
@@ -164,7 +164,7 @@
 /* RESPONSIVIDADE PARA TELAS MENORES */
 @media (max-width: 768px) {
     .boas-vindas {
-        padding-top: 90px;
+        padding-top: 20px !important;
     }
 
     .conteudo-flex,
