@@ -1,15 +1,21 @@
 /* =========================================
    TEXTOS.CSS - Tipografia e Estilos de Texto
    ========================================= */
-/*CABEÇALHO*/
-   .boas-vindas {
+
+/* CABEÇALHO */
+.boas-vindas {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 70px 20px 10px 20px; /* Espaço do topo reduzido */
+    padding: 100px 20px 10px 20px; /* Distância exata para o menu fixo */
     margin-bottom: 20px;
     background-color: #F8FAFC !important;
+}
+
+.titulo-principal-topo {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .boas-vindas h2 {
@@ -17,6 +23,7 @@
     font-weight: 800;
     font-size: 2.2rem;
     color: #4CAE50 !important; /* Garden Green */
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
