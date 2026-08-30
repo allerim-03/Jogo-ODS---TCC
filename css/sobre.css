@@ -1,10 +1,201 @@
 /* =========================================
-   ESTILOS DOS MODAIS - SOBRE NÓS
+   SOBRE.CSS - Padronizado com Global/Base
    ========================================= */
 
-.membro {
-    cursor: pointer;
+/* ESTRUTURA PRINCIPAL */
+main.sobre-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 20px 60px 20px;
+    min-height: calc(100vh - 100px);
+    box-sizing: border-box;
 }
+
+/* CARD BRANCO CENTRALIZADO */
+.card-sobre-central {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 850px;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border: 1px solid #E0E0E0;
+}
+
+/* CABEÇALHO DA PÁGINA */
+.header-sobre {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitulo-app {
+    color: #43B4FB; /* Bright Blue padronizado */
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.titulo-verde {
+    font-family: 'Nunito', sans-serif;
+    color: #4CAE50; /* Garden Green */
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+/* DIVISOR INTERNO */
+.divisor {
+    border: 0;
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 30px auto;
+    width: 100%;
+}
+
+/* SEÇÃO DE INFORMAÇÕES E CONTEÚDO DO PROJETO */
+.secao-info {
+    text-align: left;
+}
+
+.bloco-conteudo-projeto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.bloco-texto {
+    flex: 1;
+}
+
+.bloco-texto h2.titulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #4CAE50;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bloco-texto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #1A1A1A;
+    margin-bottom: 10px;
+}
+
+.bloco-imagem-placeholder {
+    width: 140px;
+    height: 140px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: #F8FAFC;
+}
+
+.bloco-imagem-placeholder img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+/* SEÇÕES LINEARES (MISSÃO, VISÃO, VALORES) */
+.secao-topico-linear {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icone-topico {
+    font-size: 2rem;
+    background-color: #F8FAFC;
+    border: 2px solid #43B4FB;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* SEÇÃO DA EQUIPE */
+.secao-equipe {
+    margin-top: 10px;
+}
+
+.categoria-equipe {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.badge-area {
+    display: inline-block;
+    background-color: #E8F5E9;
+    color: #4CAE50;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* CARDS DOS INTEGRANTES DA EQUIPE */
+.membro {
+    background-color: #FFFFFF;
+    border: 2px solid #E0E0E0;
+    border-radius: 16px;
+    padding: 15px;
+    width: 130px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.membro:hover {
+    transform: translateY(-4px);
+    border-color: #4CAE50;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.membro .foto img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.membro h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1A1A1A;
+    margin: 4px 0 0 0;
+}
+
+/* =========================================
+   ESTILOS DOS MODAIS (POPUP COLABORADORES)
+   ========================================= */
 
 /* Fundo escurecido ao abrir o modal */
 .modal-overlay {
@@ -23,7 +214,7 @@
     display: block;
 }
 
-/* Card Principal do Popup Modal */
+/* Card Principal do Popup Modal com contorno verde fino */
 .modal-membro {
     position: fixed;
     top: 50%;
@@ -33,7 +224,7 @@
     max-width: 580px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    border: 2px solid #4CAE50; /* Contorno verde fino */
+    border: 2px solid #4CAE50;
     padding: 30px 35px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     z-index: 9999;
@@ -148,8 +339,26 @@
     margin: 0;
 }
 
-/* Responsividade do Modal */
-@media (max-width: 580px) {
+/* RESPONSIVIDADE */
+@media (max-width: 650px) {
+    main.sobre-main-container {
+        padding: 15px;
+    }
+
+    .card-sobre-central {
+        padding: 25px 15px;
+    }
+
+    .bloco-conteudo-projeto,
+    .secao-topico-linear {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bloco-texto {
+        text-align: center;
+    }
+
     .modal-corpo {
         flex-direction: column;
         align-items: center;
