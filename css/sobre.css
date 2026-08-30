@@ -131,14 +131,6 @@ main.sobre-main-container {
     margin-top: 20px;
 }
 
-.secao-equipe .titulo-secao {
-    font-family: 'Montserrat', 'Segoe UI', sans-serif;
-    font-weight: 700;
-    font-size: 1.35rem;
-    color: #388E3C;
-    margin-bottom: 20px;
-}
-
 .alinhado-centro {
     text-align: center;
 }
@@ -217,7 +209,7 @@ main.sobre-main-container {
 }
 
 .modal-overlay.active {
-    display: block;
+    display: block !important;
 }
 
 .modal-membro {
@@ -241,9 +233,9 @@ main.sobre-main-container {
 }
 
 .modal-membro.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(-50%, -50%) scale(1) !important;
 }
 
 .modal-close {
