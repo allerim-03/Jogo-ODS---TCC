@@ -33,7 +33,6 @@
             <p>Nível 2</p>
         </div>
         <nav class="links-sidebar">
-             <nav class="links-sidebar">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
             <a href="jogos.html">JOGOS</a>
@@ -51,10 +50,9 @@
 
         <div class="info-container">
             <div class="logo">
-                <span class="icon"></span>
+                <span class="icon">🌱</span>
                 <div>
                     <h1>Cultivando o Saber</h1>
-                    <p></p>
                 </div>
             </div>
             <div class="level">
@@ -81,7 +79,7 @@
 </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-   <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
     <main class="sobre-main-container">
 
         <!-- CARD BRANCO CENTRALIZADO -->
@@ -161,7 +159,7 @@
                     <div class="time-container">
 
                         <!-- INTEGRANTE 1 -->
-                        <div class="membro">
+                        <div class="membro" onclick="abrirModal('modal-membro-1')">
                             <div class="foto">
                                 <img src="img/pessoa1.png" alt="Andrielli Moreira">
                             </div>
@@ -171,7 +169,7 @@
                         </div>
 
                         <!-- INTEGRANTE 2 -->
-                        <div class="membro">
+                        <div class="membro" onclick="abrirModal('modal-membro-2')">
                             <div class="foto">
                                 <img src="img/pessoa2.png" alt="Nicoly Ramalho">
                             </div>
@@ -189,7 +187,7 @@
                     <div class="time-container">
 
                         <!-- INTEGRANTE 3 -->
-                        <div class="membro">
+                        <div class="membro" onclick="abrirModal('modal-membro-3')">
                             <div class="foto">
                                 <img src="img/pessoa5.png" alt="Kauan Gonçalves">
                             </div>
@@ -199,7 +197,7 @@
                         </div>
 
                         <!-- INTEGRANTE 4 -->
-                        <div class="membro">
+                        <div class="membro" onclick="abrirModal('modal-membro-4')">
                             <div class="foto">
                                 <img src="img/pessoa3.png" alt="Kaylaini Araujo">
                             </div>
@@ -209,7 +207,7 @@
                         </div>
 
                         <!-- INTEGRANTE 5 -->
-                        <div class="membro">
+                        <div class="membro" onclick="abrirModal('modal-membro-5')">
                             <div class="foto">
                                 <img src="img/pessoa4.png" alt="Mirella Conceição">
                             </div>
@@ -227,10 +225,99 @@
 
     </main>
 
+    <!-- CAMADA ESCURA DO MODAL -->
+    <div id="modal-overlay" class="modal-overlay" onclick="fecharTodosModais()"></div>
+
+    <!-- MODAL 1: Andrielli Moreira -->
+    <div id="modal-membro-1" class="modal-membro">
+        <button class="modal-close" onclick="fecharModal('modal-membro-1')">&times;</button>
+        <span class="badge-tag-modal">FRONT-END</span>
+        <h2 class="modal-nome">Andrielli Moreira</h2>
+        
+        <div class="modal-corpo">
+            <div class="modal-foto-box">
+                <img src="img/pessoa1.png" alt="Andrielli Moreira">
+            </div>
+            <div class="modal-info">
+                <h3>Sobre o Colaborador</h3>
+                <p>Responsável pelo desenvolvimento da interface gráfica, prototipação e estruturação visual do projeto para garantir uma ótima usabilidade infantil.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Nicoly Ramalho -->
+    <div id="modal-membro-2" class="modal-membro">
+        <button class="modal-close" onclick="fecharModal('modal-membro-2')">&times;</button>
+        <span class="badge-tag-modal">FRONT-END</span>
+        <h2 class="modal-nome">Nicoly Ramalho</h2>
+        
+        <div class="modal-corpo">
+            <div class="modal-foto-box">
+                <img src="img/pessoa2.png" alt="Nicoly Ramalho">
+            </div>
+            <div class="modal-info">
+                <h3>Sobre o Colaborador</h3>
+                <p>Atua na criação dos componentes visuais, estilização das telas e responsividade dos elementos gráficos da plataforma Cultivando o Saber.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Kauan Gonçalves -->
+    <div id="modal-membro-3" class="modal-membro">
+        <button class="modal-close" onclick="fecharModal('modal-membro-3')">&times;</button>
+        <span class="badge-tag-modal">BACK-END</span>
+        <h2 class="modal-nome">Kauan Gonçalves</h2>
+        
+        <div class="modal-corpo">
+            <div class="modal-foto-box">
+                <img src="img/pessoa5.png" alt="Kauan Gonçalves">
+            </div>
+            <div class="modal-info">
+                <h3>Sobre o Colaborador</h3>
+                <p>Atua no desenvolvimento da arquitetura de backend, integrando as regras de negócio da gamificação com o banco de dados do sistema.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: Kaylaini Araujo -->
+    <div id="modal-membro-4" class="modal-membro">
+        <button class="modal-close" onclick="fecharModal('modal-membro-4')">&times;</button>
+        <span class="badge-tag-modal">BACK-END</span>
+        <h2 class="modal-nome">Kaylaini Araujo</h2>
+        
+        <div class="modal-corpo">
+            <div class="modal-foto-box">
+                <img src="img/pessoa3.png" alt="Kaylaini Araujo">
+            </div>
+            <div class="modal-info">
+                <h3>Sobre o Colaborador</h3>
+                <p>Responsável pela criação de APIs, persistência de dados dos usuários e controle da pontuação (XP) dos quizzes e jogos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: Mirella Conceição -->
+    <div id="modal-membro-5" class="modal-membro">
+        <button class="modal-close" onclick="fecharModal('modal-membro-5')">&times;</button>
+        <span class="badge-tag-modal">BACK-END</span>
+        <h2 class="modal-nome">Mirella Conceição</h2>
+        
+        <div class="modal-corpo">
+            <div class="modal-foto-box">
+                <img src="img/pessoa4.png" alt="Mirella Conceição">
+            </div>
+            <div class="modal-info">
+                <h3>Sobre o Colaborador</h3>
+                <p>Atua no suporte técnico da lógica do sistema, estruturação de dados e testes de integração do servidor com o front-end.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
+    <script src="js/sobrenos.js"></script>
 </body>
 </html>
