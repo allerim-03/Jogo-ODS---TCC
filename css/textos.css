@@ -1,16 +1,15 @@
 /* =========================================
    TEXTOS.CSS - Tipografia e Estilos de Texto
    ========================================= */
-
-/* BOAS-VINDAS / CABEÇALHOS DE PÁGINA */
-.boas-vindas {
+/*CABEÇALHO*/
+   .boas-vindas {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 110px 20px 10px 20px; /* 110px no topo para dar o respiro perfeito abaixo da navbar */
+    padding: 70px 20px 10px 20px; /* Espaço do topo reduzido */
     margin-bottom: 20px;
-    background-color: #F8FAFC !important; /* Força fundo neutro */
+    background-color: #F8FAFC !important;
 }
 
 .boas-vindas h2 {
