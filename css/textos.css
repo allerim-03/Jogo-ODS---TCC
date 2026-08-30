@@ -2,18 +2,13 @@
    TEXTOS.CSS - Tipografia e Estilos de Texto
    ========================================= */
 
-/* ESPAÇAMENTO PADRÃO DE TODAS AS PÁGINAS EM RELAÇÃO À NAVBAR */
-main {
-    padding-top: 100px;
-}
-
 /* BOAS-VINDAS / CABEÇALHOS DE PÁGINA */
 .boas-vindas {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px 20px 10px 20px;
+    padding: 110px 20px 10px 20px; /* 110px no topo para dar o respiro perfeito abaixo da navbar */
     margin-bottom: 20px;
     background-color: #F8FAFC !important; /* Força fundo neutro */
 }
@@ -162,8 +157,8 @@ main {
 
 /* RESPONSIVIDADE PARA TELAS MENORES */
 @media (max-width: 768px) {
-    main {
-        padding-top: 80px;
+    .boas-vindas {
+        padding-top: 90px;
     }
 
     .conteudo-flex,
