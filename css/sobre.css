@@ -356,3 +356,26 @@ main.sobre-main-container {
         text-align: center;
     }
 }
+
+/* =========================================
+   REMOÇÃO DA LINHA/BORDA DE FOCO NA NAVBAR
+   ========================================= */
+a, 
+a:focus, 
+a:active, 
+a.active, 
+.active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+a::after, 
+a::before,
+a.active::after,
+a.active::before {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}
