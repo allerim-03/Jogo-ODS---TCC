@@ -1,5 +1,5 @@
 /* =========================================
-   SOBRE.CSS - Fiel ao Layout Original
+   SOBRE.CSS - Layout Original + Cards ODS
    ========================================= */
 
 /* ESTRUTURA PRINCIPAL */
@@ -32,7 +32,7 @@ main.sobre-main-container {
 
 .titulo-verde {
     font-family: 'Nunito', 'Segoe UI', sans-serif;
-    color: #388E3C; /* Verde escuro do título principal */
+    color: #388E3C;
     font-weight: 800;
     font-size: 2.3rem;
     margin: 0;
@@ -66,7 +66,7 @@ main.sobre-main-container {
     font-family: 'Montserrat', 'Segoe UI', sans-serif;
     font-weight: 700;
     font-size: 1.35rem;
-    color: #4CAF50; /* Verde dos subtítulos */
+    color: #4CAF50;
     margin-top: 0;
     margin-bottom: 14px;
 }
@@ -85,7 +85,7 @@ main.sobre-main-container {
     font-weight: 700;
 }
 
-/* MOLDURA DO TUGA (TRACEJADA E ARREDONDADA COMO NA FOTO) */
+/* MOLDURA DO TUGA */
 .bloco-imagem-placeholder {
     width: 140px;
     height: 140px;
@@ -129,6 +129,18 @@ main.sobre-main-container {
 /* SEÇÃO DA EQUIPE */
 .secao-equipe {
     margin-top: 20px;
+}
+
+.secao-equipe .titulo-secao {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #388E3C;
+    margin-bottom: 20px;
+}
+
+.alinhado-centro {
+    text-align: center;
 }
 
 .categoria-equipe {
@@ -189,7 +201,7 @@ main.sobre-main-container {
 }
 
 /* =========================================
-   ESTILOS DOS MODAIS (POPUP INTEGRANTES)
+   ESTILOS DO CARD INFORMATIVO (POPUP ESTILO ODS)
    ========================================= */
 
 .modal-overlay {
@@ -198,7 +210,7 @@ main.sobre-main-container {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(2px);
     z-index: 9998;
     display: none;
@@ -214,12 +226,12 @@ main.sobre-main-container {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     width: 90%;
-    max-width: 580px;
+    max-width: 540px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    border: 2px solid #4CAE50;
-    padding: 30px 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 2px solid #5B9BD5; /* Contorno azul do ODS */
+    padding: 28px 32px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
@@ -236,11 +248,11 @@ main.sobre-main-container {
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 18px;
+    right: 18px;
     width: 32px;
     height: 32px;
-    background-color: #FF5A5A;
+    background-color: #FF5A5A; /* Quadrado vermelho do fechar */
     color: #FFFFFF;
     border: none;
     border-radius: 8px;
@@ -250,31 +262,32 @@ main.sobre-main-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .modal-close:hover {
     background-color: #E04343;
+    transform: scale(1.05);
 }
 
 .badge-tag-modal {
     display: inline-block;
-    background-color: #E8F5E9;
-    color: #4CAE50;
-    font-family: 'Montserrat', sans-serif;
+    background-color: #FFE66D; /* Tag amarela estilo ODS */
+    color: #2D3748;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     padding: 6px 16px;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .modal-nome {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
     font-weight: 800;
-    font-size: 1.7rem;
+    font-size: 1.55rem;
     color: #1A1A1A;
     margin: 0 0 20px 0;
 }
@@ -282,20 +295,20 @@ main.sobre-main-container {
 .modal-corpo {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 22px;
 }
 
 .modal-foto-box {
     width: 130px;
     height: 130px;
     flex-shrink: 0;
-    border: 2px dashed #4CAE50;
+    border: 2px dashed #5B9BD5; /* Moldura azul tracejada */
     border-radius: 16px;
-    padding: 10px;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFFFF;
+    background-color: #FAFAFA;
     box-sizing: border-box;
 }
 
@@ -310,7 +323,7 @@ main.sobre-main-container {
 }
 
 .modal-info h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     color: #1A1A1A;
@@ -320,7 +333,7 @@ main.sobre-main-container {
 .modal-info p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: #4A5568;
     line-height: 1.5;
     margin: 0;
