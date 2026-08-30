@@ -221,7 +221,7 @@ main.sobre-main-container {
     max-width: 540px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    border: 2px solid #5B9BD5; /* Contorno azul do ODS */
+    border: 2px solid #2E9D47; /* Contorno verde do cartão */
     padding: 28px 32px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     z-index: 9999;
@@ -264,8 +264,8 @@ main.sobre-main-container {
 
 .badge-tag-modal {
     display: inline-block;
-    background-color: #FFE66D; /* Tag amarela estilo ODS */
-    color: #2D3748;
+    background-color: #1E7032; /* Verde escuro */
+    color: #FFFFFF;           /* Letras brancas */
     font-family: 'Montserrat', 'Segoe UI', sans-serif;
     font-weight: 800;
     font-size: 0.78rem;
@@ -294,7 +294,7 @@ main.sobre-main-container {
     width: 130px;
     height: 130px;
     flex-shrink: 0;
-    border: 2px dashed #5B9BD5; /* Moldura azul tracejada */
+    border: 2px dashed #2E9D47; /* Moldura verde tracejada */
     border-radius: 16px;
     padding: 8px;
     display: flex;
