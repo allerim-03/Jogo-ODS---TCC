@@ -8,6 +8,7 @@
 
 #save progress
 
+
 """
 ===========================================================================
 ROTAS DOS JOGOS
@@ -15,10 +16,10 @@ ROTAS DOS JOGOS
 Responsabilidades:
 - Receber requisições HTTP.
 - Validar autenticação.
-- Chamar GameService.
+- Chamar GameService/ScoreRepository.
 - Retornar respostas JSON.
 
-Toda regra de negócio pertence ao GameService.
+Toda regra de negócio pertence aos Services.
 ===========================================================================
 """
 
@@ -26,6 +27,7 @@ from flask import Blueprint, jsonify, request, g
 
 from app.middleware.auth_middleware import api_login_required
 from app.services.game_service import GameService
+from app.repositories.score_repository import ScoreRepository
 
 
 game_bp = Blueprint(
@@ -34,6 +36,7 @@ game_bp = Blueprint(
 )
 
 game_service = GameService()
+score_repository = ScoreRepository()
 
 
 # ==========================================================================
@@ -90,6 +93,69 @@ def game_score():
     return jsonify(
         result["body"]
     ), result["status"]
+
+
+# ==========================================================================
+# HISTÓRICO DE JOGOS
+# ==========================================================================
+
+@game_bp.route(
+    "/api/users/me/games/history",
+    methods=["GET"]
+)
+@api_login_required
+def game_history():
+
+    history = score_repository.get_user_game_history(
+        g.current_user.id
+    )
+
+    return jsonify({
+        "success": True,
+        "history": history
+    }), 200
+
+
+# ==========================================================================
+# JOGOS RECENTES
+# ==========================================================================
+
+@game_bp.route(
+    "/api/users/me/games/recent",
+    methods=["GET"]
+)
+@api_login_required
+def recent_games():
+
+    games = score_repository.get_recent_games(
+        g.current_user.id
+    )
+
+    return jsonify({
+        "success": True,
+        "games": games
+    }), 200
+
+
+# ==========================================================================
+# ESTATÍSTICAS DOS JOGOS
+# ==========================================================================
+
+@game_bp.route(
+    "/api/users/me/games/statistics",
+    methods=["GET"]
+)
+@api_login_required
+def game_statistics():
+
+    statistics = score_repository.get_user_game_statistics(
+        g.current_user.id
+    )
+
+    return jsonify({
+        "success": True,
+        "statistics": statistics
+    }), 200
 
 
 '''

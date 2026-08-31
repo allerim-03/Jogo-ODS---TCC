@@ -1,7 +1,3 @@
-
-from database.connection import get_connection
-
-
 """
 ===========================================================================
 SCORE REPOSITORY
@@ -18,6 +14,8 @@ Responsabilidades:
 - obter estatísticas.
 ===========================================================================
 """
+
+from database.connection import get_connection
 
 
 class ScoreRepository:
@@ -94,12 +92,9 @@ class ScoreRepository:
                 s.xp_earned,
                 s.played_at
             FROM score s
-
-            INNER JOIN games g
+            INNER JOIN game g
                 ON s.game_id = g.id
-
             WHERE s.user_id = %s
-
             ORDER BY s.played_at DESC
             """,
             (user_id,)
@@ -137,16 +132,11 @@ class ScoreRepository:
                 s.points,
                 s.xp_earned,
                 s.played_at
-
             FROM score s
-
-            INNER JOIN games g
+            INNER JOIN game g
                 ON s.game_id = g.id
-
             WHERE s.user_id = %s
-
             ORDER BY s.played_at DESC
-
             LIMIT %s
             """,
             (
@@ -181,19 +171,12 @@ class ScoreRepository:
         cursor.execute(
             """
             SELECT
-
                 COUNT(*) AS matches,
-
                 COALESCE(SUM(points), 0) AS total_score,
-
                 COALESCE(SUM(xp_earned), 0) AS total_xp,
-
                 COALESCE(AVG(points), 0) AS average_score,
-
                 COALESCE(MAX(points), 0) AS best_score
-
             FROM score
-
             WHERE user_id = %s
             """,
             (user_id,)
@@ -212,4 +195,3 @@ class ScoreRepository:
 # ==========================================================================
 
 score_repository = ScoreRepository()
-
