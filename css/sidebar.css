@@ -83,15 +83,21 @@
     object-fit: cover;
 }
 
-/* TEXTO DO NÍVEL DO USUÁRIO */
-.perfil-sidebar p,
-.perfil-sidebar span,
-.nivel-sidebar {
-    color: #FFB72B !important; /* Amarelo/Dourado padronizado do XP */
+/* FORÇA A COR AMARELA NO TEXTO DO NÍVEL */
+.perfil-sidebar * {
+    color: #FFB72B !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 14px;
-    margin: 0;
+}
+
+/* CASO O TEXTO DO NÍVEL ESTEJA FORA DA DIV PERFIL-SIDEBAR */
+.sidebar p,
+.sidebar span,
+.sidebar h3,
+.sidebar h4 {
+    color: #FFB72B !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 /* LINKS DA SIDEBAR */
@@ -102,7 +108,7 @@
 }
 
 .links-sidebar a {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -115,5 +121,5 @@
 
 .links-sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    color: #FFDE5A; /* Banana Yellow */
+    color: #FFDE5A !important; /* Banana Yellow */
 }
