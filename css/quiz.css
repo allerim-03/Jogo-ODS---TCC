@@ -1,14 +1,16 @@
 /* =========================================
    ESTRUTURA E ESTILOS DO QUIZ
    ========================================= */
+
 .quiz-container {
     width: 100%;
     max-width: 500px;
-    padding: 20px;
+    padding: 24px;
     background: #FFFFFF;
-    border-radius: 16px; /* Padronizado: 16px para Cards */
-    border: 2px solid #DB95FD; /* Bright Blue */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .quiz-header {
@@ -36,7 +38,7 @@
     border: 2px solid #43B4FB; /* Bright Blue */
     color: #1A1A1A;
     padding: 15px;
-    border-radius: 12px; /* Padronizado: 12px para elementos interativos */
+    border-radius: 12px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
@@ -51,14 +53,14 @@
     transform: translateY(-2px);
 }
 
-/* FEEDBACK CORRETO (Garden Green) */
+/* FEEDBACK CORRETO */
 .btn-option.correct {
     background-color: #E8F5E9 !important;
     border-color: #4CAF50 !important;
     color: #2E7D32 !important;
 }
 
-/* FEEDBACK INCORRETO (Vivid Red) */
+/* FEEDBACK INCORRETO */
 .btn-option.wrong {
     background-color: #FFEBEE !important;
     border-color: #FF524D !important;
@@ -69,16 +71,15 @@
 .quiz-bar {
     width: 100% !important;
     height: 12px;
-    background-color: #E0E0E0 !important; /* Fundo cinza-claro igual ao perfil */
+    background-color: #E0E0E0 !important;
     border-radius: 999px;
     margin-top: 10px;
     overflow: hidden;
 }
 
-/* PREENCHIMENTO DA BARRA DO QUIZ */
 .quiz-bar .progress,
 .quiz-progress-fill {
     height: 100%;
-    background-color: #FFB72B !important; /* Amarelo-dourado idêntico ao XP */
+    background-color: #FFB72B !important;
     border-radius: 999px;
 }
