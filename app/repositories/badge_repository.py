@@ -1,3 +1,4 @@
+
 """
 ===========================================================================
 BADGE REPOSITORY
@@ -17,7 +18,7 @@ from database.connection import get_connection
 class BadgeRepository:
 
     # =====================================================
-    # Badges conquistadas pelo usuário
+    # BADGES CONQUISTADAS PELO USUÁRIO
     # =====================================================
 
     def get_user_badges(self, user_id):
@@ -44,8 +45,9 @@ class BadgeRepository:
 
         return badges
 
+
     # =====================================================
-    # Lista todas as badges existentes
+    # LISTA TODAS AS BADGES EXISTENTES
     # =====================================================
 
     def get_all_badges(self):
@@ -69,8 +71,9 @@ class BadgeRepository:
 
         return badges
 
+
     # =====================================================
-    # Busca uma badge pelo ID
+    # BUSCA UMA BADGE PELO ID
     # =====================================================
 
     def get_badge_by_id(self, badge_id):
@@ -95,12 +98,94 @@ class BadgeRepository:
         return badge
 
 
+    # =====================================================
+    # VERIFICAR SE USUÁRIO POSSUI BADGE
+    # =====================================================
+
+    def user_has_badge(
+        self,
+        user_id,
+        badge_id
+    ):
+        """
+        Verifica se o usuário já possui uma determinada badge.
+        """
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT id
+            FROM inventory_badge
+            WHERE user_id = %s
+            AND badge_id = %s
+            """,
+            (
+                user_id,
+                badge_id
+            )
+        )
+
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return result is not None
+
+
+    # =====================================================
+    # CONCEDER BADGE
+    # =====================================================
+
+    def award_badge(
+        self,
+        user_id,
+        badge_id
+    ):
+        """
+        Registra uma badge conquistada pelo usuário.
+        """
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            INSERT INTO inventory_badge
+            (
+                user_id,
+                badge_id
+            )
+            VALUES (%s, %s)
+            """,
+            (
+                user_id,
+                badge_id
+            )
+        )
+
+        conn.commit()
+
+        badge_id_created = cursor.lastrowid
+
+        cursor.close()
+        conn.close()
+
+        return badge_id_created
+
+
 # =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
+# INSTÂNCIA DO REPOSITORY
 # =====================================================
 
 _repository = BadgeRepository()
 
+
+# =====================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# =====================================================
 
 def get_user_badges(user_id):
     return _repository.get_user_badges(user_id)
@@ -112,3 +197,4 @@ def get_all_badges():
 
 def get_badge_by_id(badge_id):
     return _repository.get_badge_by_id(badge_id)
+
