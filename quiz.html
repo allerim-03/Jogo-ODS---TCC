@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - Quiz</title>
+    <title> Cultivando o Saber- Quiz</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -80,41 +80,39 @@
 </header>
 
     <!-- CONTEÚDO -->
-    <main style="padding-top: 40px;">
-        <!-- Cabeçalho externo com letras brancas no fundo verde -->
-        <div class="quiz-header-externo">
-            <h2>Eco-Quiz</h2>
+    <main style="padding-top: 80px; margin-top: 0;">
+        <section class="boas-vindas" style="padding-top: 20px !important; margin-top: 0 !important;">
+            <h2 style="margin-top: 0 !important;">Eco-Quiz</h2>
             <p>Teste seus conhecimentos sobre o meio ambiente!</p>
-        </div>
 
-        <!-- Card Branco Estilo 404 apenas para o quiz -->
-        <div class="login-box quiz-container" id="quiz-box">
-            <div id="game">
-                <div class="quiz-header">
-                    <span id="progress-text">Pergunta 1 de 3</span>
-                    <div class="bar quiz-bar">
-                        <div id="quiz-progress" class="progress" style="width: 0%"></div>
+            <div class="login-box quiz-container" id="quiz-box">
+                <div id="game">
+                    <div class="quiz-header">
+                        <span id="progress-text">Pergunta 1 de 3</span>
+                        <div class="bar quiz-bar">
+                            <div id="quiz-progress" class="progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <h3 id="question-text">Carregando pergunta...</h3>
+
+                    <div class="options-container">
+                        <button class="btn-option" onclick="selectOption(0)">Opção 1</button>
+                        <button class="btn-option" onclick="selectOption(1)">Opção 2</button>
+                        <button class="btn-option" onclick="selectOption(2)">Opção 3</button>
+                        <button class="btn-option" onclick="selectOption(3)">Opção 4</button>
                     </div>
                 </div>
 
-                <h3 id="question-text">Carregando pergunta...</h3>
-
-                <div class="options-container">
-                    <button class="btn-option" onclick="selectOption(0)">Opção 1</button>
-                    <button class="btn-option" onclick="selectOption(1)">Opção 2</button>
-                    <button class="btn-option" onclick="selectOption(2)">Opção 3</button>
-                    <button class="btn-option" onclick="selectOption(3)">Opção 4</button>
+                <div id="result-screen" style="display: none;">
+                    <h1>Fim do Quiz!</h1>
+                    <p>Você marcou:</p>
+                    <h2 id="final-score" style="color: #fbc02d; font-size: 3rem;">0</h2>
+                    <p>pontos de XP</p>
+                    <button class="btn-login" onclick="location.reload()">Tentar Novamente</button>
                 </div>
             </div>
-
-            <div id="result-screen" style="display: none;">
-                <h1>Fim do Quiz!</h1>
-                <p>Você marcou:</p>
-                <h2 id="final-score" style="color: #fbc02d; font-size: 3rem;">0</h2>
-                <p>pontos de XP</p>
-                <button class="btn-login" onclick="location.reload()">Tentar Novamente</button>
-            </div>
-        </div>
+        </section>
     </main>
 
     <!-- RODAPÉ -->

@@ -1,29 +1,14 @@
 /* =========================================
    ESTRUTURA E ESTILOS DO QUIZ
    ========================================= */
-
-/* FUNDO DA PÁGINA IGUAL À PÁGINA 404 */
-body {
-    background-color: #4CAE50 !important; /* Garden Green */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
-
-/* CARD DO QUIZ (MODELO 404) */
 .quiz-container {
     width: 100%;
     max-width: 500px;
-    padding: 32px 24px;
+    padding: 20px;
     background: #FFFFFF;
-    border-radius: 20px; /* Bordas arredondadas estilo card 404 */
-    border: none !important; /* Remove a borda lilás */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra suave idêntica ao card 404 */
-    margin: 40px auto;
-    box-sizing: border-box;
+    border-radius: 16px; /* Padronizado: 16px para Cards */
+    border: 2px solid #DB95FD; /* Bright Blue */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .quiz-header {
