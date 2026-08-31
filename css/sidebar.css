@@ -38,7 +38,7 @@
     left: -300px;
     width: 280px;
     height: 100vh;
-    background-color: #1b5e20; /* Verde escuro*/
+    background-color: #1b5e20; /* Verde escuro */
     z-index: 9999;
     transition: left 0.3s ease;
     padding: 30px 20px;
@@ -81,6 +81,17 @@
     border: 3px solid #FFDE5A; /* Banana Yellow */
     margin-bottom: 10px;
     object-fit: cover;
+}
+
+/* TEXTO DO NÍVEL DO USUÁRIO */
+.perfil-sidebar p,
+.perfil-sidebar span,
+.nivel-sidebar {
+    color: #FFB72B !important; /* Amarelo/Dourado padronizado do XP */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0;
 }
 
 /* LINKS DA SIDEBAR */
