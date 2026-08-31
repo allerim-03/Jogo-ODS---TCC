@@ -7,7 +7,7 @@
     padding: 20px;
     background: #FFFFFF;
     border-radius: 16px; /* Padronizado: 16px para Cards */
-    border: 2px solid #DB95FD ; /* Bright Blue */
+    border: 2px solid #DB95FD; /* Bright Blue */
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
@@ -65,7 +65,20 @@
     color: #C62828 !important;
 }
 
+/* BARRA DE PROGRESSO DO QUIZ */
 .quiz-bar {
     width: 100% !important;
+    height: 12px;
+    background-color: #E0E0E0 !important; /* Fundo cinza-claro igual ao perfil */
+    border-radius: 999px;
     margin-top: 10px;
+    overflow: hidden;
+}
+
+/* PREENCHIMENTO DA BARRA DO QUIZ */
+.quiz-bar .progress,
+.quiz-progress-fill {
+    height: 100%;
+    background-color: #FFB72B !important; /* Amarelo-dourado idêntico ao XP */
+    border-radius: 999px;
 }
