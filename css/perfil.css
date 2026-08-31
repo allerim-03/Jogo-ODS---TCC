@@ -116,7 +116,7 @@ main.perfil-container {
 
 .xp-valor {
     font-family: 'Montserrat', sans-serif;
-    color: var(--green-garden);
+    color: var(--yellow-banana); /* XP alterado para Amarelo */
     font-weight: 700;
 }
 
@@ -130,7 +130,7 @@ main.perfil-container {
 
 .progress-perfil {
     height: 100%;
-    background-color: var(--green-garden);
+    background-color: var(--yellow-banana); /* Barra alterada para Amarelo */
     border-radius: var(--border-radius-bar);
 }
 
