@@ -8,6 +8,7 @@
     --blue-bright: #43B4FB;
     --blue-dark: #29b6f6;
     --yellow-banana: #FFDE5A;
+    --orange-gold: #FFB72B; /* Cor extraída da imagem de referência */
     --red-vivid: #FF524D;
     --red-dark: #E53935;
     --bg-light: #F4F9F5;
@@ -116,7 +117,7 @@ main.perfil-container {
 
 .xp-valor {
     font-family: 'Montserrat', sans-serif;
-    color: var(--yellow-banana); /* XP alterado para Amarelo */
+    color: #FFB72B !important; /* Cor exata da imagem */
     font-weight: 700;
 }
 
@@ -130,7 +131,7 @@ main.perfil-container {
 
 .progress-perfil {
     height: 100%;
-    background-color: var(--yellow-banana); /* Barra alterada para Amarelo */
+    background-color: #FFB72B !important; /* Cor exata da imagem */
     border-radius: var(--border-radius-bar);
 }
 
