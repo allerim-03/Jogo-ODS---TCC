@@ -58,14 +58,14 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 700;
-    color: #FFDE5A; /* Banana Yellow exclusivo para Gamificação */
+    color: #FFFFFF; /* Texto branco */
     white-space: nowrap;
 }
 
 .bar {
     width: 180px;
     height: 12px;
-    background-color: #E0E0E0; /* Fundo cinza padrão */
+    background-color: #1e5a27; /* Verde escuro do fundo da barra */
     border-radius: 999px; /* 999px para Barras de Progresso */
     overflow: hidden;
 }
@@ -73,7 +73,7 @@
 .progress {
     width: 45%;
     height: 100%;
-    background-color: #4CAE50; /* Garden Green */
+    background-color: #ffb72b; /* Amarelo do preenchimento */
     border-radius: 999px;
 }
 
