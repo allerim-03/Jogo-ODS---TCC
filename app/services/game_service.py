@@ -8,6 +8,7 @@ from app.services.badge_service import check_and_award_badges
 
 from app.repositories.user_repository import UserRepository
 from app.repositories.score_repository import ScoreRepository
+from app.repositories.game_repository import GameRepository
 
 
 class GameService:
@@ -16,6 +17,7 @@ class GameService:
 
         self.user_repository = UserRepository()
         self.score_repository = ScoreRepository()
+        self.game_repository = GameRepository()
         self.xp_service = XPService()
 
 
@@ -32,6 +34,37 @@ class GameService:
     ):
 
         # ------------------------------------------------------------------
+        # Validação do game_id
+        # ------------------------------------------------------------------
+
+        if game_id is None:
+
+            return {
+                "status": 400,
+                "body": {
+                    "success": False,
+                    "message": "Game ID is required."
+                }
+            }
+
+
+        game = self.game_repository.get_game_by_id(
+            game_id
+        )
+
+
+        if game is None:
+
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "Game not found."
+                }
+            }
+
+
+        # ------------------------------------------------------------------
         # Validação do score
         # ------------------------------------------------------------------
 
@@ -45,6 +78,7 @@ class GameService:
                 }
             }
 
+
         if score < 0:
 
             return {
@@ -55,7 +89,23 @@ class GameService:
                 }
             }
 
+        # ------------------------------------------------------------------
+        # Busca jogo
+        # ------------------------------------------------------------------
 
+        game = self.game_repository.get_game_by_id(
+            game_id
+        )
+
+        if game is None:
+
+            return {
+                "status": 404,
+                "body": {
+                    "success": False,
+                    "message": "Game not found."
+                }
+            }
         # ------------------------------------------------------------------
         # Busca usuário
         # ------------------------------------------------------------------
@@ -63,6 +113,7 @@ class GameService:
         user = self.user_repository.get_by_id(
             user_id
         )
+
 
         if user is None:
 
@@ -102,6 +153,15 @@ class GameService:
 
 
         # ------------------------------------------------------------------
+        # Salva progresso do usuário
+        # ------------------------------------------------------------------
+
+        self.user_repository.update_progress(
+            user
+        )
+
+
+        # ------------------------------------------------------------------
         # Verifica badges
         # ------------------------------------------------------------------
 
@@ -133,6 +193,7 @@ class GameService:
             "body": {
                 "success": True,
                 "message": "Game score processed successfully.",
+                "game_id": game_id,
                 "score": score,
                 "xp_before": xp_before,
                 "xp_gained": xp_gained,

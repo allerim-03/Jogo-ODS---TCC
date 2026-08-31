@@ -6,25 +6,26 @@ Responsável exclusivamente pelo acesso ao banco de dados referente aos jogos.
 
 NÃO possui regras de negócio.
 
-Funções previstas:
+Responsabilidades:
 
-- listar jogos
-informações dos jogos (catálogo)
-dados dos jogos (nome, descrição, fase, ativo, etc.)
+- buscar jogo por ID;
+- listar jogos disponíveis;
+- fornecer informações do catálogo de jogos.
 ===========================================================================
 """
 
 from database.connection import get_connection
 
+
 class GameRepository:
-   
+
     # ==========================================================================
-    # GAME
+    # BUSCAR JOGO POR ID
     # ==========================================================================
 
-    def get_game_by_id(self,game_id):
+    def get_game_by_id(self, game_id):
         """
-        Busca um jogo.
+        Busca um jogo pelo ID.
         """
 
         conn = get_connection()
@@ -33,7 +34,7 @@ class GameRepository:
         cursor.execute(
             """
             SELECT *
-            FROM games
+            FROM game
             WHERE id = %s
             """,
             (game_id,)
@@ -45,11 +46,15 @@ class GameRepository:
         conn.close()
 
         return game
-    #istar todos os jogos
-    
+
+
+    # ==========================================================================
+    # LISTAR TODOS OS JOGOS
+    # ==========================================================================
+
     def get_all_games(self):
         """
-        Lista todos os jogos.
+        Lista todos os jogos cadastrados.
         """
 
         conn = get_connection()
@@ -58,8 +63,8 @@ class GameRepository:
         cursor.execute(
             """
             SELECT *
-            FROM games
-            ORDER BY title
+            FROM game
+            ORDER BY name_game
             """
         )
 
@@ -70,33 +75,21 @@ class GameRepository:
 
         return games
 
-_repository = GameRepository()
+
+# ==========================================================================
+# INSTÂNCIA DO REPOSITORY
+# ==========================================================================
+
+game_repository = GameRepository()
 
 
-def save_game_score(user_id, game_id, score, xp_gained):
-    return _repository.save_game_score(
-        user_id,
-        game_id,
-        score,
-        xp_gained
-    )
-
-
-def get_user_game_history(user_id):
-    return _repository.get_user_game_history(user_id)
-
-
-def get_recent_games(user_id):
-    return _repository.get_recent_games(user_id)
-
+# ==========================================================================
+# COMPATIBILIDADE / ACESSO
+# ==========================================================================
 
 def get_game_by_id(game_id):
-    return _repository.get_game_by_id(game_id)
+    return game_repository.get_game_by_id(game_id)
 
 
 def get_all_games():
-    return _repository.get_all_games()
-
-
-def get_user_game_statistics(user_id):
-    return _repository.get_user_game_statistics(user_id)
+    return game_repository.get_all_games()

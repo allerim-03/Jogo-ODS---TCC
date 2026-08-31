@@ -1,14 +1,60 @@
 
+"""
+===========================================================================
+RANKING SERVICE
 
-from app.repositories.user_repository import UserRepository
+Responsável pelas regras de negócio relacionadas ao ranking.
+
+NÃO acessa diretamente o banco de dados.
+===========================================================================
+"""
+
+from app.repositories.ranking_repository import RankingRepository
 
 
-user_repository = UserRepository()
 class RankingService:
 
-    def get_ranking_data(self):
+    def __init__(self):
 
-        return user_repository.get_ranking()
+        self.ranking_repository = RankingRepository()
+
+
+    # ======================================================================
+    # RANKING GERAL
+    # ======================================================================
+
+    def get_global_ranking(self):
+
+        ranking = self.ranking_repository.get_global_ranking()
+
+        return {
+            "success": True,
+            "ranking": ranking
+        }
+
+
+    # ======================================================================
+    # POSIÇÃO DO USUÁRIO
+    # ======================================================================
+
+    def get_user_ranking(self, user_id):
+
+        result = self.ranking_repository.get_user_ranking(
+            user_id
+        )
+
+        if result is None:
+
+            return {
+                "success": False,
+                "message": "User not found in ranking."
+            }
+
+        return {
+            "success": True,
+            "position": result["position"],
+            "user": result["user"]
+        }
 
 
 ''' futuro rancking route
