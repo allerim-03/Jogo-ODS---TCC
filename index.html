@@ -20,13 +20,15 @@
 
 <body>
 
-    <!-- NAVBAR E SIDEBAR (SEM CONTA LOGADA) -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
         <div class="sidebar">
-            <div class="perfil-sidebar"></div>
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <p>Nível 2</p>
+            </div>
 
             <nav class="links-sidebar">
                 <a href="index.html">HOME</a>
@@ -53,6 +55,14 @@
                         <h1>Cultivando o Saber</h1>
                     </div>
                 </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
             </div>
         </div>
 
@@ -66,7 +76,9 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
-        <div class="perfil-externo"></div>
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
     </header>
 
     <main>
@@ -75,15 +87,15 @@
         <section class="boas-vindas">
             <h2>Bem-vindo!</h2>
             <div class="botoes-boas-vindas">
-                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
-                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal">Cadastrar</a>
+                <a href="escolha.html" class="btn-principal btn-secundario">Entrar</a>
             </div>
         </section>
 
         <section class="sobre-sessao">
             <div class="conteudo-flex">
                 <div class="texto">
-                    <h3>Cultivando o Saber</h3>
+                    <h3> Cultivando o Saber</h3>
                     <p>
                         Uma plataforma desenvolvida para transformar a educação 
                         ambiental voltada para os alunos do Ensino Fundamental. 
@@ -104,7 +116,7 @@
                     <h3>Aprendendo de forma divertida</h3>
                     <p>
                         Aprender pode ser muito mais interessante
-                        através de jogos lúdicos, quiz, cards informativos
+                        através de jogos lúdicos, quizz, cards informativos
                         e missões sustentáveis. Cada atividade gera experiência e
                         conquistas, incentivando a conscientização socioambiental.
                     </p>
@@ -166,5 +178,4 @@
 
     <script src="js/journey.js"></script>
 </body>
-
 </html>
