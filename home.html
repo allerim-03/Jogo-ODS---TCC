@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivando o Saber - Home</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/textos.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR E SIDEBAR UNIFICADAS -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <p>Nível 2</p>
+            </div>
+
+            <nav class="links-sidebar">
+                <a href="home.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+            </nav>
+        </div>
+
+        <div class="left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>Cultivando o Saber</h1>
+                    </div>
+                </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="home.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+        </nav>
+
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
+
+    <main>
+        <div class="banner"></div>
+
+        <!-- SAUDAÇÃO E DASHBOARD DO USUÁRIO -->
+        <section class="boas-vindas">
+            <h2>Olá, Guardião da Natureza! 🌱</h2>
+            <p style="text-align: center; color: #555; margin-top: 5px;">Continue sua jornada para proteger o planeta e acumular XP.</p>
+        </section>
+
+        <!-- CARDS DE ATIVIDADES RÁPIDAS -->
+        <section class="sobre-sessao">
+            <div class="conteudo-flex">
+                <div class="texto">
+                    <h3>Explore os Objetivos de Desenvolvimento Sustentável</h3>
+                    <p>
+                        Aprenda mais sobre a ODS 15 (Vida Terrestre) e descubra como pequenas atitudes ajudam na preservação das florestas, animais e do ecossistema do nosso planeta.
+                    </p>
+                    <div style="margin-top: 15px;">
+                        <a href="ods.html" class="btn-principal">Estudando as ODS</a>
+                    </div>
+                </div>
+
+                <img src="img/testeimg.png" alt="Conheça os ODS" class="imagem-placeholder">
+            </div>
+        </section>
+
+        <section class="sobre-sessao cinza">
+            <div class="conteudo-flex reverso">
+                <div class="texto">
+                    <h3>Desafie seus conhecimentos no Eco-Quiz</h3>
+                    <p>
+                        Responda às perguntas ambientais, teste o que você aprendeu em sala de aula e ganhe experiência para subir no ranking dos melhores alunos.
+                    </p>
+                    <div style="margin-top: 15px;">
+                        <a href="quiz.html" class="btn-principal btn-secundario">Jogar Quiz</a>
+                    </div>
+                </div>
+
+                <img src="img/testeimg2.png" alt="Eco Quiz Gamificado" class="imagem-placeholder">
+            </div>
+        </section>
+
+        <!-- MAPA DA JORNADA SUSTENTÁVEL -->
+        <section class="journey">
+            <div class="journey-title">
+                <h2>Sua Jornada Sustentável</h2>
+                <p>Acompanhe novas etapas no mapa</p> <br><br>
+            </div>
+
+            <div class="journey-map">
+                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
+                <div class="journey-line"></div>
+
+                <div class="journey-step step-1 active" data-step="0">
+                    <div class="step-icon">📝</div>
+                    <span>Cadastro</span>
+                </div>
+
+                <div class="journey-step step-2" data-step="1">
+                    <div class="step-icon">🎮</div>
+                    <span>Jogos</span>
+                </div>
+
+                <div class="journey-step step-3" data-step="2">
+                    <div class="step-icon">🌱</div>
+                    <span>Evolução</span>
+                </div>
+
+                <div class="journey-step step-4" data-step="3">
+                    <div class="step-icon">🌎</div>
+                    <span>ODS</span>
+                </div>
+
+                <div class="journey-step step-5" data-step="4">
+                    <div class="step-icon">🏆</div>
+                    <span>Guardião</span>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <h3 id="journey-title">Continue sua Aventura</h3>
+                <p id="journey-description">Acesse os jogos educativos e alcance o próximo nível!</p>
+                <div class="journey-action">
+                    <a id="journey-btn" href="jogos.html" class="btn-games">Ver Jogos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+    <script src="js/journey.js"></script>
+</body>
+
+</html>
