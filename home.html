@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - Home</title>
+    <title>Cultivando o Saber</title>
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -20,19 +20,18 @@
 
 <body>
 
-    <!-- NAVBAR E SIDEBAR UNIFICADAS -->
+    <!-- NAVBAR E SIDEBAR (ESTADO DESLOGADO) -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
         <div class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
-                <p>Nível 2</p>
+                <!-- Sem foto/nível para visitante deslogado -->
             </div>
 
             <nav class="links-sidebar">
-                <a href="home.html">HOME</a>
+                <a href="index.html">HOME</a>
                 <a href="ods.html">ODS</a>
                 <a href="quiz.html">QUIZ</a>
                 <a href="jogos.html">JOGOS</a>
@@ -56,19 +55,12 @@
                         <h1>Cultivando o Saber</h1>
                     </div>
                 </div>
-
-                <div class="level">
-                    <span class="star">★ NÍVEL 2</span>
-                    <div class="bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="xp">450/1000</span>
-                </div>
+                <!-- Nível e barra de XP removidos aqui para o estado deslogado -->
             </div>
         </div>
 
         <nav class="menu">
-            <a href="home.html">HOME</a>
+            <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
             <a href="quiz.html">QUIZ</a>
             <a href="jogos.html">JOGOS</a>
@@ -77,54 +69,55 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
-        <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
-        </a>
+        <!-- Sem ícone de foto externo -->
+        <div class="perfil-externo"></div>
     </header>
 
     <main>
         <div class="banner"></div>
 
-        <!-- SAUDAÇÃO E DASHBOARD DO USUÁRIO -->
         <section class="boas-vindas">
-            <h2>Olá, Guardião da Natureza! 🌱</h2>
-            <p style="text-align: center; color: #555; margin-top: 5px;">Continue sua jornada para proteger o planeta e acumular XP.</p>
+            <h2>Bem-vindo!</h2>
+            <div class="botoes-boas-vindas">
+                <a href="escolha-cadastro.html" class="btn-principal">Cadastrar</a>
+                <a href="escolha.html" class="btn-principal btn-secundario">Entrar</a>
+            </div>
         </section>
 
-        <!-- CARDS DE ATIVIDADES RÁPIDAS -->
         <section class="sobre-sessao">
             <div class="conteudo-flex">
                 <div class="texto">
-                    <h3>Explore os Objetivos de Desenvolvimento Sustentável</h3>
+                    <h3>Cultivando o Saber</h3>
                     <p>
-                        Aprenda mais sobre a ODS 15 (Vida Terrestre) e descubra como pequenas atitudes ajudam na preservação das florestas, animais e do ecossistema do nosso planeta.
+                        Uma plataforma desenvolvida para transformar a educação 
+                        ambiental voltada para os alunos do Ensino Fundamental. 
+                        Por isso, conectamos o aprendizado de forma simples e direta
+                        às metas da ODS 15 (Vida Terrestre), mostrando que defender 
+                        nossas florestas e animais é uma missão que todos nós podemos abraçar 
+                        desde cedo.
                     </p>
-                    <div style="margin-top: 15px;">
-                        <a href="ods.html" class="btn-principal">Estudando as ODS</a>
-                    </div>
                 </div>
 
-                <img src="img/testeimg.png" alt="Conheça os ODS" class="imagem-placeholder">
+                <img src="img/testeimg.png" alt="Sobre o Cultivando o Saber" class="imagem-placeholder">
             </div>
         </section>
 
         <section class="sobre-sessao cinza">
             <div class="conteudo-flex reverso">
                 <div class="texto">
-                    <h3>Desafie seus conhecimentos no Eco-Quiz</h3>
+                    <h3>Aprendendo de forma divertida</h3>
                     <p>
-                        Responda às perguntas ambientais, teste o que você aprendeu em sala de aula e ganhe experiência para subir no ranking dos melhores alunos.
+                        Aprender pode ser muito mais interessante
+                        através de jogos lúdicos, quizz, cards informativos
+                        e missões sustentáveis. Cada atividade gera experiência e
+                        conquistas, incentivando a conscientização socioambiental.
                     </p>
-                    <div style="margin-top: 15px;">
-                        <a href="quiz.html" class="btn-principal btn-secundario">Jogar Quiz</a>
-                    </div>
                 </div>
 
-                <img src="img/testeimg2.png" alt="Eco Quiz Gamificado" class="imagem-placeholder">
+                <img src="img/testeimg2.png" alt="Aprendendo de Forma Divertida" class="imagem-placeholder">
             </div>
         </section>
 
-        <!-- MAPA DA JORNADA SUSTENTÁVEL -->
         <section class="journey">
             <div class="journey-title">
                 <h2>Sua Jornada Sustentável</h2>
@@ -162,10 +155,10 @@
             </div>
 
             <div class="journey-card">
-                <h3 id="journey-title">Continue sua Aventura</h3>
-                <p id="journey-description">Acesse os jogos educativos e alcance o próximo nível!</p>
+                <h3 id="journey-title">Comece sua Aventura</h3>
+                <p id="journey-description">Cadastre-se para registrar seu desempenho</p>
                 <div class="journey-action">
-                    <a id="journey-btn" href="jogos.html" class="btn-games">Ver Jogos</a>
+                    <a id="journey-btn" href="perfil.html" class="btn-games">Criar Perfil</a>
                 </div>
             </div>
         </section>
@@ -177,5 +170,4 @@
 
     <script src="js/journey.js"></script>
 </body>
-
 </html>
