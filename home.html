@@ -4,31 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - Área Logada</title>
+    <title>Cultivando o Saber - Teste Home</title>
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/journey.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/rodape.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR E SIDEBAR (CONTA LOGADA) -->
-    <header class="topbar">
+    <!-- NAVBAR DESLOGADA -->
+    <header class="topbar topbar-deslogada">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
+        <!-- SIDEBAR (Menu Lateral do Hambúrguer) -->
         <div class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
-                <p>Nível 2</p>
+                <!-- Sem foto/perfil -->
             </div>
 
             <nav class="links-sidebar">
@@ -42,6 +38,7 @@
             </nav>
         </div>
 
+        <!-- ESQUERDA: MENU HAMBÚRGUER + LOGO -->
         <div class="left">
             <label for="menu-check" class="hamburger">
                 <span></span>
@@ -56,125 +53,25 @@
                         <h1>Cultivando o Saber</h1>
                     </div>
                 </div>
-
-                <div class="level">
-                    <span class="star">★ NÍVEL 2</span>
-                    <div class="bar">
-                        <div class="progress"></div>
-                    </div>
-                    <span class="xp">450/1000</span>
-                </div>
             </div>
         </div>
 
-        <nav class="menu">
-            <a href="home.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-        </nav>
-
-        <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
-        </a>
+        <!-- DIREITA: BOTÕES ENTRAR E CADASTRAR -->
+        <div class="acoes-direita">
+            <a href="escolha.html" class="btn-nav btn-nav-entrar">ENTRAR</a>
+            <a href="escolha-cadastro.html" class="btn-nav btn-nav-cadastrar">CADASTRAR</a>
+        </div>
     </header>
 
-    <main>
-        <div class="banner"></div>
-
-        <section class="boas-vindas">
-            <h2>Olá, Guardião da Natureza! 🌱</h2>
-            <p style="text-align: center; color: #555; margin-top: 5px;">Continue sua jornada para proteger o planeta e acumular XP.</p>
-        </section>
-
-        <section class="sobre-sessao">
-            <div class="conteudo-flex">
-                <div class="texto">
-                    <h3>Cultivando o Saber</h3>
-                    <p>
-                        Uma plataforma desenvolvida para transformar a educação 
-                        ambiental voltada para os alunos do Ensino Fundamental. 
-                        Por isso, conectamos o aprendizado de forma simples e direta
-                        às metas da ODS 15 (Vida Terrestre), mostrando que defender 
-                        nossas florestas e animais é uma missão que todos nós podemos abraçar 
-                        desde cedo.
-                    </p>
-                </div>
-
-                <img src="img/testeimg.png" alt="Sobre o Cultivando o Saber" class="imagem-placeholder">
-            </div>
-        </section>
-
-        <section class="sobre-sessao cinza">
-            <div class="conteudo-flex reverso">
-                <div class="texto">
-                    <h3>Aprendendo de forma divertida</h3>
-                    <p>
-                        Aprender pode ser muito mais interessante
-                        através de jogos lúdicos, quiz, cards informativos
-                        e missões sustentáveis. Cada atividade gera experiência e
-                        conquistas, incentivando a conscientização socioambiental.
-                    </p>
-                </div>
-
-                <img src="img/testeimg2.png" alt="Aprendendo de Forma Divertida" class="imagem-placeholder">
-            </div>
-        </section>
-
-        <section class="journey">
-            <div class="journey-title">
-                <h2>Sua Jornada Sustentável</h2>
-                <p>Acompanhe novas etapas no mapa</p> <br><br>
-            </div>
-
-            <div class="journey-map">
-                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
-                <div class="journey-line"></div>
-
-                <div class="journey-step step-1 active" data-step="0">
-                    <div class="step-icon">📝</div>
-                    <span>Cadastro</span>
-                </div>
-
-                <div class="journey-step step-2" data-step="1">
-                    <div class="step-icon">🎮</div>
-                    <span>Jogos</span>
-                </div>
-
-                <div class="journey-step step-3" data-step="2">
-                    <div class="step-icon">🌱</div>
-                    <span>Evolução</span>
-                </div>
-
-                <div class="journey-step step-4" data-step="3">
-                    <div class="step-icon">🌎</div>
-                    <span>ODS</span>
-                </div>
-
-                <div class="journey-step step-5" data-step="4">
-                    <div class="step-icon">🏆</div>
-                    <span>Guardião</span>
-                </div>
-            </div>
-
-            <div class="journey-card">
-                <h3 id="journey-title">Continue sua Aventura</h3>
-                <p id="journey-description">Acesse os jogos educativos e alcance o próximo nível!</p>
-                <div class="journey-action">
-                    <a id="journey-btn" href="jogos.html" class="btn-games">Ver Jogos</a>
-                </div>
-            </div>
-        </section>
+    <!-- PÁGINA EM BRANCO DE TESTE -->
+    <main class="conteudo-teste">
+        <h1 class="titulo-central">Cultivando o Saber</h1>
     </main>
 
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <script src="js/journey.js"></script>
 </body>
 
 </html>
