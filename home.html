@@ -4,76 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber</title>
+    <title>Cultivando o Saber - Área Logada</title>
 
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/textos.css">
 </head>
 
 <body>
 
-    <!-- CABEÇALHO / NAVBAR -->
-    <header class="navbar-landing">
-        <div class="logo-container">
-            <h1 class="logo-titulo">CULTIVANDO O SABER</h1>
+    <!-- NAVBAR E SIDEBAR (CONTA LOGADA) -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <p>Nível 2</p>
+            </div>
+
+            <nav class="links-sidebar">
+                <a href="home.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+            </nav>
         </div>
 
-        <div class="acoes-auth">
-            <a href="escolha.html" class="btn-entre">
-                <span class="icon-login">🚪</span> ENTRE
-            </a>
-            <a href="escolha-cadastro.html" class="btn-cadastrar">
-                <span class="icon-user">👤</span> CADASTRAR-SE
-            </a>
+        <div class="left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>Cultivando o Saber</h1>
+                    </div>
+                </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
         </div>
+
+        <nav class="menu">
+            <a href="home.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+        </nav>
+
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
     </header>
 
-    <main class="conteudo-home">
+    <main>
+        <div class="banner"></div>
 
-        <!-- BLOCO 1: DESENVOLVIMENTO SUSTENTÁVEL -->
-        <section class="secao-card verde-claro">
-            <div class="card-texto">
-                <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
-                <p>
-                    Transforme-se em um agente de transformação ambiental ao abordar a Educação Ambiental (EA) em sua comunidade escolar e destaque-se em sua organização.
-                </p>
-            </div>
-            <div class="card-ilustracao">
-                <img src="img/ilustracao-reciclagem.svg" alt="Ilustração de reciclagem e sustentabilidade">
+        <section class="boas-vindas">
+            <h2>Olá, Guardião da Natureza! 🌱</h2>
+            <p style="text-align: center; color: #555; margin-top: 5px;">Continue sua jornada para proteger o planeta e acumular XP.</p>
+        </section>
+
+        <section class="sobre-sessao">
+            <div class="conteudo-flex">
+                <div class="texto">
+                    <h3>Cultivando o Saber</h3>
+                    <p>
+                        Uma plataforma desenvolvida para transformar a educação 
+                        ambiental voltada para os alunos do Ensino Fundamental. 
+                        Por isso, conectamos o aprendizado de forma simples e direta
+                        às metas da ODS 15 (Vida Terrestre), mostrando que defender 
+                        nossas florestas e animais é uma missão que todos nós podemos abraçar 
+                        desde cedo.
+                    </p>
+                </div>
+
+                <img src="img/testeimg.png" alt="Sobre o Cultivando o Saber" class="imagem-placeholder">
             </div>
         </section>
 
-        <!-- BLOCO 2: METODOLOGIA ATIVA -->
-        <section class="secao-card verde-medio reverso">
-            <div class="card-texto">
-                <h2>METODOLOGIA ATIVA</h2>
-                <p>
-                    Utilize a gamificação como solução eficaz para engajar os seus alunos em práticas sustentáveis, conscientização social e letramento ambiental.
-                </p>
-            </div>
-            <div class="card-ilustracao">
-                <img src="img/ilustracao-ideia.svg" alt="Ilustração de metodologia ativa e lâmpada de ideias">
+        <section class="sobre-sessao cinza">
+            <div class="conteudo-flex reverso">
+                <div class="texto">
+                    <h3>Aprendendo de forma divertida</h3>
+                    <p>
+                        Aprender pode ser muito mais interessante
+                        através de jogos lúdicos, quiz, cards informativos
+                        e missões sustentáveis. Cada atividade gera experiência e
+                        conquistas, incentivando a conscientização socioambiental.
+                    </p>
+                </div>
+
+                <img src="img/testeimg2.png" alt="Aprendendo de Forma Divertida" class="imagem-placeholder">
             </div>
         </section>
 
-        <!-- BLOCO 3: LÚDICO, INTERATIVO E CONSCIENTE -->
-        <section class="secao-card verde-escuro">
-            <div class="card-texto">
-                <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
-                <p>
-                    A plataforma surge do desejo âmago de mudanças ambientais e uma geração consciente dos seus impactos no hodierno.
-                </p>
+        <section class="journey">
+            <div class="journey-title">
+                <h2>Sua Jornada Sustentável</h2>
+                <p>Acompanhe novas etapas no mapa</p> <br><br>
             </div>
-            <div class="card-ilustracao">
-                <img src="img/ilustracao-dashboard.svg" alt="Ilustração de interação e gráficos">
+
+            <div class="journey-map">
+                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
+                <div class="journey-line"></div>
+
+                <div class="journey-step step-1 active" data-step="0">
+                    <div class="step-icon">📝</div>
+                    <span>Cadastro</span>
+                </div>
+
+                <div class="journey-step step-2" data-step="1">
+                    <div class="step-icon">🎮</div>
+                    <span>Jogos</span>
+                </div>
+
+                <div class="journey-step step-3" data-step="2">
+                    <div class="step-icon">🌱</div>
+                    <span>Evolução</span>
+                </div>
+
+                <div class="journey-step step-4" data-step="3">
+                    <div class="step-icon">🌎</div>
+                    <span>ODS</span>
+                </div>
+
+                <div class="journey-step step-5" data-step="4">
+                    <div class="step-icon">🏆</div>
+                    <span>Guardião</span>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <h3 id="journey-title">Continue sua Aventura</h3>
+                <p id="journey-description">Acesse os jogos educativos e alcance o próximo nível!</p>
+                <div class="journey-action">
+                    <a id="journey-btn" href="jogos.html" class="btn-games">Ver Jogos</a>
+                </div>
             </div>
         </section>
-
     </main>
 
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
+    <script src="js/journey.js"></script>
 </body>
+
 </html>
