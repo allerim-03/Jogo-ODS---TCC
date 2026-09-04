@@ -1,362 +1,236 @@
-/* ==========================================================================
-   ESTILOS DA HOME INSTITUCIONAL (DESLOGADO / VISITANTE)
-   Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
-   ========================================================================== */
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-/* 1. Estrutura da Topbar (Logo no Centro + Botões na Extrema Direita) */
-.topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 24px;
-    background-color: #4CAF50; /* Garden Green */
-    width: 100%;
-    box-sizing: border-box;
-}
+<!--- 
 
-.topbar-left,
-.topbar-right {
-    flex: 1; /* Mantém os dois lados no mesmo tamanho para garantir a centralização perfeita do meio */
-    display: flex;
-    align-items: center;
-}
+                CONTA NÃO LOGADA / VISITANTE
 
-.topbar-left {
-    justify-content: flex-start;
-}
+-->
 
-.topbar-right {
-    justify-content: flex-end; /* Empurra os botões para a extrema direita */
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivando o Saber</title>
 
-.topbar-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    <!-- Fontes oficiais do Guia de Estilo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-.navbar-logo {
-   max-height: 40px !important; /* Ajuste o valor conforme precise */
-    width: auto !important;
-    object-fit: contain;
-}
+    <!-- CSSs do projeto -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/responsivo.css">
+</head>
 
-.topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+<body>
 
-.btn-sm {
-    padding: 8px 16px !important;
-    font-size: 0.85rem !important;
-    border-radius: 10px !important;
-}
+    <!-- TOPBAR / NAVBAR (Visão Pública / Deslogado) -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
 
-/* 2. Hero Banner */
-.hero-banner {
-    background-color: #F4F9F4;
-    padding: 60px 20px;
-    border-bottom: 4px solid #4CAF50; /* Garden Green */
-}
+        <!-- Sidebar Mobile -->
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <span class="mascote-icon">🐢</span>
+                <p>Visitante</p>
+            </div>
 
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
+            <div class="sidebar-actions">
+                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal btn-cadastrar">CADASTRAR</a>
+            </div>
+        </div>
 
-.hero-content {
-    flex: 1;
-}
+        <!-- 1. Esquerda: Menu Hamburger -->
+        <div class="topbar-left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
 
-.badge-tag {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
-}
+        <!-- 2. Centro: Logotipo Centralizado com cultsab.png -->
+        <div class="topbar-center">
+            <div class="logo">
+                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+            </div>
+        </div>
 
-.hero-content h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 2.4rem;
-    color: #1A1A1A;
-    line-height: 1.2;
-    margin-bottom: 16px;
-}
+        <!-- 3. Direita: Ações de Login/Cadastro -->
+        <div class="topbar-right">
+            <div class="topbar-actions">
+                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal btn-sm btn-cadastrar">CADASTRAR</a>
+            </div>
+        </div>
+    </header>
 
-.hero-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
-    color: #555555;
-    line-height: 1.6;
-    margin-bottom: 28px;
-}
+    <main>
+        <!-- HERO SECTION (Banner principal estilo landing page) -->
+        <section class="hero-banner">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge-tag">🌱 ODS 15 — VIDA TERRESTRE</span>
+                    <h2>Aprender sobre a natureza nunca foi tão divertido!</h2>
+                    <p>
+                        Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
+                    </p>
+                    
+                    <!-- CAIXA DO MASCOTE TUGA -->
+                    <div class="mascote-box">
+                        <span class="tuga-avatar">🐢</span>
+                        <div>
+                            <h4>Dica do Tuga</h4>
+                            <p>"Cadastre-se gratuitamente e venha proteger o nosso planeta enquanto joga!"</p>
+                        </div>
+                    </div>
 
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-}
+                    <div class="hero-buttons">
+                        <a href="escolha-cadastro.html" class="btn-principal btn-lg btn-cadastrar">▶ Começar Aventura</a>
+                        <a href="#solucoes" class="btn-principal btn-secundario btn-lg">Conhecer o Projeto</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/testeimg.png" alt="Tuga e a jornada sustentável" class="img-hero-main">
+                </div>
+            </div>
+        </section>
 
-.btn-lg {
-    padding: 14px 28px !important;
-    font-size: 1.05rem !important;
-    border-radius: 12px !important;
-}
+        <!-- SESSÃO DE APRESENTAÇÃO DE SOLUÇÕES (Estilo Cards Interativos) -->
+        <section id="solucoes" class="sobre-sessao">
+            <div class="section-header">
+                <h2>Como Aprendemos Brincando?</h2>
+                <p>Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.</p>
+            </div>
 
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card-item card-laranja">
+                    <div class="card-icon">🧩</div>
+                    <h3>Jogos Lúdicos</h3>
+                    <p>Desafios em pixel art, como o <i>Eco-Pixel Adventure</i>, desenvolvidos para ensinar a proteção das florestas e fauna terrestre.</p>
+                </div>
 
-.img-hero-main {
-    max-width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: 3px solid #43B4FB; /* Bright Blue */
-}
+                <!-- Card 2 -->
+                <div class="card-item card-lavanda">
+                    <div class="card-icon">❓</div>
+                    <h3>Quizzes & Cards</h3>
+                    <p>Perguntas interativas alinhadas às ODS para testar o conhecimento e fixar conteúdos aprendidos em sala de aula.</p>
+                </div>
 
-/* 3. Cards de Soluções */
-.section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
+                <!-- Card 3 -->
+                <div class="card-item card-amarelo">
+                    <div class="card-icon">⭐</div>
+                    <h3>Gamificação e Rank</h3>
+                    <p>Acumule pontos de experiência (XP), suba de nível e concorra às primeiras colocações no ranking dos Guardiões do Planeta.</p>
+                </div>
+            </div>
+        </section>
 
-.section-header h2 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 2rem;
-    color: #1A1A1A;
-    margin-bottom: 10px;
-}
+        <!-- JORNADA DO GUARDIÃO (Passo a passo para começar) -->
+        <section class="journey">
+            <div class="journey-title">
+                <h2>Sua Jornada Sustentável</h2>
+                <p>Acompanhe novas etapas no mapa</p> <br>
+            </div>
 
-.section-header p {
-    font-family: 'Poppins', sans-serif;
-    color: #555555;
-    font-size: 1rem;
-}
+            <div class="journey-map">
+                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
+                <div class="journey-line"></div>
 
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+                <div class="journey-step step-1 active" data-step="0">
+                    <div class="step-icon">📝</div>
+                    <span>Cadastro</span>
+                </div>
 
-.card-item {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 30px 24px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+                <div class="journey-step step-2" data-step="1">
+                    <div class="step-icon">🎮</div>
+                    <span>Jogos</span>
+                </div>
 
-.card-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
+                <div class="journey-step step-3" data-step="2">
+                    <div class="step-icon">🌱</div>
+                    <span>Evolução</span>
+                </div>
 
-.card-icon {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
-}
+                <div class="journey-step step-4" data-step="3">
+                    <div class="step-icon">🌎</div>
+                    <span>ODS</span>
+                </div>
 
-.card-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    color: #1A1A1A;
-}
+                <div class="journey-step step-5" data-step="4">
+                    <div class="step-icon">🏆</div>
+                    <span>Guardião</span>
+                </div>
+            </div>
 
-.card-item p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: #555555;
-    line-height: 1.5;
-}
+            <div class="journey-card">
+                <h3 id="journey-title">Comece sua Aventura</h3>
+                <p id="journey-description">Cadastre-se para registrar seu desempenho</p>
+                <div class="journey-action">
+                    <a id="journey-btn" href="escolha-cadastro.html" class="btn-games">CRIAR MINHA CONTA GRÁTIS</a>
+                </div>
+            </div>
+        </section>
 
-.card-laranja { border: 3px solid #FF8637; }
-.card-lavanda { border: 3px solid #DB95FD; }
-.card-amarelo { border: 3px solid #FFDE5A; }
+        <!-- NOVOS QUADRANTES DE PILARES INSTITUCIONAIS (ABAIXO DA TRILHA) -->
+        <section class="pilares-container">
+            <!-- Quadrante 1 -->
+            <article class="pilar-card pilar-verde-claro">
+                <div class="pilar-texto">
+                    <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
+                    <p>Transforme-se em um agente de transformação ambiental ao abordar a Educação Ambiental (EA) em sua comunidade escolar e destaque-se em sua organização.</p>
+                </div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder1.png" alt="Desenvolvimento Sustentável Placeholder" class="img-placeholder">
+                </div>
+            </article>
 
-/* 4. Caixa do Mascote Tuga */
-.mascote-box {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: #FFFFFF;
-    border: 2px solid #4CAF50; /* Borda Garden Green */
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
-}
+            <!-- Quadrante 2 (Layout Invertido) -->
+            <article class="pilar-card pilar-verde-medio pilar-reverso">
+                <div class="pilar-imagem">
+                    <img src="img/placeholder2.png" alt="Metodologia Ativa Placeholder" class="img-placeholder">
+                </div>
+                <div class="pilar-texto text-right">
+                    <h2>METODOLOGIA ATIVA</h2>
+                    <p>Utilize a gamificação como solução eficaz para engajar os seus alunos em práticas sustentáveis, conscientização social e letramento ambiental.</p>
+                </div>
+            </article>
 
-.tuga-avatar {
-    font-size: 2.5rem;
-}
+            <!-- Quadrante 3 -->
+            <article class="pilar-card pilar-verde-escuro">
+                <div class="pilar-texto">
+                    <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
+                    <p>A plataforma surge do desejo âmago de mudanças ambientais e uma geração consciente dos seus impactos no hodierno.</p>
+                </div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder3.png" alt="Lúdico e Interativo Placeholder" class="img-placeholder">
+                </div>
+            </article>
+        </section>
+    </main>
 
-.mascote-box h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #4CAF50;
-    margin: 0 0 4px 0;
-}
+    <!-- RODAPÉ INSTITUCIONAL -->
+    <footer>
+        <div class="rodape-conteudo">
+            <p>© 2026 FATEC - Informática para Negócios</p>
+        </div>
+    </footer>
 
-.mascote-box p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem !important;
-    font-style: italic;
-    color: #333333 !important;
-    margin: 0;
-}
+    <script src="js/journey.js"></script>
 
-/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
-.pilares-container {
-    width: 100%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-.pilar-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 60px;
-    gap: 40px;
-    min-height: 220px;
-}
-
-.pilar-verde-claro {
-    background-color: #388E3C; /* Garden Green Oficial */
-    color: #FFFFFF;
-}
-
-.pilar-verde-medio {
-    background-color: #2E7D32; /* Verde intermediário */
-    color: #FFFFFF;
-}
-
-.pilar-verde-escuro {
-    background-color: #1B5E20; /* Verde profundo escuro */
-    color: #FFFFFF;
-}
-
-.pilar-texto {
-    flex: 1;
-    max-width: 650px;
-}
-
-.pilar-texto h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-}
-
-.pilar-texto p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #F0F9F0;
-    margin: 0;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.pilar-imagem {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 450px;
-}
-
-.img-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 180px;
-    object-fit: contain;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.pilar-reverso {
-    flex-direction: row;
-}
-
-/* 6. RESPONSIVIDADE */
-@media (max-width: 900px) {
-    .navbar-logo {
-        height: 30px;
-    }
-
-    .pilar-card,
-    .pilar-reverso {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 35px 20px;
-        gap: 24px;
-    }
-
-    .pilar-texto {
-        max-width: 100%;
-    }
-
-    .text-right {
-        text-align: center;
-    }
-
-    .pilar-texto h2 {
-        font-size: 1.5rem;
-    }
-
-    .img-placeholder {
-        height: auto;
-        max-height: 180px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .topbar-actions {
-        display: none;
-    }
-}
+</body>
+</html>
