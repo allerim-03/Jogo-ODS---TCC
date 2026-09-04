@@ -1,69 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<!--- 
+
+                CONTA NÃO LOGADA
+
+-->
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - Home</title>
+    <title>Cultivando o Saber</title>
 
+    <!-- Fontes oficiais do Guia de Estilo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSSs do projeto -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/journey.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/responsivo.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR DESLOGADA EXCLUSIVA -->
-    <header class="topbar-home">
+    <!-- TOPBAR / NAVBAR (Visão Pública / Deslogado) -->
+    <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- SIDEBAR (Menu Lateral) -->
+        <!-- Sidebar Mobile -->
         <div class="sidebar">
-            <div class="perfil-sidebar"></div>
+            <div class="perfil-sidebar">
+                <span class="mascote-icon">🐢</span>
+                <p>Visitante</p>
+            </div>
+
             <nav class="links-sidebar">
-                <a href="home.html">HOME</a>
+                <a href="index.html" class="active">HOME</a>
                 <a href="ods.html">ODS</a>
-                <a href="quiz.html">QUIZ</a>
                 <a href="jogos.html">JOGOS</a>
+                <a href="quiz.html">QUIZ</a>
                 <a href="ranking.html">RANKING</a>
-                <a href="perfil.html">PERFIL</a>
                 <a href="sobrenos.html">SOBRE NÓS</a>
             </nav>
+
+            <div class="sidebar-actions">
+                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
+            </div>
         </div>
 
-        <!-- 1. ESQUERDA: MENU HAMBÚRGUER -->
-        <div class="box-esquerda">
+        <div class="left">
             <label for="menu-check" class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <span class="icon">🌱</span>
+                    <div>
+                        <h1>Cultivando o Saber</h1>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- 2. CENTRO: TÍTULO BRANCO CENTRALIZADO -->
-        <div class="box-centro">
-            <span class="icone-planta">🌱</span>
-            <h1 class="titulo-branco">Cultivando o Saber</h1>
-        </div>
+        <!-- Links de Navegação Principal -->
+        <nav class="menu">
+            <a href="index.html" class="active">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+        </nav>
 
-        <!-- 3. DIREITA: BOTÕES FORMATADOS NA PONTA -->
-        <div class="box-direita">
-            <a href="escolha.html" class="btn-home btn-entrar">ENTRAR</a>
-            <a href="escolha-cadastro.html" class="btn-home btn-cadastrar">CADASTRAR</a>
+        <!-- Ações do topo (Substitui foto do perfil por Login/Cadastro) -->
+        <div class="topbar-actions">
+            <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
+            <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
         </div>
     </header>
 
-    <!-- CORPO EM BRANCO -->
-    <main class="pagina-em-branco"></main>
+    <main>
+        <!-- HERO SECTION (Banner principal estilo landing page) -->
+        <section class="hero-banner">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge-tag">🌱 ODS 15 — VIDA TERRESTRE</span>
+                    <h2>Aprender sobre a natureza nunca foi tão divertido!</h2>
+                    <p>
+                        Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="escolha-cadastro.html" class="btn-principal btn-lg">▶ Começar Aventura</a>
+                        <a href="#solucoes" class="btn-principal btn-secundario btn-lg">Conhecer o Projeto</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/testeimg.png" alt="Tuga e a jornada sustentável" class="img-hero-main">
+                </div>
+            </div>
+        </section>
 
+        <!-- SESSÃO DE APRESENTAÇÃO DE SOLUÇÕES (Estilo Cards Interativos) -->
+        <section id="solucoes" class="sobre-sessao">
+            <div class="section-header">
+                <h2>Como Aprendemos Brincando?</h2>
+                <p>Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card-item card-laranja">
+                    <div class="card-icon">🧩</div>
+                    <h3>Jogos Lúdicos</h3>
+                    <p>Desafios em pixel art, como o <i>Eco-Pixel Adventure</i>, desenvolvidos para ensinar a proteção das florestas e fauna terrestre.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-item card-lavanda">
+                    <div class="card-icon">❓</div>
+                    <h3>Quizzes & Cards</h3>
+                    <p>Perguntas interativas alinhadas às ODS para testar o conhecimento e fixar conteúdos aprendidos em sala de aula.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-item card-amarelo">
+                    <div class="card-icon">⭐</div>
+                    <h3>Gamificação e Rank</h3>
+                    <p>Acumule pontos de experiência (XP), suba de nível e concorra às primeiras colocações no ranking dos Guardiões do Planeta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SESSÃO SOBRE A ODS 15 / TUX & MENSAGEM DO MASCOTE -->
+        <section class="sobre-sessao cinza">
+            <div class="conteudo-flex reverso">
+                <div class="texto">
+                    <div class="mascote-box">
+                        <span class="tuga-avatar">🐢</span>
+                        <div>
+                            <h4>Mensagem do Tuga</h4>
+                            <p>"Proteger nossas florestas e animais é uma missão que todos nós podemos abraçar desde cedo. Junte-se a nós!"</p>
+                        </div>
+                    </div>
+                    <h3>Educação Ambiental Alinhada à ODS 15</h3>
+                    <p>
+                        O <b>Cultivando o Saber</b> ajuda alunos e educadores a trabalharem temas vitais de forma simples e direta. Nossa missão é cultivar a consciência ecológica na infância para formar futuros cidadãos comprometidos com o ecossistema.
+                    </p>
+                    <a href="ods.html" class="btn-principal btn-secundario">Saber mais sobre as ODS</a>
+                </div>
+
+                <div class="imagem-container">
+                    <img src="img/testeimg2.png" alt="Aprendendo sobre meio ambiente com a família e escola" class="imagem-placeholder">
+                </div>
+            </div>
+        </section>
+
+        <!-- JORNADA DO GUARDIÃO (Passo a passo para começar) -->
+        <section class="journey">
+            <div class="journey-title">
+                <h2>Sua Jornada Sustentável</h2>
+                <p>Veja como é simples fazer parte dos Guardiões do Planeta</p>
+            </div>
+
+            <div class="journey-map">
+                <div class="journey-line"></div>
+
+                <div class="journey-step step-1 active">
+                    <div class="step-icon">📝</div>
+                    <span>1. Crie sua Conta</span>
+                </div>
+
+                <div class="journey-step step-2">
+                    <div class="step-icon">🎮</div>
+                    <span>2. Jogue & Aprenda</span>
+                </div>
+
+                <div class="journey-step step-3">
+                    <div class="step-icon">⭐</div>
+                    <span>3. Ganhe XP</span>
+                </div>
+
+                <div class="journey-step step-4">
+                    <div class="step-icon">🏆</div>
+                    <span>4. Vire Guardião</span>
+                </div>
+            </div>
+
+            <div class="journey-card">
+                <h3>Pronto para essa aventura?</h3>
+                <p>Crie o seu perfil gratuito para salvar seu progresso e competir no Ranking!</p>
+                <div class="journey-action">
+                    <a href="escolha-cadastro.html" class="btn-principal btn-lg">Criar Minha Conta Grátis</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL -->
     <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+        <div class="rodape-conteudo">
+            <p>© 2026 FATEC - Informática para Negócios | Projeto de Conclusão de Curso (TCC)</p>
+            <p class="sub-rodape">PlataformaEduca / ODS KIDS — Promovendo a ODS 15 através da tecnologia.</p>
+        </div>
     </footer>
 
 </body>
-
 </html>
