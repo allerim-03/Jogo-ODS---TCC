@@ -1,9 +1,9 @@
-/* Reset Global de Margens e Espaçamentos */
+/* Reset Global de Margens */
 html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F4F9F4;
+    background-color: #F8FAF8;
 }
 
 main {
@@ -12,7 +12,7 @@ main {
 }
 
 /* ==========================================================================
-   NAVBAR (Sem botões extras, com menu hamburger e logo central)
+   NAVBAR (Sem botões e encostada no topo)
    ========================================================================== */
 .topbar {
     display: flex;
@@ -66,21 +66,77 @@ main {
 }
 
 /* ==========================================================================
-   SEÇÃO DOS BOTÕES 3D (COMEÇAR AVENTURA / CONHECER O PROJETO)
+   HERO BANNER PRINCIPAL
    ========================================================================== */
-.hero-actions-section {
-    padding: 30px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F4F9F4;
+.hero-banner {
+    padding: 40px 60px;
+    background-color: #F8FAF8;
+    margin-top: 0;
 }
 
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #388E3C;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.hero-content h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.3rem;
+    color: #1A1A1A;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.hero-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-hero-main {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+/* ==========================================================================
+   BOTÕES 3D (Modelo sem contorno)
+   ========================================================================== */
 .hero-buttons {
     display: flex;
     gap: 16px;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -89,7 +145,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 12px 26px;
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 0.95rem;
@@ -101,28 +157,25 @@ main {
     color: #FFFFFF !important;
     cursor: pointer;
     user-select: none;
-    text-align: center;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-/* Botão Verde */
-.btn-3d-verde-escuro {
+.btn-3d-verde {
     background-color: #43A047;
     box-shadow: 0 4px 0 #2E7D32;
 }
 
-.btn-3d-verde-escuro:hover {
+.btn-3d-verde:hover {
     background-color: #4CAF50;
     transform: translateY(-1px);
     box-shadow: 0 5px 0 #2E7D32;
 }
 
-.btn-3d-verde-escuro:active {
+.btn-3d-verde:active {
     transform: translateY(3px);
     box-shadow: 0 1px 0 #2E7D32;
 }
 
-/* Botão Azul */
 .btn-3d-azul {
     background-color: #3B9EFA;
     box-shadow: 0 4px 0 #2072C4;
@@ -140,12 +193,76 @@ main {
 }
 
 /* ==========================================================================
-   BARRAS VERDES (PILARES INSTITUCIONAIS)
+   CARDS DE METODOLOGIA
+   ========================================================================== */
+.sobre-sessao {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #1A1A1A;
+}
+
+.section-header p {
+    font-family: 'Poppins', sans-serif;
+    color: #666666;
+    font-size: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card-item {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-laranja { border-color: #FF9800; }
+.card-lavanda { border-color: #AB47BC; }
+.card-amarelo { border-color: #FFCA28; }
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.card-item h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #1A1A1A;
+}
+
+.card-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   BARRAS VERDES (PILARES)
    ========================================================================== */
 .pilares-container {
     width: 100%;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -157,11 +274,8 @@ main {
     padding: 40px 60px;
     gap: 40px;
     min-height: 180px;
-    margin: 0;
-    border: none;
 }
 
-/* Tons das 3 barras verdes */
 .pilar-verde-1 { background-color: #388E3C; }
 .pilar-verde-2 { background-color: #2E7D32; }
 .pilar-verde-3 { background-color: #1B5E20; }
@@ -175,7 +289,6 @@ main {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
-    letter-spacing: 0.5px;
     margin-bottom: 12px;
     color: #FFFFFF !important;
     text-transform: uppercase;
@@ -183,16 +296,13 @@ main {
 
 .pilar-texto p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
     color: #FFFFFF !important;
     margin: 0;
 }
 
-.text-right {
-    text-align: right;
-}
+.text-right { text-align: right; }
 
 .pilar-imagem {
     flex: 1;
@@ -213,12 +323,19 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.pilar-reverso {
-    flex-direction: row;
-}
+.pilar-reverso { flex-direction: row; }
 
 /* Responsividade */
 @media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
@@ -227,11 +344,5 @@ main {
         gap: 24px;
     }
 
-    .pilar-texto {
-        max-width: 100%;
-    }
-
-    .text-right {
-        text-align: center;
-    }
+    .text-right { text-align: center; }
 }
