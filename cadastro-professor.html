@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - Cultivando o Saber</title>
+    <title>Cadastro do Gestor - Cultivando o Saber</title>
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -28,10 +28,11 @@
     <input type="checkbox" id="menu-check" class="menu-checkbox">
     <label for="menu-check" class="overlay"></label>
 
+    <!-- SIDEBAR PARA VISITANTE -->
     <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
+        <div class="sidebar-auth-buttons">
+            <a href="escolha.html" class="btn-auth-sidebar btn-login-sb">Entrar</a>
+            <a href="escolha-cadastro.html" class="btn-auth-sidebar btn-cadastro-sb">Cadastrar</a>
         </div>
         <nav class="links-sidebar">
             <a href="index.html">HOME</a>
@@ -39,97 +40,82 @@
             <a href="quiz.html">QUIZ</a>
             <a href="jogos.html">JOGOS</a>
             <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
     </div>
 
-    <div class="left">
+    <!-- ESQUERDA: HAMBÚRGUER -->
+    <div class="topbar-left">
         <label for="menu-check" class="hamburger">
             <span></span><span></span><span></span>
         </label>
+    </div>
 
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>Cultivando o Saber</h1>
-                    <p></p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
+    <!-- CENTRO: LOGOTIPO -->
+    <div class="topbar-center">
+        <div class="logo">
+            <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
         </div>
     </div>
 
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-         <a href="quiz.html">QUIZ</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
+    <!-- DIREITA: BOTÕES DE ENTRAR E CADASTRAR -->
+    <div class="auth-buttons-right">
+        <a href="escolha.html" class="btn-topbar btn-login">ENTRAR</a>
+        <a href="escolha-cadastro.html" class="btn-topbar btn-cadastro">CADASTRAR</a>
+    </div>
 </header>
 
-    <main>
-        <section class="boas-vindas">
-            <h2 class="titulo-branco">Bem-vindo!</h2>
-            <p class="sub-branco">Acompanhe o desempenho da sua turma</p>
+    <main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
+        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
+            <h2 class="titulo-branco" style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Bem-vindo!</h2>
+            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Acompanhe o desempenho da sua turma</p>
+            
             <div class="login-box professor-box">
 
-                <img src="img/TugaPqn.png">
+                <img src="img/TugaPqn.png" alt="Mascote Tuga">
                 <h1 class="negrito">Cadastro do Gestor</h1>
 
-               <form>
-    <!-- name_user -->
-    <label for="name_user">Nome</label>
-    <input type="text" id="name_user" name="name_user" placeholder="Digite o nome completo" required>
+                <form>
+                    <!-- name_user -->
+                    <label for="name_user">Nome</label>
+                    <input type="text" id="name_user" name="name_user" placeholder="Digite o nome completo" required>
 
-    <!-- id_gender -->
-    <label for="id_gender">Gênero</label>
-    <select id="id_gender" name="id_gender" required>
-        <option value="" disabled selected>Selecione o gênero</option>
-        <option value="1">Feminino</option>
-        <option value="2">Masculino</option>
-        <option value="3">Não-binário</option>
-        <option value="4">Prefiro não informar</option>
-    </select>
+                    <!-- id_gender -->
+                    <label for="id_gender">Gênero</label>
+                    <select id="id_gender" name="id_gender" required>
+                        <option value="" disabled selected>Selecione o gênero</option>
+                        <option value="1">Feminino</option>
+                        <option value="2">Masculino</option>
+                        <option value="3">Não-binário</option>
+                        <option value="4">Prefiro não informar</option>
+                    </select>
 
-    <!-- birth_user -->
-    <label for="birth_user">Data de Nascimento</label>
-    <input type="date" id="birth_user" name="birth_user" required>
+                    <!-- birth_user -->
+                    <label for="birth_user">Data de Nascimento</label>
+                    <input type="date" id="birth_user" name="birth_user" required>
 
-    <!-- registration_user -->
-    <label for="registration_user">Número da Matrícula (Opcional)</label>
-    <input type="text" id="registration_user" name="registration_user" placeholder="Digite a matrícula">
+                    <!-- registration_user -->
+                    <label for="registration_user">Número da Matrícula (Opcional)</label>
+                    <input type="text" id="registration_user" name="registration_user" placeholder="Digite a matrícula">
 
-    <!-- main_email -->
-    <label for="main_email">E-mail Organizacional</label>
-    <input type="email" id="main_email" name="main_email" placeholder="exemplo@organizacao.com" required>
+                    <!-- main_email -->
+                    <label for="main_email">E-mail Organizacional</label>
+                    <input type="email" id="main_email" name="main_email" placeholder="exemplo@organizacao.com" required>
 
-    <!-- personal_email -->
-    <label for="personal_email">E-mail Secundário</label>
-    <input type="email" id="personal_email" name="personal_email" placeholder="exemplo@gmail.com" required>
+                    <!-- personal_email -->
+                    <label for="personal_email">E-mail Secundário</label>
+                    <input type="email" id="personal_email" name="personal_email" placeholder="exemplo@gmail.com" required>
 
-    <!-- password_user -->
-    <label for="password_user">Senha</label>
-    <input type="password" id="password_user" name="password_user" placeholder="Escolha a senha" required>
+                    <!-- password_user -->
+                    <label for="password_user">Senha</label>
+                    <input type="password" id="password_user" name="password_user" placeholder="Escolha a senha" required>
 
-    <!-- confirmação (usada apenas no front-end para validação) -->
-    <label for="confirm_password">Confirmação de Senha</label>
-    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha" required>
+                    <!-- confirmação -->
+                    <label for="confirm_password">Confirmação de Senha</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha" required>
 
-    <button type="submit">Criar</button>
-</form>
+                    <button type="submit">Criar</button>
+                </form>
 
                 <p class="cadastro">Já tem uma conta? <a href="login-professor.html" class="negrito">Faça login aqui</a></p>
             </div>

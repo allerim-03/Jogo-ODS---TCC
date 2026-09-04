@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Cultivando o Saber</title>
+    <title>Cadastro Aluno - Cultivando o Saber</title>
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -28,10 +28,11 @@
     <input type="checkbox" id="menu-check" class="menu-checkbox">
     <label for="menu-check" class="overlay"></label>
 
+    <!-- SIDEBAR PARA VISITANTE -->
     <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil">
-            <p>Nível 2</p>
+        <div class="sidebar-auth-buttons">
+            <a href="escolha.html" class="btn-auth-sidebar btn-login-sb">Entrar</a>
+            <a href="escolha-cadastro.html" class="btn-auth-sidebar btn-cadastro-sb">Cadastrar</a>
         </div>
         <nav class="links-sidebar">
             <a href="index.html">HOME</a>
@@ -39,58 +40,42 @@
             <a href="quiz.html">QUIZ</a>
             <a href="jogos.html">JOGOS</a>
             <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
     </div>
 
-    <div class="left">
+    <!-- ESQUERDA: HAMBÚRGUER -->
+    <div class="topbar-left">
         <label for="menu-check" class="hamburger">
             <span></span><span></span><span></span>
         </label>
+    </div>
 
-        <div class="info-container">
-            <div class="logo">
-                <span class="icon">🌱</span>
-                <div>
-                    <h1>Cultivando o Saber</h1>
-                    <p></p>
-                </div>
-            </div>
-            <div class="level">
-                <span class="star">★ NÍVEL 2</span>
-                <div class="bar"><div class="progress"></div></div>
-                <span class="xp">450/1000</span>
-            </div>
+    <!-- CENTRO: LOGOTIPO -->
+    <div class="topbar-center">
+        <div class="logo">
+            <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
         </div>
     </div>
 
-    <nav class="menu">
-        <a href="index.html">HOME</a>
-        <a href="ods.html">ODS</a>
-        <a href="quiz.html">QUIZ</a>
-        <a href="jogos.html">JOGOS</a>
-        <a href="ranking.html">RANKING</a>
-        <a href="perfil.html">PERFIL</a>
-        <a href="sobrenos.html">SOBRE NÓS</a>
-    </nav>
-
-    <a href="perfil.html" class="perfil-externo">
-        <img src="img/foto.png" class="foto-perfil">
-    </a>
+    <!-- DIREITA: BOTÕES DE ENTRAR E CADASTRAR -->
+    <div class="auth-buttons-right">
+        <a href="escolha.html" class="btn-topbar btn-login">ENTRAR</a>
+        <a href="escolha-cadastro.html" class="btn-topbar btn-cadastro">CADASTRAR</a>
+    </div>
 </header>
 
-    <!-- CONTEÚDO PRINCIPAL (Espaçamento alinhado ao padrão) -->
-    <main style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important;">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important; min-height: auto !important; height: auto !important;">
 
-        <section class="boas-vindas">
-            <h2 class="titulo-branco">Bem-vindo!</h2>
-            <p class="sub-branco">Venha aprender brincando</p>
+        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
+            <h2 class="titulo-branco" style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Bem-vindo!</h2>
+            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Venha aprender brincando</p>
 
             <div class="login-box">
-                <img src="img/TugaPqn.png">
+                <img src="img/TugaPqn.png" alt="Mascote Tuga">
             
-                <h1> Cadastro do Aluno</h1>
+                <h1 class="texto-azul negrito">Cadastro do Aluno</h1>
             
                 <form>
                     <label>Usuário</label>
@@ -104,10 +89,11 @@
 
                     <label>Repita a senha</label>
                     <input type="password" placeholder="Confirme sua senha" required>
+                    
                     <button type="submit" class="btn-cadastrar">Criar</button>
                 </form>
 
-                <p class="cadastro">Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
+                <p class="cadastro">Já tem uma conta? <a href="login.html" class="texto-azul negrito">Faça login aqui</a></p>
             </div>
         </section>
     </main>
