@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - Home</title>
 
-    <!-- Fontes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSSs do projeto -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home.css">
@@ -23,12 +21,10 @@
 
 <body>
 
-    <!-- NAVBAR / TOPBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox" style="display: none;">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
         <div class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
@@ -36,12 +32,11 @@
             </div>
 
             <div class="sidebar-actions">
-                <a href="escolha.html" class="btn-3d btn-3d-azul">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde-escuro">CADASTRAR</a>
+                <a href="escolha.html" class="btn-3d btn-3d-verde">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-3d btn-3d-azul">CADASTRAR</a>
             </div>
         </div>
 
-        <!-- 1. Esquerda: Menu Hamburger -->
         <div class="topbar-left">
             <label for="menu-check" class="hamburger">
                 <span></span>
@@ -50,33 +45,69 @@
             </label>
         </div>
 
-        <!-- 2. Centro: Logotipo Centralizado -->
         <div class="topbar-center">
             <div class="logo">
                 <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
-        <!-- 3. Direita: Espaço Reservado Limpo -->
         <div class="topbar-right"></div>
     </header>
 
     <main>
-        <!-- ÁREA DOS BOTÕES (COMEÇAR AVENTURA / CONHECER O PROJETO) -->
-        <section class="hero-actions-section">
-            <div class="hero-buttons">
-                <a href="escolha.html" class="btn-3d btn-3d-verde-escuro">
-                    ▶ COMEÇAR AVENTURA
-                </a>
-                <a href="escolha-cadastro.html" class="btn-3d btn-3d-azul">
-                    CONHECER O PROJETO
-                </a>
+        <section class="hero-banner">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge-tag">🌱 ODS 15 — VIDA TERRESTRE</span>
+                    <h2>Aprender sobre a natureza nunca foi tão divertido!</h2>
+                    <p>
+                        Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="escolha.html" class="btn-3d btn-3d-verde">
+                            ▶ COMEÇAR AVENTURA
+                        </a>
+                        <a href="escolha-cadastro.html" class="btn-3d btn-3d-azul">
+                            CONHECER O PROJETO
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="img/testeimg.png" alt="Mascote Tuga" class="img-hero-main">
+                </div>
             </div>
         </section>
 
-        <!-- PILARES INSTITUCIONAIS (3 BARRAS VERDES) -->
+        <section id="solucoes" class="sobre-sessao">
+            <div class="section-header">
+                <h2>Como Aprendemos Brincando?</h2>
+                <p>Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card-item card-laranja">
+                    <div class="card-icon">🧩</div>
+                    <h3>Jogos Lúdicos</h3>
+                    <p>Desafios em pixel art desenvolvidos para ensinar a proteção das florestas e da fauna terrestre.</p>
+                </div>
+
+                <div class="card-item card-lavanda">
+                    <div class="card-icon">❓</div>
+                    <h3>Quizzes Interativos</h3>
+                    <p>Perguntas alinhadas às metas da ODS 15 para testar o conhecimento e fixar aprendizados.</p>
+                </div>
+
+                <div class="card-item card-amarelo">
+                    <div class="card-icon">⭐</div>
+                    <h3>Conquistas & XP</h3>
+                    <p>Acumule pontos de experiência, suba de nível e acompanhe sua evolução nas missões ambientais.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="pilares-container">
-            <!-- Barra 1: Desenvolvimento Sustentável -->
             <article class="pilar-card pilar-verde-1">
                 <div class="pilar-texto">
                     <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
@@ -87,7 +118,6 @@
                 </div>
             </article>
 
-            <!-- Barra 2: Metodologia Ativa (Invertida) -->
             <article class="pilar-card pilar-verde-2 pilar-reverso">
                 <div class="pilar-imagem">
                     <img src="img/placeholder2.png" alt="Metodologia Ativa Placeholder" class="img-placeholder">
@@ -98,7 +128,6 @@
                 </div>
             </article>
 
-            <!-- Barra 3: Lúdico, Interativo e Consciente -->
             <article class="pilar-card pilar-verde-3">
                 <div class="pilar-texto">
                     <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
@@ -111,7 +140,6 @@
         </section>
     </main>
 
-    <!-- RODAPÉ INSTITUCIONAL -->
     <footer>
         <div class="rodape-conteudo">
             <p>© 2026 FATEC - Informática para Negócios</p>
