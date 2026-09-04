@@ -1,9 +1,9 @@
 /* ==========================================================================
-   ESTILOS EXCLUSIVOS DA HOME INSTITUCIONAL (DESLOGADO / VISITANTE)
-   Padrão: Guia de Estilo ODS KIDS / Frutiger Plana (60-30-10)
+   ESTILOS DA HOME INSTITUCIONAL (DESLOGADO / VISITANTE)
+   Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
    ========================================================================== */
 
-/* 1. Topbar / Navbar Ajustada para Deslogado */
+/* 1. Ajustes do Cabeçalho Público */
 .topbar-actions {
     display: flex;
     align-items: center;
@@ -16,9 +16,9 @@
     border-radius: 10px !important;
 }
 
-/* 2. Hero Section (Banner de Boas-Vindas) */
+/* 2. Hero Banner */
 .hero-banner {
-    background-color: #F4F9F4; /* Fundo suave ecológico */
+    background-color: #F4F9F4;
     padding: 60px 20px;
     border-bottom: 4px solid #4CAF50; /* Garden Green */
 }
@@ -93,7 +93,7 @@
     border: 3px solid #43B4FB; /* Bright Blue */
 }
 
-/* 3. Grade de Cards de Soluções */
+/* 3. Cards de Soluções */
 .section-header {
     text-align: center;
     max-width: 700px;
@@ -156,60 +156,136 @@
     line-height: 1.5;
 }
 
-/* Bordas coloridas temáticas conforme Guia de Estilo */
-.card-laranja {
-    border: 3px solid #FF8637; /* Orange */
+.card-laranja { border: 3px solid #FF8637; }
+.card-lavanda { border: 3px solid #DB95FD; }
+.card-amarelo { border: 3px solid #FFDE5A; }
+
+
+/* ==========================================================================
+   4. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA)
+   ========================================================================== */
+
+.pilares-container {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
-.card-lavanda {
-    border: 3px solid #DB95FD; /* Lavender */
-}
-
-.card-amarelo {
-    border: 3px solid #FFDE5A; /* Banana Yellow */
-}
-
-/* 4. Caixa do Mascote Tuga */
-.mascote-box {
+/* Estrutura base de cada card horizontal */
+.pilar-card {
     display: flex;
     align-items: center;
-    gap: 16px;
-    background-color: #FFFFFF;
-    border: 2px solid #4CAF50; /* Borda Garden Green */
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
+    justify-content: space-between;
+    padding: 40px 60px;
+    gap: 40px;
+    min-height: 220px;
 }
 
-.tuga-avatar {
-    font-size: 2.5rem;
+/* Variação de Cores Tom-sobre-Tom no Padrão Verde (Garden Green) */
+.pilar-verde-claro {
+    background-color: #4CAF50; /* Garden Green Oficial */
+    color: #FFFFFF;
 }
 
-.mascote-box h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #4CAF50;
-    margin: 0 0 4px 0;
+.pilar-verde-medio {
+    background-color: #388E3C; /* Verde intermediário */
+    color: #FFFFFF;
 }
 
-.mascote-box p {
+.pilar-verde-escuro {
+    background-color: #2E7D32; /* Verde profundo escuro */
+    color: #FFFFFF;
+}
+
+/* Bloco de Texto dos Quadrantes */
+.pilar-texto {
+    flex: 1;
+    max-width: 650px;
+}
+
+.pilar-texto h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.pilar-texto p {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem !important;
-    font-style: italic;
-    color: #333333 !important;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #F0F9F0;
     margin: 0;
 }
 
-/* 5. Ajustes de Responsividade */
-@media (max-width: 850px) {
-    .hero-container {
-        flex-direction: column;
+.text-right {
+    text-align: right;
+}
+
+/* Bloco da Imagem Placeholder */
+.pilar-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+}
+
+.img-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 180px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Layout Reverso (Imagem na Esquerda, Texto na Direita) */
+.pilar-reverso {
+    flex-direction: row;
+}
+
+
+/* ==========================================================================
+   5. RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .pilar-card,
+    .pilar-reverso {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 35px 20px;
+        gap: 24px;
+    }
+
+    .pilar-texto {
+        max-width: 100%;
+    }
+
+    .text-right {
         text-align: center;
     }
 
-    .hero-content h2 {
-        font-size: 1.8rem;
+    .pilar-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    .img-placeholder {
+        height: auto;
+        max-height: 180px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
     }
 
     .hero-buttons {
@@ -217,13 +293,6 @@
     }
 
     .topbar-actions {
-        display: none; /* Esconde botões do topo no mobile, usando o menu sidebar */
-    }
-
-    .sidebar-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
+        display: none;
     }
 }
