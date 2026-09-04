@@ -1,6 +1,7 @@
 /* =========================================
    NAVBAR.CSS - Barra de Navegação Principal
    ========================================= */
+
 .topbar {
     height: 100px;
     background-color: #4CAF50; /* Garden Green */
@@ -9,22 +10,54 @@
     left: 0;
     z-index: 1000;
     width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 40px !important;
+    box-sizing: border-box;
 }
 
+/* 1. ESQUERDA (Menu Hambúrguer) */
+.topbar-left,
 .left {
     display: flex;
     align-items: center;
     gap: 20px;
+    z-index: 2;
 }
 
-/* LOGO */
+/* 2. CENTRO (Logo perfeitamente no meio da tela) */
+.topbar-center {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1;
+}
+
+/* LOGO - Reset de Fundo e Controle de Tamanho */
+.topbar-center .logo,
 .logo {
-    display: flex;
-    align-items: center;
+    background-image: none !important;
+    background: transparent !important;
+    height: auto !important;
+    max-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    margin: 0 !important;
     gap: 10px;
+}
+
+.navbar-logo,
+.logo img {
+    max-height: 45px !important;
+    height: 45px !important;
+    width: auto !important;
+    object-fit: contain !important;
 }
 
 .logo h1 {
@@ -46,7 +79,21 @@
     font-weight: 700;
 }
 
-/* NÍVEL E BARRA DE XP DA NAVBAR */
+/* 3. DIREITA (Botões de Ação / Entrar e Cadastrar) */
+.topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    z-index: 2;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* NÍVEL E BARRA DE XP DA NAVBAR (Se logado) */
 .level {
     display: flex;
     align-items: center;
@@ -58,22 +105,22 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 700;
-    color: #FFFFFF; /* Texto branco */
+    color: #FFFFFF;
     white-space: nowrap;
 }
 
 .bar {
     width: 180px;
     height: 12px;
-    background-color: #1e5a27; /* Verde escuro do fundo da barra */
-    border-radius: 999px; /* 999px para Barras de Progresso */
+    background-color: #1e5a27;
+    border-radius: 999px;
     overflow: hidden;
 }
 
 .progress {
     width: 45%;
     height: 100%;
-    background-color: #ffb72b; /* Amarelo do preenchimento */
+    background-color: #ffb72b;
     border-radius: 999px;
 }
 
@@ -102,16 +149,16 @@
 }
 
 .menu a:hover {
-    color: #FFDE5A; /* Banana Yellow no hover */
+    color: #FFDE5A;
 }
 
 .menu a.active {
-    border-bottom: 3px solid #4CAE50; /* Garden Green */
+    border-bottom: 3px solid #4CAE50;
 }
 
 /* BOTÃO DE LOGOUT */
 .logout {
-    background-color: #FF524D; /* Vivid Red */
+    background-color: #FF524D;
     color: #FFFFFF;
     border: none;
     width: auto;
@@ -176,26 +223,4 @@
 
 .perfil-externo:hover {
     transform: scale(1.05);
-}
-
-/* Reseta o fundo que está esticando a imagem */
-.topbar-center .logo,
-.logo {
-    background-image: none !important;
-    background: transparent !important;
-    height: 50px !important;
-    max-height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-}
-
-/* Controla o tamanho real da imagem HTML */
-.navbar-logo,
-.logo img {
-    max-height: 40px !important;
-    height: 40px !important;
-    width: auto !important;
-    object-fit: contain !important;
 }
