@@ -24,46 +24,48 @@
 </head>
 
 <body>
-<header class="topbar">
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
+<!-- TOPBAR / NAVBAR (IDÊNTICO À HOME.HTML) -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
 
-    <!-- SIDEBAR PARA VISITANTE -->
-    <div class="sidebar">
-        <div class="sidebar-auth-buttons">
-            <a href="escolha.html" class="btn-auth-sidebar btn-login-sb">Entrar</a>
-            <a href="escolha-cadastro.html" class="btn-auth-sidebar btn-cadastro-sb">Cadastrar</a>
+        <!-- Sidebar Mobile -->
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <span class="mascote-icon">🐢</span>
+                <p>Visitante</p>
+            </div>
+
+            <div class="sidebar-actions">
+                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
+            </div>
         </div>
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-        </nav>
-    </div>
 
-    <!-- ESQUERDA: HAMBÚRGUER -->
-    <div class="topbar-left">
-        <label for="menu-check" class="hamburger">
-            <span></span><span></span><span></span>
-        </label>
-    </div>
-
-    <!-- CENTRO: LOGOTIPO -->
-    <div class="topbar-center">
-        <div class="logo">
-            <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+        <!-- 1. Esquerda: Menu Hamburger -->
+        <div class="topbar-left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
         </div>
-    </div>
 
-    <!-- DIREITA: BOTÕES DE ENTRAR E CADASTRAR -->
-    <div class="auth-buttons-right">
-        <a href="escolha.html" class="btn-topbar btn-login">ENTRAR</a>
-        <a href="escolha-cadastro.html" class="btn-topbar btn-cadastro">CADASTRAR</a>
-    </div>
-</header>
+        <!-- 2. Centro: Logotipo Centralizado com cultsab.png -->
+        <div class="topbar-center">
+            <div class="logo">
+                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+            </div>
+        </div>
+
+        <!-- 3. Direita: Ações de Login/Cadastro -->
+        <div class="topbar-right">
+            <div class="topbar-actions">
+                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
+            </div>
+        </div>
+    </header>
 
     <main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
 
