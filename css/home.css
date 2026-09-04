@@ -3,7 +3,44 @@
    Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
    ========================================================================== */
 
-/* 1. Ajustes do Cabeçalho Público */
+/* 1. Estrutura da Topbar (Logo no Centro + Botões na Extrema Direita) */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    background-color: #4CAF50; /* Garden Green */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topbar-left,
+.topbar-right {
+    flex: 1; /* Mantém os dois lados no mesmo tamanho para garantir a centralização perfeita do meio */
+    display: flex;
+    align-items: center;
+}
+
+.topbar-left {
+    justify-content: flex-start;
+}
+
+.topbar-right {
+    justify-content: flex-end; /* Empurra os botões para a extrema direita */
+}
+
+.topbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
 .topbar-actions {
     display: flex;
     align-items: center;
@@ -160,11 +197,39 @@
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
+/* 4. Caixa do Mascote Tuga */
+.mascote-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #FFFFFF;
+    border: 2px solid #4CAF50; /* Borda Garden Green */
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
+}
 
-/* ==========================================================================
-   4. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA)
-   ========================================================================== */
+.tuga-avatar {
+    font-size: 2.5rem;
+}
 
+.mascote-box h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #4CAF50;
+    margin: 0 0 4px 0;
+}
+
+.mascote-box p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem !important;
+    font-style: italic;
+    color: #333333 !important;
+    margin: 0;
+}
+
+/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
 .pilares-container {
     width: 100%;
     margin-top: 50px;
@@ -172,7 +237,6 @@
     flex-direction: column;
 }
 
-/* Estrutura base de cada card horizontal */
 .pilar-card {
     display: flex;
     align-items: center;
@@ -182,7 +246,6 @@
     min-height: 220px;
 }
 
-/* Variação de Cores Tom-sobre-Tom no Padrão Verde (Garden Green) */
 .pilar-verde-claro {
     background-color: #4CAF50; /* Garden Green Oficial */
     color: #FFFFFF;
@@ -198,7 +261,6 @@
     color: #FFFFFF;
 }
 
-/* Bloco de Texto dos Quadrantes */
 .pilar-texto {
     flex: 1;
     max-width: 650px;
@@ -227,7 +289,6 @@
     text-align: right;
 }
 
-/* Bloco da Imagem Placeholder */
 .pilar-imagem {
     flex: 1;
     display: flex;
@@ -247,17 +308,16 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Layout Reverso (Imagem na Esquerda, Texto na Direita) */
 .pilar-reverso {
     flex-direction: row;
 }
 
-
-/* ==========================================================================
-   5. RESPONSIVIDADE
-   ========================================================================== */
-
+/* 6. RESPONSIVIDADE */
 @media (max-width: 900px) {
+    .navbar-logo {
+        height: 30px;
+    }
+
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
@@ -286,6 +346,10 @@
     .hero-container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
     }
 
     .hero-buttons {
