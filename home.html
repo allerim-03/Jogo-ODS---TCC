@@ -48,15 +48,6 @@
                 <p>Visitante</p>
             </div>
 
-            <nav class="links-sidebar">
-                <a href="index.html" class="active">HOME</a>
-                <a href="ods.html">ODS</a>
-                <a href="jogos.html">JOGOS</a>
-                <a href="quiz.html">QUIZ</a>
-                <a href="ranking.html">RANKING</a>
-                <a href="sobrenos.html">SOBRE NÓS</a>
-            </nav>
-
             <div class="sidebar-actions">
                 <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
                 <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
@@ -174,41 +165,47 @@
         </section>
 
         <!-- JORNADA DO GUARDIÃO (Passo a passo para começar) -->
-        <section class="journey">
+         <section class="journey">
             <div class="journey-title">
                 <h2>Sua Jornada Sustentável</h2>
-                <p>Veja como é simples fazer parte dos Guardiões do Planeta</p>
+                <p>Acompanhe novas etapas no mapa</p> <br><br>
             </div>
 
             <div class="journey-map">
+                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
                 <div class="journey-line"></div>
 
-                <div class="journey-step step-1 active">
+                <div class="journey-step step-1 active" data-step="0">
                     <div class="step-icon">📝</div>
-                    <span>1. Crie sua Conta</span>
+                    <span>Cadastro</span>
                 </div>
 
-                <div class="journey-step step-2">
+                <div class="journey-step step-2" data-step="1">
                     <div class="step-icon">🎮</div>
-                    <span>2. Jogue & Aprenda</span>
+                    <span>Jogos</span>
                 </div>
 
-                <div class="journey-step step-3">
-                    <div class="step-icon">⭐</div>
-                    <span>3. Ganhe XP</span>
+                <div class="journey-step step-3" data-step="2">
+                    <div class="step-icon">🌱</div>
+                    <span>Evolução</span>
                 </div>
 
-                <div class="journey-step step-4">
+                <div class="journey-step step-4" data-step="3">
+                    <div class="step-icon">🌎</div>
+                    <span>ODS</span>
+                </div>
+
+                <div class="journey-step step-5" data-step="4">
                     <div class="step-icon">🏆</div>
-                    <span>4. Vire Guardião</span>
+                    <span>Guardião</span>
                 </div>
             </div>
 
             <div class="journey-card">
-                <h3>Pronto para essa aventura?</h3>
-                <p>Crie o seu perfil gratuito para salvar seu progresso e competir no Ranking!</p>
+                <h3 id="journey-title">Comece sua Aventura</h3>
+                <p id="journey-description">Cadastre-se para registrar seu desempenho</p>
                 <div class="journey-action">
-                    <a href="escolha-cadastro.html" class="btn-principal btn-lg">Criar Minha Conta Grátis</a>
+                    <a id="journey-btn" href="perfil.html" class="btn-games">CRIAR MINHA CONTA GRÁTIS</a>
                 </div>
             </div>
         </section>
@@ -217,8 +214,7 @@
     <!-- RODAPÉ INSTITUCIONAL -->
     <footer>
         <div class="rodape-conteudo">
-            <p>© 2026 FATEC - Informática para Negócios | Projeto de Conclusão de Curso (TCC)</p>
-            <p class="sub-rodape">PlataformaEduca / ODS KIDS — Promovendo a ODS 15 através da tecnologia.</p>
+            <p>© 2026 FATEC - Informática para Negócios</p>
         </div>
     </footer>
 
