@@ -36,7 +36,7 @@
 }
 
 .navbar-logo {
-   max-height: 40px !important; /* Ajuste o valor conforme precise */
+    max-height: 40px !important; /* Ajuste o valor conforme precise */
     width: auto !important;
     object-fit: contain;
 }
@@ -51,6 +51,25 @@
     padding: 8px 16px !important;
     font-size: 0.85rem !important;
     border-radius: 10px !important;
+}
+
+/* --- BOTÃO CADASTRAR (VERDE ESCURO ATUALIZADO) --- */
+.topbar-actions a[href*="cadastrar"],
+.topbar-actions .btn-cadastrar {
+    background-color: #2E7D32 !important; /* Verde mais escuro da imagem */
+    color: #FFFFFF !important;
+    padding: 8px 18px !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.topbar-actions a[href*="cadastrar"]:hover,
+.topbar-actions .btn-cadastrar:hover {
+    background-color: #1B5E20 !important; /* Tom ainda mais escuro ao passar o mouse */
+    transform: translateY(-1px);
 }
 
 /* 2. Hero Banner */
@@ -229,7 +248,7 @@
     margin: 0;
 }
 
-/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
+/* 5. QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
 .pilares-container {
     width: 100%;
     margin-top: 50px;
@@ -359,4 +378,7 @@
     .topbar-actions {
         display: none;
     }
+}
+body {
+    background-color: #2A7C38;
 }
