@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!--- 
-
-                CONTA NÃO LOGADA / VISITANTE
-
--->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber</title>
+    <title>Cultivando o Saber - Home</title>
 
-    <!-- Fontes oficiais do Guia de Estilo -->
+    <!-- Fontes do projeto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -20,56 +14,22 @@
     <!-- CSSs do projeto -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/botoes.css">
     <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/journey.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/textos.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/responsivo.css">
 </head>
 
 <body>
 
-    <!-- TOPBAR / NAVBAR (Visão Pública / Deslogado) -->
+    <!-- NAVBAR / TOPBAR -->
     <header class="topbar">
-        <input type="checkbox" id="menu-check" class="menu-checkbox">
-        <label for="menu-check" class="overlay"></label>
-
-        <!-- Sidebar Mobile -->
-        <div class="sidebar">
-            <div class="perfil-sidebar">
-                <span class="mascote-icon">🐢</span>
-                <p>Visitante</p>
-            </div>
-
-            <div class="sidebar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-cadastrar">CADASTRAR</a>
-            </div>
-        </div>
-
-        <!-- 1. Esquerda: Menu Hamburger -->
         <div class="topbar-left">
-            <label for="menu-check" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-        </div>
-
-        <!-- 2. Centro: Logotipo Centralizado com cultsab.png -->
-        <div class="topbar-center">
-            <div class="logo">
+            <a href="home.html" class="logo">
                 <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
-            </div>
+            </a>
         </div>
-
-        <!-- 3. Direita: Ações de Login/Cadastro -->
         <div class="topbar-right">
             <div class="topbar-actions">
                 <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
@@ -79,7 +39,7 @@
     </header>
 
     <main>
-        <!-- HERO SECTION (Banner principal estilo landing page) -->
+        <!-- HERO BANNER -->
         <section class="hero-banner">
             <div class="hero-container">
                 <div class="hero-content">
@@ -88,15 +48,6 @@
                     <p>
                         Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
                     </p>
-                    
-                    <!-- CAIXA DO MASCOTE TUGA -->
-                    <div class="mascote-box">
-                        <span class="tuga-avatar">🐢</span>
-                        <div>
-                            <h4>Dica do Tuga</h4>
-                            <p>"Cadastre-se gratuitamente e venha proteger o nosso planeta enquanto joga!"</p>
-                        </div>
-                    </div>
 
                     <div class="hero-buttons">
                         <a href="escolha-cadastro.html" class="btn-principal btn-lg btn-cadastrar">▶ Começar Aventura</a>
@@ -104,12 +55,12 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="img/testeimg.png" alt="Tuga e a jornada sustentável" class="img-hero-main">
+                    <img src="img/testeimg.png" alt="Plataforma de Aprendizagem" class="img-hero-main">
                 </div>
             </div>
         </section>
 
-        <!-- SESSÃO DE APRESENTAÇÃO DE SOLUÇÕES (Estilo Cards Interativos) -->
+        <!-- SEÇÃO DE RECURSOS / SOLUÇÕES -->
         <section id="solucoes" class="sobre-sessao">
             <div class="section-header">
                 <h2>Como Aprendemos Brincando?</h2>
@@ -121,116 +72,48 @@
                 <div class="card-item card-laranja">
                     <div class="card-icon">🧩</div>
                     <h3>Jogos Lúdicos</h3>
-                    <p>Desafios em pixel art, como o <i>Eco-Pixel Adventure</i>, desenvolvidos para ensinar a proteção das florestas e fauna terrestre.</p>
+                    <p>Desafios em pixel art desenvolvidos para ensinar a proteção das florestas e da fauna terrestre.</p>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="card-item card-lavanda">
                     <div class="card-icon">❓</div>
-                    <h3>Quizzes & Cards</h3>
-                    <p>Perguntas interativas alinhadas às ODS para testar o conhecimento e fixar conteúdos aprendidos em sala de aula.</p>
+                    <h3>Quizzes Interativos</h3>
+                    <p>Perguntas alinhadas às metas da ODS 15 para testar o conhecimento e fixar aprendizados.</p>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="card-item card-amarelo">
                     <div class="card-icon">⭐</div>
-                    <h3>Gamificação e Rank</h3>
-                    <p>Acumule pontos de experiência (XP), suba de nível e concorra às primeiras colocações no ranking dos Guardiões do Planeta.</p>
+                    <h3>Conquistas & XP</h3>
+                    <p>Acumule pontos de experiência, suba de nível e acompanhe sua evolução nas missões ambientais.</p>
                 </div>
             </div>
         </section>
 
-        <!-- JORNADA DO GUARDIÃO (Passo a passo para começar) -->
-        <section class="journey">
-            <div class="journey-title">
-                <h2>Sua Jornada Sustentável</h2>
-                <p>Acompanhe novas etapas no mapa</p> <br>
-            </div>
-
-            <div class="journey-map">
-                <img id="journey-tuga" src="img/TugaPqn.png" alt="Tuga">
-                <div class="journey-line"></div>
-
-                <div class="journey-step step-1 active" data-step="0">
-                    <div class="step-icon">📝</div>
-                    <span>Cadastro</span>
-                </div>
-
-                <div class="journey-step step-2" data-step="1">
-                    <div class="step-icon">🎮</div>
-                    <span>Jogos</span>
-                </div>
-
-                <div class="journey-step step-3" data-step="2">
-                    <div class="step-icon">🌱</div>
-                    <span>Evolução</span>
-                </div>
-
-                <div class="journey-step step-4" data-step="3">
-                    <div class="step-icon">🌎</div>
-                    <span>ODS</span>
-                </div>
-
-                <div class="journey-step step-5" data-step="4">
-                    <div class="step-icon">🏆</div>
-                    <span>Guardião</span>
-                </div>
-            </div>
-
-            <div class="journey-card">
-                <h3 id="journey-title">Comece sua Aventura</h3>
-                <p id="journey-description">Cadastre-se para registrar seu desempenho</p>
-                <div class="journey-action">
-                    <a id="journey-btn" href="escolha-cadastro.html" class="btn-games">CRIAR MINHA CONTA GRÁTIS</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- NOVOS QUADRANTES DE PILARES INSTITUCIONAIS (ABAIXO DA TRILHA) -->
+        <!-- PILARES INSTITUCIONAIS -->
         <section class="pilares-container">
-            <!-- Quadrante 1 -->
             <article class="pilar-card pilar-verde-claro">
                 <div class="pilar-texto">
                     <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
-                    <p>Transforme-se em um agente de transformação ambiental ao abordar a Educação Ambiental (EA) em sua comunidade escolar e destaque-se em sua organização.</p>
-                </div>
-                <div class="pilar-imagem">
-                    <img src="img/placeholder1.png" alt="Desenvolvimento Sustentável Placeholder" class="img-placeholder">
+                    <p>Transforme-se em um agente de mudança socioambiental abordando a Educação Ambiental em sua comunidade escolar.</p>
                 </div>
             </article>
 
-            <!-- Quadrante 2 (Layout Invertido) -->
             <article class="pilar-card pilar-verde-medio pilar-reverso">
-                <div class="pilar-imagem">
-                    <img src="img/placeholder2.png" alt="Metodologia Ativa Placeholder" class="img-placeholder">
-                </div>
                 <div class="pilar-texto text-right">
                     <h2>METODOLOGIA ATIVA</h2>
-                    <p>Utilize a gamificação como solução eficaz para engajar os seus alunos em práticas sustentáveis, conscientização social e letramento ambiental.</p>
-                </div>
-            </article>
-
-            <!-- Quadrante 3 -->
-            <article class="pilar-card pilar-verde-escuro">
-                <div class="pilar-texto">
-                    <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
-                    <p>A plataforma surge do desejo âmago de mudanças ambientais e uma geração consciente dos seus impactos no hodierno.</p>
-                </div>
-                <div class="pilar-imagem">
-                    <img src="img/placeholder3.png" alt="Lúdico e Interativo Placeholder" class="img-placeholder">
+                    <p>Utilize a gamificação para engajar estudantes em práticas sustentáveis e no letramento ambiental.</p>
                 </div>
             </article>
         </section>
     </main>
 
-    <!-- RODAPÉ INSTITUCIONAL -->
     <footer>
         <div class="rodape-conteudo">
             <p>© 2026 FATEC - Informática para Negócios</p>
         </div>
     </footer>
-
-    <script src="js/journey.js"></script>
 
 </body>
 </html>
