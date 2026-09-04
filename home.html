@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - Home</title>
 
-    <!-- Fontes do projeto -->
+    <!-- Fontes oficiais do Guia de Estilo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- CSSs do projeto -->
     <link rel="stylesheet" href="css/global.css">
@@ -19,23 +19,47 @@
     <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR / TOPBAR -->
+    <!-- TOPBAR / NAVBAR ORIGINAL -->
     <header class="topbar">
-        <div class="topbar-left">
-            <a href="home.html" class="logo">
-                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
-            </a>
-        </div>
-        <div class="topbar-right">
-            <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm btn-cadastrar">CADASTRAR</a>
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <!-- Sidebar Mobile -->
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <span class="mascote-icon">🐢</span>
+                <p>Visitante</p>
+            </div>
+
+            <div class="sidebar-actions">
+                <a href="escolha.html" class="btn-3d btn-3d-azul">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde">CADASTRAR</a>
             </div>
         </div>
+
+        <!-- 1. Esquerda: Menu Hamburger -->
+        <div class="topbar-left">
+            <label for="menu-check" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <!-- 2. Centro: Logotipo Centralizado -->
+        <div class="topbar-center">
+            <div class="logo">
+                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+            </div>
+        </div>
+
+        <!-- 3. Direita: Espaço Reservado / Equilíbrio da Grid -->
+        <div class="topbar-right"></div>
     </header>
 
     <main>
@@ -49,18 +73,19 @@
                         Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
                     </p>
 
+                    <!-- BOTÕES 3D DE ENTRAR E CADASTRAR NO LUGAR DE COMEÇAR AVENTURA / CONHECER PROJETO -->
                     <div class="hero-buttons">
-                        <a href="escolha-cadastro.html" class="btn-principal btn-lg btn-cadastrar">▶ Começar Aventura</a>
-                        <a href="#solucoes" class="btn-principal btn-secundario btn-lg">Conhecer o Projeto</a>
+                        <a href="escolha.html" class="btn-3d btn-3d-azul">ENTRAR</a>
+                        <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde">CADASTRAR</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="img/testeimg.png" alt="Plataforma de Aprendizagem" class="img-hero-main">
+                    <img src="img/testeimg.png" alt="A jornada sustentável" class="img-hero-main">
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE RECURSOS / SOLUÇÕES -->
+        <!-- SESSÃO DE APRESENTAÇÃO DE SOLUÇÕES (Cards Interativos) -->
         <section id="solucoes" class="sobre-sessao">
             <div class="section-header">
                 <h2>Como Aprendemos Brincando?</h2>
@@ -91,24 +116,44 @@
             </div>
         </section>
 
-        <!-- PILARES INSTITUCIONAIS -->
+        <!-- QUADRANTES DE PILARES INSTITUCIONAIS -->
         <section class="pilares-container">
+            <!-- Quadrante 1 -->
             <article class="pilar-card pilar-verde-claro">
                 <div class="pilar-texto">
                     <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
-                    <p>Transforme-se em um agente de mudança socioambiental abordando a Educação Ambiental em sua comunidade escolar.</p>
+                    <p>Transforme-se em um agente de transformação ambiental ao abordar a Educação Ambiental (EA) em sua comunidade escolar e destaque-se em sua organização.</p>
+                </div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder1.png" alt="Desenvolvimento Sustentável Placeholder" class="img-placeholder">
                 </div>
             </article>
 
+            <!-- Quadrante 2 (Layout Invertido) -->
             <article class="pilar-card pilar-verde-medio pilar-reverso">
+                <div class="pilar-imagem">
+                    <img src="img/placeholder2.png" alt="Metodologia Ativa Placeholder" class="img-placeholder">
+                </div>
                 <div class="pilar-texto text-right">
                     <h2>METODOLOGIA ATIVA</h2>
-                    <p>Utilize a gamificação para engajar estudantes em práticas sustentáveis e no letramento ambiental.</p>
+                    <p>Utilize a gamificação como solução eficaz para engajar os seus alunos em práticas sustentáveis, conscientização social e letramento ambiental.</p>
+                </div>
+            </article>
+
+            <!-- Quadrante 3 -->
+            <article class="pilar-card pilar-verde-escuro">
+                <div class="pilar-texto">
+                    <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
+                    <p>A plataforma surge do desejo âmago de mudanças ambientais e uma geração consciente dos seus impactos no hodierno.</p>
+                </div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder3.png" alt="Lúdico e Interativo Placeholder" class="img-placeholder">
                 </div>
             </article>
         </section>
     </main>
 
+    <!-- RODAPÉ INSTITUCIONAL -->
     <footer>
         <div class="rodape-conteudo">
             <p>© 2026 FATEC - Informática para Negócios</p>
