@@ -1,8 +1,65 @@
 /* ==========================================================================
-   ESTILOS DA HOME (SEM A SEÇÃO DA JORNADA/MAPA E SEM MASCOTE)
+   ESTILOS DA HOME INSTITUCIONAL
    ========================================================================== */
 
-/* Hero Banner */
+/* 1. Estrutura da Topbar (Hamburger na Esquerda, Logo Centralizada) */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topbar-left,
+.topbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.topbar-left {
+    justify-content: flex-start;
+}
+
+.topbar-right {
+    justify-content: flex-end;
+}
+
+.topbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo {
+    max-height: 42px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* Menu Hamburger */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3.5px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* 2. Hero Banner */
 .hero-banner {
     background-color: #F4F9F4;
     padding: 60px 20px;
@@ -53,12 +110,69 @@
     margin-bottom: 28px;
 }
 
+/* 3. Estilo dos Botões Gamificados em 3D */
 .hero-buttons {
     display: flex;
-    gap: 16px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 12px;
+    color: #FFFFFF;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+}
+
+/* Botão Entrar (Azul 3D) */
+.btn-3d-azul {
+    background-color: #38A1E8;
+    border: 2px solid #2880C4;
+    box-shadow: 0 6px 0 #206AA5;
+}
+
+.btn-3d-azul:hover {
+    background-color: #42ACF3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #206AA5;
+}
+
+.btn-3d-azul:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #206AA5;
+}
+
+/* Botão Cadastrar (Verde 3D) */
+.btn-3d-verde {
+    background-color: #4CAF50;
+    border: 2px solid #3B963E;
+    box-shadow: 0 6px 0 #2E7D32;
+}
+
+.btn-3d-verde:hover {
+    background-color: #55BD59;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #2E7D32;
+}
+
+.btn-3d-verde:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #2E7D32;
+}
+
+/* Hero Imagem */
 .hero-image {
     flex: 1;
     display: flex;
@@ -73,9 +187,9 @@
     border: 3px solid #43B4FB;
 }
 
-/* Seção de Soluções e Cards */
+/* 4. Cards de Soluções */
 .sobre-sessao {
-    padding: 50px 20px;
+    padding: 50px 0;
 }
 
 .section-header {
@@ -103,6 +217,7 @@
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .card-item {
@@ -143,10 +258,10 @@
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
-/* Pilares */
+/* 5. Quadrantes de Pilares */
 .pilares-container {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 }
@@ -157,6 +272,7 @@
     justify-content: space-between;
     padding: 40px 60px;
     gap: 40px;
+    min-height: 220px;
 }
 
 .pilar-verde-claro {
@@ -169,21 +285,68 @@
     color: #FFFFFF;
 }
 
+.pilar-verde-escuro {
+    background-color: #1B5E20;
+    color: #FFFFFF;
+}
+
+.pilar-texto {
+    flex: 1;
+    max-width: 650px;
+}
+
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
+    letter-spacing: 0.5px;
     margin-bottom: 12px;
+    color: #FFFFFF;
+    text-transform: uppercase;
 }
 
 .pilar-texto p {
     font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
+    color: #F0F9F0;
+    margin: 0;
 }
 
-/* Responsividade */
+.text-right {
+    text-align: right;
+}
+
+.pilar-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+}
+
+.img-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 180px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pilar-reverso {
+    flex-direction: row;
+}
+
+/* 6. Responsividade */
 @media (max-width: 900px) {
+    .navbar-logo {
+        height: 32px;
+    }
+
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -193,8 +356,19 @@
         justify-content: center;
     }
 
-    .pilar-card {
-        padding: 30px 20px;
+    .pilar-card,
+    .pilar-reverso {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 35px 20px;
+        gap: 24px;
+    }
+
+    .pilar-texto {
+        max-width: 100%;
+    }
+
+    .text-right {
         text-align: center;
     }
 }
