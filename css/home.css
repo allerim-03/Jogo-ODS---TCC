@@ -1,63 +1,12 @@
 /* ==========================================================================
-   ESTILOS DA HOME INSTITUCIONAL (DESLOGADO / VISITANTE)
-   Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
+   ESTILOS DA HOME (SEM A SEÇÃO DA JORNADA/MAPA E SEM MASCOTE)
    ========================================================================== */
 
-/* 1. Estrutura da Topbar (Logo no Centro + Botões na Extrema Direita) */
-.topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 24px;
-    background-color: #4CAF50; /* Garden Green */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.topbar-left,
-.topbar-right {
-    flex: 1; /* Mantém os dois lados no mesmo tamanho para garantir a centralização perfeita do meio */
-    display: flex;
-    align-items: center;
-}
-
-.topbar-left {
-    justify-content: flex-start;
-}
-
-.topbar-right {
-    justify-content: flex-end; /* Empurra os botões para a extrema direita */
-}
-
-.topbar-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-logo {
-   max-height: 40px !important; /* Ajuste o valor conforme precise */
-    width: auto !important;
-    object-fit: contain;
-}
-
-.topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.btn-sm {
-    padding: 8px 16px !important;
-    font-size: 0.85rem !important;
-    border-radius: 10px !important;
-}
-
-/* 2. Hero Banner */
+/* Hero Banner */
 .hero-banner {
     background-color: #F4F9F4;
     padding: 60px 20px;
-    border-bottom: 4px solid #4CAF50; /* Garden Green */
+    border-bottom: 4px solid #4CAF50;
 }
 
 .hero-container {
@@ -110,12 +59,6 @@
     flex-wrap: wrap;
 }
 
-.btn-lg {
-    padding: 14px 28px !important;
-    font-size: 1.05rem !important;
-    border-radius: 12px !important;
-}
-
 .hero-image {
     flex: 1;
     display: flex;
@@ -127,10 +70,14 @@
     height: auto;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: 3px solid #43B4FB; /* Bright Blue */
+    border: 3px solid #43B4FB;
 }
 
-/* 3. Cards de Soluções */
+/* Seção de Soluções e Cards */
+.sobre-sessao {
+    padding: 50px 20px;
+}
+
 .section-header {
     text-align: center;
     max-width: 700px;
@@ -156,7 +103,6 @@
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .card-item {
@@ -197,42 +143,10 @@
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
-/* 4. Caixa do Mascote Tuga */
-.mascote-box {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: #FFFFFF;
-    border: 2px solid #4CAF50; /* Borda Garden Green */
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
-}
-
-.tuga-avatar {
-    font-size: 2.5rem;
-}
-
-.mascote-box h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #4CAF50;
-    margin: 0 0 4px 0;
-}
-
-.mascote-box p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem !important;
-    font-style: italic;
-    color: #333333 !important;
-    margin: 0;
-}
-
-/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
+/* Pilares */
 .pilares-container {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -243,120 +157,44 @@
     justify-content: space-between;
     padding: 40px 60px;
     gap: 40px;
-    min-height: 220px;
 }
 
 .pilar-verde-claro {
-    background-color: #388E3C; /* Garden Green Oficial */
+    background-color: #388E3C;
     color: #FFFFFF;
 }
 
 .pilar-verde-medio {
-    background-color: #2E7D32; /* Verde intermediário */
+    background-color: #2E7D32;
     color: #FFFFFF;
-}
-
-.pilar-verde-escuro {
-    background-color: #1B5E20; /* Verde profundo escuro */
-    color: #FFFFFF;
-}
-
-.pilar-texto {
-    flex: 1;
-    max-width: 650px;
 }
 
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
-    letter-spacing: 0.5px;
     margin-bottom: 12px;
-    color: #FFFFFF;
-    text-transform: uppercase;
 }
 
 .pilar-texto p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #F0F9F0;
-    margin: 0;
 }
 
-.text-right {
-    text-align: right;
-}
-
-.pilar-imagem {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 450px;
-}
-
-.img-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 180px;
-    object-fit: contain;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.pilar-reverso {
-    flex-direction: row;
-}
-
-/* 6. RESPONSIVIDADE */
+/* Responsividade */
 @media (max-width: 900px) {
-    .navbar-logo {
-        height: 30px;
-    }
-
-    .pilar-card,
-    .pilar-reverso {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 35px 20px;
-        gap: 24px;
-    }
-
-    .pilar-texto {
-        max-width: 100%;
-    }
-
-    .text-right {
-        text-align: center;
-    }
-
-    .pilar-texto h2 {
-        font-size: 1.5rem;
-    }
-
-    .img-placeholder {
-        height: auto;
-        max-height: 180px;
-    }
-
     .hero-container {
         flex-direction: column;
         text-align: center;
-    }
-
-    .hero-content h2 {
-        font-size: 1.8rem;
     }
 
     .hero-buttons {
         justify-content: center;
     }
 
-    .topbar-actions {
-        display: none;
+    .pilar-card {
+        padding: 30px 20px;
+        text-align: center;
     }
 }
