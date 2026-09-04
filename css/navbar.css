@@ -177,3 +177,25 @@
 .perfil-externo:hover {
     transform: scale(1.05);
 }
+
+/* Reseta o fundo que está esticando a imagem */
+.topbar-center .logo,
+.logo {
+    background-image: none !important;
+    background: transparent !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+/* Controla o tamanho real da imagem HTML */
+.navbar-logo,
+.logo img {
+    max-height: 40px !important;
+    height: 40px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
