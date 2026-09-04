@@ -1,8 +1,18 @@
-/* ==========================================================================
-   ESTILOS DA HOME INSTITUCIONAL
-   ========================================================================== */
+/* Reset Global de Margens e Espaçamentos */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Topbar / Navbar */
+main {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   NAVBAR (Sem espaçamentos inferiores)
+   ========================================================================== */
 .topbar {
     display: flex;
     align-items: center;
@@ -11,6 +21,8 @@
     background-color: #388E3C;
     width: 100%;
     box-sizing: border-box;
+    margin: 0;
+    border: none;
 }
 
 .topbar-left,
@@ -52,58 +64,9 @@
     border-radius: 4px;
 }
 
-/* Hero Banner */
-.hero-banner {
-    background-color: #F4F9F4;
-    padding: 60px 20px;
-    border-bottom: 4px solid #388E3C;
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.badge-tag {
-    display: inline-block;
-    background-color: #388E3C;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
-}
-
-.hero-content h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 2.4rem;
-    color: #1A1A1A;
-    line-height: 1.2;
-    margin-bottom: 16px;
-}
-
-.hero-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
-    color: #555555;
-    line-height: 1.6;
-    margin-bottom: 28px;
-}
-
-/* ESTILO DOS BOTÕES EM 3D (AZUL E VERDE ESCURO) */
+/* ==========================================================================
+   ESTILO DOS BOTÕES (Inspirado na imagem 3: arredondado, 3D, sem contorno)
+   ========================================================================== */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -114,146 +77,63 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
-    font-family: 'Montserrat', sans-serif;
+    padding: 14px 32px;
+    font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    text-decoration: none !important; /* Remove o sublinhado do link */
-    border-radius: 12px;
+    text-decoration: none !important;
+    border-radius: 16px; /* Borda bem arredondada igual à foto */
+    border: none !important; /* Sem contorno */
     color: #FFFFFF !important;
-    transition: all 0.1s ease;
+    transition: all 0.12s ease-in-out;
     cursor: pointer;
     user-select: none;
     text-align: center;
 }
 
-/* Botão Entrar (Azul 3D) */
+/* Botão Entrar (Azul) */
 .btn-3d-azul {
-    background-color: #38A1E8;
-    border: 2px solid #2880C4;
-    box-shadow: 0 6px 0 #206AA5;
+    background-color: #3498DB;
+    box-shadow: 0 6px 0 #2171A7; /* Sombra inferior criando o efeito 3D */
 }
 
 .btn-3d-azul:hover {
-    background-color: #42ACF3;
+    background-color: #43A4E6;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #206AA5;
+    box-shadow: 0 8px 0 #2171A7;
 }
 
 .btn-3d-azul:active {
     transform: translateY(4px);
-    box-shadow: 0 2px 0 #206AA5;
+    box-shadow: 0 2px 0 #2171A7;
 }
 
-/* Botão Cadastrar (Verde Escuro 3D) */
+/* Botão Cadastrar (Verde Escuro) */
 .btn-3d-verde-escuro {
     background-color: #2E7D32;
-    border: 2px solid #1B5E20;
-    box-shadow: 0 6px 0 #144718;
+    box-shadow: 0 6px 0 #1B5E20; /* Sombra inferior criando o efeito 3D */
 }
 
 .btn-3d-verde-escuro:hover {
     background-color: #358E3A;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #144718;
+    box-shadow: 0 8px 0 #1B5E20;
 }
 
 .btn-3d-verde-escuro:active {
     transform: translateY(4px);
-    box-shadow: 0 2px 0 #144718;
+    box-shadow: 0 2px 0 #1B5E20;
 }
 
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.img-hero-main {
-    max-width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: 3px solid #43B4FB;
-}
-
-/* Seção de Soluções */
-.sobre-sessao {
-    padding: 50px 0;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
-
-.section-header h2 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 2rem;
-    color: #1A1A1A;
-    margin-bottom: 10px;
-}
-
-.section-header p {
-    font-family: 'Poppins', sans-serif;
-    color: #555555;
-    font-size: 1rem;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.card-item {
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 30px 24px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-icon {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
-}
-
-.card-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    color: #1A1A1A;
-}
-
-.card-item p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: #555555;
-    line-height: 1.5;
-}
-
-.card-laranja { border: 3px solid #FF8637; }
-.card-lavanda { border: 3px solid #DB95FD; }
-.card-amarelo { border: 3px solid #FFDE5A; }
-
-/* BARRAS VERDES COM TEXTO BRANCO */
+/* ==========================================================================
+   BARRAS VERDES (Sem a linha branca superior)
+   ========================================================================== */
 .pilares-container {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0 !important; /* Zera qualquer espaço entre a navbar/hero e as barras */
+    padding-top: 0 !important;
     display: flex;
     flex-direction: column;
 }
@@ -265,6 +145,8 @@
     padding: 40px 60px;
     gap: 40px;
     min-height: 180px;
+    margin: 0;
+    border: none;
 }
 
 /* Tons de verde das 3 barras */
@@ -277,7 +159,6 @@
     max-width: 650px;
 }
 
-/* Forçar fonte totalmente branca nas 3 barras */
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -340,14 +221,5 @@
 
     .text-right {
         text-align: center;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
     }
 }
