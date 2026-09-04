@@ -2,13 +2,13 @@
    ESTILOS DA HOME INSTITUCIONAL
    ========================================================================== */
 
-/* 1. Estrutura da Topbar (Hamburger na Esquerda, Logo Centralizada) */
+/* Topbar / Navbar */
 .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 24px;
-    background-color: #4CAF50;
+    background-color: #388E3C;
     width: 100%;
     box-sizing: border-box;
 }
@@ -20,13 +20,8 @@
     align-items: center;
 }
 
-.topbar-left {
-    justify-content: flex-start;
-}
-
-.topbar-right {
-    justify-content: flex-end;
-}
+.topbar-left { justify-content: flex-start; }
+.topbar-right { justify-content: flex-end; }
 
 .topbar-center {
     display: flex;
@@ -40,7 +35,6 @@
     object-fit: contain;
 }
 
-/* Menu Hamburger */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -56,14 +50,13 @@
     width: 100%;
     background-color: #FFFFFF;
     border-radius: 4px;
-    transition: all 0.3s ease;
 }
 
-/* 2. Hero Banner */
+/* Hero Banner */
 .hero-banner {
     background-color: #F4F9F4;
     padding: 60px 20px;
-    border-bottom: 4px solid #4CAF50;
+    border-bottom: 4px solid #388E3C;
 }
 
 .hero-container {
@@ -81,7 +74,7 @@
 
 .badge-tag {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #388E3C;
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -110,7 +103,7 @@
     margin-bottom: 28px;
 }
 
-/* 3. Estilo dos Botões Gamificados em 3D */
+/* ESTILO DOS BOTÕES EM 3D (AZUL E VERDE ESCURO) */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -121,15 +114,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 32px;
+    padding: 12px 28px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    text-decoration: none;
+    text-decoration: none !important; /* Remove o sublinhado do link */
     border-radius: 12px;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     transition: all 0.1s ease;
     cursor: pointer;
     user-select: none;
@@ -154,25 +147,24 @@
     box-shadow: 0 2px 0 #206AA5;
 }
 
-/* Botão Cadastrar (Verde 3D) */
-.btn-3d-verde {
-    background-color: #4CAF50;
-    border: 2px solid #3B963E;
-    box-shadow: 0 6px 0 #2E7D32;
+/* Botão Cadastrar (Verde Escuro 3D) */
+.btn-3d-verde-escuro {
+    background-color: #2E7D32;
+    border: 2px solid #1B5E20;
+    box-shadow: 0 6px 0 #144718;
 }
 
-.btn-3d-verde:hover {
-    background-color: #55BD59;
+.btn-3d-verde-escuro:hover {
+    background-color: #358E3A;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #2E7D32;
+    box-shadow: 0 8px 0 #144718;
 }
 
-.btn-3d-verde:active {
+.btn-3d-verde-escuro:active {
     transform: translateY(4px);
-    box-shadow: 0 2px 0 #2E7D32;
+    box-shadow: 0 2px 0 #144718;
 }
 
-/* Hero Imagem */
 .hero-image {
     flex: 1;
     display: flex;
@@ -187,7 +179,7 @@
     border: 3px solid #43B4FB;
 }
 
-/* 4. Cards de Soluções */
+/* Seção de Soluções */
 .sobre-sessao {
     padding: 50px 0;
 }
@@ -258,7 +250,7 @@
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
-/* 5. Quadrantes de Pilares */
+/* BARRAS VERDES COM TEXTO BRANCO */
 .pilares-container {
     width: 100%;
     margin-top: 50px;
@@ -272,36 +264,27 @@
     justify-content: space-between;
     padding: 40px 60px;
     gap: 40px;
-    min-height: 220px;
+    min-height: 180px;
 }
 
-.pilar-verde-claro {
-    background-color: #388E3C;
-    color: #FFFFFF;
-}
-
-.pilar-verde-medio {
-    background-color: #2E7D32;
-    color: #FFFFFF;
-}
-
-.pilar-verde-escuro {
-    background-color: #1B5E20;
-    color: #FFFFFF;
-}
+/* Tons de verde das 3 barras */
+.pilar-verde-1 { background-color: #388E3C; }
+.pilar-verde-2 { background-color: #2E7D32; }
+.pilar-verde-3 { background-color: #1B5E20; }
 
 .pilar-texto {
     flex: 1;
     max-width: 650px;
 }
 
+/* Forçar fonte totalmente branca nas 3 barras */
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     text-transform: uppercase;
 }
 
@@ -310,7 +293,7 @@
     font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #F0F9F0;
+    color: #FFFFFF !important;
     margin: 0;
 }
 
@@ -329,7 +312,7 @@
 .img-placeholder {
     width: 100%;
     max-width: 400px;
-    height: 180px;
+    height: 160px;
     object-fit: contain;
     background-color: #FFFFFF;
     border-radius: 12px;
@@ -341,21 +324,8 @@
     flex-direction: row;
 }
 
-/* 6. Responsividade */
+/* Responsividade */
 @media (max-width: 900px) {
-    .navbar-logo {
-        height: 32px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
@@ -370,5 +340,14 @@
 
     .text-right {
         text-align: center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
     }
 }
