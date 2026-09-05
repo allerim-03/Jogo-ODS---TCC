@@ -20,7 +20,7 @@ main {
 }
 
 /* ==========================================================================
-   2. NAVBAR - CONTA NÃO LOGADA (TÍTULO CENTRALIZADO E APENAS HAMBÚRGUER)
+   2. NAVBAR - LOGO DA SEGUNDA IMAGEM CENTRALIZADA E APENAS HAMBÚRGUER
    ========================================================================== */
 .topbar {
     position: fixed !important;
@@ -50,24 +50,21 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
 .topbar-right {
-    min-width: 40px; /* Garante que o título permaneça no centro exato */
+    min-width: 40px; /* Mantém a logo perfeitamente centralizada */
 }
 
-/* TÍTULO DA NAVBAR SEM GRIFOS, SUBLINHADOS OU BORDAS */
-.navbar-titulo {
-    color: #FFFFFF !important;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin: 0 !important;
-    padding: 0 !important;
+/* IMAGEM DO LOGO CULTIVANDO O SABER COM AS FOLHAS (SEGUNDA FOTO) */
+.navbar-logo-center {
+    height: 48px !important;
+    width: auto !important;
+    object-fit: contain;
     text-decoration: none !important;
-    border-bottom: none !important;
-    letter-spacing: 0.5px;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .hamburger {
@@ -516,8 +513,8 @@ main {
         justify-content: center;
     }
 
-    .navbar-titulo {
-        font-size: 1.4rem;
+    .navbar-logo-center {
+        height: 38px !important;
     }
 
     .trilha-linha {
