@@ -1,4 +1,4 @@
-/* Reset Global de Margens e Layout Base */
+/* Reset e Ajuste de Fluxo */
 html, body {
     margin: 0;
     padding: 0;
@@ -9,11 +9,11 @@ html, body {
 main {
     margin: 0;
     padding: 0;
-    margin-top: 62px; /* Compensação de espaço para a Navbar fixa */
+    margin-top: 60px; /* Compensação de espaço para a Navbar Fixa */
 }
 
 /* ==========================================================================
-   1. NAVBAR FIXA COM MESCLA E DESFOQUE NO DEGRADÊ
+   1. NAVBAR FIXA COM MESCLA SUAVE E DESFOQUE (EFEITO VIDRO / DEGRADÊ)
    ========================================================================== */
 .topbar {
     position: fixed;
@@ -26,13 +26,14 @@ main {
     justify-content: space-between;
     padding: 10px 24px;
     
-    /* Fundo translúcido para mesclar com as faixas do fundo ao rolar */
-    background-color: rgba(76, 175, 80, 0.90);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* Cor com transparência (0.75) para permitir visualizar a mescla dos tons verdes ao rolar */
+    background-color: rgba(76, 175, 80, 0.75) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
@@ -76,7 +77,7 @@ main {
 }
 
 /* ==========================================================================
-   2. HERO BANNER & BOTÕES NO ESTILO FIEL À IMAGEM
+   2. HERO BANNER
    ========================================================================== */
 .hero-banner {
     padding: 60px 20px;
@@ -129,6 +130,13 @@ main {
     margin-bottom: 28px;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -143,68 +151,8 @@ main {
     border: 3px solid #43B4FB;
 }
 
-/* --- ESTILO DOS BOTÕES 3D (EXATAMENTE COMO NA FOTO) --- */
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.btn-3d {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 34px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    border-radius: 18px; /* Cantos bem arredondados como na foto */
-    color: #FFFFFF !important;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.12s ease-in-out;
-}
-
-/* Botão Cadastrar (Verde) */
-.btn-3d-verde-escuro {
-    background-color: #43A047;
-    box-shadow: 0 5px 0 #2E7D32, 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-3d-verde-escuro:hover {
-    background-color: #4CAF50;
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #2E7D32, 0 8px 16px rgba(0, 0, 0, 0.18);
-}
-
-.btn-3d-verde-escuro:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 #2E7D32, 0 3px 6px rgba(0, 0, 0, 0.12);
-}
-
-/* Botão Entrar (Azul) */
-.btn-3d-azul {
-    background-color: #38A1F3;
-    box-shadow: 0 5px 0 #1976D2, 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-3d-azul:hover {
-    background-color: #42A5F5;
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #1976D2, 0 8px 16px rgba(0, 0, 0, 0.18);
-}
-
-.btn-3d-azul:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 #1976D2, 0 3px 6px rgba(0, 0, 0, 0.12);
-}
-
 /* ==========================================================================
-   3. CARDS DE METODOLOGIA
+   3. SEÇÃO COMO APRENDEMOS BRINCANDO
    ========================================================================== */
 .sobre-sessao {
     padding: 60px 20px;
@@ -276,7 +224,7 @@ main {
 }
 
 /* ==========================================================================
-   4. BARRAS VERDES (PILARES CONTINUOS NO FINAL DA PÁGINA)
+   4. PILARES EM FAIXAS VERDES (FINAL DA PÁGINA)
    ========================================================================== */
 .pilares-container {
     width: 100%;
