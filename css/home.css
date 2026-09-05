@@ -20,7 +20,7 @@ main {
 }
 
 /* ==========================================================================
-   2. NAVBAR FIEL AO PRINT (ESPESSURA DE 90PX)
+   2. NAVBAR FIEL AO MODELO (ESPESSURA DE 90PX)
    ========================================================================== */
 .topbar {
     position: fixed !important;
@@ -33,7 +33,7 @@ main {
     align-items: center !important;
     justify-content: space-between !important;
     padding: 0 28px !important;
-    background-color: #4CAF50 !important; /* Tom verde idêntico ao print */
+    background-color: #4CAF50 !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
     margin: 0 !important;
@@ -73,7 +73,6 @@ main {
     align-items: center;
 }
 
-/* LOGO SEM GRIFO OU BORDAS */
 .navbar-logo {
     height: 48px !important;
     width: auto !important;
@@ -83,7 +82,6 @@ main {
     outline: none !important;
 }
 
-/* PILULA DE NAVEGAÇÃO DA DIREITA */
 .nav-links-pill {
     background-color: rgba(255, 255, 255, 0.22);
     padding: 10px 22px;
@@ -128,7 +126,7 @@ main {
    3. HERO BANNER
    ========================================================================== */
 .hero-banner {
-    padding-top: 140px !important; /* Espaço para a navbar de 90px */
+    padding-top: 140px !important;
     padding-bottom: 60px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -166,7 +164,6 @@ main {
     letter-spacing: 0.5px;
 }
 
-/* REMOVIDO TOTO E QUALQUER GRIFO DO TÍTULO */
 .hero-content h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -187,7 +184,6 @@ main {
     margin-bottom: 28px;
 }
 
-/* BOTÕES 3D */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -342,11 +338,108 @@ main {
 .card-amarelo { border: 3px solid #FFDE5A; }
 
 /* ==========================================================================
-   5. BARRAS COM OS 3 TONS DE VERDE EM DEGRADÊ DE TONS
+   5. SEÇÃO TRILHA / JORNADA SUSTENTÁVEL
+   ========================================================================== */
+.jornada-sessao {
+    padding: 60px 20px !important;
+    background-color: #E8F5E9;
+    border-top: 2px solid #C8E6C9;
+    border-bottom: 2px solid #C8E6C9;
+    width: 100%;
+}
+
+.trilha-container {
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Linha conector vertical */
+.trilha-linha {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 30px;
+    width: 6px;
+    background-color: #81C784;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.trilha-passo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.passo-numero {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+    border: 4px solid #FFFFFF;
+    flex-shrink: 0;
+}
+
+.passo-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 28px;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #4CAF50;
+}
+
+.passo-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2E7D32;
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-decoration: none !important;
+}
+
+.passo-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #555555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* CORES PERSONALIZADAS PARA CADA ETAPA DA TRILHA */
+.passo-1 .passo-numero { background-color: #FF8637; }
+.passo-1 .passo-card { border-left-color: #FF8637; }
+
+.passo-2 .passo-numero { background-color: #38A1E8; }
+.passo-2 .passo-card { border-left-color: #38A1E8; }
+
+.passo-3 .passo-numero { background-color: #DB95FD; }
+.passo-3 .passo-card { border-left-color: #DB95FD; }
+
+.passo-4 .passo-numero { background-color: #4CAF50; }
+.passo-4 .passo-card { border-left-color: #4CAF50; }
+
+/* ==========================================================================
+   6. BARRAS COM OS 3 TONS DE VERDE EM SEQUÊNCIA (DO MAIS CLARO AO ESCURO)
    ========================================================================== */
 .pilares-container {
     width: 100% !important;
-    margin-top: 50px !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding: 0 !important;
     display: flex;
@@ -365,7 +458,6 @@ main {
     box-sizing: border-box;
 }
 
-/* 3 Tons Sólidos para criar o degradê em etapas do mais claro ao mais escuro */
 .pilar-verde-claro { 
     background-color: #388E3C !important; 
 }
@@ -433,11 +525,11 @@ main {
 }
 
 /* ==========================================================================
-   6. RESPONSIVIDADE
+   7. RESPONSIVIDADE
    ========================================================================== */
 @media (max-width: 1024px) {
     .nav-links-pill {
-        display: none; /* Esconde a pílula em telas menores */
+        display: none;
     }
 }
 
@@ -465,5 +557,15 @@ main {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .trilha-linha {
+        left: 25px;
+    }
+
+    .passo-numero {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
     }
 }
