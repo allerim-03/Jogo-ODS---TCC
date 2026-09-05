@@ -7,13 +7,16 @@
 
     <title>Cultivando o Saber - Home</title>
 
+    <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
+    <!-- CSS DO PROJETO -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home.css">
@@ -23,43 +26,74 @@
     <link rel="stylesheet" href="css/sidebar.css">
 </head>
 
+
 <body>
 
-    <!-- MENU LATERAL -->
+    <!-- ==========================================================
+         MENU LATERAL
+         ========================================================== -->
 
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
+    <input
+        type="checkbox"
+        id="menu-check"
+        class="menu-checkbox"
+    >
 
-    <label for="menu-check" class="overlay"></label>
+    <label
+        for="menu-check"
+        class="overlay"
+    ></label>
 
-    <div class="sidebar">
+
+    <aside class="sidebar">
 
         <div class="perfil-sidebar">
+
             <span class="mascote-icon">🐢</span>
+
             <p>Visitante</p>
-        </div>
-
-        <div class="links-sidebar">
-
-            <a href="home.html">HOME</a>
-
-            <a href="ods.html">ODS</a>
-
-            <a href="sobre.html">SOBRE NÓS</a>
-
-            <a href="escolha-cadastro.html">CADASTRAR</a>
 
         </div>
 
-    </div>
+
+        <nav class="links-sidebar">
+
+            <a href="home.html">
+                HOME
+            </a>
+
+            <a href="ods.html">
+                ODS
+            </a>
+
+            <a href="sobre.html">
+                SOBRE NÓS
+            </a>
+
+            <a href="escolha-cadastro.html">
+                CADASTRAR
+            </a>
+
+        </nav>
+
+    </aside>
 
 
-    <!-- NAVBAR -->
+    <!-- ==========================================================
+         NAVBAR
+         ========================================================== -->
 
     <header class="topbar">
 
+        <!-- HAMBURGER -->
+
         <div class="topbar-left">
 
-            <label for="menu-check" class="hamburger">
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
 
                 <span></span>
                 <span></span>
@@ -70,32 +104,43 @@
         </div>
 
 
+        <!-- LOGO -->
+
         <div class="topbar-center">
 
             <img
                 src="img/cultsab.png"
                 alt="Cultivando o Saber"
-                class="navbar-logo-center">
+                class="navbar-logo-center"
+            >
 
         </div>
 
+
+        <!-- ESPAÇO DIREITO -->
 
         <div class="topbar-right"></div>
 
     </header>
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================== -->
 
     <main>
 
 
-        <!-- HERO -->
+        <!-- ======================================================
+             HERO
+             ====================================================== -->
 
         <section class="hero-banner">
 
             <div class="hero-container">
 
+
+                <!-- TEXTO -->
 
                 <div class="hero-content">
 
@@ -117,18 +162,22 @@
                     </p>
 
 
+                    <!-- BOTÕES -->
+
                     <div class="hero-buttons">
 
                         <a
                             href="escolha.html"
-                            class="btn-3d btn-3d-azul">
+                            class="btn-3d btn-3d-azul"
+                        >
                             ENTRAR
                         </a>
 
 
                         <a
                             href="escolha-cadastro.html"
-                            class="btn-3d btn-3d-verde-escuro">
+                            class="btn-3d btn-3d-verde-escuro"
+                        >
                             CADASTRAR
                         </a>
 
@@ -137,12 +186,15 @@
                 </div>
 
 
+                <!-- IMAGEM -->
+
                 <div class="hero-image">
 
                     <img
                         src="img/testeimg.png"
                         alt="Mascote Tuga"
-                        class="img-hero-main">
+                        class="img-hero-main"
+                    >
 
                 </div>
 
@@ -152,10 +204,14 @@
 
 
 
-        <!-- COMO APRENDEMOS -->
+        <!-- ======================================================
+             COMO APRENDEMOS BRINCANDO
+             ====================================================== -->
 
-        <section id="solucoes" class="sobre-sessao">
-
+        <section
+            id="solucoes"
+            class="sobre-sessao"
+        >
 
             <div class="section-header">
 
@@ -164,8 +220,8 @@
                 </h2>
 
                 <p>
-                    Nossa metodologia alia recursos lúdicos ao desenvolvimento
-                    de conscientização socioambiental.
+                    Nossa metodologia alia recursos lúdicos ao
+                    desenvolvimento de conscientização socioambiental.
                 </p>
 
             </div>
@@ -177,7 +233,7 @@
 
                 <!-- CARD 1 -->
 
-                <div class="card-item card-laranja">
+                <article class="card-item card-laranja">
 
                     <div class="card-icon-wrapper icon-laranja">
 
@@ -198,13 +254,13 @@
                         a proteção das florestas e da fauna terrestre.
                     </p>
 
-                </div>
+                </article>
 
 
 
                 <!-- CARD 2 -->
 
-                <div class="card-item card-lavanda">
+                <article class="card-item card-lavanda">
 
                     <div class="card-icon-wrapper icon-lavanda">
 
@@ -225,13 +281,13 @@
                         o conhecimento e fixar aprendizados.
                     </p>
 
-                </div>
+                </article>
 
 
 
                 <!-- CARD 3 -->
 
-                <div class="card-item card-amarelo">
+                <article class="card-item card-amarelo">
 
                     <div class="card-icon-wrapper icon-amarelo">
 
@@ -243,7 +299,7 @@
 
 
                     <h3>
-                        Conquistas & XP
+                        Conquistas &amp; XP
                     </h3>
 
 
@@ -252,8 +308,7 @@
                         acompanhe sua evolução nas missões ambientais.
                     </p>
 
-                </div>
-
+                </article>
 
             </div>
 
@@ -261,10 +316,11 @@
 
 
 
-        <!-- JORNADA -->
+        <!-- ======================================================
+             JORNADA SUSTENTÁVEL
+             ====================================================== -->
 
         <section class="jornada-sessao">
-
 
             <div class="section-header">
 
@@ -273,8 +329,8 @@
                 </h2>
 
                 <p>
-                    Siga os passos da nossa trilha interativa para se tornar
-                    um verdadeiro guardião da natureza.
+                    Siga os passos da nossa trilha interativa para se
+                    tornar um verdadeiro guardião da natureza.
                 </p>
 
             </div>
@@ -283,6 +339,8 @@
 
             <div class="trilha-container">
 
+
+                <!-- LINHA CENTRAL -->
 
                 <div class="trilha-linha"></div>
 
@@ -442,21 +500,25 @@
 
                 </div>
 
-
             </div>
 
         </section>
 
 
 
-        <!-- PILARES -->
+        <!-- ======================================================
+             TRÊS BARRAS VERDES / PILARES
+             ====================================================== -->
 
         <section class="pilares-container">
 
 
-            <!-- PRIMEIRA BARRA -->
+            <!-- ==================================================
+                 PRIMEIRA BARRA
+                 ================================================== -->
 
             <article class="pilar-card pilar-verde-claro">
+
 
                 <div class="pilar-texto">
 
@@ -464,13 +526,16 @@
                         DESENVOLVIMENTO SUSTENTÁVEL
                     </h2>
 
+
                     <p>
-                        Transforme-se em um agente de transformação ambiental
-                        ao abordar a Educação Ambiental (EA) em sua comunidade
-                        escolar e destaque-se em sua organização.
+                        Transforme-se em um agente de transformação
+                        ambiental ao abordar a Educação Ambiental (EA)
+                        em sua comunidade escolar e destaque-se em sua
+                        organização.
                     </p>
 
                 </div>
+
 
 
                 <div class="pilar-imagem">
@@ -478,7 +543,8 @@
                     <img
                         src="img/placeholder1.png"
                         alt="Desenvolvimento Sustentável"
-                        class="img-placeholder">
+                        class="img-placeholder"
+                    >
 
                 </div>
 
@@ -486,18 +552,23 @@
 
 
 
-            <!-- SEGUNDA BARRA -->
+            <!-- ==================================================
+                 SEGUNDA BARRA
+                 ================================================== -->
 
             <article class="pilar-card pilar-verde-medio pilar-reverso">
+
 
                 <div class="pilar-imagem">
 
                     <img
                         src="img/placeholder2.png"
                         alt="Metodologia Ativa"
-                        class="img-placeholder">
+                        class="img-placeholder"
+                    >
 
                 </div>
+
 
 
                 <div class="pilar-texto text-right">
@@ -506,10 +577,11 @@
                         METODOLOGIA ATIVA
                     </h2>
 
+
                     <p>
-                        Utilize a gamificação como solução eficaz para engajar
-                        os seus alunos em práticas sustentáveis, conscientização
-                        social e letramento ambiental.
+                        Utilize a gamificação como solução eficaz para
+                        engajar os seus alunos em práticas sustentáveis,
+                        conscientização social e letramento ambiental.
                     </p>
 
                 </div>
@@ -518,9 +590,12 @@
 
 
 
-            <!-- TERCEIRA BARRA -->
+            <!-- ==================================================
+                 TERCEIRA BARRA
+                 ================================================== -->
 
             <article class="pilar-card pilar-verde-escuro">
+
 
                 <div class="pilar-texto">
 
@@ -528,13 +603,15 @@
                         LÚDICO, INTERATIVO E CONSCIENTE
                     </h2>
 
+
                     <p>
                         A plataforma surge do desejo âmago de mudanças
-                        ambientais e uma geração consciente dos seus impactos
-                        no hodierno.
+                        ambientais e uma geração consciente dos seus
+                        impactos no hodierno.
                     </p>
 
                 </div>
+
 
 
                 <div class="pilar-imagem">
@@ -542,7 +619,8 @@
                     <img
                         src="img/placeholder3.png"
                         alt="Lúdico e Interativo"
-                        class="img-placeholder">
+                        class="img-placeholder"
+                    >
 
                 </div>
 
@@ -555,7 +633,9 @@
 
 
 
-    <!-- RODAPÉ -->
+    <!-- ==========================================================
+         RODAPÉ
+         ========================================================== -->
 
     <footer>
 
