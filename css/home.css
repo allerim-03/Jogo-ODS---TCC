@@ -20,7 +20,7 @@ main {
 }
 
 /* ==========================================================================
-   2. NAVBAR FIEL AO MODELO (ESPESSURA DE 90PX)
+   2. NAVBAR - CONTA NÃO LOGADA (TÍTULO CENTRALIZADO E APENAS HAMBÚRGUER)
    ========================================================================== */
 .topbar {
     position: fixed !important;
@@ -42,13 +42,32 @@ main {
 .topbar-left {
     display: flex;
     align-items: center;
-    gap: 18px;
+    min-width: 40px;
+}
+
+.topbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    min-width: 40px; /* Garante que o título permaneça no centro exato */
+}
+
+/* TÍTULO DA NAVBAR SEM GRIFOS, SUBLINHADOS OU BORDAS */
+.navbar-titulo {
+    color: #FFFFFF !important;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    letter-spacing: 0.5px;
 }
 
 .hamburger {
@@ -66,60 +85,6 @@ main {
     width: 100%;
     background-color: #FFFFFF;
     border-radius: 4px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-logo {
-    height: 48px !important;
-    width: auto !important;
-    object-fit: contain;
-    text-decoration: none !important;
-    border: none !important;
-    outline: none !important;
-}
-
-.nav-links-pill {
-    background-color: rgba(255, 255, 255, 0.22);
-    padding: 10px 22px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-links-pill a {
-    color: #FFFFFF !important;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    text-decoration: none !important;
-    letter-spacing: 0.5px;
-    transition: opacity 0.2s;
-}
-
-.nav-links-pill a:hover {
-    opacity: 0.8;
-}
-
-.user-avatar {
-    width: 52px;
-    height: 52px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.avatar-img {
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
 }
 
 /* ==========================================================================
@@ -338,7 +303,7 @@ main {
 .card-amarelo { border: 3px solid #FFDE5A; }
 
 /* ==========================================================================
-   5. SEÇÃO TRILHA / JORNADA SUSTENTÁVEL
+   5. SUA JORNADA SUSTENTÁVEL (TRILHA DE APRENDIZAGEM)
    ========================================================================== */
 .jornada-sessao {
     padding: 60px 20px !important;
@@ -357,7 +322,6 @@ main {
     gap: 30px;
 }
 
-/* Linha conector vertical */
 .trilha-linha {
     position: absolute;
     top: 20px;
@@ -421,7 +385,6 @@ main {
     line-height: 1.5;
 }
 
-/* CORES PERSONALIZADAS PARA CADA ETAPA DA TRILHA */
 .passo-1 .passo-numero { background-color: #FF8637; }
 .passo-1 .passo-card { border-left-color: #FF8637; }
 
@@ -435,7 +398,7 @@ main {
 .passo-4 .passo-card { border-left-color: #4CAF50; }
 
 /* ==========================================================================
-   6. BARRAS COM OS 3 TONS DE VERDE EM SEQUÊNCIA (DO MAIS CLARO AO ESCURO)
+   6. PILARES (VERDE CLARO, MÉDIO E ESCURO)
    ========================================================================== */
 .pilares-container {
     width: 100% !important;
@@ -527,12 +490,6 @@ main {
 /* ==========================================================================
    7. RESPONSIVIDADE
    ========================================================================== */
-@media (max-width: 1024px) {
-    .nav-links-pill {
-        display: none;
-    }
-}
-
 @media (max-width: 900px) {
     .pilar-card,
     .pilar-reverso {
@@ -557,6 +514,10 @@ main {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .navbar-titulo {
+        font-size: 1.4rem;
     }
 
     .trilha-linha {
