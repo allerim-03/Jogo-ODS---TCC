@@ -1,16 +1,43 @@
 /* ==========================================================================
-   ESTILOS DA HOME INSTITUCIONAL
+   1. RESET GLOBAL E CONFIGURAÇÕES BASE
    ========================================================================== */
-
-/* Topbar / Navbar */
-.topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
-    background-color: #388E3C;
-    width: 100%;
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box;
+    background-color: #F8FAF8;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+/* ==========================================================================
+   2. NAVBAR FIXA SÓLIDA
+   ========================================================================== */
+.topbar, 
+.fixed-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 24px !important;
+    background-color: #388E3C !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box !important;
+    margin: 0 !important;
 }
 
 .topbar-left,
@@ -52,11 +79,20 @@
     border-radius: 4px;
 }
 
-/* Hero Banner */
+/* ==========================================================================
+   3. HERO BANNER
+   ========================================================================== */
 .hero-banner {
+    /* 120px garante o respiro para o texto não ficar coberto pela navbar */
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     background-color: #F4F9F4;
-    padding: 60px 20px;
     border-bottom: 4px solid #388E3C;
+    width: 100%;
 }
 
 .hero-container {
@@ -92,6 +128,7 @@
     font-size: 2.4rem;
     color: #1A1A1A;
     line-height: 1.2;
+    margin-top: 0;
     margin-bottom: 16px;
 }
 
@@ -103,7 +140,7 @@
     margin-bottom: 28px;
 }
 
-/* ESTILO DOS BOTÕES EM 3D (AZUL E VERDE ESCURO) */
+/* BOTÕES EM 3D */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -120,7 +157,7 @@
     font-size: 0.95rem;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    text-decoration: none !important; /* Remove o sublinhado do link */
+    text-decoration: none !important;
     border-radius: 12px;
     color: #FFFFFF !important;
     transition: all 0.1s ease;
@@ -129,7 +166,6 @@
     text-align: center;
 }
 
-/* Botão Entrar (Azul 3D) */
 .btn-3d-azul {
     background-color: #38A1E8;
     border: 2px solid #2880C4;
@@ -147,7 +183,6 @@
     box-shadow: 0 2px 0 #206AA5;
 }
 
-/* Botão Cadastrar (Verde Escuro 3D) */
 .btn-3d-verde-escuro {
     background-color: #2E7D32;
     border: 2px solid #1B5E20;
@@ -179,9 +214,12 @@
     border: 3px solid #43B4FB;
 }
 
-/* Seção de Soluções */
+/* ==========================================================================
+   4. SEÇÃO DE SOLUÇÕES (CARDS)
+   ========================================================================== */
 .sobre-sessao {
-    padding: 50px 0;
+    padding: 50px 0 !important;
+    width: 100%;
 }
 
 .section-header {
@@ -201,6 +239,7 @@
     font-family: 'Poppins', sans-serif;
     color: #555555;
     font-size: 1rem;
+    margin: 0;
 }
 
 .cards-grid {
@@ -235,6 +274,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
+    margin-top: 0;
     margin-bottom: 12px;
     color: #1A1A1A;
 }
@@ -244,16 +284,21 @@
     font-size: 0.95rem;
     color: #555555;
     line-height: 1.5;
+    margin: 0;
 }
 
 .card-laranja { border: 3px solid #FF8637; }
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
-/* BARRAS VERDES COM TEXTO BRANCO */
+/* ==========================================================================
+   5. BARRAS VERDES COM DEGRADÊ
+   ========================================================================== */
 .pilares-container {
-    width: 100%;
-    margin-top: 50px;
+    width: 100% !important;
+    margin-top: 50px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
 }
@@ -262,27 +307,38 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 60px;
+    padding: 40px 60px !important;
     gap: 40px;
     min-height: 180px;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
 }
 
-/* Tons de verde das 3 barras */
-.pilar-verde-1 { background-color: #388E3C; }
-.pilar-verde-2 { background-color: #2E7D32; }
-.pilar-verde-3 { background-color: #1B5E20; }
+/* Transição de cores em degradê suave entre os tons de verde */
+.pilar-verde-claro { 
+    background: linear-gradient(180deg, #4CAF50 0%, #388E3C 100%) !important; 
+}
+
+.pilar-verde-medio { 
+    background: linear-gradient(180deg, #388E3C 0%, #2E7D32 100%) !important; 
+}
+
+.pilar-verde-escuro { 
+    background: linear-gradient(180deg, #2E7D32 0%, #1B5E20 100%) !important; 
+}
 
 .pilar-texto {
     flex: 1;
     max-width: 650px;
 }
 
-/* Forçar fonte totalmente branca nas 3 barras */
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
     letter-spacing: 0.5px;
+    margin-top: 0;
     margin-bottom: 12px;
     color: #FFFFFF !important;
     text-transform: uppercase;
@@ -324,13 +380,15 @@
     flex-direction: row;
 }
 
-/* Responsividade */
+/* ==========================================================================
+   6. RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 900px) {
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
         text-align: center;
-        padding: 35px 20px;
+        padding: 35px 20px !important;
         gap: 24px;
     }
 
