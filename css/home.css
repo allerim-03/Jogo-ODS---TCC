@@ -1,35 +1,43 @@
 /* ==========================================================================
-   RESET E FLUXO GERAL
+   1. RESET GLOBAL DE MARGENS E LAYOUT BASE
    ========================================================================== */
 html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box;
     background-color: #F8FAF8;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 main {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
 }
 
 /* ==========================================================================
-   1. NAVBAR FIXA SÓLIDA (COM ALTURA DEFINIDA)
+   2. NAVBAR FIXA SÓLIDA (SEMPRE VISÍVEL NO TOPO)
    ========================================================================== */
-.topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px; /* Altura fixa garantida para cálculo do espaçamento */
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    background-color: #4CAF50; /* Verde sólido sem transparência */
+.topbar, 
+.fixed-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 24px !important;
+    background-color: #4CAF50 !important; /* Verde sólido */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    margin: 0 !important;
 }
 
 .topbar-left,
@@ -48,12 +56,10 @@ main {
     align-items: center;
 }
 
-/* LOGO SEM GRUPO/FUNDO RECTANGULAR */
 .navbar-logo {
     max-height: 40px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Remove fundo que divirja da cor do menu */
 }
 
 .hamburger {
@@ -74,17 +80,19 @@ main {
 }
 
 /* ==========================================================================
-   2. HERO BANNER (COM ESPAÇO CONFORTÁVEL EM RELAÇÃO À NAVBAR)
+   3. HERO BANNER (DÁ ESPAÇAMENTO PARA NÃO FICAR COLADO NA NAVBAR)
    ========================================================================== */
 .hero-banner {
-    /* O padding-top de 110px dá 40px de respiro abaixo da navbar de 70px */
-    padding-top: 110px;
-    padding-bottom: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* 120px de padding topo = 70px (da navbar) + 50px de respiro para o texto */
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     background-color: #F8FAF8;
     border-bottom: 4px solid #4CAF50;
-    margin: 0;
+    width: 100%;
 }
 
 .hero-container {
@@ -121,6 +129,7 @@ main {
     font-size: 2.3rem;
     color: #1A1A1A;
     line-height: 1.25;
+    margin-top: 0;
     margin-bottom: 16px;
 }
 
@@ -154,12 +163,12 @@ main {
 }
 
 /* ==========================================================================
-   3. SEÇÃO COMO APRENDEMOS BRINCANDO
+   4. SEÇÃO COMO APRENDEMOS BRINCANDO
    ========================================================================== */
 .sobre-sessao {
-    padding: 60px 20px;
+    padding: 60px 20px !important;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto !important;
 }
 
 .section-header {
@@ -172,12 +181,14 @@ main {
     font-weight: 800;
     font-size: 2rem;
     color: #1A1A1A;
+    margin-bottom: 10px;
 }
 
 .section-header p {
     font-family: 'Poppins', sans-serif;
     color: #666666;
     font-size: 1rem;
+    margin: 0;
 }
 
 .cards-grid {
@@ -214,6 +225,7 @@ main {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
+    margin-top: 0;
     margin-bottom: 10px;
     color: #1A1A1A;
 }
@@ -223,33 +235,36 @@ main {
     font-size: 0.95rem;
     color: #555555;
     line-height: 1.5;
+    margin: 0;
 }
 
 /* ==========================================================================
-   4. PILARES EM FAIXAS VERDES (ENCOSTA NA NAVBAR AO ROLAR)
+   5. PILARES EM FAIXAS VERDES (ROLAGEM PERFEITA ENCOSTANDO NA NAVBAR)
    ========================================================================== */
 .pilares-container {
-    width: 100%;
-    margin-top: 50px;
+    width: 100% !important;
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
 }
 
-/* Ajuste de scroll para que a navbar encoste exatamente na barra */
 .pilar-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 60px;
+    padding: 50px 60px !important;
     gap: 40px;
     min-height: 220px;
     box-sizing: border-box;
-    scroll-margin-top: 70px; /* Garante alinhamento perfeito com a altura da navbar */
+    margin: 0 !important;
+    width: 100% !important;
 }
 
-.pilar-verde-claro { background-color: #388E3C; color: #FFFFFF; }
-.pilar-verde-medio { background-color: #2E7D32; color: #FFFFFF; }
-.pilar-verde-escuro { background-color: #1B5E20; color: #FFFFFF; }
+.pilar-verde-claro { background-color: #388E3C !important; color: #FFFFFF; }
+.pilar-verde-medio { background-color: #2E7D32 !important; color: #FFFFFF; }
+.pilar-verde-escuro { background-color: #1B5E20 !important; color: #FFFFFF; }
 
 .pilar-texto {
     flex: 1;
@@ -261,6 +276,7 @@ main {
     font-weight: 800;
     font-size: 1.8rem;
     letter-spacing: 0.5px;
+    margin-top: 0;
     margin-bottom: 12px;
     color: #FFFFFF !important;
     text-transform: uppercase;
@@ -300,14 +316,14 @@ main {
 .pilar-reverso { flex-direction: row; }
 
 /* ==========================================================================
-   5. RESPONSIVIDADE
+   6. RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
    ========================================================================== */
 @media (max-width: 900px) {
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
         text-align: center;
-        padding: 35px 20px;
+        padding: 35px 20px !important;
         gap: 24px;
     }
 
