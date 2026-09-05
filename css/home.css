@@ -12,7 +12,7 @@ main {
 }
 
 /* ==========================================================================
-   NAVBAR (Sem botões e encostada no topo)
+   NAVBAR (Fixa/Encostada com a cor base da marca)
    ========================================================================== */
 .topbar {
     display: flex;
@@ -71,7 +71,7 @@ main {
 .hero-banner {
     padding: 40px 60px;
     background-color: #F8FAF8;
-    margin-top: 0;
+    margin: 0;
 }
 
 .hero-container {
@@ -131,11 +131,11 @@ main {
 }
 
 /* ==========================================================================
-   BOTÕES 3D (Modelo sem contorno)
+   ESTILO DOS BOTÕES 3D (ENTRAR E CADASTRAR)
    ========================================================================== */
 .hero-buttons {
     display: flex;
-    gap: 16px;
+    gap: 18px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -144,59 +144,61 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px 26px;
+    padding: 14px 32px;
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: 800;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     text-decoration: none !important;
-    border-radius: 12px;
+    border-radius: 16px;
     border: none !important;
     color: #FFFFFF !important;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-align: center;
+    transition: all 0.12s ease-in-out;
 }
 
-.btn-3d-verde {
-    background-color: #43A047;
-    box-shadow: 0 4px 0 #2E7D32;
-}
-
-.btn-3d-verde:hover {
-    background-color: #4CAF50;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 0 #2E7D32;
-}
-
-.btn-3d-verde:active {
-    transform: translateY(3px);
-    box-shadow: 0 1px 0 #2E7D32;
-}
-
+/* Botão Entrar (Azul) */
 .btn-3d-azul {
-    background-color: #3B9EFA;
-    box-shadow: 0 4px 0 #2072C4;
+    background-color: #3498DB;
+    box-shadow: 0 6px 0 #2171A7;
 }
 
 .btn-3d-azul:hover {
-    background-color: #4FA9FF;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 0 #2072C4;
+    background-color: #43A4E6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #2171A7;
 }
 
 .btn-3d-azul:active {
-    transform: translateY(3px);
-    box-shadow: 0 1px 0 #2072C4;
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #2171A7;
+}
+
+/* Botão Cadastrar (Verde Escuro) */
+.btn-3d-verde-escuro {
+    background-color: #2E7D32;
+    box-shadow: 0 6px 0 #1B5E20;
+}
+
+.btn-3d-verde-escuro:hover {
+    background-color: #358E3A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #1B5E20;
+}
+
+.btn-3d-verde-escuro:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #1B5E20;
 }
 
 /* ==========================================================================
    CARDS DE METODOLOGIA
    ========================================================================== */
 .sobre-sessao {
-    padding: 50px 20px;
+    padding: 50px 20px 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -258,11 +260,12 @@ main {
 }
 
 /* ==========================================================================
-   BARRAS VERDES (PILARES)
+   BARRAS VERDES (PILARES CONTINUOS - RENTE E SEM CORTE)
    ========================================================================== */
 .pilares-container {
     width: 100%;
-    margin-top: 20px;
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
 }
@@ -271,11 +274,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 60px;
+    padding: 50px 60px;
     gap: 40px;
     min-height: 180px;
+    margin: 0;
+    border: none;
 }
 
+/* Gradação nos tons das 3 barras verdes */
 .pilar-verde-1 { background-color: #388E3C; }
 .pilar-verde-2 { background-color: #2E7D32; }
 .pilar-verde-3 { background-color: #1B5E20; }
