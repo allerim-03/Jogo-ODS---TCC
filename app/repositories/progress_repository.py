@@ -1,3 +1,4 @@
+
 """
 ===========================================================================
 PROGRESS REPOSITORY
@@ -7,7 +8,7 @@ Responsabilidade:
 - Não contém regras de negócio.
 - Apenas acessa o banco de dados.
 
-progresso consolidado do usuário.
+Responsável pelo progresso consolidado do usuário.
 ===========================================================================
 """
 
@@ -17,7 +18,7 @@ from database.connection import get_connection
 class ProgressRepository:
 
     # ======================================================================
-    # Progresso geral do usuário
+    # PROGRESSO GERAL DO USUÁRIO
     # ======================================================================
 
     def get_user_progress(self, user_id):
@@ -31,11 +32,15 @@ class ProgressRepository:
                 name,
                 xp,
                 level
-            FROM user
+            FROM user_plataform
             WHERE id = %s
         """
 
-        cursor.execute(query, (user_id,))
+        cursor.execute(
+            query,
+            (user_id,)
+        )
+
         user = cursor.fetchone()
 
         cursor.close()
@@ -43,8 +48,9 @@ class ProgressRepository:
 
         return user
 
+
     # ======================================================================
-    # Histórico de XP
+    # HISTÓRICO DE XP
     # ======================================================================
 
     def get_xp_history(self, user_id):
@@ -64,7 +70,11 @@ class ProgressRepository:
             ORDER BY created_at DESC
         """
 
-        cursor.execute(query, (user_id,))
+        cursor.execute(
+            query,
+            (user_id,)
+        )
+
         history = cursor.fetchall()
 
         cursor.close()
@@ -72,8 +82,9 @@ class ProgressRepository:
 
         return history
 
+
     # ======================================================================
-    # Estatísticas
+    # ESTATÍSTICAS
     # ======================================================================
 
     def get_statistics(self, user_id):
@@ -82,39 +93,51 @@ class ProgressRepository:
         cursor = connection.cursor(dictionary=True)
 
         query = """
-        
-        SELECT
-    (
-        SELECT COUNT(*)
-        FROM score
-        WHERE user_id = %s
-    ) AS games_completed,
+            SELECT
 
-    (
-        SELECT COUNT(*)
-        FROM quiz_attempt
-        WHERE user_id = %s
-    ) AS quizzes_completed,
+                (
+                    SELECT COUNT(*)
+                    FROM score
+                    WHERE user_id = %s
+                ) AS games_completed,
 
-    (
-        SELECT COUNT(*)
-        FROM inventory_badge
-        WHERE user_id = %s
-    ) AS badges,
+                (
+                    SELECT COUNT(*)
+                    FROM quiz_attempt
+                    WHERE user_id = %s
+                ) AS quizzes_completed,
 
-    (
-        SELECT xp
-        FROM user
-        WHERE id = %s
-    ) AS total_xp,
+                (
+                    SELECT COUNT(*)
+                    FROM inventory_badge
+                    WHERE user_id = %s
+                ) AS badges,
 
-    (
-        SELECT level
-        FROM user
-        WHERE id = %s
-    ) AS current_level
-                     """
-        cursor.execute(query, (user_id,))
+                (
+                    SELECT xp
+                    FROM user_plataform
+                    WHERE id = %s
+                ) AS total_xp,
+
+                (
+                    SELECT level
+                    FROM user_plataform
+                    WHERE id = %s
+                ) AS current_level
+
+        """
+
+        cursor.execute(
+            query,
+            (
+                user_id,
+                user_id,
+                user_id,
+                user_id,
+                user_id
+            )
+        )
+
         statistics = cursor.fetchone()
 
         cursor.close()
@@ -123,12 +146,16 @@ class ProgressRepository:
         return statistics
 
 
-# =====================================================
-# COMPATIBILIDADE TEMPORÁRIA
-# =====================================================
+# ==========================================================================
+# INSTÂNCIA DO REPOSITORY
+# ==========================================================================
 
 _repository = ProgressRepository()
 
+
+# ==========================================================================
+# COMPATIBILIDADE TEMPORÁRIA
+# ==========================================================================
 
 def get_user_progress(user_id):
     return _repository.get_user_progress(user_id)
