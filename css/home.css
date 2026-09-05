@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET GLOBAL E CONFIGURAÇÕES BASE
+   1. RESET GLOBAL DE LAYOUT
    ========================================================================== */
 html, body {
     margin: 0 !important;
@@ -20,53 +20,42 @@ main {
 }
 
 /* ==========================================================================
-   2. NAVBAR FIXA SÓLIDA
+   2. NAVBAR FIEL AO PRINT (ESPESSURA DE 90PX)
    ========================================================================== */
-.topbar, 
-.fixed-header {
+.topbar {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 70px !important;
+    height: 90px !important;
     z-index: 9999 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 24px !important;
-    background-color: #388E3C !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 0 28px !important;
+    background-color: #4CAF50 !important; /* Tom verde idêntico ao print */
+    box-shadow: none !important;
     box-sizing: border-box !important;
     margin: 0 !important;
 }
 
-.topbar-left,
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
 .topbar-right {
-    flex: 1;
     display: flex;
     align-items: center;
-}
-
-.topbar-left { justify-content: flex-start; }
-.topbar-right { justify-content: flex-end; }
-
-.topbar-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-logo {
-    max-height: 42px !important;
-    width: auto !important;
-    object-fit: contain;
+    gap: 16px;
 }
 
 .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
+    width: 26px;
     height: 20px;
     cursor: pointer;
 }
@@ -79,19 +68,74 @@ main {
     border-radius: 4px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* LOGO SEM GRIFO OU BORDAS */
+.navbar-logo {
+    height: 48px !important;
+    width: auto !important;
+    object-fit: contain;
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* PILULA DE NAVEGAÇÃO DA DIREITA */
+.nav-links-pill {
+    background-color: rgba(255, 255, 255, 0.22);
+    padding: 10px 22px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links-pill a {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none !important;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+}
+
+.nav-links-pill a:hover {
+    opacity: 0.8;
+}
+
+.user-avatar {
+    width: 52px;
+    height: 52px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+}
+
 /* ==========================================================================
    3. HERO BANNER
    ========================================================================== */
 .hero-banner {
-    /* 120px garante o respiro para o texto não ficar coberto pela navbar */
-    padding-top: 120px !important;
+    padding-top: 140px !important; /* Espaço para a navbar de 90px */
     padding-bottom: 60px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     background-color: #F4F9F4;
-    border-bottom: 4px solid #388E3C;
+    border-bottom: 4px solid #4CAF50;
     width: 100%;
 }
 
@@ -110,7 +154,7 @@ main {
 
 .badge-tag {
     display: inline-block;
-    background-color: #388E3C;
+    background-color: #4CAF50;
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -122,6 +166,7 @@ main {
     letter-spacing: 0.5px;
 }
 
+/* REMOVIDO TOTO E QUALQUER GRIFO DO TÍTULO */
 .hero-content h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -130,6 +175,8 @@ main {
     line-height: 1.2;
     margin-top: 0;
     margin-bottom: 16px;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .hero-content p {
@@ -140,7 +187,7 @@ main {
     margin-bottom: 28px;
 }
 
-/* BOTÕES EM 3D */
+/* BOTÕES 3D */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -215,7 +262,7 @@ main {
 }
 
 /* ==========================================================================
-   4. SEÇÃO DE SOLUÇÕES (CARDS)
+   4. SEÇÃO SOBRE (CARDS)
    ========================================================================== */
 .sobre-sessao {
     padding: 50px 0 !important;
@@ -233,6 +280,8 @@ main {
     font-size: 2rem;
     color: #1A1A1A;
     margin-bottom: 10px;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .section-header p {
@@ -277,6 +326,7 @@ main {
     margin-top: 0;
     margin-bottom: 12px;
     color: #1A1A1A;
+    text-decoration: none !important;
 }
 
 .card-item p {
@@ -292,7 +342,7 @@ main {
 .card-amarelo { border: 3px solid #FFDE5A; }
 
 /* ==========================================================================
-   5. BARRAS VERDES COM DEGRADÊ
+   5. BARRAS COM OS 3 TONS DE VERDE EM DEGRADÊ DE TONS
    ========================================================================== */
 .pilares-container {
     width: 100% !important;
@@ -315,17 +365,17 @@ main {
     box-sizing: border-box;
 }
 
-/* Transição de cores em degradê suave entre os tons de verde */
+/* 3 Tons Sólidos para criar o degradê em etapas do mais claro ao mais escuro */
 .pilar-verde-claro { 
-    background: linear-gradient(180deg, #4CAF50 0%, #388E3C 100%) !important; 
+    background-color: #388E3C !important; 
 }
 
 .pilar-verde-medio { 
-    background: linear-gradient(180deg, #388E3C 0%, #2E7D32 100%) !important; 
+    background-color: #2E7D32 !important; 
 }
 
 .pilar-verde-escuro { 
-    background: linear-gradient(180deg, #2E7D32 0%, #1B5E20 100%) !important; 
+    background-color: #1B5E20 !important; 
 }
 
 .pilar-texto {
@@ -342,6 +392,8 @@ main {
     margin-bottom: 12px;
     color: #FFFFFF !important;
     text-transform: uppercase;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .pilar-texto p {
@@ -383,6 +435,12 @@ main {
 /* ==========================================================================
    6. RESPONSIVIDADE
    ========================================================================== */
+@media (max-width: 1024px) {
+    .nav-links-pill {
+        display: none; /* Esconde a pílula em telas menores */
+    }
+}
+
 @media (max-width: 900px) {
     .pilar-card,
     .pilar-reverso {
