@@ -87,3 +87,61 @@ button:active {
     transform: translateY(-2px);
     color: #FFFFFF !important;
 }
+
+/* =========================================
+   VARIAÇÕES DE BOTÕES 3D DA HOME PAGE
+   ========================================= */
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 34px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 18px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.12s ease-in-out;
+    border: none;
+}
+
+/* Botão Cadastrar (Verde Escuro 3D) */
+.btn-3d-verde-escuro {
+    background-color: #43A047;
+    box-shadow: 0 5px 0 #2E7D32, 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-3d-verde-escuro:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #2E7D32, 0 8px 16px rgba(0, 0, 0, 0.18);
+    opacity: 1;
+}
+
+.btn-3d-verde-escuro:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #2E7D32, 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Botão Entrar (Azul 3D) */
+.btn-3d-azul {
+    background-color: #38A1F3;
+    box-shadow: 0 5px 0 #1976D2, 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-3d-azul:hover {
+    background-color: #42A5F5;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #1976D2, 0 8px 16px rgba(0, 0, 0, 0.18);
+    opacity: 1;
+}
+
+.btn-3d-azul:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #1976D2, 0 3px 6px rgba(0, 0, 0, 0.12);
+}
