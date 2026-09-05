@@ -3,7 +3,7 @@
    Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
    ========================================================================== */
 
-/* 1. Estrutura da Topbar (Logo no Centro + Botões na Extrema Direita) */
+/* 1. Estrutura da Topbar (Logo no Centro) */
 .topbar {
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
 }
 
 .topbar-right {
-    justify-content: flex-end; /* Empurra os botões para a extrema direita */
+    justify-content: flex-end;
 }
 
 .topbar-center {
@@ -36,28 +36,16 @@
 }
 
 .navbar-logo {
-   max-height: 40px !important; /* Ajuste o valor conforme precise */
+    max-height: 40px !important;
     width: auto !important;
     object-fit: contain;
-}
-
-.topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.btn-sm {
-    padding: 8px 16px !important;
-    font-size: 0.85rem !important;
-    border-radius: 10px !important;
 }
 
 /* 2. Hero Banner */
 .hero-banner {
     background-color: #F4F9F4;
     padding: 60px 20px;
-    border-bottom: 4px solid #4CAF50; /* Garden Green */
+    border-bottom: 4px solid #4CAF50;
 }
 
 .hero-container {
@@ -104,16 +92,62 @@
     margin-bottom: 28px;
 }
 
+/* ESTILO DOS BOTÕES 3D NO HERO BANNER */
 .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-.btn-lg {
-    padding: 14px 28px !important;
-    font-size: 1.05rem !important;
-    border-radius: 12px !important;
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border-radius: 12px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.btn-3d-azul {
+    background-color: #3498DB;
+    box-shadow: 0 5px 0 #2171A7;
+}
+
+.btn-3d-azul:hover {
+    background-color: #43A4E6;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #2171A7;
+}
+
+.btn-3d-azul:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #2171A7;
+}
+
+.btn-3d-verde-escuro {
+    background-color: #2E7D32;
+    box-shadow: 0 5px 0 #1B5E20;
+}
+
+.btn-3d-verde-escuro:hover {
+    background-color: #358E3A;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #1B5E20;
+}
+
+.btn-3d-verde-escuro:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #1B5E20;
 }
 
 .hero-image {
@@ -127,10 +161,14 @@
     height: auto;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border: 3px solid #43B4FB; /* Bright Blue */
+    border: 3px solid #43B4FB;
 }
 
 /* 3. Cards de Soluções */
+.sobre-sessao {
+    padding: 60px 20px;
+}
+
 .section-header {
     text-align: center;
     max-width: 700px;
@@ -197,39 +235,7 @@
 .card-lavanda { border: 3px solid #DB95FD; }
 .card-amarelo { border: 3px solid #FFDE5A; }
 
-/* 4. Caixa do Mascote Tuga */
-.mascote-box {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: #FFFFFF;
-    border: 2px solid #4CAF50; /* Borda Garden Green */
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
-}
-
-.tuga-avatar {
-    font-size: 2.5rem;
-}
-
-.mascote-box h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #4CAF50;
-    margin: 0 0 4px 0;
-}
-
-.mascote-box p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem !important;
-    font-style: italic;
-    color: #333333 !important;
-    margin: 0;
-}
-
-/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
+/* 4. QUADRANTES DE PILARES (FAIXAS VERDES DO FINAL DA PÁGINA) */
 .pilares-container {
     width: 100%;
     margin-top: 50px;
@@ -244,20 +250,21 @@
     padding: 40px 60px;
     gap: 40px;
     min-height: 220px;
+    box-sizing: border-box;
 }
 
 .pilar-verde-claro {
-    background-color: #388E3C; /* Garden Green Oficial */
+    background-color: #388E3C;
     color: #FFFFFF;
 }
 
 .pilar-verde-medio {
-    background-color: #2E7D32; /* Verde intermediário */
+    background-color: #2E7D32;
     color: #FFFFFF;
 }
 
 .pilar-verde-escuro {
-    background-color: #1B5E20; /* Verde profundo escuro */
+    background-color: #1B5E20;
     color: #FFFFFF;
 }
 
@@ -297,22 +304,24 @@
     max-width: 450px;
 }
 
+/* ENQUADRAMENTO E CORREÇÃO DOS PLACEHOLDERS DAS FAIXAS VERDES */
 .img-placeholder {
     width: 100%;
-    max-width: 400px;
-    height: 180px;
+    max-width: 380px;
+    height: 160px;
     object-fit: contain;
     background-color: #FFFFFF;
     border-radius: 12px;
-    padding: 10px;
+    padding: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
 }
 
 .pilar-reverso {
     flex-direction: row;
 }
 
-/* 6. RESPONSIVIDADE */
+/* 5. RESPONSIVIDADE */
 @media (max-width: 900px) {
     .navbar-logo {
         height: 30px;
@@ -354,9 +363,5 @@
 
     .hero-buttons {
         justify-content: center;
-    }
-
-    .topbar-actions {
-        display: none;
     }
 }
