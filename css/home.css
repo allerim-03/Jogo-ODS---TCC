@@ -1,49 +1,227 @@
-/* Fonte arredondada infantil/gamificada para os títulos */
-.passo-header h3, 
-.section-header h2 {
-    font-family: 'Nunito', 'Poppins', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+/* RESET BÁSICO E LARGURA TOTAL DA PÁGINA */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Tamanho maior e mais visível para os títulos da Jornada */
-.passo-header h3 {
-    font-size: 1.6rem;
-    color: #38A1F3; /* Cor azul arredondada idêntica ao estilo da imagem */
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fbf9;
+}
+
+main.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTAINER CENTRALIZADOR */
+.hero-container,
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* HERO SECTION */
+.hero-banner {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.hero-content h2 {
+    font-family: 'Nunito', 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: #2e7d32;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-hero-main {
+    max-width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+}
+
+/* SEÇÃO COMO APRENDEMOS BRINCANDO (CARDS INCLINADOS/COLORIDOS) */
+.sobre-sessao {
+    width: 100%;
+    background-color: #f9fbf9;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2rem;
+    color: #2e7d32;
     margin-bottom: 8px;
 }
 
-/* Aumento do card do passo para maior conforto visual */
-.passo-card {
-    padding: 24px 28px;
-    border-radius: 18px;
+.section-header p {
+    color: #666;
+    font-size: 1rem;
 }
 
-/* Descrição com tamanho ajustado para leitura confortável */
-.passo-card p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+/* GRID DOS CARDS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
 }
 
-/* Linha verde divisória entre seções */
+.card-item {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-laranja { border-color: #ffe0b2; }
+.card-lavanda { border-color: #e1bee7; }
+.card-amarelo { border-color: #fff9c4; }
+
+.card-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.icon-laranja { background-color: #fff3e0; }
+.icon-lavanda { background-color: #f3e5f5; }
+.icon-amarelo { background-color: #fffde7; }
+
+.card-item h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-item p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* LINHA VERDE DIVISÓRIA */
 .linha-divisoria-verde {
     width: 100%;
-    height: 12px;
-    background-color: #4CAE50;
-    margin: 40px 0;
+    height: 10px;
+    background-color: #4caf50;
 }
 
-/* Encaixe direto sem espaço branco acima dos pilares/barras verdes */
+/* PILARES / BARRAS VERDES */
 .pilares-container {
-    margin-top: 0;
-    padding-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ajuste da Navbar Lateral / Sidebar para ir até o final da tela sem folga */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
+.pilar-card {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.pilar-card .pilar-texto,
+.pilar-card .pilar-imagem {
+    max-width: 550px;
+    padding: 0 20px;
+}
+
+.pilar-verde-claro { background-color: #81c784; }
+.pilar-verde-medio { background-color: #4caf50; }
+.pilar-verde-escuro { background-color: #2e7d32; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pilar-card {
+        flex-direction: column;
+        text-align: center;
+    }
 }
