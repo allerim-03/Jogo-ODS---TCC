@@ -1,43 +1,16 @@
 /* ==========================================================================
-   1. RESET GLOBAL DE MARGENS E LAYOUT BASE
+   ESTILOS DA HOME INSTITUCIONAL
    ========================================================================== */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
+
+/* Topbar / Navbar */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: #388E3C;
+    width: 100%;
     box-sizing: border-box;
-    background-color: #F8FAF8;
-    width: 100%;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-main {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-}
-
-/* ==========================================================================
-   2. NAVBAR FIXA SÓLIDA (SEMPRE VISÍVEL NO TOPO)
-   ========================================================================== */
-.topbar, 
-.fixed-header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 70px !important;
-    z-index: 9999 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 0 24px !important;
-    background-color: #4CAF50 !important; /* Verde sólido */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box !important;
-    margin: 0 !important;
 }
 
 .topbar-left,
@@ -57,8 +30,8 @@ main {
 }
 
 .navbar-logo {
-    max-height: 40px;
-    width: auto;
+    max-height: 42px !important;
+    width: auto !important;
     object-fit: contain;
 }
 
@@ -79,20 +52,11 @@ main {
     border-radius: 4px;
 }
 
-/* ==========================================================================
-   3. HERO BANNER (DÁ ESPAÇAMENTO PARA NÃO FICAR COLADO NA NAVBAR)
-   ========================================================================== */
+/* Hero Banner */
 .hero-banner {
-    /* 120px de padding topo = 70px (da navbar) + 50px de respiro para o texto */
-    padding-top: 120px !important;
-    padding-bottom: 60px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    background-color: #F8FAF8;
-    border-bottom: 4px solid #4CAF50;
-    width: 100%;
+    background-color: #F4F9F4;
+    padding: 60px 20px;
+    border-bottom: 4px solid #388E3C;
 }
 
 .hero-container {
@@ -106,30 +70,28 @@ main {
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
 }
 
 .badge-tag {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #388E3C;
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
     padding: 6px 14px;
     border-radius: 20px;
-    margin-bottom: 16px;
     text-transform: uppercase;
+    margin-bottom: 16px;
     letter-spacing: 0.5px;
 }
 
 .hero-content h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     color: #1A1A1A;
-    line-height: 1.25;
-    margin-top: 0;
+    line-height: 1.2;
     margin-bottom: 16px;
 }
 
@@ -141,11 +103,66 @@ main {
     margin-bottom: 28px;
 }
 
+/* ESTILO DOS BOTÕES EM 3D (AZUL E VERDE ESCURO) */
 .hero-buttons {
     display: flex;
-    gap: 16px;
-    align-items: center;
+    gap: 18px;
     flex-wrap: wrap;
+}
+
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    text-decoration: none !important; /* Remove o sublinhado do link */
+    border-radius: 12px;
+    color: #FFFFFF !important;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+}
+
+/* Botão Entrar (Azul 3D) */
+.btn-3d-azul {
+    background-color: #38A1E8;
+    border: 2px solid #2880C4;
+    box-shadow: 0 6px 0 #206AA5;
+}
+
+.btn-3d-azul:hover {
+    background-color: #42ACF3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #206AA5;
+}
+
+.btn-3d-azul:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #206AA5;
+}
+
+/* Botão Cadastrar (Verde Escuro 3D) */
+.btn-3d-verde-escuro {
+    background-color: #2E7D32;
+    border: 2px solid #1B5E20;
+    box-shadow: 0 6px 0 #144718;
+}
+
+.btn-3d-verde-escuro:hover {
+    background-color: #358E3A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #144718;
+}
+
+.btn-3d-verde-escuro:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #144718;
 }
 
 .hero-image {
@@ -162,23 +179,19 @@ main {
     border: 3px solid #43B4FB;
 }
 
-/* ==========================================================================
-   4. SEÇÃO COMO APRENDEMOS BRINCANDO
-   ========================================================================== */
+/* Seção de Soluções */
 .sobre-sessao {
-    padding: 60px 20px !important;
-    max-width: 1200px;
-    margin: 0 auto !important;
+    padding: 50px 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 40px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
 }
 
 .section-header h2 {
     font-family: 'Nunito', sans-serif;
-    font-weight: 800;
     font-size: 2rem;
     color: #1A1A1A;
     margin-bottom: 10px;
@@ -186,35 +199,32 @@ main {
 
 .section-header p {
     font-family: 'Poppins', sans-serif;
-    color: #666666;
+    color: #555555;
     font-size: 1rem;
-    margin: 0;
 }
 
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .card-item {
-    background-color: #FFFFFF;
+    background: #FFFFFF;
     border-radius: 16px;
-    padding: 32px 24px;
+    padding: 30px 24px;
     text-align: center;
-    border: 3px solid transparent;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-
-.card-laranja { border-color: #FF8637; }
-.card-lavanda { border-color: #DB95FD; }
-.card-amarelo { border-color: #FFDE5A; }
 
 .card-icon {
     font-size: 2.8rem;
@@ -225,8 +235,7 @@ main {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #1A1A1A;
 }
 
@@ -235,17 +244,16 @@ main {
     font-size: 0.95rem;
     color: #555555;
     line-height: 1.5;
-    margin: 0;
 }
 
-/* ==========================================================================
-   5. PILARES EM FAIXAS VERDES (ROLAGEM PERFEITA ENCOSTANDO NA NAVBAR)
-   ========================================================================== */
+.card-laranja { border: 3px solid #FF8637; }
+.card-lavanda { border: 3px solid #DB95FD; }
+.card-amarelo { border: 3px solid #FFDE5A; }
+
+/* BARRAS VERDES COM TEXTO BRANCO */
 .pilares-container {
-    width: 100% !important;
-    margin-top: 40px !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
+    width: 100%;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 }
@@ -254,29 +262,27 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 60px !important;
+    padding: 40px 60px;
     gap: 40px;
-    min-height: 220px;
-    box-sizing: border-box;
-    margin: 0 !important;
-    width: 100% !important;
+    min-height: 180px;
 }
 
-.pilar-verde-claro { background-color: #388E3C !important; color: #FFFFFF; }
-.pilar-verde-medio { background-color: #2E7D32 !important; color: #FFFFFF; }
-.pilar-verde-escuro { background-color: #1B5E20 !important; color: #FFFFFF; }
+/* Tons de verde das 3 barras */
+.pilar-verde-1 { background-color: #388E3C; }
+.pilar-verde-2 { background-color: #2E7D32; }
+.pilar-verde-3 { background-color: #1B5E20; }
 
 .pilar-texto {
     flex: 1;
     max-width: 650px;
 }
 
+/* Forçar fonte totalmente branca nas 3 barras */
 .pilar-texto h2 {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
     letter-spacing: 0.5px;
-    margin-top: 0;
     margin-bottom: 12px;
     color: #FFFFFF !important;
     text-transform: uppercase;
@@ -287,11 +293,13 @@ main {
     font-weight: 400;
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #F0F9F0 !important;
+    color: #FFFFFF !important;
     margin: 0;
 }
 
-.text-right { text-align: right; }
+.text-right {
+    text-align: right;
+}
 
 .pilar-imagem {
     flex: 1;
@@ -303,32 +311,36 @@ main {
 
 .img-placeholder {
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     height: 160px;
     object-fit: contain;
     background-color: #FFFFFF;
     border-radius: 12px;
-    padding: 12px;
+    padding: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
 }
 
-.pilar-reverso { flex-direction: row; }
+.pilar-reverso {
+    flex-direction: row;
+}
 
-/* ==========================================================================
-   6. RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
-   ========================================================================== */
+/* Responsividade */
 @media (max-width: 900px) {
     .pilar-card,
     .pilar-reverso {
         flex-direction: column !important;
         text-align: center;
-        padding: 35px 20px !important;
+        padding: 35px 20px;
         gap: 24px;
     }
 
-    .pilar-texto { max-width: 100%; }
-    .text-right { text-align: center; }
+    .pilar-texto {
+        max-width: 100%;
+    }
+
+    .text-right {
+        text-align: center;
+    }
 
     .hero-container {
         flex-direction: column;
