@@ -1,29 +1,18 @@
-/* Reset Global de Margens */
-html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #F8FAF8;
-}
-
-main {
-    margin: 0;
-    padding: 0;
-}
-
 /* ==========================================================================
-   NAVBAR (Fixa/Encostada com a cor base da marca)
+   NAVBAR (Cabeçalho Padronizado)
    ========================================================================== */
 .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
-    background-color: #388E3C;
+    padding: 0 24px;
+    height: 72px; /* Altura fixa garantida */
+    background-color: #4CAE50; /* Verde Garden Green */
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-left,
@@ -33,8 +22,13 @@ main {
     align-items: center;
 }
 
-.topbar-left { justify-content: flex-start; }
-.topbar-right { justify-content: flex-end; }
+.topbar-left { 
+    justify-content: flex-start; 
+}
+
+.topbar-right { 
+    justify-content: flex-end; 
+}
 
 .topbar-center {
     display: flex;
@@ -43,319 +37,56 @@ main {
 }
 
 .navbar-logo {
-    max-height: 42px !important;
+    max-height: 48px !important;
     width: auto !important;
     object-fit: contain;
 }
 
+/* Botões rápidos da Navbar no topo direito */
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-top {
+    padding: 8px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none !important;
+    border-radius: 12px;
+    color: #FFFFFF !important;
+    text-transform: uppercase;
+    transition: transform 0.1s ease;
+}
+
+.btn-top-azul {
+    background-color: #3FA8F4;
+    box-shadow: 0 4px 0 #2A83C7;
+}
+
+.btn-top-verde {
+    background-color: #1B5E20;
+    box-shadow: 0 4px 0 #123E15;
+}
+
+/* Hambúrguer dentro do Header */
 .hamburger {
+    width: 44px;
+    height: 44px;
+    background-color: #4CAE50;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .hamburger span {
-    display: block;
-    height: 3.5px;
-    width: 100%;
+    width: 24px;
+    height: 3px;
     background-color: #FFFFFF;
-    border-radius: 4px;
-}
-
-/* ==========================================================================
-   HERO BANNER PRINCIPAL (Com espaçamento superior ajustado)
-   ========================================================================== */
-.hero-banner {
-    padding-top: 80px; /* Ajuste para o conteúdo não colar na navbar */
-    padding-bottom: 40px;
-    padding-left: 60px;
-    padding-right: 60px;
-    background-color: #F8FAF8;
-    margin: 0;
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.badge-tag {
-    display: inline-block;
-    background-color: #388E3C;
-    color: #FFFFFF;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-}
-
-.hero-content h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 2.3rem;
-    color: #1A1A1A;
-    line-height: 1.25;
-    margin-bottom: 16px;
-}
-
-.hero-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
-    color: #555555;
-    line-height: 1.6;
-    margin-bottom: 28px;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.img-hero-main {
-    max-width: 100%;
-    height: auto;
-    border-radius: 16px;
-}
-
-/* ==========================================================================
-   ESTILO DOS BOTÕES 3D (ENTRAR E CADASTRAR)
-   ========================================================================== */
-.hero-buttons {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.btn-3d {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 32px;
-    font-family: 'Montserrat', 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    border-radius: 16px;
-    border: none !important;
-    color: #FFFFFF !important;
-    cursor: pointer;
-    user-select: none;
-    text-align: center;
-    transition: all 0.12s ease-in-out;
-}
-
-/* Botão Entrar (Azul) */
-.btn-3d-azul {
-    background-color: #3498DB;
-    box-shadow: 0 6px 0 #2171A7;
-}
-
-.btn-3d-azul:hover {
-    background-color: #43A4E6;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 0 #2171A7;
-}
-
-.btn-3d-azul:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 #2171A7;
-}
-
-/* Botão Cadastrar (Verde Escuro) */
-.btn-3d-verde-escuro {
-    background-color: #2E7D32;
-    box-shadow: 0 6px 0 #1B5E20;
-}
-
-.btn-3d-verde-escuro:hover {
-    background-color: #358E3A;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 0 #1B5E20;
-}
-
-.btn-3d-verde-escuro:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 #1B5E20;
-}
-
-/* ==========================================================================
-   CARDS DE METODOLOGIA
-   ========================================================================== */
-.sobre-sessao {
-    padding: 50px 20px 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: #1A1A1A;
-}
-
-.section-header p {
-    font-family: 'Poppins', sans-serif;
-    color: #666666;
-    font-size: 1rem;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-.card-item {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.card-laranja { border-color: #FF9800; }
-.card-lavanda { border-color: #AB47BC; }
-.card-amarelo { border-color: #FFCA28; }
-
-.card-icon {
-    font-size: 2.2rem;
-    margin-bottom: 12px;
-}
-
-.card-item h3 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    margin-bottom: 10px;
-    color: #1A1A1A;
-}
-
-.card-item p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: #666666;
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   BARRAS VERDES (PILARES CONTINUOS - RENTE E SEM CORTE)
-   ========================================================================== */
-.pilares-container {
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex;
-    flex-direction: column;
-}
-
-.pilar-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 60px;
-    gap: 40px;
-    min-height: 180px;
-    margin: 0;
-    border: none;
-}
-
-/* Gradação nos tons das 3 barras verdes */
-.pilar-verde-1 { background-color: #388E3C; }
-.pilar-verde-2 { background-color: #2E7D32; }
-.pilar-verde-3 { background-color: #1B5E20; }
-
-.pilar-texto {
-    flex: 1;
-    max-width: 650px;
-}
-
-.pilar-texto h2 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: #FFFFFF !important;
-    text-transform: uppercase;
-}
-
-.pilar-texto p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #FFFFFF !important;
-    margin: 0;
-}
-
-.text-right { text-align: right; }
-
-.pilar-imagem {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 450px;
-}
-
-.img-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 160px;
-    object-fit: contain;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.pilar-reverso { flex-direction: row; }
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .hero-banner {
-        padding-top: 50px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .pilar-card,
-    .pilar-reverso {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 35px 20px;
-        gap: 24px;
-    }
-
-    .text-right { text-align: center; }
+    border-radius: 2px;
 }
