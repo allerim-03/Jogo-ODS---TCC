@@ -4,7 +4,7 @@
 
 
 /* ==========================================================================
-   1. RESET E FUNDO
+   1. RESET GLOBAL
    ========================================================================== */
 
 html,
@@ -22,23 +22,23 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-
 *,
 *::before,
 *::after {
     box-sizing: inherit;
 }
 
+body {
+    overflow-x: hidden;
+}
 
 main {
+    width: 100%;
     margin: 0 !important;
     padding: 0 !important;
 
-    width: 100%;
-
     background-color: #F8FAFC;
 }
-
 
 
 /* ==========================================================================
@@ -46,15 +46,19 @@ main {
    ========================================================================== */
 
 .topbar {
-    position: relative !important;
+    position: sticky !important;
 
-    top: auto !important;
-    left: auto !important;
+    top: 0 !important;
+    left: 0 !important;
 
     width: 100% !important;
-    height: 65px !important;
+
+    /* ESPESSURA IGUAL À SEGUNDA FOTO */
+    height: 90px !important;
+    min-height: 90px !important;
 
     display: flex !important;
+
     align-items: center !important;
     justify-content: space-between !important;
 
@@ -63,24 +67,28 @@ main {
     background-color: #4CAF50 !important;
 
     box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.08) !important;
+        0 3px 10px rgba(0, 0, 0, 0.10) !important;
 
     box-sizing: border-box !important;
 
     margin: 0 !important;
 
-    z-index: 100 !important;
+    z-index: 9999 !important;
 }
 
+
+/* Lado esquerdo */
 
 .topbar-left {
     display: flex;
 
     align-items: center;
 
-    min-width: 40px;
+    min-width: 45px;
 }
 
+
+/* Centro */
 
 .topbar-center {
     flex: 1;
@@ -88,27 +96,34 @@ main {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
+
+    height: 100%;
 }
 
+
+/* Lado direito */
 
 .topbar-right {
-    min-width: 40px;
+    min-width: 45px;
 }
 
 
-/* LOGO */
+/* ==========================================================================
+   3. LOGO DO NAVBAR
+   ========================================================================== */
 
 .navbar-logo-center {
-    height: 36px !important;
+    height: 43px !important;
 
     width: auto !important;
 
-    max-width: 320px;
+    max-width: 350px;
 
     object-fit: contain;
 
-    text-decoration: none !important;
+    display: block;
 
     border: none !important;
 
@@ -118,9 +133,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   3. HAMBURGER
+   4. HAMBURGER
    ========================================================================== */
 
 .hamburger {
@@ -130,13 +144,12 @@ main {
 
     justify-content: space-between;
 
-    width: 26px;
+    width: 27px;
 
-    height: 20px;
+    height: 21px;
 
     cursor: pointer;
 }
-
 
 .hamburger span {
     display: block;
@@ -147,38 +160,39 @@ main {
 
     background-color: #FFFFFF;
 
-    border-radius: 4px;
+    border-radius: 5px;
 
     transition: 0.2s ease;
 }
 
 
-
 /* ==========================================================================
-   4. HERO
+   5. HERO
    ========================================================================== */
 
 .hero-banner {
 
+    width: 100%;
+
+    margin: 0 !important;
+
     padding-top: 65px !important;
 
-    padding-bottom: 60px !important;
+    padding-bottom: 65px !important;
 
     padding-left: 20px !important;
 
     padding-right: 20px !important;
 
-    margin: 0 !important;
-
     background-color: #F8FAFC;
 
     border-bottom: 4px solid #4CAF50;
-
-    width: 100%;
 }
 
 
 .hero-container {
+
+    width: 100%;
 
     max-width: 1200px;
 
@@ -214,7 +228,7 @@ main {
 
     font-size: 0.8rem;
 
-    padding: 6px 14px;
+    padding: 7px 15px;
 
     border-radius: 20px;
 
@@ -268,9 +282,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   5. IMAGEM DO HERO
+   6. IMAGEM DO HERO
    ========================================================================== */
 
 .hero-image {
@@ -280,6 +293,8 @@ main {
     display: flex;
 
     justify-content: center;
+
+    align-items: center;
 }
 
 
@@ -298,16 +313,15 @@ main {
 }
 
 
-
 /* ==========================================================================
-   6. SEÇÃO - COMO APRENDEMOS
+   7. SEÇÃO COMO APRENDEMOS
    ========================================================================== */
 
 .sobre-sessao {
 
-    padding: 70px 0 !important;
-
     width: 100%;
+
+    padding: 70px 0 !important;
 
     background-color: #F8FAFC;
 }
@@ -315,13 +329,13 @@ main {
 
 .section-header {
 
-    text-align: center;
-
     max-width: 700px;
 
     margin: 0 auto 45px auto;
 
     padding: 0 20px;
+
+    text-align: center;
 }
 
 
@@ -349,47 +363,51 @@ main {
 
     font-size: 1.05rem;
 
-    margin: 0;
-
     line-height: 1.6;
+
+    margin: 0;
 }
 
 
-
 /* ==========================================================================
-   7. GRID DOS CARDS
+   8. GRID DOS 3 CARDS
    ========================================================================== */
 
 .cards-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 32px;
 
     max-width: 1200px;
 
     margin: 0 auto;
 
     padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 32px;
 }
 
 
-
 /* ==========================================================================
-   8. CARDS
+   9. CARDS
    ========================================================================== */
 
 .card-item {
 
     position: relative;
 
+    min-height: 300px;
+
+    padding: 42px 30px 36px;
+
     background: #FFFFFF;
 
     border-radius: 24px;
 
-    padding: 42px 30px 36px;
+    border: 2px solid transparent;
+
+    overflow: hidden;
 
     text-align: center;
 
@@ -401,12 +419,6 @@ main {
 
     justify-content: flex-start;
 
-    min-height: 300px;
-
-    overflow: hidden;
-
-    border: 2px solid transparent;
-
     box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.06),
         0 2px 5px rgba(0, 0, 0, 0.04);
@@ -417,8 +429,7 @@ main {
 }
 
 
-
-/* Faixa superior dos cards */
+/* Faixa superior */
 
 .card-item::before {
 
@@ -438,7 +449,6 @@ main {
 }
 
 
-
 /* Hover */
 
 .card-item:hover {
@@ -451,9 +461,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   9. ÍCONES DOS CARDS
+   10. ÍCONES DOS CARDS
    ========================================================================== */
 
 .card-icon-wrapper {
@@ -462,6 +471,8 @@ main {
 
     height: 82px;
 
+    margin-bottom: 22px;
+
     border-radius: 50%;
 
     display: flex;
@@ -469,8 +480,6 @@ main {
     align-items: center;
 
     justify-content: center;
-
-    margin-bottom: 22px;
 
     transition:
         transform 0.3s ease,
@@ -492,9 +501,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   10. TEXTO DOS CARDS
+   11. TEXTO DOS CARDS
    ========================================================================== */
 
 .card-item h3 {
@@ -505,9 +513,9 @@ main {
 
     font-size: 1.35rem;
 
-    margin: 0 0 14px;
-
     color: #222222;
+
+    margin: 0 0 14px;
 }
 
 
@@ -525,9 +533,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   11. CARD VERDE - JOGOS
+   12. CARD VERDE
    ========================================================================== */
 
 .card-laranja {
@@ -564,9 +571,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   12. CARD AZUL - QUIZZES
+   13. CARD AZUL
    ========================================================================== */
 
 .card-lavanda {
@@ -603,9 +609,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   13. CARD AMARELO - XP
+   14. CARD AMARELO
    ========================================================================== */
 
 .card-amarelo {
@@ -642,12 +647,13 @@ main {
 }
 
 
-
 /* ==========================================================================
-   14. JORNADA SUSTENTÁVEL
+   15. JORNADA SUSTENTÁVEL
    ========================================================================== */
 
 .jornada-sessao {
+
+    width: 100%;
 
     padding: 70px 20px !important;
 
@@ -656,18 +662,16 @@ main {
     border-top: 2px solid #E6ECE8;
 
     border-bottom: 2px solid #E6ECE8;
-
-    width: 100%;
 }
 
 
 .trilha-container {
 
+    position: relative;
+
     max-width: 900px;
 
     margin: 50px auto 0 auto;
-
-    position: relative;
 
     display: flex;
 
@@ -677,9 +681,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   15. LINHA DA TRILHA
+   16. LINHA DA TRILHA
    ========================================================================== */
 
 .trilha-linha {
@@ -725,9 +728,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   16. BADGES
+   17. BADGES DA TRILHA
    ========================================================================== */
 
 .passo-numero-badge {
@@ -735,6 +737,8 @@ main {
     width: 70px;
 
     height: 70px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -749,8 +753,6 @@ main {
     box-shadow:
         0 6px 16px rgba(0, 0, 0, 0.12);
 
-    flex-shrink: 0;
-
     transition:
         transform 0.3s
         cubic-bezier(
@@ -759,8 +761,6 @@ main {
             0.32,
             1.275
         );
-
-    background-color: #4CAF50;
 }
 
 
@@ -784,28 +784,27 @@ main {
 }
 
 
-
 /* ==========================================================================
-   17. CARDS DA JORNADA
+   18. CARDS DA JORNADA
    ========================================================================== */
 
 .passo-card {
 
-    background-color: #FFFFFF;
+    position: relative;
 
-    border-radius: 18px;
+    flex: 1;
 
     padding: 24px 30px;
 
-    flex: 1;
+    background-color: #FFFFFF;
+
+    border-radius: 18px;
 
     box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.06);
 
     transition:
         all 0.3s ease;
-
-    position: relative;
 }
 
 
@@ -874,93 +873,68 @@ main {
 }
 
 
-
 /* ==========================================================================
-   18. CORES DA JORNADA
+   19. CORES DA TRILHA
    ========================================================================== */
 
 .passo-1 .passo-numero-badge {
-
     background-color: #FFC107;
 }
 
-
 .passo-1 .passo-card {
-
     border-left: 8px solid #FFC107;
 }
 
-
 .passo-1 .passo-tag,
 .passo-1 h3 {
-
     color: #D69E00;
 }
 
 
-
 .passo-2 .passo-numero-badge {
-
     background-color: #38A1E8;
 }
 
-
 .passo-2 .passo-card {
-
     border-left: 8px solid #38A1E8;
 }
 
-
 .passo-2 .passo-tag,
 .passo-2 h3 {
-
     color: #2080C4;
 }
 
 
-
 .passo-3 .passo-numero-badge {
-
     background-color: #DB95FD;
 }
 
-
 .passo-3 .passo-card {
-
     border-left: 8px solid #DB95FD;
 }
 
-
 .passo-3 .passo-tag,
 .passo-3 h3 {
-
     color: #A544D3;
 }
 
 
-
 .passo-4 .passo-numero-badge {
-
     background-color: #4CAF50;
 }
 
-
 .passo-4 .passo-card {
-
     border-left: 8px solid #4CAF50;
 }
 
-
 .passo-4 .passo-tag,
 .passo-4 h3 {
-
     color: #2E7D32;
 }
 
 
-
 /* ==========================================================================
-   19. PILARES / TRÊS BARRAS VERDES
+   20. TRÊS BARRAS VERDES
    ========================================================================== */
 
 .pilares-container {
@@ -977,8 +951,9 @@ main {
 }
 
 
-
-/* PRIMEIRA BARRA */
+/* ==========================================================================
+   21. PRIMEIRA BARRA
+   ========================================================================== */
 
 .pilar-verde-claro {
 
@@ -991,8 +966,9 @@ main {
 }
 
 
-
-/* SEGUNDA BARRA */
+/* ==========================================================================
+   22. SEGUNDA BARRA
+   ========================================================================== */
 
 .pilar-verde-medio {
 
@@ -1005,8 +981,9 @@ main {
 }
 
 
-
-/* TERCEIRA BARRA */
+/* ==========================================================================
+   23. TERCEIRA BARRA
+   ========================================================================== */
 
 .pilar-verde-escuro {
 
@@ -1019,12 +996,21 @@ main {
 }
 
 
-
 /* ==========================================================================
-   20. EFEITO DE TRANSIÇÃO ENTRE AS BARRAS
+   24. PILARES
    ========================================================================== */
 
 .pilar-card {
+
+    position: relative;
+
+    width: 100% !important;
+
+    min-height: 225px;
+
+    margin: 0 !important;
+
+    padding: 45px 60px !important;
 
     display: flex;
 
@@ -1032,21 +1018,13 @@ main {
 
     justify-content: space-between;
 
-    padding: 45px 60px !important;
-
     gap: 40px;
 
-    min-height: 180px;
-
-    margin: 0 !important;
-
-    width: 100% !important;
-
     box-sizing: border-box;
-
-    position: relative;
 }
 
+
+/* Pequena sombra entre as barras */
 
 .pilar-card::after {
 
@@ -1060,7 +1038,7 @@ main {
 
     width: 100%;
 
-    height: 14px;
+    height: 12px;
 
     background:
         linear-gradient(
@@ -1073,9 +1051,8 @@ main {
 }
 
 
-
 /* ==========================================================================
-   21. TEXTO DOS PILARES
+   25. TEXTO DOS PILARES
    ========================================================================== */
 
 .pilar-texto {
@@ -1128,22 +1105,21 @@ main {
 }
 
 
-
 /* ==========================================================================
-   22. IMAGENS DOS PILARES
+   26. IMAGENS DOS PILARES
    ========================================================================== */
 
 .pilar-imagem {
 
     flex: 1;
 
+    max-width: 450px;
+
     display: flex;
 
     justify-content: center;
 
     align-items: center;
-
-    max-width: 450px;
 }
 
 
@@ -1174,72 +1150,69 @@ main {
 }
 
 
+/* ==========================================================================
+   27. RODAPÉ
+   ========================================================================== */
+
+footer {
+
+    width: 100%;
+
+    background-color: #F8FAFC;
+}
+
 
 /* ==========================================================================
-   23. RESPONSIVIDADE
+   28. TABLET
    ========================================================================== */
 
 @media (max-width: 900px) {
 
-
-    /* NAVBAR */
-
     .topbar {
 
-        padding: 0 25px !important;
+        height: 90px !important;
 
+        min-height: 90px !important;
+
+        padding: 0 25px !important;
     }
 
 
     .navbar-logo-center {
 
-        height: 32px !important;
+        height: 39px !important;
 
-        max-width: 250px;
-
+        max-width: 300px;
     }
 
-
-
-    /* HERO */
 
     .hero-container {
 
         flex-direction: column;
 
         text-align: center;
-
     }
 
 
     .hero-buttons {
 
         justify-content: center;
-
     }
 
-
-
-    /* CARDS */
 
     .cards-grid {
 
         grid-template-columns: 1fr;
 
         max-width: 600px;
-
     }
 
 
     .card-item {
 
         min-height: auto;
-
     }
 
-
-
-    /* PILARES */
 
     .pilar-card,
     .pilar-reverso {
@@ -1248,34 +1221,27 @@ main {
 
         text-align: center;
 
-        padding: 35px 20px !important;
+        padding: 40px 25px !important;
 
         gap: 24px;
-
     }
 
 
     .pilar-texto {
 
         max-width: 100%;
-
     }
 
 
     .text-right {
 
         text-align: center;
-
     }
 
-
-
-    /* TRILHA */
 
     .trilha-linha {
 
         left: 28px;
-
     }
 
 
@@ -1284,49 +1250,43 @@ main {
         width: 56px;
 
         height: 56px;
-
     }
 
 
     .passo-numero-badge span {
 
         font-size: 1.4rem;
-
     }
 
 
     .trilha-passo:hover .passo-card {
 
         transform: translateX(4px);
-
     }
-
 }
 
 
-
 /* ==========================================================================
-   24. CELULAR
+   29. CELULAR
    ========================================================================== */
 
 @media (max-width: 600px) {
 
-
     .topbar {
 
-        height: 60px !important;
+        height: 90px !important;
+
+        min-height: 90px !important;
 
         padding: 0 18px !important;
-
     }
 
 
     .navbar-logo-center {
 
-        height: 29px !important;
+        height: 31px !important;
 
-        max-width: 210px;
-
+        max-width: 220px;
     }
 
 
@@ -1335,35 +1295,30 @@ main {
         padding-top: 45px !important;
 
         padding-bottom: 45px !important;
-
     }
 
 
     .hero-content h2 {
 
         font-size: 1.9rem;
-
     }
 
 
     .hero-content p {
 
         font-size: 0.95rem;
-
     }
 
 
     .section-header h2 {
 
         font-size: 1.8rem;
-
     }
 
 
     .section-header p {
 
         font-size: 0.95rem;
-
     }
 
 
@@ -1372,84 +1327,73 @@ main {
         padding: 0 16px;
 
         gap: 22px;
-
     }
 
 
     .card-item {
 
         padding: 35px 24px 30px;
-
     }
 
 
     .jornada-sessao {
 
         padding: 55px 16px !important;
-
     }
 
 
     .trilha-container {
 
         margin-top: 35px;
-
     }
 
 
     .trilha-passo {
 
         gap: 18px;
-
     }
 
 
     .passo-card {
 
         padding: 20px;
-
     }
 
 
     .passo-card h3 {
 
         font-size: 1.1rem;
-
     }
 
 
     .passo-card p {
 
         font-size: 0.9rem;
-
     }
 
 
     .pilar-card {
 
-        padding: 35px 20px !important;
+        min-height: 250px;
 
+        padding: 35px 20px !important;
     }
 
 
     .pilar-texto h2 {
 
         font-size: 1.45rem;
-
     }
 
 
     .pilar-texto p {
 
         font-size: 0.95rem;
-
     }
 
 
     .img-placeholder {
 
         height: 130px;
-
     }
-
 }
