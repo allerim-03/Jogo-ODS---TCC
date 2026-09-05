@@ -1,27 +1,27 @@
-/* =========================================
-   SIDEBAR.CSS - Sidebar e Navegação Lateral
-   ========================================= */
+/* ==========================================================================
+   SIDEBAR.CSS - Sidebar do Visitante (Estilo Padronizado)
+   ========================================================================== */
+
 .menu-checkbox {
     display: none !important;
 }
 
 /* BOTÃO HAMBÚRGUER */
 .hamburger {
-    width: 48px;
-    height: 48px;
-    background-color: #4CAE50; /* Garden Green */
+    width: 42px;
+    height: 42px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: opacity 0.2s ease;
 }
 
 .hamburger:hover {
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .hamburger span {
@@ -31,19 +31,20 @@
     border-radius: 2px;
 }
 
-/* SIDEBAR PAINEL */
+/* PAINEL SIDEBAR */
 .sidebar {
     position: fixed;
     top: 0;
     left: -300px;
-    width: 280px;
+    width: 270px;
     height: 100vh;
-    background-color: #1b5e20; /* Verde escuro */
+    background-color: #1b5e20; /* Verde escuro idêntico ao painel logado */
     z-index: 9999;
     transition: left 0.3s ease;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 #menu-check:checked ~ .sidebar {
@@ -66,38 +67,28 @@
     display: block;
 }
 
-/* PERFIL DENTRO DA SIDEBAR */
+/* PERFIL DENTRO DA SIDEBAR (VISITANTE) */
 .perfil-sidebar {
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.perfil-sidebar .foto-perfil {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 3px solid #FFDE5A; /* Banana Yellow */
-    margin-bottom: 10px;
-    object-fit: cover;
+.icone-visitante {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
 }
 
-/* FORÇA A COR AMARELA NO TEXTO DO NÍVEL */
-.perfil-sidebar * {
+.perfil-sidebar h3 {
     color: #FFB72B !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-}
-
-/* CASO O TEXTO DO NÍVEL ESTEJA FORA DA DIV PERFIL-SIDEBAR */
-.sidebar p,
-.sidebar span,
-.sidebar h3,
-.sidebar h4 {
-    color: #FFB72B !important;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 /* LINKS DA SIDEBAR */
@@ -112,14 +103,15 @@
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     text-transform: uppercase;
     padding: 12px 16px;
     border-radius: 12px;
     transition: background-color 0.2s ease, color 0.2s ease;
+    display: block;
 }
 
 .links-sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    color: #FFDE5A !important; /* Banana Yellow */
+    color: #FFDE5A !important;
 }
