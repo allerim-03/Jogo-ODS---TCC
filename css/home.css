@@ -1,129 +1,142 @@
-/* ==========================================================================
-   HOME.CSS - Estilos da Página Inicial
-   ========================================================================== */
-
-* {
+/* Reset Global de Margens */
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-body {
     background-color: #F8FAF8;
-    color: #333333;
 }
 
-/* --------------------------------------------------------------------------
-   NAVBAR SUPERIOR
-   -------------------------------------------------------------------------- */
-.navbar {
-    width: 100%;
-    height: 72px;
-    background-color: #4CAF50;
+main {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   NAVBAR (Fixa/Encostada com a cor base da marca)
+   ========================================================================== */
+.topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 12px 24px;
+    background-color: #388E3C;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
 }
 
-.navbar-left {
+.topbar-left,
+.topbar-right {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 16px;
 }
 
-.logo-texto {
-    color: #FFFFFF;
-    font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-}
+.topbar-left { justify-content: flex-start; }
+.topbar-right { justify-content: flex-end; }
 
-.navbar-right {
+.topbar-center {
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-top {
-    padding: 10px 22px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    text-decoration: none !important;
-    border-radius: 14px;
-    color: #FFFFFF !important;
-    text-transform: uppercase;
-    transition: transform 0.1s ease;
+.navbar-logo {
+    max-height: 42px !important;
+    width: auto !important;
+    object-fit: contain;
 }
 
-.btn-top-azul {
-    background-color: #3FA8F4;
-    box-shadow: 0 4px 0 #2A83C7;
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
 }
 
-.btn-top-verde {
-    background-color: #2E7D32; /* Verde escuro do botão cadastrar */
-    box-shadow: 0 4px 0 #1B5E20;
+.hamburger span {
+    display: block;
+    height: 3.5px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
 }
 
-.btn-top:active {
-    transform: translateY(2px);
-    box-shadow: none;
-}
-
-/* --------------------------------------------------------------------------
-   HERO SECTION
-   -------------------------------------------------------------------------- */
-.hero-section {
-    padding: 50px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* ==========================================================================
+   HERO BANNER PRINCIPAL
+   ========================================================================== */
+.hero-banner {
+    padding: 40px 60px;
+    background-color: #F8FAF8;
+    margin: 0;
 }
 
 .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
 }
 
-.hero-text {
+.hero-content {
     flex: 1;
-    max-width: 580px;
+    max-width: 600px;
 }
 
-.badge-ods {
+.badge-tag {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #388E3C;
     color: #FFFFFF;
+    font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     padding: 6px 14px;
     border-radius: 20px;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
-.hero-text h2 {
-    font-size: 2.1rem;
+.hero-content h2 {
+    font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    color: #111111;
+    font-size: 2.3rem;
+    color: #1A1A1A;
     line-height: 1.25;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
-.hero-text p {
-    font-size: 0.98rem;
-    color: #666666;
+.hero-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: #555555;
     line-height: 1.6;
     margin-bottom: 28px;
-    font-weight: 600;
 }
 
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-hero-main {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+/* ==========================================================================
+   ESTILO DOS BOTÕES 3D (ENTRAR E CADASTRAR)
+   ========================================================================== */
 .hero-buttons {
     display: flex;
-    gap: 16px;
+    gap: 18px;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -131,82 +144,81 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 14px 32px;
+    font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     text-decoration: none !important;
     border-radius: 16px;
+    border: none !important;
     color: #FFFFFF !important;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    transition: all 0.12s ease-in-out;
 }
 
-.btn-3d-verde {
-    background-color: #2E7D32;
-    box-shadow: 0 5px 0 #1B5E20;
-}
-
-.btn-3d-verde:hover {
-    background-color: #388E3C;
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #1B5E20;
-}
-
-.btn-3d-verde:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 #1B5E20;
-}
-
+/* Botão Entrar (Azul) */
 .btn-3d-azul {
-    background-color: #3FA8F4;
-    box-shadow: 0 5px 0 #2A83C7;
+    background-color: #3498DB;
+    box-shadow: 0 6px 0 #2171A7;
 }
 
 .btn-3d-azul:hover {
-    background-color: #51B3F7;
+    background-color: #43A4E6;
     transform: translateY(-2px);
-    box-shadow: 0 7px 0 #2A83C7;
+    box-shadow: 0 8px 0 #2171A7;
 }
 
 .btn-3d-azul:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 #2A83C7;
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #2171A7;
 }
 
-.hero-image-box {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+/* Botão Cadastrar (Verde Escuro) */
+.btn-3d-verde-escuro {
+    background-color: #2E7D32;
+    box-shadow: 0 6px 0 #1B5E20;
 }
 
-.hero-image-box img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
+.btn-3d-verde-escuro:hover {
+    background-color: #358E3A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #1B5E20;
 }
 
-/* --------------------------------------------------------------------------
-   SEÇÃO COMO APRENDEMOS BRINCANDO (CARDS)
-   -------------------------------------------------------------------------- */
-.aprendemos-section {
+.btn-3d-verde-escuro:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #1B5E20;
+}
+
+/* ==========================================================================
+   CARDS DE METODOLOGIA
+   ========================================================================== */
+.sobre-sessao {
+    padding: 50px 20px 60px 20px;
     max-width: 1200px;
-    margin: 40px auto 60px;
-    padding: 0 24px;
+    margin: 0 auto;
+}
+
+.section-header {
     text-align: center;
-}
-
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #222222;
-    margin-bottom: 10px;
-}
-
-.section-subtitle {
-    font-size: 0.95rem;
-    color: #666666;
     margin-bottom: 40px;
-    font-weight: 600;
+}
+
+.section-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #1A1A1A;
+}
+
+.section-header p {
+    font-family: 'Poppins', sans-serif;
+    color: #666666;
+    font-size: 1rem;
 }
 
 .cards-grid {
@@ -215,114 +227,128 @@ body {
     gap: 24px;
 }
 
-.card {
-    background: #FFFFFF;
+.card-item {
+    background-color: #FFFFFF;
     border-radius: 16px;
     padding: 32px 24px;
     text-align: center;
     border: 2px solid transparent;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.card-laranja { border-color: #FF8A65; }
-.card-roxo { border-color: #BA68C8; }
-.card-amarelo { border-color: #FFD54F; }
+.card-laranja { border-color: #FF9800; }
+.card-lavanda { border-color: #AB47BC; }
+.card-amarelo { border-color: #FFCA28; }
 
 .card-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-}
-
-.card h3 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #222222;
+    font-size: 2.2rem;
     margin-bottom: 12px;
 }
 
-.card p {
-    font-size: 0.88rem;
+.card-item h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #1A1A1A;
+}
+
+.card-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
     color: #666666;
     line-height: 1.5;
-    font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   BLOCOS VERDES (DESENVOLVIMENTO, METODOLOGIA, LÚDICO)
-   -------------------------------------------------------------------------- */
-.green-blocks {
+/* ==========================================================================
+   BARRAS VERDES (PILARES CONTINUOS - RENTE E SEM CORTE)
+   ========================================================================== */
+.pilares-container {
     width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
 }
 
-.green-block {
-    padding: 50px 24px;
-    color: #FFFFFF;
-}
-
-.dark-green-1 { background-color: #2E7D32; }
-.dark-green-2 { background-color: #256A29; }
-.dark-green-3 { background-color: #1B5E20; }
-
-.block-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.pilar-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 50px 60px;
     gap: 40px;
+    min-height: 180px;
+    margin: 0;
+    border: none;
 }
 
-.block-container.reverse {
-    flex-direction: row-reverse;
-}
+/* Gradação nos tons das 3 barras verdes */
+.pilar-verde-1 { background-color: #388E3C; }
+.pilar-verde-2 { background-color: #2E7D32; }
+.pilar-verde-3 { background-color: #1B5E20; }
 
-.block-text {
+.pilar-texto {
     flex: 1;
+    max-width: 650px;
 }
 
-.block-text h2 {
-    font-size: 1.4rem;
+.pilar-texto h2 {
+    font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: #FFFFFF !important;
+    text-transform: uppercase;
 }
 
-.block-text p {
-    font-size: 0.95rem;
+.pilar-texto p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
     line-height: 1.6;
-    opacity: 0.95;
-    font-weight: 600;
+    color: #FFFFFF !important;
+    margin: 0;
 }
 
-.block-image {
+.text-right { text-align: right; }
+
+.pilar-imagem {
     flex: 1;
     display: flex;
     justify-content: center;
-}
-
-.placeholder-box {
-    width: 100%;
-    max-width: 380px;
-    height: 160px;
-    background-color: #FFFFFF;
-    color: #333333;
-    border-radius: 12px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    font-weight: 700;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 450px;
 }
 
-/* --------------------------------------------------------------------------
-   FOOTER
-   -------------------------------------------------------------------------- */
-.footer {
-    background-color: #E0E0E0;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.85rem;
-    color: #666666;
-    font-weight: 700;
+.img-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 160px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pilar-reverso { flex-direction: row; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .pilar-card,
+    .pilar-reverso {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 35px 20px;
+        gap: 24px;
+    }
+
+    .text-right { text-align: center; }
 }
