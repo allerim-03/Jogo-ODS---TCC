@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HOME.CSS - Estilos do Header, Botões 3D e Seção Hero
+   HOME.CSS - Estilos da Página Inicial
    ========================================================================== */
 
 * {
@@ -10,25 +10,25 @@
 }
 
 body {
-    background-color: #F4F8F5;
+    background-color: #F8FAF8;
     color: #333333;
 }
 
 /* --------------------------------------------------------------------------
-   HEADER / NAVBAR SUPERIOR
+   NAVBAR SUPERIOR
    -------------------------------------------------------------------------- */
 .navbar {
     width: 100%;
-    height: 70px;
-    background-color: #4CAF50; /* Verde Principal */
+    height: 72px;
+    background-color: #4CAF50;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 0 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.header-left {
+.navbar-left {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -36,90 +36,91 @@ body {
 
 .logo-texto {
     color: #FFFFFF;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
 }
 
-.header-buttons {
+.navbar-right {
     display: flex;
     gap: 12px;
 }
 
-.btn-header {
+.btn-top {
     padding: 10px 22px;
     font-weight: 800;
-    font-size: 0.95rem;
-    text-decoration: none;
-    border-radius: 12px;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    border-radius: 14px;
     color: #FFFFFF !important;
     text-transform: uppercase;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    transition: transform 0.1s ease;
 }
 
-.btn-header.btn-azul {
+.btn-top-azul {
     background-color: #3FA8F4;
     box-shadow: 0 4px 0 #2A83C7;
 }
 
-.btn-header.btn-verde {
-    background-color: #1B5E20; /* Verde escuro do Cadastrar */
-    box-shadow: 0 4px 0 #123E15;
+.btn-top-verde {
+    background-color: #2E7D32; /* Verde escuro do botão cadastrar */
+    box-shadow: 0 4px 0 #1B5E20;
 }
 
-.btn-header:active {
+.btn-top:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 transparent;
+    box-shadow: none;
 }
 
 /* --------------------------------------------------------------------------
-   SEÇÃO HERO (CONTEÚDO DA HOME)
+   HERO SECTION
    -------------------------------------------------------------------------- */
-.hero-container {
+.hero-section {
+    padding: 50px 24px;
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 24px;
+    margin: 0 auto;
+}
+
+.hero-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
 }
 
-.hero-content {
+.hero-text {
     flex: 1;
-    max-width: 600px;
+    max-width: 580px;
 }
 
 .badge-ods {
     display: inline-block;
-    background-color: #4CAE50;
+    background-color: #4CAF50;
     color: #FFFFFF;
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 6px 14px;
     border-radius: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
 }
 
-.hero-title {
-    font-size: 2.2rem;
+.hero-text h2 {
+    font-size: 2.1rem;
     font-weight: 800;
-    color: #1A1A1A;
+    color: #111111;
     line-height: 1.25;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
-.hero-description {
-    font-size: 1.05rem;
-    color: #555555;
+.hero-text p {
+    font-size: 0.98rem;
+    color: #666666;
     line-height: 1.6;
     margin-bottom: 28px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   BOTÕES 3D (ESTILO BANDEIRA/CARD)
-   -------------------------------------------------------------------------- */
 .hero-buttons {
     display: flex;
     gap: 16px;
@@ -130,58 +131,198 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 28px;
+    padding: 12px 24px;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     text-decoration: none !important;
     border-radius: 16px;
     color: #FFFFFF !important;
-    cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .btn-3d-verde {
-    background-color: #1B5E20; /* Verde escuro */
-    box-shadow: 0 6px 0 #123E15;
+    background-color: #2E7D32;
+    box-shadow: 0 5px 0 #1B5E20;
 }
 
 .btn-3d-verde:hover {
-    background-color: #247529;
+    background-color: #388E3C;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #123E15;
+    box-shadow: 0 7px 0 #1B5E20;
 }
 
 .btn-3d-verde:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 #123E15;
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #1B5E20;
 }
 
 .btn-3d-azul {
     background-color: #3FA8F4;
-    box-shadow: 0 6px 0 #2A83C7;
+    box-shadow: 0 5px 0 #2A83C7;
 }
 
 .btn-3d-azul:hover {
     background-color: #51B3F7;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #2A83C7;
+    box-shadow: 0 7px 0 #2A83C7;
 }
 
 .btn-3d-azul:active {
-    transform: translateY(4px);
+    transform: translateY(3px);
     box-shadow: 0 2px 0 #2A83C7;
 }
 
-/* Imagem da Hero */
 .hero-image-box {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.hero-img {
+.hero-image-box img {
     max-width: 100%;
     height: auto;
-    border-radius: 24px;
+    border-radius: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   SEÇÃO COMO APRENDEMOS BRINCANDO (CARDS)
+   -------------------------------------------------------------------------- */
+.aprendemos-section {
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.card-laranja { border-color: #FF8A65; }
+.card-roxo { border-color: #BA68C8; }
+.card-amarelo { border-color: #FFD54F; }
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.88rem;
+    color: #666666;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   BLOCOS VERDES (DESENVOLVIMENTO, METODOLOGIA, LÚDICO)
+   -------------------------------------------------------------------------- */
+.green-blocks {
+    width: 100%;
+}
+
+.green-block {
+    padding: 50px 24px;
+    color: #FFFFFF;
+}
+
+.dark-green-1 { background-color: #2E7D32; }
+.dark-green-2 { background-color: #256A29; }
+.dark-green-3 { background-color: #1B5E20; }
+
+.block-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.block-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.block-text {
+    flex: 1;
+}
+
+.block-text h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+}
+
+.block-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    font-weight: 600;
+}
+
+.block-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.placeholder-box {
+    width: 100%;
+    max-width: 380px;
+    height: 160px;
+    background-color: #FFFFFF;
+    color: #333333;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+    background-color: #E0E0E0;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #666666;
+    font-weight: 700;
 }
