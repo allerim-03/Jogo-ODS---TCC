@@ -1,33 +1,32 @@
 /* ==========================================================================
-   NAVBAR (Cabeçalho Padronizado)
+   ESTILOS DA HOME INSTITUCIONAL (DESLOGADO / VISITANTE)
+   Padrão: Guia de Estilo ODS KIDS / Frutiger Plana
    ========================================================================== */
+
+/* 1. Estrutura da Topbar (Logo no Centro + Botões na Extrema Direita) */
 .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    height: 72px; /* Altura fixa garantida */
-    background-color: #4CAE50; /* Verde Garden Green */
+    padding: 10px 24px;
+    background-color: #4CAF50; /* Garden Green */
     width: 100%;
     box-sizing: border-box;
-    margin: 0;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-left,
 .topbar-right {
-    flex: 1;
+    flex: 1; /* Mantém os dois lados no mesmo tamanho para garantir a centralização perfeita do meio */
     display: flex;
     align-items: center;
 }
 
-.topbar-left { 
-    justify-content: flex-start; 
+.topbar-left {
+    justify-content: flex-start;
 }
 
-.topbar-right { 
-    justify-content: flex-end; 
+.topbar-right {
+    justify-content: flex-end; /* Empurra os botões para a extrema direita */
 }
 
 .topbar-center {
@@ -37,56 +36,327 @@
 }
 
 .navbar-logo {
-    max-height: 48px !important;
+   max-height: 40px !important; /* Ajuste o valor conforme precise */
     width: auto !important;
     object-fit: contain;
 }
 
-/* Botões rápidos da Navbar no topo direito */
-.header-actions {
+.topbar-actions {
     display: flex;
+    align-items: center;
     gap: 12px;
 }
 
-.btn-top {
-    padding: 8px 18px;
+.btn-sm {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+}
+
+/* 2. Hero Banner */
+.hero-banner {
+    background-color: #F4F9F4;
+    padding: 60px 20px;
+    border-bottom: 4px solid #4CAF50; /* Garden Green */
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    text-decoration: none !important;
-    border-radius: 12px;
-    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 20px;
     text-transform: uppercase;
-    transition: transform 0.1s ease;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
 }
 
-.btn-top-azul {
-    background-color: #3FA8F4;
-    box-shadow: 0 4px 0 #2A83C7;
+.hero-content h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: #1A1A1A;
+    line-height: 1.2;
+    margin-bottom: 16px;
 }
 
-.btn-top-verde {
-    background-color: #1B5E20;
-    box-shadow: 0 4px 0 #123E15;
+.hero-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 28px;
 }
 
-/* Hambúrguer dentro do Header */
-.hamburger {
-    width: 44px;
-    height: 44px;
-    background-color: #4CAE50;
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-lg {
+    padding: 14px 28px !important;
+    font-size: 1.05rem !important;
+    border-radius: 12px !important;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-hero-main {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 3px solid #43B4FB; /* Bright Blue */
+}
+
+/* 3. Cards de Soluções */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.section-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-family: 'Poppins', sans-serif;
+    color: #555555;
+    font-size: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card-item {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 30px 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+}
+
+.card-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #1A1A1A;
+}
+
+.card-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.card-laranja { border: 3px solid #FF8637; }
+.card-lavanda { border: 3px solid #DB95FD; }
+.card-amarelo { border: 3px solid #FFDE5A; }
+
+/* 4. Caixa do Mascote Tuga */
+.mascote-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #FFFFFF;
+    border: 2px solid #4CAF50; /* Borda Garden Green */
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.15);
+}
+
+.tuga-avatar {
+    font-size: 2.5rem;
+}
+
+.mascote-box h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #4CAF50;
+    margin: 0 0 4px 0;
+}
+
+.mascote-box p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem !important;
+    font-style: italic;
+    color: #333333 !important;
+    margin: 0;
+}
+
+/* 5. NOVOS QUADRANTES DE PILARES (ABAIXO DA TRILHA) */
+.pilares-container {
+    width: 100%;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    border-radius: 10px;
 }
 
-.hamburger span {
-    width: 24px;
-    height: 3px;
+.pilar-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 60px;
+    gap: 40px;
+    min-height: 220px;
+}
+
+.pilar-verde-claro {
+    background-color: #388E3C; /* Garden Green Oficial */
+    color: #FFFFFF;
+}
+
+.pilar-verde-medio {
+    background-color: #2E7D32; /* Verde intermediário */
+    color: #FFFFFF;
+}
+
+.pilar-verde-escuro {
+    background-color: #1B5E20; /* Verde profundo escuro */
+    color: #FFFFFF;
+}
+
+.pilar-texto {
+    flex: 1;
+    max-width: 650px;
+}
+
+.pilar-texto h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.pilar-texto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #F0F9F0;
+    margin: 0;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pilar-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+}
+
+.img-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 180px;
+    object-fit: contain;
     background-color: #FFFFFF;
-    border-radius: 2px;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pilar-reverso {
+    flex-direction: row;
+}
+
+/* 6. RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .navbar-logo {
+        height: 30px;
+    }
+
+    .pilar-card,
+    .pilar-reverso {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 35px 20px;
+        gap: 24px;
+    }
+
+    .pilar-texto {
+        max-width: 100%;
+    }
+
+    .text-right {
+        text-align: center;
+    }
+
+    .pilar-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    .img-placeholder {
+        height: auto;
+        max-height: 180px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .topbar-actions {
+        display: none;
+    }
 }
