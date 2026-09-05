@@ -1,37 +1,34 @@
 /* ==========================================================================
-   RESET COMPLETO DE ESPAÇAMENTOS (SEM LINHAS BRANCAS)
+   RESET E FLUXO GERAL
    ========================================================================== */
 html, body {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     background-color: #F8FAF8;
 }
 
 main {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 
 /* ==========================================================================
-   1. NAVBAR FIXA SÓLIDA ENCOSTADA NA FAIXA (SEM ESPAÇO BRANCO)
+   1. NAVBAR FIXA SÓLIDA (COM ALTURA DEFINIDA)
    ========================================================================== */
 .topbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px; /* Altura fixa garantida para cálculo do espaçamento */
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 24px;
-    
-    /* Cor exata do verde da navbar */
-    background-color: #4CAF50 !important;
-    
-    border: none !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 24px;
+    background-color: #4CAF50; /* Verde sólido sem transparência */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
 }
 
@@ -51,12 +48,12 @@ main {
     align-items: center;
 }
 
-/* LOGO SEM O QUADRADO/GRIFADO ATRÁS */
+/* LOGO SEM GRUPO/FUNDO RECTANGULAR */
 .navbar-logo {
-    max-height: 40px !important;
-    width: auto !important;
+    max-height: 40px;
+    width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Faz o fundo do PNG/JPG se fundir 100% com o verde */
+    mix-blend-mode: multiply; /* Remove fundo que divirja da cor do menu */
 }
 
 .hamburger {
@@ -77,16 +74,17 @@ main {
 }
 
 /* ==========================================================================
-   2. HERO BANNER ENCOSTADO NA NAVBAR (SEM FOLGA)
+   2. HERO BANNER (COM ESPAÇO CONFORTÁVEL EM RELAÇÃO À NAVBAR)
    ========================================================================== */
 .hero-banner {
-    padding-top: 80px; /* Espaço interno apenas para o texto não ficar embaixo do menu */
+    /* O padding-top de 110px dá 40px de respiro abaixo da navbar de 70px */
+    padding-top: 110px;
     padding-bottom: 60px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #F8FAF8;
     border-bottom: 4px solid #4CAF50;
-    margin: 0 !important;
+    margin: 0;
 }
 
 .hero-container {
@@ -228,7 +226,7 @@ main {
 }
 
 /* ==========================================================================
-   4. PILARES EM FAIXAS VERDES (CONTINUAS)
+   4. PILARES EM FAIXAS VERDES (ENCOSTA NA NAVBAR AO ROLAR)
    ========================================================================== */
 .pilares-container {
     width: 100%;
@@ -237,6 +235,7 @@ main {
     flex-direction: column;
 }
 
+/* Ajuste de scroll para que a navbar encoste exatamente na barra */
 .pilar-card {
     display: flex;
     align-items: center;
@@ -245,6 +244,7 @@ main {
     gap: 40px;
     min-height: 220px;
     box-sizing: border-box;
+    scroll-margin-top: 70px; /* Garante alinhamento perfeito com a altura da navbar */
 }
 
 .pilar-verde-claro { background-color: #388E3C; color: #FFFFFF; }
