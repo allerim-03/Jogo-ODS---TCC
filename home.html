@@ -1,139 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber</title>
+    <title>Cultivando o Saber - Home</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
+
 <body>
 
-    <input type="checkbox" id="menu-check" class="menu-checkbox">
-    <label for="menu-check" class="overlay"></label>
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox" style="display: none;">
+        <label for="menu-check" class="overlay"></label>
 
-    <aside class="sidebar">
-        <div class="perfil-sidebar">
-            <span class="icone-visitante">🐢</span>
-            <h3>Visitante</h3>
+        <div class="sidebar">
+            <div class="perfil-sidebar">
+                <span class="mascote-icon">🐢</span>
+                <p>Visitante</p>
+            </div>
+
+            <div class="sidebar-actions">
+                <a href="escolha.html" class="btn-3d btn-3d-azul">ENTRAR</a>
+                <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde-escuro">CADASTRAR</a>
+            </div>
         </div>
-        <nav class="links-sidebar">
-            <a href="ods.html">ODS</a>
-            <a href="sobre.html">SOBRE NÓS</a>
-            <a href="escolha-cadastro.html">CADASTRAR</a>
-        </nav>
-    </aside>
 
-    <header class="navbar">
-        <div class="navbar-left">
-            <label for="menu-check" class="hamburger" aria-label="Abrir Menu">
+        <div class="topbar-left">
+            <label for="menu-check" class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-            <h1 class="logo-texto">CULTIVANDO O SABER</h1>
         </div>
 
-        <div class="navbar-right">
-            <a href="escolha.html" class="btn-top btn-top-azul">ENTRAR</a>
-            <a href="escolha-cadastro.html" class="btn-top btn-top-verde">CADASTRAR</a>
+        <div class="topbar-center">
+            <div class="logo">
+                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+            </div>
         </div>
+
+        <div class="topbar-right"></div>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text">
-                <div class="badge-ods">
-                    🌱 ODS 15 — VIDA TERRESTRE
+    <main>
+        <section class="hero-banner">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge-tag">🌱 ODS 15 — VIDA TERRESTRE</span>
+                    <h2>Aprender sobre a natureza nunca foi tão divertido!</h2>
+                    <p>
+                        Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="escolha.html" class="btn-3d btn-3d-azul">
+                            ENTRAR
+                        </a>
+                        <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde-escuro">
+                            CADASTRAR
+                        </a>
+                    </div>
                 </div>
-                <h2>Aprender sobre a natureza nunca foi tão divertido!</h2>
-                <p>
-                    Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental
-                    às metas de preservação ambiental através de jogos lúdicos, missões ecológicas
-                    e quizzes valendo conquistas.
-                </p>
-                <div class="hero-buttons">
-                    <a href="escolha-cadastro.html" class="btn-3d btn-3d-verde">▶ COMEÇAR AVENTURA</a>
-                    <a href="sobre.html" class="btn-3d btn-3d-azul">CONHECER O PROJETO</a>
+                
+                <div class="hero-image">
+                    <img src="img/testeimg.png" alt="Mascote Tuga" class="img-hero-main">
                 </div>
             </div>
-            
-            <div class="hero-image-box">
-                <img src="img/tartaruga-hero.png" alt="Mascote Tartaruga Cultivando o Saber">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="aprendemos-section">
-        <h2 class="section-title">Como Aprendemos Brincando?</h2>
-        <p class="section-subtitle">
-            Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.
-        </p>
-
-        <div class="cards-grid">
-            <div class="card card-laranja">
-                <div class="card-icon">🧩</div>
-                <h3>Jogos Lúdicos</h3>
-                <p>Desafios em pixel art desenvolvidos para ensinar a proteção das florestas e da fauna terrestre.</p>
+        <section id="solucoes" class="sobre-sessao">
+            <div class="section-header">
+                <h2>Como Aprendemos Brincando?</h2>
+                <p>Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.</p>
             </div>
 
-            <div class="card card-roxo">
-                <div class="card-icon">❓</div>
-                <h3>Quizzes Interativos</h3>
-                <p>Perguntas alinhadas às metas da ODS 15 para testar o conhecimento e fixar aprendizados.</p>
-            </div>
+            <div class="cards-grid">
+                <div class="card-item card-laranja">
+                    <div class="card-icon">🧩</div>
+                    <h3>Jogos Lúdicos</h3>
+                    <p>Desafios em pixel art desenvolvidos para ensinar a proteção das florestas e da fauna terrestre.</p>
+                </div>
 
-            <div class="card card-amarelo">
-                <div class="card-icon">⭐</div>
-                <h3>Conquistas & XP</h3>
-                <p>Acumule pontos de experiência, suba de nível e acompanhe sua evolução nas missões ambientais.</p>
-            </div>
-        </div>
-    </section>
+                <div class="card-item card-lavanda">
+                    <div class="card-icon">❓</div>
+                    <h3>Quizzes Interativos</h3>
+                    <p>Perguntas alinhadas às metas da ODS 15 para testar o conhecimento e fixar aprendizados.</p>
+                </div>
 
-    <section class="green-blocks">
-        <div class="green-block dark-green-1">
-            <div class="block-container">
-                <div class="block-text">
+                <div class="card-item card-amarelo">
+                    <div class="card-icon">⭐</div>
+                    <h3>Conquistas & XP</h3>
+                    <p>Acumule pontos de experiência, suba de nível e acompanhe sua evolução nas missões ambientais.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pilares-container">
+            <article class="pilar-card pilar-verde-1">
+                <div class="pilar-texto">
                     <h2>DESENVOLVIMENTO SUSTENTÁVEL</h2>
                     <p>Transforme-se em um agente de transformação ambiental ao abordar a Educação Ambiental (EA) em sua comunidade escolar e destaque-se em sua organização.</p>
                 </div>
-                <div class="block-image">
-                    <div class="placeholder-box">Desenvolvimento Sustentável Placeholder</div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder1.png" alt="Desenvolvimento Sustentável Placeholder" class="img-placeholder">
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <div class="green-block dark-green-2">
-            <div class="block-container reverse">
-                <div class="block-text">
+            <article class="pilar-card pilar-verde-2 pilar-reverso">
+                <div class="pilar-imagem">
+                    <img src="img/placeholder2.png" alt="Metodologia Ativa Placeholder" class="img-placeholder">
+                </div>
+                <div class="pilar-texto text-right">
                     <h2>METODOLOGIA ATIVA</h2>
                     <p>Utilize a gamificação como solução eficaz para engajar os seus alunos em práticas sustentáveis, conscientização social e letramento ambiental.</p>
                 </div>
-                <div class="block-image">
-                    <div class="placeholder-box">Metodologia Ativa Placeholder</div>
-                </div>
-            </div>
-        </div>
+            </article>
 
-        <div class="green-block dark-green-3">
-            <div class="block-container">
-                <div class="block-text">
+            <article class="pilar-card pilar-verde-3">
+                <div class="pilar-texto">
                     <h2>LÚDICO, INTERATIVO E CONSCIENTE</h2>
                     <p>A plataforma surge do desejo âmago de mudanças ambientais e uma geração consciente dos seus impactos no hodierno.</p>
                 </div>
-                <div class="block-image">
-                    <div class="placeholder-box">Lúdico e Interativo Placeholder</div>
+                <div class="pilar-imagem">
+                    <img src="img/placeholder3.png" alt="Lúdico e Interativo Placeholder" class="img-placeholder">
                 </div>
-            </div>
-        </div>
-    </section>
+            </article>
+        </section>
+    </main>
 
-    <footer class="footer">
-        <p>© 2026 FATEC - Informática para Negócios</p>
+    <footer>
+        <div class="rodape-conteudo">
+            <p>© 2026 FATEC - Informática para Negócios</p>
+        </div>
     </footer>
 
 </body>
