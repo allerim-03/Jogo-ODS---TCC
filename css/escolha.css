@@ -1,5 +1,5 @@
 /* =========================================
-   1. TÍTULO NO TOPO DA PÁGINA (H1 — Nunito Bold)
+   1. TÍTULO NO TOPO DA PÁGINA (H1 / H2)
    ========================================= */
 .titulo-principal-topo {
     text-align: center;
@@ -36,7 +36,7 @@
 
 .bloco-info {
     background: #FFFFFF;
-    border-radius: 16px; /* Conforme guia: cards possuem 16px */
+    border-radius: 16px;
     padding: 30px 35px;
     display: flex;
     align-items: center;
@@ -55,7 +55,6 @@
     text-align: left;
 }
 
-/* Títulos de Painéis (H2) — Montserrat SemiBold */
 .bloco-texto h2 {
     font-family: 'Montserrat', sans-serif;
     color: #4CAE50; /* Garden Green */
@@ -65,7 +64,6 @@
     margin-bottom: 12px;
 }
 
-/* Texto de Leitura / Parágrafos — Poppins Regular #1A1A1A */
 .bloco-texto p {
     font-family: 'Poppins', sans-serif;
     color: #1A1A1A;
@@ -74,7 +72,6 @@
     margin-bottom: 20px;
 }
 
-/* Botões de Ação — Radius 12px, Montserrat Bold */
 .btn-saiba-mais {
     display: inline-block;
     background-color: #43B4FB; /* Bright Blue */
@@ -83,7 +80,7 @@
     font-weight: 700;
     font-size: 0.9rem;
     padding: 10px 20px;
-    border-radius: 12px; /* Conforme guia: botões possuem 12px */
+    border-radius: 12px;
     text-decoration: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -132,9 +129,9 @@
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
     background-color: #FFFFFF;
-    border-radius: 16px; /* Conforme guia: 16px */
+    border-radius: 16px;
     padding: 0;
-    border: 3px solid #43B4FB; /* Borda colorida estrutural Bright Blue */
+    border: 3px solid #43B4FB;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease;
     display: flex;
@@ -184,7 +181,7 @@
 
 .modal-card {
     background: #FFFFFF;
-    border-radius: 16px; /* Conforme guia: 16px */
+    border-radius: 16px;
     max-width: 650px;
     width: 100%;
     padding: 30px;
@@ -197,13 +194,13 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    background: #FF524D; /* Vivid Red reservado para ações de fechar/cancelar */
+    background: #FF524D;
     color: #FFFFFF;
     border: none;
     font-size: 1.2rem;
     width: 32px;
     height: 32px;
-    border-radius: 12px; /* Botão 12px */
+    border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
     display: flex;
@@ -216,7 +213,7 @@
 }
 
 .modal-tag {
-    background-color: #FFDE5A; /* Banana Yellow para gamificação / recompensa */
+    background-color: #FFDE5A;
     color: #1A1A1A;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -280,48 +277,7 @@
 }
 
 /* =========================================
-   5. RESPONSIVIDADE
-   ========================================= */
-@media (max-width: 768px) {
-    .ods-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-    
-    .bloco-info, 
-    .bloco-info.bloco-invertido {
-        flex-direction: column;
-        padding: 24px;
-        gap: 20px;
-    }
-
-    .bloco-imagem-placeholder {
-        width: 100%;
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .ods-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-    }
-
-    .modal-card {
-        padding: 20px 15px;
-    }
-
-    .modal-body {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .modal-imagem-container {
-        height: 140px;
-    }
-}
-
-/* =========================================
-   6. ESCOLHA DE CADASTRO / BOAS-VINDAS
+   5. ESCOLHA DE PERFIL / BOAS-VINDAS (CARD DUAL)
    ========================================= */
 .boas-vindas {
     display: flex;
@@ -334,7 +290,7 @@
 
 .boas-vindas .titulo-branco {
     font-family: 'Nunito', sans-serif;
-    color: #4CAE50 !important; /* Garden Green */
+    color: #4CAE50 !important;
     font-size: 2.2rem;
     font-weight: 800;
     margin-bottom: 6px;
@@ -388,4 +344,49 @@
     font-size: 0.95rem;
     color: #1A1A1A;
     margin: 0;
+}
+
+/* =========================================
+   6. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 768px) {
+    .ods-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .bloco-info, 
+    .bloco-info.bloco-invertido {
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .bloco-imagem-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ods-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .modal-card {
+        padding: 20px 15px;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .modal-imagem-container {
+        height: 140px;
+    }
+
+    .escolha-container .escolha-card {
+        width: 100% !important;
+    }
 }
