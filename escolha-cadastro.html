@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Cultivando o Saber</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -51,24 +50,35 @@
             margin: 0 !important;
         }
 
-        /* Lado esquerdo: hambúrguer + logo */
+        /* Lado esquerdo com largura total relativa para permitir alinhamento perfeito */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
             gap: 18px !important;
+            width: 100% !important;
         }
 
+        /* Container centralizado da imagem da logo */
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
-            align-items: flex-start !important;
+            align-items: center !important;
             justify-content: center !important;
+            width: 100% !important;
+        }
+
+        .topbar .logo {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
         }
 
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
+            margin: 0 auto !important;
         }
 
         /* Compensação para o cabeçalho fixo */
@@ -99,12 +109,10 @@
 
 <body>
 
-    <!-- NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
@@ -118,7 +126,6 @@
             </nav>
         </aside>
 
-        <!-- Lado Esquerdo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -136,7 +143,6 @@
         <div class="topbar-right"></div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main>
         <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
             <h2 style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Crie sua conta</h2>
@@ -159,7 +165,6 @@
         </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
