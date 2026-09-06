@@ -25,6 +25,129 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
     <link rel="stylesheet" href="css/perfil.css">
+
+    <style>
+        /* Remoção de margens no topo */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Topbar com altura expandida padronizada */
+        .topbar {
+            margin-top: 0 !important;
+            top: 0 !important;
+            position: relative;
+            width: 100%;
+            height: 90px !important;
+            min-height: 90px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 10px 25px !important;
+            box-sizing: border-box !important;
+            background-color: #4CAF50 !important;
+            z-index: 1000;
+        }
+
+        /* Lado esquerdo: hambúrguer + (logo + barra de XP) */
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 18px !important;
+        }
+
+        /* Container vertical para empilhar Logo e XP */
+        .topbar .info-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            gap: 6px !important;
+        }
+
+        /* Logo em tamanho maior para destaque */
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+        /* Estilização da barra de nível e XP */
+        .topbar .level {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #ffffff !important;
+            font-size: 12px !important;
+            font-weight: bold !important;
+            line-height: 1 !important;
+        }
+
+        .topbar .level .star {
+            color: #FFDD55 !important;
+        }
+
+        .topbar .level .bar {
+            width: 120px !important;
+            height: 10px !important;
+            background-color: #2E7D32 !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+        }
+
+        .topbar .level .progress {
+            height: 100% !important;
+            background-color: #FFDD55 !important;
+            border-radius: 10px !important;
+        }
+
+        .topbar .level .xp {
+            font-size: 11px !important;
+            color: #ffffff !important;
+            opacity: 0.95;
+        }
+
+        /* Menu de navegação */
+        .topbar nav.menu {
+            margin-left: auto !important;
+            margin-right: 25px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+        }
+
+        .topbar nav.menu a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            font-size: 15px !important;
+            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            padding-bottom: 3px !important;
+            border-bottom: 2px solid transparent !important;
+        }
+
+        .topbar nav.menu a:hover,
+        .topbar nav.menu a.active {
+            color: #FFDD55 !important;
+            border-bottom: 2px solid #FFDD55 !important;
+        }
+
+        .links-sidebar a:hover {
+            color: #FFDD55 !important;
+        }
+
+        /* Foto de perfil circular */
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+            width: 45px !important;
+            height: 45px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            display: block !important;
+            border: 2px solid #ffffff;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,7 +205,7 @@
             <a href="quiz.html">QUIZ</a>
             <a href="jogos.html">JOGOS</a>
             <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
+            <a href="perfil.html" class="active">PERFIL</a>
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
@@ -93,7 +216,7 @@
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main class="perfil-container" style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important;">
+    <main class="perfil-container" style="margin-top: 40px !important; padding-top: 0 !important; margin-bottom: 20px !important;">
         
         <!-- TÍTULO "MEU PERFIL" (Verde da Navbar) -->
         <div style="text-align: center; margin-bottom: 15px !important;">
