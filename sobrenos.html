@@ -21,84 +21,77 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
-    <!-- REGRAS CSS: BARRA FINA E MENU EMPURRADO PARA A DIREITA COM HOVER AMARELO -->
     <style>
+        /* Remoção de margens no topo */
         html, body {
             margin: 0 !important;
             padding: 0 !important;
         }
 
-        /* Barra superior fina e fixa no topo */
+        /* Ajuste do topo da barra */
         .topbar {
-            position: relative !important;
+            margin-top: 0 !important;
             top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 50px !important;
-            min-height: 50px !important;
-            padding: 0 25px !important;
-            margin: 0 !important;
+            position: relative;
+            width: 100%;
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
+            padding: 10px 20px !important;
             box-sizing: border-box !important;
-            background-color: #4caf50; /* Cor verde da barra */
         }
 
+        /* Lado esquerdo: ícone do menu + título + barra de progresso */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
             gap: 15px !important;
-            height: 100% !important;
         }
 
-        .topbar .navbar-logo, 
-        .topbar .logo img {
-            max-height: 30px !important;
-            width: auto !important;
-        }
-
-        /* MENU EMPURRADO PARA A DIREITA */
-        .topbar nav.menu {
-            margin-left: auto !important; /* Empurra o menu até a direita */
-            margin-right: 20px !important; /* Distância em relação à foto de perfil */
+        .topbar .info-container {
             display: flex !important;
-            align-items: center !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 4px !important;
+        }
+
+        /* Menu de navegação empurrado para a direita perto do perfil */
+        .topbar nav.menu {
+            margin-left: auto !important;
+            margin-right: 25px !important;
+            display: flex !important;
             gap: 20px !important;
         }
 
-        /* Estilização dos links do menu */
+        /* Efeito de passar o mouse amarelo (hover) */
         .topbar nav.menu a {
             color: #ffffff !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            font-size: 14px !important;
-            transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out !important;
-            padding-bottom: 3px !important;
+            font-size: 15px !important;
+            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            padding-bottom: 2px !important;
         }
 
-        /* HOVER AMARELO */
         .topbar nav.menu a:hover,
         .topbar nav.menu a.active {
-            color: #ffeb3b !important; /* Cor amarela ao passar o mouse */
+            color: #ffeb3b !important; /* Cor amarela */
             border-bottom: 2px solid #ffeb3b !important;
         }
 
+        /* Foto de perfil */
         .topbar .perfil-externo img {
-            max-height: 32px !important;
-            width: auto !important;
+            width: 40px !important;
+            height: 40px !important;
             border-radius: 50% !important;
+            object-fit: cover !important;
             display: block !important;
-        }
-
-        .sobre-main-container {
-            margin-top: 20px !important;
         }
     </style>
 </head>
 
 <body>
-    <!-- NAVBAR -->
+    <!-- NAVBAR COMPLETA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -120,7 +113,7 @@
             </nav>
         </aside>
 
-        <!-- Lado Esquerdo: Hambúrguer e Logo -->
+        <!-- Lado Esquerdo: Hambúrguer, Logo/Título e Barra de Progresso -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -132,10 +125,18 @@
                 <div class="logo">
                     <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
             </div>
         </div>
 
-        <!-- Menu de Navegação na Direita -->
+        <!-- Menu do Lado Direito -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -146,7 +147,7 @@
             <a href="sobrenos.html" class="active">SOBRE NÓS</a>
         </nav>
 
-        <!-- Perfil à Direita -->
+        <!-- Perfil no Canto Direito -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
