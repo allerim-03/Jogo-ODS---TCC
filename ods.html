@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - ODS</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -23,41 +24,92 @@
     <link rel="stylesheet" href="css/textos.css">
 
     <style>
-        /* Remoção de margens do topo da página */
+        /* Remoção total de margens e espaçamentos no topo */
+        * {
+            box-sizing: border-box;
+        }
+
         html, body {
             margin: 0 !important;
             padding: 0 !important;
         }
 
-        /* Estrutura flex da navbar padronizada */
+        /* Topbar fixada diretamente no topo sem qualquer folga */
         .topbar {
-            margin-top: 0 !important;
+            position: fixed !important;
             top: 0 !important;
-            position: relative;
-            width: 100%;
+            left: 0 !important;
+            width: 100% !important;
+            height: 90px !important;
+            min-height: 90px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
-            padding: 10px 20px !important;
-            box-sizing: border-box !important;
-            background-color: #4caf50;
+            padding: 10px 25px !important;
+            background-color: #4CAF50 !important;
+            z-index: 1000 !important;
+            margin: 0 !important;
         }
 
-        /* Lado esquerdo: ícone do menu + logo + barra de progresso */
+        /* Lado esquerdo: hambúrguer + (logo + barra de XP) */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
-            gap: 15px !important;
+            gap: 18px !important;
         }
 
+        /* Container vertical para empilhar Logo e XP */
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: 4px !important;
+            justify-content: center !important;
+            gap: 6px !important;
         }
 
-        /* Menu de navegação alinhado à direita */
+        /* Logo em tamanho maior para destaque */
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+        /* Estilização da barra de nível e XP */
+        .topbar .level {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #ffffff !important;
+            font-size: 12px !important;
+            font-weight: bold !important;
+            line-height: 1 !important;
+        }
+
+        .topbar .level .star {
+            color: #FFDD55 !important;
+        }
+
+        .topbar .level .bar {
+            width: 120px !important;
+            height: 10px !important;
+            background-color: #2E7D32 !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+        }
+
+        .topbar .level .progress {
+            height: 100% !important;
+            background-color: #FFDD55 !important;
+            border-radius: 10px !important;
+        }
+
+        .topbar .level .xp {
+            font-size: 11px !important;
+            color: #ffffff !important;
+            opacity: 0.95;
+        }
+
+        /* Menu de navegação */
         .topbar nav.menu {
             margin-left: auto !important;
             margin-right: 25px !important;
@@ -66,35 +118,44 @@
             gap: 20px !important;
         }
 
-        /* Links com estilo e hover amarelo com sublinhado */
         .topbar nav.menu a {
             color: #ffffff !important;
             text-decoration: none !important;
             font-weight: bold !important;
             font-size: 15px !important;
             transition: color 0.2s ease, border-bottom 0.2s ease !important;
-            padding-bottom: 2px !important;
+            padding-bottom: 3px !important;
             border-bottom: 2px solid transparent !important;
         }
 
         .topbar nav.menu a:hover,
         .topbar nav.menu a.active {
-            color: #ffeb3b !important;
-            border-bottom: 2px solid #ffeb3b !important;
+            color: #FFDD55 !important;
+            border-bottom: 2px solid #FFDD55 !important;
         }
 
-        /* Perfil circular à direita */
-        .topbar .perfil-externo img {
-            width: 40px !important;
-            height: 40px !important;
+        /* Foto de perfil circular */
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+            width: 45px !important;
+            height: 45px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             display: block !important;
+            border: 2px solid #ffffff;
+        }
+
+        /* Compensação do conteúdo principal por conta da navbar fixada */
+        main {
+            margin-top: 110px !important;
+            padding-top: 0 !important;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -140,7 +201,7 @@
             </div>
         </div>
 
-        <!-- Menu de Navegação à Direita -->
+        <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html" class="active">ODS</a>
@@ -157,12 +218,13 @@
         </a>
     </header>
 
-    <main style="padding-top: 80px; margin-top: 0;">
-        <section class="boas-vindas" style="padding-top: 20px !important; margin-top: 0 !important;">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="boas-vindas" style="padding-top: 10px !important; margin-top: 0 !important;">
 
             <div class="titulo-principal-topo" style="margin-top: 0 !important; padding-top: 0 !important;">
-                <h2 style="margin-top: 0 !important;">Objetivos de Desenvolvimento Sustentável (ODS)</h2>
-                <p>Descubra como pequenas ações podem transformar o mundo!</p>
+                <h2 style="margin-top: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800; text-align: center;">Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+                <p style="text-align: center;">Descubra como pequenas ações podem transformar o mundo!</p>
             </div>
 
             <section class="secao-explicativa">
@@ -194,6 +256,7 @@
 
             </section>
 
+            <!-- GRID DOS CARDS DE ODS -->
             <div class="ods-grid">
                 <div class="escolha-card" onclick="abrirModal(1)"><img src="img/ods1.png" alt="ODS 1"></div>
                 <div class="escolha-card" onclick="abrirModal(2)"><img src="img/ods2.png" alt="ODS 2"></div>
@@ -239,8 +302,56 @@
         </div>
     </div>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
+
+    <!-- SCRIPT DO MODAL -->
+    <script>
+        const dadosODS = {
+            1: { titulo: "Erradicação da Pobreza", desc: "Acabar com a pobreza em todas as suas formas, em todos os lugares, garantindo acesso a recursos e serviços básicos para todos." },
+            2: { titulo: "Fome Zero e Agricultura Sustentável", desc: "Erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável." },
+            3: { titulo: "Saúde e Bem-Estar", desc: "Garantir uma vida saudável e promover o bem-estar para todas e todos, em todas as idades." },
+            4: { titulo: "Educação de Qualidade", desc: "Garantir a educação inclusiva, equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos." },
+            5: { titulo: "Igualdade de Gênero", desc: "Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas." },
+            6: { titulo: "Água Potável e Saneamento", desc: "Garantir a disponibilidade e a gestão sustentável da água e saneamento para todos." },
+            7: { titulo: "Energia Limpa e Acessível", desc: "Garantir o acesso a fontes de energia fiáveis, sustentáveis, modernas e a preço acessível para todos." },
+            8: { titulo: "Trabalho Decente e Crescimento Econômico", desc: "Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo e trabalho decente para todos." },
+            9: { titulo: "Indústria, Inovação e Infraestrutura", desc: "Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação." },
+            10: { titulo: "Redução das Desigualdades", desc: "Reduzir a desigualdade dentro dos países e entre eles." },
+            11: { titulo: "Cidades e Comunidades Sustentáveis", desc: "Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis." },
+            12: { titulo: "Consumo e Produção Responsáveis", desc: "Garantir padrões de consumo e de produção sustentáveis." },
+            13: { titulo: "Ação Contra a Mudança Global do Clima", desc: "Tomar medidas urgentes para combater a mudança do clima e os seus impactos." },
+            14: { titulo: "Vida na Água", desc: "Conservar e usar de forma sustentável os oceanos, mares e recursos marinhos para o desenvolvimento sustentável." },
+            15: { titulo: "Vida Terrestre", desc: "Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas e combater a desertificação." },
+            16: { titulo: "Paz, Justiça e Instituições Eficazes", desc: "Promover sociedades和平 e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas." },
+            17: { titulo: "Parcerias e Meios de Implementação", desc: "Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável." }
+        };
+
+        function abrirModal(numero) {
+            const ods = dadosODS[numero];
+            if (!ods) return;
+
+            document.getElementById('modal-tag').innerText = `ODS ${numero}`;
+            document.getElementById('modal-titulo').innerText = ods.titulo;
+            document.getElementById('modal-descricao').innerText = ods.desc;
+            document.getElementById('modal-img').src = `img/ods${numero}.png`;
+
+            const modal = document.getElementById('ods-modal');
+            modal.style.display = 'flex';
+        }
+
+        function fecharModal() {
+            document.getElementById('ods-modal').style.display = 'none';
+        }
+
+        function fecharModalFora(event) {
+            if (event.target.id === 'ods-modal') {
+                fecharModal();
+            }
+        }
+    </script>
 </body>
+
 </html>
