@@ -21,18 +21,27 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
+    <!-- REGRA PARA ELIMINAR O ESPAÇO NO TOPO -->
     <style>
-        /* Remoção de margens e espaçamentos no topo da página */
         html, body {
             margin: 0 !important;
             padding: 0 !important;
+            margin-top: 0 !important;
+            padding-top: 0 !important;
         }
 
         .topbar {
-            margin-top: 0 !important;
+            position: fixed !important;
             top: 0 !important;
-            position: relative;
-            width: 100%;
+            left: 0 !important;
+            width: 100% !important;
+            margin: 0 !important;
+            z-index: 1000;
+        }
+
+        /* Compensação para o conteúdo não ficar escondido debaixo do header fixo */
+        .sobre-main-container {
+            margin-top: 80px !important; 
         }
     </style>
 </head>
