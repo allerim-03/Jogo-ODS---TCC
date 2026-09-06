@@ -33,7 +33,7 @@
             padding: 0 !important;
         }
 
-        /* Topbar padronizada e fixada no topo */
+        /* Topbar fixada no topo com layout centralizado */
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -50,35 +50,30 @@
             margin: 0 !important;
         }
 
-        /* Lado esquerdo com largura total relativa para permitir alinhamento perfeito */
-        .topbar .left {
+        .topbar-left {
             display: flex !important;
             align-items: center !important;
-            gap: 18px !important;
-            width: 100% !important;
+            width: 50px !important;
         }
 
-        /* Container centralizado da imagem da logo */
-        .topbar .info-container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 100% !important;
-        }
-
-        .topbar .logo {
+        /* Container central que garante o alinhamento no meio exato da barra */
+        .topbar-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            width: 100% !important;
         }
 
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
-            margin: 0 auto !important;
+        }
+
+        .topbar-right {
+            width: 50px !important;
         }
 
         /* Compensação para o cabeçalho fixo */
@@ -88,7 +83,7 @@
             min-height: calc(100vh - 150px) !important;
         }
 
-        /* Estilização dos Ícones de Escolha */
+        /* Ícones das cartas */
         .escolha-icone {
             display: inline-block;
             width: 80px;
@@ -126,17 +121,17 @@
             </nav>
         </aside>
 
-        <div class="left">
+        <div class="topbar-left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
+        </div>
 
-            <div class="info-container">
-                <div class="logo">
-                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
-                </div>
+        <div class="topbar-center">
+            <div class="logo">
+                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
