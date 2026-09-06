@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,77 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+        /* Remoção de margens do topo da página */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Estrutura flex da navbar padronizada */
+        .topbar {
+            margin-top: 0 !important;
+            top: 0 !important;
+            position: relative;
+            width: 100%;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 10px 20px !important;
+            box-sizing: border-box !important;
+            background-color: #4caf50;
+        }
+
+        /* Lado esquerdo: ícone do menu + logo + barra de progresso */
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+        }
+
+        .topbar .info-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 4px !important;
+        }
+
+        /* Menu de navegação alinhado à direita */
+        .topbar nav.menu {
+            margin-left: auto !important;
+            margin-right: 25px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+        }
+
+        /* Links com estilo e hover amarelo com sublinhado */
+        .topbar nav.menu a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            font-size: 15px !important;
+            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            padding-bottom: 2px !important;
+            border-bottom: 2px solid transparent !important;
+        }
+
+        .topbar nav.menu a:hover,
+        .topbar nav.menu a.active {
+            color: #ffeb3b !important;
+            border-bottom: 2px solid #ffeb3b !important;
+        }
+
+        /* Perfil circular à direita */
+        .topbar .perfil-externo img {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,6 +99,7 @@
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
+        <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
@@ -44,6 +117,7 @@
             </nav>
         </aside>
 
+        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -66,9 +140,10 @@
             </div>
         </div>
 
+        <!-- Menu de Navegação à Direita -->
         <nav class="menu">
             <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
+            <a href="ods.html" class="active">ODS</a>
             <a href="quiz.html">QUIZ</a>
             <a href="jogos.html">JOGOS</a>
             <a href="ranking.html">RANKING</a>
@@ -76,6 +151,7 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
+        <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
@@ -140,6 +216,7 @@
         </section>
     </main>
 
+    <!-- MODAL DAS ODS -->
     <div id="ods-modal" class="modal-overlay" onclick="fecharModalFora(event)">
         <div class="modal-card">
             <button class="modal-fechar" onclick="fecharModal()">&times;</button>
@@ -159,3 +236,11 @@
                     <p id="modal-descricao">Carregando explicação...</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+</body>
+</html>
