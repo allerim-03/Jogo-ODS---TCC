@@ -21,33 +21,73 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
-    <!-- REGRA PARA ELIMINAR O ESPAÇO NO TOPO -->
+    <!-- REGRAS CSS PARA A BARRA FICA FINA E COORDENADA NO TOPO -->
     <style>
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            margin-top: 0 !important;
-            padding-top: 0 !important;
         }
 
+        /* Força a barra a ter uma altura reduzida (fina) e colada no topo */
         .topbar {
-            position: fixed !important;
+            position: relative !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
+            height: 50px !important; /* Altura fina */
+            min-height: 50px !important;
+            padding: 0 20px !important;
             margin: 0 !important;
-            z-index: 1000;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            box-sizing: border-box !important;
         }
 
-        /* Compensação para o conteúdo não ficar escondido debaixo do header fixo */
+        /* Ajuste do container da logo/nível dentro da barra fina */
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            height: 100% !important;
+        }
+
+        .topbar .info-container {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+
+        /* Redimensiona a imagem do logo para caber na altura da barra */
+        .topbar .navbar-logo, 
+        .topbar .logo img {
+            max-height: 30px !important;
+            width: auto !important;
+        }
+
+        /* Se tiver a barra de XP/nível, mantém alinhada e compacta */
+        .topbar .level {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            font-size: 13px !important;
+        }
+
+        /* Esconde elementos sobressalentes para evitar que quebrem a altura */
+        .topbar .level .bar {
+            width: 80px !important;
+            height: 8px !important;
+        }
+
+        /* Ajuste do container principal */
         .sobre-main-container {
-            margin-top: 80px !important; 
+            margin-top: 20px !important;
         }
     </style>
 </head>
 
 <body>
-    <!-- NAVBAR PADRONIZADA -->
+    <!-- NAVBAR COMPACTA E FINA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -69,7 +109,7 @@
             </nav>
         </aside>
 
-        <!-- Lado Esquerdo: Hambúrguer, Logo e Nível/XP -->
+        <!-- Lado Esquerdo: Hambúrguer e Logo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -81,18 +121,10 @@
                 <div class="logo">
                     <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
-
-                <div class="level">
-                    <span class="star">★ NÍVEL 2</span>
-                    <div class="bar">
-                        <div class="progress" style="width: 45%;"></div>
-                    </div>
-                    <span class="xp">450/1000</span>
-                </div>
             </div>
         </div>
 
-        <!-- Menu de Navegação -->
+        <!-- Menu de Navegação na Barra -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -105,7 +137,7 @@
 
         <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil" style="max-height: 32px; width: auto;">
         </a>
     </header>
 
