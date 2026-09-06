@@ -25,45 +25,36 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
     <link rel="stylesheet" href="css/perfil.css">
-
-    <style>
-        /* Esconde o checkbox, mas mantém ele funcionando */
-        #menu-check {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- CHECKBOX DO MENU HAMBÚRGUER -->
-    <input type="checkbox" id="menu-check">
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="perfil-sidebar">
-            <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
-            <p>Nível 2</p>
-        </div>
-
-        <nav class="links-sidebar">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-        </nav>
-    </div>
-
-    <!-- OVERLAY -->
-    <label for="menu-check" class="overlay"></label>
-
     <!-- NAVBAR -->
     <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <!-- Sidebar Mobile -->
+        <aside class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <p>Nível 2</p>
+            </div>
+
+            <nav class="links-sidebar">
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+            </nav>
+        </aside>
+
+        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
         <div class="left">
-            <label for="menu-check" class="hamburger">
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -71,24 +62,20 @@
 
             <div class="info-container">
                 <div class="logo">
-                    <span class="icon">🌱</span>
-                    <div>
-                        <h1>Cultivando o Saber</h1>
-                        <p></p>
-                    </div>
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
 
                 <div class="level">
                     <span class="star">★ NÍVEL 2</span>
                     <div class="bar">
-                        <div class="progress"></div>
+                        <div class="progress" style="width: 45%;"></div>
                     </div>
                     <span class="xp">450/1000</span>
                 </div>
             </div>
         </div>
 
-        <!-- MENU -->
+        <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -99,7 +86,7 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
-        <!-- FOTO DE PERFIL -->
+        <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
