@@ -41,7 +41,7 @@
 </head>
 
 <body>
-<!-- TOPBAR / NAVBAR (IDÊNTICO À HOME.HTML) -->
+    <!-- TOPBAR / NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -53,10 +53,11 @@
                 <p>Visitante</p>
             </div>
 
-            <div class="sidebar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
-            </div>
+            <nav class="links-sidebar">
+                <a href="home.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="sobre.html">SOBRE NÓS</a>
+            </nav>
         </div>
 
         <!-- 1. Esquerda: Menu Hamburger -->
@@ -75,43 +76,38 @@
             </div>
         </div>
 
-        <!-- 3. Direita: Ações de Login/Cadastro -->
-        <div class="topbar-right">
-            <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
-            </div>
-        </div>
+        <!-- 3. Direita: Espaço Reservado / Vazio -->
+        <div class="topbar-right"></div>
     </header>
 
-<!-- CONTEÚDO PRINCIPAL -->
-<main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
 
-    <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; min-height: auto !important; height: auto !important; text-align: center;">
-        <h2 class="titulo-branco" style="margin-top: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Login</h2>
-        <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Bem-vindo de volta! Qual perfil deseja acessar?</p>
+        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; min-height: auto !important; height: auto !important; text-align: center;">
+            <h2 class="titulo-branco" style="margin-top: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Login</h2>
+            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Bem-vindo de volta! Qual perfil deseja acessar?</p>
 
-        <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
 
-            <div class="escolha-card aluno-card" onclick="window.location.href='login.html'">
-                <span class="escolha-icone"></span>
-                <h2>Aluno</h2>
-                <p>Quero aprender brincando!</p>
+                <div class="escolha-card aluno-card" onclick="window.location.href='login.html'">
+                    <span class="escolha-icone"></span>
+                    <h2>Aluno</h2>
+                    <p>Quero aprender brincando!</p>
+                </div>
+
+                <div class="escolha-card professor-card" onclick="window.location.href='login-professor.html'">
+                    <span class="escolha-icone"></span>
+                    <h2>Gestor</h2>
+                    <p>Quero acompanhar meus alunos.</p>
+                </div>
+
             </div>
+        </section>
+    </main>
 
-            <div class="escolha-card professor-card" onclick="window.location.href='login-professor.html'">
-                <span class="escolha-icone"></span>
-                <h2>Gestor</h2>
-                <p>Quero acompanhar meus alunos.</p>
-            </div>
-
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>© 2026 FATEC - Informática para Negócios</p>
-</footer>
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
 
 </body>
 </html>
