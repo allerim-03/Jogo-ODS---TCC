@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Cultivando o Saber</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -21,7 +23,62 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Topbar padronizada e fixada no topo */
+        .topbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 90px !important;
+            min-height: 90px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 10px 25px !important;
+            background-color: #4CAF50 !important;
+            z-index: 1000 !important;
+            margin: 0 !important;
+        }
+
+        /* Lado esquerdo: hambúrguer + logo */
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 18px !important;
+        }
+
+        .topbar .info-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+        }
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+        /* Compensação para o cabeçalho fixo */
+        main {
+            margin-top: 90px !important;
+            padding-top: 40px !important;
+            min-height: calc(100vh - 150px) !important;
+        }
+
+        /* Estilização dos Ícones de Escolha */
         .escolha-icone {
             display: inline-block;
             width: 80px;
@@ -41,10 +98,13 @@
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
+        <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
@@ -52,32 +112,33 @@
             </div>
 
             <nav class="links-sidebar">
-                <a href="home.html">HOME</a>
+                <a href="index.html">HOME</a>
                 <a href="ods.html">ODS</a>
                 <a href="sobrenos.html">SOBRE NÓS</a>
             </nav>
         </aside>
 
-        <div class="topbar-left">
+        <!-- Lado Esquerdo -->
+        <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-        </div>
 
-        <div class="topbar-center">
-            <div class="logo">
-                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+            <div class="info-container">
+                <div class="logo">
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                </div>
             </div>
         </div>
 
         <div class="topbar-right"></div>
     </header>
 
-    <main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
-
-        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; min-height: auto !important; height: auto !important; text-align: center;">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
             <h2 style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Crie sua conta</h2>
             
             <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Você é:</p>
@@ -98,9 +159,11 @@
         </section>
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
 </body>
+
 </html>
