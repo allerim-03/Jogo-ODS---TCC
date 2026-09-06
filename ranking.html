@@ -25,12 +25,11 @@
 
 <body class="pagina-ranking">
 
-    <!-- NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <div class="sidebar">
+        <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="img/foto.png" class="foto-perfil" alt="Perfil">
                 <p>Nível 2</p>
@@ -44,23 +43,25 @@
                 <a href="perfil.html">PERFIL</a>
                 <a href="sobrenos.html">SOBRE NÓS</a>
             </nav>
-        </div>
+        </aside>
 
         <div class="left">
-            <label for="menu-check" class="hamburger">
-                <span></span><span></span><span></span>
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </label>
 
             <div class="info-container">
                 <div class="logo">
-                    <span class="icon">🌱</span>
-                    <div>
-                        <h1>Cultivando o Saber</h1>
-                    </div>
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
+
                 <div class="level">
                     <span class="star">★ NÍVEL 2</span>
-                    <div class="bar"><div class="progress"></div></div>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
                     <span class="xp">450/1000</span>
                 </div>
             </div>
@@ -81,7 +82,6 @@
         </a>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main style="padding-top: 140px !important; margin-top: 0 !important;">
         <section class="ranking-wrapper" style="padding-top: 20px !important; margin-top: 0 !important;">
             <div class="texto-ranking-topo" style="margin-top: 0 !important; padding-top: 0 !important;">
@@ -90,7 +90,6 @@
             </div>
 
             <div class="ranking-container">
-                <!-- PÓDIO -->
                 <div class="podium-container">
                     <div class="podium-card second">
                         <div class="podium-medal">🥈</div>
@@ -114,7 +113,6 @@
                     </div>
                 </div>
 
-                <!-- LISTA -->
                 <div class="ranking-list">
                     <div class="ranking-item">
                         <span class="position">4º</span>
@@ -148,7 +146,6 @@
         </section>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
