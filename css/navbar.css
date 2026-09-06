@@ -1,226 +1,220 @@
-/* =========================================
-   NAVBAR.CSS - Barra de Navegação Principal
-   ========================================= */
+/* ==========================================================================
+    NAVBAR / TOPBAR - CULTIVANDO O SABER
+   ========================================================================== */
 
+/* Header Principal (Topbar Verde) */
 .topbar {
-    height: 100px;
-    background-color: #4CAF50; /* Garden Green */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
     width: 100%;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 40px !important;
+    height: 80px;
+    background-color: #4caf50; /* Verde temático da plataforma */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
     box-sizing: border-box;
 }
 
-/* 1. ESQUERDA (Menu Hambúrguer) */
-.topbar-left,
-.left {
+/* Lado Esquerdo: Hambúrguer + Container (Logo em cima, Nível/XP embaixo) */
+.topbar .left {
     display: flex;
     align-items: center;
-    gap: 20px;
-    z-index: 2;
+    gap: 15px;
 }
 
-/* 2. CENTRO (Logo perfeitamente no meio da tela) */
-.topbar-center {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 1;
-}
-
-/* LOGO - Reset de Fundo e Controle de Tamanho */
-.topbar-center .logo,
-.logo {
-    background-image: none !important;
-    background: transparent !important;
-    height: auto !important;
-    max-height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    gap: 10px;
-}
-
-.navbar-logo,
-.logo img {
-    max-height: 45px !important;
-    height: 45px !important;
-    width: auto !important;
-    object-fit: contain !important;
-}
-
-.logo h1 {
-    margin: 0;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 24px;
-    color: #FFFFFF;
-    line-height: 1;
-    white-space: nowrap;
+/* Container de Informações (Logo + Level verticalmente) */
+.info-container {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
 }
 
-.logo p {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #FFDE5A; /* Banana Yellow */
-    font-weight: 700;
+/* Imagem do Logo Estilizado */
+.navbar-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
-/* 3. DIREITA (Botões de Ação / Entrar e Cadastrar) */
-.topbar-right {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    z-index: 2;
-}
-
-.topbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* NÍVEL E BARRA DE XP DA NAVBAR (Se logado) */
+/* Linha de Nível, Barra e XP abaixo do Logo */
 .level {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: -2px;
-}
-
-.level span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #ffffff;
     font-weight: 700;
-    color: #FFFFFF;
-    white-space: nowrap;
+    line-height: 1;
 }
 
-.bar {
-    width: 180px;
-    height: 12px;
-    background-color: #1e5a27;
-    border-radius: 999px;
+.level .star {
+    letter-spacing: 0.5px;
+}
+
+/* Barra de Progresso do Nível */
+.level .bar {
+    width: 140px;
+    height: 10px;
+    background-color: #1e5c22; /* Verde escuro do fundo da barra */
+    border-radius: 10px;
     overflow: hidden;
+    display: inline-block;
 }
 
-.progress {
-    width: 45%;
+.level .progress {
     height: 100%;
-    background-color: #ffb72b;
-    border-radius: 999px;
+    background-color: #ffb703; /* Amarelo/Laranja do progresso */
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
 
-/* MENU DE NAVEGAÇÃO */
+.level .xp {
+    font-size: 0.8rem;
+    opacity: 0.95;
+}
+
+/* Menu Central de Navegação */
 .menu {
     display: flex;
+    gap: 20px;
     align-items: center;
-    gap: 25px;
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 10px 25px;
-    border-radius: 12px;
-    margin-left: auto;
-    width: max-content;
 }
 
 .menu a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
-    padding-bottom: 4px;
+    font-size: 0.95rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .menu a:hover {
-    color: #FFDE5A;
-}
-
-.menu a.active {
-    border-bottom: 3px solid #4CAE50;
-}
-
-/* BOTÃO DE LOGOUT */
-.logout {
-    background-color: #FF524D;
-    color: #FFFFFF;
-    border: none;
-    width: auto;
-    padding: 10px 24px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.1s ease;
-    margin-left: 15px;
-}
-
-.logout:hover {
-    opacity: 0.9;
+    color: #d8f3dc;
     transform: translateY(-1px);
 }
 
-.logout:active {
-    transform: translateY(0);
-}
-
-/* CONTAINER DE FOTO DE PERFIL */
-.perfil-container {
-    width: 45px;
-    height: 45px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
-    border: 2px solid #FFFFFF;
-    transition: transform 0.2s ease;
-}
-
-.perfil-container:hover {
-    transform: scale(1.05);
-}
-
-.foto-perfil {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* Foto de Perfil (Direita) */
 .perfil-externo {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    margin-left: 20px;
-    overflow: hidden;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
 }
 
-.perfil-externo:hover {
+.foto-perfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.foto-perfil:hover {
     transform: scale(1.05);
+}
+
+/* ==========================================================================
+   MENU HAMBÚRGUER E SIDEBAR MOBILE
+   ========================================================================== */
+
+/* Checkbox invisível para alternar o menu */
+.menu-checkbox {
+    display: none;
+}
+
+/* Botão Hambúrguer */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Overlay do fundo ao abrir menu */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+}
+
+.menu-checkbox:checked ~ .overlay {
+    display: block;
+}
+
+/* Sidebar lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background-color: #2d6a4f;
+    z-index: 99;
+    transition: left 0.3s ease;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.menu-checkbox:checked ~ .sidebar {
+    left: 0;
+}
+
+.perfil-sidebar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+}
+
+.links-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.links-sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.links-sidebar a:hover {
+    color: #b7e4c7;
+}
+
+/* RESPONSIVIDADE: Oculta o menu horizontal central em telas menores */
+@media (max-width: 992px) {
+    .menu {
+        display: none;
+    }
 }
