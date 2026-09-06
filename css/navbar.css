@@ -1,115 +1,76 @@
-/* ============================================================
-   NAVBAR PADRONIZADA - CULTIVANDO O SABER
-   ============================================================ */
-
-/* Remoção de margens e preenchimentos do topo */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Container Principal do Header */
+/* NAVBAR COMPACTA PADRÃO - TODAS AS PÁGINAS */
 .topbar {
-    position: relative !important;
+    margin-top: 0 !important;
     top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
+    position: relative;
+    width: 100%;
+    height: 55px !important; /* Altura fina da barra */
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 12px 25px !important;
+    padding: 6px 20px !important;
     box-sizing: border-box !important;
-    background-color: #4caf50; /* Verde da plataforma */
-    z-index: 1000;
+    background-color: #4CAF50 !important;
 }
 
-/* Lado Esquerdo: Ícone Hambúrguer + Logo + Barra de XP */
 .topbar .left {
     display: flex !important;
     align-items: center !important;
-    gap: 15px !important;
+    gap: 12px !important;
 }
 
-.topbar .info-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 4px !important;
-}
-
-/* Logo da Navbar */
-.topbar .navbar-logo,
-.topbar .logo img {
-    height: 28px !important;
+.topbar .navbar-logo {
+    height: 24px !important;
     width: auto !important;
-    display: block !important;
 }
 
-/* Nível e Barra de XP */
 .topbar .level {
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    color: #ffffff !important;
-    font-size: 13px !important;
-    font-weight: bold !important;
-}
-
-.topbar .level .star {
+    gap: 6px !important;
+    font-size: 11px !important;
     color: #ffffff !important;
 }
 
 .topbar .level .bar {
-    width: 110px !important;
-    height: 10px !important;
-    background-color: #1e5222 !important; /* Verde escuro do fundo da barra */
+    width: 70px !important;
+    height: 8px !important;
+    background-color: #2e7d32 !important;
     border-radius: 10px !important;
-    overflow: hidden !important;
+    overflow: hidden;
 }
 
 .topbar .level .progress {
     height: 100% !important;
-    background-color: #ffb703 !important; /* Amarelo/Laranja do progresso */
-    border-radius: 10px !important;
+    background-color: #FFDD55 !important;
 }
 
-.topbar .level .xp {
-    color: #ffffff !important;
-    font-size: 12px !important;
-}
-
-/* Menu de Navegação Alinhado à Direita */
 .topbar nav.menu {
     margin-left: auto !important;
-    margin-right: 25px !important;
+    margin-right: 20px !important;
     display: flex !important;
-    align-items: center !important;
-    gap: 22px !important;
+    gap: 16px !important;
 }
 
-/* Links do Menu */
 .topbar nav.menu a {
     color: #ffffff !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    font-size: 15px !important;
+    font-size: 13px !important;
     transition: color 0.2s ease, border-bottom 0.2s ease !important;
-    padding-bottom: 3px !important;
+    padding-bottom: 2px !important;
     border-bottom: 2px solid transparent !important;
 }
 
-/* Efeito Hover e Aba Ativa (Texto e Linha Amarelos) */
 .topbar nav.menu a:hover,
 .topbar nav.menu a.active {
-    color: #ffeb3b !important;
-    border-bottom: 2px solid #ffeb3b !important;
+    color: #FFDD55 !important;
+    border-bottom: 2px solid #FFDD55 !important;
 }
 
-/* Ícone de Perfil na Extremidade Direita */
-.topbar .perfil-externo img,
-.topbar .foto-perfil {
-    width: 42px !important;
-    height: 42px !important;
+.topbar .perfil-externo img {
+    width: 32px !important;
+    height: 32px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     display: block !important;
