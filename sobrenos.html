@@ -21,30 +21,30 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
-    <!-- REGRAS CSS PARA A BARRA FICA FINA E COORDENADA NO TOPO -->
+    <!-- REGRAS CSS: BARRA FINA E MENU EMPURRADO PARA A DIREITA COM HOVER AMARELO -->
     <style>
         html, body {
             margin: 0 !important;
             padding: 0 !important;
         }
 
-        /* Força a barra a ter uma altura reduzida (fina) e colada no topo */
+        /* Barra superior fina e fixa no topo */
         .topbar {
             position: relative !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
-            height: 50px !important; /* Altura fina */
+            height: 50px !important;
             min-height: 50px !important;
-            padding: 0 20px !important;
+            padding: 0 25px !important;
             margin: 0 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
             box-sizing: border-box !important;
+            background-color: #4caf50; /* Cor verde da barra */
         }
 
-        /* Ajuste do container da logo/nível dentro da barra fina */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
@@ -52,34 +52,45 @@
             height: 100% !important;
         }
 
-        .topbar .info-container {
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-        }
-
-        /* Redimensiona a imagem do logo para caber na altura da barra */
         .topbar .navbar-logo, 
         .topbar .logo img {
             max-height: 30px !important;
             width: auto !important;
         }
 
-        /* Se tiver a barra de XP/nível, mantém alinhada e compacta */
-        .topbar .level {
+        /* MENU EMPURRADO PARA A DIREITA */
+        .topbar nav.menu {
+            margin-left: auto !important; /* Empurra o menu até a direita */
+            margin-right: 20px !important; /* Distância em relação à foto de perfil */
             display: flex !important;
             align-items: center !important;
-            gap: 8px !important;
-            font-size: 13px !important;
+            gap: 20px !important;
         }
 
-        /* Esconde elementos sobressalentes para evitar que quebrem a altura */
-        .topbar .level .bar {
-            width: 80px !important;
-            height: 8px !important;
+        /* Estilização dos links do menu */
+        .topbar nav.menu a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            font-size: 14px !important;
+            transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out !important;
+            padding-bottom: 3px !important;
         }
 
-        /* Ajuste do container principal */
+        /* HOVER AMARELO */
+        .topbar nav.menu a:hover,
+        .topbar nav.menu a.active {
+            color: #ffeb3b !important; /* Cor amarela ao passar o mouse */
+            border-bottom: 2px solid #ffeb3b !important;
+        }
+
+        .topbar .perfil-externo img {
+            max-height: 32px !important;
+            width: auto !important;
+            border-radius: 50% !important;
+            display: block !important;
+        }
+
         .sobre-main-container {
             margin-top: 20px !important;
         }
@@ -87,7 +98,7 @@
 </head>
 
 <body>
-    <!-- NAVBAR COMPACTA E FINA -->
+    <!-- NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -124,7 +135,7 @@
             </div>
         </div>
 
-        <!-- Menu de Navegação na Barra -->
+        <!-- Menu de Navegação na Direita -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -137,7 +148,7 @@
 
         <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil" style="max-height: 32px; width: auto;">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
     </header>
 
