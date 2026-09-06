@@ -27,7 +27,7 @@
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <div class="sidebar">
+        <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="img/foto.png" class="foto-perfil" alt="Perfil">
                 <p>Nível 2</p>
@@ -35,29 +35,31 @@
             <nav class="links-sidebar">
                 <a href="index.html">HOME</a>
                 <a href="ods.html">ODS</a>
-                 <a href="quiz.html">QUIZ</a>
+                <a href="quiz.html">QUIZ</a>
                 <a href="jogos.html">JOGOS</a>
                 <a href="ranking.html">RANKING</a>
                 <a href="perfil.html">PERFIL</a>
                 <a href="sobrenos.html">SOBRE NÓS</a>
             </nav>
-        </div>
+        </aside>
 
         <div class="left">
-            <label for="menu-check" class="hamburger">
-                <span></span><span></span><span></span>
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </label>
 
             <div class="info-container">
                 <div class="logo">
-                    <span class="icon">🌱</span>
-                    <div>
-                        <h1>Cultivando o Saber</h1>
-                    </div>
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
+
                 <div class="level">
                     <span class="star">★ NÍVEL 2</span>
-                    <div class="bar"><div class="progress"></div></div>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
                     <span class="xp">450/1000</span>
                 </div>
             </div>
@@ -78,18 +80,14 @@
         </a>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="sobre-main-container">
 
-        <!-- CARD BRANCO CENTRALIZADO -->
         <div class="card-sobre-central">
 
-            <!-- CABEÇALHO DA PÁGINA -->
             <div class="header-sobre">
                 <h1 class="titulo-verde">Sobre Nós</h1>
             </div>
 
-            <!-- TÓPICO 1: O PROJETO -->
             <section class="secao-info">
                 <div class="bloco-conteudo-projeto">
                     <div class="bloco-texto">
@@ -109,7 +107,6 @@
 
             <hr class="divisor">
 
-            <!-- TÓPICO 2: MISSÃO -->
             <section class="secao-info secao-topico-linear">
                 <div class="icone-topico">🎯</div>
                 <div class="bloco-texto">
@@ -122,7 +119,6 @@
 
             <hr class="divisor">
 
-            <!-- TÓPICO 3: VISÃO -->
             <section class="secao-info secao-topico-linear">
                 <div class="icone-topico">🚀</div>
                 <div class="bloco-texto">
@@ -135,7 +131,6 @@
 
             <hr class="divisor">
 
-            <!-- TÓPICO 4: VALORES -->
             <section class="secao-info secao-topico-linear">
                 <div class="icone-topico">💡</div>
                 <div class="bloco-texto">
@@ -148,11 +143,9 @@
 
             <hr class="divisor">
 
-            <!-- TÓPICO 5: NOSSA EQUIPE -->
             <section class="secao-equipe">
                 <h2 class="titulo-verde alinhado-centro">Nossa Equipe</h2>
 
-                <!-- SUBGRUPO FRONT-END -->
                 <div class="categoria-equipe">
                     <span class="badge-area">Front-end</span>
                     <div class="time-container">
@@ -178,7 +171,6 @@
                     </div>
                 </div>
 
-                <!-- SUBGRUPO BACK-END -->
                 <div class="categoria-equipe">
                     <span class="badge-area">Back-end</span>
                     <div class="time-container">
@@ -219,10 +211,8 @@
 
     </main>
 
-    <!-- OVERLAY E CARDS INFORMATIVOS (ESTILO ODS) -->
     <div id="modal-overlay" class="modal-overlay" onclick="fecharTodosModais()"></div>
 
-    <!-- CARD 1: Andrielli Moreira -->
     <div id="modal-membro-1" class="modal-membro">
         <button class="modal-close" onclick="fecharModal('modal-membro-1')">&times;</button>
         <span class="badge-tag-modal">FRONT-END</span>
@@ -238,7 +228,6 @@
         </div>
     </div>
 
-    <!-- CARD 2: Nicoly Ramalho -->
     <div id="modal-membro-2" class="modal-membro">
         <button class="modal-close" onclick="fecharModal('modal-membro-2')">&times;</button>
         <span class="badge-tag-modal">FRONT-END</span>
@@ -254,7 +243,6 @@
         </div>
     </div>
 
-    <!-- CARD 3: Kauan Gonçalves -->
     <div id="modal-membro-3" class="modal-membro">
         <button class="modal-close" onclick="fecharModal('modal-membro-3')">&times;</button>
         <span class="badge-tag-modal">BACK-END</span>
@@ -270,7 +258,6 @@
         </div>
     </div>
 
-    <!-- CARD 4: Kaylaini Araujo -->
     <div id="modal-membro-4" class="modal-membro">
         <button class="modal-close" onclick="fecharModal('modal-membro-4')">&times;</button>
         <span class="badge-tag-modal">BACK-END</span>
@@ -286,7 +273,6 @@
         </div>
     </div>
 
-    <!-- CARD 5: Mirella Conceição -->
     <div id="modal-membro-5" class="modal-membro">
         <button class="modal-close" onclick="fecharModal('modal-membro-5')">&times;</button>
         <span class="badge-tag-modal">BACK-END</span>
