@@ -54,7 +54,7 @@
 }
 
 .topbar .level .star {
-    color: #FFDD55 !important;
+    color: #FFB72B !important;
 }
 
 /* Trilho da Barra de XP */
@@ -66,10 +66,10 @@
     overflow: hidden !important;
 }
 
-/* Preenchimento Amarelo da XP */
+/* Preenchimento Amarelo da XP (#FFB72B) */
 .topbar .level .progress {
     height: 100% !important;
-    background-color: #FFDD55 !important;
+    background-color: #FFB72B !important;
     border-radius: 10px !important;
 }
 
@@ -93,16 +93,22 @@
     text-decoration: none !important;
     font-weight: bold !important;
     font-size: 15px !important;
-    transition: color 0.2s ease, border-bottom 0.2s ease !important;
+    transition: color 0.2s ease !important;
     padding-bottom: 3px !important;
-    border-bottom: 2px solid transparent !important;
+    border-bottom: none !important;
     text-transform: uppercase;
 }
 
-.topbar nav.menu a:hover,
+/* Hover: Fica amarelo quando passa o mouse em cima */
+.topbar nav.menu a:hover {
+    color: #FFB72B !important;
+    border-bottom: none !important;
+}
+
+/* Item Ativo/Clicado: Mantém o texto branco e sem sublinhado */
 .topbar nav.menu a.active {
-    color: #FFDD55 !important;
-    border-bottom: 2px solid #FFDD55 !important;
+    color: #ffffff !important;
+    border-bottom: none !important;
 }
 
 /* FOTO DO PERFIL CIRCULAR */
