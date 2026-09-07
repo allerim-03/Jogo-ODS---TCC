@@ -34,7 +34,7 @@
             padding: 0 !important;
         }
 
-        /* Topbar fixada diretamente no topo sem qualquer folga */
+        /* Topbar fixada diretamente no topo */
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -74,7 +74,7 @@
             display: block !important;
         }
 
-        /* Estilização da barra de nível e XP (Cor amarela de alto contraste - #FFDD55) */
+        /* Estilização da barra de nível e XP */
         .topbar .level {
             display: flex !important;
             align-items: center !important;
@@ -109,7 +109,7 @@
             opacity: 0.95;
         }
 
-        /* Menu de navegação */
+        /* Menu de navegação - Sem bordas inferiores ou sublinhados */
         .topbar nav.menu {
             margin-left: auto !important;
             margin-right: 25px !important;
@@ -124,18 +124,30 @@
             font-weight: bold !important;
             font-size: 15px !important;
             transition: color 0.2s ease !important;
-            padding-bottom: 3px !important;
-            border-bottom: none !important;
+            padding: 0 !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
         }
 
+        /* Hover: Fica amarelo sem linha */
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
-            border-bottom: none !important;
+            text-decoration: none !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
         }
 
+        /* Ao clicar / Selecionado / Ativo: Fica branco sem linha */
+        .topbar nav.menu a:active,
+        .topbar nav.menu a:focus,
         .topbar nav.menu a.active {
             color: #ffffff !important;
-            border-bottom: none !important;
+            text-decoration: none !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
         }
 
         /* Foto de perfil circular */
