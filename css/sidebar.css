@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR.CSS - Sidebar do Visitante (Estilo Padronizado)
+   SIDEBAR.CSS - Sidebar do Usuário Logado
    ========================================================================== */
 
 .menu-checkbox {
@@ -67,7 +67,7 @@
     display: block;
 }
 
-/* PERFIL DENTRO DA SIDEBAR (VISITANTE) */
+/* PERFIL DENTRO DA SIDEBAR (LOGADO) */
 .perfil-sidebar {
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -78,12 +78,14 @@
     align-items: center;
 }
 
+.mascote-icon,
 .icone-visitante {
     font-size: 2.2rem;
     margin-bottom: 6px;
 }
 
-.perfil-sidebar h3 {
+.perfil-sidebar h3,
+.perfil-sidebar p {
     color: #FFB72B !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -96,6 +98,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    height: 100%;
 }
 
 .links-sidebar a {
@@ -108,10 +111,28 @@
     padding: 12px 16px;
     border-radius: 12px;
     transition: background-color 0.2s ease, color 0.2s ease;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .links-sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     color: #FFDE5A !important;
+}
+
+/* BOTÃO DE SAIR (PORTA ABRINDO) */
+.links-sidebar a.link-sair {
+    margin-top: auto; /* Empurra o botão de sair para o fim da sidebar */
+    color: #FF6B6B !important;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.links-sidebar a.link-sair:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #FF8E8E !important;
+}
+
+.icone-sair {
+    font-size: 1.2rem;
 }
