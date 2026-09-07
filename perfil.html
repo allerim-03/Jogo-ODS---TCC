@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="css/perfil.css">
 
     <style>
-        /* Remoção total de margens e espaçamentos no topo */
         * {
             box-sizing: border-box;
         }
@@ -36,7 +35,7 @@
             padding: 0 !important;
         }
 
-        /* Topbar fixada diretamente no topo sem qualquer folga */
+        /* Topbar Padronizada Fixa */
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -53,14 +52,13 @@
             margin: 0 !important;
         }
 
-        /* Lado esquerdo: hambúrguer + (logo + barra de XP) */
+        /* Lado Esquerdo */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
             gap: 18px !important;
         }
 
-        /* Container vertical para empilhar Logo e XP */
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
@@ -69,14 +67,13 @@
             gap: 6px !important;
         }
 
-        /* Logo em tamanho maior para destaque */
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
         }
 
-        /* Estilização da barra de nível e XP */
+        /* Nível e Barra de Experiência */
         .topbar .level {
             display: flex !important;
             align-items: center !important;
@@ -111,7 +108,7 @@
             opacity: 0.95;
         }
 
-        /* Menu de navegação */
+        /* Menu Central */
         .topbar nav.menu {
             margin-left: auto !important;
             margin-right: 25px !important;
@@ -125,18 +122,22 @@
             text-decoration: none !important;
             font-weight: bold !important;
             font-size: 15px !important;
-            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            transition: color 0.2s ease !important;
             padding-bottom: 3px !important;
-            border-bottom: 2px solid transparent !important;
+            border-bottom: none !important;
         }
 
-        .topbar nav.menu a:hover,
-        .topbar nav.menu a.active {
+        .topbar nav.menu a:hover {
             color: #FFDD55 !important;
-            border-bottom: 2px solid #FFDD55 !important;
+            border-bottom: none !important;
         }
 
-        /* Foto de perfil circular */
+        .topbar nav.menu a.active {
+            color: #ffffff !important;
+            border-bottom: none !important;
+        }
+
+        /* Perfil Circular à Direita */
         .topbar .perfil-externo img,
         .topbar img.foto-perfil {
             width: 45px !important;
@@ -147,7 +148,7 @@
             border: 2px solid #ffffff;
         }
 
-        /* Compensação do conteúdo principal por conta do menu fixo */
+        /* Compensação do conteúdo principal */
         main.perfil-container {
             margin-top: 110px !important;
             padding-top: 0 !important;
@@ -157,10 +158,12 @@
 
 <body>
 
+    <!-- NAVBAR PADRONIZADA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
+        <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
@@ -178,6 +181,7 @@
             </nav>
         </aside>
 
+        <!-- Lado Esquerdo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -200,6 +204,7 @@
             </div>
         </div>
 
+        <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -210,11 +215,13 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
+        <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL DO PERFIL -->
     <main class="perfil-container" style="margin-bottom: 20px !important;">
         
         <div style="text-align: center; margin-bottom: 15px !important;">
@@ -310,6 +317,7 @@
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
