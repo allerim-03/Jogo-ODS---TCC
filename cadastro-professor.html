@@ -21,10 +21,31 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+        /* Ajuste isolado para centralizar perfeitamente o logotipo e esconder os botões da direita */
+        .topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+        }
+
+        .topbar-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+
+        .topbar-right {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- TOPBAR / NAVBAR (IDÊNTICO À HOME.HTML) -->
+    <!-- TOPBAR / NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -58,7 +79,7 @@
             </div>
         </div>
 
-        <!-- 3. Direita: Ações de Login/Cadastro -->
+        <!-- 3. Direita: Oculta para manter o alinhamento central da logo -->
         <div class="topbar-right">
             <div class="topbar-actions">
                 <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
