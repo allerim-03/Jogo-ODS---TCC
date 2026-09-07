@@ -68,14 +68,14 @@
             gap: 6px !important;
         }
 
-        /* Logo em tamanho maior para destaque */
+        /* Logo em tamanho padrão */
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
         }
 
-        /* Estilização da barra de nível e XP */
+        /* Estilização da barra de nível e XP (Cor amarela/alaranjada suave - #FFB72B) */
         .topbar .level {
             display: flex !important;
             align-items: center !important;
@@ -87,7 +87,7 @@
         }
 
         .topbar .level .star {
-            color: #FFDD55 !important;
+            color: #FFB72B !important;
         }
 
         .topbar .level .bar {
@@ -100,7 +100,7 @@
 
         .topbar .level .progress {
             height: 100% !important;
-            background-color: #FFDD55 !important;
+            background-color: #FFB72B !important;
             border-radius: 10px !important;
         }
 
@@ -124,15 +124,19 @@
             text-decoration: none !important;
             font-weight: bold !important;
             font-size: 15px !important;
-            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            transition: color 0.2s ease !important;
             padding-bottom: 3px !important;
-            border-bottom: 2px solid transparent !important;
+            border-bottom: none !important;
         }
 
-        .topbar nav.menu a:hover,
+        .topbar nav.menu a:hover {
+            color: #FFB72B !important;
+            border-bottom: none !important;
+        }
+
         .topbar nav.menu a.active {
-            color: #FFDD55 !important;
-            border-bottom: 2px solid #FFDD55 !important;
+            color: #ffffff !important;
+            border-bottom: none !important;
         }
 
         /* Foto de perfil circular */
@@ -148,7 +152,7 @@
 
         /* Compensação do conteúdo principal por conta da navbar fixada */
         main {
-            margin-top: 110px !important;
+            margin-top: 90px !important;
             padding-top: 0 !important;
         }
     </style>
@@ -179,7 +183,7 @@
             </nav>
         </aside>
 
-        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
+        <!-- Lado Esquerdo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -221,7 +225,7 @@
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <section class="boas-vindas" style="padding-top: 10px !important; margin-top: 0 !important;">
+        <section class="boas-vindas" style="padding-top: 20px !important; margin-top: 0 !important;">
             <h2 style="margin-top: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800; text-align: center;">Eco-Quiz</h2>
             <p style="text-align: center;">Teste seus conhecimentos sobre o meio ambiente!</p>
 
@@ -247,7 +251,7 @@
                 <div id="result-screen" style="display: none;">
                     <h1>Fim do Quiz!</h1>
                     <p>Você marcou:</p>
-                    <h2 id="final-score" style="color: #fbc02d; font-size: 3rem;">0</h2>
+                    <h2 id="final-score" style="color: #FFB72B; font-size: 3rem;">0</h2>
                     <p>pontos de XP</p>
                     <button class="btn-login" onclick="location.reload()">Tentar Novamente</button>
                 </div>
