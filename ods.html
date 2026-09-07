@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="css/textos.css">
 
     <style>
-        /* Remoção total de margens e espaçamentos no topo */
         * {
             box-sizing: border-box;
         }
@@ -34,7 +33,7 @@
             padding: 0 !important;
         }
 
-        /* Topbar fixada diretamente no topo sem qualquer folga */
+        /* Topbar fixada no topo */
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -67,7 +66,7 @@
             gap: 6px !important;
         }
 
-        /* Logo em tamanho maior para destaque */
+        /* Logo em tamanho padrão */
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
@@ -86,7 +85,7 @@
         }
 
         .topbar .level .star {
-            color: #FFDD55 !important;
+            color: #FFB72B !important;
         }
 
         .topbar .level .bar {
@@ -99,7 +98,7 @@
 
         .topbar .level .progress {
             height: 100% !important;
-            background-color: #FFDD55 !important;
+            background-color: #FFB72B !important;
             border-radius: 10px !important;
         }
 
@@ -123,15 +122,19 @@
             text-decoration: none !important;
             font-weight: bold !important;
             font-size: 15px !important;
-            transition: color 0.2s ease, border-bottom 0.2s ease !important;
+            transition: color 0.2s ease !important;
             padding-bottom: 3px !important;
-            border-bottom: 2px solid transparent !important;
+            border-bottom: none !important;
         }
 
-        .topbar nav.menu a:hover,
+        .topbar nav.menu a:hover {
+            color: #FFB72B !important;
+            border-bottom: none !important;
+        }
+
         .topbar nav.menu a.active {
-            color: #FFDD55 !important;
-            border-bottom: 2px solid #FFDD55 !important;
+            color: #ffffff !important;
+            border-bottom: none !important;
         }
 
         /* Foto de perfil circular */
@@ -147,7 +150,7 @@
 
         /* Compensação do conteúdo principal por conta da navbar fixada */
         main {
-            margin-top: 110px !important;
+            margin-top: 90px !important;
             padding-top: 0 !important;
         }
     </style>
@@ -178,7 +181,7 @@
             </nav>
         </aside>
 
-        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
+        <!-- Lado Esquerdo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -220,7 +223,7 @@
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <section class="boas-vindas" style="padding-top: 10px !important; margin-top: 0 !important;">
+        <section class="boas-vindas" style="padding-top: 20px !important; margin-top: 0 !important;">
 
             <div class="titulo-principal-topo" style="margin-top: 0 !important; padding-top: 0 !important;">
                 <h2 style="margin-top: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800; text-align: center;">Objetivos de Desenvolvimento Sustentável (ODS)</h2>
@@ -325,7 +328,7 @@
             13: { titulo: "Ação Contra a Mudança Global do Clima", desc: "Tomar medidas urgentes para combater a mudança do clima e os seus impactos." },
             14: { titulo: "Vida na Água", desc: "Conservar e usar de forma sustentável os oceanos, mares e recursos marinhos para o desenvolvimento sustentável." },
             15: { titulo: "Vida Terrestre", desc: "Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas e combater a desertificação." },
-            16: { titulo: "Paz, Justiça e Instituições Eficazes", desc: "Promover sociedades和平 e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas." },
+            16: { titulo: "Paz, Justiça e Instituições Eficazes", desc: "Promover sociedades inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas." },
             17: { titulo: "Parcerias e Meios de Implementação", desc: "Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável." }
         };
 
