@@ -217,3 +217,43 @@ h3 {
     margin: 0 auto;
     line-height: 1.6;
 }
+
+/* =========================================================
+   NAVEGAÇÃO - ESTILO PADRONIZADO DOS LINKS DO MENU
+   ========================================================= */
+
+/* 1. Estado Normal: Texto branco sem sublinhado ou borda inferior */
+.topbar nav.menu a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: color 0.2s ease !important;
+}
+
+/* 2. Hover (Cursor sobre o item): Fica amarelo sem linha/sublinhado */
+.topbar nav.menu a:hover {
+    color: #FFDD55 !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Ativo / Clicado / Selecionado: Permanece branco sem linha/sublinhado */
+.topbar nav.menu a:active,
+.topbar nav.menu a:focus,
+.topbar nav.menu a.active {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
