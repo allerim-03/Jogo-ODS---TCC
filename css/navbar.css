@@ -1,25 +1,26 @@
 /* =========================================================
-   NAVBAR PADRÃO IGUAL À HOME (COM LOGO GRANDE E XP)
+   NAVBAR PADRÃO (FIXA, LOGO GRANDE, XP E MENU)
    ========================================================= */
 
-/* Topbar com altura expandida e fixada igual à Home */
+/* 1. Topbar fixada no topo com altura de 90px */
 .topbar {
-    margin-top: 0 !important;
+    position: fixed !important;
     top: 0 !important;
-    position: relative;
-    width: 100%;
-    height: 90px !important; /* Altura ideal para o logo grande + XP abaixo */
+    left: 0 !important;
+    width: 100% !important;
+    height: 90px !important;
     min-height: 90px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 10px 25px !important;
     box-sizing: border-box !important;
-    background-color: #4CAF50 !important; /* Verde padrão */
-    z-index: 1000;
+    background-color: #4CAF50 !important; /* Verde principal */
+    z-index: 1000 !important;
+    margin: 0 !important;
 }
 
-/* Lado Esquerdo: Ícone do menu hambúrguer + (Logo + Barra de XP) */
+/* 2. Lado Esquerdo: Hambúrguer + (Logo + Barra de XP) */
 .topbar .left {
     display: flex !important;
     align-items: center !important;
@@ -35,14 +36,14 @@
     gap: 6px !important;
 }
 
-/* LOGO MAIOR PARA FACILITAR A LEITURA */
+/* Logo destacado */
 .topbar .navbar-logo {
-    height: 38px !important; /* Aumentado para o título destacar bastante */
+    height: 38px !important;
     width: auto !important;
     display: block !important;
 }
 
-/* LINHA DE NÍVEL E XP ABAIXO DA LOGO */
+/* 3. Linha de Nível e Barra de XP */
 .topbar .level {
     display: flex !important;
     align-items: center !important;
@@ -53,21 +54,21 @@
     line-height: 1 !important;
 }
 
-/* Estrela dourada/alaranjada conforme "Nível 2" */
+/* Estrela Laranja/Dourada conforme tom do layout (#FF9800) */
 .topbar .level .star {
     color: #FF9800 !important;
 }
 
-/* Trilho da Barra de XP */
+/* Trilho verde escuro da barra de progresso */
 .topbar .level .bar {
-    width: 120px !important; /* Barra mais larga para acompanhar o logo maior */
-    height: 10px !important;  /* Levemente mais espessa */
+    width: 120px !important;
+    height: 10px !important;
     background-color: #2E7D32 !important;
     border-radius: 10px !important;
     overflow: hidden !important;
 }
 
-/* Preenchimento Dourado/Alaranjado da XP (#FF9800) */
+/* Preenchimento Laranja/Dourado da barra (#FF9800) */
 .topbar .level .progress {
     height: 100% !important;
     background-color: #FF9800 !important;
@@ -77,10 +78,10 @@
 .topbar .level .xp {
     font-size: 11px !important;
     color: #ffffff !important;
-    opacity: 0.95;
+    opacity: 0.95 !important;
 }
 
-/* MENU DE NAVEGAÇÃO */
+/* 4. Menu de Navegação Desktop */
 .topbar nav.menu {
     margin-left: auto !important;
     margin-right: 25px !important;
@@ -97,22 +98,22 @@
     transition: color 0.2s ease !important;
     padding-bottom: 3px !important;
     border-bottom: none !important;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
-/* Hover: Amarelo vibrante extraído da sidebar (#FFDD44) */
+/* Hover: Amarelo vibrante extraído do menu (#FFDD44) */
 .topbar nav.menu a:hover {
     color: #FFDD44 !important;
     border-bottom: none !important;
 }
 
-/* Item Ativo/Clicado: Mantém o texto branco e sem sublinhado */
+/* Item Ativo/Clicado */
 .topbar nav.menu a.active {
     color: #ffffff !important;
     border-bottom: none !important;
 }
 
-/* FOTO DO PERFIL CIRCULAR */
+/* 5. Foto de Perfil Circular */
 .topbar .perfil-externo img,
 .topbar img.foto-perfil {
     width: 45px !important;
@@ -120,5 +121,29 @@
     border-radius: 50% !important;
     object-fit: cover !important;
     display: block !important;
-    border: 2px solid #ffffff;
+    border: 2px solid #ffffff !important;
+}
+
+/* 6. Ícone Hambúrguer */
+.topbar .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.topbar .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+/* Esconde o checkbox do controle do menu */
+.menu-checkbox {
+    display: none;
 }
