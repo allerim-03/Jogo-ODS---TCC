@@ -2,7 +2,7 @@
    NAVBAR PADRÃO (FIXA, LOGO GRANDE, XP E MENU)
    ========================================================= */
 
-/* 1. Topbar fixada no topo com altura de 90px */
+/* Topbar fixada no topo com altura de 90px */
 .topbar {
     position: fixed !important;
     top: 0 !important;
@@ -20,7 +20,7 @@
     margin: 0 !important;
 }
 
-/* 2. Lado Esquerdo: Hambúrguer + (Logo + Barra de XP) */
+/* Lado Esquerdo: Hambúrguer + (Logo + Barra de XP) */
 .topbar .left {
     display: flex !important;
     align-items: center !important;
@@ -43,7 +43,7 @@
     display: block !important;
 }
 
-/* 3. Linha de Nível e Barra de XP */
+/* Linha de Nível e Barra de XP */
 .topbar .level {
     display: flex !important;
     align-items: center !important;
@@ -54,9 +54,9 @@
     line-height: 1 !important;
 }
 
-/* Estrela Laranja/Dourada conforme tom do layout (#FF9800) */
+/* Estrela na cor exata da amostra */
 .topbar .level .star {
-    color: #FF9800 !important;
+    color: #FFB72B !important;
 }
 
 /* Trilho verde escuro da barra de progresso */
@@ -68,10 +68,10 @@
     overflow: hidden !important;
 }
 
-/* Preenchimento Laranja/Dourado da barra (#FF9800) */
+/* Preenchimento exato capturado da imagem (#FFB72B) */
 .topbar .level .progress {
     height: 100% !important;
-    background-color: #FF9800 !important;
+    background-color: #FFB72B !important;
     border-radius: 10px !important;
 }
 
@@ -81,7 +81,7 @@
     opacity: 0.95 !important;
 }
 
-/* 4. Menu de Navegação Desktop */
+/* Menu de Navegação Desktop */
 .topbar nav.menu {
     margin-left: auto !important;
     margin-right: 25px !important;
@@ -101,7 +101,7 @@
     text-transform: uppercase !important;
 }
 
-/* Hover: Amarelo vibrante extraído do menu (#FFDD44) */
+/* Hover nos links do menu */
 .topbar nav.menu a:hover {
     color: #FFDD44 !important;
     border-bottom: none !important;
@@ -113,7 +113,7 @@
     border-bottom: none !important;
 }
 
-/* 5. Foto de Perfil Circular */
+/* Foto de Perfil Circular */
 .topbar .perfil-externo img,
 .topbar img.foto-perfil {
     width: 45px !important;
@@ -124,7 +124,7 @@
     border: 2px solid #ffffff !important;
 }
 
-/* 6. Ícone Hambúrguer */
+/* Ícone Hambúrguer */
 .topbar .hamburger {
     display: flex;
     flex-direction: column;
@@ -143,7 +143,6 @@
     border-radius: 3px;
 }
 
-/* Esconde o checkbox do controle do menu */
 .menu-checkbox {
     display: none;
 }
