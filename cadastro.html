@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Aluno - Cultivando o Saber</title>
 
-    <!-- Fontes oficiais do Guia de Estilo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSSs do projeto -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -27,16 +25,35 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+        /* Ajuste isolado para centralizar perfeitamente o logotipo e esconder os botões da direita */
+        .topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+        }
+
+        .topbar-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+
+        .topbar-right {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- TOPBAR / NAVBAR (IDÊNTICO À HOME.HTML) -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
         <div class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
@@ -49,7 +66,6 @@
             </div>
         </div>
 
-        <!-- 1. Esquerda: Menu Hamburger -->
         <div class="topbar-left">
             <label for="menu-check" class="hamburger">
                 <span></span>
@@ -58,14 +74,12 @@
             </label>
         </div>
 
-        <!-- 2. Centro: Logotipo Centralizado com cultsab.png -->
         <div class="topbar-center">
             <div class="logo">
                 <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
-        <!-- 3. Direita: Ações de Login/Cadastro -->
         <div class="topbar-right">
             <div class="topbar-actions">
                 <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
@@ -74,7 +88,6 @@
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important; min-height: auto !important; height: auto !important;">
 
         <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
