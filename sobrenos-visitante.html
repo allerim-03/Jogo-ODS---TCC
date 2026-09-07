@@ -21,50 +21,32 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
-
-    <style>
-        header.topbar {
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .topbar-center {
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-        }
-        .topbar-right {
-            opacity: 0 !important;
-            pointer-events: none !important;
-        }
-    </style>
 </head>
-
 <body>
+
+    <!-- TOPBAR / NAVBAR (Idêntica à estrutura da sua Home) -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <div class="sidebar">
+        <!-- Sidebar do Visitante -->
+        <aside class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
-                <p>Visitante</p>
+                <p class="nome-visitante">Visitante</p>
             </div>
-            <div class="sidebar-links" style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
-                <a href="home.html" style="color: white; text-decoration: none; font-weight: bold;">HOME</a>
-                <a href="ods-visitante.html" style="color: white; text-decoration: none; font-weight: bold;">ODS</a>
-                <a href="sobrenos-visitante.html" style="color: white; text-decoration: none; font-weight: bold;">SOBRE NÓS</a>
-                <a href="escolha-cadastro.html" style="color: white; text-decoration: none; font-weight: bold;">CADASTRAR</a>
-            </div>
-        </div>
+            
+            <div class="sidebar-divisor"></div>
 
+            <nav class="sidebar-nav">
+                <a href="home.html" class="sidebar-link">HOME</a>
+                <a href="ods-visitante.html" class="sidebar-link">ODS</a>
+                <a href="sobrenos-visitante.html" class="sidebar-link active">SOBRE NÓS</a>
+                <a href="escolha-cadastro.html" class="sidebar-link">CADASTRAR</a>
+            </nav>
+        </aside>
+
+        <!-- Menu Hamburguer (Esquerda) -->
         <div class="topbar-left">
             <label for="menu-check" class="hamburger">
                 <span></span>
@@ -73,32 +55,34 @@
             </label>
         </div>
 
+        <!-- Logo Centralizada -->
         <div class="topbar-center">
             <div class="logo">
                 <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
-        <div class="topbar-right">
-            <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
-            </div>
-        </div>
+        <!-- Lado Direito (Vazio para manter simetria do flexbox) -->
+        <div class="topbar-right"></div>
     </header>
 
-    <main style="margin-top: 110px !important; padding: 20px;">
-        <div class="auth-container" style="display: block; max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px;">
-            <h1>Sobre o Cultivando o Saber</h1>
-            <p style="margin-top: 15px; line-height: 1.6;">Uma plataforma educacional gamificada que conecta alunos do Ensino Fundamental às metas de preservação ambiental através de jogos lúdicos, missões ecológicas e quizzes valendo conquistas.</p>
-            <div style="margin-top: 20px;">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga" style="max-width: 150px; display: block; margin: 0 auto;">
+    <!-- CONTEÚDO PRINCIPAL DE SOBRE NÓS -->
+    <main class="main-content" style="margin-top: 100px; padding: 40px 20px;">
+        <div class="container" style="max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h1 style="color: #1E5922; font-size: 2.2rem; margin-bottom: 20px;">Sobre o Cultivando o Saber</h1>
+            <p style="color: #444; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                O projeto "Cultivando o Saber" foi desenvolvido no âmbito acadêmico da FATEC, unindo tecnologia, gamificação e conscientização ambiental para transformar a forma como as crianças aprendem sobre sustentabilidade.
+            </p>
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="img/TugaPqn.png" alt="Mascote Tuga" style="max-width: 140px;">
             </div>
         </div>
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
+
 </body>
 </html>
