@@ -23,22 +23,30 @@
     <link rel="stylesheet" href="css/textos.css">
 
     <style>
-        /* Ajuste seguro para manter a navbar ativa, centralizar a logo e esconder apenas os botões da direita */
-        .topbar {
+        /* Força a exibição correta e centralizada da barra de navegação */
+        header.topbar {
             display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
             align-items: center !important;
             justify-content: space-between !important;
-            position: relative !important;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
+        /* Centraliza perfeitamente a logo */
         .topbar-center {
             position: absolute !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
         }
 
+        /* Remove apenas os botões da direita mantendo o espaço equilibrado */
         .topbar-right {
-            visibility: hidden !important;
+            opacity: 0 !important;
             pointer-events: none !important;
         }
     </style>
@@ -83,7 +91,7 @@
         </div>
     </header>
 
-    <main style="margin-top: 90px !important;">
+    <main style="margin-top: 110px !important;">
         <div class="auth-container">
             
             <div class="auth-sidebar professor-theme">
