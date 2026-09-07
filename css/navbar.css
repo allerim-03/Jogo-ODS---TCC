@@ -53,8 +53,9 @@
     line-height: 1 !important;
 }
 
+/* Estrela dourada/alaranjada conforme "Nível 2" */
 .topbar .level .star {
-    color: #FFB72B !important;
+    color: #FF9800 !important;
 }
 
 /* Trilho da Barra de XP */
@@ -66,10 +67,10 @@
     overflow: hidden !important;
 }
 
-/* Preenchimento Amarelo da XP (#FFB72B) */
+/* Preenchimento Dourado/Alaranjado da XP (#FF9800) */
 .topbar .level .progress {
     height: 100% !important;
-    background-color: #FFB72B !important;
+    background-color: #FF9800 !important;
     border-radius: 10px !important;
 }
 
@@ -99,9 +100,9 @@
     text-transform: uppercase;
 }
 
-/* Hover: Fica amarelo quando passa o mouse em cima */
+/* Hover: Amarelo vibrante extraído da sidebar (#FFDD44) */
 .topbar nav.menu a:hover {
-    color: #FFB72B !important;
+    color: #FFDD44 !important;
     border-bottom: none !important;
 }
 
