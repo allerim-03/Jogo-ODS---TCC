@@ -16,9 +16,14 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    background-color: #3F9B43 !important; /* Fundo verde padrão */
+    background-color: #F8FAFC !important; /* Cor padrão clara para Perfil, Jogos, etc. */
     color: #1A1A1A;
     line-height: 1.6;
+}
+
+/* FUNDO VERDE EXCLUSIVO PARA A PÁGINA SOBRE NÓS */
+body.pagina-sobre {
+    background-color: #3F9B43 !important;
 }
 
 main {
@@ -218,12 +223,11 @@ h3 {
 }
 
 /* =========================================================
-   ESTRUTURA DE QUADROS E CONTAINERS PRINCIPAIS
+   ESTRUTURA DE QUADROS E CONTAINERS
    ========================================================= */
 
-/* Afasta o quadro da Navbar e expõe as pontas arredondadas superiores */
-.sobre-main-container,
-.main-container {
+/* Afasta o quadro da Navbar na página Sobre Nós */
+.sobre-main-container {
     background-color: #3F9B43 !important;
     margin-top: 35px !important;
     padding-top: 10px !important;
@@ -235,9 +239,7 @@ h3 {
     box-sizing: border-box;
 }
 
-/* Card central com cantos arredondados superiores e inferiores visíveis */
-.card-sobre-central,
-.card-central {
+.card-sobre-central {
     background-color: #FFFFFF !important;
     border-radius: 24px !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
@@ -267,7 +269,7 @@ h3 {
     transition: color 0.2s ease !important;
 }
 
-/* 2. Hover (Cursor sobre o item): Fica amarelo sem linha/sublinhado */
+/* 2. Hover: Fica amarelo sem linha/sublinhado */
 .topbar nav.menu a:hover {
     color: #FFDD55 !important;
     text-decoration: none !important;
@@ -277,7 +279,7 @@ h3 {
     box-shadow: none !important;
 }
 
-/* 3. Ativo / Clicado / Selecionado: Permanece branco sem linha/sublinhado */
+/* 3. Ativo / Clicado / Selecionado */
 .topbar nav.menu a:active,
 .topbar nav.menu a:focus,
 .topbar nav.menu a.active {
