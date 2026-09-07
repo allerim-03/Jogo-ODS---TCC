@@ -2,98 +2,182 @@
    FORMULÁRIOS E CAIXAS DE AUTENTICAÇÃO
    ========================================= */
 
-/* CONTAINER DE LOGIN/CADASTRO (Aumentado para acomodar o formulário) */
-.login-box {
+/* CONTAINER PRINCIPAL (LAYOUT DIVIDIDO) */
+.auth-container {
+    display: flex;
+    max-width: 960px;
+    width: 90%;
+    margin: 40px auto;
     background: #FFFFFF;
-    padding: 35px;
     border-radius: 20px;
-    width: 100%;
-    max-width: 540px; /* Expandido de 360px para caber 2 colunas */
-    margin: 30px auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    min-height: 600px;
+}
+
+/* PAINEL ESQUERDO (BANNER / BOAS-VINDAS) */
+.auth-sidebar {
+    flex: 1;
+    background: linear-gradient(135deg, #41AF4B, #2E8B37); /* Verde Aluno/Padrão */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
     text-align: center;
-    border: 2px solid #43B4FB;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    position: relative;
 }
 
-/* LOGO E MASCOTE */
-.login-box .logo,
-.login-box img {
-    width: 60px;
+/* Tema Gestor / Professor (Roxo) */
+.auth-sidebar.professor-theme {
+    background: linear-gradient(135deg, #8A38E8, #6B21A8);
+}
+
+.auth-sidebar img.mascote {
+    width: 100px;
     height: auto;
-    margin-bottom: 12px;
-}
-
-.login-box h1 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    color: #43B4FB;
     margin-bottom: 20px;
 }
 
-/* ESTRUTURA EM GRID DO FORMULÁRIO */
+.auth-sidebar h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.auth-sidebar p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.btn-outline {
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    background: transparent;
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #FFFFFF;
+    color: #8A38E8;
+}
+
+/* PAINEL DIREITO (FORMULÁRIO) */
+.auth-content {
+    flex: 1.3;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-content h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #8A38E8;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* GRID DO FORMULÁRIO */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px 16px;
-    text-align: left;
+    gap: 14px 16px;
 }
 
-/* Campos que devem ocupar a largura total (2 colunas) */
-.col-span-2 {
+.col-full {
     grid-column: span 2;
 }
 
-/* RÓTULOS (LABELS) */
-label {
+/* ESTRUTURA DOS CAMPOS E RÓTULOS */
+.form-field label {
     display: block;
-    margin-bottom: 6px;
     font-family: 'Poppins', sans-serif;
-    color: #333333;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    color: #444444;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ÍCONES INTERNOS NOS INPUTS */
+.input-group svg {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    fill: #888888;
+    transition: fill 0.2s ease;
+    pointer-events: none;
 }
 
 /* INPUTS E SELECTS */
-input, select {
+.input-group input,
+.input-group select {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1.5px solid #E0E0E0;
-    outline: none;
-    background: #FAFAFA;
+    padding: 12px 14px 12px 42px;
+    background: #F2F4F7;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    color: #1A1A1A;
+    font-size: 0.88rem;
+    color: #333333;
+    outline: none;
+    transition: all 0.2s ease;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
 }
 
-input:focus, select:focus {
+.input-group input:focus,
+.input-group select:focus {
     background: #FFFFFF;
-    border-color: var(--cor-foco, #43B4FB);
-    box-shadow: 0 0 0 4px rgba(67, 180, 251, 0.15);
+    border-color: #8A38E8;
+    box-shadow: 0 0 0 3px rgba(138, 56, 232, 0.15);
+}
+
+.input-group input:focus + svg,
+.input-group select:focus + svg {
+    fill: #8A38E8;
 }
 
 /* BOTÃO DE SUBMIT */
-.login-box button[type="submit"] {
+.btn-submit {
     width: 100%;
     padding: 14px;
     margin-top: 10px;
-    border: none;
-    border-radius: 12px;
-    background-color: #43B4FB;
+    background-color: #8A38E8;
     color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
     font-family: 'Nunito', sans-serif;
+    font-weight: 800;
     font-size: 1rem;
-    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.1s ease, filter 0.2s ease;
+    box-shadow: 0 4px 12px rgba(138, 56, 232, 0.3);
+    transition: all 0.2s ease;
 }
 
-.login-box button[type="submit"]:hover {
-    filter: brightness(0.95);
-    transform: translateY(-1px);
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(138, 56, 232, 0.4);
 }
 
 /* LINKS DE APOIO */
@@ -102,10 +186,11 @@ input:focus, select:focus {
     font-size: 0.88rem;
     margin-top: 20px;
     color: #666666;
+    text-align: center;
 }
 
 .cadastro a {
-    color: #43B4FB;
+    color: #8A38E8;
     font-weight: 700;
     text-decoration: none;
 }
@@ -114,41 +199,27 @@ input:focus, select:focus {
     text-decoration: underline;
 }
 
-/* TEMA PROFESSOR / GESTOR (ROXOM) */
-.professor-box {
-    --cor-professor: #8A38E8; /* Roxo mais escuro para garantir bom contraste */
-    --cor-foco: #8A38E8;
-    border: 2px solid var(--cor-professor);
-}
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 850px) {
+    .auth-container {
+        flex-direction: column;
+        margin: 20px auto;
+        min-height: auto;
+    }
 
-.professor-box h1 {
-    color: var(--cor-professor);
-}
+    .auth-sidebar {
+        padding: 30px 20px;
+    }
 
-.professor-box input:focus,
-.professor-box select:focus {
-    border-color: var(--cor-professor);
-    box-shadow: 0 0 0 4px rgba(138, 56, 232, 0.15);
-}
+    .auth-content {
+        padding: 30px 20px;
+    }
 
-.professor-box button[type="submit"] {
-    background-color: var(--cor-professor);
-}
-
-.professor-box .cadastro a {
-    color: var(--cor-professor);
-}
-
-/* ADAPTATIVO PARA CELULARES */
-@media (max-width: 580px) {
     .form-grid {
         grid-template-columns: 1fr;
     }
-    .col-span-2 {
+
+    .col-full {
         grid-column: span 1;
-    }
-    .login-box {
-        padding: 24px;
-        margin: 15px auto;
     }
 }
