@@ -9,8 +9,8 @@
     width: 90%;
     margin: 40px auto;
     background: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-radius: 16px; /* Conforme regra de cards do Guia[cite: 1] */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     min-height: 600px;
 }
@@ -18,7 +18,7 @@
 /* PAINEL ESQUERDO (BANNER / BOAS-VINDAS) */
 .auth-sidebar {
     flex: 1;
-    background: linear-gradient(135deg, #41AF4B, #2E8B37); /* Verde Aluno/Padrão */
+    background-color: #4CAF50; /* Garden Green sólido (Sem degradê)[cite: 1] */
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -29,9 +29,9 @@
     position: relative;
 }
 
-/* Tema Gestor / Professor (Roxo) */
+/* Tema Gestor / Professor (Bright Blue - Estrutural) */
 .auth-sidebar.professor-theme {
-    background: linear-gradient(135deg, #8A38E8, #6B21A8);
+    background-color: #43B4FB; /* Bright Blue sólido[cite: 1] (Ou #DB95FD para Lavender[cite: 1]) */
 }
 
 .auth-sidebar img.mascote {
@@ -41,16 +41,16 @@
 }
 
 .auth-sidebar h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif; /* Tipografia Nunito para H1/H2[cite: 1] */
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 12px;
 }
 
 .auth-sidebar p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Tipografia Poppins para leitura[cite: 1] */
     font-size: 0.95rem;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: 30px;
     line-height: 1.5;
 }
@@ -59,19 +59,20 @@
     border: 2px solid #FFFFFF;
     color: #FFFFFF;
     background: transparent;
-    padding: 10px 28px;
-    border-radius: 30px;
-    font-family: 'Nunito', sans-serif;
+    padding: 12px 28px;
+    border-radius: 12px; /* Border-radius 12px para botões[cite: 1] */
+    font-family: 'Montserrat', sans-serif; /* Tipografia Montserrat para botões[cite: 1] */
     font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-outline:hover {
     background: #FFFFFF;
-    color: #8A38E8;
+    color: #43B4FB; /* Cor condizente com o fundo do painel */
 }
 
 /* PAINEL DIREITO (FORMULÁRIO) */
@@ -84,10 +85,10 @@
 }
 
 .auth-content h1 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif; /* Tipografia H1 Nunito Bold[cite: 1] */
     font-size: 1.8rem;
     font-weight: 800;
-    color: #8A38E8;
+    color: #4CAF50; /* Garden Green[cite: 1] */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -106,10 +107,10 @@
 /* ESTRUTURA DOS CAMPOS E RÓTULOS */
 .form-field label {
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #444444;
+    color: #1A1A1A; /* Cor primária de texto[cite: 1] */
     margin-bottom: 5px;
 }
 
@@ -138,9 +139,9 @@
     background: #F2F4F7;
     border: 1.5px solid transparent;
     border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Poppins para leitura[cite: 1] */
     font-size: 0.88rem;
-    color: #333333;
+    color: #1A1A1A; /* Texto principal[cite: 1] */
     outline: none;
     transition: all 0.2s ease;
     box-sizing: border-box;
@@ -149,13 +150,13 @@
 .input-group input:focus,
 .input-group select:focus {
     background: #FFFFFF;
-    border-color: #8A38E8;
-    box-shadow: 0 0 0 3px rgba(138, 56, 232, 0.15);
+    border-color: #4CAF50; /* Garden Green no foco[cite: 1] */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
 .input-group input:focus + svg,
 .input-group select:focus + svg {
-    fill: #8A38E8;
+    fill: #4CAF50; /* Garden Green no ícone[cite: 1] */
 }
 
 /* BOTÃO DE SUBMIT */
@@ -163,21 +164,23 @@
     width: 100%;
     padding: 14px;
     margin-top: 10px;
-    background-color: #8A38E8;
+    background-color: #4CAF50; /* Garden Green[cite: 1] */
     color: #FFFFFF;
     border: none;
-    border-radius: 30px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
+    border-radius: 12px; /* Border-radius 12px[cite: 1] */
+    font-family: 'Montserrat', sans-serif; /* Montserrat Bold[cite: 1] */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(138, 56, 232, 0.3);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.25);
     transition: all 0.2s ease;
 }
 
 .btn-submit:hover {
+    background-color: #43A047;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(138, 56, 232, 0.4);
+    box-shadow: 0 6px 14px rgba(76, 175, 80, 0.35);
 }
 
 /* LINKS DE APOIO */
@@ -185,12 +188,12 @@
     font-family: 'Poppins', sans-serif;
     font-size: 0.88rem;
     margin-top: 20px;
-    color: #666666;
+    color: #555555; /* Cor secundária de texto[cite: 1] */
     text-align: center;
 }
 
 .cadastro a {
-    color: #8A38E8;
+    color: #4CAF50; /* Garden Green[cite: 1] */
     font-weight: 700;
     text-decoration: none;
 }
