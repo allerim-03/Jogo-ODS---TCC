@@ -21,16 +21,75 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+        /* Fundo verde global da página e estruturação padrão */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #3F9B43 !important;
+            min-height: 100vh;
+        }
+
+        /* Topbar idêntica às páginas institucionais com logo centralizado e sem botões de ação na direita */
+        .topbar {
+            margin-top: 0 !important;
+            top: 0 !important;
+            position: relative;
+            width: 100%;
+            height: 90px !important;
+            min-height: 90px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 10px 25px !important;
+            box-sizing: border-box !important;
+            background-color: #4CAF50 !important;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2) !important;
+            z-index: 1000;
+        }
+
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .topbar .logo-container {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+        /* Container principal de login centralizado com espaçamento correto abaixo da navbar */
+        .login-main-container {
+            background-color: #3F9B43 !important;
+            padding-top: 50px !important;
+            padding-bottom: 60px !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
-<!-- TOPBAR / NAVBAR (IDÊNTICO À HOME.HTML) -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
-        <div class="sidebar">
+        <!-- Sidebar Mobile atualizada -->
+        <aside class="sidebar">
             <div class="perfil-sidebar">
                 <span class="mascote-icon">🐢</span>
                 <p>Visitante</p>
@@ -40,67 +99,59 @@
                 <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
                 <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
             </div>
-        </div>
+        </aside>
 
         <!-- 1. Esquerda: Menu Hamburger -->
-        <div class="topbar-left">
-            <label for="menu-check" class="hamburger">
+        <div class="left">
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
         </div>
 
-        <!-- 2. Centro: Logotipo Centralizado com cultsab.png -->
-        <div class="topbar-center">
+        <!-- 2. Centro: Logotipo perfeitamente centralizado -->
+        <div class="logo-container">
             <div class="logo">
                 <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
-        <!-- 3. Direita: Ações de Login/Cadastro -->
-        <div class="topbar-right">
-            <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
-            </div>
-        </div>
+        <!-- 3. Direita: Mantida limpa sem botões avulsos -->
+        <div class="right" style="width: 30px;"></div>
     </header>
 
-<main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
+    <main class="login-main-container">
+        <section class="boas-vindas" style="padding: 0 !important; margin: 0 !important; text-align: center; width: 100%;">
+            <div class="login-box" style="margin: 0 auto;">
+                <img src="img/TugaPqn.png" alt="Mascote Tuga">
 
-    <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
-        <h2 style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Acesso do Aluno</h2>
+                <h1 class="texto-azul negrito">Login</h1>
 
-        <div class="login-box">
-            <img src="img/TugaPqn.png" alt="Mascote Tuga">
+                <form>
+                    <label for="email_aluno">Email</label>
+                    <input type="email" id="email_aluno" name="email" placeholder="Digite seu email" required>
+                    
+                    <label for="senha_aluno">Senha</label>
+                    <input type="password" id="senha_aluno" name="senha" placeholder="Digite sua senha" required>
+                    
+                    <button type="submit" class="btn-azul">Entrar</button>
+                </form>
 
-            <h1 class="texto-azul negrito">Login</h1>
+                <p style="margin-top:10px; color:#555;">
+                    Não tem uma conta? <a href="cadastro.html" class="texto-azul negrito">Cadastre-se aqui</a>
+                </p>
 
-            <form>
-                <label for="email_aluno">Email</label>
-                <input type="email" id="email_aluno" name="email" placeholder="Digite seu email" required>
-                
-                <label for="senha_aluno">Senha</label>
-                <input type="password" id="senha_aluno" name="senha" placeholder="Digite sua senha" required>
-                
-                <button type="submit" class="btn-azul">Entrar</button>
-            </form>
-
-            <p style="margin-top:10px; color:#555;">
-                Não tem uma conta? <a href="cadastro.html" class="texto-azul negrito">Cadastre-se aqui</a>
-            </p>
-
-            <!-- Caixinha de Dica com o estilo em Azul -->
-            <div style="background-color: #f0f7ff; border: 1.5px solid #82c2f5; border-radius: 12px; padding: 10px; margin-top: 15px; text-align: center;">
-                <p style="margin: 0; color: #2c3e50; font-size: 0.9rem;"><strong>Dica:</strong> Preencha todos os campos obrigatórios!</p>
+                <!-- Caixinha de Dica com o estilo em Azul -->
+                <div style="background-color: #f0f7ff; border: 1.5px solid #82c2f5; border-radius: 12px; padding: 10px; margin-top: 15px; text-align: center;">
+                    <p style="margin: 0; color: #2c3e50; font-size: 0.9rem;"><strong>Dica:</strong> Preencha todos os campos obrigatórios!</p>
+                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<footer>
-    <p>© 2026 FATEC - Informática para Negócios</p>
-</footer>
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
 </body>
 </html>
