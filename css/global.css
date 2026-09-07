@@ -16,14 +16,9 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    background-color: #F8FAFC !important; /* Cor padrão clara para Perfil, Jogos, etc. */
+    background-color: #FFFFFF !important; /* Fundo branco original */
     color: #1A1A1A;
     line-height: 1.6;
-}
-
-/* FUNDO VERDE EXCLUSIVO PARA A PÁGINA SOBRE NÓS */
-body.pagina-sobre {
-    background-color: #3F9B43 !important;
 }
 
 main {
@@ -220,33 +215,6 @@ h3 {
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.6;
-}
-
-/* =========================================================
-   ESTRUTURA DE QUADROS E CONTAINERS
-   ========================================================= */
-
-/* Afasta o quadro da Navbar na página Sobre Nós */
-.sobre-main-container {
-    background-color: #3F9B43 !important;
-    margin-top: 35px !important;
-    padding-top: 10px !important;
-    padding-bottom: 60px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.card-sobre-central {
-    background-color: #FFFFFF !important;
-    border-radius: 24px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-    max-width: 1000px;
-    width: 90%;
-    padding: 40px;
-    box-sizing: border-box;
 }
 
 /* =========================================================
