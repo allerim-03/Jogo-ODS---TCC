@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `answer`
+--
+
+DROP TABLE IF EXISTS `answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `answer` (
+  `id_answer` int NOT NULL AUTO_INCREMENT,
+  `statement_anwser` varchar(200) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL,
+  `id_question` int NOT NULL,
+  PRIMARY KEY (`id_answer`),
+  KEY `id_question` (`id_question`),
+  CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `question` (`id_question`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `answer`
+--
+
+LOCK TABLES `answer` WRITE;
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `answer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `badges`
 --
 
@@ -153,9 +180,8 @@ DROP TABLE IF EXISTS `gender`;
 CREATE TABLE `gender` (
   `id_gender` int NOT NULL AUTO_INCREMENT,
   `name_gender` varchar(30) NOT NULL,
-  `pronouns_gender` varchar(10) NOT NULL,
   PRIMARY KEY (`id_gender`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +190,36 @@ CREATE TABLE `gender` (
 
 LOCK TABLES `gender` WRITE;
 /*!40000 ALTER TABLE `gender` DISABLE KEYS */;
+INSERT INTO `gender` VALUES (1,'Homem Cis'),(2,'Homem Transgênero'),(3,'Mulher Cis'),(4,'Mulher Transgênero'),(5,'Não-Binário'),(6,'Agênero'),(7,'Gênero Fluido'),(8,'Outro'),(9,'Prefiro não informar');
 /*!40000 ALTER TABLE `gender` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grade`
+--
+
+DROP TABLE IF EXISTS `grade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grade` (
+  `id_user` int NOT NULL,
+  `id_quiz` int NOT NULL,
+  `score` int DEFAULT NULL,
+  `completed_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_user`,`id_quiz`),
+  KEY `id_quiz` (`id_quiz`),
+  CONSTRAINT `grade_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `student` (`id_user`),
+  CONSTRAINT `grade_ibfk_2` FOREIGN KEY (`id_quiz`) REFERENCES `quiz` (`id_quiz`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grade`
+--
+
+LOCK TABLES `grade` WRITE;
+/*!40000 ALTER TABLE `grade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grade` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -220,6 +275,60 @@ CREATE TABLE `pending_task` (
 LOCK TABLES `pending_task` WRITE;
 /*!40000 ALTER TABLE `pending_task` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pending_task` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `question`
+--
+
+DROP TABLE IF EXISTS `question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `question` (
+  `id_question` int NOT NULL AUTO_INCREMENT,
+  `statement_question` varchar(200) NOT NULL,
+  `id_quiz` int NOT NULL,
+  PRIMARY KEY (`id_question`),
+  KEY `id_quiz` (`id_quiz`),
+  CONSTRAINT `question_ibfk_1` FOREIGN KEY (`id_quiz`) REFERENCES `quiz` (`id_quiz`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `question`
+--
+
+LOCK TABLES `question` WRITE;
+/*!40000 ALTER TABLE `question` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `quiz`
+--
+
+DROP TABLE IF EXISTS `quiz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `quiz` (
+  `id_quiz` int NOT NULL AUTO_INCREMENT,
+  `name_quiz` varchar(100) NOT NULL,
+  `subject_quiz` varchar(25) DEFAULT NULL,
+  `difficult_quiz` enum('Fácil','Médio','Difícil') NOT NULL,
+  `id_classroom` int DEFAULT NULL,
+  PRIMARY KEY (`id_quiz`),
+  KEY `id_classroom` (`id_classroom`),
+  CONSTRAINT `quiz_ibfk_1` FOREIGN KEY (`id_classroom`) REFERENCES `classroom` (`id_classroom`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quiz`
+--
+
+LOCK TABLES `quiz` WRITE;
+/*!40000 ALTER TABLE `quiz` DISABLE KEYS */;
+/*!40000 ALTER TABLE `quiz` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -356,6 +465,7 @@ CREATE TABLE `teacher` (
 
 LOCK TABLES `teacher` WRITE;
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+INSERT INTO `teacher` VALUES (1);
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,12 +485,13 @@ CREATE TABLE `user_plataform` (
   `personal_email` varchar(120) DEFAULT NULL,
   `password_user` varchar(20) NOT NULL,
   `id_gender` int DEFAULT NULL,
+  `id_role` int DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `main_email` (`main_email`),
   UNIQUE KEY `personal_email` (`personal_email`),
   KEY `id_gender` (`id_gender`),
   CONSTRAINT `user_plataform_ibfk_1` FOREIGN KEY (`id_gender`) REFERENCES `gender` (`id_gender`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,7 +500,32 @@ CREATE TABLE `user_plataform` (
 
 LOCK TABLES `user_plataform` WRITE;
 /*!40000 ALTER TABLE `user_plataform` DISABLE KEYS */;
+INSERT INTO `user_plataform` VALUES (1,'Lily Rose Beatrice Allen','1985-05-02',NULL,'allen@gmail.com',NULL,'PUSSYPALACE',3,NULL);
 /*!40000 ALTER TABLE `user_plataform` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_role`
+--
+
+DROP TABLE IF EXISTS `user_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_role` (
+  `id_role` int NOT NULL AUTO_INCREMENT,
+  `name_role` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_role`
+--
+
+LOCK TABLES `user_role` WRITE;
+/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+INSERT INTO `user_role` VALUES (1,'Aluno'),(2,'Professor');
+/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -401,4 +537,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-13 20:57:38
+-- Dump completed on 2026-09-13 16:28:42
