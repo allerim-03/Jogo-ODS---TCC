@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar Nova Turma - Cultivando o Saber</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS Global e Módulos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/create_classroom.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <!-- Sidebar Mobile -->
+        <aside class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+                <p>Nível 2</p>
+            </div>
+
+            <nav class="links-sidebar">
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="classroom.html">TURMAS</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+            </nav>
+        </aside>
+
+        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
+        <div class="left">
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                </div>
+
+                <div class="level">
+                    <span class="star">NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu de Navegação Central -->
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="classroom.html" class="active">TURMAS</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+        </nav>
+
+        <!-- Perfil à Direita -->
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="criar-turma-container">
+
+        <!-- CABEÇALHO DA PÁGINA COM NAVEGAÇÃO DE VOLTA -->
+        <div class="criar-turma-header">
+            <a href="classroom.html" class="btn-voltar-link">Voltar para Turmas</a>
+            <h2>Cadastro de Nova Turma</h2>
+            <p>Preencha os dados abaixo para criar um novo grupo de alunos e gerar o código de acesso.</p>
+        </div>
+
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <section class="section-card form-card-container">
+            <form id="form-cadastrar-turma">
+                
+                <!-- Nome da Turma -->
+                <div class="form-grupo">
+                    <label for="nome-turma" class="form-label">Nome da Turma *</label>
+                    <input type="text" id="nome-turma" class="form-input" placeholder="Ex: 5º Ano A - Fauna Brasileira" required>
+                </div>
+
+                <!-- Linha Dupla: Ano Letivo e Período -->
+                <div class="form-row">
+                    <div class="form-grupo">
+                        <label for="ano-letivo" class="form-label">Ano Letivo *</label>
+                        <select id="ano-letivo" class="form-input form-select" required>
+                            <option value="" disabled selected>Selecione o ano</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="periodo-letivo" class="form-label">Período / Semestre *</label>
+                        <select id="periodo-letivo" class="form-input form-select" required>
+                            <option value="" disabled selected>Selecione o período</option>
+                            <option value="1s">1º Semestre</option>
+                            <option value="2s">2º Semestre</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Disciplina / Tema Principal -->
+                <div class="form-grupo">
+                    <label for="disciplina-turma" class="form-label">Disciplina / Foco Temático</label>
+                    <input type="text" id="disciplina-turma" class="form-input" placeholder="Ex: Ciências e Sustentabilidade">
+                </div>
+
+                <!-- Descrição da Turma -->
+                <div class="form-grupo">
+                    <label for="descricao-turma" class="form-label">Descrição ou Observações</label>
+                    <textarea id="descricao-turma" class="form-input form-textarea" rows="4" placeholder="Adicione orientações gerais para a turma..."></textarea>
+                </div>
+
+                <!-- Ações do Formulário -->
+                <div class="form-acoes">
+                    <a href="classroom.html" class="btn-principal btn-cancelar">Cancelar</a>
+                    <button type="submit" class="btn-principal btn-salvar-turma">Salvar e Gerar Token</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+</body>
+
+</html>
