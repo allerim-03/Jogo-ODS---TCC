@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Professor - Cultivando o Saber</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/classroom.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
+
+        <!-- Sidebar Mobile -->
+        <aside class="sidebar">
+            <div class="perfil-sidebar">
+                <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+                <p>Nível 2</p>
+            </div>
+
+            <nav class="links-sidebar">
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="classroom.html">TURMAS</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+            </nav>
+        </aside>
+
+        <!-- Lado Esquerdo: Hambúrguer, Logotipo e Nível/Barra abaixo do logo -->
+        <div class="left">
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+                <div class="logo">
+                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                </div>
+
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu de Navegação Central -->
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="classroom.html" class="active">TURMAS</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
+        </nav>
+
+        <!-- Perfil à Direita -->
+        <a href="perfil.html" class="perfil-externo">
+            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        </a>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="classroom-container">
+
+        <!-- TÍTULO PRINCIPAL -->
+        <div class="classroom-header-title">
+            <h2>🏫 Gestão de Turmas e Conteúdo</h2>
+            <p>Gerencie suas turmas, acompanhe o progresso dos alunos e atribua conteúdos educativos.</p>
+        </div>
+
+        <!-- 1. BLOCO DE BOAS-VINDAS / RESUMO DO PROFESSOR -->
+        <section class="teacher-banner-card">
+            <div class="teacher-info">
+                <div class="teacher-avatar">
+                    <img src="img/foto.png" alt="Foto Professor">
+                </div>
+                <div class="teacher-details">
+                    <h3>Prof. Ricardo Silva</h3>
+                    <p>Ciências e Meio Ambiente | 3 Turmas Ativas</p>
+                </div>
+            </div>
+            <button class="btn-principal btn-criar-turma" id="btn-abrir-modal-turma">+ Criar Nova Turma</button>
+        </section>
+
+        <!-- 2. SESSÃO: CRIAR / GERAR TOKEN DA TURMA -->
+        <section class="section-card">
+            <div class="section-title">
+                <h3>🔑 Gerar Token de Acesso da Turma</h3>
+                <p>Selecione a turma para visualizar ou gerar um novo token de convite aos alunos.</p>
+            </div>
+
+            <div class="token-generator-box">
+                <div class="form-grupo-inline">
+                    <label for="select-turma-token" class="form-label">Selecione a Turma:</label>
+                    <select id="select-turma-token" class="form-input form-select">
+                        <option value="5a">5º Ano A - Guara</option>
+                        <option value="5b">5º Ano B - Arara</option>
+                        <option value="6a">6º Ano A - Capivara</option>
+                    </select>
+                </div>
+
+                <div class="token-display-area">
+                    <span class="token-label">Token Atual:</span>
+                    <div class="token-code-box">
+                        <strong id="token-code">ECO-2026-5A</strong>
+                        <button class="btn-secundario btn-copiar" id="btn-copiar-token">📋 Copiar</button>
+                    </div>
+                    <button class="btn-principal btn-gerar-token" id="btn-gerar-novo-token">🔄 Gerar Novo Token</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: DESEMPENHO DOS ALUNOS DA TURMA -->
+        <section class="section-card">
+            <div class="section-title-flex">
+                <div>
+                    <h3>📊 Desempenho dos Alunos</h3>
+                    <p>Visão geral de pontuação, nível e quizzes concluídos por cada estudante.</p>
+                </div>
+                <div class="filtro-turma">
+                    <select id="select-turma-desempenho" class="form-input form-select">
+                        <option value="5a">Turma: 5º Ano A - Guara</option>
+                        <option value="5b">Turma: 5º Ano B - Arara</option>
+                        <option value="6a">Turma: 6º Ano A - Capivara</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- TABELA PREPARADA PARA RECEBER OS DADOS DO BACKEND -->
+            <div class="tabela-responsive">
+                <table class="tabela-alunos">
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Nome do Aluno</th>
+                            <th>Nível</th>
+                            <th>XP Geral</th>
+                            <th>Quizzes Concluídos</th>
+                            <th>Jogos Concluídos</th>
+                            <th>Status ODS 15</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-alunos-body">
+                        <!-- Exemplo estático preparado para looping via backend/JS -->
+                        <tr>
+                            <td class="col-avatar"><span class="avatar-icon">🐢</span></td>
+                            <td class="col-nome">Lucas Gabriel</td>
+                            <td>Nível 3</td>
+                            <td>850 XP</td>
+                            <td>8/10</td>
+                            <td>5</td>
+                            <td><span class="badge badge-sucesso">Concluído</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-avatar"><span class="avatar-icon">🦜</span></td>
+                            <td class="col-nome">Mariana Costa</td>
+                            <td>Nível 2</td>
+                            <td>450 XP</td>
+                            <td>5/10</td>
+                            <td>3</td>
+                            <td><span class="badge badge-andamento">Em Andamento</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-avatar"><span class="avatar-icon">🦁</span></td>
+                            <td class="col-nome">Enzo Almeida</td>
+                            <td>Nível 1</td>
+                            <td>200 XP</td>
+                            <td>2/10</td>
+                            <td>1</td>
+                            <td><span class="badge badge-pendente">Pendente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. SESSÃO: GERENCIAMENTO BÁSICO DE CONTEÚDO -->
+        <section class="section-card">
+            <div class="section-title">
+                <h3>📚 Gerenciamento de Conteúdo e Missões</h3>
+                <p>Atribua tarefas, libere jogos ou selecione quizzes para as turmas.</p>
+            </div>
+
+            <div class="conteudo-grid">
+
+                <!-- Bloco 1: Liberar Quizzes -->
+                <div class="conteudo-box">
+                    <h4>❓ Quizzes Alocados</h4>
+                    <form id="form-alocar-quiz">
+                        <div class="form-grupo">
+                            <label class="form-label">Selecionar Quiz:</label>
+                            <select class="form-input form-select" id="select-quiz">
+                                <option value="ods15-1">ODS 15 - Ecossistemas Terrestres</option>
+                                <option value="ods15-2">ODS 15 - Preservação da Fauna</option>
+                                <option value="ods6-1">ODS 6 - Uso Consciente da Água</option>
+                            </select>
+                        </div>
+                        <div class="form-grupo">
+                            <label class="form-label">Atribuir para Turma:</label>
+                            <select class="form-input form-select" id="select-turma-quiz">
+                                <option value="todas">Todas as Turmas</option>
+                                <option value="5a">5º Ano A</option>
+                                <option value="5b">5º Ano B</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-principal btn-block">Atribuir Quiz</button>
+                    </form>
+                </div>
+
+                <!-- Bloco 2: Liberar Jogos Lúdicos -->
+                <div class="conteudo-box">
+                    <h4>🎮 Jogos Liberados</h4>
+                    <form id="form-liberar-jogo">
+                        <div class="form-grupo">
+                            <label class="form-label">Selecionar Jogo:</label>
+                            <select class="form-input form-select" id="select-jogo">
+                                <option value="eco-pixel">Eco-Pixel Adventure</option>
+                                <option value="guardiao-floresta">Guardião da Floresta</option>
+                                <option value="recicla-hero">Recicla Hero</option>
+                            </select>
+                        </div>
+                        <div class="form-grupo">
+                            <label class="form-label">Atribuir para Turma:</label>
+                            <select class="form-input form-select" id="select-turma-jogo">
+                                <option value="todas">Todas as Turmas</option>
+                                <option value="5a">5º Ano A</option>
+                                <option value="5b">5º Ano B</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-principal btn-block">Liberar Jogo</button>
+                    </form>
+                </div>
+
+                <!-- Bloco 3: Criar Aviso / Mensagem do Tuga -->
+                <div class="conteudo-box">
+                    <h4>📢 Enviar Recado / Missão</h4>
+                    <form id="form-enviar-recado">
+                        <div class="form-grupo">
+                            <label class="form-label">Título do Recado:</label>
+                            <input type="text" class="form-input" placeholder="Ex: Desafio da Semana!" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label class="form-label">Mensagem para os Alunos:</label>
+                            <textarea class="form-input form-textarea" rows="3" placeholder="Digite a orientação para os alunos..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-principal btn-block">Publicar Recado</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL DE CRIAÇÃO DE NOVA TURMA -->
+    <div class="modal-overlay" id="modal-criar-turma" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>➕ Criar Nova Turma</h3>
+                <button class="btn-fechar-modal" id="btn-fechar-modal">&times;</button>
+            </div>
+            <form id="form-criar-turma">
+                <div class="form-grupo">
+                    <label class="form-label">Nome da Turma:</label>
+                    <input type="text" class="form-input" placeholder="Ex: 5º Ano C - Onça Pintada" required>
+                </div>
+                <div class="form-grupo">
+                    <label class="form-label">Ano Letivo / Período:</label>
+                    <input type="text" class="form-input" placeholder="Ex: 2026 / 1º Semestre" required>
+                </div>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-principal btn-cancelar" id="btn-cancelar-modal">Cancelar</button>
+                    <button type="submit" class="btn-principal btn-salvar">Salvar Turma</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+</body>
+
+</html>
