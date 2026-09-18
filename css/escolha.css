@@ -112,28 +112,28 @@
 }
 
 /* =========================================
-   3. GRID COM 4 COLUNAS FIXAS DE ODS (EXCLUSIVO PARA ODS-GRID)
+   3. GRID COM 6 COLUNAS DE ODS (6, 6, 5)
    ========================================= */
 .ods-grid {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 12px !important;
     width: 100% !important;
-    max-width: 1100px !important;
+    max-width: 800px !important; /* Limita a largura total para diminuir os cards */
     margin: 0 auto !important;
     padding: 20px !important;
     box-sizing: border-box !important;
 }
 
-.escolha-card {
+.ods-grid .escolha-card {
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 0;
-    border: 3px solid #43B4FB;
+    background-color: transparent !important;
+    border-radius: 8px !important;
+    padding: 0 !important; /* Elimina o espaçamento em branco */
+    border: none !important; /* Remove a borda azul para a imagem preencher tudo */
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,20 +141,19 @@
     box-sizing: border-box;
 }
 
-.escolha-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.ods-grid .escolha-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Preenche a imagem sem sobras brancas */
     object-position: center;
-    display: block;
+    display: block !important;
     user-select: none;
-    border-radius: 13px;
+    border-radius: 8px !important;
     pointer-events: none;
 }
 
-.escolha-card:hover {
-    transform: translateY(-4px);
-    border-color: #4CAE50; /* Garden Green no hover */
+.ods-grid .escolha-card:hover {
+    transform: scale(1.06);
 }
 
 /* =========================================
@@ -319,6 +318,9 @@
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    background-color: #FFFFFF;
+    border: 3px solid #43B4FB;
+    border-radius: 16px;
 }
 
 .escolha-container .escolha-icone {
@@ -352,6 +354,7 @@
 @media (max-width: 768px) {
     .ods-grid {
         grid-template-columns: repeat(3, 1fr) !important;
+        max-width: 100% !important;
     }
     
     .bloco-info, 
