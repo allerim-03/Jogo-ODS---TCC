@@ -20,23 +20,23 @@ const quizDatabase = {
             }
         ]
     },
-    fauna: {
-        title: "ODS 15 - Preservação da Fauna",
+    reciclagem: {
+        title: "ODS 12 - Reciclagem e Resíduos",
         questions: [
             {
-                q: "O que significa dizer que uma espécie animal está em risco de extinção?",
-                options: ["Que ela se multiplica muito rápido", "Que ela corre risco de desaparecer do planeta", "Que ela mudou de habitat", "Que ela vive apenas em cativeiro"],
+                q: "Em qual lixeira da coleta seletiva devemos descartar garrafas plásticas?",
+                options: ["Lixeira Azul", "Lixeira Vermelha", "Lixeira Amarela", "Lixeira Verde"],
                 answer: 1
             },
             {
-                q: "Qual é uma das principais ameaças à fauna silvestre brasileira?",
-                options: ["Tráfico de animais", "Reflorestamento nativo", "Criação de reservas ecológicas", "Fotografia de natureza"],
+                q: "Qual das opções representa um material orgânico que pode ser compostado?",
+                options: ["Cascas de frutas e legumes", "Sacolas plásticas", "Lâmpadas fluorescentes", "Latas de alumínio"],
                 answer: 0
             },
             {
-                q: "Como a preservação dos polinizadores (como abelhas) ajuda o ecossistema?",
-                options: ["Garantindo a reprodução de plantas e frutos", "Limpando os rios", "Melhorando a qualidade do solo diretamente", "Evitando erosões litorâneas"],
-                answer: 0
+                q: "Qual é a ordem correta dos 3 R's clássicos da sustentabilidade?",
+                options: ["Reciclar, Reutilizar, Recomprar", "Reduzir, Reutilizar, Reciclar", "Reter, Reformar, Recolher", "Remover, Reparar, Reler"],
+                answer: 1
             }
         ]
     },
