@@ -62,7 +62,7 @@ const quizDatabase = {
     }
 };
 
-// VARIÁVEIS DE CONTROLE
+// VARIÁVEIS DE CONTROLE DE ESTADO
 let currentQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
@@ -77,10 +77,10 @@ function startQuiz(themeKey) {
     currentQuestionIndex = 0;
     score = 0;
 
-    // Atualiza título do tema no badge
+    // Atualiza o distintivo com o título do tema
     document.getElementById("topic-badge").innerText = selectedData.title;
 
-    // Alterna visualização das telas
+    // Oculta telas iniciais/finais e exibe a tela do jogo
     document.getElementById("selection-screen").style.display = "none";
     document.getElementById("result-screen").style.display = "none";
     document.getElementById("game").style.display = "block";
@@ -95,11 +95,11 @@ function loadQuestion() {
     document.getElementById("question-text").innerText = qData.q;
     document.getElementById("progress-text").innerText = `Pergunta ${currentQuestionIndex + 1} de ${currentQuestions.length}`;
     
-    // Atualiza a barra de progresso
+    // Atualiza o progresso visual da barra
     const progressPercent = (currentQuestionIndex / currentQuestions.length) * 100;
     document.getElementById("quiz-progress").style.width = `${progressPercent}%`;
 
-    // Carrega as opções nos botões
+    // Carrega as alternativas nos botões
     const buttons = document.querySelectorAll(".btn-option");
     buttons.forEach((btn, index) => {
         btn.innerText = qData.options[index];
@@ -108,21 +108,23 @@ function loadQuestion() {
     });
 }
 
-// RESPOSTA SELECIONADA
+// LÓGICA DE RESPOSTA SELECIONADA
 function selectOption(index) {
     const qData = currentQuestions[currentQuestionIndex];
     const buttons = document.querySelectorAll(".btn-option");
 
+    // Desabilita botões para evitar cliques duplos
     buttons.forEach(btn => btn.disabled = true);
 
     if (index === qData.answer) {
         buttons[index].classList.add("correct");
-        score += 100;
+        score += 100; // Soma 100 XP por acerto
     } else {
         buttons[index].classList.add("wrong");
         buttons[qData.answer].classList.add("correct");
     }
 
+    // Avança para a próxima pergunta após 1.5s
     setTimeout(() => {
         currentQuestionIndex++;
         if (currentQuestionIndex < currentQuestions.length) {
@@ -133,7 +135,7 @@ function selectOption(index) {
     }, 1500);
 }
 
-// MOSTRAR TELA FINAL
+// MOSTRAR TELA FINAL DE RESULTADOS
 function showResults() {
     document.getElementById("game").style.display = "none";
     document.getElementById("result-screen").style.display = "block";
@@ -141,7 +143,7 @@ function showResults() {
     document.getElementById("quiz-progress").style.width = "100%";
 }
 
-// VOLTAR AO MENU DE SELEÇÃO
+// VOLTAR À TELA DE SELEÇÃO DE DESAFIOS
 function resetQuiz() {
     document.getElementById("result-screen").style.display = "none";
     document.getElementById("game").style.display = "none";

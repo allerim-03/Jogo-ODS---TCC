@@ -1,5 +1,5 @@
 /* =========================================
-   ESTRUTURA E ESTILOS DO QUIZ
+   ESTRUTURA E ESTILOS DO QUIZ (GUIA DE ESTILO V2)
    ========================================= */
 
 /* COMPENSAÇÃO DE TOPBAR */
@@ -9,80 +9,210 @@ main {
 }
 
 .boas-vindas {
-    padding-top: 30px !important;
+    padding-top: 20px !important;
     padding-bottom: 40px !important;
     text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
+/* TÍTULOS (H1, H2, H3 - Nunito Bold & Montserrat) */
 .quiz-main-title {
     margin-top: 0 !important;
-    color: #4CAF50 !important;
+    color: #4CAF50 !important; /* Garden Green */
     font-family: 'Nunito', sans-serif;
     font-size: 2.2rem;
     font-weight: 800;
     text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 .quiz-sub-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: #555555;
     text-align: center;
-    margin-bottom: 0;
-}
-
-/* CAIXA CONTAINER DO QUIZ */
-.quiz-container {
-    width: 90% !important;
-    max-width: 550px !important;
-    padding: 24px;
-    background: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin: 35px auto 0 auto !important;
-    box-sizing: border-box;
-    display: block !important;
-    transition: all 0.3s ease;
-}
-
-/* SELEÇÃO DE TEMA (BOTÕES DE ENTRADA) */
-.selection-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem;
-    color: #333333;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-.quiz-topics-list {
+/* CAIXA DE DICA DO TUGA */
+.tuga-tip-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #FFFFFF;
+    border: 2px solid #4CAF50; /* Garden Green */
+    border-radius: 16px;
+    padding: 12px 20px;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.tuga-avatar {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.tuga-tip-box p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.tuga-tip-box strong {
+    color: #4CAF50;
+}
+
+/* GRID DE CARDS DE SELEÇÃO DE QUIZ */
+.quiz-selection-wrapper {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.quiz-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    justify-content: center;
+}
+
+/* ESTRUTURA DOS CARDS */
+.quiz-card {
+    background: #FFFFFF;
+    border-radius: 16px; /* Border radius padrão do guia */
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-}
-
-.btn-topic {
-    width: 100%;
-    padding: 16px 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 12px;
-    cursor: pointer;
-    border: 2px solid #2B73EB;
-    background-color: #FFFFFF;
-    color: #2B73EB;
+    justify-content: space-between;
     text-align: left;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 3px solid #43B4FB; /* Cor base Bright Blue */
 }
 
-.btn-topic:hover {
-    background-color: #2B73EB;
-    color: #FFFFFF;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(43, 115, 235, 0.25);
+.quiz-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-.btn-topic.active-topic {
-    background-color: #2B73EB;
+/* VARIAÇÕES DE CORES POR CATEGORIA (CONFORME GUIA DE ESTILO) */
+.quiz-card.card-green {
+    border-color: #4CAF50; /* Garden Green */
+}
+
+.quiz-card.card-orange {
+    border-color: #FF8637; /* Orange */
+}
+
+.quiz-card.card-lavender {
+    border-color: #DB95FD; /* Lavender */
+}
+
+/* CABEÇALHO DO CARD */
+.quiz-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.quiz-ods-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #F0F4F8;
+    color: #1A1A1A;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.quiz-xp-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    background-color: #FFDE5A; /* Banana Yellow para XP/Recompensa */
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* CORPO DO CARD */
+.quiz-card-body {
+    margin-bottom: 20px;
+}
+
+.quiz-icon {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.quiz-card-body h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+}
+
+.quiz-card-body p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #555555;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* BOTÃO DENTRO DO CARD */
+.btn-quiz-start {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px; /* Border-radius botões */
+    background-color: #4CAF50; /* Garden Green */
     color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.quiz-card.card-orange .btn-quiz-start {
+    background-color: #FF8637; /* Orange */
+}
+
+.quiz-card.card-lavender .btn-quiz-start {
+    background-color: #DB95FD; /* Lavender */
+    color: #FFFFFF;
+}
+
+.quiz-card:hover .btn-quiz-start {
+    filter: brightness(1.08);
+}
+
+/* CONTAINER DA TELA DO JOGO E RESULTADO */
+.quiz-container {
+    width: 100% !important;
+    max-width: 600px !important;
+    padding: 28px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    margin: 20px auto 0 auto !important;
+    box-sizing: border-box;
+    border: 3px solid #43B4FB; /* Bright Blue */
 }
 
 /* CABEÇALHO DO JOGO */
@@ -100,18 +230,20 @@ main {
 
 .topic-badge {
     background-color: #E3F2FD;
-    color: #1E88E5;
+    color: #43B4FB; /* Bright Blue */
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     text-transform: uppercase;
 }
 
 #progress-text {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #666666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #555555;
 }
 
 /* TEXTO DA PERGUNTA */
@@ -120,8 +252,8 @@ main {
     font-weight: 700;
     color: #1A1A1A;
     margin-bottom: 25px;
-    font-size: 1.3rem;
-    min-height: 60px;
+    font-size: 1.25rem;
+    min-height: 55px;
     text-align: left;
 }
 
@@ -136,13 +268,13 @@ main {
     background-color: #FFFFFF;
     border: 2px solid #43B4FB; /* Bright Blue */
     color: #1A1A1A;
-    padding: 15px;
+    padding: 14px 18px;
     border-radius: 12px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: all 0.2s ease;
     text-align: left;
     width: 100%;
 }
@@ -152,17 +284,16 @@ main {
     transform: translateY(-2px);
 }
 
-/* FEEDBACK CORRETO */
+/* FEEDBACK CORRETO E INCORRETO */
 .btn-option.correct {
     background-color: #E8F5E9 !important;
-    border-color: #4CAF50 !important;
+    border-color: #4CAF50 !important; /* Garden Green */
     color: #2E7D32 !important;
 }
 
-/* FEEDBACK INCORRETO */
 .btn-option.wrong {
     background-color: #FFEBEE !important;
-    border-color: #FF524D !important;
+    border-color: #FF524D !important; /* Vivid Red */
     color: #C62828 !important;
 }
 
@@ -171,22 +302,82 @@ main {
     width: 100% !important;
     height: 12px;
     background-color: #E0E0E0 !important;
-    border-radius: 999px;
-    margin-top: 10px;
+    border-radius: 999px; /* Raio padrão para barras */
     overflow: hidden;
 }
 
-.quiz-bar .progress,
-.quiz-progress-fill {
+.quiz-bar .progress {
     height: 100%;
-    background-color: #FFB72B !important;
+    background-color: #4CAF50 !important; /* Garden Green */
     border-radius: 999px;
     transition: width 0.3s ease;
 }
 
 /* TELA DE RESULTADOS */
+.result-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#result-screen h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: #1A1A1A;
+    margin: 0 0 10px 0;
+}
+
+.xp-result-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #FFFDE7;
+    border: 2px solid #FFDE5A; /* Banana Yellow */
+    padding: 10px 24px;
+    border-radius: 999px;
+    margin: 15px 0 25px 0;
+}
+
+.xp-result-box .star {
+    font-size: 1.8rem;
+    color: #FFDE5A;
+}
+
 .final-score-text {
-    color: #4CAF50;
-    font-size: 3rem;
-    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #31B54C !important; /* Garden Green XP */
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 !important;
+}
+
+.xp-result-box span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #1A1A1A;
+}
+
+.btn-quiz-action {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background-color: #4CAF50; /* Garden Green */
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-quiz-action:hover {
+    background-color: #43A047;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .quiz-cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
