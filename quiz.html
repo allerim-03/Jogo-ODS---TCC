@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - Quiz</title>
-<!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS Global e Módulos -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -23,153 +26,16 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        /* Topbar fixada no topo */
-        .topbar {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 90px !important;
-            min-height: 90px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            padding: 10px 25px !important;
-            background-color: #4CAF50 !important;
-            z-index: 1000 !important;
-            margin: 0 !important;
-        }
-
-        .topbar .left {
-            display: flex !important;
-            align-items: center !important;
-            gap: 18px !important;
-        }
-
-        .topbar .info-container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            justify-content: center !important;
-            gap: 6px !important;
-        }
-
-        .topbar .navbar-logo {
-            height: 38px !important;
-            width: auto !important;
-            display: block !important;
-        }
-
-        .topbar .level {
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-            color: #ffffff !important;
-            font-size: 12px !important;
-            font-weight: bold !important;
-            line-height: 1 !important;
-        }
-
-        .topbar .level .star {
-            color: #FFDD55 !important;
-        }
-
-        .topbar .level .bar {
-            width: 120px !important;
-            height: 10px !important;
-            background-color: #2E7D32 !important;
-            border-radius: 10px !important;
-            overflow: hidden !important;
-        }
-
-        .topbar .level .progress {
-            height: 100% !important;
-            background-color: #FFDD55 !important;
-            border-radius: 10px !important;
-        }
-
-        .topbar .level .xp {
-            font-size: 11px !important;
-            color: #ffffff !important;
-            opacity: 0.95;
-        }
-
-        .topbar nav.menu {
-            margin-left: auto !important;
-            margin-right: 25px !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 20px !important;
-        }
-
-        .topbar nav.menu a {
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-weight: bold !important;
-            font-size: 15px !important;
-            transition: color 0.2s ease !important;
-            padding-bottom: 3px !important;
-            border-bottom: none !important;
-        }
-
-        .topbar nav.menu a:hover {
-            color: #FFDD55 !important;
-            border-bottom: none !important;
-        }
-
-        .topbar nav.menu a.active {
-            color: #ffffff !important;
-            border-bottom: none !important;
-        }
-
-        .topbar .perfil-externo img,
-        .topbar img.foto-perfil {
-            width: 45px !important;
-            height: 45px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            display: block !important;
-            border: 2px solid #ffffff;
-        }
-
-        main {
-            margin-top: 90px !important;
-            padding-top: 0 !important;
-        }
-
-        /* Estilização e centralização da caixa do Quiz */
-        .boas-vindas {
-            padding-top: 30px !important;
-            padding-bottom: 40px !important;
-            text-align: center;
-        }
-
-        #quiz-box {
-            margin: 35px auto 0 auto !important; /* Espaçamento de 35px em relação ao subtítulo */
-            max-width: 550px !important; /* Largura máxima ideal */
-            width: 90% !important; /* Adaptável a telas menores */
-            display: block !important;
-        }
-    </style>
 </head>
 
 <body>
 
+    <!-- NAVBAR PADRONIZADA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
+        <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
@@ -187,6 +53,7 @@
             </nav>
         </aside>
 
+        <!-- Lado Esquerdo -->
         <div class="left">
             <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
@@ -209,6 +76,7 @@
             </div>
         </div>
 
+        <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -219,20 +87,44 @@
             <a href="sobrenos.html">SOBRE NÓS</a>
         </nav>
 
+        <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
             <img src="img/foto.png" class="foto-perfil" alt="Perfil">
         </a>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL DO QUIZ -->
     <main>
         <section class="boas-vindas">
-            <h2 style="margin-top: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800; text-align: center;">Eco-Quiz</h2>
-            <p style="text-align: center; margin-bottom: 0;">Teste seus conhecimentos sobre o meio ambiente!</p>
+            <h2 class="quiz-main-title">Eco-Quiz</h2>
+            <p class="quiz-sub-title">Escolha um tema e teste seus conhecimentos sobre o meio ambiente!</p>
 
             <div class="login-box quiz-container" id="quiz-box">
-                <div id="game">
+                
+                <!-- TELA DE SELEÇÃO DE QUIZ -->
+                <div id="selection-screen">
+                    <h3 class="selection-title">Selecione um Quiz para começar:</h3>
+                    
+                    <div class="quiz-topics-list">
+                        <button class="btn-topic active-topic" onclick="startQuiz('terrestres')">
+                            ODS 15 - Ecossistemas Terrestres
+                        </button>
+                        <button class="btn-topic" onclick="startQuiz('fauna')">
+                            ODS 15 - Preservação da Fauna
+                        </button>
+                        <button class="btn-topic" onclick="startQuiz('agua')">
+                            ODS 6 - Uso Consciente da Água
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELA DO JOGO (QUIZ EM ANDAMENTO) -->
+                <div id="game" style="display: none;">
                     <div class="quiz-header">
-                        <span id="progress-text">Pergunta 1 de 3</span>
+                        <div class="quiz-header-top">
+                            <span id="topic-badge" class="topic-badge">Tema</span>
+                            <span id="progress-text">Pergunta 1 de 3</span>
+                        </div>
                         <div class="bar quiz-bar">
                             <div id="quiz-progress" class="progress" style="width: 0%"></div>
                         </div>
@@ -248,90 +140,26 @@
                     </div>
                 </div>
 
+                <!-- TELA DE RESULTADOS -->
                 <div id="result-screen" style="display: none;">
                     <h1>Fim do Quiz!</h1>
                     <p>Você marcou:</p>
-                    <h2 id="final-score" style="color: #4CAF50; font-size: 3rem; margin: 10px 0;">0</h2>
+                    <h2 id="final-score" class="final-score-text">0</h2>
                     <p>pontos de XP</p>
-                    <button class="btn-login" onclick="location.reload()">TENTAR NOVAMENTE</button>
+                    <button class="btn-login" onclick="resetQuiz()">VOLTAR AO MENU</button>
                 </div>
+
             </div>
         </section>
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <script>
-        const questions = [
-            {
-                q: "Qual das opções abaixo é um recurso renovável?",
-                options: ["Petróleo", "Energia Solar", "Carvão", "Gás Natural"],
-                answer: 1
-            },
-            {
-                q: "O que significa a sigla ODS?",
-                options: ["Objetivos de Desenvolvimento Sustentável", "Organização de Direitos Sociais", "Ordenamento de Dados Sistêmicos", "Orientação de Desenvolvimento Simples"],
-                answer: 0
-            },
-            {
-                q: "Qual cor de lixeira representa a reciclagem de Vidro?",
-                options: ["Vermelho", "Azul", "Amarelo", "Verde"],
-                answer: 3
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-
-        function loadQuestion() {
-            const qData = questions[currentQuestion];
-            document.getElementById("question-text").innerText = qData.q;
-            document.getElementById("progress-text").innerText = `Pergunta ${currentQuestion + 1} de ${questions.length}`;
-            document.getElementById("quiz-progress").style.width = `${((currentQuestion) / questions.length) * 100}%`;
-            
-            const buttons = document.querySelectorAll(".btn-option");
-            buttons.forEach((btn, index) => {
-                btn.innerText = qData.options[index];
-                btn.className = "btn-option";
-                btn.disabled = false;
-            });
-        }
-
-        function selectOption(index) {
-            const qData = questions[currentQuestion];
-            const buttons = document.querySelectorAll(".btn-option");
-            
-            buttons.forEach(btn => btn.disabled = true);
-
-            if (index === qData.answer) {
-                buttons[index].classList.add("correct");
-                score += 100;
-            } else {
-                buttons[index].classList.add("wrong");
-                buttons[qData.answer].classList.add("correct");
-            }
-
-            setTimeout(() => {
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    loadQuestion();
-                } else {
-                    showResults();
-                }
-            }, 1500);
-        }
-
-        function showResults() {
-            document.getElementById("game").style.display = "none";
-            document.getElementById("result-screen").style.display = "block";
-            document.getElementById("final-score").innerText = score;
-            document.getElementById("quiz-progress").style.width = "100%";
-        }
-
-        loadQuestion();
-    </script>
+    <!-- Arquivo JS Externo -->
+    <script src="js/quiz.js"></script>
 </body>
 
 </html>
