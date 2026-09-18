@@ -19,18 +19,26 @@ const dadosODS = {
     17: { titulo: "Parcerias e Meios de Implementação", desc: "Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável.", img: "img/ods17.png" }
 };
 
-// 1. LÓGICA DO CARROSSEL CONTINUO E ARRASTÁVEL
+// LÓGICA DO CARROSSEL INFINITO
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("odsContainer");
+    const grid = container ? container.querySelector(".ods-grid") : null;
     const prevBtn = document.getElementById("odsPrev");
     const nextBtn = document.getElementById("odsNext");
 
-    if (!container) return;
+    if (!container || !grid) return;
+
+    // Duplica os itens da lista para criar a ilusão de esteira infinita
+    const originalCards = Array.from(grid.children);
+    originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        grid.appendChild(clone);
+    });
 
     let isDown = false;
     let startX;
     let scrollLeft;
-    let autoScrollSpeed = 0.8; // Velocidade do movimento suave
+    let autoScrollSpeed = 0.8; // Velocidade do movimento continuo
     let isHovered = false;
 
     // Animação Contínua em Loop
@@ -38,9 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isDown && !isHovered) {
             container.scrollLeft += autoScrollSpeed;
             
-            // Quando chega ao final, retorna suavemente para o início
-            if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 1) {
-                container.scrollLeft = 0;
+            // Quando a rolagem atinge metade do conteúdo (fim do bloco original), reseta imperceptivelmente
+            const halfWidth = grid.scrollWidth / 2;
+            if (container.scrollLeft >= halfWidth) {
+                container.scrollLeft -= halfWidth;
+            } else if (container.scrollLeft <= 0) {
+                container.scrollLeft += halfWidth;
             }
         }
         requestAnimationFrame(autoScroll);
@@ -54,12 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
         isDown = false;
     });
 
-    // Clique nas Setas
+    // Clique nas Setas (com navegação fluida)
     nextBtn.addEventListener("click", () => {
         container.scrollBy({ left: 260, behavior: "smooth" });
     });
 
     prevBtn.addEventListener("click", () => {
+        // Se estiver no início ao voltar, salta para o meio antes de rolar
+        if (container.scrollLeft <= 10) {
+            container.scrollLeft += grid.scrollWidth / 2;
+        }
         container.scrollBy({ left: -260, behavior: "smooth" });
     });
 
@@ -78,10 +93,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const x = e.pageX - container.offsetLeft;
         const walk = (x - startX) * 1.5;
         container.scrollLeft = scrollLeft - walk;
+
+        // Trata o loop durante o arrasto manual
+        const halfWidth = grid.scrollWidth / 2;
+        if (container.scrollLeft >= halfWidth) {
+            container.scrollLeft -= halfWidth;
+            scrollLeft -= halfWidth;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += halfWidth;
+            scrollLeft += halfWidth;
+        }
     });
 });
 
-// 2. FUNÇÕES DO MODAL DE INFORMAÇÕES
+// FUNÇÕES DO MODAL DE INFORMAÇÕES
 function abrirModalODS(numero) {
     const ods = dadosODS[numero];
     if (!ods) return;
