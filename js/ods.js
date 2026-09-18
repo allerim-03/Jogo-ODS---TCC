@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!container || !grid) return;
 
-    // Duplica os itens da lista para criar a ilusão de esteira infinita
+    // Duplica os cards para criar a esteira contínua
     const originalCards = Array.from(grid.children);
     originalCards.forEach(card => {
         const clone = card.cloneNode(true);
@@ -38,47 +38,72 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDown = false;
     let startX;
     let scrollLeft;
-    let autoScrollSpeed = 0.8; // Velocidade do movimento continuo
+    let autoScrollSpeed = 0.8;
     let isHovered = false;
+    let isClickScrolling = false;
+    let clickTimeout;
 
-    // Animação Contínua em Loop
+    // Normaliza a posição de rolagem caso ultrapasse a metade
+    function checarLoop() {
+        const halfWidth = grid.scrollWidth / 2;
+        if (container.scrollLeft >= halfWidth) {
+            container.scrollLeft -= halfWidth;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += halfWidth;
+        }
+    }
+
+    // Animação Contínua
     function autoScroll() {
-        if (!isDown && !isHovered) {
+        if (!isDown && !isHovered && !isClickScrolling) {
             container.scrollLeft += autoScrollSpeed;
-            
-            // Quando a rolagem atinge metade do conteúdo (fim do bloco original), reseta imperceptivelmente
-            const halfWidth = grid.scrollWidth / 2;
-            if (container.scrollLeft >= halfWidth) {
-                container.scrollLeft -= halfWidth;
-            } else if (container.scrollLeft <= 0) {
-                container.scrollLeft += halfWidth;
-            }
+            checarLoop();
         }
         requestAnimationFrame(autoScroll);
     }
     requestAnimationFrame(autoScroll);
 
-    // Pausa a animação ao passar o mouse por cima
+    // Pausa ao passar o mouse por cima
     container.addEventListener("mouseenter", () => isHovered = true);
     container.addEventListener("mouseleave", () => {
         isHovered = false;
         isDown = false;
     });
 
-    // Clique nas Setas (com navegação fluida)
-    nextBtn.addEventListener("click", () => {
-        container.scrollBy({ left: 260, behavior: "smooth" });
-    });
+    // Função de auxílio para o clique dos botões
+    function rolarPorBotao(distancia) {
+        isClickScrolling = true;
+        clearTimeout(clickTimeout);
 
-    prevBtn.addEventListener("click", () => {
-        // Se estiver no início ao voltar, salta para o meio antes de rolar
-        if (container.scrollLeft <= 10) {
-            container.scrollLeft += grid.scrollWidth / 2;
-        }
-        container.scrollBy({ left: -260, behavior: "smooth" });
-    });
+        checarLoop();
+        container.scrollBy({ left: distancia, behavior: "smooth" });
 
-    // Arrastar com Rato ou Touch
+        // Libera a auto-rolagem após o término da transição do clique
+        clickTimeout = setTimeout(() => {
+            checarLoop();
+            isClickScrolling = false;
+        }, 350);
+    }
+
+    // Ações das Setas
+    if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            rolarPorBotao(260);
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (container.scrollLeft <= 10) {
+                container.scrollLeft += grid.scrollWidth / 2;
+            }
+            rolarPorBotao(-260);
+        });
+    }
+
+    // Arrastar com Rato / Touch
     container.addEventListener("mousedown", (e) => {
         isDown = true;
         startX = e.pageX - container.offsetLeft;
@@ -93,20 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const x = e.pageX - container.offsetLeft;
         const walk = (x - startX) * 1.5;
         container.scrollLeft = scrollLeft - walk;
-
-        // Trata o loop durante o arrasto manual
-        const halfWidth = grid.scrollWidth / 2;
-        if (container.scrollLeft >= halfWidth) {
-            container.scrollLeft -= halfWidth;
-            scrollLeft -= halfWidth;
-        } else if (container.scrollLeft <= 0) {
-            container.scrollLeft += halfWidth;
-            scrollLeft += halfWidth;
-        }
+        checarLoop();
     });
 });
 
-// FUNÇÕES DO MODAL DE INFORMAÇÕES
+// MODAL DE INFORMAÇÕES
 function abrirModalODS(numero) {
     const ods = dadosODS[numero];
     if (!ods) return;
@@ -123,7 +139,6 @@ function fecharModalODS() {
     document.getElementById("modalODS").classList.remove("ativo");
 }
 
-// Fechar modal ao clicar fora dele
 window.addEventListener("click", (e) => {
     const modal = document.getElementById("modalODS");
     if (e.target === modal) {
