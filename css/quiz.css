@@ -86,7 +86,7 @@ main {
 /* ESTRUTURA DOS CARDS */
 .quiz-card {
     background: #FFFFFF;
-    border-radius: 16px; /* Border radius padrão do guia */
+    border-radius: 16px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -96,15 +96,15 @@ main {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     position: relative;
-    border: 3px solid #43B4FB; /* Cor base Bright Blue */
+    border: 3px solid #43B4FB; /* Bright Blue */
 }
 
 .quiz-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* VARIAÇÕES DE CORES POR CATEGORIA (CONFORME GUIA DE ESTILO) */
+/* VARIAÇÕES DE CORES POR CATEGORIA */
 .quiz-card.card-green {
     border-color: #4CAF50; /* Garden Green */
 }
@@ -141,20 +141,27 @@ main {
     font-size: 0.85rem;
     font-weight: 700;
     color: #1A1A1A;
-    background-color: #FFDE5A; /* Banana Yellow para XP/Recompensa */
+    background-color: #FFDE5A; /* Banana Yellow */
     padding: 4px 10px;
     border-radius: 999px;
 }
 
-/* CORPO DO CARD */
+/* CORPO DO CARD E IMAGENS */
 .quiz-card-body {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha todo o conteúdo ao canto esquerdo */
+    text-align: left;
 }
 
-.quiz-icon {
-    font-size: 2.8rem;
+/* Imagens maiores e alinhadas ao canto esquerdo */
+.quiz-icon-img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
     display: block;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
 }
 
 .quiz-card-body h3 {
@@ -173,33 +180,53 @@ main {
     line-height: 1.4;
 }
 
-/* BOTÃO DENTRO DO CARD */
+/* BOTÕES DENTRO DO CARD - EFEITO 3D */
 .btn-quiz-start {
     width: 100%;
-    padding: 12px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 12px; /* Border-radius botões */
-    background-color: #4CAF50; /* Garden Green */
+    border-radius: 16px;
     color: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s ease;
     text-align: center;
+    transition: all 0.1s ease;
+    transform: translateY(0);
+}
+
+/* Estilos de sombra 3D por categoria */
+.quiz-card.card-green .btn-quiz-start {
+    background-color: #4CAF50;
+    box-shadow: 0 5px 0 #388E3C, 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .quiz-card.card-orange .btn-quiz-start {
-    background-color: #FF8637; /* Orange */
+    background-color: #FF8637;
+    box-shadow: 0 5px 0 #E66A1F, 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .quiz-card.card-lavender .btn-quiz-start {
-    background-color: #DB95FD; /* Lavender */
-    color: #FFFFFF;
+    background-color: #DB95FD;
+    box-shadow: 0 5px 0 #B06CD4, 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-.quiz-card:hover .btn-quiz-start {
-    filter: brightness(1.08);
+/* Efeito ao pressionar o botão 3D */
+.btn-quiz-start:active {
+    transform: translateY(4px);
+}
+
+.quiz-card.card-green .btn-quiz-start:active {
+    box-shadow: 0 1px 0 #388E3C, 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card.card-orange .btn-quiz-start:active {
+    box-shadow: 0 1px 0 #E66A1F, 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card.card-lavender .btn-quiz-start:active {
+    box-shadow: 0 1px 0 #B06CD4, 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* CONTAINER DA TELA DO JOGO E RESULTADO */
@@ -302,7 +329,7 @@ main {
     width: 100% !important;
     height: 12px;
     background-color: #E0E0E0 !important;
-    border-radius: 999px; /* Raio padrão para barras */
+    border-radius: 999px;
     overflow: hidden;
 }
 
@@ -380,12 +407,4 @@ main {
     .quiz-cards-grid {
         grid-template-columns: 1fr;
     }
-}
-
-.quiz-icon-img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 12px auto;
 }
