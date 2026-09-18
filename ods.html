@@ -4,163 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - ODS</title>
-<!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
-    <!-- CSS -->
+    <title>Cultivando o Saber - Objetivos de Desenvolvimento Sustentável</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS Global e Módulos -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/journey.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/escolha.css">
     <link rel="stylesheet" href="css/ods.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        /* Topbar fixada no topo */
-        .topbar {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 90px !important;
-            min-height: 90px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            padding: 10px 25px !important;
-            background-color: #4CAF50 !important;
-            z-index: 1000 !important;
-            margin: 0 !important;
-        }
-
-        /* Lado esquerdo: hambúrguer + (logo + barra de XP) */
-        .topbar .left {
-            display: flex !important;
-            align-items: center !important;
-            gap: 18px !important;
-        }
-
-        /* Container vertical para empilhar Logo e XP */
-        .topbar .info-container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            justify-content: center !important;
-            gap: 6px !important;
-        }
-
-        /* Logo em tamanho padrão */
-        .topbar .navbar-logo {
-            height: 38px !important;
-            width: auto !important;
-            display: block !important;
-        }
-
-        /* Estilização da barra de nível e XP */
-        .topbar .level {
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-            color: #ffffff !important;
-            font-size: 12px !important;
-            font-weight: bold !important;
-            line-height: 1 !important;
-        }
-
-        .topbar .level .star {
-            color: #FFDD55 !important;
-        }
-
-        .topbar .level .bar {
-            width: 120px !important;
-            height: 10px !important;
-            background-color: #2E7D32 !important;
-            border-radius: 10px !important;
-            overflow: hidden !important;
-        }
-
-        .topbar .level .progress {
-            height: 100% !important;
-            background-color: #FFDD55 !important;
-            border-radius: 10px !important;
-        }
-
-        .topbar .level .xp {
-            font-size: 11px !important;
-            color: #ffffff !important;
-            opacity: 0.95;
-        }
-
-        /* Menu de navegação */
-        .topbar nav.menu {
-            margin-left: auto !important;
-            margin-right: 25px !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 20px !important;
-        }
-
-        .topbar nav.menu a {
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-weight: bold !important;
-            font-size: 15px !important;
-            transition: color 0.2s ease !important;
-            padding-bottom: 3px !important;
-            border-bottom: none !important;
-        }
-
-        .topbar nav.menu a:hover {
-            color: #FFDD55 !important;
-            border-bottom: none !important;
-        }
-
-        .topbar nav.menu a.active {
-            color: #ffffff !important;
-            border-bottom: none !important;
-        }
-
-        /* Foto de perfil circular */
-        .topbar .perfil-externo img,
-        .topbar img.foto-perfil {
-            width: 45px !important;
-            height: 45px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            display: block !important;
-            border: 2px solid #ffffff;
-        }
-
-        /* Compensação do conteúdo principal por conta da navbar fixada */
-        main {
-            margin-top: 90px !important;
-            padding-top: 0 !important;
-        }
-    </style>
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/rodape.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR PADRONIZADA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -174,7 +35,7 @@
 
             <nav class="links-sidebar">
                 <a href="index.html">HOME</a>
-                <a href="ods.html">ODS</a>
+                <a href="ods.html" class="active">ODS</a>
                 <a href="quiz.html">QUIZ</a>
                 <a href="jogos.html">JOGOS</a>
                 <a href="ranking.html">RANKING</a>
@@ -225,83 +86,84 @@
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <section class="boas-vindas" style="padding-top: 20px !important; margin-top: 0 !important;">
+        <!-- TÍTULO DA PÁGINA -->
+        <div class="titulo-principal-topo">
+            <h2>OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL</h2>
+            <p>Conheça as 17 metas globais para transformar o nosso planeta até 2030</p>
+        </div>
 
-            <div class="titulo-principal-topo" style="margin-top: 0 !important; padding-top: 0 !important;">
-                <h2 style="margin-top: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800; text-align: center;">Objetivos de Desenvolvimento Sustentável (ODS)</h2>
-                <p style="text-align: center;">Descubra como pequenas ações podem transformar o mundo!</p>
+        <!-- CARROSSEL DE ODS (FILA CONTINUA E INTERATIVA) -->
+        <section class="ods-carrossel-wrapper">
+            <button class="btn-carrossel prev" id="odsPrev" aria-label="Anterior">&#10094;</button>
+
+            <div class="ods-carrossel-container" id="odsContainer">
+                <div class="ods-grid">
+                    <div class="escolha-card" onclick="abrirModalODS(1)"><img src="img/ods1.png" alt="ODS 1 - Erradicação da Pobreza"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(2)"><img src="img/ods2.png" alt="ODS 2 - Fome Zero"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(3)"><img src="img/ods3.png" alt="ODS 3 - Saúde e Bem-Estar"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(4)"><img src="img/ods4.png" alt="ODS 4 - Educação de Qualidade"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(5)"><img src="img/ods5.png" alt="ODS 5 - Igualdade de Gênero"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(6)"><img src="img/ods6.png" alt="ODS 6 - Água Potável e Saneamento"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(7)"><img src="img/ods7.png" alt="ODS 7 - Energia Limpa e Acessível"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(8)"><img src="img/ods8.png" alt="ODS 8 - Trabalho Decente"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(9)"><img src="img/ods9.png" alt="ODS 9 - Indústria e Inovação"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(10)"><img src="img/ods10.png" alt="ODS 10 - Redução das Desigualdades"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(11)"><img src="img/ods11.png" alt="ODS 11 - Cidades Sustentáveis"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(12)"><img src="img/ods12.png" alt="ODS 12 - Consumo Responsável"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(13)"><img src="img/ods13.png" alt="ODS 13 - Ação Contra a Mudança Global do Clima"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(14)"><img src="img/ods14.png" alt="ODS 14 - Vida na Água"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(15)"><img src="img/ods15.png" alt="ODS 15 - Vida Terrestre"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(16)"><img src="img/ods16.png" alt="ODS 16 - Paz, Justiça e Instituições Eficazes"></div>
+                    <div class="escolha-card" onclick="abrirModalODS(17)"><img src="img/ods17.png" alt="ODS 17 - Parcerias e Meios de Implementação"></div>
+                </div>
             </div>
 
-            <section class="secao-explicativa">
+            <button class="btn-carrossel next" id="odsNext" aria-label="Próximo">&#10095;</button>
+        </section>
 
-                <div class="bloco-info">
-                    <div class="bloco-texto">
-                        <p>
-                            A <strong>Organização das Nações Unidas (ONU)</strong> reúne países do mundo todo para promover a paz e o desenvolvimento. Em 2015, foi criada a <strong>Agenda 2030</strong>, um plano de ação global para erradicar a pobreza, proteger o planeta e garantir que todas as pessoas vivam em paz e prosperidade.
-                        </p>
-                        <a href="https://brasil.un.org/pt-br/sdgs" target="_blank" rel="noopener noreferrer" class="btn-saiba-mais">
-                            Conhecer site da ONU 🌐
-                        </a>
-                    </div>
-                    <div class="bloco-imagem-placeholder">
-                        <img src="img/ods1.png" alt="Ilustração ONU e Agenda 2030">
-                    </div>
+        <!-- SEÇÕES EXPLICATIVAS (CARDS BRANCOS) -->
+        <section class="secao-explicativa">
+            
+            <div class="bloco-info">
+                <div class="bloco-texto">
+                    <h2>O que são as ODS?</h2>
+                    <p>Os Objetivos de Desenvolvimento Sustentável (ODS) são um apelo global da ONU à ação para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade.</p>
+                    <a href="https://brasil.un.org/pt-br/sdgs" target="_blank" rel="noopener noreferrer" class="btn-saiba-mais">Saiba mais na ONU</a>
                 </div>
-
-                <div class="bloco-info bloco-invertido">
-                    <div class="bloco-imagem-placeholder">
-                        <img src="img/ods2.png" alt="Ilustração ODS">
-                    </div>
-                    <div class="bloco-texto">
-                        <p>
-                            Os <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong> são 17 metas universais criadas para resolver os maiores desafios da nossa sociedade. Elas cobrem temas como saúde, educação, igualdade de gênero, água potável, energia limpa e preservação da vida terrestre e marinha.
-                        </p>
-                    </div>
+                <div class="bloco-imagem-placeholder">
+                    <img src="img/cultsab.png" alt="Cultivando o Saber">
                 </div>
-
-            </section>
-
-            <!-- GRID DOS CARDS DE ODS -->
-            <div class="ods-grid">
-                <div class="escolha-card" onclick="abrirModal(1)"><img src="img/ods1.png" alt="ODS 1"></div>
-                <div class="escolha-card" onclick="abrirModal(2)"><img src="img/ods2.png" alt="ODS 2"></div>
-                <div class="escolha-card" onclick="abrirModal(3)"><img src="img/ods3.png" alt="ODS 3"></div>
-                <div class="escolha-card" onclick="abrirModal(4)"><img src="img/ods4.png" alt="ODS 4"></div>
-                <div class="escolha-card" onclick="abrirModal(5)"><img src="img/ods5.png" alt="ODS 5"></div>
-                <div class="escolha-card" onclick="abrirModal(6)"><img src="img/ods6.png" alt="ODS 6"></div>
-                <div class="escolha-card" onclick="abrirModal(7)"><img src="img/ods7.png" alt="ODS 7"></div>
-                <div class="escolha-card" onclick="abrirModal(8)"><img src="img/ods8.png" alt="ODS 8"></div>
-                <div class="escolha-card" onclick="abrirModal(9)"><img src="img/ods9.png" alt="ODS 9"></div>
-                <div class="escolha-card" onclick="abrirModal(10)"><img src="img/ods10.png" alt="ODS 10"></div>
-                <div class="escolha-card" onclick="abrirModal(11)"><img src="img/ods11.png" alt="ODS 11"></div>
-                <div class="escolha-card" onclick="abrirModal(12)"><img src="img/ods12.png" alt="ODS 12"></div>
-                <div class="escolha-card" onclick="abrirModal(13)"><img src="img/ods13.png" alt="ODS 13"></div>
-                <div class="escolha-card" onclick="abrirModal(14)"><img src="img/ods14.png" alt="ODS 14"></div>
-                <div class="escolha-card" onclick="abrirModal(15)"><img src="img/ods15.png" alt="ODS 15"></div>
-                <div class="escolha-card" onclick="abrirModal(16)"><img src="img/ods16.png" alt="ODS 16"></div>
-                <div class="escolha-card" onclick="abrirModal(17)"><img src="img/ods17.png" alt="ODS 17"></div>
             </div>
+
+            <div class="bloco-info bloco-invertido">
+                <div class="bloco-texto">
+                    <h2>Por que participar?</h2>
+                    <p>Ao aprender e praticar ações ligadas às ODS, você ajuda a construir um futuro mais sustentável para a sua comunidade. No Cultivando o Saber, cada missão cumprida acumula pontos de XP e ajuda a preservar o planeta!</p>
+                    <a href="quiz.html" class="btn-saiba-mais">Começar Missão</a>
+                </div>
+                <div class="bloco-imagem-placeholder">
+                    <img src="img/foto.png" alt="Mascote Tuga">
+                </div>
+            </div>
+
         </section>
     </main>
 
-    <!-- MODAL DAS ODS -->
-    <div id="ods-modal" class="modal-overlay" onclick="fecharModalFora(event)">
+    <!-- MODAL DE INFORMAÇÕES DA ODS -->
+    <div class="modal-overlay" id="modalODS">
         <div class="modal-card">
-            <button class="modal-fechar" onclick="fecharModal()">&times;</button>
-            
+            <button class="modal-fechar" onclick="fecharModalODS()">&times;</button>
             <div class="modal-header">
-                <span id="modal-tag" class="modal-tag">ODS 1</span>
-                <h2 id="modal-titulo">Erradicação da Pobreza</h2>
+                <span class="modal-tag" id="modalTag">ODS 1</span>
+                <h2 id="modalTitle">Título da ODS</h2>
             </div>
-
             <div class="modal-body">
                 <div class="modal-imagem-container">
-                    <img id="modal-img" src="img/ods1.png" alt="Ilustração ODS">
+                    <img id="modalImg" src="" alt="Ícone ODS">
                 </div>
-
                 <div class="modal-texto">
-                    <h3>O que é este objetivo?</h3>
-                    <p id="modal-descricao">Carregando explicação...</p>
+                    <h3>Objetivo da Meta:</h3>
+                    <p id="modalDesc">Descrição detalhada do objetivo sustentável...</p>
                 </div>
             </div>
         </div>
@@ -312,51 +174,8 @@
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <!-- SCRIPT DO MODAL -->
-    <script>
-        const dadosODS = {
-            1: { titulo: "Erradicação da Pobreza", desc: "Acabar com a pobreza em todas as suas formas, em todos os lugares, garantindo acesso a recursos e serviços básicos para todos." },
-            2: { titulo: "Fome Zero e Agricultura Sustentável", desc: "Erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável." },
-            3: { titulo: "Saúde e Bem-Estar", desc: "Garantir uma vida saudável e promover o bem-estar para todas e todos, em todas as idades." },
-            4: { titulo: "Educação de Qualidade", desc: "Garantir a educação inclusiva, equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todos." },
-            5: { titulo: "Igualdade de Gênero", desc: "Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas." },
-            6: { titulo: "Água Potável e Saneamento", desc: "Garantir a disponibilidade e a gestão sustentável da água e saneamento para todos." },
-            7: { titulo: "Energia Limpa e Acessível", desc: "Garantir o acesso a fontes de energia fiáveis, sustentáveis, modernas e a preço acessível para todos." },
-            8: { titulo: "Trabalho Decente e Crescimento Econômico", desc: "Promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo e trabalho decente para todos." },
-            9: { titulo: "Indústria, Inovação e Infraestrutura", desc: "Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação." },
-            10: { titulo: "Redução das Desigualdades", desc: "Reduzir a desigualdade dentro dos países e entre eles." },
-            11: { titulo: "Cidades e Comunidades Sustentáveis", desc: "Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis." },
-            12: { titulo: "Consumo e Produção Responsáveis", desc: "Garantir padrões de consumo e de produção sustentáveis." },
-            13: { titulo: "Ação Contra a Mudança Global do Clima", desc: "Tomar medidas urgentes para combater a mudança do clima e os seus impactos." },
-            14: { titulo: "Vida na Água", desc: "Conservar e usar de forma sustentável os oceanos, mares e recursos marinhos para o desenvolvimento sustentável." },
-            15: { titulo: "Vida Terrestre", desc: "Proteger, recuperar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas e combater a desertificação." },
-            16: { titulo: "Paz, Justiça e Instituições Eficazes", desc: "Promover sociedades inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas." },
-            17: { titulo: "Parcerias e Meios de Implementação", desc: "Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável." }
-        };
-
-        function abrirModal(numero) {
-            const ods = dadosODS[numero];
-            if (!ods) return;
-
-            document.getElementById('modal-tag').innerText = `ODS ${numero}`;
-            document.getElementById('modal-titulo').innerText = ods.titulo;
-            document.getElementById('modal-descricao').innerText = ods.desc;
-            document.getElementById('modal-img').src = `img/ods${numero}.png`;
-
-            const modal = document.getElementById('ods-modal');
-            modal.style.display = 'flex';
-        }
-
-        function fecharModal() {
-            document.getElementById('ods-modal').style.display = 'none';
-        }
-
-        function fecharModalFora(event) {
-            if (event.target.id === 'ods-modal') {
-                fecharModal();
-            }
-        }
-    </script>
+    <!-- SCRIPT DA PÁGINA ODS -->
+    <script src="js/ods.js"></script>
 </body>
 
 </html>
