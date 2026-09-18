@@ -1,0 +1,232 @@
+/* =========================================
+   1. TÍTULO NO TOPO DA PÁGINA ODS
+   ========================================= */
+.titulo-principal-topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-principal-topo h2 {
+    font-family: 'Nunito', sans-serif;
+    color: #4CAE50;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.titulo-principal-topo p {
+    font-family: 'Poppins', sans-serif;
+    color: #1A1A1A;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 6px;
+}
+
+/* =========================================
+   2. CARROSSEL DESLIZANTE DE ODS (SLIDER CONTINUO)
+   ========================================= */
+.ods-carrossel-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    padding: 10px 40px; /* Espaço para as setas laterais */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.ods-carrossel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Esconde a barra no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra no IE/Edge */
+    cursor: grab;
+    padding: 10px 0;
+}
+
+.ods-carrossel-container::-webkit-scrollbar {
+    display: none; /* Esconde a barra no Chrome/Safari */
+}
+
+.ods-carrossel-container:active {
+    cursor: grabbing;
+}
+
+/* Alinha todos os cards numa única linha contínua */
+.ods-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    width: max-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.ods-grid .escolha-card {
+    width: 120px !important; /* Tamanho fixo de cada card */
+    height: 120px !important;
+    flex-shrink: 0 !important;
+    aspect-ratio: 1 / 1 !important;
+    background-color: transparent !important;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    border: none !important;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.ods-grid .escolha-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 12px !important;
+    pointer-events: none;
+}
+
+.ods-grid .escolha-card:hover {
+    transform: scale(1.08);
+}
+
+/* Setas de Navegação Lateral */
+.btn-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #43B4FB;
+    color: #FFFFFF;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-carrossel:hover {
+    background: #4CAE50;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-carrossel.prev { left: 0; }
+.btn-carrossel.next { right: 0; }
+
+/* =========================================
+   3. BLOCOS EXPLICATIVOS BRANCOS (CARD DUAL)
+   ========================================= */
+.secao-explicativa {
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.bloco-info {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 30px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 3px solid #43B4FB; /* Bright Blue */
+    box-sizing: border-box;
+}
+
+.bloco-info.bloco-invertido {
+    flex-direction: row-reverse;
+}
+
+.bloco-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.bloco-texto h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #4CAE50; /* Garden Green */
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bloco-texto p {
+    font-family: 'Poppins', sans-serif;
+    color: #1A1A1A;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    background-color: #43B4FB; /* Bright Blue */
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.bloco-imagem-placeholder {
+    width: 280px;
+    height: 190px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8FAFC;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.bloco-imagem-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================
+   4. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 768px) {
+    .ods-carrossel-wrapper {
+        padding: 10px 30px;
+    }
+
+    .bloco-info, 
+    .bloco-info.bloco-invertido {
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .bloco-imagem-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+}
