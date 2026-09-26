@@ -72,6 +72,11 @@ h3 {
     color: #FF524D !important; /* Vivid Red */
 }
 
+/* BARRA DE XP - COR PADRÃO */
+.topbar .level .progress {
+    background-color: #FFDD55 !important;
+}
+
 /* BOTÕES 3D */
 .btn-principal {
     display: inline-flex;
