@@ -27,6 +27,33 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
+    <!-- Estilo rápido para a caixa de dica da Tuga -->
+    <style>
+        .tuga-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .tuga-avatar {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        .tuga-speech {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body style="background-color: #FFFFFF !important;">
@@ -125,6 +152,12 @@
                style="color: #000000 !important;">
                 Teste seus conhecimentos ambientais.
             </p>
+
+            <!-- CAIXA DE DICA DA TUGA (Logo abaixo do subtítulo) -->
+            <div class="tuga-container">
+                <img src="img/Tuga.png" alt="Tartaruga Tuga" class="tuga-avatar">
+                <p class="tuga-speech">Responda com atenção para subir de nível.</p>
+            </div>
 
             <!-- TELA DE SELEÇÃO COM CARDS DINÂMICOS -->
             <div id="selection-screen"
