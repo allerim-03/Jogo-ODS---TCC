@@ -5,8 +5,8 @@ const interativosJogo1 = {
     tempoUltimoItem: 0,
     distanciaInteracao: 70,
     proximaDistancia: 800, 
+    anguloFlutuacao: 0, // Animação da exclamação
 
-    // Garante que a caixa não nasça flutuando sobre uma poça
     caixaEstaSobrePoca: function(caixaX, larguraCaixa, listaPocas) {
         if (!listaPocas) return false;
 
@@ -21,12 +21,10 @@ const interativosJogo1 = {
         return false;
     },
 
-    // Gera o item no chão (seco) ou em cima de uma plataforma
     gerarItem: function(xBase, listaPocas, listaPlataformas) {
         const largura = 40;
         const altura = 40;
 
-        // 50% de chance de tentar spawnar em plataforma (se houver alguma)
         const tentarPlataforma = Math.random() > 0.5;
 
         if (tentarPlataforma && listaPlataformas && listaPlataformas.length > 0) {
@@ -35,7 +33,7 @@ const interativosJogo1 = {
 
             this.itens.push({
                 x: xPlat,
-                y: platSorteada.y - altura, // Fica sobre a plataforma
+                y: platSorteada.y - altura,
                 largura: largura,
                 altura: altura,
                 interagido: false,
@@ -44,7 +42,6 @@ const interativosJogo1 = {
             return;
         }
 
-        // Se for no chão, busca posição segura (fora da água)
         let xChao = xBase + 600;
         let tentativas = 0;
 
@@ -55,7 +52,7 @@ const interativosJogo1 = {
 
         this.itens.push({
             x: xChao,
-            y: 320, // Altura exata do chão (360 - 40)
+            y: 320,
             largura: largura,
             altura: altura,
             interagido: false,
@@ -64,15 +61,16 @@ const interativosJogo1 = {
     },
 
     atualizar: function(jogador, listaPocas, listaPlataformas) {
-        // Verifica spawn com base na distância sorteada
+        this.anguloFlutuacao += 0.08;
+
         if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
             this.gerarItem(jogador.x, listaPocas, listaPlataformas);
             this.tempoUltimoItem = jogador.x;
             this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
         }
 
-        // Interação com a tecla ENTER
-        if (controlesJogo1.enter) {
+        // Suporte a ESPAÇO e ENTER para coletar
+        if (controlesJogo1.enter || controlesJogo1.espaco) {
             for (let item of this.itens) {
                 if (!item.interagido) {
                     const centroJogadorX = jogador.x + jogador.largura / 2;
@@ -81,10 +79,11 @@ const interativosJogo1 = {
 
                     if (distancia <= this.distanciaInteracao) {
                         item.interagido = true;
-                        item.cor = "#2ecc71"; // Fica verde ao coletar
+                        item.cor = "#2ecc71";
                         this.contadorConcluidos++;
                         
                         controlesJogo1.enter = false;
+                        controlesJogo1.espaco = false;
                         break;
                     }
                 }
@@ -106,18 +105,21 @@ const interativosJogo1 = {
                 ctx.lineWidth = 2;
                 ctx.strokeRect(posX, item.y, item.largura, item.altura);
 
-                // Mostra a dica [ENTER] se o jogador estiver perto
-                if (!item.interagido) {
-                    const centroJogadorX = jogador.x + jogador.largura / 2;
-                    const centroItemX = item.x + item.largura / 2;
-                    const distancia = Math.abs(centroJogadorX - centroItemX);
+                // Desenha a exclamação animada sobre o item enquanto NÃO for coletado
+                if (!item.interagido && typeof imgExclamacao !== "undefined" && imgExclamacao.complete && imgExclamacao.naturalWidth !== 0) {
+                    const offsetOffsetY = Math.sin(this.anguloFlutuacao) * 5;
+                    const exclamacaoLargura = 20;
+                    const exclamacaoAltura = 20;
+                    const exclamacaoX = posX + (item.largura / 2) - (exclamacaoLargura / 2);
+                    const exclamacaoY = item.y - exclamacaoAltura - 6 + offsetOffsetY;
 
-                    if (distancia <= this.distanciaInteracao) {
-                        ctx.fillStyle = "#ffffff";
-                        ctx.font = "bold 14px Arial";
-                        ctx.textAlign = "center";
-                        ctx.fillText("[ENTER]", posX + item.largura / 2, item.y - 12);
-                    }
+                    ctx.drawImage(
+                        imgExclamacao,
+                        exclamacaoX,
+                        exclamacaoY,
+                        exclamacaoLargura,
+                        exclamacaoAltura
+                    );
                 }
             }
         }

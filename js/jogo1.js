@@ -27,6 +27,7 @@ function reiniciarJogo() {
     // Reseta o estado do NPC
     if (typeof npcGuri !== "undefined") {
         npcGuri.emConversa = false;
+        npcGuri.jaConversou = false;
     }
 
     estado = "jogando";
@@ -46,7 +47,12 @@ function loop() {
         cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
         plataformasJogo1.atualizar(jogadorJogo1, dispararMorte);
         
-        // Chamada repassando poças e plataformas para evitar spawn sobre a água
+        // Atualiza a lógica do NPC (distância e diálogo por Espaço/Enter)
+        if (typeof npcGuri !== "undefined") {
+            npcGuri.atualizar(jogadorJogo1);
+        }
+
+        // Atualiza itens interativos
         interativosJogo1.atualizar(
             jogadorJogo1,
             plataformasJogo1.listaPocas,
@@ -68,7 +74,7 @@ function loop() {
         // 3. HUD e Diálogos
         interativosJogo1.desenharHUD(ctx, canvas.width);
 
-        // Desenha a caixa de diálogo sobre os elementos da tela se estiver em conversa
+        // Desenha a caixa de diálogo por cima da tela
         if (typeof npcGuri !== "undefined") {
             npcGuri.desenharDialogo(ctx, canvas.width, canvas.height);
         }
@@ -115,7 +121,7 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-// Escuta cliques do mouse para os botões da UI e interações
+// Escuta cliques do mouse apenas para os botões do Menu e Game Over
 canvas.addEventListener("click", (e) => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -130,13 +136,6 @@ canvas.addEventListener("click", (e) => {
             mouseY >= botaoPlay.y && mouseY <= botaoPlay.y + botaoPlay.altura
         ) {
             estado = "jogando";
-        }
-    }
-
-    if (estado === "jogando") {
-        // Intercepta cliques no NPC ou na caixa de diálogo
-        if (typeof npcGuri !== "undefined") {
-            npcGuri.verificarClique(mouseX, mouseY, cenarioJogo1.cameraX);
         }
     }
 
