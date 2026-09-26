@@ -24,6 +24,11 @@ function reiniciarJogo() {
     interativosJogo1.tempoUltimoItem = 0;
     interativosJogo1.proximaDistancia = 800;
 
+    // Reseta o estado do NPC
+    if (typeof npcGuri !== "undefined") {
+        npcGuri.emConversa = false;
+    }
+
     estado = "jogando";
 }
 
@@ -41,7 +46,7 @@ function loop() {
         cenarioJogo1.atualizarCamera(jogadorJogo1.x, canvas.width);
         plataformasJogo1.atualizar(jogadorJogo1, dispararMorte);
         
-        // Chamada atualizada repassando poças e plataformas para evitar spawn sobre a água
+        // Chamada repassando poças e plataformas para evitar spawn sobre a água
         interativosJogo1.atualizar(
             jogadorJogo1,
             plataformasJogo1.listaPocas,
@@ -51,17 +56,33 @@ function loop() {
         // 2. Renderização
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
+        
+        // Desenha o NPC no cenário
+        if (typeof npcGuri !== "undefined") {
+            npcGuri.desenhar(ctx, cenarioJogo1.cameraX);
+        }
+
         interativosJogo1.desenhar(ctx, cenarioJogo1.cameraX, jogadorJogo1);
         jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         
-        // 3. HUD
+        // 3. HUD e Diálogos
         interativosJogo1.desenharHUD(ctx, canvas.width);
+
+        // Desenha a caixa de diálogo sobre os elementos da tela se estiver em conversa
+        if (typeof npcGuri !== "undefined") {
+            npcGuri.desenharDialogo(ctx, canvas.width, canvas.height);
+        }
     }
 
     // Tela de Game Over (Congela o estado atual do jogo no fundo)
     if (estado === "gameover") {
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
+        
+        if (typeof npcGuri !== "undefined") {
+            npcGuri.desenhar(ctx, cenarioJogo1.cameraX);
+        }
+
         interativosJogo1.desenhar(ctx, cenarioJogo1.cameraX, jogadorJogo1);
         jogadorJogo1.desenhar(ctx, cenarioJogo1.cameraX);
 
@@ -94,7 +115,7 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-// Escuta cliques do mouse para os botões da UI
+// Escuta cliques do mouse para os botões da UI e interações
 canvas.addEventListener("click", (e) => {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -109,6 +130,13 @@ canvas.addEventListener("click", (e) => {
             mouseY >= botaoPlay.y && mouseY <= botaoPlay.y + botaoPlay.altura
         ) {
             estado = "jogando";
+        }
+    }
+
+    if (estado === "jogando") {
+        // Intercepta cliques no NPC ou na caixa de diálogo
+        if (typeof npcGuri !== "undefined") {
+            npcGuri.verificarClique(mouseX, mouseY, cenarioJogo1.cameraX);
         }
     }
 
