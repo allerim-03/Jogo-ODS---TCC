@@ -15,8 +15,8 @@ imgExclamacao.src = "img/exclamacao.png";
 const npcGuri = {
     x: 220,
     y: 280,
-    largura: 80,
-    altura: 80,
+    largura: 50,
+    altura: 70,
     distanciaInteracao: 90,
     
     // Estado da conversa e se já interagiu alguma vez

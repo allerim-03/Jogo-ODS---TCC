@@ -1,3 +1,15 @@
+// Carregamento dos sprites de animação da Torneira Aberta (to-1 até to-6)
+const spritesTorneira = [];
+for (let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `img/to-${i}.png`;
+    spritesTorneira.push(img);
+}
+
+// Sprite da Torneira Fechada (to-7)
+const imgTorneiraFechada = new Image();
+imgTorneiraFechada.src = "img/to-7.png";
+
 const interativosJogo1 = {
     itens: [],
     contadorConcluidos: 0,
@@ -5,7 +17,12 @@ const interativosJogo1 = {
     tempoUltimoItem: 0,
     distanciaInteracao: 70,
     proximaDistancia: 800, 
-    anguloFlutuacao: 0, // Animação da exclamação
+    
+    // Controle da animação das torneiras e da exclamação
+    anguloFlutuacao: 0,
+    contadorTempoAnimacao: 0,
+    velocidadeAnimacao: 6, // Velocidade de troca dos frames
+    frameTorneiraAtual: 0,
 
     caixaEstaSobrePoca: function(caixaX, larguraCaixa, listaPocas) {
         if (!listaPocas) return false;
@@ -22,8 +39,8 @@ const interativosJogo1 = {
     },
 
     gerarItem: function(xBase, listaPocas, listaPlataformas) {
-        const largura = 40;
-        const altura = 40;
+        const largura = 45;
+        const altura = 45;
 
         const tentarPlataforma = Math.random() > 0.5;
 
@@ -36,8 +53,7 @@ const interativosJogo1 = {
                 y: platSorteada.y - altura,
                 largura: largura,
                 altura: altura,
-                interagido: false,
-                cor: "#e67e22"
+                interagido: false
             });
             return;
         }
@@ -52,16 +68,22 @@ const interativosJogo1 = {
 
         this.itens.push({
             x: xChao,
-            y: 320,
+            y: 315, // Ajustado para o chão (360 - 45)
             largura: largura,
             altura: altura,
-            interagido: false,
-            cor: "#e67e22"
+            interagido: false
         });
     },
 
     atualizar: function(jogador, listaPocas, listaPlataformas) {
         this.anguloFlutuacao += 0.08;
+
+        // Atualiza o frame da animação das torneiras abertas (0 a 5 -> to-1 a to-6)
+        this.contadorTempoAnimacao++;
+        if (this.contadorTempoAnimacao >= this.velocidadeAnimacao) {
+            this.contadorTempoAnimacao = 0;
+            this.frameTorneiraAtual = (this.frameTorneiraAtual + 1) % 6;
+        }
 
         if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
             this.gerarItem(jogador.x, listaPocas, listaPlataformas);
@@ -69,7 +91,7 @@ const interativosJogo1 = {
             this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
         }
 
-        // Suporte a ESPAÇO e ENTER para coletar
+        // Interação para fechar a torneira
         if (controlesJogo1.enter || controlesJogo1.espaco) {
             for (let item of this.itens) {
                 if (!item.interagido) {
@@ -78,8 +100,7 @@ const interativosJogo1 = {
                     const distancia = Math.abs(centroJogadorX - centroItemX);
 
                     if (distancia <= this.distanciaInteracao) {
-                        item.interagido = true;
-                        item.cor = "#2ecc71";
+                        item.interagido = true; // Marca como fechada (passa a ser to-7)
                         this.contadorConcluidos++;
                         
                         controlesJogo1.enter = false;
@@ -98,20 +119,28 @@ const interativosJogo1 = {
             const posX = item.x - cameraX;
 
             if (posX > -60 && posX < 850) {
-                ctx.fillStyle = item.cor;
-                ctx.fillRect(posX, item.y, item.largura, item.altura);
+                let imgTorneira;
 
-                ctx.strokeStyle = "#ffffff";
-                ctx.lineWidth = 2;
-                ctx.strokeRect(posX, item.y, item.largura, item.altura);
+                if (item.interagido) {
+                    // Torneira Fechada (to-7.png)
+                    imgTorneira = imgTorneiraFechada;
+                } else {
+                    // Torneira Aberta (Animando entre to-1.png e to-6.png)
+                    imgTorneira = spritesTorneira[this.frameTorneiraAtual];
+                }
 
-                // Desenha a exclamação animada sobre o item enquanto NÃO for coletado
+                // Desenha a imagem da torneira
+                if (imgTorneira && imgTorneira.complete && imgTorneira.naturalWidth !== 0) {
+                    ctx.drawImage(imgTorneira, posX, item.y, item.largura, item.altura);
+                }
+
+                // Desenha a exclamação flutuante (32x32) apenas se a torneira ainda estiver aberta
                 if (!item.interagido && typeof imgExclamacao !== "undefined" && imgExclamacao.complete && imgExclamacao.naturalWidth !== 0) {
                     const offsetOffsetY = Math.sin(this.anguloFlutuacao) * 5;
-                    const exclamacaoLargura = 20;
-                    const exclamacaoAltura = 20;
+                    const exclamacaoLargura = 32;
+                    const exclamacaoAltura = 32;
                     const exclamacaoX = posX + (item.largura / 2) - (exclamacaoLargura / 2);
-                    const exclamacaoY = item.y - exclamacaoAltura - 6 + offsetOffsetY;
+                    const exclamacaoY = item.y - exclamacaoAltura - 8 + offsetOffsetY;
 
                     ctx.drawImage(
                         imgExclamacao,
