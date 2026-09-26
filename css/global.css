@@ -260,11 +260,16 @@ h3 {
 }
 
 /* =========================================================
-   BARRA DE XP - COR PADRÃO
+   BARRA DE XP E NÍVEL - COR PADRÃO
    ========================================================= */
 
-/* Somente a cor da parte preenchida da barra de XP */
+/* Cor da parte preenchida da barra de XP */
 .topbar .level .bar .progress {
     background: #FFDD55 !important;
     background-color: #FFDD55 !important;
+}
+
+/* Cor do texto e estrela do nível */
+.topbar .level .star {
+    color: #FFDD55 !important;
 }
