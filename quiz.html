@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivando o Saber - Eco-Quiz</title>
+    <title>Cultivando o Saber - Quiz</title>
 
-    <!-- Favicon -->
+    <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
-    <!-- CSS -->
+    <!-- CSS Global e Módulos -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -26,11 +26,12 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
+
 </head>
 
-<body>
+<body style="background-color: #FFFFFF !important;">
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR PADRONIZADA -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -45,7 +46,7 @@
             <nav class="links-sidebar">
                 <a href="index.html">HOME</a>
                 <a href="ods.html">ODS</a>
-                <a href="quiz.html" class="active">QUIZ</a>
+                <a href="quiz.html">QUIZ</a>
                 <a href="jogos.html">JOGOS</a>
                 <a href="ranking.html">RANKING</a>
                 <a href="perfil.html">PERFIL</a>
@@ -63,20 +64,34 @@
 
             <div class="info-container">
                 <div class="logo">
-                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                    <img src="img/cultsab.png"
+                         alt="Cultivando o Saber"
+                         class="navbar-logo">
                 </div>
 
                 <div class="level">
-                    <span class="star">★ NÍVEL 2</span>
+
+                    <!-- NÍVEL 2 - AMARELO CLARO -->
+                    <span class="star"
+                          style="color: #FFDD55 !important;">
+                        ★ NÍVEL 2
+                    </span>
+
+                    <!-- BARRA DE XP - AMARELO CLARO -->
                     <div class="bar">
-                        <div class="progress" style="width: 45%;"></div>
+                        <div class="progress"
+                             style="width: 45%;
+                                    background-color: #FFDD55 !important;">
+                        </div>
                     </div>
+
                     <span class="xp">450/1000</span>
+
                 </div>
             </div>
         </div>
 
-        <!-- Menu Central -->
+        <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="ods.html">ODS</a>
@@ -89,88 +104,278 @@
 
         <!-- Perfil à Direita -->
         <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+            <img src="img/foto.png"
+                 class="foto-perfil"
+                 alt="Perfil">
         </a>
+
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="quiz-main-container">
-        <br><br>
-        
-        <!-- TÍTULO DA PÁGINA -->
-        <div class="titulo-principal-topo">
-            <h2>ECO-QUIZ</h2>
-            <p>Teste seus conhecimentos ambientais.</p>
-        </div>
+    <!-- CONTEÚDO PRINCIPAL DO QUIZ -->
+    <main style="background-color: #FFFFFF !important;">
 
-        <!-- SEÇÃO DE SELEÇÃO DE QUIZZES -->
-        <div class="quiz-cards-grid">
+        <section class="boas-vindas"
+                 style="background-color: #FFFFFF !important;">
 
-            <!-- CARD 1: VIDA TERRESTRE (Verde) -->
-            <div class="quiz-card card-verde">
-                <div class="quiz-card-header">
-                    <span class="badge-ods">ODS 15</span>
-                    <span class="tag-xp">+300 XP</span>
-                </div>
-                <div class="quiz-card-icon">
-                    <img src="img/ods15.png" alt="Vida Terrestre">
-                </div>
-                <div class="quiz-card-content">
-                    <h3>Vida Terrestre</h3>
-                    <p>Aprenda a proteger florestas, solos e a biodiversidade do nosso planeta.</p>
-                </div>
-                <div class="quiz-card-footer">
-                    <button class="btn-principal btn-iniciar-quiz" onclick="iniciarQuiz('ods15')">▶ Iniciar Desafio</button>
+            <h1 class="quiz-main-title">
+                ECO-QUIZ
+            </h1>
+
+            <p class="quiz-sub-title">
+                Teste seus conhecimentos ambientais.
+            </p>
+
+            <!-- TELA DE SELEÇÃO COM CARDS DINÂMICOS -->
+            <div id="selection-screen"
+                 class="quiz-selection-wrapper">
+
+                <div class="quiz-cards-grid">
+
+                    <!-- CARD 1: VIDA TERRESTRE (Verde) -->
+                    <div class="quiz-card card-green"
+                         onclick="startQuiz('terrestres')">
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 15
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img src="img/Planeta.png"
+                                 alt="Vida Terrestre"
+                                 class="quiz-icon-img">
+
+                            <h3>
+                                Vida Terrestre
+                            </h3>
+
+                            <p>
+                                Aprenda a proteger florestas, solos e a biodiversidade do nosso planeta.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button class="btn-quiz-start">
+                                ▶ Iniciar Desafio
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD 2: RECICLAGEM E RESÍDUOS (Laranja) -->
+                    <div class="quiz-card card-orange"
+                         onclick="startQuiz('reciclagem')">
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 12
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img src="img/LixoAMARELO.png"
+                                 alt="Reciclagem e Resíduos"
+                                 class="quiz-icon-img">
+
+                            <h3>
+                                Reciclagem e Resíduos
+                            </h3>
+
+                            <p>
+                                Aprenda a separar o lixo corretamente e a praticar os 5 R's da sustentabilidade.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button class="btn-quiz-start">
+                                ▶ Iniciar Desafio
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD 3: USO CONSCIENTE DA ÁGUA (Roxo) -->
+                    <div class="quiz-card card-purple"
+                         onclick="startQuiz('agua')">
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 6
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img src="img/GotaAgua.png"
+                                 alt="Uso Consciente da Água"
+                                 class="quiz-icon-img">
+
+                            <h3>
+                                Uso Consciente da Água
+                            </h3>
+
+                            <p>
+                                Entenda a importância da água limpa, saneamento e consumo responsável.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button class="btn-quiz-start">
+                                ▶ Iniciar Desafio
+                            </button>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
-            <!-- CARD 2: RECICLAGEM E RESÍDUOS (Laranja) -->
-            <div class="quiz-card card-laranja">
-                <div class="quiz-card-header">
-                    <span class="badge-ods">ODS 12</span>
-                    <span class="tag-xp">+300 XP</span>
+            <!-- TELA DO JOGO (QUIZ EM ANDAMENTO) -->
+            <div id="game"
+                 class="quiz-container"
+                 style="display: none;">
+
+                <div class="quiz-header">
+
+                    <div class="quiz-header-top">
+
+                        <span id="topic-badge"
+                              class="topic-badge">
+                            Tema
+                        </span>
+
+                        <span id="progress-text">
+                            Pergunta 1 de 3
+                        </span>
+
+                    </div>
+
+                    <div class="bar quiz-bar">
+
+                        <div id="quiz-progress"
+                             class="progress"
+                             style="width: 0%">
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="quiz-card-icon">
-                    <img src="img/ods12.png" alt="Reciclagem">
+
+                <h3 id="question-text">
+                    Carregando pergunta...
+                </h3>
+
+                <div class="options-container">
+
+                    <button class="btn-option"
+                            onclick="selectOption(0)">
+                        Opção 1
+                    </button>
+
+                    <button class="btn-option"
+                            onclick="selectOption(1)">
+                        Opção 2
+                    </button>
+
+                    <button class="btn-option"
+                            onclick="selectOption(2)">
+                        Opção 3
+                    </button>
+
+                    <button class="btn-option"
+                            onclick="selectOption(3)">
+                        Opção 4
+                    </button>
+
                 </div>
-                <div class="quiz-card-content">
-                    <h3>Reciclagem e Resíduos</h3>
-                    <p>Aprenda a separar o lixo corretamente e a praticar os 5 R's da sustentabilidade.</p>
-                </div>
-                <div class="quiz-card-footer">
-                    <button class="btn-principal btn-iniciar-quiz btn-laranja" onclick="iniciarQuiz('ods12')">▶ Iniciar Desafio</button>
-                </div>
+
             </div>
 
-            <!-- CARD 3: USO CONSCIENTE DA ÁGUA (Roxo) -->
-            <div class="quiz-card card-roxo">
-                <div class="quiz-card-header">
-                    <span class="badge-ods">ODS 6</span>
-                    <span class="tag-xp">+300 XP</span>
+            <!-- TELA DE RESULTADOS -->
+            <div id="result-screen"
+                 class="quiz-container"
+                 style="display: none;">
+
+                <span class="result-icon">
+                    🎉
+                </span>
+
+                <h2>
+                    Missão Concluída!
+                </h2>
+
+                <p>
+                    Você conquistou:
+                </p>
+
+                <div class="xp-result-box">
+
+                    <span class="star">
+                        ★
+                    </span>
+
+                    <h2 id="final-score"
+                        class="final-score-text">
+                        0
+                    </h2>
+
+                    <span>
+                        XP
+                    </span>
+
                 </div>
-                <div class="quiz-card-icon">
-                    <img src="img/ods6.png" alt="Água Potável">
-                </div>
-                <div class="quiz-card-content">
-                    <h3>Uso Consciente da Água</h3>
-                    <p>Entenda a importância da água limpa, saneamento e consumo responsável.</p>
-                </div>
-                <div class="quiz-card-footer">
-                    <button class="btn-principal btn-iniciar-quiz btn-roxo" onclick="iniciarQuiz('ods6')">▶ Iniciar Desafio</button>
-                </div>
+
+                <button class="btn-quiz-action"
+                        onclick="resetQuiz()">
+                    VOLTAR AOS DESAFIOS
+                </button>
+
             </div>
 
-        </div>
+        </section>
 
     </main>
 
     <!-- RODAPÉ -->
     <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
     </footer>
 
-    <!-- SCRIPT DO QUIZ -->
+    <!-- Arquivo JS Externo -->
     <script src="js/quiz.js"></script>
+
 </body>
 
 </html>
