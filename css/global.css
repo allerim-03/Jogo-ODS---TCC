@@ -72,11 +72,6 @@ h3 {
     color: #FF524D !important; /* Vivid Red */
 }
 
-/* BARRA DE XP - COR PADRÃO */
-.topbar .level .progress {
-    background-color: #FFDD55 !important;
-}
-
 /* BOTÕES 3D */
 .btn-principal {
     display: inline-flex;
@@ -262,4 +257,14 @@ h3 {
     border-bottom: none !important;
     outline: none !important;
     box-shadow: none !important;
+}
+
+/* =========================================================
+   BARRA DE XP - COR PADRÃO
+   ========================================================= */
+
+/* Somente a cor da parte preenchida da barra de XP */
+.topbar .level .bar .progress {
+    background: #FFDD55 !important;
+    background-color: #FFDD55 !important;
 }
