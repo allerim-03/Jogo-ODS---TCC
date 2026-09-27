@@ -15,6 +15,7 @@
           type="image/png"
           href="img/icon.png">
 
+
     <!-- Google Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -28,53 +29,22 @@
 
 
     <!-- CSS -->
-    <link rel="stylesheet"
-          href="css/global.css">
-
-    <link rel="stylesheet"
-          href="css/base.css">
-
-    <link rel="stylesheet"
-          href="css/banner.css">
-
-    <link rel="stylesheet"
-          href="css/botoes.css">
-
-    <link rel="stylesheet"
-          href="css/cards.css">
-
-    <link rel="stylesheet"
-          href="css/escolha.css">
-
-    <link rel="stylesheet"
-          href="css/formularios.css">
-
-    <link rel="stylesheet"
-          href="css/jogos.css">
-
-    <link rel="stylesheet"
-          href="css/journey.css">
-
-    <link rel="stylesheet"
-          href="css/navbar.css">
-
-    <link rel="stylesheet"
-          href="css/quiz.css">
-
-    <link rel="stylesheet"
-          href="css/ranking.css">
-
-    <link rel="stylesheet"
-          href="css/rodape.css">
-
-    <link rel="stylesheet"
-          href="css/sidebar.css">
-
-    <link rel="stylesheet"
-          href="css/sobre.css">
-
-    <link rel="stylesheet"
-          href="css/textos.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
 
 
     <style>
@@ -87,18 +57,28 @@
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             margin: 0 !important;
             padding: 0 !important;
+
             min-height: 100vh !important;
-            background-color: #3F9B43 !important;
+
             overflow-x: hidden;
+
+            background-color: #3F9B43 !important;
         }
 
+
         body {
-            background-color: #3F9B43 !important;
+            display: flex;
+            flex-direction: column;
+
+            min-height: 100vh;
         }
+
 
 
         /* =====================================================
@@ -106,20 +86,26 @@
            ===================================================== */
 
         .topbar {
+
             position: relative !important;
+
             top: 0 !important;
             left: 0 !important;
 
             width: 100% !important;
+
             height: 90px !important;
             min-height: 90px !important;
 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
+            margin: 0 !important;
 
             padding: 10px 25px !important;
-            margin: 0 !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
 
             background-color: #4CAF50 !important;
 
@@ -130,24 +116,32 @@
         }
 
 
+
         /* =====================================================
            HAMBÚRGUER
            ===================================================== */
 
         .topbar-left {
-            display: flex !important;
-            align-items: center !important;
+
             width: 50px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
         }
 
+
         .hamburger {
+
             width: 42px !important;
             height: 42px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             justify-content: center !important;
+
             align-items: center !important;
 
             gap: 5px !important;
@@ -159,12 +153,17 @@
             transition: opacity 0.2s ease !important;
         }
 
+
         .hamburger:hover {
+
             opacity: 0.85 !important;
         }
 
+
         .hamburger span {
+
             width: 24px !important;
+
             height: 3px !important;
 
             background-color: #FFFFFF !important;
@@ -173,25 +172,38 @@
         }
 
 
+
         /* =====================================================
-           SIDEBAR - VISITANTE
+           CONTROLE DO SIDEBAR
            ===================================================== */
 
         .menu-checkbox {
+
             display: none !important;
         }
 
 
+
+        /* =====================================================
+           SIDEBAR
+           
+           MESMO ESTILO DO SIDEBAR LOGADO
+           PORÉM COM CONTEÚDO DE VISITANTE
+           ===================================================== */
+
         .sidebar {
+
             position: fixed !important;
 
             top: 0 !important;
+
             left: -300px !important;
 
             width: 270px !important;
+
             height: 100vh !important;
 
-            background-color: #1b5e20 !important;
+            background-color: #1B5E20 !important;
 
             z-index: 9999 !important;
 
@@ -200,6 +212,7 @@
             padding: 30px 20px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             box-sizing: border-box !important;
@@ -207,8 +220,10 @@
 
 
         #menu-check:checked ~ .sidebar {
+
             left: 0 !important;
         }
+
 
 
         /* =====================================================
@@ -216,6 +231,7 @@
            ===================================================== */
 
         .overlay {
+
             position: fixed !important;
 
             top: 0 !important;
@@ -233,8 +249,10 @@
 
 
         #menu-check:checked ~ .overlay {
+
             display: block !important;
         }
+
 
 
         /* =====================================================
@@ -242,15 +260,18 @@
            ===================================================== */
 
         .perfil-sidebar {
+
             text-align: center !important;
 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.2) !important;
 
             padding-bottom: 20px !important;
 
             margin-bottom: 20px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             align-items: center !important;
@@ -258,14 +279,22 @@
 
 
         .perfil-sidebar img {
+
             width: 90px !important;
+
             height: 90px !important;
 
             object-fit: contain !important;
 
             display: block !important;
 
-            margin: 0 auto 10px auto !important;
+            margin: 0 auto 6px auto !important;
+
+            background: transparent !important;
+
+            border: none !important;
+
+            border-radius: 0 !important;
 
             image-rendering:
                 -moz-crisp-edges !important;
@@ -282,9 +311,12 @@
 
 
         .perfil-sidebar p {
+
             color: #FFB72B !important;
 
-            font-family: 'Montserrat', sans-serif !important;
+            font-family:
+                'Montserrat',
+                sans-serif !important;
 
             font-weight: 700 !important;
 
@@ -294,63 +326,78 @@
         }
 
 
+
         /* =====================================================
-           ÁREA DOS BOTÕES
+           BOTÕES DO VISITANTE
+           
+           MESMA ORGANIZAÇÃO DO SIDEBAR
            ===================================================== */
 
         .sidebar-actions {
+
+            width: 100% !important;
+
             display: flex !important;
 
             flex-direction: column !important;
 
             gap: 12px !important;
-
-            width: 100% !important;
         }
 
 
         .sidebar-actions a {
+
             width: 100% !important;
 
-            text-align: center !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 14px !important;
-
-            padding: 12px 16px !important;
-
-            border-radius: 12px !important;
-
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease !important;
+            min-height: 48px !important;
 
             display: flex !important;
 
             align-items: center !important;
 
             justify-content: center !important;
+
+            padding: 12px 16px !important;
+
+            border-radius: 12px !important;
+
+            font-family:
+                'Montserrat',
+                sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 14px !important;
+
+            text-decoration: none !important;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease !important;
         }
 
 
-        /* BOTÃO ENTRAR */
+
+        /* =====================================================
+           ENTRAR
+           ===================================================== */
 
         .sidebar-actions .btn-secundario {
+
             background-color: transparent !important;
 
             color: #FFFFFF !important;
 
-            border: 2px solid #FFFFFF !important;
+            border:
+                2px solid #FFFFFF !important;
         }
 
 
         .sidebar-actions .btn-secundario:hover {
-            background-color: rgba(255, 255, 255, 0.15) !important;
+
+            background-color:
+                rgba(255, 255, 255, 0.15) !important;
 
             color: #FFDE5A !important;
 
@@ -358,24 +405,31 @@
         }
 
 
-        /* BOTÃO CADASTRAR */
+
+        /* =====================================================
+           CADASTRAR
+           ===================================================== */
 
         .sidebar-actions a:not(.btn-secundario) {
+
             background-color: #FFFFFF !important;
 
-            color: #1b5e20 !important;
+            color: #1B5E20 !important;
 
-            border: 2px solid #FFFFFF !important;
+            border:
+                2px solid #FFFFFF !important;
         }
 
 
         .sidebar-actions a:not(.btn-secundario):hover {
+
             background-color: #FFDE5A !important;
 
-            color: #1b5e20 !important;
+            color: #1B5E20 !important;
 
             border-color: #FFDE5A !important;
         }
+
 
 
         /* =====================================================
@@ -383,11 +437,13 @@
            ===================================================== */
 
         .topbar-center {
+
             position: absolute !important;
 
             left: 50% !important;
 
-            transform: translateX(-50%) !important;
+            transform:
+                translateX(-50%) !important;
 
             display: flex !important;
 
@@ -398,6 +454,7 @@
 
 
         .topbar .navbar-logo {
+
             height: 38px !important;
 
             width: auto !important;
@@ -406,11 +463,13 @@
         }
 
 
+
         /* =====================================================
            LADO DIREITO
            ===================================================== */
 
         .topbar-right {
+
             width: 50px !important;
 
             visibility: hidden !important;
@@ -419,20 +478,26 @@
         }
 
 
+
         /* =====================================================
            ÁREA PRINCIPAL
+           
+           MANTIDA COMO NA PÁGINA ORIGINAL
            ===================================================== */
 
         main {
+
             margin: 0 !important;
 
-            padding: 40px 0 60px 0 !important;
+            padding:
+                40px 0 60px 0 !important;
 
             width: 100% !important;
 
-            min-height: calc(100vh - 90px) !important;
+            flex: 1 !important;
 
-            background-color: #3F9B43 !important;
+            background-color:
+                #3F9B43 !important;
 
             display: flex !important;
 
@@ -442,11 +507,13 @@
         }
 
 
+
         /* =====================================================
            SEÇÃO
            ===================================================== */
 
         .boas-vindas {
+
             width: 100% !important;
 
             background: transparent !important;
@@ -461,25 +528,35 @@
         }
 
 
+
         /* =====================================================
            TÍTULO
            ===================================================== */
 
         .titulo-token {
-            margin: 0 0 10px 0 !important;
+
+            margin:
+                0 0 10px 0 !important;
 
             padding: 0 !important;
 
-            color: #FFFFFF !important;
+            color:
+                #FFFFFF !important;
 
-            font-family: 'Nunito', sans-serif !important;
+            font-family:
+                'Nunito',
+                sans-serif !important;
 
-            font-size: 2.2rem !important;
+            font-size:
+                2.2rem !important;
 
-            font-weight: 800 !important;
+            font-weight:
+                800 !important;
 
-            text-align: center !important;
+            text-align:
+                center !important;
         }
+
 
 
         /* =====================================================
@@ -487,20 +564,29 @@
            ===================================================== */
 
         .subtitulo-token {
-            margin: 0 0 25px 0 !important;
+
+            margin:
+                0 0 25px 0 !important;
 
             padding: 0 !important;
 
-            color: #FFFFFF !important;
+            color:
+                #FFFFFF !important;
 
-            font-family: 'Poppins', sans-serif !important;
+            font-family:
+                'Poppins',
+                sans-serif !important;
 
-            font-size: 1rem !important;
+            font-size:
+                1rem !important;
 
-            font-weight: 400 !important;
+            font-weight:
+                400 !important;
 
-            text-align: center !important;
+            text-align:
+                center !important;
         }
+
 
 
         /* =====================================================
@@ -508,32 +594,43 @@
            ===================================================== */
 
         .login-box {
-            width: calc(100% - 40px) !important;
 
-            max-width: 500px !important;
+            width:
+                calc(100% - 40px) !important;
 
-            margin: 0 auto !important;
+            max-width:
+                500px !important;
 
-            background: #FFFFFF !important;
+            margin:
+                0 auto !important;
 
-            padding: 30px !important;
+            background:
+                #FFFFFF !important;
 
-            border-radius: 16px !important;
+            padding:
+                30px !important;
 
-            border: none !important;
+            border-radius:
+                16px !important;
+
+            border:
+                none !important;
 
             box-shadow:
                 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 
-            text-align: center !important;
+            text-align:
+                center !important;
         }
 
 
+
         /* =====================================================
-           MASCOTE
+           MASCOTE DA CAIXA
            ===================================================== */
 
         .login-box img {
+
             image-rendering:
                 -moz-crisp-edges !important;
 
@@ -546,31 +643,44 @@
             image-rendering:
                 crisp-edges !important;
 
-            width: 70px !important;
+            width:
+                70px !important;
 
-            height: auto !important;
+            height:
+                auto !important;
 
-            margin: 0 auto 10px auto !important;
+            margin:
+                0 auto 10px auto !important;
 
-            display: block !important;
+            display:
+                block !important;
         }
+
 
 
         /* =====================================================
-           TÍTULO TOKEN DENTRO DA CAIXA
+           TÍTULO TOKEN
            ===================================================== */
 
         .login-box h1 {
-            font-size: 1.5rem !important;
 
-            margin: 0 0 20px 0 !important;
+            font-size:
+                1.5rem !important;
 
-            color: #41af4b !important;
+            margin:
+                0 0 20px 0 !important;
 
-            font-family: 'Nunito', sans-serif !important;
+            color:
+                #41AF4B !important;
 
-            font-weight: 800 !important;
+            font-family:
+                'Nunito',
+                sans-serif !important;
+
+            font-weight:
+                800 !important;
         }
+
 
 
         /* =====================================================
@@ -578,84 +688,120 @@
            ===================================================== */
 
         .form-grid {
+
             width: 100% !important;
 
-            text-align: left !important;
+            text-align:
+                left !important;
         }
 
 
         .form-field {
+
             width: 100% !important;
 
-            margin-bottom: 15px !important;
+            margin-bottom:
+                15px !important;
         }
 
 
         .form-field label {
+
             display: block !important;
 
-            margin-bottom: 7px !important;
+            margin-bottom:
+                7px !important;
 
-            color: #333333 !important;
+            color:
+                #333333 !important;
 
-            font-family: 'Poppins', sans-serif !important;
+            font-family:
+                'Poppins',
+                sans-serif !important;
 
-            font-weight: 600 !important;
+            font-weight:
+                600 !important;
 
-            text-align: left !important;
+            text-align:
+                left !important;
         }
 
 
+
         /* =====================================================
-           CAMPO DO TOKEN
+           CAMPO TOKEN
            ===================================================== */
 
         .input-group {
-            position: relative !important;
 
-            width: 100% !important;
+            position:
+                relative !important;
 
-            display: flex !important;
+            width:
+                100% !important;
 
-            align-items: center !important;
+            display:
+                flex !important;
+
+            align-items:
+                center !important;
         }
 
 
         .input-group input {
-            width: 100% !important;
 
-            height: 48px !important;
+            width:
+                100% !important;
 
-            padding: 0 50px 0 15px !important;
+            height:
+                48px !important;
 
-            border: 1px solid #D1D5DB !important;
+            padding:
+                0 50px 0 15px !important;
 
-            border-radius: 8px !important;
+            border:
+                1px solid #D1D5DB !important;
 
-            background-color: #FFFFFF !important;
+            border-radius:
+                8px !important;
 
-            color: #333333 !important;
+            background-color:
+                #FFFFFF !important;
 
-            font-family: 'Poppins', sans-serif !important;
+            color:
+                #333333 !important;
 
-            font-size: 1rem !important;
+            font-family:
+                'Poppins',
+                sans-serif !important;
 
-            font-weight: 600 !important;
+            font-size:
+                1rem !important;
 
-            letter-spacing: 2px !important;
+            font-weight:
+                600 !important;
 
-            text-align: left !important;
+            letter-spacing:
+                2px !important;
 
-            outline: none !important;
+            text-align:
+                left !important;
+
+            outline:
+                none !important;
         }
 
 
         .input-group input:focus {
-            border-color: #38bdf8 !important;
+
+            border-color:
+                #38BDF8 !important;
 
             box-shadow:
-                0 0 0 2px rgba(56, 189, 248, 0.15) !important;
+                0 0 0 2px
+                rgba(56, 189, 248, 0.15) !important;
         }
+
 
 
         /* =====================================================
@@ -663,55 +809,81 @@
            ===================================================== */
 
         .input-group input::placeholder {
-            color: #999999 !important;
 
-            opacity: 1 !important;
+            color:
+                #999999 !important;
 
-            letter-spacing: 0 !important;
+            opacity:
+                1 !important;
 
-            text-align: left !important;
+            letter-spacing:
+                0 !important;
+
+            text-align:
+                left !important;
         }
 
 
         .input-group input:focus::placeholder {
-            color: transparent !important;
+
+            color:
+                transparent !important;
         }
+
 
 
         /* =====================================================
            CADEADO
+           
+           SEMPRE À DIREITA
+           NUNCA ATRÁS DOS NÚMEROS
            ===================================================== */
 
         .input-group svg {
-            position: absolute !important;
 
-            right: 15px !important;
+            position:
+                absolute !important;
 
-            top: 50% !important;
+            right:
+                15px !important;
 
-            transform: translateY(-50%) !important;
+            top:
+                50% !important;
 
-            width: 20px !important;
+            transform:
+                translateY(-50%) !important;
 
-            height: 20px !important;
+            width:
+                20px !important;
 
-            fill: #777777 !important;
+            height:
+                20px !important;
 
-            pointer-events: none !important;
+            fill:
+                #777777 !important;
 
-            z-index: 2 !important;
+            pointer-events:
+                none !important;
+
+            z-index:
+                5 !important;
         }
+
 
 
         /* =====================================================
-           BOTÃO
+           BOTÃO VALIDAR
            ===================================================== */
 
         .form-field button {
-            width: 100% !important;
 
-            margin-top: 10px !important;
+            width:
+                100% !important;
+
+            margin-top:
+                10px !important;
         }
+
 
 
         /* =====================================================
@@ -719,25 +891,37 @@
            ===================================================== */
 
         .erro-token {
-            display: none;
 
-            margin-top: 8px !important;
+            display:
+                none;
 
-            color: #d32f2f !important;
+            margin-top:
+                8px !important;
 
-            font-family: 'Poppins', sans-serif !important;
+            color:
+                #D32F2F !important;
 
-            font-size: 0.85rem !important;
+            font-family:
+                'Poppins',
+                sans-serif !important;
 
-            font-weight: 600 !important;
+            font-size:
+                0.85rem !important;
 
-            text-align: left !important;
+            font-weight:
+                600 !important;
+
+            text-align:
+                left !important;
         }
 
 
         .erro-token.mostrar {
-            display: block !important;
+
+            display:
+                block !important;
         }
+
 
 
         /* =====================================================
@@ -745,38 +929,80 @@
            ===================================================== */
 
         .cadastro {
-            margin-top: 20px !important;
 
-            font-size: 0.9rem !important;
+            margin-top:
+                20px !important;
 
-            color: #555555 !important;
+            font-size:
+                0.9rem !important;
 
-            font-family: 'Poppins', sans-serif !important;
+            color:
+                #555555 !important;
+
+            font-family:
+                'Poppins',
+                sans-serif !important;
         }
 
 
         .cadastro a {
-            color: #38bdf8 !important;
 
-            font-weight: 700 !important;
+            color:
+                #38BDF8 !important;
 
-            text-decoration: none !important;
+            font-weight:
+                700 !important;
+
+            text-decoration:
+                none !important;
         }
+
 
 
         /* =====================================================
            RODAPÉ
+           
+           VERDE DA REFERÊNCIA
            ===================================================== */
 
         footer {
+
+            width: 100% !important;
+
             margin: 0 !important;
 
-            background-color: #3F9B43 !important;
+            padding:
+                18px 20px !important;
 
-            color: #FFFFFF !important;
+            background-color:
+                #2E7D32 !important;
 
-            text-align: center !important;
+            color:
+                #FFFFFF !important;
+
+            text-align:
+                center !important;
+
+            font-family:
+                'Poppins',
+                sans-serif !important;
+
+            font-size:
+                0.9rem !important;
+
+            box-sizing:
+                border-box !important;
         }
+
+
+        footer p {
+
+            margin: 0 !important;
+
+            color:
+                #FFFFFF !important;
+        }
+
 
 
         /* =====================================================
@@ -786,34 +1012,46 @@
         @media (max-width: 600px) {
 
             main {
-                padding-top: 30px !important;
 
-                padding-bottom: 40px !important;
+                padding-top:
+                    30px !important;
+
+                padding-bottom:
+                    40px !important;
             }
 
 
             .titulo-token {
-                font-size: 1.8rem !important;
+
+                font-size:
+                    1.8rem !important;
             }
 
 
             .subtitulo-token {
-                font-size: 0.9rem !important;
 
-                padding: 0 20px !important;
+                font-size:
+                    0.9rem !important;
+
+                padding:
+                    0 20px !important;
             }
 
 
             .login-box {
-                width: calc(100% - 30px) !important;
 
-                padding: 25px 20px !important;
+                width:
+                    calc(100% - 30px) !important;
+
+                padding:
+                    25px 20px !important;
             }
         }
 
     </style>
 
 </head>
+
 
 
 <body>
@@ -826,7 +1064,7 @@
     <header class="topbar">
 
 
-        <!-- CONTROLE DO SIDEBAR -->
+        <!-- CONTROLE DO MENU -->
 
         <input
             type="checkbox"
@@ -843,6 +1081,7 @@
         ></label>
 
 
+
         <!-- =================================================
              SIDEBAR DO VISITANTE
              ================================================= -->
@@ -850,13 +1089,13 @@
         <div class="sidebar">
 
 
-            <!-- PERFIL DO VISITANTE -->
+            <!-- PERFIL -->
 
             <div class="perfil-sidebar">
 
                 <img
                     src="img/TugaPqn.png"
-                    alt="Mascote Tuga"
+                    alt="Tuga - Visitante"
                 >
 
                 <p>
@@ -866,12 +1105,11 @@
             </div>
 
 
+
             <!-- BOTÕES -->
 
             <div class="sidebar-actions">
 
-
-                <!-- ENTRAR -->
 
                 <a
                     href="escolha.html"
@@ -880,8 +1118,6 @@
                     ENTRAR
                 </a>
 
-
-                <!-- CADASTRAR -->
 
                 <a
                     href="escolha-cadastro.html"
@@ -893,11 +1129,13 @@
 
             </div>
 
+
         </div>
 
 
+
         <!-- =================================================
-             MENU HAMBÚRGUER
+             HAMBÚRGUER
              ================================================= -->
 
         <div class="topbar-left">
@@ -909,14 +1147,13 @@
             >
 
                 <span></span>
-
                 <span></span>
-
                 <span></span>
 
             </label>
 
         </div>
+
 
 
         <!-- =================================================
@@ -936,6 +1173,7 @@
             </div>
 
         </div>
+
 
 
         <!-- =================================================
@@ -975,13 +1213,13 @@
 
 
             <!-- =================================================
-                 CAIXA DO FORMULÁRIO
+                 CAIXA DO TOKEN
                  ================================================= -->
 
             <div class="login-box">
 
 
-                <!-- MASCOTE -->
+                <!-- TUGA -->
 
                 <img
                     src="img/TugaPqn.png"
@@ -1037,8 +1275,8 @@
                             >
 
                                 <path
-                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-0.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
-                                />
+                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-0.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                                ></path>
 
                             </svg>
 
@@ -1046,7 +1284,7 @@
                         </div>
 
 
-                        <!-- MENSAGEM -->
+                        <!-- ERRO -->
 
                         <p
                             id="erro-token"
@@ -1097,7 +1335,9 @@
 
             </div>
 
+
         </section>
+
 
     </main>
 
@@ -1126,86 +1366,83 @@
         const campoToken =
             document.getElementById('token_codigo');
 
-
         const formularioToken =
             document.getElementById('form-token');
-
 
         const mensagemErro =
             document.getElementById('erro-token');
 
 
-        /*
-         * Permite somente números.
-         */
+        /* SOMENTE NÚMEROS */
 
-        campoToken.addEventListener('input', function () {
+        campoToken.addEventListener(
+            'input',
+            function () {
 
-            this.value =
-                this.value.replace(/\D/g, '');
+                this.value =
+                    this.value.replace(/\D/g, '');
 
-            if (this.value.length > 0) {
+                if (this.value.length > 0) {
 
-                mensagemErro.classList.remove('mostrar');
+                    mensagemErro.classList.remove(
+                        'mostrar'
+                    );
 
-            }
-
-        });
-
-
-        /*
-         * Validação ao clicar em VALIDAR.
-         */
-
-        formularioToken.addEventListener('submit', function (event) {
-
-            event.preventDefault();
-
-
-            const valor =
-                campoToken.value.trim();
-
-
-            /*
-             * Campo vazio.
-             */
-
-            if (valor === '') {
-
-                mensagemErro.classList.add('mostrar');
-
-                campoToken.focus();
-
-                return;
+                }
 
             }
+        );
 
 
-            /*
-             * Caso tenha menos de 4 números.
-             */
+        /* VALIDAÇÃO */
 
-            if (valor.length < 4) {
+        formularioToken.addEventListener(
+            'submit',
+            function (event) {
 
-                mensagemErro.classList.add('mostrar');
+                event.preventDefault();
 
-                campoToken.focus();
 
-                return;
+                const valor =
+                    campoToken.value.trim();
+
+
+                /* VAZIO */
+
+                if (valor === '') {
+
+                    mensagemErro.classList.add(
+                        'mostrar'
+                    );
+
+                    campoToken.focus();
+
+                    return;
+                }
+
+
+                /* MENOS DE 4 DÍGITOS */
+
+                if (valor.length < 4) {
+
+                    mensagemErro.classList.add(
+                        'mostrar'
+                    );
+
+                    campoToken.focus();
+
+                    return;
+                }
+
+
+                /* CORRETO */
+
+                mensagemErro.classList.remove(
+                    'mostrar'
+                );
 
             }
-
-
-            /*
-             * Caso esteja correto.
-             *
-             * Aqui poderá entrar posteriormente
-             * a lógica de validação do token.
-             */
-
-            mensagemErro.classList.remove('mostrar');
-
-        });
+        );
 
     </script>
 
