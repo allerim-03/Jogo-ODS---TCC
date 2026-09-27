@@ -28,22 +28,53 @@
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet"
+          href="css/global.css">
+
+    <link rel="stylesheet"
+          href="css/base.css">
+
+    <link rel="stylesheet"
+          href="css/banner.css">
+
+    <link rel="stylesheet"
+          href="css/botoes.css">
+
+    <link rel="stylesheet"
+          href="css/cards.css">
+
+    <link rel="stylesheet"
+          href="css/escolha.css">
+
+    <link rel="stylesheet"
+          href="css/formularios.css">
+
+    <link rel="stylesheet"
+          href="css/jogos.css">
+
+    <link rel="stylesheet"
+          href="css/journey.css">
+
+    <link rel="stylesheet"
+          href="css/navbar.css">
+
+    <link rel="stylesheet"
+          href="css/quiz.css">
+
+    <link rel="stylesheet"
+          href="css/ranking.css">
+
+    <link rel="stylesheet"
+          href="css/rodape.css">
+
+    <link rel="stylesheet"
+          href="css/sidebar.css">
+
+    <link rel="stylesheet"
+          href="css/sobre.css">
+
+    <link rel="stylesheet"
+          href="css/textos.css">
 
 
     <style>
@@ -58,20 +89,14 @@
 
         html,
         body {
-
             margin: 0 !important;
             padding: 0 !important;
-
             min-height: 100vh !important;
-
             background-color: #3F9B43 !important;
-
             overflow-x: hidden;
         }
 
-
         body {
-
             background-color: #3F9B43 !important;
         }
 
@@ -81,25 +106,19 @@
            ===================================================== */
 
         .topbar {
-
             position: relative !important;
-
             top: 0 !important;
             left: 0 !important;
 
             width: 100% !important;
-
             height: 90px !important;
             min-height: 90px !important;
 
             display: flex !important;
-
             align-items: center !important;
-
             justify-content: space-between !important;
 
             padding: 10px 25px !important;
-
             margin: 0 !important;
 
             background-color: #4CAF50 !important;
@@ -112,30 +131,23 @@
 
 
         /* =====================================================
-           LADO ESQUERDO / HAMBÚRGUER
+           HAMBÚRGUER
            ===================================================== */
 
         .topbar-left {
-
             display: flex !important;
-
             align-items: center !important;
-
             width: 50px !important;
         }
 
-
         .hamburger {
-
             width: 42px !important;
             height: 42px !important;
 
             display: flex !important;
-
             flex-direction: column !important;
 
             justify-content: center !important;
-
             align-items: center !important;
 
             gap: 5px !important;
@@ -143,11 +155,15 @@
             cursor: pointer !important;
 
             border-radius: 8px !important;
+
+            transition: opacity 0.2s ease !important;
         }
 
+        .hamburger:hover {
+            opacity: 0.85 !important;
+        }
 
         .hamburger span {
-
             width: 24px !important;
             height: 3px !important;
 
@@ -158,64 +174,21 @@
 
 
         /* =====================================================
-           LOGO CENTRAL
+           SIDEBAR - VISITANTE
            ===================================================== */
 
-        .topbar-center {
-
-            position: absolute !important;
-
-            left: 50% !important;
-
-            transform: translateX(-50%) !important;
-
-            display: flex !important;
-
-            align-items: center !important;
-
-            justify-content: center !important;
+        .menu-checkbox {
+            display: none !important;
         }
 
-
-        .topbar .navbar-logo {
-
-            height: 38px !important;
-
-            width: auto !important;
-
-            display: block !important;
-        }
-
-
-        /* =====================================================
-           LADO DIREITO
-           ===================================================== */
-
-        .topbar-right {
-
-            width: 50px !important;
-
-            visibility: hidden !important;
-
-            pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           MESMO ESTILO DA CONTA LOGADA
-           ===================================================== */
 
         .sidebar {
-
             position: fixed !important;
 
             top: 0 !important;
-
             left: -300px !important;
 
             width: 270px !important;
-
             height: 100vh !important;
 
             background-color: #1b5e20 !important;
@@ -227,7 +200,6 @@
             padding: 30px 20px !important;
 
             display: flex !important;
-
             flex-direction: column !important;
 
             box-sizing: border-box !important;
@@ -235,7 +207,6 @@
 
 
         #menu-check:checked ~ .sidebar {
-
             left: 0 !important;
         }
 
@@ -245,7 +216,6 @@
            ===================================================== */
 
         .overlay {
-
             position: fixed !important;
 
             top: 0 !important;
@@ -263,64 +233,55 @@
 
 
         #menu-check:checked ~ .overlay {
-
             display: block !important;
         }
 
 
         /* =====================================================
-           PERFIL DA TUGA
+           PERFIL DO VISITANTE
            ===================================================== */
 
-        .sidebar .perfil-sidebar {
-
+        .perfil-sidebar {
             text-align: center !important;
 
-            border-bottom:
-                1px solid rgba(255, 255, 255, 0.2) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 
             padding-bottom: 20px !important;
 
             margin-bottom: 20px !important;
 
             display: flex !important;
-
             flex-direction: column !important;
 
             align-items: center !important;
         }
 
 
-        /*
-         * FOTO DA TUGA
-         * Usa a mesma imagem de perfil
-         * da conta logada.
-         */
+        .perfil-sidebar img {
+            width: 90px !important;
+            height: 90px !important;
 
-        .sidebar .perfil-sidebar img.foto-perfil {
-
-            width: 75px !important;
-
-            height: 75px !important;
-
-            border-radius: 50% !important;
-
-            object-fit: cover !important;
+            object-fit: contain !important;
 
             display: block !important;
 
-            border: 3px solid #FFFFFF !important;
-
             margin: 0 auto 10px auto !important;
+
+            image-rendering:
+                -moz-crisp-edges !important;
+
+            image-rendering:
+                -webkit-optimize-contrast !important;
+
+            image-rendering:
+                pixelated !important;
+
+            image-rendering:
+                crisp-edges !important;
         }
 
 
-        /*
-         * TEXTO VISITANTE
-         */
-
-        .sidebar .perfil-sidebar p {
-
+        .perfil-sidebar p {
             color: #FFB72B !important;
 
             font-family: 'Montserrat', sans-serif !important;
@@ -334,26 +295,24 @@
 
 
         /* =====================================================
-           LINKS DO SIDEBAR
+           ÁREA DOS BOTÕES
            ===================================================== */
 
-        .sidebar .links-sidebar {
-
+        .sidebar-actions {
             display: flex !important;
 
             flex-direction: column !important;
 
-            gap: 8px !important;
+            gap: 12px !important;
 
             width: 100% !important;
-
-            height: 100% !important;
         }
 
 
-        .sidebar .links-sidebar a {
+        .sidebar-actions a {
+            width: 100% !important;
 
-            color: #FFFFFF !important;
+            text-align: center !important;
 
             text-decoration: none !important;
 
@@ -362,8 +321,6 @@
             font-weight: 700 !important;
 
             font-size: 14px !important;
-
-            text-transform: uppercase !important;
 
             padding: 12px 16px !important;
 
@@ -377,16 +334,88 @@
 
             align-items: center !important;
 
-            gap: 10px !important;
+            justify-content: center !important;
         }
 
 
-        .sidebar .links-sidebar a:hover {
+        /* BOTÃO ENTRAR */
 
-            background-color:
-                rgba(255, 255, 255, 0.15) !important;
+        .sidebar-actions .btn-secundario {
+            background-color: transparent !important;
+
+            color: #FFFFFF !important;
+
+            border: 2px solid #FFFFFF !important;
+        }
+
+
+        .sidebar-actions .btn-secundario:hover {
+            background-color: rgba(255, 255, 255, 0.15) !important;
 
             color: #FFDE5A !important;
+
+            border-color: #FFDE5A !important;
+        }
+
+
+        /* BOTÃO CADASTRAR */
+
+        .sidebar-actions a:not(.btn-secundario) {
+            background-color: #FFFFFF !important;
+
+            color: #1b5e20 !important;
+
+            border: 2px solid #FFFFFF !important;
+        }
+
+
+        .sidebar-actions a:not(.btn-secundario):hover {
+            background-color: #FFDE5A !important;
+
+            color: #1b5e20 !important;
+
+            border-color: #FFDE5A !important;
+        }
+
+
+        /* =====================================================
+           LOGO CENTRAL
+           ===================================================== */
+
+        .topbar-center {
+            position: absolute !important;
+
+            left: 50% !important;
+
+            transform: translateX(-50%) !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+        }
+
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           LADO DIREITO
+           ===================================================== */
+
+        .topbar-right {
+            width: 50px !important;
+
+            visibility: hidden !important;
+
+            pointer-events: none !important;
         }
 
 
@@ -395,18 +424,15 @@
            ===================================================== */
 
         main {
-
             margin: 0 !important;
 
             padding: 40px 0 60px 0 !important;
 
             width: 100% !important;
 
-            min-height:
-                calc(100vh - 90px) !important;
+            min-height: calc(100vh - 90px) !important;
 
-            background-color:
-                #3F9B43 !important;
+            background-color: #3F9B43 !important;
 
             display: flex !important;
 
@@ -421,7 +447,6 @@
            ===================================================== */
 
         .boas-vindas {
-
             width: 100% !important;
 
             background: transparent !important;
@@ -441,7 +466,6 @@
            ===================================================== */
 
         .titulo-token {
-
             margin: 0 0 10px 0 !important;
 
             padding: 0 !important;
@@ -463,7 +487,6 @@
            ===================================================== */
 
         .subtitulo-token {
-
             margin: 0 0 25px 0 !important;
 
             padding: 0 !important;
@@ -485,7 +508,6 @@
            ===================================================== */
 
         .login-box {
-
             width: calc(100% - 40px) !important;
 
             max-width: 500px !important;
@@ -501,7 +523,7 @@
             border: none !important;
 
             box-shadow:
-                0 8px 24px rgba(0, 0, 0, 0.12) !important;
+                0 8px 24px rgba(0, 0, 0, 0.06) !important;
 
             text-align: center !important;
         }
@@ -512,7 +534,6 @@
            ===================================================== */
 
         .login-box img {
-
             image-rendering:
                 -moz-crisp-edges !important;
 
@@ -540,7 +561,6 @@
            ===================================================== */
 
         .login-box h1 {
-
             font-size: 1.5rem !important;
 
             margin: 0 0 20px 0 !important;
@@ -558,7 +578,6 @@
            ===================================================== */
 
         .form-grid {
-
             width: 100% !important;
 
             text-align: left !important;
@@ -566,7 +585,6 @@
 
 
         .form-field {
-
             width: 100% !important;
 
             margin-bottom: 15px !important;
@@ -574,7 +592,6 @@
 
 
         .form-field label {
-
             display: block !important;
 
             margin-bottom: 7px !important;
@@ -594,7 +611,6 @@
            ===================================================== */
 
         .input-group {
-
             position: relative !important;
 
             width: 100% !important;
@@ -606,16 +622,13 @@
 
 
         .input-group input {
-
             width: 100% !important;
 
             height: 48px !important;
 
-            padding:
-                0 50px 0 15px !important;
+            padding: 0 50px 0 15px !important;
 
-            border:
-                1px solid #D1D5DB !important;
+            border: 1px solid #D1D5DB !important;
 
             border-radius: 8px !important;
 
@@ -623,8 +636,7 @@
 
             color: #333333 !important;
 
-            font-family:
-                'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif !important;
 
             font-size: 1rem !important;
 
@@ -639,13 +651,10 @@
 
 
         .input-group input:focus {
-
-            border-color:
-                #38bdf8 !important;
+            border-color: #38bdf8 !important;
 
             box-shadow:
-                0 0 0 2px
-                rgba(56, 189, 248, 0.15) !important;
+                0 0 0 2px rgba(56, 189, 248, 0.15) !important;
         }
 
 
@@ -654,7 +663,6 @@
            ===================================================== */
 
         .input-group input::placeholder {
-
             color: #999999 !important;
 
             opacity: 1 !important;
@@ -666,7 +674,6 @@
 
 
         .input-group input:focus::placeholder {
-
             color: transparent !important;
         }
 
@@ -676,15 +683,13 @@
            ===================================================== */
 
         .input-group svg {
-
             position: absolute !important;
 
             right: 15px !important;
 
             top: 50% !important;
 
-            transform:
-                translateY(-50%) !important;
+            transform: translateY(-50%) !important;
 
             width: 20px !important;
 
@@ -703,7 +708,6 @@
            ===================================================== */
 
         .form-field button {
-
             width: 100% !important;
 
             margin-top: 10px !important;
@@ -715,15 +719,13 @@
            ===================================================== */
 
         .erro-token {
-
             display: none;
 
             margin-top: 8px !important;
 
             color: #d32f2f !important;
 
-            font-family:
-                'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif !important;
 
             font-size: 0.85rem !important;
 
@@ -734,7 +736,6 @@
 
 
         .erro-token.mostrar {
-
             display: block !important;
         }
 
@@ -744,20 +745,17 @@
            ===================================================== */
 
         .cadastro {
-
             margin-top: 20px !important;
 
             font-size: 0.9rem !important;
 
             color: #555555 !important;
 
-            font-family:
-                'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif !important;
         }
 
 
         .cadastro a {
-
             color: #38bdf8 !important;
 
             font-weight: 700 !important;
@@ -771,11 +769,9 @@
            ===================================================== */
 
         footer {
-
             margin: 0 !important;
 
-            background-color:
-                #3F9B43 !important;
+            background-color: #3F9B43 !important;
 
             color: #FFFFFF !important;
 
@@ -790,7 +786,6 @@
         @media (max-width: 600px) {
 
             main {
-
                 padding-top: 30px !important;
 
                 padding-bottom: 40px !important;
@@ -798,13 +793,11 @@
 
 
             .titulo-token {
-
                 font-size: 1.8rem !important;
             }
 
 
             .subtitulo-token {
-
                 font-size: 0.9rem !important;
 
                 padding: 0 20px !important;
@@ -812,12 +805,9 @@
 
 
             .login-box {
+                width: calc(100% - 30px) !important;
 
-                width:
-                    calc(100% - 30px) !important;
-
-                padding:
-                    25px 20px !important;
+                padding: 25px 20px !important;
             }
         }
 
@@ -854,67 +844,60 @@
 
 
         <!-- =================================================
-             SIDEBAR NÃO LOGADO
-             BASEADO NO SIDEBAR DA CONTA LOGADA
+             SIDEBAR DO VISITANTE
              ================================================= -->
 
-        <aside class="sidebar">
+        <div class="sidebar">
 
 
-            <!-- FOTO / PERFIL DA TUGA -->
+            <!-- PERFIL DO VISITANTE -->
 
             <div class="perfil-sidebar">
 
                 <img
-                    src="img/foto.png"
-                    class="foto-perfil"
-                    alt="Foto de perfil"
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
                 >
 
-                <p>Visitante</p>
+                <p>
+                    Visitante
+                </p>
 
             </div>
 
 
-            <!-- LINKS -->
+            <!-- BOTÕES -->
 
-            <nav class="links-sidebar">
+            <div class="sidebar-actions">
 
-                <a href="index.html">
-                    HOME
+
+                <!-- ENTRAR -->
+
+                <a
+                    href="escolha.html"
+                    class="btn-principal btn-secundario"
+                >
+                    ENTRAR
                 </a>
 
-                <a href="ods.html">
-                    ODS
+
+                <!-- CADASTRAR -->
+
+                <a
+                    href="escolha-cadastro.html"
+                    class="btn-principal"
+                >
+                    CADASTRAR
                 </a>
 
-                <a href="quiz.html">
-                    QUIZ
-                </a>
 
-                <a href="jogos.html">
-                    JOGOS
-                </a>
+            </div>
 
-                <a href="ranking.html">
-                    RANKING
-                </a>
-
-                <a href="perfil.html">
-                    PERFIL
-                </a>
-
-                <a href="sobrenos.html">
-                    SOBRE NÓS
-                </a>
-
-            </nav>
-
-        </aside>
+        </div>
 
 
         <!-- =================================================
-             HAMBÚRGUER
+             MENU HAMBÚRGUER
              ================================================= -->
 
         <div class="topbar-left">
@@ -926,7 +909,9 @@
             >
 
                 <span></span>
+
                 <span></span>
+
                 <span></span>
 
             </label>
@@ -959,7 +944,9 @@
 
         <div class="topbar-right"></div>
 
+
     </header>
+
 
 
     <!-- =====================================================
@@ -972,18 +959,19 @@
         <section class="boas-vindas">
 
 
+            <!-- TÍTULO -->
+
             <h2 class="titulo-token">
-
                 Confirmação de Ingresso
-
             </h2>
 
 
+            <!-- SUBTÍTULO -->
+
             <p class="subtitulo-token">
-
                 Use o código enviado para o seu e-mail
-
             </p>
+
 
 
             <!-- =================================================
@@ -1001,11 +989,12 @@
                 >
 
 
+                <!-- TÍTULO -->
+
                 <h1>
-
                     Token
-
                 </h1>
+
 
 
                 <form
@@ -1021,9 +1010,7 @@
 
 
                         <label for="token_codigo">
-
                             Código da turma
-
                         </label>
 
 
@@ -1050,26 +1037,27 @@
                             >
 
                                 <path
-                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-0.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
                                 />
 
                             </svg>
 
+
                         </div>
 
 
-                        <!-- ERRO -->
+                        <!-- MENSAGEM -->
 
                         <p
                             id="erro-token"
                             class="erro-token"
                         >
-
                             Somente números
-
                         </p>
 
+
                     </div>
+
 
 
                     <!-- BOTÃO -->
@@ -1084,15 +1072,14 @@
                             class="btn-submit btn-azul"
                             style="width: 100%;"
                         >
-
                             Validar
-
                         </button>
 
                     </div>
 
 
                 </form>
+
 
 
                 <!-- REENVIAR -->
@@ -1102,9 +1089,7 @@
                     Não recebeu o e-mail?
 
                     <a href="#">
-
                         Reenviar
-
                     </a>
 
                 </p>
@@ -1117,6 +1102,7 @@
     </main>
 
 
+
     <!-- =====================================================
          RODAPÉ
          ===================================================== -->
@@ -1124,12 +1110,11 @@
     <footer>
 
         <p>
-
             © 2026 FATEC - Informática para Negócios
-
         </p>
 
     </footer>
+
 
 
     <!-- =====================================================
@@ -1141,76 +1126,86 @@
         const campoToken =
             document.getElementById('token_codigo');
 
+
         const formularioToken =
             document.getElementById('form-token');
+
 
         const mensagemErro =
             document.getElementById('erro-token');
 
 
-        /* SOMENTE NÚMEROS */
+        /*
+         * Permite somente números.
+         */
 
-        campoToken.addEventListener(
-            'input',
-            function () {
+        campoToken.addEventListener('input', function () {
 
-                this.value =
-                    this.value.replace(/\D/g, '');
+            this.value =
+                this.value.replace(/\D/g, '');
 
-                if (this.value.length > 0) {
+            if (this.value.length > 0) {
 
-                    mensagemErro.classList.remove(
-                        'mostrar'
-                    );
-
-                }
+                mensagemErro.classList.remove('mostrar');
 
             }
-        );
+
+        });
 
 
-        /* VALIDAÇÃO */
+        /*
+         * Validação ao clicar em VALIDAR.
+         */
 
-        formularioToken.addEventListener(
-            'submit',
-            function (event) {
+        formularioToken.addEventListener('submit', function (event) {
 
-                event.preventDefault();
-
-                const valor =
-                    campoToken.value.trim();
+            event.preventDefault();
 
 
-                if (valor === '') {
-
-                    mensagemErro.classList.add(
-                        'mostrar'
-                    );
-
-                    campoToken.focus();
-
-                    return;
-                }
+            const valor =
+                campoToken.value.trim();
 
 
-                if (valor.length < 4) {
+            /*
+             * Campo vazio.
+             */
 
-                    mensagemErro.classList.add(
-                        'mostrar'
-                    );
+            if (valor === '') {
 
-                    campoToken.focus();
+                mensagemErro.classList.add('mostrar');
 
-                    return;
-                }
+                campoToken.focus();
 
-
-                mensagemErro.classList.remove(
-                    'mostrar'
-                );
+                return;
 
             }
-        );
+
+
+            /*
+             * Caso tenha menos de 4 números.
+             */
+
+            if (valor.length < 4) {
+
+                mensagemErro.classList.add('mostrar');
+
+                campoToken.focus();
+
+                return;
+
+            }
+
+
+            /*
+             * Caso esteja correto.
+             *
+             * Aqui poderá entrar posteriormente
+             * a lógica de validação do token.
+             */
+
+            mensagemErro.classList.remove('mostrar');
+
+        });
 
     </script>
 
