@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Aluno - Cultivando o Saber</title>
+    <title>Cadastro do Aluno - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="icon" type="image/png" href="img/icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,30 @@
         .topbar-right {
             visibility: hidden !important;
             pointer-events: none !important;
+        }
+
+        /* Estilo personalizado para o título e botão da barra lateral de autenticação */
+        .auth-sidebar h2 {
+            color: #ffffff !important;
+        }
+
+        .auth-sidebar .btn-outline {
+            background-color: #ffffff !important;
+            color: #38bdf8 !important;
+            border-color: #ffffff !important;
+        }
+
+        .auth-sidebar .btn-outline:hover {
+            background-color: #f0f0f0 !important;
+            color: #0284c7 !important;
+        }
+
+        /* Força a nitidez absoluta em Pixel Art para o mascote */
+        .auth-sidebar .mascote {
+            image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
         }
     </style>
 </head>
@@ -91,36 +115,62 @@
         </div>
     </header>
 
-    <main style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important; min-height: auto !important; height: auto !important;">
-
-        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
-            <h2 class="titulo-branco" style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Bem-vindo!</h2>
-            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Venha aprender brincando</p>
-
-            <div class="login-box">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga">
+    <main style="margin-top: 110px !important;">
+        <div class="auth-container">
             
-                <h1 class="texto-azul negrito">Cadastro do Aluno</h1>
-            
-                <form>
-                    <label>Usuário</label>
-                    <input type="text" placeholder="Digite o nome" required>
-
-                    <label>Email</label>
-                    <input type="email" placeholder="Digite o email" required>
-
-                    <label>Senha</label>
-                    <input type="password" placeholder="Escolha a senha" required>
-
-                    <label>Repita a senha</label>
-                    <input type="password" placeholder="Confirme sua senha" required>
-                    
-                    <button type="submit" class="btn-cadastrar">Criar</button>
-                </form>
-
-                <p class="cadastro">Já tem uma conta? <a href="login.html" class="texto-azul negrito">Faça login aqui</a></p>
+            <!-- Coluna Esquerda: Mascote com nitidez perfeita + Mensagem e Botão Entrar -->
+            <div class="auth-sidebar professor-theme">
+                <img src="img/TugaPqn.png" alt="Mascote Tuga" class="mascote">
+                <h2>Bem-vindo!</h2>
+                <p>Venha aprender brincando e explore um mundo de conhecimentos.</p>
+                <p style="font-size: 0.85rem; margin-bottom: 15px;">Já possui uma conta?</p>
+                <a href="login.html" class="btn-outline">ENTRAR</a>
             </div>
-        </section>
+
+            <!-- Coluna Direita: Formulário de Cadastro do Aluno -->
+            <div class="auth-content">
+                <h1>Cadastro do Aluno</h1>
+
+                <form class="form-grid">
+                    <div class="form-field col-full">
+                        <label for="username">Usuário</label>
+                        <div class="input-group">
+                            <input type="text" id="username" name="username" placeholder="Digite o nome de usuário" required>
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-field col-full">
+                        <label for="email">E-mail</label>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Senha</label>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="confirm_password">Repita a senha</label>
+                        <div class="input-group">
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha" required>
+                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-field col-full" style="margin-top: 10px;">
+                        <button type="submit" class="btn-submit">Criar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </main>
 
     <footer>
