@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login do Gestor - Cultivando o Saber</title>
-<!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -42,11 +48,24 @@
             visibility: hidden !important;
             pointer-events: none !important;
         }
+
+        /* Garante nitidez absoluta em Pixel Art para o mascote */
+        .login-box img {
+            image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
+            width: 70px;
+            height: auto;
+            margin: 0 auto 10px auto;
+            display: block;
+        }
     </style>
 </head>
 
 <body>
-<!-- TOPBAR / NAVBAR -->
+
+    <!-- TOPBAR / NAVBAR -->
     <header class="topbar">
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
@@ -89,31 +108,46 @@
         </div>
     </header>
 
-    <main style="margin-top: 100px !important; padding-top: 0 !important; min-height: auto !important; height: auto !important;">
+    <main style="margin-top: 100px !important; padding-top: 0 !important; margin-bottom: 20px !important;">
 
         <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center;">
-            <h2 class="titulo-branco" style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Área do Gestor</h2>
-           
-            <div class="login-box professor-box">
+            
+            <!-- Quadro Único Unificado -->
+            <div class="login-box professor-box" style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                
+                <h2 class="titulo-branco" style="margin-bottom: 5px !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 800;">Área do Gestor</h2>
+                
                 <img src="img/TugaPqn.png" alt="Mascote Tuga">
                 
-                <h1 class="negrito">Login</h1>
+                <h1 class="negrito" style="font-size: 1.5rem; margin-bottom: 20px;">Login</h1>
 
-                <form>
-                    <label for="email_prof">Email</label>
-                    <input type="email" id="email_prof" name="email" placeholder="Digite seu email" required>
+                <form class="form-grid" style="text-align: left;">
+                    <div class="form-field col-full" style="margin-bottom: 15px;">
+                        <label for="email_prof">Email</label>
+                        <div class="input-group">
+                            <input type="email" id="email_prof" name="email" placeholder="Digite seu email" required>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                    </div>
 
-                    <label for="senha_prof">Senha</label>
-                    <input type="password" id="senha_prof" name="senha" placeholder="Digite sua senha" required>
+                    <div class="form-field col-full" style="margin-bottom: 15px;">
+                        <label for="senha_prof">Senha</label>
+                        <div class="input-group">
+                            <input type="password" id="senha_prof" name="senha" placeholder="Digite sua senha" required>
+                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                        </div>
+                    </div>
 
-                    <button type="submit">Entrar</button>
+                    <div class="form-field col-full" style="margin-top: 10px;">
+                        <button type="submit" class="btn-submit" style="width: 100%;">Entrar</button>
+                    </div>
                 </form>
 
-                <p class="cadastro">
-                    Não tem uma conta? <a href="cadastro-professor.html" class="negrito">Cadastre-se aqui</a>
+                <p class="cadastro" style="margin-top: 20px;">
+                    Não tem uma conta? <a href="cadastro-professor.html" class="negrito texto-azul">Cadastre-se aqui</a>
                 </p>
 
-                <div class="dica professor-dica">
+                <div class="dica professor-dica" style="margin-top: 15px; font-size: 0.9rem;">
                     <strong>Dica:</strong> Preencha todos os campos obrigatórios!
                 </div>
             </div>
