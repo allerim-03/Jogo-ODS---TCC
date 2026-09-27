@@ -101,66 +101,75 @@
         }
 
         /* =====================================================
-            SIDEBAR ESTILIZADA (PADRÃO DAS OUTRAS PÁGINAS)
+            SIDEBAR - ESTILO CONTA NÃO LOGADA (VISITANTE)
             ===================================================== */
         .sidebar {
-            background-color: #1B5E20 !important;
-            padding-top: 25px !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: -280px !important;
+            width: 260px !important;
+            height: 100vh !important;
+            background-color: #1E5922 !important;
+            padding: 30px 20px !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            flex-direction: column !important;
+            z-index: 1000 !important;
+            transition: left 0.3s ease-in-out !important;
+        }
+
+        #menu-check:checked ~ .sidebar {
+            left: 0 !important;
         }
 
         .perfil-sidebar {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            text-align: center !important;
-            padding: 0 20px 20px 20px !important;
+            gap: 8px !important;
+            margin-bottom: 20px !important;
+            padding: 0 0 20px 0 !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-            margin-bottom: 25px !important;
         }
 
-        .perfil-sidebar img.mascote-perfil {
-            width: 55px !important;
-            height: auto !important;
-            margin-bottom: 8px !important;
-            image-rendering: pixelated !important;
-        }
-
-        .perfil-sidebar p {
+        .nome-visitante {
+            font-family: 'Montserrat', 'Nunito', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 1.2rem !important;
             color: #FFC107 !important;
-            font-family: 'Nunito', sans-serif !important;
-            font-size: 1.15rem !important;
-            font-weight: 700 !important;
             margin: 0 !important;
         }
 
-        .sidebar-actions {
+        .sidebar-divisor {
+            width: 100% !important;
+            height: 1px !important;
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            margin-bottom: 24px !important;
+        }
+
+        .sidebar-nav {
             display: flex !important;
             flex-direction: column !important;
-            gap: 15px !important;
-            padding: 0 20px !important;
+            gap: 12px !important;
         }
 
-        .sidebar-actions .btn-principal {
+        .sidebar-link {
             display: block !important;
-            width: 100% !important;
-            text-align: center !important;
-            padding: 12px 20px !important;
-            border-radius: 12px !important;
-            font-family: 'Nunito', sans-serif !important;
+            padding: 14px 20px !important;
+            font-family: 'Montserrat', 'Nunito', sans-serif !important;
             font-weight: 800 !important;
+            font-size: 1.05rem !important;
+            color: #FFC107 !important;
+            text-transform: uppercase !important;
             text-decoration: none !important;
-            font-size: 0.95rem !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
-            transition: opacity 0.2s !important;
+            border-radius: 16px !important;
+            letter-spacing: 0.8px !important;
+            transition: background-color 0.2s ease, color 0.2s ease !important;
         }
 
-        .sidebar-actions .btn-cadastrar {
-            background-color: #4CAF50 !important;
-            color: #FFFFFF !important;
-        }
-
-        .sidebar-actions .btn-entrar {
-            background-color: #38BDF8 !important;
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background-color: rgba(255, 255, 255, 0.15) !important;
             color: #FFFFFF !important;
         }
 
@@ -379,12 +388,13 @@
         <!-- SIDEBAR ATUALIZADA -->
         <div class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga" class="mascote-perfil">
-                <p>Visitante</p>
+                <img src="img/TugaPqn.png" alt="Mascote Tuga" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #FFC107; background-color: #FFFFFF; padding: 2px; image-rendering: pixelated;">
+                <p class="nome-visitante">Visitante</p>
             </div>
-            <div class="sidebar-actions">
-                <a href="escolha-cadastro.html" class="btn-principal btn-cadastrar">CADASTRAR</a>
-                <a href="escolha.html" class="btn-principal btn-entrar">ENTRAR</a>
+            <div class="sidebar-divisor"></div>
+            <div class="sidebar-nav">
+                <a href="escolha-cadastro.html" class="sidebar-link">Cadastrar</a>
+                <a href="escolha.html" class="sidebar-link">Entrar</a>
             </div>
         </div>
 
