@@ -123,7 +123,6 @@
             text-align: center !important;
         }
 
-        /* TÍTULO EM BRANCO FORÇADO */
         .titulo-token {
             margin: 0 0 10px 0 !important;
             padding: 0 !important;
@@ -145,7 +144,7 @@
         }
 
         /* =====================================================
-            CAIXA DO FORMULÁRIO (SEM CONTORNO AZUL)
+            CAIXA DO FORMULÁRIO
             ===================================================== */
         .login-box {
             width: calc(100% - 40px) !important;
@@ -239,7 +238,6 @@
             color: transparent !important;
         }
 
-        /* POSIÇÃO DO CADEADO */
         .input-group svg {
             position: absolute !important;
             left: 15px !important;
@@ -283,13 +281,6 @@
             color: #38bdf8 !important;
             font-weight: 700 !important;
             text-decoration: none !important;
-        }
-
-        footer {
-            margin: 0 !important;
-            background-color: hsl(0, 0%, 100%) !important;
-            color: #FFFFFF !important;
-            text-align: center !important;
         }
 
         @media (max-width: 600px) {
@@ -354,6 +345,7 @@
 
     <main>
         <section class="boas-vindas">
+            <!-- TÍTULO FORÇADO EM BRANCO -->
             <h2 class="titulo-token" style="color: #FFFFFF !important;">
                 Confirmação de Ingresso
             </h2>
@@ -415,8 +407,9 @@
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+    <!-- RODAPÉ CORRIGIDO COM O VERDE DA PÁGINA DE ERRO E TEXTO BRANCO -->
+    <footer style="margin: 0 !important; background-color: #2E7D32 !important; color: #FFFFFF !important; text-align: center !important; padding: 20px 0 !important;">
+        <p style="margin: 0 !important; color: #FFFFFF !important; font-family: 'Poppins', sans-serif !important; font-size: 0.9rem !important;">© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
     <script>
