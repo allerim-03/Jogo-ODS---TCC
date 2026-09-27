@@ -2,40 +2,80 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Validação de Token - Cultivando o Saber</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="icon"
+          type="image/png"
+          href="img/icon.png">
 
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet"
-    >
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet">
+
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet"
+          href="css/global.css">
+
+    <link rel="stylesheet"
+          href="css/base.css">
+
+    <link rel="stylesheet"
+          href="css/banner.css">
+
+    <link rel="stylesheet"
+          href="css/botoes.css">
+
+    <link rel="stylesheet"
+          href="css/cards.css">
+
+    <link rel="stylesheet"
+          href="css/escolha.css">
+
+    <link rel="stylesheet"
+          href="css/formularios.css">
+
+    <link rel="stylesheet"
+          href="css/jogos.css">
+
+    <link rel="stylesheet"
+          href="css/journey.css">
+
+    <link rel="stylesheet"
+          href="css/navbar.css">
+
+    <link rel="stylesheet"
+          href="css/quiz.css">
+
+    <link rel="stylesheet"
+          href="css/ranking.css">
+
+    <link rel="stylesheet"
+          href="css/rodape.css">
+
+    <link rel="stylesheet"
+          href="css/sidebar.css">
+
+    <link rel="stylesheet"
+          href="css/sobre.css">
+
+    <link rel="stylesheet"
+          href="css/textos.css">
+
 
     <style>
 
@@ -47,16 +87,23 @@
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             margin: 0 !important;
             padding: 0 !important;
+
             min-height: 100vh !important;
+
             background-color: #3F9B43 !important;
+
+            overflow-x: hidden;
         }
 
+
         body {
-            overflow-x: hidden;
+            background-color: #3F9B43 !important;
         }
 
 
@@ -65,45 +112,60 @@
            ===================================================== */
 
         .topbar {
+
             position: relative !important;
 
             top: 0 !important;
             left: 0 !important;
 
             width: 100% !important;
+
             height: 90px !important;
             min-height: 90px !important;
 
-            margin: 0 !important;
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
 
             padding: 10px 25px !important;
 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
+            margin: 0 !important;
 
             background-color: #4CAF50 !important;
 
-            /* SOMBRA PARA DIVIDIR DA ÁREA VERDE */
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.30) !important;
+            /*
+             * Sombra escura para separar
+             * a navbar do fundo verde.
+             */
+            box-shadow:
+                0 5px 12px rgba(0, 0, 0, 0.20) !important;
 
             z-index: 1000 !important;
         }
 
 
-        /* Lado esquerdo */
+        /* =====================================================
+           LADO ESQUERDO
+           ===================================================== */
 
         .topbar-left {
+
             display: flex !important;
+
             align-items: center !important;
 
             width: 50px !important;
         }
 
 
-        /* Logo central */
+        /* =====================================================
+           LOGO CENTRAL
+           ===================================================== */
 
         .topbar-center {
+
             position: absolute !important;
 
             left: 50% !important;
@@ -112,21 +174,33 @@
 
             display: flex !important;
 
-            justify-content: center !important;
             align-items: center !important;
+
+            justify-content: center !important;
         }
 
 
         .topbar .navbar-logo {
+
             height: 38px !important;
+
             width: auto !important;
 
             display: block !important;
         }
 
 
+        /* =====================================================
+           LADO DIREITO
+           ===================================================== */
+
         .topbar-right {
+
             width: 50px !important;
+
+            visibility: hidden !important;
+
+            pointer-events: none !important;
         }
 
 
@@ -135,6 +209,7 @@
            ===================================================== */
 
         main {
+
             margin: 0 !important;
 
             padding: 40px 0 60px 0 !important;
@@ -148,12 +223,13 @@
             display: flex !important;
 
             justify-content: center !important;
+
             align-items: flex-start !important;
         }
 
 
         /* =====================================================
-           SEÇÃO DE CONFIRMAÇÃO
+           SEÇÃO
            ===================================================== */
 
         .boas-vindas {
@@ -180,6 +256,8 @@
 
             margin: 0 0 10px 0 !important;
 
+            padding: 0 !important;
+
             color: #FFFFFF !important;
 
             font-family: 'Nunito', sans-serif !important;
@@ -196,7 +274,11 @@
            SUBTÍTULO
            ===================================================== */
 
-        .sub-token {
+        .subtitulo-token {
+
+            margin: 0 0 25px 0 !important;
+
+            padding: 0 !important;
 
             color: #FFFFFF !important;
 
@@ -206,33 +288,32 @@
 
             font-weight: 400 !important;
 
-            margin: 0 0 20px 0 !important;
-
             text-align: center !important;
         }
 
 
         /* =====================================================
-           CAIXA DO TOKEN
+           CAIXA DO FORMULÁRIO
            ===================================================== */
 
         .login-box {
 
-            max-width: 400px !important;
+            width: calc(100% - 40px) !important;
 
-            width: calc(100% - 30px) !important;
+            max-width: 500px !important;
 
             margin: 0 auto !important;
 
             background: #FFFFFF !important;
 
-            padding: 25px 30px !important;
+            padding: 30px !important;
 
             border-radius: 16px !important;
 
-            border: 2px solid #22c55e !important;
+            border: 2px solid #38bdf8 !important;
 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.06) !important;
 
             text-align: center !important;
         }
@@ -244,13 +325,17 @@
 
         .login-box img {
 
-            image-rendering: -moz-crisp-edges !important;
+            image-rendering:
+                -moz-crisp-edges !important;
 
-            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering:
+                -webkit-optimize-contrast !important;
 
-            image-rendering: pixelated !important;
+            image-rendering:
+                pixelated !important;
 
-            image-rendering: crisp-edges !important;
+            image-rendering:
+                crisp-edges !important;
 
             width: 70px !important;
 
@@ -263,7 +348,7 @@
 
 
         /* =====================================================
-           TÍTULO TOKEN
+           TÍTULO TOKEN DENTRO DA CAIXA
            ===================================================== */
 
         .login-box h1 {
@@ -272,15 +357,19 @@
 
             margin: 0 0 20px 0 !important;
 
-            text-align: center !important;
+            color: #41af4b !important;
+
+            font-family: 'Nunito', sans-serif !important;
+
+            font-weight: 800 !important;
         }
 
 
         /* =====================================================
-           CAMPO DO TOKEN
+           FORMULÁRIO
            ===================================================== */
 
-        .form-field {
+        .form-grid {
 
             width: 100% !important;
 
@@ -288,17 +377,33 @@
         }
 
 
+        .form-field {
+
+            width: 100% !important;
+
+            margin-bottom: 15px !important;
+        }
+
+
         .form-field label {
 
             display: block !important;
 
-            margin-bottom: 8px !important;
+            margin-bottom: 7px !important;
+
+            color: #333333 !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-weight: 600 !important;
 
             text-align: left !important;
         }
 
 
-        /* Grupo do campo + cadeado */
+        /* =====================================================
+           CAMPO DO TOKEN
+           ===================================================== */
 
         .input-group {
 
@@ -312,65 +417,79 @@
         }
 
 
-        /* Campo */
-
-        #token_codigo {
+        .input-group input {
 
             width: 100% !important;
 
             height: 48px !important;
 
-            padding: 0 48px 0 14px !important;
+            padding: 0 50px 0 15px !important;
 
-            text-align: left !important;
-
-            letter-spacing: 2px !important;
-
-            font-weight: 600 !important;
-
-            font-size: 1rem !important;
-
-            border: 1px solid #cccccc !important;
+            border: 1px solid #D1D5DB !important;
 
             border-radius: 8px !important;
 
-            outline: none !important;
-
             background-color: #FFFFFF !important;
+
+            color: #333333 !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 1rem !important;
+
+            font-weight: 600 !important;
+
+            letter-spacing: 2px !important;
+
+            text-align: left !important;
+
+            outline: none !important;
         }
 
 
-        /* Campo quando selecionado */
+        .input-group input:focus {
 
-        #token_codigo:focus {
+            border-color: #38bdf8 !important;
 
-            border-color: #4CAF50 !important;
-
-            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.15) !important;
+            box-shadow:
+                0 0 0 2px rgba(56, 189, 248, 0.15) !important;
         }
 
 
-        /* Placeholder */
+        /* =====================================================
+           PLACEHOLDER
+           ===================================================== */
 
-        #token_codigo::placeholder {
+        .input-group input::placeholder {
 
-            color: #888888 !important;
+            color: #999999 !important;
 
             opacity: 1 !important;
 
+            letter-spacing: 0 !important;
+
             text-align: left !important;
+        }
+
+
+        .input-group input:focus::placeholder {
+
+            color: transparent !important;
         }
 
 
         /* =====================================================
            CADEADO
+           
+           FICA À DIREITA DO CAMPO
+           E NÃO ATRÁS DOS NÚMEROS.
            ===================================================== */
 
         .input-group svg {
 
             position: absolute !important;
 
-            right: 14px !important;
+            right: 15px !important;
 
             top: 50% !important;
 
@@ -392,14 +511,44 @@
            BOTÃO
            ===================================================== */
 
-        .btn-submit {
+        .form-field button {
 
             width: 100% !important;
+
+            margin-top: 10px !important;
         }
 
 
         /* =====================================================
-           MENSAGEM ABAIXO
+           MENSAGEM DE ERRO
+           ===================================================== */
+
+        .erro-token {
+
+            display: none;
+
+            margin-top: 8px !important;
+
+            color: #d32f2f !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 0.85rem !important;
+
+            font-weight: 600 !important;
+
+            text-align: left !important;
+        }
+
+
+        .erro-token.mostrar {
+
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           REENVIAR
            ===================================================== */
 
         .cadastro {
@@ -408,27 +557,19 @@
 
             font-size: 0.9rem !important;
 
-            text-align: center !important;
+            color: #555555 !important;
+
+            font-family: 'Poppins', sans-serif !important;
         }
 
 
-        /* =====================================================
-           MENSAGEM DE ERRO
-           ===================================================== */
+        .cadastro a {
 
-        .mensagem-erro {
+            color: #38bdf8 !important;
 
-            display: none;
+            font-weight: 700 !important;
 
-            color: #d32f2f !important;
-
-            font-size: 0.85rem !important;
-
-            font-weight: 600 !important;
-
-            margin-top: 8px !important;
-
-            text-align: left !important;
+            text-decoration: none !important;
         }
 
 
@@ -439,6 +580,12 @@
         footer {
 
             margin: 0 !important;
+
+            background-color: #3F9B43 !important;
+
+            color: #FFFFFF !important;
+
+            text-align: center !important;
         }
 
 
@@ -448,16 +595,34 @@
 
         @media (max-width: 600px) {
 
+            main {
+
+                padding-top: 30px !important;
+
+                padding-bottom: 40px !important;
+            }
+
+
             .titulo-token {
 
                 font-size: 1.8rem !important;
             }
 
-            .login-box {
 
-                padding: 22px 20px !important;
+            .subtitulo-token {
+
+                font-size: 0.9rem !important;
+
+                padding: 0 20px !important;
             }
 
+
+            .login-box {
+
+                width: calc(100% - 30px) !important;
+
+                padding: 25px 20px !important;
+            }
         }
 
     </style>
@@ -469,7 +634,7 @@
 
 
     <!-- =====================================================
-         TOPBAR / NAVBAR
+         NAVBAR
          ===================================================== -->
 
     <header class="topbar">
@@ -480,6 +645,7 @@
             class="menu-checkbox"
         >
 
+
         <label
             for="menu-check"
             class="overlay"
@@ -488,7 +654,7 @@
 
         <!-- SIDEBAR -->
 
-        <aside class="sidebar">
+        <div class="sidebar">
 
             <div class="perfil-sidebar">
 
@@ -503,23 +669,26 @@
             </div>
 
 
-            <nav class="links-sidebar">
+            <div class="sidebar-actions">
 
-                <a href="index.html">
-                    HOME
+                <a
+                    href="escolha.html"
+                    class="btn-principal btn-secundario"
+                >
+                    ENTRAR
                 </a>
 
-                <a href="ods.html">
-                    ODS
+
+                <a
+                    href="escolha-cadastro.html"
+                    class="btn-principal"
+                >
+                    CADASTRAR
                 </a>
 
-                <a href="sobrenos.html">
-                    SOBRE NÓS
-                </a>
+            </div>
 
-            </nav>
-
-        </aside>
+        </div>
 
 
         <!-- MENU HAMBURGER -->
@@ -558,9 +727,12 @@
         </div>
 
 
+        <!-- DIREITA -->
+
         <div class="topbar-right"></div>
 
     </header>
+
 
 
     <!-- =====================================================
@@ -573,18 +745,15 @@
         <section class="boas-vindas">
 
 
-            <!-- TÍTULO -->
-
             <h2 class="titulo-token">
                 Confirmação de Ingresso
             </h2>
 
 
-            <!-- SUBTÍTULO -->
-
-            <p class="sub-token">
+            <p class="subtitulo-token">
                 Use o código enviado para o seu e-mail
             </p>
+
 
 
             <!-- =================================================
@@ -594,7 +763,7 @@
             <div class="login-box">
 
 
-                <!-- TUGA -->
+                <!-- MASCOTE -->
 
                 <img
                     src="img/TugaPqn.png"
@@ -602,26 +771,22 @@
                 >
 
 
-                <!-- TÍTULO -->
-
-                <h1 class="negrito">
+                <h1>
                     Token
                 </h1>
 
 
-                <!-- FORMULÁRIO -->
 
                 <form
                     class="form-grid"
-                    id="token-form"
-                    style="text-align: left;"
+                    id="form-token"
+                    novalidate
                 >
 
 
-                    <div
-                        class="form-field col-full"
-                        style="margin-bottom: 20px;"
-                    >
+                    <!-- CAMPO -->
+
+                    <div class="form-field col-full">
 
 
                         <label for="token_codigo">
@@ -636,7 +801,7 @@
                                 type="text"
                                 id="token_codigo"
                                 name="token"
-                                placeholder="INSIRA OS 4 DÍGITOS"
+                                placeholder="Insira os 4 dígitos"
                                 maxlength="4"
                                 inputmode="numeric"
                                 autocomplete="off"
@@ -644,7 +809,7 @@
                             >
 
 
-                            <!-- Cadeado -->
+                            <!-- CADEADO -->
 
                             <svg
                                 viewBox="0 0 24 24"
@@ -660,16 +825,18 @@
                         </div>
 
 
-                        <!-- Mensagem -->
+                        <!-- MENSAGEM -->
 
-                        <div
-                            id="mensagem-erro"
-                            class="mensagem-erro"
+                        <p
+                            id="erro-token"
+                            class="erro-token"
                         >
                             Somente números
-                        </div>
+                        </p>
+
 
                     </div>
+
 
 
                     <!-- BOTÃO -->
@@ -681,7 +848,7 @@
 
                         <button
                             type="submit"
-                            class="btn-submit"
+                            class="btn-submit btn-azul"
                             style="width: 100%;"
                         >
                             Validar
@@ -689,22 +856,18 @@
 
                     </div>
 
+
                 </form>
+
 
 
                 <!-- REENVIAR -->
 
-                <p
-                    class="cadastro"
-                    style="margin-top: 20px; font-size: 0.9rem;"
-                >
+                <p class="cadastro">
 
                     Não recebeu o e-mail?
 
-                    <a
-                        href="#"
-                        class="negrito texto-azul"
-                    >
+                    <a href="#">
                         Reenviar
                     </a>
 
@@ -716,6 +879,7 @@
         </section>
 
     </main>
+
 
 
     <!-- =====================================================
@@ -731,6 +895,7 @@
     </footer>
 
 
+
     <!-- =====================================================
          JAVASCRIPT
          ===================================================== -->
@@ -738,62 +903,38 @@
     <script>
 
         const campoToken =
-            document.getElementById("token_codigo");
+            document.getElementById('token_codigo');
 
-        const formulario =
-            document.getElementById("token-form");
+        const formularioToken =
+            document.getElementById('form-token');
 
         const mensagemErro =
-            document.getElementById("mensagem-erro");
+            document.getElementById('erro-token');
 
 
-        /* =================================================
-           PERMITE SOMENTE NÚMEROS
-           ================================================= */
+        /*
+         * Permite somente números.
+         */
 
-        campoToken.addEventListener("input", function () {
+        campoToken.addEventListener('input', function () {
 
             this.value =
-                this.value.replace(/[^0-9]/g, "");
+                this.value.replace(/\D/g, '');
 
-            mensagemErro.style.display = "none";
+            if (this.value.length > 0) {
 
-        });
-
-
-        /* =================================================
-           AO CLICAR NO CAMPO
-           O PLACEHOLDER SOME AUTOMATICAMENTE
-           ================================================= */
-
-        campoToken.addEventListener("focus", function () {
-
-            this.placeholder = "";
-
-        });
-
-
-        /* =================================================
-           AO SAIR SEM DIGITAR
-           O PLACEHOLDER VOLTA
-           ================================================= */
-
-        campoToken.addEventListener("blur", function () {
-
-            if (this.value === "") {
-
-                this.placeholder = "INSIRA OS 4 DÍGITOS";
+                mensagemErro.classList.remove('mostrar');
 
             }
 
         });
 
 
-        /* =================================================
-           VALIDAÇÃO DO FORMULÁRIO
-           ================================================= */
+        /*
+         * Validação ao clicar em VALIDAR.
+         */
 
-        formulario.addEventListener("submit", function (event) {
+        formularioToken.addEventListener('submit', function (event) {
 
             event.preventDefault();
 
@@ -802,50 +943,46 @@
                 campoToken.value.trim();
 
 
-            /* Campo vazio */
+            /*
+             * Campo vazio:
+             * mostra "Somente números".
+             */
 
-            if (valor === "") {
+            if (valor === '') {
 
-                mensagemErro.textContent =
-                    "Somente números";
-
-                mensagemErro.style.display =
-                    "block";
-
-                campoToken.focus();
-
-                return;
-
-            }
-
-
-            /* Menos de 4 dígitos */
-
-            if (valor.length < 4) {
-
-                mensagemErro.textContent =
-                    "Somente números";
-
-                mensagemErro.style.display =
-                    "block";
+                mensagemErro.classList.add('mostrar');
 
                 campoToken.focus();
 
                 return;
 
             }
-
-
-            /* Se estiver correto */
-
-            mensagemErro.style.display =
-                "none";
 
 
             /*
-             * Aqui você pode colocar posteriormente
-             * a validação real do token.
+             * Caso tenha menos de 4 números.
              */
+
+            if (valor.length < 4) {
+
+                mensagemErro.classList.add('mostrar');
+
+                campoToken.focus();
+
+                return;
+
+            }
+
+
+            /*
+             * Caso esteja correto.
+             *
+             * Aqui você poderá colocar
+             * posteriormente a lógica
+             * de validação do token.
+             */
+
+            mensagemErro.classList.remove('mostrar');
 
         });
 
