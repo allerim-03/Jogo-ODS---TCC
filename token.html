@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,11 +36,12 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
+
     <style>
 
-        /* =====================================================
+        /* =========================================================
            CONFIGURAÇÃO GERAL
-           ===================================================== */
+           ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -59,9 +61,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            NAVBAR
-           ===================================================== */
+           ========================================================= */
 
         .topbar {
             position: relative !important;
@@ -80,16 +82,11 @@
 
             background-color: #4CAF50 !important;
 
-            box-shadow:
-                0 5px 12px rgba(0, 0, 0, 0.20) !important;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
 
             z-index: 1000 !important;
         }
 
-
-        /* =====================================================
-           LADO ESQUERDO / HAMBÚRGUER
-           ===================================================== */
 
         .topbar-left {
             display: flex !important;
@@ -97,26 +94,75 @@
             width: 50px !important;
         }
 
+
+        .topbar-center {
+            position: absolute !important;
+
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+
+        .topbar-right {
+            width: 50px !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+           BASEADO NO SIDEBAR DA PÁGINA ODS LOGADA
+           
+           DIFERENÇA:
+           - Visitante
+           - TugaPqn.png
+           - Entrar
+           - Cadastrar
+           ========================================================= */
+
+        .menu-checkbox {
+            display: none !important;
+        }
+
+
+        /* BOTÃO HAMBÚRGUER */
+
         .hamburger {
             width: 42px !important;
             height: 42px !important;
 
             display: flex !important;
             flex-direction: column !important;
+
             justify-content: center !important;
             align-items: center !important;
 
             gap: 5px !important;
 
             cursor: pointer !important;
+
             border-radius: 8px !important;
 
             transition: opacity 0.2s ease !important;
         }
 
+
         .hamburger:hover {
             opacity: 0.85 !important;
         }
+
 
         .hamburger span {
             width: 24px !important;
@@ -128,46 +174,7 @@
         }
 
 
-        /* =====================================================
-           LOGO CENTRAL
-           ===================================================== */
-
-        .topbar-center {
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-
-        .topbar .navbar-logo {
-            height: 38px !important;
-            width: auto !important;
-            display: block !important;
-        }
-
-
-        /* =====================================================
-           LADO DIREITO
-           ===================================================== */
-
-        .topbar-right {
-            width: 50px !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           MESMO ESTILO BASE DO SIDEBAR LOGADO
-           ===================================================== */
-
-        .menu-checkbox {
-            display: none !important;
-        }
+        /* PAINEL SIDEBAR */
 
         .sidebar {
             position: fixed !important;
@@ -192,6 +199,7 @@
             box-sizing: border-box !important;
         }
 
+
         /* ABRIR SIDEBAR */
 
         #menu-check:checked ~ .sidebar {
@@ -199,9 +207,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            OVERLAY
-           ===================================================== */
+           ========================================================= */
 
         .overlay {
             position: fixed !important;
@@ -217,24 +225,22 @@
             z-index: 9998 !important;
 
             display: none !important;
-
-            cursor: pointer !important;
         }
+
 
         #menu-check:checked ~ .overlay {
             display: block !important;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            PERFIL DO VISITANTE
-           ===================================================== */
+           ========================================================= */
 
         .perfil-sidebar {
             text-align: center !important;
 
-            border-bottom:
-                1px solid rgba(255, 255, 255, 0.2) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 
             padding-bottom: 20px !important;
 
@@ -247,11 +253,11 @@
         }
 
 
-        /* IMAGEM DA TUGA */
+        /* TUGA DO VISITANTE */
 
-        .mascote-perfil {
-            width: 75px !important;
-            height: 75px !important;
+        .perfil-sidebar .foto-perfil {
+            width: 90px !important;
+            height: 90px !important;
 
             object-fit: contain !important;
 
@@ -261,6 +267,12 @@
 
             image-rendering: pixelated !important;
             image-rendering: crisp-edges !important;
+
+            border: none !important;
+            border-radius: 0 !important;
+
+            background: transparent !important;
+            padding: 0 !important;
         }
 
 
@@ -281,9 +293,10 @@
         }
 
 
-        /* =====================================================
-           LINKS / BOTÕES DO VISITANTE
-           ===================================================== */
+        /* =========================================================
+           LINKS DA SIDEBAR
+           MESMO ESTILO DO SIDEBAR LOGADO
+           ========================================================= */
 
         .links-sidebar {
             display: flex !important;
@@ -293,10 +306,10 @@
             gap: 8px !important;
 
             width: 100% !important;
+
+            height: 100% !important;
         }
 
-
-        /* ESTILO BASE */
 
         .links-sidebar a {
             color: #FFFFFF !important;
@@ -317,56 +330,69 @@
 
             transition:
                 background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease !important;
+                color 0.2s ease !important;
 
             display: flex !important;
 
             align-items: center !important;
+
             justify-content: center !important;
 
-            width: 100% !important;
+            gap: 10px !important;
 
             min-height: 48px !important;
-
-            text-align: center !important;
         }
 
 
-        /* =====================================================
-           BOTÃO ENTRAR
-           ===================================================== */
+        /* HOVER IGUAL AO SIDEBAR LOGADO */
 
-        .link-entrar {
-            background-color: transparent !important;
+        .links-sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.15) !important;
 
+            color: #FFDE5A !important;
+        }
+
+
+        /* =========================================================
+           ENTRAR
+           ========================================================= */
+
+        .links-sidebar .link-entrar {
             color: #FFFFFF !important;
 
+            background-color: transparent !important;
+
             border: 2px solid #FFFFFF !important;
+
+            border-radius: 12px !important;
         }
 
-        .link-entrar:hover {
+
+        .links-sidebar .link-entrar:hover {
             background-color: rgba(255, 255, 255, 0.15) !important;
 
             color: #FFDE5A !important;
 
-            border-color: #FFDE5A !important;
+            border-color: #FFFFFF !important;
         }
 
 
-        /* =====================================================
-           BOTÃO CADASTRAR
-           ===================================================== */
+        /* =========================================================
+           CADASTRAR
+           ========================================================= */
 
-        .link-cadastrar {
-            background-color: #FFFFFF !important;
-
+        .links-sidebar .link-cadastrar {
             color: #1b5e20 !important;
 
+            background-color: #FFFFFF !important;
+
             border: 2px solid #FFFFFF !important;
+
+            border-radius: 12px !important;
         }
 
-        .link-cadastrar:hover {
+
+        .links-sidebar .link-cadastrar:hover {
             background-color: #FFDE5A !important;
 
             color: #1b5e20 !important;
@@ -375,9 +401,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            ÁREA PRINCIPAL
-           ===================================================== */
+           ========================================================= */
 
         main {
             margin: 0 !important;
@@ -398,10 +424,6 @@
         }
 
 
-        /* =====================================================
-           SEÇÃO
-           ===================================================== */
-
         .boas-vindas {
             width: 100% !important;
 
@@ -417,9 +439,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            TÍTULO
-           ===================================================== */
+           ========================================================= */
 
         .titulo-token {
             margin: 0 0 10px 0 !important;
@@ -438,9 +460,12 @@
         }
 
 
-        /* =====================================================
-           SUBTÍTULO
-           ===================================================== */
+        /* FORÇA O TÍTULO A FICAR BRANCO */
+
+        h2.titulo-token {
+            color: #FFFFFF !important;
+        }
+
 
         .subtitulo-token {
             margin: 0 0 25px 0 !important;
@@ -459,9 +484,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            CAIXA DO FORMULÁRIO
-           ===================================================== */
+           ========================================================= */
 
         .login-box {
             width: calc(100% - 40px) !important;
@@ -478,32 +503,19 @@
 
             border: none !important;
 
-            box-shadow:
-                0 8px 24px rgba(0, 0, 0, 0.06) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 
             text-align: center !important;
         }
 
 
-        /* =====================================================
-           MASCOTE DO FORMULÁRIO
-           ===================================================== */
-
         .login-box img {
-            image-rendering:
-                -moz-crisp-edges !important;
-
-            image-rendering:
-                -webkit-optimize-contrast !important;
-
-            image-rendering:
-                pixelated !important;
-
-            image-rendering:
-                crisp-edges !important;
+            image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
 
             width: 70px !important;
-
             height: auto !important;
 
             margin: 0 auto 10px auto !important;
@@ -511,10 +523,6 @@
             display: block !important;
         }
 
-
-        /* =====================================================
-           TÍTULO TOKEN
-           ===================================================== */
 
         .login-box h1 {
             font-size: 1.5rem !important;
@@ -529,9 +537,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            FORMULÁRIO
-           ===================================================== */
+           ========================================================= */
 
         .form-grid {
             width: 100% !important;
@@ -539,16 +547,13 @@
             text-align: left !important;
         }
 
+
         .form-field {
             width: 100% !important;
 
             margin-bottom: 15px !important;
         }
 
-
-        /* =====================================================
-           LABEL
-           ===================================================== */
 
         .form-field label {
             display: block !important;
@@ -565,9 +570,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            CAMPO DO TOKEN
-           ===================================================== */
+           ========================================================= */
 
         .input-group {
             position: relative !important;
@@ -580,17 +585,15 @@
         }
 
 
-        /* CAMPO */
-
         .input-group input {
             width: 100% !important;
 
             height: 48px !important;
 
             /*
-             * Espaço à esquerda reservado para o cadeado.
-             * Assim os números NÃO ficam atrás do cadeado.
-             */
+               ESPAÇO RESERVADO PARA O CADEADO.
+               O texto começa depois do ícone.
+            */
             padding: 0 15px 0 50px !important;
 
             border: 1px solid #D1D5DB !important;
@@ -615,8 +618,6 @@
         }
 
 
-        /* CAMPO AO CLICAR */
-
         .input-group input:focus {
             border-color: #38bdf8 !important;
 
@@ -624,8 +625,6 @@
                 0 0 0 2px rgba(56, 189, 248, 0.15) !important;
         }
 
-
-        /* PLACEHOLDER */
 
         .input-group input::placeholder {
             color: #999999 !important;
@@ -638,16 +637,12 @@
         }
 
 
-        /* PLACEHOLDER SOME AO CLICAR */
-
         .input-group input:focus::placeholder {
             color: transparent !important;
         }
 
 
-        /* =====================================================
-           CADEADO
-           ===================================================== */
+        /* CADEADO */
 
         .input-group svg {
             position: absolute !important;
@@ -672,10 +667,6 @@
         }
 
 
-        /* =====================================================
-           BOTÃO VALIDAR
-           ===================================================== */
-
         .form-field button {
             width: 100% !important;
 
@@ -683,9 +674,9 @@
         }
 
 
-        /* =====================================================
-           MENSAGEM DE ERRO
-           ===================================================== */
+        /* =========================================================
+           ERRO DO TOKEN
+           ========================================================= */
 
         .erro-token {
             display: none;
@@ -703,14 +694,15 @@
             text-align: left !important;
         }
 
+
         .erro-token.mostrar {
             display: block !important;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            REENVIAR
-           ===================================================== */
+           ========================================================= */
 
         .cadastro {
             margin-top: 20px !important;
@@ -722,6 +714,7 @@
             font-family: 'Poppins', sans-serif !important;
         }
 
+
         .cadastro a {
             color: #38bdf8 !important;
 
@@ -731,9 +724,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            RODAPÉ
-           ===================================================== */
+           ========================================================= */
 
         footer {
             margin: 0 !important;
@@ -745,7 +738,10 @@
             text-align: center !important;
 
             padding: 20px 0 !important;
+
+            width: 100% !important;
         }
+
 
         footer p {
             margin: 0 !important;
@@ -758,9 +754,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            RESPONSIVIDADE
-           ===================================================== */
+           ========================================================= */
 
         @media (max-width: 600px) {
 
@@ -770,9 +766,11 @@
                 padding-bottom: 40px !important;
             }
 
+
             .titulo-token {
                 font-size: 1.8rem !important;
             }
+
 
             .subtitulo-token {
                 font-size: 0.9rem !important;
@@ -780,141 +778,137 @@
                 padding: 0 20px !important;
             }
 
+
             .login-box {
                 width: calc(100% - 30px) !important;
 
                 padding: 25px 20px !important;
             }
 
+
             .sidebar {
                 width: 270px !important;
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- =====================================================
+
+    <!-- =========================================================
          NAVBAR
-         ===================================================== -->
+         ========================================================= -->
 
     <header class="topbar">
 
         <!-- CHECKBOX DO MENU -->
-        <input
-            type="checkbox"
-            id="menu-check"
-            class="menu-checkbox"
-        >
+        <input type="checkbox"
+               id="menu-check"
+               class="menu-checkbox">
 
 
-        <!-- =================================================
-             SIDEBAR
-             ================================================= -->
+        <!-- =====================================================
+             OVERLAY
+             ===================================================== -->
 
-        <div class="sidebar">
+        <label for="menu-check"
+               class="overlay">
+        </label>
+
+
+        <!-- =====================================================
+             SIDEBAR DO VISITANTE
+             MESMO MODELO DA PÁGINA ODS
+             ===================================================== -->
+
+        <aside class="sidebar">
 
             <!-- PERFIL DO VISITANTE -->
 
             <div class="perfil-sidebar">
 
-                <img
-                    src="img/TugaPqn.png"
-                    alt="Mascote Tuga"
-                    class="mascote-perfil"
-                >
+                <img src="img/TugaPqn.png"
+                     class="foto-perfil"
+                     alt="Tuga - Visitante">
 
                 <p>Visitante</p>
 
             </div>
 
 
-            <!-- =================================================
-                 BOTÕES
-                 ================================================= -->
+            <!-- LINKS -->
 
-            <div class="links-sidebar">
+            <nav class="links-sidebar">
 
-                <a
-                    href="escolha.html"
-                    class="link-entrar"
-                >
+                <!-- ENTRAR -->
+
+                <a href="escolha.html"
+                   class="link-entrar">
                     ENTRAR
                 </a>
 
-                <a
-                    href="escolha-cadastro.html"
-                    class="link-cadastrar"
-                >
+
+                <!-- CADASTRAR -->
+
+                <a href="escolha-cadastro.html"
+                   class="link-cadastrar">
                     CADASTRAR
                 </a>
 
-            </div>
+            </nav>
 
-        </div>
-
-
-        <!-- =================================================
-             OVERLAY
-             ================================================= -->
-
-        <label
-            for="menu-check"
-            class="overlay"
-        ></label>
+        </aside>
 
 
-        <!-- =================================================
-             MENU HAMBÚRGUER
-             ================================================= -->
+        <!-- =====================================================
+             LADO ESQUERDO / HAMBÚRGUER
+             ===================================================== -->
 
         <div class="topbar-left">
 
-            <label
-                for="menu-check"
-                class="hamburger"
-                aria-label="Abrir menu"
-            >
+            <label for="menu-check"
+                   class="hamburger"
+                   aria-label="Abrir menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </label>
 
         </div>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              LOGO
-             ================================================= -->
+             ===================================================== -->
 
         <div class="topbar-center">
 
             <div class="logo">
 
-                <img
-                    src="img/cultsab.png"
-                    alt="Cultivando o Saber"
-                    class="navbar-logo"
-                >
+                <img src="img/cultsab.png"
+                     alt="Cultivando o Saber"
+                     class="navbar-logo">
 
             </div>
 
         </div>
 
-
-        <!-- DIREITA -->
 
         <div class="topbar-right"></div>
 
     </header>
 
 
-    <!-- =====================================================
-         CONTEÚDO
-         ===================================================== -->
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================= -->
 
     <main>
 
@@ -922,23 +916,26 @@
 
 
             <!-- TÍTULO -->
-            <h2
-                class="titulo-token"
-                style="color: #FFFFFF !important;"
-            >
+
+            <h2 class="titulo-token"
+                style="color: #FFFFFF !important;">
+
                 Confirmação de Ingresso
+
             </h2>
 
 
             <!-- SUBTÍTULO -->
 
             <p class="subtitulo-token">
+
                 Use o código enviado para o seu e-mail
+
             </p>
 
 
             <!-- =================================================
-                 CAIXA DO FORMULÁRIO
+                 CAIXA DO TOKEN
                  ================================================= -->
 
             <div class="login-box">
@@ -946,36 +943,29 @@
 
                 <!-- MASCOTE -->
 
-                <img
-                    src="img/TugaPqn.png"
-                    alt="Mascote Tuga"
-                >
+                <img src="img/TugaPqn.png"
+                     alt="Mascote Tuga">
 
 
-                <!-- TÍTULO -->
-
-                <h1>
-                    Token
-                </h1>
+                <h1>Token</h1>
 
 
-                <!-- =================================================
-                     FORMULÁRIO
-                     ================================================= -->
+                <!-- FORMULÁRIO -->
 
-                <form
-                    class="form-grid"
-                    id="form-token"
-                    novalidate
-                >
+                <form class="form-grid"
+                      id="form-token"
+                      novalidate>
 
 
-                    <!-- CAMPO -->
+                    <!-- CAMPO DO TOKEN -->
 
                     <div class="form-field col-full">
 
+
                         <label for="token_codigo">
+
                             Código da turma
+
                         </label>
 
 
@@ -984,19 +974,15 @@
 
                             <!-- CADEADO -->
 
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
 
-                                <path
-                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
-                                />
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
 
                             </svg>
 
 
-                            <!-- CAMPO DE 4 DÍGITOS -->
+                            <!-- INPUT -->
 
                             <input
                                 type="text"
@@ -1012,13 +998,13 @@
                         </div>
 
 
-                        <!-- MENSAGEM -->
+                        <!-- MENSAGEM DE ERRO -->
 
-                        <p
-                            id="erro-token"
-                            class="erro-token"
-                        >
+                        <p id="erro-token"
+                           class="erro-token">
+
                             Somente números
+
                         </p>
 
                     </div>
@@ -1026,20 +1012,20 @@
 
                     <!-- BOTÃO VALIDAR -->
 
-                    <div
-                        class="form-field col-full"
-                        style="margin-top: 10px;"
-                    >
+                    <div class="form-field col-full"
+                         style="margin-top: 10px;">
 
                         <button
                             type="submit"
                             class="btn-submit btn-azul"
-                            style="width: 100%;"
-                        >
+                            style="width: 100%;">
+
                             Validar
+
                         </button>
 
                     </div>
+
 
                 </form>
 
@@ -1051,10 +1037,13 @@
                     Não recebeu o e-mail?
 
                     <a href="#">
+
                         Reenviar
+
                     </a>
 
                 </p>
+
 
             </div>
 
@@ -1063,9 +1052,9 @@
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          RODAPÉ
-         ===================================================== -->
+         ========================================================= -->
 
     <footer>
 
@@ -1076,9 +1065,9 @@
     </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+    <!-- =========================================================
+         JAVASCRIPT DO TOKEN
+         ========================================================= -->
 
     <script>
 
@@ -1101,6 +1090,7 @@
             this.value =
                 this.value.replace(/\D/g, '');
 
+
             if (this.value.length > 0) {
 
                 mensagemErro.classList.remove('mostrar');
@@ -1111,39 +1101,35 @@
 
 
         /* =====================================================
-           VALIDAÇÃO
+           VALIDAÇÃO DO FORMULÁRIO
            ===================================================== */
 
         formularioToken.addEventListener('submit', function (event) {
 
             event.preventDefault();
 
+
             const valor =
                 campoToken.value.trim();
 
 
-            /* CAMPO VAZIO OU MENOS DE 4 DÍGITOS */
-
-            if (
-                valor === '' ||
-                valor.length < 4
-            ) {
+            if (valor === '' || valor.length < 4) {
 
                 mensagemErro.classList.add('mostrar');
 
                 campoToken.focus();
 
                 return;
+
             }
 
-
-            /* TOKEN COM 4 DÍGITOS */
 
             mensagemErro.classList.remove('mostrar');
 
         });
 
     </script>
+
 
 </body>
 
