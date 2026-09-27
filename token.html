@@ -101,7 +101,7 @@
         }
 
         /* =====================================================
-            SIDEBAR - ESTILO CONTA NÃO LOGADA (VISITANTE)
+            SIDEBAR - ESTILO IDÊNTICO ÀS PÁGINAS LOGADAS
             ===================================================== */
         .sidebar {
             position: fixed !important;
@@ -122,31 +122,39 @@
             left: 0 !important;
         }
 
+        /* Perfil idêntico ao das páginas logadas */
         .perfil-sidebar {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            gap: 8px !important;
-            margin-bottom: 20px !important;
+            text-align: center !important;
             padding: 0 0 20px 0 !important;
+            margin-bottom: 25px !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
         }
 
+        .perfil-sidebar img.mascote-perfil {
+            width: 65px !important;
+            height: 65px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            border: 2px solid #FFFFFF !important;
+            background-color: #FFFFFF !important;
+            padding: 2px !important;
+            margin-bottom: 10px !important;
+            image-rendering: pixelated !important;
+        }
+
+        .perfil-sidebar p,
         .nome-visitante {
             font-family: 'Montserrat', 'Nunito', sans-serif !important;
             font-weight: 800 !important;
-            font-size: 1.2rem !important;
+            font-size: 1.15rem !important;
             color: #FFC107 !important;
             margin: 0 !important;
         }
 
-        .sidebar-divisor {
-            width: 100% !important;
-            height: 1px !important;
-            background-color: rgba(255, 255, 255, 0.2) !important;
-            margin-bottom: 24px !important;
-        }
-
+        /* Navegação do Menu com o mesmo formato de bloco das páginas logadas */
         .sidebar-nav {
             display: flex !important;
             flex-direction: column !important;
@@ -159,7 +167,7 @@
             font-family: 'Montserrat', 'Nunito', sans-serif !important;
             font-weight: 800 !important;
             font-size: 1.05rem !important;
-            color: #FFC107 !important;
+            color: #FFFFFF !important;
             text-transform: uppercase !important;
             text-decoration: none !important;
             border-radius: 16px !important;
@@ -170,7 +178,7 @@
         .sidebar-link:hover,
         .sidebar-link.active {
             background-color: rgba(255, 255, 255, 0.15) !important;
-            color: #FFFFFF !important;
+            color: #FFC107 !important;
         }
 
         /* =====================================================
@@ -385,13 +393,12 @@
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- SIDEBAR ATUALIZADA -->
+        <!-- SIDEBAR ESTILO PÁGINAS LOGADAS -->
         <div class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #FFC107; background-color: #FFFFFF; padding: 2px; image-rendering: pixelated;">
-                <p class="nome-visitante">Visitante</p>
+                <img src="img/TugaPqn.png" alt="Mascote Tuga" class="mascote-perfil">
+                <p>Visitante</p>
             </div>
-            <div class="sidebar-divisor"></div>
             <div class="sidebar-nav">
                 <a href="escolha-cadastro.html" class="sidebar-link">Cadastrar</a>
                 <a href="escolha.html" class="sidebar-link">Entrar</a>
