@@ -12,10 +12,9 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
-    <!-- Favicon / Ícone da guia -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
     <link rel="stylesheet" href="css/global.css">
@@ -28,53 +27,122 @@
 
     <style>
 
-        /* =====================================================
+        /* =========================================================
+           AJUSTES GERAIS
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* =========================================================
            TEXTOS JUSTIFICADOS
-           ===================================================== */
+        ========================================================= */
 
         .hero-content p,
-        .section-header p,
         .card-item p,
         .passo-card p,
         .pilar-texto p {
             text-align: justify !important;
         }
 
-        /* =====================================================
-           BADGE DA PLATAFORMA
-           ===================================================== */
+        /* =========================================================
+           CABEÇALHOS DAS SEÇÕES
+           Os textos ficam em UMA ÚNICA LINHA
+        ========================================================= */
+
+        .section-header {
+            width: 100% !important;
+            text-align: center !important;
+        }
+
+        .section-header h2 {
+            text-align: center !important;
+        }
+
+        .section-header p {
+            text-align: center !important;
+
+            /* NÃO permite quebra de linha */
+            white-space: nowrap !important;
+
+            /* Ocupa toda a largura disponível */
+            width: 100% !important;
+            max-width: none !important;
+
+            /* Remove margens que possam limitar o texto */
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* =========================================================
+           IMAGENS SEM BORDA TRACEJADA
+        ========================================================= */
+
+        img {
+            border: none !important;
+            outline: none !important;
+        }
+
+        .imagem-placeholder,
+        .img-hero-main,
+        .img-pilar-home {
+            border: none !important;
+            outline: none !important;
+        }
+
+        /* =========================================================
+           TOPO
+        ========================================================= */
+
+        .topbar {
+            width: 100%;
+        }
+
+        /* =========================================================
+           BADGE
+        ========================================================= */
 
         .badge-tag {
-            text-align: center !important;
             white-space: nowrap;
         }
 
-        /* =====================================================
-           GARANTE QUE OS TEXTOS DOS PILARES FIQUEM JUSTIFICADOS
-           ===================================================== */
-
-        .pilar-texto {
-            text-align: left;
-        }
+        /* =========================================================
+           PILARES
+        ========================================================= */
 
         .pilar-texto p {
             text-align: justify !important;
         }
 
-        /* =====================================================
-           TEXTOS DOS CARDS
-           ===================================================== */
+        /* =========================================================
+           CARDS
+        ========================================================= */
 
         .card-item p {
             text-align: justify !important;
         }
 
-        /* =====================================================
-           TEXTO DA JORNADA
-           ===================================================== */
-
         .passo-card p {
             text-align: justify !important;
+        }
+
+        /* =========================================================
+           RESPONSIVIDADE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .section-header p {
+                white-space: normal !important;
+            }
+
         }
 
     </style>
@@ -83,6 +151,11 @@
 
 
 <body>
+
+
+    <!-- =========================================================
+         MENU MOBILE
+    ========================================================= -->
 
     <input
         type="checkbox"
@@ -96,9 +169,9 @@
     ></label>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          SIDEBAR
-         ===================================================== -->
+    ========================================================= -->
 
     <aside class="sidebar">
 
@@ -134,9 +207,9 @@
     </aside>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          NAVBAR
-         ===================================================== -->
+    ========================================================= -->
 
     <header class="topbar">
 
@@ -173,16 +246,16 @@
     </header>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          CONTEÚDO PRINCIPAL
-         ===================================================== -->
+    ========================================================= -->
 
     <main>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              HERO
-             ================================================= -->
+        ===================================================== -->
 
         <section
             class="hero-banner"
@@ -195,7 +268,7 @@
                 <div class="hero-content">
 
                     <span class="badge-tag">
-                        PLATAFORMA EDUCACIONAL-ODS
+                        PLATAFORMA EDUCACIONAL - ODS
                     </span>
 
 
@@ -249,9 +322,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              COMO APRENDEMOS
-             ================================================= -->
+        ===================================================== -->
 
         <section
             id="solucoes"
@@ -265,8 +338,7 @@
                 </h2>
 
                 <p>
-                    Nossa metodologia alia recursos lúdicos ao
-                    desenvolvimento de conscientização socioambiental.
+                    Nossa metodologia alia recursos lúdicos ao desenvolvimento de conscientização socioambiental.
                 </p>
 
             </div>
@@ -352,14 +424,15 @@
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              JORNADA
-             ================================================= -->
+        ===================================================== -->
 
         <section class="jornada-sessao">
 
@@ -370,8 +443,7 @@
                 </h2>
 
                 <p>
-                    Siga os passos da nossa trilha interativa para se
-                    tornar um verdadeiro guardião da natureza.
+                    Siga os passos da nossa trilha interativa para se tornar um verdadeiro guardião da natureza.
                 </p>
 
             </div>
@@ -518,14 +590,15 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              PILARES
-             ================================================= -->
+        ===================================================== -->
 
         <section class="pilares-container">
 
@@ -533,6 +606,7 @@
             <!-- PILAR 1 -->
 
             <article class="pilar-card pilar-verde-claro">
+
 
                 <div class="pilar-texto">
 
@@ -637,9 +711,9 @@
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          RODAPÉ
-         ===================================================== -->
+    ========================================================= -->
 
     <footer>
 
