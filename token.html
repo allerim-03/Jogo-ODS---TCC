@@ -104,10 +104,7 @@
 
             background-color: #4CAF50 !important;
 
-            /*
-             * Sombra escura para dividir
-             * a navbar do fundo verde
-             */
+            /* Sombra para separar a navbar do fundo */
 
             box-shadow:
                 0 5px 12px rgba(0, 0, 0, 0.25) !important;
@@ -118,7 +115,7 @@
 
 
         /* =====================================================
-           LADO ESQUERDO DA NAVBAR
+           LADO ESQUERDO
            ===================================================== */
 
         .topbar-left {
@@ -195,7 +192,7 @@
 
 
         /* =====================================================
-           SEÇÃO DE CONFIRMAÇÃO
+           SEÇÃO
            ===================================================== */
 
         .boas-vindas {
@@ -204,9 +201,11 @@
 
             box-shadow: none !important;
 
+            padding: 0 !important;
+
             margin: 0 !important;
 
-            padding: 0 !important;
+            width: 100% !important;
 
             text-align: center !important;
 
@@ -229,6 +228,8 @@
 
             font-weight: 800 !important;
 
+            text-align: center !important;
+
         }
 
 
@@ -248,6 +249,8 @@
 
             margin-bottom: 20px !important;
 
+            text-align: center !important;
+
         }
 
 
@@ -263,7 +266,7 @@
 
             margin: 0 auto !important;
 
-            background-color: #FFFFFF !important;
+            background: #FFFFFF !important;
 
             padding: 25px 30px !important;
 
@@ -273,6 +276,8 @@
 
             box-shadow:
                 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+
+            text-align: center !important;
 
         }
 
@@ -303,7 +308,7 @@
 
 
         /* =====================================================
-           TÍTULO "TOKEN"
+           TÍTULO TOKEN
            ===================================================== */
 
         .login-box h1 {
@@ -318,19 +323,62 @@
 
 
         /* =====================================================
+           FORMULÁRIO
+           ===================================================== */
+
+        .login-box .form-grid {
+
+            text-align: left !important;
+
+        }
+
+
+        /* =====================================================
+           LABEL
+           ===================================================== */
+
+        .login-box .form-field label {
+
+            display: block !important;
+
+            margin-bottom: 7px !important;
+
+        }
+
+
+        /* =====================================================
+           GRUPO DO INPUT
+           ===================================================== */
+
+        .login-box .input-group {
+
+            position: relative !important;
+
+            width: 100% !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+        }
+
+
+        /* =====================================================
            CAMPO DO TOKEN
            ===================================================== */
 
-        .login-box input[type="text"] {
+        .login-box .input-group input[type="text"] {
 
             width: 100% !important;
 
             height: 48px !important;
 
-            padding: 0 14px !important;
+            padding: 0 48px 0 14px !important;
+
+            margin: 0 !important;
 
             /*
-             * Texto começa pela esquerda
+             * Digitação começa pela esquerda
              */
 
             text-align: left !important;
@@ -341,14 +389,18 @@
 
             font-family: 'Poppins', sans-serif !important;
 
+            position: relative !important;
+
+            z-index: 1 !important;
+
         }
 
 
-        /*
-         * Placeholder
-         */
+        /* =====================================================
+           PLACEHOLDER
+           ===================================================== */
 
-        .login-box input[type="text"]::placeholder {
+        .login-box .input-group input[type="text"]::placeholder {
 
             text-align: left !important;
 
@@ -356,15 +408,18 @@
 
             font-weight: 400 !important;
 
+            color: #777777 !important;
+
+            opacity: 1 !important;
+
         }
 
 
         /*
-         * Quando o campo recebe foco,
-         * o placeholder desaparece automaticamente.
+         * Ao clicar no campo, o placeholder desaparece.
          */
 
-        .login-box input[type="text"]:focus::placeholder {
+        .login-box .input-group input[type="text"]:focus::placeholder {
 
             color: transparent !important;
 
@@ -372,7 +427,34 @@
 
 
         /* =====================================================
-           MENSAGEM DE VALIDAÇÃO
+           CADEADO
+           ===================================================== */
+
+        .login-box .input-group svg {
+
+            position: absolute !important;
+
+            right: 14px !important;
+
+            top: 50% !important;
+
+            transform: translateY(-50%) !important;
+
+            width: 20px !important;
+
+            height: 20px !important;
+
+            z-index: 5 !important;
+
+            pointer-events: none !important;
+
+            fill: #555555 !important;
+
+        }
+
+
+        /* =====================================================
+           MENSAGEM "SOMENTE NÚMEROS"
            ===================================================== */
 
         .mensagem-token {
@@ -381,13 +463,13 @@
 
             color: #d32f2f;
 
-            font-size: 0.85rem;
-
             font-family: 'Poppins', sans-serif;
+
+            font-size: 0.85rem;
 
             font-weight: 600;
 
-            margin-top: 8px;
+            margin-top: 7px;
 
             text-align: left;
 
@@ -397,6 +479,17 @@
         .mensagem-token.visivel {
 
             display: block;
+
+        }
+
+
+        /* =====================================================
+           BOTÃO
+           ===================================================== */
+
+        .login-box .btn-submit {
+
+            width: 100% !important;
 
         }
 
@@ -442,7 +535,7 @@
 
 
     <!-- =====================================================
-         TOPBAR / NAVBAR
+         NAVBAR
          ===================================================== -->
 
     <header class="topbar">
@@ -461,9 +554,7 @@
         ></label>
 
 
-        <!-- =================================================
-             SIDEBAR
-             ================================================= -->
+        <!-- SIDEBAR -->
 
         <aside class="sidebar">
 
@@ -499,9 +590,7 @@
         </aside>
 
 
-        <!-- =================================================
-             HAMBURGER
-             ================================================= -->
+        <!-- HAMBURGER -->
 
         <div class="topbar-left">
 
@@ -522,9 +611,7 @@
         </div>
 
 
-        <!-- =================================================
-             LOGO
-             ================================================= -->
+        <!-- LOGO -->
 
         <div class="topbar-center">
 
@@ -579,9 +666,7 @@
                  CAIXA DO FORMULÁRIO
                  ================================================= -->
 
-            <div
-                class="login-box"
-            >
+            <div class="login-box">
 
 
                 <!-- MASCOTE -->
@@ -592,7 +677,7 @@
                 >
 
 
-                <!-- TÍTULO TOKEN -->
+                <!-- TÍTULO -->
 
                 <h1 class="negrito">
 
@@ -601,14 +686,11 @@
                 </h1>
 
 
-                <!-- =================================================
-                     FORMULÁRIO
-                     ================================================= -->
+                <!-- FORMULÁRIO -->
 
                 <form
                     class="form-grid"
                     id="tokenForm"
-                    style="text-align: left;"
                 >
 
 
@@ -627,6 +709,8 @@
                         </label>
 
 
+                        <!-- CAMPO -->
+
                         <div class="input-group">
 
 
@@ -642,8 +726,11 @@
                             >
 
 
+                            <!-- CADEADO -->
+
                             <svg
                                 viewBox="0 0 24 24"
+                                aria-hidden="true"
                             >
 
                                 <path
@@ -669,9 +756,7 @@
                     </div>
 
 
-                    <!-- =================================================
-                         BOTÃO
-                         ================================================= -->
+                    <!-- BOTÃO -->
 
                     <div
                         class="form-field col-full"
@@ -681,7 +766,6 @@
                         <button
                             type="submit"
                             class="btn-submit"
-                            style="width: 100%;"
                         >
 
                             Validar
@@ -694,9 +778,7 @@
                 </form>
 
 
-                <!-- =================================================
-                     REENVIAR
-                     ================================================= -->
+                <!-- REENVIAR -->
 
                 <p
                     class="cadastro"
@@ -712,7 +794,9 @@
                         href="#"
                         class="negrito texto-azul"
                     >
+
                         Reenviar
+
                     </a>
 
                 </p>
@@ -746,11 +830,14 @@
 
     <script>
 
+
         const tokenForm =
             document.getElementById("tokenForm");
 
+
         const tokenInput =
             document.getElementById("token_codigo");
+
 
         const mensagemToken =
             document.getElementById("mensagem-token");
@@ -776,8 +863,7 @@
 
 
         /*
-         * Ao clicar em Validar sem preencher,
-         * mostra "SOMENTE NÚMEROS".
+         * Validação do botão.
          */
 
         tokenForm.addEventListener(
@@ -787,7 +873,16 @@
                 event.preventDefault();
 
 
-                if (tokenInput.value.trim() === "") {
+                /*
+                 * Campo vazio
+                 */
+
+                if (
+                    tokenInput.value.trim() === ""
+                ) {
+
+                    mensagemToken.textContent =
+                        "SOMENTE NÚMEROS";
 
                     mensagemToken.classList.add(
                         "visivel"
@@ -801,8 +896,7 @@
 
 
                 /*
-                 * Se estiver preenchido com números,
-                 * o formulário pode continuar normalmente.
+                 * Código incompleto
                  */
 
                 if (
@@ -823,18 +917,19 @@
                 }
 
 
+                /*
+                 * Código preenchido.
+                 * Aqui poderá entrar a validação
+                 * real do token.
+                 */
+
                 mensagemToken.classList.remove(
                     "visivel"
                 );
 
-
-                /*
-                 * Aqui você poderá colocar
-                 * a validação real do token.
-                 */
-
             }
         );
+
 
     </script>
 
