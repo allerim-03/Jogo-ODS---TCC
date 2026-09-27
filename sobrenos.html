@@ -7,7 +7,7 @@
 
     <title>Cultivando o Saber - Sobre nós</title>
 
-    <!-- Favicon -->
+    <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
     <!-- CSS -->
@@ -40,10 +40,6 @@
             min-height: 100vh;
         }
 
-        body {
-            background-color: #3F9B43 !important;
-        }
-
 
         /* =====================================================
            NAVBAR
@@ -53,7 +49,6 @@
             margin-top: 0 !important;
             top: 0 !important;
             position: relative !important;
-
             width: 100%;
             height: 90px !important;
             min-height: 90px !important;
@@ -84,6 +79,9 @@
             gap: 18px !important;
         }
 
+
+        /* Container do logo + nível */
+
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
@@ -91,6 +89,9 @@
             justify-content: center !important;
             gap: 6px !important;
         }
+
+
+        /* Logo */
 
         .topbar .navbar-logo {
             height: 38px !important;
@@ -116,9 +117,15 @@
             line-height: 1 !important;
         }
 
+
+        /* Estrela + NÍVEL 2 */
+
         .topbar .level .star {
             color: #FFDD55 !important;
         }
+
+
+        /* Barra de XP */
 
         .topbar .level .bar {
             width: 120px !important;
@@ -127,8 +134,12 @@
             background-color: #2E7D32 !important;
 
             border-radius: 10px !important;
+
             overflow: hidden !important;
         }
+
+
+        /* Progresso */
 
         .topbar .level .progress {
             height: 100% !important;
@@ -137,6 +148,9 @@
 
             border-radius: 10px !important;
         }
+
+
+        /* Texto XP */
 
         .topbar .level .xp {
             font-size: 11px !important;
@@ -159,33 +173,31 @@
             gap: 20px !important;
         }
 
+
         .topbar nav.menu a {
             color: #ffffff !important;
+
             text-decoration: none !important;
 
             font-weight: bold !important;
             font-size: 15px !important;
 
-            padding: 0 !important;
-
-            border: none !important;
-            border-bottom: none !important;
-
             transition: color 0.2s ease !important;
+
+            padding-bottom: 3px !important;
+
+            border-bottom: none !important;
         }
+
 
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
-
-            text-decoration: none !important;
-            border: none !important;
             border-bottom: none !important;
         }
 
+
         .topbar nav.menu a.active {
             color: #ffffff !important;
-
-            border: none !important;
             border-bottom: none !important;
         }
 
@@ -210,16 +222,16 @@
 
 
         /* =====================================================
-           ÁREA PRINCIPAL
+           ÁREA PRINCIPAL — SOBRE NÓS
            
-           ANTES: padding-top: 140px
-           AGORA: espaço reduzido
+           O padding-top foi reduzido de 140px para 80px
+           para diminuir o espaço verde entre a navbar e o card.
            ===================================================== */
 
         .sobre-main-container {
             background-color: #3F9B43 !important;
 
-            padding-top: 35px !important;
+            padding-top: 80px !important;
             padding-bottom: 60px !important;
 
             display: flex !important;
@@ -255,177 +267,91 @@
 
 
         /* =====================================================
-           TEXTO DO PROJETO
-           ===================================================== */
-
-        .bloco-conteudo-projeto {
-            display: flex !important;
-
-            align-items: center !important;
-
-            justify-content: space-between !important;
-
-            gap: 45px !important;
-
-            width: 100%;
-        }
-
-        .bloco-conteudo-projeto .bloco-texto {
-            flex: 1 1 auto !important;
-
-            min-width: 0 !important;
-
-            width: auto !important;
-        }
-
-        .bloco-conteudo-projeto .bloco-texto p {
-            text-align: justify !important;
-
-            text-justify: inter-word !important;
-
-            line-height: 1.65 !important;
-
-            margin-bottom: 18px !important;
-
-            width: 100% !important;
-        }
-
-
-        /* =====================================================
            IMAGEM DA TUGA
+           
+           Remove completamente o quadro tracejado.
            ===================================================== */
 
         .bloco-imagem-placeholder {
-            flex: 0 0 190px !important;
+            background: transparent !important;
 
-            width: 190px !important;
-            min-width: 190px !important;
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+
+            padding: 0 !important;
 
             display: flex !important;
 
-            justify-content: center !important;
             align-items: center !important;
+
+            justify-content: center !important;
         }
 
+
         .bloco-imagem-placeholder img {
-            display: block !important;
+            width: 190px !important;
 
-            width: 180px !important;
-            height: 180px !important;
+            height: auto !important;
 
-            max-width: 180px !important;
-            max-height: 180px !important;
+            max-width: 100% !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+
+            background: transparent !important;
 
             object-fit: contain !important;
 
-            /*
-             * Mantém os pixels da arte da Tuga definidos
-             * quando a imagem original é pixel art.
-             */
-            image-rendering: pixelated !important;
+            image-rendering: auto !important;
 
-            image-rendering: crisp-edges !important;
+            display: block !important;
         }
 
 
         /* =====================================================
-           TÍTULOS
+           TEXTO DO PROJETO
            ===================================================== */
 
-        .titulo-verde {
-            color: #4CAF50 !important;
-        }
-
-        .titulo-secao {
-            color: #4CAF50 !important;
-
-            margin-bottom: 12px !important;
-        }
-
-
-        /* =====================================================
-           MISSÃO / VISÃO / VALORES
-           ===================================================== */
-
-        .secao-topico-linear .bloco-texto p {
+        .bloco-conteudo-projeto .bloco-texto {
             text-align: justify !important;
+        }
 
-            text-justify: inter-word !important;
 
-            line-height: 1.65 !important;
+        .bloco-conteudo-projeto .bloco-texto p {
+            text-align: justify !important;
         }
 
 
         /* =====================================================
-           DIVISORES
+           GARANTE QUE O TÍTULO NÃO FIQUE JUSTIFICADO
            ===================================================== */
 
-        .divisor {
-            margin: 28px 0 !important;
+        .bloco-conteudo-projeto .titulo-secao {
+            text-align: left !important;
         }
 
 
         /* =====================================================
-           EQUIPE
+           RODAPÉ
            ===================================================== */
 
-        .secao-equipe {
-            width: 100%;
-        }
-
-        .secao-equipe .bloco-texto p,
-        .secao-equipe p {
-            text-align: justify;
-        }
-
-
-        /* =====================================================
-           RESPONSIVIDADE
-           ===================================================== */
-
-        @media (max-width: 800px) {
-
-            .sobre-main-container {
-                padding-top: 25px !important;
-                padding-bottom: 40px !important;
-            }
-
-            .card-sobre-central {
-                width: 94% !important;
-                padding: 25px !important;
-            }
-
-            .bloco-conteudo-projeto {
-                flex-direction: column !important;
-
-                gap: 25px !important;
-            }
-
-            .bloco-conteudo-projeto .bloco-texto {
-                width: 100% !important;
-            }
-
-            .bloco-imagem-placeholder {
-                flex: none !important;
-
-                width: 100% !important;
-                min-width: 0 !important;
-            }
-
-            .bloco-imagem-placeholder img {
-                width: 160px !important;
-                height: 160px !important;
-
-                max-width: 160px !important;
-                max-height: 160px !important;
-            }
+        footer {
+            margin: 0 !important;
         }
 
     </style>
+
 </head>
 
 
 <body>
+
 
     <!-- =====================================================
          NAVBAR
@@ -444,9 +370,11 @@
 
             <div class="perfil-sidebar">
 
-                <img src="img/foto.png"
-                     class="foto-perfil"
-                     alt="Perfil">
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Perfil"
+                >
 
                 <p>Nível 2</p>
 
@@ -474,13 +402,17 @@
         </aside>
 
 
-        <!-- LADO ESQUERDO -->
+        <!-- =================================================
+             LADO ESQUERDO
+             ================================================= -->
 
         <div class="left">
 
-            <label for="menu-check"
-                   class="hamburger"
-                   aria-label="Abrir menu">
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
 
                 <span></span>
                 <span></span>
@@ -493,12 +425,16 @@
 
                 <div class="logo">
 
-                    <img src="img/cultsab.png"
-                         alt="Cultivando o Saber"
-                         class="navbar-logo">
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
 
                 </div>
 
+
+                <!-- NÍVEL -->
 
                 <div class="level">
 
@@ -506,14 +442,16 @@
                         ★ NÍVEL 2
                     </span>
 
+
                     <div class="bar">
 
-                        <div class="progress"
-                             style="width: 45%;">
-
-                        </div>
+                        <div
+                            class="progress"
+                            style="width: 45%;"
+                        ></div>
 
                     </div>
+
 
                     <span class="xp">
                         450/1000
@@ -526,7 +464,9 @@
         </div>
 
 
-        <!-- MENU CENTRAL -->
+        <!-- =================================================
+             MENU DE NAVEGAÇÃO
+             ================================================= -->
 
         <nav class="menu">
 
@@ -554,28 +494,35 @@
                 PERFIL
             </a>
 
-            <a href="sobrenos.html"
-               class="active">
-
+            <a
+                href="sobrenos.html"
+                class="active"
+            >
                 SOBRE NÓS
-
             </a>
 
         </nav>
 
 
-        <!-- PERFIL -->
+        <!-- =================================================
+             PERFIL
+             ================================================= -->
 
-        <a href="perfil.html"
-           class="perfil-externo">
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
 
-            <img src="img/foto.png"
-                 class="foto-perfil"
-                 alt="Perfil">
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
 
         </a>
 
     </header>
+
 
 
     <!-- =====================================================
@@ -583,6 +530,9 @@
          ===================================================== -->
 
     <main class="sobre-main-container">
+
+
+        <!-- CARD CENTRAL -->
 
         <div class="card-sobre-central">
 
@@ -598,8 +548,9 @@
             </div>
 
 
+
             <!-- =================================================
-                 PROJETO
+                 O PROJETO
                  ================================================= -->
 
             <section class="secao-info">
@@ -628,12 +579,16 @@
                     </div>
 
 
-                    <!-- TUGA -->
+                    <!-- =================================================
+                         TUGA — SOMENTE A IMAGEM
+                         ================================================= -->
 
                     <div class="bloco-imagem-placeholder">
 
-                        <img src="img/TugaPqn.png"
-                             alt="Mascote Tuga">
+                        <img
+                            src="img/TugaPqn.png"
+                            alt="Mascote Tuga"
+                        >
 
                     </div>
 
@@ -642,7 +597,11 @@
             </section>
 
 
+
+            <!-- DIVISOR -->
+
             <hr class="divisor">
+
 
 
             <!-- =================================================
@@ -672,7 +631,9 @@
             </section>
 
 
+
             <hr class="divisor">
+
 
 
             <!-- =================================================
@@ -702,7 +663,9 @@
             </section>
 
 
+
             <hr class="divisor">
+
 
 
             <!-- =================================================
@@ -732,7 +695,9 @@
             </section>
 
 
+
             <hr class="divisor">
+
 
 
             <!-- =================================================
@@ -741,9 +706,11 @@
 
             <section class="secao-equipe">
 
+
                 <h2 class="titulo-verde alinhado-centro">
                     Nossa Equipe
                 </h2>
+
 
 
                 <!-- FRONT-END -->
@@ -760,13 +727,17 @@
 
                         <!-- ANDRIELLI -->
 
-                        <div class="membro"
-                             onclick="abrirModal('modal-membro-1')">
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-1')"
+                        >
 
                             <div class="foto">
 
-                                <img src="img/pessoa1.png"
-                                     alt="Andrielli Moreira">
+                                <img
+                                    src="img/pessoa1.png"
+                                    alt="Andrielli Moreira"
+                                >
 
                             </div>
 
@@ -782,15 +753,20 @@
                         </div>
 
 
+
                         <!-- NICOLY -->
 
-                        <div class="membro"
-                             onclick="abrirModal('modal-membro-2')">
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-2')"
+                        >
 
                             <div class="foto">
 
-                                <img src="img/pessoa2.png"
-                                     alt="Nicoly Ramalho">
+                                <img
+                                    src="img/pessoa2.png"
+                                    alt="Nicoly Ramalho"
+                                >
 
                             </div>
 
@@ -810,6 +786,7 @@
                 </div>
 
 
+
                 <!-- BACK-END -->
 
                 <div class="categoria-equipe">
@@ -824,13 +801,17 @@
 
                         <!-- KAUAN -->
 
-                        <div class="membro"
-                             onclick="abrirModal('modal-membro-3')">
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-3')"
+                        >
 
                             <div class="foto">
 
-                                <img src="img/pessoa5.png"
-                                     alt="Kauan Gonçalves">
+                                <img
+                                    src="img/pessoa5.png"
+                                    alt="Kauan Gonçalves"
+                                >
 
                             </div>
 
@@ -846,15 +827,20 @@
                         </div>
 
 
+
                         <!-- KAYLAINI -->
 
-                        <div class="membro"
-                             onclick="abrirModal('modal-membro-4')">
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-4')"
+                        >
 
                             <div class="foto">
 
-                                <img src="img/pessoa3.png"
-                                     alt="Kaylaini Araujo">
+                                <img
+                                    src="img/pessoa3.png"
+                                    alt="Kaylaini Araujo"
+                                >
 
                             </div>
 
@@ -870,15 +856,20 @@
                         </div>
 
 
+
                         <!-- MIRELLA -->
 
-                        <div class="membro"
-                             onclick="abrirModal('modal-membro-5')">
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-5')"
+                        >
 
                             <div class="foto">
 
-                                <img src="img/pessoa4.png"
-                                     alt="Mirella Conceição">
+                                <img
+                                    src="img/pessoa4.png"
+                                    alt="Mirella Conceição"
+                                >
 
                             </div>
 
@@ -904,28 +895,33 @@
     </main>
 
 
+
     <!-- =====================================================
          OVERLAY DOS MODAIS
          ===================================================== -->
 
-    <div id="modal-overlay"
-         class="modal-overlay"
-         onclick="fecharTodosModais()">
-    </div>
+    <div
+        id="modal-overlay"
+        class="modal-overlay"
+        onclick="fecharTodosModais()"
+    ></div>
+
 
 
     <!-- =====================================================
-         MODAL 1
+         MODAL 1 — ANDRIELLI
          ===================================================== -->
 
-    <div id="modal-membro-1"
-         class="modal-membro">
+    <div
+        id="modal-membro-1"
+        class="modal-membro"
+    >
 
-        <button class="modal-close"
-                onclick="fecharModal('modal-membro-1')">
-
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-1')"
+        >
             &times;
-
         </button>
 
 
@@ -943,8 +939,10 @@
 
             <div class="modal-foto-box">
 
-                <img src="img/pessoa1.png"
-                     alt="Andrielli Moreira">
+                <img
+                    src="img/pessoa1.png"
+                    alt="Andrielli Moreira"
+                >
 
             </div>
 
@@ -966,18 +964,21 @@
     </div>
 
 
+
     <!-- =====================================================
-         MODAL 2
+         MODAL 2 — NICOLY
          ===================================================== -->
 
-    <div id="modal-membro-2"
-         class="modal-membro">
+    <div
+        id="modal-membro-2"
+        class="modal-membro"
+    >
 
-        <button class="modal-close"
-                onclick="fecharModal('modal-membro-2')">
-
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-2')"
+        >
             &times;
-
         </button>
 
 
@@ -995,8 +996,10 @@
 
             <div class="modal-foto-box">
 
-                <img src="img/pessoa2.png"
-                     alt="Nicoly Ramalho">
+                <img
+                    src="img/pessoa2.png"
+                    alt="Nicoly Ramalho"
+                >
 
             </div>
 
@@ -1018,18 +1021,21 @@
     </div>
 
 
+
     <!-- =====================================================
-         MODAL 3
+         MODAL 3 — KAUAN
          ===================================================== -->
 
-    <div id="modal-membro-3"
-         class="modal-membro">
+    <div
+        id="modal-membro-3"
+        class="modal-membro"
+    >
 
-        <button class="modal-close"
-                onclick="fecharModal('modal-membro-3')">
-
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-3')"
+        >
             &times;
-
         </button>
 
 
@@ -1047,8 +1053,10 @@
 
             <div class="modal-foto-box">
 
-                <img src="img/pessoa5.png"
-                     alt="Kauan Gonçalves">
+                <img
+                    src="img/pessoa5.png"
+                    alt="Kauan Gonçalves"
+                >
 
             </div>
 
@@ -1070,18 +1078,21 @@
     </div>
 
 
+
     <!-- =====================================================
-         MODAL 4
+         MODAL 4 — KAYLAINI
          ===================================================== -->
 
-    <div id="modal-membro-4"
-         class="modal-membro">
+    <div
+        id="modal-membro-4"
+        class="modal-membro"
+    >
 
-        <button class="modal-close"
-                onclick="fecharModal('modal-membro-4')">
-
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-4')"
+        >
             &times;
-
         </button>
 
 
@@ -1099,8 +1110,10 @@
 
             <div class="modal-foto-box">
 
-                <img src="img/pessoa3.png"
-                     alt="Kaylaini Araujo">
+                <img
+                    src="img/pessoa3.png"
+                    alt="Kaylaini Araujo"
+                >
 
             </div>
 
@@ -1122,18 +1135,21 @@
     </div>
 
 
+
     <!-- =====================================================
-         MODAL 5
+         MODAL 5 — MIRELLA
          ===================================================== -->
 
-    <div id="modal-membro-5"
-         class="modal-membro">
+    <div
+        id="modal-membro-5"
+        class="modal-membro"
+    >
 
-        <button class="modal-close"
-                onclick="fecharModal('modal-membro-5')">
-
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-5')"
+        >
             &times;
-
         </button>
 
 
@@ -1151,8 +1167,10 @@
 
             <div class="modal-foto-box">
 
-                <img src="img/pessoa4.png"
-                     alt="Mirella Conceição">
+                <img
+                    src="img/pessoa4.png"
+                    alt="Mirella Conceição"
+                >
 
             </div>
 
@@ -1174,6 +1192,7 @@
     </div>
 
 
+
     <!-- =====================================================
          RODAPÉ
          ===================================================== -->
@@ -1185,6 +1204,7 @@
         </p>
 
     </footer>
+
 
 
     <!-- =====================================================
@@ -1212,6 +1232,7 @@
         }
 
 
+
         function fecharModal(idModal) {
 
             var modal =
@@ -1235,6 +1256,7 @@
             }
 
         }
+
 
 
         function fecharTodosModais() {
@@ -1262,6 +1284,7 @@
         }
 
     </script>
+
 
 </body>
 
