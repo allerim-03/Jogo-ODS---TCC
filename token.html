@@ -1,211 +1,795 @@
-<style>
-    * {
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    html,
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        min-height: 100vh !important;
-        background-color: #3F9B43 !important;
-    }
+<head>
 
-    body {
-        overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* =====================================================
-       NAVBAR
-       ===================================================== */
+    <title>Validação de Token - Cultivando o Saber</title>
 
-    .topbar {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
 
-        width: 100% !important;
-        height: 90px !important;
-        min-height: 90px !important;
 
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
+    <!-- FONTES -->
 
-        padding: 10px 25px !important;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        background-color: #4CAF50 !important;
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* SOMBRA ESCURA PARA DIVIDIR DA ÁREA VERDE */
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+    >
 
-        z-index: 1000 !important;
-        margin: 0 !important;
-    }
 
+    <!-- CSS DO PROJETO -->
 
-    /* =====================================================
-       LADO ESQUERDO DA NAVBAR
-       ===================================================== */
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
 
-    .topbar-left {
-        display: flex !important;
-        align-items: center !important;
-        width: 50px !important;
-    }
 
+    <style>
 
-    /* =====================================================
-       LOGO CENTRAL
-       ===================================================== */
+        /* =====================================================
+           CONFIGURAÇÃO GERAL
+           ===================================================== */
 
-    .topbar-center {
-        position: absolute !important;
+        * {
+            box-sizing: border-box;
+        }
 
-        left: 50% !important;
-        transform: translateX(-50%) !important;
 
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
+        html,
+        body {
 
+            margin: 0 !important;
+            padding: 0 !important;
 
-    .topbar .navbar-logo {
-        height: 38px !important;
-        width: auto !important;
-        display: block !important;
-    }
+            min-height: 100vh !important;
 
+            background-color: #3F9B43 !important;
+        }
 
-    /* =====================================================
-       LADO DIREITO
-       ===================================================== */
 
-    .topbar-right {
-        width: 50px !important;
-    }
+        body {
 
+            overflow-x: hidden;
+        }
 
-    /* =====================================================
-       ÁREA PRINCIPAL
-       ===================================================== */
 
-    main {
-        margin-top: 90px !important;
 
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
 
-        min-height: calc(100vh - 90px) !important;
+        .topbar {
 
-        /* FUNDO VERDE IGUAL AO SOBRE NÓS */
-        background-color: #3F9B43 !important;
-    }
+            position: fixed !important;
 
+            top: 0 !important;
+            left: 0 !important;
 
-    /* =====================================================
-       SEÇÃO DE CONFIRMAÇÃO
-       ===================================================== */
+            width: 100% !important;
 
-    .boas-vindas {
-        background: transparent !important;
-        box-shadow: none !important;
+            height: 90px !important;
+            min-height: 90px !important;
 
-        padding-top: 0 !important;
-        margin-top: 0 !important;
+            display: flex !important;
 
-        text-align: center !important;
-    }
+            align-items: center !important;
 
+            justify-content: space-between !important;
 
-    /* =====================================================
-       TÍTULO
-       ===================================================== */
+            padding: 10px 25px !important;
 
-    .boas-vindas h2 {
-        margin: 0 0 10px 0 !important;
+            margin: 0 !important;
 
-        color: #41af4b !important;
+            background-color: #4CAF50 !important;
 
-        font-family: 'Nunito', sans-serif !important;
-        font-size: 2.2rem !important;
-        font-weight: 800 !important;
-    }
+            /*
+             * SOMBRA ESCURA
+             * DIVIDE A NAVBAR DO FUNDO VERDE
+             */
 
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
 
-    /* =====================================================
-       TEXTO ABAIXO DO TÍTULO
-       ===================================================== */
+            z-index: 1000 !important;
+        }
 
-    .boas-vindas .sub-branco {
-        color: #FFFFFF !important;
 
-        font-weight: normal !important;
 
-        margin-top: 0 !important;
-        margin-bottom: 20px !important;
-    }
+        /* =====================================================
+           LADO ESQUERDO
+           ===================================================== */
 
+        .topbar-left {
 
-    /* =====================================================
-       CAIXA DO TOKEN
-       ===================================================== */
+            display: flex !important;
 
-    .login-box {
-        background: #FFFFFF !important;
+            align-items: center !important;
 
-        border-radius: 16px !important;
+            width: 50px !important;
+        }
 
-        border: 2px solid #22c55e !important;
 
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 
-        max-width: 400px !important;
-        width: 100% !important;
+        /* =====================================================
+           LOGO CENTRALIZADO
+           ===================================================== */
 
-        margin: 0 auto !important;
+        .topbar-center {
 
-        padding: 25px 30px !important;
-    }
+            position: absolute !important;
 
+            left: 50% !important;
 
-    /* =====================================================
-       MASCOTE TUGA
-       ===================================================== */
+            transform: translateX(-50%) !important;
 
-    .login-box img {
-        image-rendering: -moz-crisp-edges !important;
-        image-rendering: -webkit-optimize-contrast !important;
-        image-rendering: pixelated !important;
-        image-rendering: crisp-edges !important;
+            display: flex !important;
 
-        width: 70px !important;
-        height: auto !important;
+            justify-content: center !important;
 
-        margin: 0 auto 10px auto !important;
+            align-items: center !important;
+        }
 
-        display: block !important;
-    }
 
+        .topbar .navbar-logo {
 
-    /* =====================================================
-       CAMPO DO TOKEN
-       ===================================================== */
+            height: 38px !important;
 
-    #token_codigo {
-        letter-spacing: 2px !important;
-        text-align: center !important;
-        font-weight: 600 !important;
-    }
+            width: auto !important;
 
+            display: block !important;
+        }
 
-    /* =====================================================
-       RODAPÉ
-       ===================================================== */
 
-    footer {
-        margin: 0 !important;
-    }
-</style>
+
+        /* =====================================================
+           LADO DIREITO
+           ===================================================== */
+
+        .topbar-right {
+
+            width: 50px !important;
+        }
+
+
+
+        /* =====================================================
+           ÁREA PRINCIPAL
+           ===================================================== */
+
+        main {
+
+            margin-top: 90px !important;
+
+            padding-top: 40px !important;
+
+            padding-bottom: 40px !important;
+
+            min-height: calc(100vh - 90px) !important;
+
+            /*
+             * MESMO VERDE DA PÁGINA SOBRE NÓS
+             */
+
+            background-color: #3F9B43 !important;
+        }
+
+
+
+        /* =====================================================
+           SEÇÃO DE CONFIRMAÇÃO
+           ===================================================== */
+
+        .boas-vindas {
+
+            background: transparent !important;
+
+            box-shadow: none !important;
+
+            padding-top: 0 !important;
+
+            margin-top: 0 !important;
+
+            text-align: center !important;
+        }
+
+
+
+        /* =====================================================
+           TÍTULO
+           ===================================================== */
+
+        .boas-vindas h2 {
+
+            margin: 0 0 10px 0 !important;
+
+            color: #41af4b !important;
+
+            font-family: 'Nunito', sans-serif !important;
+
+            font-size: 2.2rem !important;
+
+            font-weight: 800 !important;
+        }
+
+
+
+        /* =====================================================
+           TEXTO ABAIXO DO TÍTULO
+           ===================================================== */
+
+        .boas-vindas .sub-branco {
+
+            color: #FFFFFF !important;
+
+            font-weight: normal !important;
+
+            margin-top: 0 !important;
+
+            margin-bottom: 20px !important;
+        }
+
+
+
+        /* =====================================================
+           CAIXA DO TOKEN
+           ===================================================== */
+
+        .login-box {
+
+            max-width: 400px !important;
+
+            width: 100% !important;
+
+            margin: 0 auto !important;
+
+            background: #FFFFFF !important;
+
+            padding: 25px 30px !important;
+
+            border-radius: 16px !important;
+
+            border: 2px solid #22c55e !important;
+
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+        }
+
+
+
+        /* =====================================================
+           MASCOTE TUGA
+           ===================================================== */
+
+        .login-box img {
+
+            image-rendering: -moz-crisp-edges !important;
+
+            image-rendering: -webkit-optimize-contrast !important;
+
+            image-rendering: pixelated !important;
+
+            image-rendering: crisp-edges !important;
+
+            width: 70px !important;
+
+            height: auto !important;
+
+            margin: 0 auto 10px auto !important;
+
+            display: block !important;
+        }
+
+
+
+        /* =====================================================
+           TÍTULO TOKEN
+           ===================================================== */
+
+        .login-box h1 {
+
+            font-size: 1.5rem !important;
+
+            margin-bottom: 20px !important;
+        }
+
+
+
+        /* =====================================================
+           CAMPO DO TOKEN
+           ===================================================== */
+
+        #token_codigo {
+
+            letter-spacing: 2px !important;
+
+            text-align: center !important;
+
+            font-weight: 600 !important;
+
+            text-transform: uppercase !important;
+        }
+
+
+
+        /* =====================================================
+           MENSAGEM DE ERRO
+           ===================================================== */
+
+        #mensagem-token {
+
+            display: none;
+
+            color: #d32f2f;
+
+            font-size: 0.85rem;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            margin-top: 8px;
+        }
+
+
+
+        /* =====================================================
+           RODAPÉ
+           ===================================================== */
+
+        footer {
+
+            margin: 0 !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOPBAR / NAVBAR
+         ===================================================== -->
+
+    <header class="topbar">
+
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+
+        <label
+            for="menu-check"
+            class="overlay"
+        ></label>
+
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="perfil-sidebar">
+
+                <span class="mascote-icon">
+                    🐢
+                </span>
+
+                <p>
+                    Visitante
+                </p>
+
+            </div>
+
+
+            <nav class="links-sidebar">
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="ods.html">
+                    ODS
+                </a>
+
+                <a href="sobrenos.html">
+                    SOBRE NÓS
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MENU HAMBURGER
+             ================================================= -->
+
+        <div class="topbar-left">
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </label>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LOGO
+             ================================================= -->
+
+        <div class="topbar-center">
+
+            <div class="logo">
+
+                <img
+                    src="img/cultsab.png"
+                    alt="Cultivando o Saber"
+                    class="navbar-logo"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LADO DIREITO
+             ================================================= -->
+
+        <div class="topbar-right"></div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <section
+            class="boas-vindas"
+            style="background: transparent !important;"
+        >
+
+
+            <!-- =================================================
+                 TÍTULO
+                 ================================================= -->
+
+            <h2>
+
+                Confirmação de Ingresso
+
+            </h2>
+
+
+
+            <!-- =================================================
+                 SUBTÍTULO
+                 ================================================= -->
+
+            <p class="sub-branco">
+
+                Use o código enviado para o seu e-mail
+
+            </p>
+
+
+
+            <!-- =================================================
+                 CAIXA DO FORMULÁRIO
+                 ================================================= -->
+
+            <div class="login-box">
+
+
+                <!-- MASCOTE -->
+
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
+                >
+
+
+
+                <!-- TÍTULO TOKEN -->
+
+                <h1
+                    class="negrito"
+                    style="font-size: 1.5rem; margin-bottom: 20px;"
+                >
+
+                    Token
+
+                </h1>
+
+
+
+                <!-- =================================================
+                     FORMULÁRIO
+                     ================================================= -->
+
+                <form
+                    class="form-grid"
+                    id="tokenForm"
+                    style="text-align: left;"
+                >
+
+
+                    <!-- CAMPO -->
+
+                    <div
+                        class="form-field col-full"
+                        style="margin-bottom: 20px;"
+                    >
+
+
+                        <label for="token_codigo">
+
+                            Código da turma
+
+                        </label>
+
+
+
+                        <div class="input-group">
+
+
+                            <input
+                                type="text"
+                                id="token_codigo"
+                                name="token"
+                                placeholder="INSIRA OS 6 DÍGITOS"
+                                maxlength="6"
+                                inputmode="numeric"
+                                pattern="[0-9]{6}"
+                                autocomplete="off"
+                                required
+                                style="
+                                    letter-spacing: 2px;
+                                    text-align: center;
+                                    font-weight: 600;
+                                "
+                            >
+
+
+
+                            <!-- ÍCONE -->
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                                />
+
+                            </svg>
+
+
+                        </div>
+
+
+
+                        <!-- MENSAGEM -->
+
+                        <span id="mensagem-token">
+
+                            SOMENTE NÚMEROS
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         BOTÃO
+                         ================================================= -->
+
+                    <div
+                        class="form-field col-full"
+                        style="margin-top: 10px;"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn-submit"
+                            style="width: 100%;"
+                        >
+
+                            Validar
+
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+
+
+                <!-- =================================================
+                     REENVIO
+                     ================================================= -->
+
+                <p
+                    class="cadastro"
+                    style="
+                        margin-top: 20px;
+                        font-size: 0.9rem;
+                    "
+                >
+
+                    Não recebeu o e-mail?
+
+                    <a
+                        href="#"
+                        class="negrito texto-azul"
+                    >
+
+                        Reenviar
+
+                    </a>
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+
+            © 2026 FATEC - Informática para Negócios
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        const tokenForm =
+            document.getElementById("tokenForm");
+
+
+        const tokenInput =
+            document.getElementById("token_codigo");
+
+
+        const mensagemToken =
+            document.getElementById("mensagem-token");
+
+
+
+        /*
+         * Permite somente números
+         */
+
+        tokenInput.addEventListener("input", function () {
+
+            this.value =
+                this.value.replace(/\D/g, "").slice(0, 6);
+
+            mensagemToken.style.display = "none";
+
+        });
+
+
+
+        /*
+         * Validação ao clicar em VALIDAR
+         */
+
+        tokenForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const valor =
+                tokenInput.value.trim();
+
+
+
+            /*
+             * Se estiver vazio ou não possuir
+             * exatamente 6 números
+             */
+
+            if (!/^\d{6}$/.test(valor)) {
+
+                mensagemToken.textContent =
+                    "SOMENTE NÚMEROS";
+
+                mensagemToken.style.display =
+                    "block";
+
+                tokenInput.focus();
+
+                return;
+
+            }
+
+
+
+            /*
+             * Se o código estiver preenchido
+             * corretamente, o formulário pode
+             * continuar futuramente com a validação.
+             */
+
+            mensagemToken.style.display =
+                "none";
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
