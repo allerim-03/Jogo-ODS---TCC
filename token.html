@@ -12,11 +12,8 @@
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
-
-    <!-- FONTES -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
@@ -24,9 +21,7 @@
         rel="stylesheet"
     >
 
-
-    <!-- CSS DO PROJETO -->
-
+    <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -60,19 +55,21 @@
         body {
 
             margin: 0 !important;
+
             padding: 0 !important;
 
             min-height: 100vh !important;
 
             background-color: #3F9B43 !important;
+
         }
 
 
         body {
 
             overflow-x: hidden;
-        }
 
+        }
 
 
         /* =====================================================
@@ -81,15 +78,21 @@
 
         .topbar {
 
-            position: fixed !important;
+            position: relative !important;
 
             top: 0 !important;
+
             left: 0 !important;
 
             width: 100% !important;
 
             height: 90px !important;
+
             min-height: 90px !important;
+
+            margin: 0 !important;
+
+            padding: 10px 25px !important;
 
             display: flex !important;
 
@@ -97,26 +100,25 @@
 
             justify-content: space-between !important;
 
-            padding: 10px 25px !important;
-
-            margin: 0 !important;
+            box-sizing: border-box !important;
 
             background-color: #4CAF50 !important;
 
             /*
-             * SOMBRA ESCURA
-             * DIVIDE A NAVBAR DO FUNDO VERDE
+             * Sombra escura para dividir
+             * a navbar do fundo verde
              */
 
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
+            box-shadow:
+                0 5px 12px rgba(0, 0, 0, 0.25) !important;
 
             z-index: 1000 !important;
+
         }
 
 
-
         /* =====================================================
-           LADO ESQUERDO
+           LADO ESQUERDO DA NAVBAR
            ===================================================== */
 
         .topbar-left {
@@ -126,8 +128,8 @@
             align-items: center !important;
 
             width: 50px !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -147,6 +149,7 @@
             justify-content: center !important;
 
             align-items: center !important;
+
         }
 
 
@@ -157,8 +160,8 @@
             width: auto !important;
 
             display: block !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -168,8 +171,8 @@
         .topbar-right {
 
             width: 50px !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -178,21 +181,17 @@
 
         main {
 
-            margin-top: 90px !important;
+            margin: 0 !important;
 
-            padding-top: 40px !important;
+            padding: 45px 20px 60px 20px !important;
 
-            padding-bottom: 40px !important;
+            width: 100% !important;
 
             min-height: calc(100vh - 90px) !important;
 
-            /*
-             * MESMO VERDE DA PÁGINA SOBRE NÓS
-             */
-
             background-color: #3F9B43 !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -205,13 +204,13 @@
 
             box-shadow: none !important;
 
-            padding-top: 0 !important;
+            margin: 0 !important;
 
-            margin-top: 0 !important;
+            padding: 0 !important;
 
             text-align: center !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -222,32 +221,34 @@
 
             margin: 0 0 10px 0 !important;
 
-            color: #41af4b !important;
+            color: #FFFFFF !important;
 
             font-family: 'Nunito', sans-serif !important;
 
             font-size: 2.2rem !important;
 
             font-weight: 800 !important;
+
         }
 
 
-
         /* =====================================================
-           TEXTO ABAIXO DO TÍTULO
+           SUBTÍTULO
            ===================================================== */
 
         .boas-vindas .sub-branco {
 
             color: #FFFFFF !important;
 
-            font-weight: normal !important;
+            font-family: 'Poppins', sans-serif !important;
+
+            font-weight: 400 !important;
 
             margin-top: 0 !important;
 
             margin-bottom: 20px !important;
-        }
 
+        }
 
 
         /* =====================================================
@@ -262,7 +263,7 @@
 
             margin: 0 auto !important;
 
-            background: #FFFFFF !important;
+            background-color: #FFFFFF !important;
 
             padding: 25px 30px !important;
 
@@ -270,13 +271,14 @@
 
             border: 2px solid #22c55e !important;
 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.18) !important;
+
         }
 
 
-
         /* =====================================================
-           MASCOTE TUGA
+           MASCOTE
            ===================================================== */
 
         .login-box img {
@@ -296,45 +298,84 @@
             margin: 0 auto 10px auto !important;
 
             display: block !important;
+
         }
 
 
-
         /* =====================================================
-           TÍTULO TOKEN
+           TÍTULO "TOKEN"
            ===================================================== */
 
         .login-box h1 {
 
             font-size: 1.5rem !important;
 
-            margin-bottom: 20px !important;
-        }
+            margin-top: 0 !important;
 
+            margin-bottom: 20px !important;
+
+        }
 
 
         /* =====================================================
            CAMPO DO TOKEN
            ===================================================== */
 
-        #token_codigo {
+        .login-box input[type="text"] {
+
+            width: 100% !important;
+
+            height: 48px !important;
+
+            padding: 0 14px !important;
+
+            /*
+             * Texto começa pela esquerda
+             */
+
+            text-align: left !important;
 
             letter-spacing: 2px !important;
 
-            text-align: center !important;
-
             font-weight: 600 !important;
 
-            text-transform: uppercase !important;
+            font-family: 'Poppins', sans-serif !important;
+
         }
 
 
+        /*
+         * Placeholder
+         */
+
+        .login-box input[type="text"]::placeholder {
+
+            text-align: left !important;
+
+            letter-spacing: normal !important;
+
+            font-weight: 400 !important;
+
+        }
+
+
+        /*
+         * Quando o campo recebe foco,
+         * o placeholder desaparece automaticamente.
+         */
+
+        .login-box input[type="text"]:focus::placeholder {
+
+            color: transparent !important;
+
+        }
+
 
         /* =====================================================
-           MENSAGEM DE ERRO
+           MENSAGEM DE VALIDAÇÃO
            ===================================================== */
 
-        #mensagem-token {
+        .mensagem-token {
 
             display: none;
 
@@ -342,13 +383,22 @@
 
             font-size: 0.85rem;
 
-            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
 
-            text-align: center;
+            font-weight: 600;
 
             margin-top: 8px;
+
+            text-align: left;
+
         }
 
+
+        .mensagem-token.visivel {
+
+            display: block;
+
+        }
 
 
         /* =====================================================
@@ -358,6 +408,29 @@
         footer {
 
             margin: 0 !important;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .boas-vindas h2 {
+
+                font-size: 1.8rem !important;
+
+            }
+
+
+            .login-box {
+
+                padding: 25px 20px !important;
+
+            }
+
         }
 
     </style>
@@ -386,7 +459,6 @@
             for="menu-check"
             class="overlay"
         ></label>
-
 
 
         <!-- =================================================
@@ -427,9 +499,8 @@
         </aside>
 
 
-
         <!-- =================================================
-             MENU HAMBURGER
+             HAMBURGER
              ================================================= -->
 
         <div class="topbar-left">
@@ -451,7 +522,6 @@
         </div>
 
 
-
         <!-- =================================================
              LOGO
              ================================================= -->
@@ -471,16 +541,10 @@
         </div>
 
 
-
-        <!-- =================================================
-             LADO DIREITO
-             ================================================= -->
-
         <div class="topbar-right"></div>
 
 
     </header>
-
 
 
     <!-- =====================================================
@@ -492,25 +556,17 @@
 
         <section
             class="boas-vindas"
-            style="background: transparent !important;"
         >
 
 
-            <!-- =================================================
-                 TÍTULO
-                 ================================================= -->
+            <!-- TÍTULO -->
 
             <h2>
-
                 Confirmação de Ingresso
-
             </h2>
 
 
-
-            <!-- =================================================
-                 SUBTÍTULO
-                 ================================================= -->
+            <!-- SUBTÍTULO -->
 
             <p class="sub-branco">
 
@@ -519,12 +575,13 @@
             </p>
 
 
-
             <!-- =================================================
                  CAIXA DO FORMULÁRIO
                  ================================================= -->
 
-            <div class="login-box">
+            <div
+                class="login-box"
+            >
 
 
                 <!-- MASCOTE -->
@@ -535,18 +592,13 @@
                 >
 
 
-
                 <!-- TÍTULO TOKEN -->
 
-                <h1
-                    class="negrito"
-                    style="font-size: 1.5rem; margin-bottom: 20px;"
-                >
+                <h1 class="negrito">
 
                     Token
 
                 </h1>
-
 
 
                 <!-- =================================================
@@ -560,20 +612,19 @@
                 >
 
 
-                    <!-- CAMPO -->
-
                     <div
                         class="form-field col-full"
                         style="margin-bottom: 20px;"
                     >
 
 
-                        <label for="token_codigo">
+                        <label
+                            for="token_codigo"
+                        >
 
                             Código da turma
 
                         </label>
-
 
 
                         <div class="input-group">
@@ -583,31 +634,21 @@
                                 type="text"
                                 id="token_codigo"
                                 name="token"
-                                placeholder="INSIRA OS 6 DÍGITOS"
+                                placeholder="Insira os 6 dígitos"
                                 maxlength="6"
                                 inputmode="numeric"
-                                pattern="[0-9]{6}"
                                 autocomplete="off"
                                 required
-                                style="
-                                    letter-spacing: 2px;
-                                    text-align: center;
-                                    font-weight: 600;
-                                "
                             >
 
 
-
-                            <!-- ÍCONE -->
-
                             <svg
                                 viewBox="0 0 24 24"
-                                aria-hidden="true"
                             >
 
                                 <path
                                     d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
-                                />
+                                ></path>
 
                             </svg>
 
@@ -615,18 +656,17 @@
                         </div>
 
 
-
                         <!-- MENSAGEM -->
 
-                        <span id="mensagem-token">
-
+                        <span
+                            id="mensagem-token"
+                            class="mensagem-token"
+                        >
                             SOMENTE NÚMEROS
-
                         </span>
 
 
                     </div>
-
 
 
                     <!-- =================================================
@@ -654,9 +694,8 @@
                 </form>
 
 
-
                 <!-- =================================================
-                     REENVIO
+                     REENVIAR
                      ================================================= -->
 
                 <p
@@ -673,9 +712,7 @@
                         href="#"
                         class="negrito texto-azul"
                     >
-
                         Reenviar
-
                     </a>
 
                 </p>
@@ -690,7 +727,6 @@
     </main>
 
 
-
     <!-- =====================================================
          RODAPÉ
          ===================================================== -->
@@ -698,13 +734,10 @@
     <footer>
 
         <p>
-
             © 2026 FATEC - Informática para Negócios
-
         </p>
 
     </footer>
-
 
 
     <!-- =====================================================
@@ -716,76 +749,92 @@
         const tokenForm =
             document.getElementById("tokenForm");
 
-
         const tokenInput =
             document.getElementById("token_codigo");
-
 
         const mensagemToken =
             document.getElementById("mensagem-token");
 
 
-
         /*
-         * Permite somente números
+         * Permite somente números.
          */
 
-        tokenInput.addEventListener("input", function () {
+        tokenInput.addEventListener(
+            "input",
+            function () {
 
-            this.value =
-                this.value.replace(/\D/g, "").slice(0, 6);
+                this.value =
+                    this.value.replace(/\D/g, "");
 
-            mensagemToken.style.display = "none";
-
-        });
-
-
-
-        /*
-         * Validação ao clicar em VALIDAR
-         */
-
-        tokenForm.addEventListener("submit", function (event) {
-
-            event.preventDefault();
-
-
-            const valor =
-                tokenInput.value.trim();
-
-
-
-            /*
-             * Se estiver vazio ou não possuir
-             * exatamente 6 números
-             */
-
-            if (!/^\d{6}$/.test(valor)) {
-
-                mensagemToken.textContent =
-                    "SOMENTE NÚMEROS";
-
-                mensagemToken.style.display =
-                    "block";
-
-                tokenInput.focus();
-
-                return;
+                mensagemToken.classList.remove(
+                    "visivel"
+                );
 
             }
+        );
 
 
+        /*
+         * Ao clicar em Validar sem preencher,
+         * mostra "SOMENTE NÚMEROS".
+         */
 
-            /*
-             * Se o código estiver preenchido
-             * corretamente, o formulário pode
-             * continuar futuramente com a validação.
-             */
+        tokenForm.addEventListener(
+            "submit",
+            function (event) {
 
-            mensagemToken.style.display =
-                "none";
+                event.preventDefault();
 
-        });
+
+                if (tokenInput.value.trim() === "") {
+
+                    mensagemToken.classList.add(
+                        "visivel"
+                    );
+
+                    tokenInput.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                 * Se estiver preenchido com números,
+                 * o formulário pode continuar normalmente.
+                 */
+
+                if (
+                    tokenInput.value.length !== 6
+                ) {
+
+                    mensagemToken.textContent =
+                        "SOMENTE NÚMEROS";
+
+                    mensagemToken.classList.add(
+                        "visivel"
+                    );
+
+                    tokenInput.focus();
+
+                    return;
+
+                }
+
+
+                mensagemToken.classList.remove(
+                    "visivel"
+                );
+
+
+                /*
+                 * Aqui você poderá colocar
+                 * a validação real do token.
+                 */
+
+            }
+        );
 
     </script>
 
