@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Cultivando o Saber</title>
+    <title>Cadastro - Cultivando o Saber</title>
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
     <link rel="stylesheet" href="css/global.css">
@@ -32,7 +32,7 @@
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            background-color: #ffffff !important; /* Garante fundo branco em toda a página */
+            background-color: #ffffff !important;
         }
 
         /* Topbar fixada no topo com layout centralizado */
@@ -86,7 +86,7 @@
             background-color: #ffffff !important;
         }
 
-        /* Estilização centralizada dos Ícones de Escolha */
+        /* Alinhamento e centralização perfeita dos cards e ícones */
         .escolha-card {
             display: flex !important;
             flex-direction: column !important;
@@ -151,23 +151,21 @@
     </header>
 
     <main>
-        <!-- Removido o bloco cinza/esbranquiçado aplicando fundo branco puro e retirando sombras -->
         <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center; background: #ffffff !important; box-shadow: none !important;">
-            <h2 class="titulo-branco" style="margin-top: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Login</h2>
-            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Bem-vindo de volta! Qual perfil deseja acessar?</p>
+            <h2 style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Crie sua conta</h2>
+            
+            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Você é:</p>
 
             <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
 
-                <div class="escolha-card aluno-card" onclick="window.location.href='login.html'">
+                <div class="escolha-card aluno-card" onclick="window.location.href='cadastro.html'">
                     <span class="escolha-icone"></span>
                     <h2>Aluno</h2>
-                    <p>Aprender brincando</p>
                 </div>
 
-                <div class="escolha-card professor-card" onclick="window.location.href='login-professor.html'">
+                <div class="escolha-card professor-card" onclick="window.location.href='cadastro-professor.html'">
                     <span class="escolha-icone"></span>
                     <h2>Gestor</h2>
-                    <p>Acompanhar os alunos</p>
                 </div>
 
             </div>
