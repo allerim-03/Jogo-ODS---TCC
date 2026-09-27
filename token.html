@@ -34,8 +34,8 @@
 
     <style>
         /* =====================================================
-           CONFIGURAÇÃO GERAL
-           ===================================================== */
+            CONFIGURAÇÃO GERAL
+            ===================================================== */
         * {
             box-sizing: border-box;
         }
@@ -54,8 +54,8 @@
         }
 
         /* =====================================================
-           NAVBAR
-           ===================================================== */
+            NAVBAR
+            ===================================================== */
         .topbar {
             position: relative !important;
             top: 0 !important;
@@ -101,8 +101,8 @@
         }
 
         /* =====================================================
-           ÁREA PRINCIPAL
-           ===================================================== */
+            ÁREA PRINCIPAL
+            ===================================================== */
         main {
             margin: 0 !important;
             padding: 40px 0 60px 0 !important;
@@ -123,7 +123,7 @@
             text-align: center !important;
         }
 
-        /* TÍTULO EM BRANCO */
+        /* TÍTULO EM BRANCO FORÇADO */
         .titulo-token {
             margin: 0 0 10px 0 !important;
             padding: 0 !important;
@@ -145,8 +145,8 @@
         }
 
         /* =====================================================
-           CAIXA DO FORMULÁRIO (SEM CONTORNO AZUL)
-           ===================================================== */
+            CAIXA DO FORMULÁRIO (SEM CONTORNO AZUL)
+            ===================================================== */
         .login-box {
             width: calc(100% - 40px) !important;
             max-width: 500px !important;
@@ -154,7 +154,7 @@
             background: #FFFFFF !important;
             padding: 30px !important;
             border-radius: 16px !important;
-            border: none !important; /* Removido o contorno azul */
+            border: none !important;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
             text-align: center !important;
         }
@@ -198,8 +198,8 @@
         }
 
         /* =====================================================
-           CAMPO DO TOKEN (TEXTO DEPOIS DO CADEADO)
-           ===================================================== */
+            CAMPO DO TOKEN
+            ===================================================== */
         .input-group {
             position: relative !important;
             width: 100% !important;
@@ -210,7 +210,6 @@
         .input-group input {
             width: 100% !important;
             height: 48px !important;
-            /* Padding esquerdo aumentado para 50px para afastar o texto do cadeado */
             padding: 0 15px 0 50px !important; 
             border: 1px solid #D1D5DB !important;
             border-radius: 8px !important;
@@ -240,10 +239,10 @@
             color: transparent !important;
         }
 
-        /* POSIÇÃO DO CADEADO (FICOU À ESQUERDA AGORA) */
+        /* POSIÇÃO DO CADEADO */
         .input-group svg {
             position: absolute !important;
-            left: 15px !important; /* Posicionado à esquerda do input */
+            left: 15px !important;
             right: auto !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
@@ -281,7 +280,7 @@
         }
 
         .cadastro a {
-            color: #a5f838 !important;
+            color: #38bdf8 !important;
             font-weight: 700 !important;
             text-decoration: none !important;
         }
@@ -377,7 +376,6 @@
                         </label>
 
                         <div class="input-group">
-                            <!-- CADEADO MOVIDO PARA A ESQUERDA -->
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                             </svg>
