@@ -2,12 +2,32 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastro - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
+
+
+    <!-- =====================================================
+         FONTES
+    ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS DO PROJETO
+    ===================================================== -->
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -26,35 +46,51 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
+
     <style>
+
+        /* =====================================================
+           CONFIGURAÇÃO GERAL
+        ===================================================== */
 
         * {
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             margin: 0 !important;
             padding: 0 !important;
+
             background-color: #ffffff !important;
+
             width: 100% !important;
             min-height: 100% !important;
+
         }
+
 
         /* =====================================================
            NAVBAR
-           MANTIDA EXATAMENTE COMO ESTAVA
+           MANTIDA COMO ESTAVA NO ESCOLHA-CADASTRO
         ===================================================== */
 
         .topbar {
+
             position: fixed !important;
+
             top: 0 !important;
             left: 0 !important;
+
             width: 100% !important;
+
             height: 90px !important;
             min-height: 90px !important;
 
             display: flex !important;
+
             align-items: center !important;
             justify-content: space-between !important;
 
@@ -63,183 +99,358 @@
             background-color: #4CAF50 !important;
 
             z-index: 1000 !important;
+
             margin: 0 !important;
+
         }
+
 
         .topbar-left {
+
             display: flex !important;
+
             align-items: center !important;
+
             width: 50px !important;
+
         }
 
+
         .topbar-center {
+
             position: absolute !important;
+
             left: 50% !important;
+
             transform: translateX(-50%) !important;
 
             display: flex !important;
+
             justify-content: center !important;
+
             align-items: center !important;
+
         }
+
 
         .topbar .navbar-logo {
+
             height: 38px !important;
+
             width: auto !important;
+
             display: block !important;
+
         }
 
+
         .topbar-right {
+
             width: 50px !important;
+
         }
 
 
         /* =====================================================
            SIDEBAR
-           MODELO CORRETO
+           ESTRUTURA IGUAL À DO LOGIN
         ===================================================== */
 
+        .menu-checkbox {
+
+            display: none !important;
+
+        }
+
+
         .sidebar {
-            background-color: #1B6625 !important;
-        }
 
-        /* Perfil da sidebar */
+            position: fixed !important;
 
-        .perfil-sidebar {
+            top: 0 !important;
+
+            left: -300px !important;
+
+            width: 270px !important;
+
+            height: 100vh !important;
+
+            background-color: #1b5e20 !important;
+
+            z-index: 9999 !important;
+
+            transition: left 0.3s ease !important;
+
+            padding: 30px 20px !important;
+
             display: flex !important;
+
             flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
 
-            padding-top: 25px !important;
-            padding-bottom: 20px !important;
+            box-sizing: border-box !important;
+
         }
 
-        /*
-           CÍRCULO BRANCO
-           A Tuga fica dentro dele
-        */
 
-        .perfil-sidebar .mascote-icon {
-            width: 88px !important;
-            height: 88px !important;
+        #menu-check:checked ~ .sidebar {
 
-            background-color: #ffffff !important;
-            border-radius: 50% !important;
+            left: 0 !important;
 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-
-            overflow: hidden !important;
-
-            margin: 0 0 10px 0 !important;
-
-            font-size: 0 !important;
         }
 
-        /*
-           IMAGEM REAL DA TUGA
-        */
 
-        .perfil-sidebar .mascote-icon img {
-            width: 70px !important;
-            height: 70px !important;
+        /* =====================================================
+           OVERLAY
+        ===================================================== */
+
+        .overlay {
+
+            position: fixed !important;
+
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            background: rgba(0, 0, 0, 0.4) !important;
+
+            z-index: 9998 !important;
+
+            display: none !important;
+
+        }
+
+
+        #menu-check:checked ~ .overlay {
 
             display: block !important;
+
+        }
+
+
+        /* =====================================================
+           HAMBÚRGUER
+        ===================================================== */
+
+        .hamburger {
+
+            width: 42px !important;
+            height: 42px !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            justify-content: center !important;
+            align-items: center !important;
+
+            gap: 5px !important;
+
+            cursor: pointer !important;
+
+            border-radius: 8px !important;
+
+            transition: opacity 0.2s ease !important;
+
+        }
+
+
+        .hamburger:hover {
+
+            opacity: 0.85 !important;
+
+        }
+
+
+        .hamburger span {
+
+            width: 24px !important;
+
+            height: 3px !important;
+
+            background-color: #FFFFFF !important;
+
+            border-radius: 2px !important;
+
+        }
+
+
+        /* =====================================================
+           PERFIL DO VISITANTE
+           IGUAL AO LOGIN
+        ===================================================== */
+
+        .perfil-sidebar {
+
+            text-align: center !important;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+            padding-bottom: 20px !important;
+
+            margin-bottom: 20px !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: center !important;
+
+        }
+
+
+        /* =====================================================
+           IMAGEM DA TUGA
+           IGUAL AO LOGIN
+        ===================================================== */
+
+        .perfil-sidebar img.mascote-perfil {
+
+            width: 65px !important;
+
+            height: 65px !important;
+
+            border-radius: 50% !important;
 
             object-fit: contain !important;
 
+            border: 2px solid #FFFFFF !important;
+
+            background-color: #FFFFFF !important;
+
+            padding: 2px !important;
+
+            margin-bottom: 10px !important;
+
             image-rendering: pixelated !important;
-            image-rendering: crisp-edges !important;
-        }
-
-        /*
-           TEXTO VISITANTE
-        */
-
-        .perfil-sidebar p {
-            color: #FFDD55 !important;
-
-            font-family: 'Nunito', sans-serif !important;
-            font-size: 24px !important;
-            font-weight: 800 !important;
-
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        /*
-           LINHA DIVISÓRIA
-        */
-
-        .sidebar .perfil-sidebar::after {
-            content: "" !important;
 
             display: block !important;
 
-            width: calc(100% - 50px) !important;
-            height: 1px !important;
-
-            background-color: rgba(255, 255, 255, 0.25) !important;
-
-            margin-top: 28px !important;
         }
 
-        /*
-           ÁREA DOS BOTÕES
-        */
 
-        .sidebar-actions {
+        /* =====================================================
+           VISITANTE
+        ===================================================== */
+
+        .perfil-sidebar p {
+
+            color: #FFB72B !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 1.1rem !important;
+
+            margin: 0 !important;
+
+        }
+
+
+        /* =====================================================
+           BOTÕES DO SIDEBAR
+           ESTRUTURA IGUAL AO LOGIN
+        ===================================================== */
+
+        .links-sidebar {
+
             display: flex !important;
+
             flex-direction: column !important;
 
-            gap: 15px !important;
+            gap: 8px !important;
 
-            padding: 30px 25px 0 25px !important;
+            width: 100% !important;
+
         }
 
-        /*
-           BOTÕES
-           Estado normal = branco + texto verde
-        */
 
-        .sidebar-actions a {
+        .links-sidebar a {
+
             width: 100% !important;
-            height: 66px !important;
-
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-
-            background-color: #ffffff !important;
-
-            border: none !important;
-            border-radius: 15px !important;
-
-            color: #41AF4B !important;
-
-            font-family: 'Nunito', sans-serif !important;
-            font-size: 20px !important;
-            font-weight: 800 !important;
 
             text-decoration: none !important;
 
-            transition: background-color 0.2s ease,
-                        color 0.2s ease !important;
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 16px !important;
+
+            text-transform: uppercase !important;
+
+            text-align: center !important;
+
+            padding: 12px 16px !important;
+
+            border-radius: 12px !important;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            min-height: 62px !important;
+
         }
 
-        /*
-           HOVER
-           Branco -> Amarelo
-           Verde -> Branco
-        */
 
-        .sidebar-actions a:hover {
-            background-color: #FFDD55 !important;
-            color: #ffffff !important;
+        /* =====================================================
+           ENTRAR
+        ===================================================== */
 
-            transform: none !important;
+        .links-sidebar a.link-entrar {
+
+            color: #FFFFFF !important;
+
+            background-color: transparent !important;
+
+            border: 2px solid #FFFFFF !important;
+
+        }
+
+
+        .links-sidebar a.link-entrar:hover {
+
+            background-color: #FFDE5A !important;
+
+            color: #FFFFFF !important;
+
+            border-color: #FFDE5A !important;
+
+        }
+
+
+        /* =====================================================
+           CADASTRAR
+        ===================================================== */
+
+        .links-sidebar a.link-cadastrar {
+
+            color: #1b5e20 !important;
+
+            background-color: #FFFFFF !important;
+
+            border: 2px solid #FFFFFF !important;
+
+        }
+
+
+        .links-sidebar a.link-cadastrar:hover {
+
+            background-color: #FFDE5A !important;
+
+            color: #1b5e20 !important;
+
+            border-color: #FFDE5A !important;
+
         }
 
 
@@ -248,12 +459,15 @@
         ===================================================== */
 
         main {
+
             margin-top: 90px !important;
+
             padding-top: 40px !important;
 
             min-height: calc(100vh - 175px) !important;
 
             background-color: #ffffff !important;
+
         }
 
 
@@ -262,78 +476,111 @@
         ===================================================== */
 
         .escolha-card {
+
             display: flex !important;
+
             flex-direction: column !important;
+
             align-items: center !important;
+
             text-align: center !important;
+
         }
 
+
         .escolha-icone {
+
             display: block !important;
 
             width: 80px;
+
             height: 80px;
 
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
 
             margin: 0 auto 15px auto !important;
+
         }
+
 
         .aluno-card .escolha-icone {
+
             background-image: url('img/aluno.png');
+
         }
 
+
         .professor-card .escolha-icone {
+
             background-image: url('img/prof.png');
+
         }
 
 
         /* =====================================================
            RODAPÉ
-           MESMA LARGURA DO INDEX
+           LARGURA TOTAL DA PÁGINA, COMO NO INDEX
         ===================================================== */
 
         footer {
-            width: 100vw !important;
-            min-width: 100vw !important;
+
+            width: 100% !important;
+
+            min-width: 100% !important;
 
             height: 85px !important;
+
             min-height: 85px !important;
 
             display: flex !important;
+
             align-items: center !important;
+
             justify-content: center !important;
 
             background-color: #CCCCCC !important;
 
             margin: 0 !important;
+
             padding: 0 !important;
 
             border: none !important;
+
             box-shadow: none !important;
 
             text-align: center !important;
 
             position: relative !important;
+
             left: 0 !important;
+
         }
 
+
         footer p {
+
             margin: 0 !important;
+
             padding: 0 !important;
 
             color: #ffffff !important;
 
             font-family: 'Poppins', sans-serif !important;
+
             font-size: 18px !important;
+
             font-weight: 400 !important;
 
             text-align: center !important;
+
         }
 
     </style>
+
 </head>
 
 
@@ -346,84 +593,149 @@
 
     <header class="topbar">
 
-        <input type="checkbox" id="menu-check" class="menu-checkbox">
 
-        <label for="menu-check" class="overlay"></label>
+        <!-- CHECKBOX DO MENU -->
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
 
 
-        <!-- SIDEBAR -->
+        <!-- OVERLAY -->
+
+        <label
+            for="menu-check"
+            class="overlay"
+        ></label>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================= -->
 
         <aside class="sidebar">
 
+
+            <!-- PERFIL DO VISITANTE -->
+
             <div class="perfil-sidebar">
 
-                <!-- TUGA DENTRO DO CÍRCULO BRANCO -->
 
-                <span class="mascote-icon">
-                    <img src="img/TugaPqn.png" alt="Tuga">
-                </span>
+                <!-- TUGA -->
 
-                <p>Visitante</p>
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
+                    class="mascote-perfil"
+                >
+
+
+                <!-- NOME -->
+
+                <p>
+                    Visitante
+                </p>
+
 
             </div>
 
 
-            <!-- BOTÕES -->
+            <!-- =================================================
+                 BOTÕES
+            ================================================= -->
 
-            <div class="sidebar-actions">
+            <nav class="links-sidebar">
 
-                <a href="escolha.html"
-                   class="btn-principal btn-secundario">
+
+                <!-- ENTRAR -->
+
+                <a
+                    href="escolha.html"
+                    class="link-entrar"
+                >
+
                     ENTRAR
+
                 </a>
 
-                <a href="escolha-cadastro.html"
-                   class="btn-principal">
+
+                <!-- CADASTRAR -->
+
+                <a
+                    href="escolha-cadastro.html"
+                    class="link-cadastrar"
+                >
+
                     CADASTRAR
+
                 </a>
 
-            </div>
+
+            </nav>
+
 
         </aside>
 
 
-        <!-- LADO ESQUERDO -->
+        <!-- =================================================
+             LADO ESQUERDO / HAMBÚRGUER
+        ================================================= -->
 
         <div class="topbar-left">
 
-            <label for="menu-check"
-                   class="hamburger"
-                   aria-label="Abrir menu">
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
 
                 <span></span>
+
                 <span></span>
+
                 <span></span>
 
             </label>
 
+
         </div>
 
 
-        <!-- LOGO CENTRAL -->
+        <!-- =================================================
+             LOGO CENTRAL
+        ================================================= -->
 
         <div class="topbar-center">
 
+
             <div class="logo">
 
-                <img src="img/cultsab.png"
-                     alt="Cultivando o Saber"
-                     class="navbar-logo">
+
+                <img
+                    src="img/cultsab.png"
+                    alt="Cultivando o Saber"
+                    class="navbar-logo"
+                >
+
 
             </div>
+
 
         </div>
 
 
-        <!-- LADO DIREITO -->
+        <!-- =================================================
+             LADO DIREITO
+        ================================================= -->
 
         <div class="topbar-right"></div>
 
+
     </header>
+
 
 
     <!-- =====================================================
@@ -432,75 +744,114 @@
 
     <main>
 
-        <section class="boas-vindas"
-                 style="
-                    padding-top: 0 !important;
-                    margin-top: 0 !important;
-                    text-align: center;
-                    background: #ffffff !important;
-                    box-shadow: none !important;
-                 ">
 
-            <h2 style="
-                margin: 0 !important;
-                color: #41af4b !important;
-                font-family: 'Nunito', sans-serif;
-                font-size: 2.2rem;
-                font-weight: 800;
-            ">
+        <section
+            class="boas-vindas"
+            style="
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+                text-align: center;
+                background: #ffffff !important;
+                box-shadow: none !important;
+            "
+        >
+
+
+            <!-- TÍTULO -->
+
+            <h2
+                style="
+                    margin: 0 !important;
+                    color: #41af4b !important;
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 2.2rem;
+                    font-weight: 800;
+                "
+            >
+
                 Crie sua conta
+
             </h2>
 
 
-            <p class="sub-branco"
-               style="
+            <!-- SUBTÍTULO -->
+
+            <p
+                class="sub-branco"
+                style="
                     color: #000000 !important;
                     font-weight: normal !important;
                     margin-top: 8px;
-               ">
+                "
+            >
+
                 Você é:
+
             </p>
 
 
-            <div class="escolha-container"
-                 style="
+            <!-- =================================================
+                 CARDS DE ESCOLHA
+            ================================================= -->
+
+            <div
+                class="escolha-container"
+                style="
                     margin-top: 25px !important;
                     display: flex;
                     justify-content: center;
                     gap: 20px;
                     align-items: center;
-                 ">
+                "
+            >
 
 
                 <!-- ALUNO -->
 
-                <div class="escolha-card aluno-card"
-                     onclick="window.location.href='cadastro.html'">
+                <div
+                    class="escolha-card aluno-card"
+                    onclick="window.location.href='cadastro.html'"
+                >
+
 
                     <span class="escolha-icone"></span>
 
-                    <h2>Aluno</h2>
+
+                    <h2>
+                        Aluno
+                    </h2>
+
 
                 </div>
 
 
                 <!-- GESTOR -->
 
-                <div class="escolha-card professor-card"
-                     onclick="window.location.href='cadastro-professor.html'">
+                <div
+                    class="escolha-card professor-card"
+                    onclick="window.location.href='cadastro-professor.html'"
+                >
+
 
                     <span class="escolha-icone"></span>
 
-                    <h2>Gestor</h2>
+
+                    <h2>
+                        Gestor
+                    </h2>
+
 
                 </div>
 
 
             </div>
 
+
         </section>
 
+
     </main>
+
 
 
     <!-- =====================================================
@@ -509,9 +860,13 @@
 
     <footer>
 
+
         <p>
+
             © 2026 FATEC - Informática para Negócios
+
         </p>
+
 
     </footer>
 
