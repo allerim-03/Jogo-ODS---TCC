@@ -32,18 +32,36 @@
     <style>
 
         /* =====================================================
-           SIDEBAR DO LOGIN
-           ALTERADO SOMENTE O SIDEBAR
+           AJUSTE DA NAVBAR
+        ===================================================== */
+
+        .topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+        }
+
+        .topbar-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+
+        .topbar-right {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+
+        /* =====================================================
+           SIDEBAR - MESMA ESTRUTURA DO LOGIN
         ===================================================== */
 
         .menu-checkbox {
             display: none !important;
         }
 
-
-        /* =====================================================
-           SIDEBAR
-        ===================================================== */
 
         .sidebar {
             position: fixed !important;
@@ -68,8 +86,6 @@
             box-sizing: border-box !important;
         }
 
-
-        /* ABRIR SIDEBAR */
 
         #menu-check:checked ~ .sidebar {
             left: 0 !important;
@@ -103,6 +119,45 @@
 
 
         /* =====================================================
+           HAMBÚRGUER
+        ===================================================== */
+
+        .hamburger {
+            width: 42px !important;
+            height: 42px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+
+            justify-content: center !important;
+            align-items: center !important;
+
+            gap: 5px !important;
+
+            cursor: pointer !important;
+
+            border-radius: 8px !important;
+
+            transition: opacity 0.2s ease !important;
+        }
+
+
+        .hamburger:hover {
+            opacity: 0.85 !important;
+        }
+
+
+        .hamburger span {
+            width: 24px !important;
+            height: 3px !important;
+
+            background-color: #FFFFFF !important;
+
+            border-radius: 2px !important;
+        }
+
+
+        /* =====================================================
            PERFIL DO VISITANTE
         ===================================================== */
 
@@ -122,8 +177,6 @@
         }
 
 
-        /* TUGA */
-
         .perfil-sidebar img.mascote-perfil {
             width: 65px !important;
             height: 65px !important;
@@ -140,13 +193,14 @@
 
             margin-bottom: 10px !important;
 
+            image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
             image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
 
             display: block !important;
         }
 
-
-        /* VISITANTE */
 
         .perfil-sidebar p {
             color: #FFB72B !important;
@@ -162,7 +216,7 @@
 
 
         /* =====================================================
-           BOTÕES DO SIDEBAR
+           BOTÕES DO VISITANTE
         ===================================================== */
 
         .links-sidebar {
@@ -209,7 +263,7 @@
 
 
         /* =====================================================
-           ENTRAR - NORMAL
+           ENTRAR
         ===================================================== */
 
         .links-sidebar a.link-entrar {
@@ -221,10 +275,6 @@
         }
 
 
-        /* =====================================================
-           ENTRAR - HOVER
-        ===================================================== */
-
         .links-sidebar a.link-entrar:hover {
             background-color: #FFDE5A !important;
 
@@ -235,7 +285,7 @@
 
 
         /* =====================================================
-           CADASTRAR - NORMAL
+           CADASTRAR
         ===================================================== */
 
         .links-sidebar a.link-cadastrar {
@@ -247,10 +297,6 @@
         }
 
 
-        /* =====================================================
-           CADASTRAR - HOVER
-        ===================================================== */
-
         .links-sidebar a.link-cadastrar:hover {
             background-color: #FFDE5A !important;
 
@@ -261,39 +307,10 @@
 
 
         /* =====================================================
-           MANTÉM O RESTANTE DO CABEÇALHO ORIGINAL
+           NITIDEZ DA TUGA DO CONTEÚDO ORIGINAL
         ===================================================== */
 
-        .topbar {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-
-            position: relative !important;
-        }
-
-
-        .topbar-center {
-            position: absolute !important;
-
-            left: 50% !important;
-
-            transform: translateX(-50%) !important;
-        }
-
-
-        .topbar-right {
-            visibility: hidden !important;
-
-            pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           NITIDEZ DA TUGA
-        ===================================================== */
-
-        .perfil-sidebar img.mascote-perfil {
+        .auth-sidebar .mascote {
             image-rendering: -moz-crisp-edges !important;
             image-rendering: -webkit-optimize-contrast !important;
             image-rendering: pixelated !important;
@@ -353,7 +370,6 @@
                     ENTRAR
                 </a>
 
-
                 <a
                     href="escolha-cadastro.html"
                     class="link-cadastrar"
@@ -367,7 +383,7 @@
 
 
         <!-- =================================================
-             HAMBÚRGUER
+             LADO ESQUERDO
         ================================================= -->
 
         <div class="topbar-left">
@@ -405,6 +421,10 @@
         </div>
 
 
+        <!-- =================================================
+             LADO DIREITO
+        ================================================= -->
+
         <div class="topbar-right">
 
             <div class="topbar-actions">
@@ -431,7 +451,7 @@
 
 
     <!-- =====================================================
-         CONTEÚDO ORIGINAL
+         CONTEÚDO ORIGINAL - NÃO ALTERADO
     ===================================================== -->
 
     <main style="margin-top: 110px !important;">
@@ -569,7 +589,7 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9-2 2-2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                             </svg>
 
                         </div>
@@ -599,10 +619,6 @@
 
     </main>
 
-
-    <!-- =====================================================
-         RODAPÉ
-    ===================================================== -->
 
     <footer>
 
