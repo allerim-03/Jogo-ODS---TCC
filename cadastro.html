@@ -55,7 +55,7 @@
 
 
         /* =====================================================
-           SIDEBAR — IGUAL AO LOGIN
+           SIDEBAR — ESTRUTURA DO LOGIN
            ===================================================== */
 
         .menu-checkbox {
@@ -172,15 +172,15 @@
         }
 
 
-        /* TUGA */
+        /* =====================================================
+           TUGA DENTRO DO CÍRCULO
+           ===================================================== */
 
         .perfil-sidebar .mascote-icon {
             width: 65px !important;
             height: 65px !important;
 
             border-radius: 50% !important;
-
-            object-fit: contain !important;
 
             border: 2px solid #FFFFFF !important;
 
@@ -215,19 +215,20 @@
 
 
         /* =====================================================
-           VISITANTE — BRANCO
+           VISITANTE — AMARELO DO ORIGINAL
            ===================================================== */
 
         .perfil-sidebar p {
-            color: #FFFFFF !important;
+            color: #FFDD55 !important;
 
-            font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Nunito', sans-serif !important;
 
-            font-weight: 700 !important;
+            font-size: 24px !important;
 
-            font-size: 1.1rem !important;
+            font-weight: 800 !important;
 
             margin: 0 !important;
+            padding: 0 !important;
         }
 
 
@@ -335,8 +336,7 @@
 
 
         /* =====================================================
-           RESTANTE DO CADASTRO ORIGINAL
-           NÃO ALTERAR
+           MANTÉM O FORMULÁRIO ORIGINAL
            ===================================================== */
 
         .auth-sidebar h2 {
@@ -393,10 +393,12 @@
             <div class="perfil-sidebar">
 
                 <span class="mascote-icon">
+
                     <img
                         src="img/TugaPqn.png"
                         alt="Mascote Tuga"
                     >
+
                 </span>
 
                 <p>Visitante</p>
@@ -499,7 +501,7 @@
         <div class="auth-container">
 
 
-            <!-- Coluna Esquerda -->
+            <!-- Coluna Esquerda: Mascote + Mensagem + Botão -->
 
             <div class="auth-sidebar professor-theme">
 
@@ -529,15 +531,13 @@
             </div>
 
 
-            <!-- Coluna Direita: Formulário -->
+            <!-- Coluna Direita: Formulário de Cadastro do Aluno -->
 
             <div class="auth-content">
 
                 <h1>Cadastro do Aluno</h1>
 
-
                 <form class="form-grid">
-
 
                     <div class="form-field col-full">
 
@@ -556,7 +556,9 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+
                             </svg>
 
                         </div>
@@ -581,7 +583,9 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
                             </svg>
 
                         </div>
@@ -606,7 +610,9 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
                         </div>
@@ -631,7 +637,9 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2-2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
                         </div>
@@ -673,7 +681,6 @@
         </p>
 
     </footer>
-
 
 </body>
 </html>
