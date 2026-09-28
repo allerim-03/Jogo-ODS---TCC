@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -29,38 +33,17 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
+
     <style>
 
         /* =====================================================
-           AJUSTE DA NAVBAR
-           ===================================================== */
-
-        .topbar {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            position: relative !important;
-        }
-
-        .topbar-center {
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-        }
-
-        .topbar-right {
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR — ESTRUTURA DO LOGIN
-           ===================================================== */
+           SIDEBAR — PADRÃO DOS OUTROS SIDEBARS DESLOGADOS
+        ===================================================== */
 
         .menu-checkbox {
             display: none !important;
         }
+
 
         .sidebar {
             position: fixed !important;
@@ -85,6 +68,7 @@
             box-sizing: border-box !important;
         }
 
+
         #menu-check:checked ~ .sidebar {
             left: 0 !important;
         }
@@ -92,7 +76,7 @@
 
         /* =====================================================
            OVERLAY
-           ===================================================== */
+        ===================================================== */
 
         .overlay {
             position: fixed !important;
@@ -110,6 +94,7 @@
             display: none !important;
         }
 
+
         #menu-check:checked ~ .overlay {
             display: block !important;
         }
@@ -117,7 +102,7 @@
 
         /* =====================================================
            HAMBÚRGUER
-           ===================================================== */
+        ===================================================== */
 
         .hamburger {
             width: 42px !important;
@@ -138,9 +123,11 @@
             transition: opacity 0.2s ease !important;
         }
 
+
         .hamburger:hover {
             opacity: 0.85 !important;
         }
+
 
         .hamburger span {
             width: 24px !important;
@@ -154,7 +141,7 @@
 
         /* =====================================================
            PERFIL DO VISITANTE
-           ===================================================== */
+        ===================================================== */
 
         .perfil-sidebar {
             text-align: center !important;
@@ -169,12 +156,12 @@
             flex-direction: column !important;
 
             align-items: center !important;
+
+            justify-content: center !important;
         }
 
 
-        /* =====================================================
-           TUGA DENTRO DO CÍRCULO
-           ===================================================== */
+        /* Círculo branco da Tuga */
 
         .perfil-sidebar .mascote-icon {
             width: 65px !important;
@@ -182,15 +169,16 @@
 
             border-radius: 50% !important;
 
-            border: 2px solid #FFFFFF !important;
-
             background-color: #FFFFFF !important;
+
+            border: 2px solid #FFFFFF !important;
 
             padding: 2px !important;
 
             margin-bottom: 10px !important;
 
             display: flex !important;
+
             align-items: center !important;
             justify-content: center !important;
 
@@ -199,13 +187,16 @@
             font-size: 0 !important;
         }
 
-        .perfil-sidebar .mascote-icon img {
-            width: 65px !important;
-            height: 65px !important;
 
-            object-fit: contain !important;
+        /* Tuga dentro do círculo */
+
+        .perfil-sidebar .mascote-icon img {
+            width: 55px !important;
+            height: 55px !important;
 
             display: block !important;
+
+            object-fit: contain !important;
 
             image-rendering: -moz-crisp-edges !important;
             image-rendering: -webkit-optimize-contrast !important;
@@ -215,17 +206,18 @@
 
 
         /* =====================================================
-           VISITANTE — AMARELO DO ORIGINAL
-           ===================================================== */
+           VISITANTE
+           MESMA FONTE/COR DOS OUTROS SIDEBARS
+        ===================================================== */
 
         .perfil-sidebar p {
-            color: #FFDD55 !important;
+            color: #FFB72B !important;
 
-            font-family: 'Nunito', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
 
-            font-size: 24px !important;
+            font-weight: 700 !important;
 
-            font-weight: 800 !important;
+            font-size: 1.1rem !important;
 
             margin: 0 !important;
             padding: 0 !important;
@@ -233,8 +225,8 @@
 
 
         /* =====================================================
-           BOTÕES DA SIDEBAR
-           ===================================================== */
+           BOTÕES DO SIDEBAR
+        ===================================================== */
 
         .sidebar-actions {
             display: flex !important;
@@ -247,6 +239,7 @@
 
             padding: 0 !important;
         }
+
 
         .sidebar-actions a {
             width: 100% !important;
@@ -269,8 +262,7 @@
 
             transition:
                 background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease !important;
+                color 0.2s ease !important;
 
             display: flex !important;
 
@@ -285,9 +277,9 @@
 
         /* =====================================================
            ENTRAR — NORMAL
-           ===================================================== */
+        ===================================================== */
 
-        .sidebar-actions a:first-child {
+        .sidebar-actions a.btn-secundario {
             color: #FFFFFF !important;
 
             background-color: transparent !important;
@@ -298,9 +290,9 @@
 
         /* =====================================================
            ENTRAR — HOVER
-           ===================================================== */
+        ===================================================== */
 
-        .sidebar-actions a:first-child:hover {
+        .sidebar-actions a.btn-secundario:hover {
             background-color: #FFDE5A !important;
 
             color: #FFFFFF !important;
@@ -311,9 +303,9 @@
 
         /* =====================================================
            CADASTRAR — NORMAL
-           ===================================================== */
+        ===================================================== */
 
-        .sidebar-actions a:last-child {
+        .sidebar-actions a:not(.btn-secundario) {
             color: #1b5e20 !important;
 
             background-color: #FFFFFF !important;
@@ -324,9 +316,9 @@
 
         /* =====================================================
            CADASTRAR — HOVER
-           ===================================================== */
+        ===================================================== */
 
-        .sidebar-actions a:last-child:hover {
+        .sidebar-actions a:not(.btn-secundario):hover {
             background-color: #FFDE5A !important;
 
             color: #1b5e20 !important;
@@ -336,23 +328,103 @@
 
 
         /* =====================================================
-           MANTÉM O FORMULÁRIO ORIGINAL
+           NAVBAR
            ===================================================== */
 
-        .auth-sidebar h2 {
-            color: #ffffff !important;
+        .topbar {
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            position: fixed !important;
+
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+
+            height: 90px !important;
+            min-height: 90px !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
+            z-index: 1000 !important;
+
+            margin: 0 !important;
         }
 
-        .auth-sidebar .btn-outline {
-            background-color: #ffffff !important;
-            color: #38bdf8 !important;
-            border-color: #ffffff !important;
+
+        .topbar-left {
+            display: flex !important;
+
+            align-items: center !important;
+
+            width: 50px !important;
         }
+
+
+        .topbar-center {
+            position: absolute !important;
+
+            left: 50% !important;
+
+            transform: translateX(-50%) !important;
+
+            display: flex !important;
+
+            justify-content: center !important;
+
+            align-items: center !important;
+        }
+
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
+        }
+
+
+        .topbar-right {
+            width: 50px !important;
+
+            visibility: hidden !important;
+
+            pointer-events: none !important;
+        }
+
+
+        /* =====================================================
+           FORMULÁRIO
+           NÃO ALTERADO
+        ===================================================== */
+
+        .auth-sidebar h2 {
+            color: #FFFFFF !important;
+        }
+
+
+        .auth-sidebar .btn-outline {
+            background-color: #FFFFFF !important;
+
+            color: #38bdf8 !important;
+
+            border-color: #FFFFFF !important;
+        }
+
 
         .auth-sidebar .btn-outline:hover {
             background-color: #f0f0f0 !important;
+
             color: #0284c7 !important;
         }
+
 
         .auth-sidebar .mascote {
             image-rendering: -moz-crisp-edges !important;
@@ -361,14 +433,46 @@
             image-rendering: crisp-edges !important;
         }
 
+
+        /* =====================================================
+           CADEADO — GARANTE O SVG INTEIRO
+        ===================================================== */
+
+        .input-group svg {
+            width: 24px !important;
+            height: 24px !important;
+
+            min-width: 24px !important;
+            min-height: 24px !important;
+
+            max-width: 24px !important;
+            max-height: 24px !important;
+
+            display: block !important;
+
+            flex-shrink: 0 !important;
+
+            overflow: visible !important;
+
+            box-sizing: border-box !important;
+        }
+
+
+        .input-group svg path {
+            display: block !important;
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <!-- =====================================================
          NAVBAR
-         ===================================================== -->
+    ===================================================== -->
 
     <header class="topbar">
 
@@ -386,7 +490,7 @@
 
         <!-- =================================================
              SIDEBAR
-             ================================================= -->
+        ================================================= -->
 
         <aside class="sidebar">
 
@@ -429,7 +533,7 @@
 
         <!-- =================================================
              HAMBÚRGUER
-             ================================================= -->
+        ================================================= -->
 
         <div class="topbar-left">
 
@@ -449,8 +553,8 @@
 
 
         <!-- =================================================
-             LOGO CENTRAL
-             ================================================= -->
+             LOGO
+        ================================================= -->
 
         <div class="topbar-center">
 
@@ -467,27 +571,7 @@
         </div>
 
 
-        <div class="topbar-right">
-
-            <div class="topbar-actions">
-
-                <a
-                    href="escolha.html"
-                    class="btn-principal btn-secundario btn-sm"
-                >
-                    ENTRAR
-                </a>
-
-                <a
-                    href="escolha-cadastro.html"
-                    class="btn-principal btn-sm"
-                >
-                    CADASTRAR
-                </a>
-
-            </div>
-
-        </div>
+        <div class="topbar-right"></div>
 
     </header>
 
@@ -501,7 +585,7 @@
         <div class="auth-container">
 
 
-            <!-- Coluna Esquerda: Mascote + Mensagem + Botão -->
+            <!-- COLUNA ESQUERDA -->
 
             <div class="auth-sidebar professor-theme">
 
@@ -531,13 +615,17 @@
             </div>
 
 
-            <!-- Coluna Direita: Formulário de Cadastro do Aluno -->
+            <!-- =================================================
+                 FORMULÁRIO ORIGINAL
+            ================================================= -->
 
             <div class="auth-content">
 
                 <h1>Cadastro do Aluno</h1>
 
+
                 <form class="form-grid">
+
 
                     <div class="form-field col-full">
 
@@ -556,9 +644,7 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-
                             </svg>
 
                         </div>
@@ -583,9 +669,7 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-
                             </svg>
 
                         </div>
@@ -610,9 +694,7 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-
                             </svg>
 
                         </div>
@@ -637,9 +719,7 @@
                             >
 
                             <svg viewBox="0 0 24 24">
-
-                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2-2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                             </svg>
 
                         </div>
@@ -661,6 +741,7 @@
 
                     </div>
 
+
                 </form>
 
             </div>
@@ -672,7 +753,7 @@
 
     <!-- =====================================================
          RODAPÉ
-         ===================================================== -->
+    ===================================================== -->
 
     <footer>
 
@@ -681,6 +762,7 @@
         </p>
 
     </footer>
+
 
 </body>
 </html>
