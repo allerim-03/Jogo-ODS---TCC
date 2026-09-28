@@ -5,8 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Cultivando o Saber</title>
+
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -29,13 +37,17 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             margin: 0 !important;
             padding: 0 !important;
             background-color: #ffffff !important;
         }
 
-        /* Topbar fixada no topo com layout centralizado */
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -43,13 +55,19 @@
             width: 100% !important;
             height: 90px !important;
             min-height: 90px !important;
+
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
+
             padding: 10px 25px !important;
-            background-color: #4CAF50 !important;
-            z-index: 1000 !important;
             margin: 0 !important;
+
+            background-color: #4CAF50 !important;
+
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
+
+            z-index: 10000 !important;
         }
 
         .topbar-left {
@@ -58,11 +76,11 @@
             width: 50px !important;
         }
 
-        /* Container central que garante o alinhamento no meio exato da barra */
         .topbar-center {
             position: absolute !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
+
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
@@ -76,31 +94,239 @@
 
         .topbar-right {
             width: 50px !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
 
-        /* Compensação para o cabeçalho fixo */
-        main {
-            margin-top: 90px !important;
-            padding-top: 40px !important;
-            min-height: calc(100vh - 150px) !important;
-            background-color: #ffffff !important;
+
+        /* =====================================================
+           SIDEBAR
+           ===================================================== */
+
+        .sidebar {
+            position: fixed !important;
+
+            top: 0 !important;
+            left: -300px !important;
+
+            width: 270px !important;
+            height: 100vh !important;
+
+            background-color: #1b5e20 !important;
+
+            z-index: 99999 !important;
+
+            transition: left 0.3s ease !important;
+
+            padding: 30px 20px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+
+            box-sizing: border-box !important;
         }
 
-        /* Alinhamento e centralização perfeita dos cards e ícones */
-        .escolha-card {
+        #menu-check:checked ~ .sidebar {
+            left: 0 !important;
+        }
+
+
+        /* =====================================================
+           OVERLAY
+           ===================================================== */
+
+        .overlay {
+            position: fixed !important;
+
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            background: rgba(0, 0, 0, 0.4) !important;
+
+            z-index: 99998 !important;
+
+            display: none !important;
+        }
+
+        #menu-check:checked ~ .overlay {
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           PERFIL - TUGA
+           ===================================================== */
+
+        .perfil-sidebar {
+            text-align: center !important;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+            padding-bottom: 20px !important;
+            margin-bottom: 20px !important;
+
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
+        }
+
+        .perfil-sidebar img {
+            width: 65px !important;
+            height: 65px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: contain !important;
+
+            background-color: #FFFFFF !important;
+
+            border: 2px solid #FFFFFF !important;
+
+            padding: 2px !important;
+
+            margin-bottom: 8px !important;
+
+            image-rendering: pixelated !important;
+
+            display: block !important;
+        }
+
+        .perfil-sidebar p {
+            color: #FFB72B !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 1.1rem !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =====================================================
+           BOTÕES ENTRAR / CADASTRAR
+           ===================================================== */
+
+        .sidebar-actions {
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            gap: 8px !important;
+
+            width: 100% !important;
+        }
+
+        .sidebar-actions a {
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: flex-start !important;
+
+            width: 100% !important;
+
+            padding: 12px 16px !important;
+
+            border-radius: 12px !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 14px !important;
+
+            text-transform: uppercase !important;
+
+            text-decoration: none !important;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease !important;
+
+            box-sizing: border-box !important;
+        }
+
+
+        /* ENTRAR - estado normal */
+
+        .sidebar-actions a.btn-secundario {
+            background-color: #FFFFFF !important;
+
+            color: #41AF4B !important;
+
+            border: 1px solid #FFFFFF !important;
+        }
+
+
+        /* CADASTRAR - estado normal */
+
+        .sidebar-actions a:not(.btn-secundario) {
+            background-color: #FFFFFF !important;
+
+            color: #41AF4B !important;
+
+            border: 1px solid #FFFFFF !important;
+        }
+
+
+        /* HOVER DOS DOIS BOTÕES */
+
+        .sidebar-actions a:hover,
+        .sidebar-actions a.btn-secundario:hover {
+            background-color: #FFDD55 !important;
+
+            border-color: #FFDD55 !important;
+
+            color: #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           COMPENSAÇÃO DO CABEÇALHO FIXO
+           ===================================================== */
+
+        main {
+            margin-top: 90px !important;
+
+            padding-top: 40px !important;
+
+            min-height: calc(100vh - 150px) !important;
+
+            background-color: #ffffff !important;
+        }
+
+
+        /* =====================================================
+           CARDS
+           ===================================================== */
+
+        .escolha-card {
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: center !important;
+
             text-align: center !important;
         }
 
         .escolha-icone {
             display: block !important;
+
             width: 80px;
             height: 80px;
+
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
+
             margin: 0 auto 15px auto !important;
         }
 
@@ -111,69 +337,269 @@
         .professor-card .escolha-icone {
             background-image: url('img/prof.png');
         }
+
+
+        /* =====================================================
+           HAMBÚRGUER
+           ===================================================== */
+
+        .hamburger {
+            width: 42px !important;
+            height: 42px !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            justify-content: center !important;
+            align-items: center !important;
+
+            gap: 5px !important;
+
+            cursor: pointer !important;
+
+            border-radius: 8px !important;
+        }
+
+        .hamburger span {
+            width: 24px !important;
+            height: 3px !important;
+
+            background-color: #FFFFFF !important;
+
+            border-radius: 2px !important;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+           ===================================================== */
+
+        footer {
+            background-color: #2E7D32 !important;
+
+            color: #FFFFFF !important;
+
+            text-align: center !important;
+
+            padding: 20px 0 !important;
+        }
+
+        footer p {
+            margin: 0 !important;
+
+            color: #FFFFFF !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 0.9rem !important;
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .topbar {
+                padding: 10px 15px !important;
+            }
+
+            .topbar .navbar-logo {
+                height: 34px !important;
+            }
+
+            .sidebar {
+                width: 270px !important;
+            }
+
+            .escolha-container {
+                flex-direction: column !important;
+            }
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- =====================================================
+         NAVBAR / SIDEBAR
+         ===================================================== -->
+
     <header class="topbar">
+
         <input type="checkbox" id="menu-check" class="menu-checkbox">
+
         <label for="menu-check" class="overlay"></label>
 
+
+        <!-- SIDEBAR -->
+
         <aside class="sidebar">
+
+            <!-- PERFIL DO VISITANTE -->
+
             <div class="perfil-sidebar">
-                <span class="mascote-icon">🐢</span>
+
+                <img src="img/TugaPqn.png"
+                     alt="Mascote Tuga"
+                     class="foto-perfil">
+
                 <p>Visitante</p>
+
             </div>
 
-            <nav class="links-sidebar">
-                <a href="index.html">HOME</a>
-                <a href="ods.html">ODS</a>
-                <a href="sobrenos.html">SOBRE NÓS</a>
-            </nav>
+
+            <!-- BOTÕES -->
+
+            <div class="sidebar-actions">
+
+                <a href="escolha.html"
+                   class="btn-principal btn-secundario">
+
+                    ENTRAR
+
+                </a>
+
+                <a href="escolha-cadastro.html"
+                   class="btn-principal">
+
+                    CADASTRAR
+
+                </a>
+
+            </div>
+
         </aside>
 
+
+        <!-- HAMBÚRGUER -->
+
         <div class="topbar-left">
-            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+
+            <label for="menu-check"
+                   class="hamburger"
+                   aria-label="Abrir menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </label>
+
         </div>
+
+
+        <!-- LOGO CENTRAL -->
 
         <div class="topbar-center">
+
             <div class="logo">
-                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+
+                <img src="img/cultsab.png"
+                     alt="Cultivando o Saber"
+                     class="navbar-logo">
+
             </div>
+
         </div>
 
+
+        <!-- LADO DIREITO OCULTO -->
+
         <div class="topbar-right"></div>
+
     </header>
 
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
     <main>
-        <section class="boas-vindas" style="padding-top: 0 !important; margin-top: 0 !important; text-align: center; background: #ffffff !important; box-shadow: none !important;">
-            <h2 style="margin: 0 !important; color: #41af4b !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Crie sua conta</h2>
-            
-            <p class="sub-branco" style="color: #000000 !important; font-weight: normal !important; margin-top: 8px;">Você é:</p>
 
-            <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
+        <section class="boas-vindas"
+                 style="
+                    padding-top: 0 !important;
+                    margin-top: 0 !important;
+                    text-align: center;
+                    background: #ffffff !important;
+                    box-shadow: none !important;
+                 ">
 
-                <div class="escolha-card aluno-card" onclick="window.location.href='cadastro.html'">
+            <h2 style="
+                margin: 0 !important;
+                color: #41af4b !important;
+                font-family: 'Nunito', sans-serif;
+                font-size: 2.2rem;
+                font-weight: 800;
+            ">
+                Crie sua conta
+            </h2>
+
+
+            <p class="sub-branco"
+               style="
+                    color: #000000 !important;
+                    font-weight: normal !important;
+                    margin-top: 8px;
+               ">
+                Você é:
+            </p>
+
+
+            <div class="escolha-container"
+                 style="
+                    margin-top: 25px !important;
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    align-items: center;
+                 ">
+
+
+                <!-- CARD ALUNO -->
+
+                <div class="escolha-card aluno-card"
+                     onclick="window.location.href='cadastro.html'">
+
                     <span class="escolha-icone"></span>
+
                     <h2>Aluno</h2>
+
                 </div>
 
-                <div class="escolha-card professor-card" onclick="window.location.href='cadastro-professor.html'">
+
+                <!-- CARD GESTOR -->
+
+                <div class="escolha-card professor-card"
+                     onclick="window.location.href='cadastro-professor.html'">
+
                     <span class="escolha-icone"></span>
+
                     <h2>Gestor</h2>
+
                 </div>
+
 
             </div>
+
         </section>
+
     </main>
 
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
     <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
     </footer>
 
 </body>
