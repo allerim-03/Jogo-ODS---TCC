@@ -30,152 +30,588 @@
     <link rel="stylesheet" href="css/textos.css">
 
     <style>
-        /* Ajuste isolado para centralizar perfeitamente o logotipo e esconder os botões da direita */
+
+        /* =====================================================
+           SIDEBAR DO LOGIN
+           ALTERADO SOMENTE O SIDEBAR
+        ===================================================== */
+
+        .menu-checkbox {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar {
+            position: fixed !important;
+
+            top: 0 !important;
+            left: -300px !important;
+
+            width: 270px !important;
+            height: 100vh !important;
+
+            background-color: #1b5e20 !important;
+
+            z-index: 9999 !important;
+
+            transition: left 0.3s ease !important;
+
+            padding: 30px 20px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+
+            box-sizing: border-box !important;
+        }
+
+
+        /* ABRIR SIDEBAR */
+
+        #menu-check:checked ~ .sidebar {
+            left: 0 !important;
+        }
+
+
+        /* =====================================================
+           OVERLAY
+        ===================================================== */
+
+        .overlay {
+            position: fixed !important;
+
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            background: rgba(0, 0, 0, 0.4) !important;
+
+            z-index: 9998 !important;
+
+            display: none !important;
+        }
+
+
+        #menu-check:checked ~ .overlay {
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           PERFIL DO VISITANTE
+        ===================================================== */
+
+        .perfil-sidebar {
+            text-align: center !important;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+            padding-bottom: 20px !important;
+
+            margin-bottom: 20px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+
+            align-items: center !important;
+        }
+
+
+        /* TUGA */
+
+        .perfil-sidebar img.mascote-perfil {
+            width: 65px !important;
+            height: 65px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: contain !important;
+
+            border: 2px solid #FFFFFF !important;
+
+            background-color: #FFFFFF !important;
+
+            padding: 2px !important;
+
+            margin-bottom: 10px !important;
+
+            image-rendering: pixelated !important;
+
+            display: block !important;
+        }
+
+
+        /* VISITANTE */
+
+        .perfil-sidebar p {
+            color: #FFB72B !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 1.1rem !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =====================================================
+           BOTÕES DO SIDEBAR
+        ===================================================== */
+
+        .links-sidebar {
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            gap: 8px !important;
+
+            width: 100% !important;
+        }
+
+
+        .links-sidebar a {
+            width: 100% !important;
+
+            text-decoration: none !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-weight: 700 !important;
+
+            font-size: 16px !important;
+
+            text-transform: uppercase !important;
+
+            text-align: center !important;
+
+            padding: 12px 16px !important;
+
+            border-radius: 12px !important;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            min-height: 62px !important;
+        }
+
+
+        /* =====================================================
+           ENTRAR - NORMAL
+        ===================================================== */
+
+        .links-sidebar a.link-entrar {
+            color: #FFFFFF !important;
+
+            background-color: transparent !important;
+
+            border: 2px solid #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           ENTRAR - HOVER
+        ===================================================== */
+
+        .links-sidebar a.link-entrar:hover {
+            background-color: #FFDE5A !important;
+
+            color: #FFFFFF !important;
+
+            border-color: #FFDE5A !important;
+        }
+
+
+        /* =====================================================
+           CADASTRAR - NORMAL
+        ===================================================== */
+
+        .links-sidebar a.link-cadastrar {
+            color: #1b5e20 !important;
+
+            background-color: #FFFFFF !important;
+
+            border: 2px solid #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           CADASTRAR - HOVER
+        ===================================================== */
+
+        .links-sidebar a.link-cadastrar:hover {
+            background-color: #FFDE5A !important;
+
+            color: #1b5e20 !important;
+
+            border-color: #FFDE5A !important;
+        }
+
+
+        /* =====================================================
+           MANTÉM O RESTANTE DO CABEÇALHO ORIGINAL
+        ===================================================== */
+
         .topbar {
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
+
             position: relative !important;
         }
 
+
         .topbar-center {
             position: absolute !important;
+
             left: 50% !important;
+
             transform: translateX(-50%) !important;
         }
 
+
         .topbar-right {
             visibility: hidden !important;
+
             pointer-events: none !important;
         }
 
-        /* Estilo personalizado para o título e botão da barra lateral de autenticação */
-        .auth-sidebar h2 {
-            color: #ffffff !important;
-        }
 
-        .auth-sidebar .btn-outline {
-            background-color: #ffffff !important;
-            color: #38bdf8 !important;
-            border-color: #ffffff !important;
-        }
+        /* =====================================================
+           NITIDEZ DA TUGA
+        ===================================================== */
 
-        .auth-sidebar .btn-outline:hover {
-            background-color: #f0f0f0 !important;
-            color: #0284c7 !important;
-        }
-
-        /* Força a nitidez absoluta em Pixel Art para o mascote */
-        .auth-sidebar .mascote {
+        .perfil-sidebar img.mascote-perfil {
             image-rendering: -moz-crisp-edges !important;
             image-rendering: -webkit-optimize-contrast !important;
             image-rendering: pixelated !important;
             image-rendering: crisp-edges !important;
         }
+
     </style>
 </head>
 
+
 <body>
 
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
     <header class="topbar">
-        <input type="checkbox" id="menu-check" class="menu-checkbox">
-        <label for="menu-check" class="overlay"></label>
 
-        <div class="sidebar">
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+        <label
+            for="menu-check"
+            class="overlay"
+        ></label>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================= -->
+
+        <aside class="sidebar">
+
             <div class="perfil-sidebar">
-                <span class="mascote-icon">🐢</span>
+
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
+                    class="mascote-perfil"
+                >
+
                 <p>Visitante</p>
+
             </div>
 
-            <div class="sidebar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
-            </div>
-        </div>
+
+            <nav class="links-sidebar">
+
+                <a
+                    href="escolha.html"
+                    class="link-entrar"
+                >
+                    ENTRAR
+                </a>
+
+
+                <a
+                    href="escolha-cadastro.html"
+                    class="link-cadastrar"
+                >
+                    CADASTRAR
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =================================================
+             HAMBÚRGUER
+        ================================================= -->
 
         <div class="topbar-left">
-            <label for="menu-check" class="hamburger">
+
+            <label
+                for="menu-check"
+                class="hamburger"
+            >
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </label>
+
         </div>
+
+
+        <!-- =================================================
+             LOGO CENTRAL
+        ================================================= -->
 
         <div class="topbar-center">
+
             <div class="logo">
-                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+
+                <img
+                    src="img/cultsab.png"
+                    alt="Cultivando o Saber"
+                    class="navbar-logo"
+                >
+
             </div>
+
         </div>
+
 
         <div class="topbar-right">
+
             <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
+
+                <a
+                    href="escolha.html"
+                    class="btn-principal btn-secundario btn-sm"
+                >
+                    ENTRAR
+                </a>
+
+                <a
+                    href="escolha-cadastro.html"
+                    class="btn-principal btn-sm"
+                >
+                    CADASTRAR
+                </a>
+
             </div>
+
         </div>
+
     </header>
 
+
+    <!-- =====================================================
+         CONTEÚDO ORIGINAL
+    ===================================================== -->
+
     <main style="margin-top: 110px !important;">
+
         <div class="auth-container">
-            
+
             <!-- Coluna Esquerda: Mascote com nitidez perfeita + Mensagem e Botão Entrar -->
+
             <div class="auth-sidebar professor-theme">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga" class="mascote">
+
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
+                    class="mascote"
+                >
+
                 <h2>Bem-vindo!</h2>
-                <p>Venha aprender brincando e explore um mundo de conhecimentos.</p>
-                <p style="font-size: 0.85rem; margin-bottom: 15px;">Já possui uma conta?</p>
-                <a href="login.html" class="btn-outline">ENTRAR</a>
+
+                <p>
+                    Venha aprender brincando e explore um mundo de conhecimentos.
+                </p>
+
+                <p style="font-size: 0.85rem; margin-bottom: 15px;">
+                    Já possui uma conta?
+                </p>
+
+                <a
+                    href="login.html"
+                    class="btn-outline"
+                >
+                    ENTRAR
+                </a>
+
             </div>
 
+
             <!-- Coluna Direita: Formulário de Cadastro do Aluno -->
+
             <div class="auth-content">
+
                 <h1>Cadastro do Aluno</h1>
 
+
                 <form class="form-grid">
-                    <div class="form-field col-full">
-                        <label for="username">Usuário</label>
-                        <div class="input-group">
-                            <input type="text" id="username" name="username" placeholder="Digite o nome de usuário" required>
-                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                        </div>
-                    </div>
 
                     <div class="form-field col-full">
-                        <label for="email">E-mail</label>
+
+                        <label for="username">
+                            Usuário
+                        </label>
+
                         <div class="input-group">
-                            <input type="email" id="email" name="email" placeholder="nome@email.com" required>
-                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Digite o nome de usuário"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+
                         </div>
+
                     </div>
+
+
+                    <div class="form-field col-full">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-group">
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="nome@email.com"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+
+                        </div>
+
+                    </div>
+
 
                     <div class="form-field">
-                        <label for="password">Senha</label>
+
+                        <label for="password">
+                            Senha
+                        </label>
+
                         <div class="input-group">
-                            <input type="password" id="password" name="password" placeholder="Sua senha" required>
-                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Sua senha"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+
                         </div>
+
                     </div>
+
 
                     <div class="form-field">
-                        <label for="confirm_password">Repita a senha</label>
+
+                        <label for="confirm_password">
+                            Repita a senha
+                        </label>
+
                         <div class="input-group">
-                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha" required>
-                            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                name="confirm_password"
+                                placeholder="Confirme sua senha"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9-2 2-2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+
                         </div>
+
                     </div>
 
-                    <div class="form-field col-full" style="margin-top: 10px;">
-                        <button type="submit" class="btn-submit">Criar</button>
+
+                    <div
+                        class="form-field col-full"
+                        style="margin-top: 10px;"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn-submit"
+                        >
+                            Criar
+                        </button>
+
                     </div>
+
                 </form>
+
             </div>
 
         </div>
+
     </main>
 
+
+    <!-- =====================================================
+         RODAPÉ
+    ===================================================== -->
+
     <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
     </footer>
+
 
 </body>
 </html>
