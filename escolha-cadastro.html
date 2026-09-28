@@ -37,11 +37,13 @@
             margin: 0 !important;
             padding: 0 !important;
             background-color: #ffffff !important;
+            width: 100% !important;
+            min-height: 100% !important;
         }
 
         /* =====================================================
            NAVBAR
-           Mantida como estava anteriormente
+           MANTIDA EXATAMENTE COMO ESTAVA
         ===================================================== */
 
         .topbar {
@@ -90,13 +92,17 @@
             width: 50px !important;
         }
 
+
         /* =====================================================
            SIDEBAR
+           MODELO CORRETO
         ===================================================== */
 
         .sidebar {
             background-color: #1B6625 !important;
         }
+
+        /* Perfil da sidebar */
 
         .perfil-sidebar {
             display: flex !important;
@@ -109,7 +115,11 @@
             padding-bottom: 20px !important;
         }
 
-        /* Círculo branco da Tuga */
+        /*
+           CÍRCULO BRANCO
+           A Tuga fica dentro dele
+        */
+
         .perfil-sidebar .mascote-icon {
             width: 88px !important;
             height: 88px !important;
@@ -123,36 +133,46 @@
 
             overflow: hidden !important;
 
-            font-size: 0 !important;
+            margin: 0 0 10px 0 !important;
 
-            margin-bottom: 10px !important;
+            font-size: 0 !important;
         }
 
-        /* Imagem da Tuga dentro do círculo */
-        .perfil-sidebar .mascote-icon::before {
-            content: "" !important;
+        /*
+           IMAGEM REAL DA TUGA
+        */
 
+        .perfil-sidebar .mascote-icon img {
             width: 70px !important;
             height: 70px !important;
 
-            background-image: url('../img/TugaPqn.png') !important;
-            background-size: contain !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
+            display: block !important;
+
+            object-fit: contain !important;
 
             image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
         }
+
+        /*
+           TEXTO VISITANTE
+        */
 
         .perfil-sidebar p {
             color: #FFDD55 !important;
+
             font-family: 'Nunito', sans-serif !important;
             font-size: 24px !important;
             font-weight: 800 !important;
 
             margin: 0 !important;
+            padding: 0 !important;
         }
 
-        /* Linha abaixo do perfil */
+        /*
+           LINHA DIVISÓRIA
+        */
+
         .sidebar .perfil-sidebar::after {
             content: "" !important;
 
@@ -166,16 +186,24 @@
             margin-top: 28px !important;
         }
 
-        /* Área dos botões */
+        /*
+           ÁREA DOS BOTÕES
+        */
+
         .sidebar-actions {
             display: flex !important;
             flex-direction: column !important;
+
             gap: 15px !important;
 
             padding: 30px 25px 0 25px !important;
         }
 
-        /* Botões padrão */
+        /*
+           BOTÕES
+           Estado normal = branco + texto verde
+        */
+
         .sidebar-actions a {
             width: 100% !important;
             height: 66px !important;
@@ -197,15 +225,23 @@
 
             text-decoration: none !important;
 
-            transition: all 0.2s ease !important;
+            transition: background-color 0.2s ease,
+                        color 0.2s ease !important;
         }
 
-        /* Hover dos botões */
+        /*
+           HOVER
+           Branco -> Amarelo
+           Verde -> Branco
+        */
+
         .sidebar-actions a:hover {
             background-color: #FFDD55 !important;
             color: #ffffff !important;
+
             transform: none !important;
         }
+
 
         /* =====================================================
            CONTEÚDO
@@ -215,12 +251,16 @@
             margin-top: 90px !important;
             padding-top: 40px !important;
 
-            min-height: calc(100vh - 150px) !important;
+            min-height: calc(100vh - 175px) !important;
 
             background-color: #ffffff !important;
         }
 
-        /* Alinhamento dos cards */
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
         .escolha-card {
             display: flex !important;
             flex-direction: column !important;
@@ -249,13 +289,15 @@
             background-image: url('img/prof.png');
         }
 
+
         /* =====================================================
            RODAPÉ
-           Modelo da imagem 2
+           MESMA LARGURA DO INDEX
         ===================================================== */
 
         footer {
-            width: 100% !important;
+            width: 100vw !important;
+            min-width: 100vw !important;
 
             height: 85px !important;
             min-height: 85px !important;
@@ -273,6 +315,9 @@
             box-shadow: none !important;
 
             text-align: center !important;
+
+            position: relative !important;
+            left: 0 !important;
         }
 
         footer p {
@@ -291,7 +336,9 @@
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          NAVBAR
@@ -310,12 +357,18 @@
 
             <div class="perfil-sidebar">
 
-                <span class="mascote-icon"></span>
+                <!-- TUGA DENTRO DO CÍRCULO BRANCO -->
+
+                <span class="mascote-icon">
+                    <img src="img/TugaPqn.png" alt="Tuga">
+                </span>
 
                 <p>Visitante</p>
 
             </div>
 
+
+            <!-- BOTÕES -->
 
             <div class="sidebar-actions">
 
@@ -461,6 +514,7 @@
         </p>
 
     </footer>
+
 
 </body>
 
