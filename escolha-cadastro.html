@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/textos.css">
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -39,8 +40,9 @@
         }
 
         /* =====================================================
-           NAVBAR — MANTIDA COMO ESTAVA ORIGINALMENTE
-           ===================================================== */
+           NAVBAR
+           Mantida como estava anteriormente
+        ===================================================== */
 
         .topbar {
             position: fixed !important;
@@ -49,11 +51,15 @@
             width: 100% !important;
             height: 90px !important;
             min-height: 90px !important;
+
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
+
             padding: 10px 25px !important;
+
             background-color: #4CAF50 !important;
+
             z-index: 1000 !important;
             margin: 0 !important;
         }
@@ -68,6 +74,7 @@
             position: absolute !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
+
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
@@ -84,96 +91,136 @@
         }
 
         /* =====================================================
-           SIDEBAR — NOVO MODELO
-           ===================================================== */
+           SIDEBAR
+        ===================================================== */
 
-        .sidebar .perfil-sidebar {
+        .sidebar {
+            background-color: #1B6625 !important;
+        }
+
+        .perfil-sidebar {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
+            text-align: center !important;
+
+            padding-top: 25px !important;
+            padding-bottom: 20px !important;
         }
 
-        .sidebar .perfil-sidebar .mascote-icon {
-            width: 70px !important;
-            height: 70px !important;
-            border-radius: 50% !important;
+        /* Círculo branco da Tuga */
+        .perfil-sidebar .mascote-icon {
+            width: 88px !important;
+            height: 88px !important;
+
             background-color: #ffffff !important;
+            border-radius: 50% !important;
+
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            font-size: 42px !important;
-            line-height: 1 !important;
-            margin-bottom: 8px !important;
+
+            overflow: hidden !important;
+
+            font-size: 0 !important;
+
+            margin-bottom: 10px !important;
         }
 
-        .sidebar .perfil-sidebar p {
+        /* Imagem da Tuga dentro do círculo */
+        .perfil-sidebar .mascote-icon::before {
+            content: "" !important;
+
+            width: 70px !important;
+            height: 70px !important;
+
+            background-image: url('../img/TugaPqn.png') !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+
+            image-rendering: pixelated !important;
+        }
+
+        .perfil-sidebar p {
+            color: #FFDD55 !important;
+            font-family: 'Nunito', sans-serif !important;
+            font-size: 24px !important;
+            font-weight: 800 !important;
+
             margin: 0 !important;
         }
 
-        /* Botões do Sidebar */
+        /* Linha abaixo do perfil */
+        .sidebar .perfil-sidebar::after {
+            content: "" !important;
 
+            display: block !important;
+
+            width: calc(100% - 50px) !important;
+            height: 1px !important;
+
+            background-color: rgba(255, 255, 255, 0.25) !important;
+
+            margin-top: 28px !important;
+        }
+
+        /* Área dos botões */
         .sidebar-actions {
             display: flex !important;
             flex-direction: column !important;
-            gap: 12px !important;
-            width: 100% !important;
-            margin-top: 25px !important;
+            gap: 15px !important;
+
+            padding: 30px 25px 0 25px !important;
         }
 
-        .sidebar-actions .btn-principal {
+        /* Botões padrão */
+        .sidebar-actions a {
             width: 100% !important;
-            text-align: center !important;
+            height: 66px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            background-color: #ffffff !important;
+
+            border: none !important;
+            border-radius: 15px !important;
+
+            color: #41AF4B !important;
+
+            font-family: 'Nunito', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 800 !important;
+
             text-decoration: none !important;
+
+            transition: all 0.2s ease !important;
         }
 
-        /* ENTRAR — normal branco com fonte verde */
-
-        .sidebar-actions .btn-secundario {
-            background-color: #ffffff !important;
-            color: #41af4b !important;
-            border: 2px solid #ffffff !important;
-        }
-
-        /* ENTRAR — hover amarelo com fonte branca */
-
-        .sidebar-actions .btn-secundario:hover {
+        /* Hover dos botões */
+        .sidebar-actions a:hover {
             background-color: #FFDD55 !important;
-            border-color: #FFDD55 !important;
             color: #ffffff !important;
-        }
-
-        /* CADASTRAR — normal branco com fonte verde */
-
-        .sidebar-actions .btn-principal:not(.btn-secundario) {
-            background-color: #ffffff !important;
-            color: #41af4b !important;
-            border: 2px solid #ffffff !important;
-        }
-
-        /* CADASTRAR — hover amarelo com fonte branca */
-
-        .sidebar-actions .btn-principal:not(.btn-secundario):hover {
-            background-color: #FFDD55 !important;
-            border-color: #FFDD55 !important;
-            color: #ffffff !important;
+            transform: none !important;
         }
 
         /* =====================================================
-           COMPENSAÇÃO DO HEADER FIXO
-           ===================================================== */
+           CONTEÚDO
+        ===================================================== */
 
         main {
             margin-top: 90px !important;
             padding-top: 40px !important;
+
             min-height: calc(100vh - 150px) !important;
+
             background-color: #ffffff !important;
         }
 
-        /* =====================================================
-           CARDS
-           ===================================================== */
-
+        /* Alinhamento dos cards */
         .escolha-card {
             display: flex !important;
             flex-direction: column !important;
@@ -183,11 +230,14 @@
 
         .escolha-icone {
             display: block !important;
+
             width: 80px;
             height: 80px;
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+
             margin: 0 auto 15px auto !important;
         }
 
@@ -200,25 +250,44 @@
         }
 
         /* =====================================================
-           RODAPÉ — MODELO DA ESCOLHA.HTML
-           ===================================================== */
+           RODAPÉ
+           Modelo da imagem 2
+        ===================================================== */
 
         footer {
             width: 100% !important;
-            background-color: #4CAF50 !important;
-            color: #ffffff !important;
-            text-align: center !important;
-            padding: 18px 20px !important;
+
+            height: 85px !important;
+            min-height: 85px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            background-color: #CCCCCC !important;
+
             margin: 0 !important;
-            box-sizing: border-box !important;
+            padding: 0 !important;
+
+            border: none !important;
+            box-shadow: none !important;
+
+            text-align: center !important;
         }
 
         footer p {
             margin: 0 !important;
+            padding: 0 !important;
+
             color: #ffffff !important;
+
             font-family: 'Poppins', sans-serif !important;
-            font-size: 14px !important;
+            font-size: 18px !important;
+            font-weight: 400 !important;
+
+            text-align: center !important;
         }
+
     </style>
 </head>
 
@@ -226,7 +295,7 @@
 
     <!-- =====================================================
          NAVBAR
-         ===================================================== -->
+    ===================================================== -->
 
     <header class="topbar">
 
@@ -234,17 +303,19 @@
 
         <label for="menu-check" class="overlay"></label>
 
+
         <!-- SIDEBAR -->
 
         <aside class="sidebar">
 
             <div class="perfil-sidebar">
 
-                <span class="mascote-icon">🐢</span>
+                <span class="mascote-icon"></span>
 
                 <p>Visitante</p>
 
             </div>
+
 
             <div class="sidebar-actions">
 
@@ -262,7 +333,8 @@
 
         </aside>
 
-        <!-- Lado esquerdo -->
+
+        <!-- LADO ESQUERDO -->
 
         <div class="topbar-left">
 
@@ -278,7 +350,8 @@
 
         </div>
 
-        <!-- Logo central -->
+
+        <!-- LOGO CENTRAL -->
 
         <div class="topbar-center">
 
@@ -292,7 +365,8 @@
 
         </div>
 
-        <!-- Espaço direito -->
+
+        <!-- LADO DIREITO -->
 
         <div class="topbar-right"></div>
 
@@ -301,57 +375,54 @@
 
     <!-- =====================================================
          CONTEÚDO PRINCIPAL
-         ===================================================== -->
+    ===================================================== -->
 
     <main>
 
         <section class="boas-vindas"
-            style="
-                padding-top: 0 !important;
-                margin-top: 0 !important;
-                text-align: center;
-                background: #ffffff !important;
-                box-shadow: none !important;
-            ">
+                 style="
+                    padding-top: 0 !important;
+                    margin-top: 0 !important;
+                    text-align: center;
+                    background: #ffffff !important;
+                    box-shadow: none !important;
+                 ">
 
-            <h2
-                style="
-                    margin: 0 !important;
-                    color: #41af4b !important;
-                    font-family: 'Nunito', sans-serif;
-                    font-size: 2.2rem;
-                    font-weight: 800;
-                ">
+            <h2 style="
+                margin: 0 !important;
+                color: #41af4b !important;
+                font-family: 'Nunito', sans-serif;
+                font-size: 2.2rem;
+                font-weight: 800;
+            ">
                 Crie sua conta
             </h2>
 
-            <p
-                class="sub-branco"
-                style="
+
+            <p class="sub-branco"
+               style="
                     color: #000000 !important;
                     font-weight: normal !important;
                     margin-top: 8px;
-                ">
+               ">
                 Você é:
             </p>
 
 
-            <div
-                class="escolha-container"
-                style="
+            <div class="escolha-container"
+                 style="
                     margin-top: 25px !important;
                     display: flex;
                     justify-content: center;
                     gap: 20px;
                     align-items: center;
-                ">
+                 ">
 
 
-                <!-- CARD ALUNO -->
+                <!-- ALUNO -->
 
-                <div
-                    class="escolha-card aluno-card"
-                    onclick="window.location.href='cadastro.html'">
+                <div class="escolha-card aluno-card"
+                     onclick="window.location.href='cadastro.html'">
 
                     <span class="escolha-icone"></span>
 
@@ -360,11 +431,10 @@
                 </div>
 
 
-                <!-- CARD GESTOR -->
+                <!-- GESTOR -->
 
-                <div
-                    class="escolha-card professor-card"
-                    onclick="window.location.href='cadastro-professor.html'">
+                <div class="escolha-card professor-card"
+                     onclick="window.location.href='cadastro-professor.html'">
 
                     <span class="escolha-icone"></span>
 
@@ -382,11 +452,13 @@
 
     <!-- =====================================================
          RODAPÉ
-         ===================================================== -->
+    ===================================================== -->
 
     <footer>
 
-        <p>© 2026 FATEC - Informática para Negócios</p>
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
 
     </footer>
 
