@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
 
-
     <style>
 
         /* =====================================================
@@ -196,6 +195,63 @@
 
 
         /* =====================================================
+           HAMBURGER / SIDEBAR
+           
+           O HAMBURGER FICA BRANCO E NÃO MUDA DE COR
+           AO PASSAR O MOUSE, CLICAR OU RECEBER FOCO.
+           ===================================================== */
+
+        .topbar .hamburger {
+            color: #FFFFFF !important;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
+
+        .topbar .hamburger:hover,
+        .topbar .hamburger:focus,
+        .topbar .hamburger:active {
+            color: #FFFFFF !important;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
+
+        .topbar .hamburger span,
+        .topbar .hamburger:hover span,
+        .topbar .hamburger:focus span,
+        .topbar .hamburger:active span {
+            background-color: #FFFFFF !important;
+            border-color: #FFFFFF !important;
+            color: #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+           ===================================================== */
+
+        .topbar .sidebar {
+            z-index: 1100 !important;
+        }
+
+        .topbar .links-sidebar a {
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+        }
+
+        .topbar .links-sidebar a:hover,
+        .topbar .links-sidebar a:focus,
+        .topbar .links-sidebar a:active {
+            text-decoration: none !important;
+        }
+
+
+        /* =====================================================
            FOTO DE PERFIL
            ===================================================== */
 
@@ -356,7 +412,6 @@
 
         /* =====================================================
            TUGA
-
            SEM QUADRO TRACEJADO
            ===================================================== */
 
@@ -1008,7 +1063,7 @@
 
     <div id="modal-overlay"
          class="modal-overlay"
-         onclick="fecharTodosModais()">
+         onclick="fecharTodosModais">
     </div>
 
 
