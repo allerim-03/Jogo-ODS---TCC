@@ -80,74 +80,63 @@
 
 
         /* =========================================================
-           BOTÃO SAIR
+           BOTÃO SAIR - IGUAL AO INDEX
         ========================================================= */
 
-        .sidebar .links-sidebar .link-sair {
-            display: flex !important;
-
-            align-items: center !important;
-            gap: 12px !important;
-
+        .sidebar .sair-sidebar {
             color: #ffffff !important;
-
             text-decoration: none !important;
 
+            display: flex !important;
+            align-items: center !important;
+
+            gap: 10px !important;
+
             font-weight: bold !important;
+            font-size: 16px !important;
 
-            margin-top: 70px !important;
+            transition: color 0.2s ease !important;
 
-            cursor: pointer !important;
+            margin-top: 45px !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
         }
 
 
         /* =========================================================
-           ÍCONE DE SAÍDA
+           ÍCONE DE SAÍDA - IGUAL AO INDEX
         ========================================================= */
 
-        .sidebar .links-sidebar .link-sair .icone-sair {
-            width: 22px !important;
-            height: 22px !important;
-
-            display: inline-flex !important;
-
+        .sidebar .sair-sidebar .sair-icon {
+            display: flex !important;
             align-items: center !important;
             justify-content: center !important;
 
             color: #ffffff !important;
 
-            flex-shrink: 0 !important;
+            transition: color 0.2s ease !important;
         }
 
 
-        .sidebar .links-sidebar .link-sair .icone-sair svg {
-            width: 22px !important;
-            height: 22px !important;
-
-            display: block !important;
-
-            fill: none !important;
-
-            stroke: #ffffff !important;
-
-            stroke-width: 2 !important;
-
-            stroke-linecap: round !important;
-            stroke-linejoin: round !important;
-        }
-
-
-        /* =========================================================
-           HOVER DO SAIR
-           MESMA COR DO NÍVEL
-        ========================================================= */
-
-        .sidebar .links-sidebar .link-sair:hover {
+        .sidebar .sair-sidebar:hover .sair-icon {
             color: #FFDD55 !important;
         }
 
 
-        .sidebar .links-sidebar .link-sair:hover .icone-sair svg {
+        .sidebar .sair-sidebar .sair-icon svg {
+            width: 23px !important;
+            height: 23px !important;
+
+            stroke: #ffffff !important;
+
+            transition: stroke 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
             stroke: #FFDD55 !important;
         }
 
@@ -268,34 +257,36 @@
 
 
                 <!-- =================================================
-                     SAIR
+                     SAIR - IGUAL AO INDEX
                 ================================================= -->
 
                 <a
                     href="home.html"
-                    class="link-sair"
-                    aria-label="Sair"
+                    class="sair-sidebar"
                 >
 
-                    <span class="icone-sair">
+                    <span class="sair-icon">
 
                         <svg
-                            viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
                         >
 
-                            <path
-                                d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"
-                            />
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
 
-                            <path
-                                d="M13 12h8"
-                            />
+                            <polyline points="16 17 21 12 16 7"></polyline>
 
-                            <path
-                                d="m18 8 4 4-4 4"
-                            />
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12"
+                            ></line>
 
                         </svg>
 
