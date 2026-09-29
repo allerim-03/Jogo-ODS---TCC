@@ -74,7 +74,7 @@
 
         /* =====================================================
            NAVBAR
-           MANTIDA COMO ESTAVA NO ESCOLHA-CADASTRO
+           SEM SIDEBAR E SEM HAMBÚRGUER
         ===================================================== */
 
         .topbar {
@@ -92,7 +92,7 @@
             display: flex !important;
 
             align-items: center !important;
-            justify-content: space-between !important;
+            justify-content: center !important;
 
             padding: 10px 25px !important;
 
@@ -105,16 +105,9 @@
         }
 
 
-        .topbar-left {
-
-            display: flex !important;
-
-            align-items: center !important;
-
-            width: 50px !important;
-
-        }
-
+        /* =====================================================
+           LOGO CENTRAL
+        ===================================================== */
 
         .topbar-center {
 
@@ -140,316 +133,6 @@
             width: auto !important;
 
             display: block !important;
-
-        }
-
-
-        .topbar-right {
-
-            width: 50px !important;
-
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           ESTRUTURA IGUAL À DO LOGIN
-        ===================================================== */
-
-        .menu-checkbox {
-
-            display: none !important;
-
-        }
-
-
-        .sidebar {
-
-            position: fixed !important;
-
-            top: 0 !important;
-
-            left: -300px !important;
-
-            width: 270px !important;
-
-            height: 100vh !important;
-
-            background-color: #1b5e20 !important;
-
-            z-index: 9999 !important;
-
-            transition: left 0.3s ease !important;
-
-            padding: 30px 20px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            box-sizing: border-box !important;
-
-        }
-
-
-        #menu-check:checked ~ .sidebar {
-
-            left: 0 !important;
-
-        }
-
-
-        /* =====================================================
-           OVERLAY
-        ===================================================== */
-
-        .overlay {
-
-            position: fixed !important;
-
-            top: 0 !important;
-            left: 0 !important;
-
-            width: 100% !important;
-            height: 100% !important;
-
-            background: rgba(0, 0, 0, 0.4) !important;
-
-            z-index: 9998 !important;
-
-            display: none !important;
-
-        }
-
-
-        #menu-check:checked ~ .overlay {
-
-            display: block !important;
-
-        }
-
-
-        /* =====================================================
-           HAMBÚRGUER
-        ===================================================== */
-
-        .hamburger {
-
-            width: 42px !important;
-            height: 42px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            justify-content: center !important;
-            align-items: center !important;
-
-            gap: 5px !important;
-
-            cursor: pointer !important;
-
-            border-radius: 8px !important;
-
-            transition: opacity 0.2s ease !important;
-
-        }
-
-
-        .hamburger:hover {
-
-            opacity: 0.85 !important;
-
-        }
-
-
-        .hamburger span {
-
-            width: 24px !important;
-
-            height: 3px !important;
-
-            background-color: #FFFFFF !important;
-
-            border-radius: 2px !important;
-
-        }
-
-
-        /* =====================================================
-           PERFIL DO VISITANTE
-           IGUAL AO LOGIN
-        ===================================================== */
-
-        .perfil-sidebar {
-
-            text-align: center !important;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-
-            padding-bottom: 20px !important;
-
-            margin-bottom: 20px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            align-items: center !important;
-
-        }
-
-
-        /* =====================================================
-           IMAGEM DA TUGA
-           IGUAL AO LOGIN
-        ===================================================== */
-
-        .perfil-sidebar img.mascote-perfil {
-
-            width: 65px !important;
-
-            height: 65px !important;
-
-            border-radius: 50% !important;
-
-            object-fit: contain !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            background-color: #FFFFFF !important;
-
-            padding: 2px !important;
-
-            margin-bottom: 10px !important;
-
-            image-rendering: pixelated !important;
-
-            display: block !important;
-
-        }
-
-
-        /* =====================================================
-           VISITANTE
-        ===================================================== */
-
-        .perfil-sidebar p {
-
-            color: #FFB72B !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1.1rem !important;
-
-            margin: 0 !important;
-
-        }
-
-
-        /* =====================================================
-           BOTÕES DO SIDEBAR
-           ESTRUTURA IGUAL AO LOGIN
-        ===================================================== */
-
-        .links-sidebar {
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            gap: 8px !important;
-
-            width: 100% !important;
-
-        }
-
-
-        .links-sidebar a {
-
-            width: 100% !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 16px !important;
-
-            text-transform: uppercase !important;
-
-            text-align: center !important;
-
-            padding: 12px 16px !important;
-
-            border-radius: 12px !important;
-
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease !important;
-
-            display: flex !important;
-
-            align-items: center !important;
-
-            justify-content: center !important;
-
-            min-height: 62px !important;
-
-        }
-
-
-        /* =====================================================
-           ENTRAR
-        ===================================================== */
-
-        .links-sidebar a.link-entrar {
-
-            color: #FFFFFF !important;
-
-            background-color: transparent !important;
-
-            border: 2px solid #FFFFFF !important;
-
-        }
-
-
-        .links-sidebar a.link-entrar:hover {
-
-            background-color: #FFDE5A !important;
-
-            color: #FFFFFF !important;
-
-            border-color: #FFDE5A !important;
-
-        }
-
-
-        /* =====================================================
-           CADASTRAR
-        ===================================================== */
-
-        .links-sidebar a.link-cadastrar {
-
-            color: #1b5e20 !important;
-
-            background-color: #FFFFFF !important;
-
-            border: 2px solid #FFFFFF !important;
-
-        }
-
-
-        .links-sidebar a.link-cadastrar:hover {
-
-            background-color: #FFDE5A !important;
-
-            color: #1b5e20 !important;
-
-            border-color: #FFDE5A !important;
 
         }
 
@@ -523,7 +206,7 @@
 
         /* =====================================================
            RODAPÉ
-           LARGURA TOTAL DA PÁGINA, COMO NO INDEX
+           LARGURA TOTAL DA PÁGINA
         ===================================================== */
 
         footer {
@@ -589,119 +272,10 @@
 
     <!-- =====================================================
          NAVBAR
+         SOMENTE LOGO
     ===================================================== -->
 
     <header class="topbar">
-
-
-        <!-- CHECKBOX DO MENU -->
-
-        <input
-            type="checkbox"
-            id="menu-check"
-            class="menu-checkbox"
-        >
-
-
-        <!-- OVERLAY -->
-
-        <label
-            for="menu-check"
-            class="overlay"
-        ></label>
-
-
-        <!-- =================================================
-             SIDEBAR
-        ================================================= -->
-
-        <aside class="sidebar">
-
-
-            <!-- PERFIL DO VISITANTE -->
-
-            <div class="perfil-sidebar">
-
-
-                <!-- TUGA -->
-
-                <img
-                    src="img/TugaPqn.png"
-                    alt="Mascote Tuga"
-                    class="mascote-perfil"
-                >
-
-
-                <!-- NOME -->
-
-                <p>
-                    Visitante
-                </p>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 BOTÕES
-            ================================================= -->
-
-            <nav class="links-sidebar">
-
-
-                <!-- ENTRAR -->
-
-                <a
-                    href="escolha.html"
-                    class="link-entrar"
-                >
-
-                    ENTRAR
-
-                </a>
-
-
-                <!-- CADASTRAR -->
-
-                <a
-                    href="escolha-cadastro.html"
-                    class="link-cadastrar"
-                >
-
-                    CADASTRAR
-
-                </a>
-
-
-            </nav>
-
-
-        </aside>
-
-
-        <!-- =================================================
-             LADO ESQUERDO / HAMBÚRGUER
-        ================================================= -->
-
-        <div class="topbar-left">
-
-
-            <label
-                for="menu-check"
-                class="hamburger"
-                aria-label="Abrir menu"
-            >
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </label>
-
-
-        </div>
 
 
         <!-- =================================================
@@ -710,9 +284,7 @@
 
         <div class="topbar-center">
 
-
             <div class="logo">
-
 
                 <img
                     src="img/cultsab.png"
@@ -720,18 +292,9 @@
                     class="navbar-logo"
                 >
 
-
             </div>
 
-
         </div>
-
-
-        <!-- =================================================
-             LADO DIREITO
-        ================================================= -->
-
-        <div class="topbar-right"></div>
 
 
     </header>
@@ -813,14 +376,14 @@
                     onclick="window.location.href='cadastro.html'"
                 >
 
-
                     <span class="escolha-icone"></span>
 
 
                     <h2>
-                        Aluno
-                    </h2>
 
+                        Aluno
+
+                    </h2>
 
                 </div>
 
@@ -832,14 +395,14 @@
                     onclick="window.location.href='cadastro-professor.html'"
                 >
 
-
                     <span class="escolha-icone"></span>
 
 
                     <h2>
-                        Gestor
-                    </h2>
 
+                        Gestor
+
+                    </h2>
 
                 </div>
 
