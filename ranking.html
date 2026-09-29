@@ -49,7 +49,7 @@
 
         /* =========================================================
            MENU HAMBÚRGUER
-           ESTRUTURA IGUAL À PÁGINA ODS
+           BRANCO SEMPRE — SEM HOVER
         ========================================================= */
 
         .topbar .hamburger {
@@ -84,22 +84,12 @@
             padding: 0 !important;
 
             transform: none !important;
-
-            transition:
-                background-color 0.2s ease !important;
-        }
-
-
-        /* HOVER AMARELO NOS 3 TRAÇOS */
-
-        .topbar .hamburger:hover span {
-            background-color: #FFDD55 !important;
         }
 
 
         /* =========================================================
            SIDEBAR
-           ESTRUTURA IGUAL À PÁGINA ODS
+           MESMA ESTRUTURA DA PÁGINA ODS
         ========================================================= */
 
         .sidebar {
@@ -110,7 +100,6 @@
 
         /* =========================================================
            BOTÃO SAIR
-           EXATAMENTE COMO NA PÁGINA ODS
         ========================================================= */
 
         .sidebar .sair-sidebar {
@@ -135,6 +124,8 @@
         }
 
 
+        /* Hover amarelo somente no SAIR */
+
         .sidebar .sair-sidebar:hover {
 
             color: #FFDD55 !important;
@@ -142,7 +133,7 @@
 
 
         /* =========================================================
-           ÍCONE DE SAÍDA
+           ÍCONE DO SAIR
         ========================================================= */
 
         .sidebar .sair-sidebar .sair-icon {
@@ -218,31 +209,98 @@
 
 
         /* =========================================================
-           GARANTE O TOPO
+           TOPBAR
         ========================================================= */
 
         .topbar {
 
+            position: fixed !important;
+
+            top: 0 !important;
+
+            left: 0 !important;
+
+            width: 100% !important;
+
+            height: 90px !important;
+
+            min-height: 90px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
             z-index: 1000 !important;
+
+            margin: 0 !important;
         }
 
 
         /* =========================================================
-           COMPENSAÇÃO DA NAVBAR FIXA
+           LADO ESQUERDO
         ========================================================= */
 
-        main {
+        .topbar .left {
 
-            margin-top: 90px !important;
+            display: flex !important;
 
-            padding-top: 20px !important;
+            align-items: center !important;
+
+            gap: 18px !important;
+        }
+
+
+        /* =========================================================
+           LOGO + XP
+        ========================================================= */
+
+        .topbar .info-container {
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: flex-start !important;
+
+            justify-content: center !important;
+
+            gap: 6px !important;
+        }
+
+
+        .topbar .navbar-logo {
+
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
         }
 
 
         /* =========================================================
            MENU CENTRAL
-           MANTÉM O HOVER AMARELO
         ========================================================= */
+
+        .topbar nav.menu {
+
+            margin-left: auto !important;
+
+            margin-right: 25px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 20px !important;
+        }
+
 
         .topbar nav.menu a {
 
@@ -266,6 +324,8 @@
         }
 
 
+        /* Hover amarelo dos links da navbar */
+
         .topbar nav.menu a:hover {
 
             color: #FFDD55 !important;
@@ -279,6 +339,8 @@
             box-shadow: none !important;
         }
 
+
+        /* Página ativa continua branca */
 
         .topbar nav.menu a:active,
         .topbar nav.menu a:focus,
@@ -316,6 +378,18 @@
             border: 2px solid #ffffff;
         }
 
+
+        /* =========================================================
+           CONTEÚDO PRINCIPAL
+        ========================================================= */
+
+        main {
+
+            margin-top: 90px !important;
+
+            padding-top: 20px !important;
+        }
+
     </style>
 
 </head>
@@ -325,7 +399,7 @@
 
 
     <!-- =========================================================
-         NAVBAR PADRONIZADA
+         NAVBAR
     ========================================================= -->
 
     <header class="topbar">
@@ -351,6 +425,8 @@
         <aside class="sidebar">
 
 
+            <!-- PERFIL DO SIDEBAR -->
+
             <div class="perfil-sidebar">
 
                 <img
@@ -359,10 +435,14 @@
                     alt="Foto de perfil"
                 >
 
-                <p>Nível 2</p>
+                <p>
+                    Nível 2
+                </p>
 
             </div>
 
+
+            <!-- LINKS DO SIDEBAR -->
 
             <nav class="links-sidebar">
 
@@ -474,6 +554,8 @@
         <div class="left">
 
 
+            <!-- HAMBÚRGUER -->
+
             <label
                 for="menu-check"
                 class="hamburger"
@@ -488,6 +570,8 @@
 
             </label>
 
+
+            <!-- LOGO E XP -->
 
             <div class="info-container">
 
@@ -523,7 +607,6 @@
                             class="progress"
                             style="
                                 width: 45%;
-                                background: #FFDD55 !important;
                                 background-color: #FFDD55 !important;
                             "
                         >
@@ -604,13 +687,11 @@
             class="perfil-externo"
         >
 
-
             <img
                 src="img/foto.png"
                 class="foto-perfil"
                 alt="Perfil"
             >
-
 
         </a>
 
@@ -620,8 +701,7 @@
 
 
     <!-- =========================================================
-         CONTEÚDO PRINCIPAL
-         RANKING ORIGINAL MANTIDO
+         CONTEÚDO PRINCIPAL — RANKING ORIGINAL
     ========================================================= -->
 
     <main>
@@ -672,26 +752,25 @@
             </div>
 
 
+            <!-- =================================================
+                 RANKING
+            ================================================= -->
 
             <div class="ranking-container">
 
 
-                <!-- =================================================
-                     PÓDIO
-                ================================================= -->
+                <!-- PÓDIO -->
 
                 <div class="podium-container">
 
 
-                    <!-- SEGUNDO -->
+                    <!-- SEGUNDO LUGAR -->
 
                     <div class="podium-card second">
-
 
                         <div class="podium-medal">
                             🥈
                         </div>
-
 
                         <img
                             src="img/foto.png"
@@ -699,30 +778,24 @@
                             alt="Player 2"
                         >
 
-
                         <span class="podium-name">
                             Nome2
                         </span>
-
 
                         <span class="podium-xp">
                             2.400 XP
                         </span>
 
-
                     </div>
 
 
-
-                    <!-- PRIMEIRO -->
+                    <!-- PRIMEIRO LUGAR -->
 
                     <div class="podium-card first">
-
 
                         <div class="podium-medal">
                             👑
                         </div>
-
 
                         <img
                             src="img/foto.png"
@@ -730,30 +803,24 @@
                             alt="Player 1"
                         >
 
-
                         <span class="podium-name">
                             Nome1
                         </span>
-
 
                         <span class="podium-xp">
                             2.850 XP
                         </span>
 
-
                     </div>
 
 
-
-                    <!-- TERCEIRO -->
+                    <!-- TERCEIRO LUGAR -->
 
                     <div class="podium-card third">
-
 
                         <div class="podium-medal">
                             🥉
                         </div>
-
 
                         <img
                             src="img/foto.png"
@@ -761,16 +828,13 @@
                             alt="Player 3"
                         >
 
-
                         <span class="podium-name">
                             Nome3
                         </span>
 
-
                         <span class="podium-xp">
                             2.150 XP
                         </span>
-
 
                     </div>
 
@@ -778,9 +842,8 @@
                 </div>
 
 
-
                 <!-- =================================================
-                     LISTA DO RANKING
+                     LISTA
                 ================================================= -->
 
                 <div class="ranking-list">
@@ -790,11 +853,9 @@
 
                     <div class="ranking-item">
 
-
                         <span class="position">
                             4º
                         </span>
-
 
                         <img
                             src="img/foto.png"
@@ -802,30 +863,24 @@
                             alt="Player"
                         >
 
-
                         <span class="player-name">
                             Nome4
                         </span>
-
 
                         <span class="player-xp">
                             1.900 XP
                         </span>
 
-
                     </div>
-
 
 
                     <!-- 5º -->
 
                     <div class="ranking-item">
 
-
                         <span class="position">
                             5º
                         </span>
-
 
                         <img
                             src="img/foto.png"
@@ -833,30 +888,24 @@
                             alt="Player"
                         >
 
-
                         <span class="player-name">
                             Nome5
                         </span>
-
 
                         <span class="player-xp">
                             1.750 XP
                         </span>
 
-
                     </div>
-
 
 
                     <!-- 6º -->
 
                     <div class="ranking-item">
 
-
                         <span class="position">
                             6º
                         </span>
-
 
                         <img
                             src="img/foto.png"
@@ -864,30 +913,24 @@
                             alt="Player"
                         >
 
-
                         <span class="player-name">
                             Nome6
                         </span>
-
 
                         <span class="player-xp">
                             1.600 XP
                         </span>
 
-
                     </div>
-
 
 
                     <!-- VOCÊ -->
 
                     <div class="ranking-item current-user">
 
-
                         <span class="position">
                             12º
                         </span>
-
 
                         <img
                             src="img/foto.png"
@@ -895,16 +938,13 @@
                             alt="Você"
                         >
 
-
                         <span class="player-name">
                             Você
                         </span>
 
-
                         <span class="player-xp">
                             450 XP
                         </span>
-
 
                     </div>
 
