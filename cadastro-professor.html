@@ -1,6 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cadastro do Gestor - Cultivando o Saber</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/icon.png">
+
+
+<!-- =====================================================
+     FONTES
+===================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+>
+
+
+<!-- =====================================================
+     CSS DO PROJETO
+===================================================== -->
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/banner.css">
+<link rel="stylesheet" href="css/botoes.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/escolha.css">
+<link rel="stylesheet" href="css/formularios.css">
+<link rel="stylesheet" href="css/jogos.css">
+<link rel="stylesheet" href="css/journey.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/quiz.css">
+<link rel="stylesheet" href="css/ranking.css">
+<link rel="stylesheet" href="css/rodape.css">
+<link rel="stylesheet" href="css/sobre.css">
+<link rel="stylesheet" href="css/textos.css">
+
+
+<style>
+
+    /* =====================================================
+       CONFIGURAÇÃO GERAL
+    ===================================================== */
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        width: 100% !important;
+        min-height: 100% !important;
+
+        background-color: #ffffff !important;
+
+    }
+
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .topbar {
+
+        position: fixed !important;
+
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100% !important;
+
+        height: 90px !important;
+        min-height: 90px !important;
+
+        display: flex !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        padding: 10px 25px !important;
+
+        background-color: #4CAF50 !important;
+
+        z-index: 1000 !important;
+
+        margin: 0 !important;
+
+    }
+
+
+    .topbar-center {
+
+        position: absolute !important;
+
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+    }
+
+
+    .topbar .navbar-logo {
+
+        height: 38px !important;
+
+        width: auto !important;
+
+        display: block !important;
+
+    }
+
+
+
+    /* =====================================================
+       CONTEÚDO PRINCIPAL
+    ===================================================== */
+
+    main {
+
+        margin-top: 90px !important;
+
+        padding-top: 20px !important;
+
+        min-height: calc(100vh - 175px) !important;
+
+        background-color: #ffffff !important;
+
+    }
+
+
+
+    /* =====================================================
+       ÁREA DE CADASTRO
+    ===================================================== */
+
+    .auth-sidebar h2 {
+
+        color: #FFFFFF !important;
+
+    }
+
+
+    .auth-sidebar .btn-outline {
+
+        background-color: #FFFFFF !important;
+
+        color: #38bdf8 !important;
+
+        border-color: #FFFFFF !important;
+
+    }
+
+
+    .auth-sidebar .btn-outline:hover {
+
+        background-color: #f0f0f0 !important;
+
+        color: #0284c7 !important;
+
+        border-color: #f0f0f0 !important;
+
+    }
+
+
+    .auth-sidebar .mascote {
+
+        image-rendering: -moz-crisp-edges !important;
+
+        image-rendering: -webkit-optimize-contrast !important;
+
+        image-rendering: pixelated !important;
+
+        image-rendering: crisp-edges !important;
+
+    }
+
+
+
+    /* =====================================================
+       ÍCONES DOS CAMPOS
+    ===================================================== */
+
+    .input-group svg {
+
+        width: 24px !important;
+        height: 24px !important;
+
+        min-width: 24px !important;
+        min-height: 24px !important;
+
+        max-width: 24px !important;
+        max-height: 24px !important;
+
+        display: block !important;
+
+        flex-shrink: 0 !important;
+
+        overflow: visible !important;
+
+        box-sizing: border-box !important;
+
+    }
+
+
+    .input-group svg path {
+
+        display: block !important;
+
+    }
+
+
+
+    /* =====================================================
+       RODAPÉ
+    ===================================================== */
+
+    footer {
+
+        width: 100% !important;
+
+        min-width: 100% !important;
+
+        height: 85px !important;
+
+        min-height: 85px !important;
+
+        display: flex !important;
+
+        align-items: center !important;
+
+        justify-content: center !important;
+
+        background-color: #CCCCCC !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+
+        text-align: center !important;
+
+        position: relative !important;
+
+        left: 0 !important;
+
+    }
+
+
+    footer p {
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        color: #ffffff !important;
+
+        font-family: 'Poppins', sans-serif !important;
+
+        font-size: 18px !important;
+
+        font-weight: 400 !important;
+
+        text-align: center !important;
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
 <header class="topbar">
 
-    <!-- LOGO CENTRAL -->
+
+    <!-- =================================================
+         LOGO CENTRAL
+    ================================================= -->
 
     <div class="topbar-center">
 
@@ -16,4 +326,198 @@
 
     </div>
 
+
 </header>
+
+
+
+<!-- =====================================================
+     CONTEÚDO DO CADASTRO
+===================================================== -->
+
+<main>
+
+
+    <div class="auth-container">
+
+
+        <!-- =================================================
+             COLUNA ESQUERDA
+        ================================================= -->
+
+        <div class="auth-sidebar professor-theme">
+
+
+            <img
+                src="img/TugaPqn.png"
+                alt="Mascote Tuga"
+                class="mascote"
+            >
+
+
+            <h2>
+                Bem-vindo!
+            </h2>
+
+
+            <p>
+                Acompanhe o desempenho da sua turma e gerencie seus alunos em um só lugar.
+            </p>
+
+
+            <p
+                style="
+                    font-size: 0.85rem;
+                    margin-bottom: 15px;
+                "
+            >
+                Já possui uma conta?
+            </p>
+
+
+            <a
+                href="login-professor.html"
+                class="btn-outline"
+            >
+                ENTRAR
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORMULÁRIO
+        ================================================= -->
+
+        <div class="auth-content">
+
+
+            <h1>
+                Cadastro do Gestor
+            </h1>
+
+
+            <form class="form-grid">
+
+
+                <!-- NOME -->
+
+                <div class="form-field col-full">
+
+
+                    <label for="name_user">
+                        Nome Completo
+                    </label>
+
+
+                    <div class="input-group">
+
+
+                        <input
+                            type="text"
+                            id="name_user"
+                            name="name_user"
+                            placeholder="Digite seu nome completo"
+                            required
+                        >
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+
+                        </svg>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- GÊNERO -->
+
+                <div class="form-field">
+
+
+                    <label for="id_gender">
+                        Gênero
+                    </label>
+
+
+                    <div class="input-group">
+
+
+                        <select
+                            id="id_gender"
+                            name="id_gender"
+                            required
+                        >
+
+                            <option
+                                value=""
+                                disabled
+                                selected
+                            >
+                                Selecione
+                            </option>
+
+                            <option value="1">
+                                Feminino
+                            </option>
+
+                            <option value="2">
+                                Masculino
+                            </option>
+
+                            <option value="3">
+                                Não-binário
+                            </option>
+
+                            <option value="4">
+                                Prefiro não informar
+                            </option>
+
+                        </select>
+
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+
+                        </svg>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- NASCIMENTO -->
+
+                <div class="form-field">
+
+
+                    <label for="birth_user">
+                        Nascimento
+                    </label>
+
+
+                    <div class="input-group">
+
+
+                        <input
+                            type="date"
+                            id="birth_user"
+                            name="birth_user"
+                            required
+                        >
+
+
+                        <svg viewBox="0 0 24 24">
+```
