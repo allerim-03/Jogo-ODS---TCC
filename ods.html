@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cultivando o Saber - Objetivos de Desenvolvimento Sustentável</title>
 
     <!-- Favicon / Ícone da guia -->
@@ -27,210 +28,660 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/textos.css">
     <link rel="stylesheet" href="css/ods.css">
-    
+
+    <style>
+
+        /* =========================================
+           CONFIGURAÇÕES GERAIS
+           ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* =========================================
+           HAMBÚRGUER
+           ========================================= */
+
+        .topbar .hamburger {
+            width: 30px !important;
+            height: 26px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+
+            gap: 6px !important;
+
+            cursor: pointer !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .topbar .hamburger span {
+            display: block !important;
+
+            width: 30px !important;
+            height: 4px !important;
+
+            background-color: #ffffff !important;
+
+            border-radius: 10px !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .topbar .hamburger:hover span {
+            background-color: #ffffff !important;
+        }
+
+
+        /* =========================================
+           SIDEBAR
+           ========================================= */
+
+        .sidebar {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .links-sidebar {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+
+        /* =========================================
+           BOTÃO SAIR DO SIDEBAR
+           ========================================= */
+
+        .links-sidebar .sair-sidebar {
+            margin-top: 80px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            font-weight: bold !important;
+            font-size: 17px !important;
+
+            transition: color 0.2s ease !important;
+        }
+
+        .links-sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
+        }
+
+        .links-sidebar .sair-sidebar:hover .icone-sair {
+            color: #FFDD55 !important;
+        }
+
+
+        /* =========================================
+           ÍCONE DE SAIR
+           ========================================= */
+
+        .icone-sair {
+            width: 23px !important;
+            height: 23px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #ffffff !important;
+
+            font-size: 23px !important;
+            font-weight: bold !important;
+
+            line-height: 1 !important;
+
+            transition: color 0.2s ease !important;
+        }
+
+
+        /* =========================================
+           TOPBAR
+           ========================================= */
+
+        .topbar .level .star {
+            color: #FFDD55 !important;
+        }
+
+        .topbar .level .progress {
+            background-color: #FFDD55 !important;
+        }
+
+
+        /* =========================================
+           CONTEÚDO PRINCIPAL
+           ========================================= */
+
+        main {
+            padding-top: 0 !important;
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVBAR PADRONIZADA -->
-    <header class="topbar">
-        <input type="checkbox" id="menu-check" class="menu-checkbox">
-        <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
+    <!-- =========================================
+         NAVBAR PADRONIZADA
+         ========================================= -->
+
+    <header class="topbar">
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+        <label
+            for="menu-check"
+            class="overlay"
+        ></label>
+
+
+        <!-- =========================================
+             SIDEBAR
+             ========================================= -->
+
         <aside class="sidebar">
+
             <div class="perfil-sidebar">
-                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Foto de perfil"
+                >
+
                 <p>Nível 2</p>
+
             </div>
 
+
             <nav class="links-sidebar">
-                <a href="index.html">HOME</a>
-                <a href="ods.html" class="active">ODS</a>
-                <a href="quiz.html">QUIZ</a>
-                <a href="jogos.html">JOGOS</a>
-                <a href="ranking.html">RANKING</a>
-                <a href="perfil.html">PERFIL</a>
-                <a href="sobrenos.html">SOBRE NÓS</a>
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a
+                    href="ods.html"
+                    class="active"
+                >
+                    ODS
+                </a>
+
+                <a href="quiz.html">
+                    QUIZ
+                </a>
+
+                <a href="jogos.html">
+                    JOGOS
+                </a>
+
+                <a href="ranking.html">
+                    RANKING
+                </a>
+
+                <a href="perfil.html">
+                    PERFIL
+                </a>
+
+                <a href="sobrenos.html">
+                    SOBRE NÓS
+                </a>
+
+
+                <!-- =================================
+                     SAIR
+                     ================================= -->
+
+                <a
+                    href="home.html"
+                    class="sair-sidebar"
+                >
+
+                    <span class="icone-sair">
+                        ↪
+                    </span>
+
+                    <span>
+                        SAIR
+                    </span>
+
+                </a>
+
             </nav>
+
         </aside>
 
-        <!-- Lado Esquerdo -->
+
+        <!-- =========================================
+             LADO ESQUERDO
+             ========================================= -->
+
         <div class="left">
-            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </label>
 
+
             <div class="info-container">
+
                 <div class="logo">
-                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
+
                 </div>
+
 
                 <div class="level">
 
-                    <!-- NÍVEL COM AMARELO-CLARO -->
-                    <span class="star" style="color: #FFDD55 !important;">
+                    <!-- NÍVEL -->
+
+                    <span
+                        class="star"
+                        style="color: #FFDD55 !important;"
+                    >
                         ★ NÍVEL 2
                     </span>
 
-                    <!-- BARRA DE XP COM AMARELO-CLARO -->
+
+                    <!-- BARRA DE XP -->
+
                     <div class="bar">
-                        <div class="progress"
-                             style="width: 45%; background: #FFDD55 !important; background-color: #FFDD55 !important;">
-                        </div>
+
+                        <div
+                            class="progress"
+                            style="
+                                width: 45%;
+                                background: #FFDD55 !important;
+                                background-color: #FFDD55 !important;
+                            "
+                        ></div>
+
                     </div>
 
-                    <span class="xp">450/1000</span>
+
+                    <span class="xp">
+                        450/1000
+                    </span>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- Menu de Navegação Central -->
+
+        <!-- =========================================
+             MENU DE NAVEGAÇÃO CENTRAL
+             ========================================= -->
+
         <nav class="menu">
-            <a href="index.html">HOME</a>
-            <a href="ods.html" class="active">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a
+                href="ods.html"
+                class="active"
+            >
+                ODS
+            </a>
+
+            <a href="quiz.html">
+                QUIZ
+            </a>
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+            <a href="ranking.html">
+                RANKING
+            </a>
+
+            <a href="perfil.html">
+                PERFIL
+            </a>
+
+            <a href="sobrenos.html">
+                SOBRE NÓS
+            </a>
+
         </nav>
 
-        <!-- Perfil à Direita -->
-        <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+
+        <!-- =========================================
+             PERFIL À DIREITA
+             ========================================= -->
+
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
+
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
+
         </a>
+
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+         ========================================= -->
+
     <main>
 
-        <!-- TÍTULO DA PÁGINA -->
+
+        <!-- =========================================
+             TÍTULO DA PÁGINA
+             ========================================= -->
+
         <div class="titulo-principal-topo">
-            <h2>OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL</h2>
-            <p>Conheça as 17 metas globais para transformar o nosso planeta até 2030</p>
+
+            <h2>
+                OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL
+            </h2>
+
+            <p>
+                Conheça as 17 metas globais para transformar o nosso planeta até 2030
+            </p>
+
         </div>
 
-        <!-- CARROSSEL DE ODS -->
+
+
+        <!-- =========================================
+             CARROSSEL DE ODS
+             ========================================= -->
+
         <section class="ods-carrossel-wrapper">
 
-            <button class="btn-carrossel prev"
-                    id="odsPrev"
-                    aria-label="Anterior">
+
+            <button
+                class="btn-carrossel prev"
+                id="odsPrev"
+                aria-label="Anterior"
+            >
                 &#10094;
             </button>
 
-            <div class="ods-carrossel-container" id="odsContainer">
+
+            <div
+                class="ods-carrossel-container"
+                id="odsContainer"
+            >
 
                 <div class="ods-grid">
 
-                    <div class="escolha-card" onclick="abrirModalODS(1)">
-                        <img src="img/ods1.png"
-                             alt="ODS 1 - Erradicação da Pobreza">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(1)"
+                    >
+                        <img
+                            src="img/ods1.png"
+                            alt="ODS 1 - Erradicação da Pobreza"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(2)">
-                        <img src="img/ods2.png"
-                             alt="ODS 2 - Fome Zero">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(2)"
+                    >
+                        <img
+                            src="img/ods2.png"
+                            alt="ODS 2 - Fome Zero"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(3)">
-                        <img src="img/ods3.png"
-                             alt="ODS 3 - Saúde e Bem-Estar">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(3)"
+                    >
+                        <img
+                            src="img/ods3.png"
+                            alt="ODS 3 - Saúde e Bem-Estar"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(4)">
-                        <img src="img/ods4.png"
-                             alt="ODS 4 - Educação de Qualidade">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(4)"
+                    >
+                        <img
+                            src="img/ods4.png"
+                            alt="ODS 4 - Educação de Qualidade"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(5)">
-                        <img src="img/ods5.png"
-                             alt="ODS 5 - Igualdade de Gênero">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(5)"
+                    >
+                        <img
+                            src="img/ods5.png"
+                            alt="ODS 5 - Igualdade de Gênero"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(6)">
-                        <img src="img/ods6.png"
-                             alt="ODS 6 - Água Potável e Saneamento">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(6)"
+                    >
+                        <img
+                            src="img/ods6.png"
+                            alt="ODS 6 - Água Potável e Saneamento"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(7)">
-                        <img src="img/ods7.png"
-                             alt="ODS 7 - Energia Limpa e Acessível">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(7)"
+                    >
+                        <img
+                            src="img/ods7.png"
+                            alt="ODS 7 - Energia Limpa e Acessível"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(8)">
-                        <img src="img/ods8.png"
-                             alt="ODS 8 - Trabalho Decente">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(8)"
+                    >
+                        <img
+                            src="img/ods8.png"
+                            alt="ODS 8 - Trabalho Decente"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(9)">
-                        <img src="img/ods9.png"
-                             alt="ODS 9 - Indústria e Inovação">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(9)"
+                    >
+                        <img
+                            src="img/ods9.png"
+                            alt="ODS 9 - Indústria e Inovação"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(10)">
-                        <img src="img/ods10.png"
-                             alt="ODS 10 - Redução das Desigualdades">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(10)"
+                    >
+                        <img
+                            src="img/ods10.png"
+                            alt="ODS 10 - Redução das Desigualdades"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(11)">
-                        <img src="img/ods11.png"
-                             alt="ODS 11 - Cidades Sustentáveis">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(11)"
+                    >
+                        <img
+                            src="img/ods11.png"
+                            alt="ODS 11 - Cidades Sustentáveis"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(12)">
-                        <img src="img/ods12.png"
-                             alt="ODS 12 - Consumo Responsável">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(12)"
+                    >
+                        <img
+                            src="img/ods12.png"
+                            alt="ODS 12 - Consumo Responsável"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(13)">
-                        <img src="img/ods13.png"
-                             alt="ODS 13 - Ação Contra a Mudança Global do Clima">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(13)"
+                    >
+                        <img
+                            src="img/ods13.png"
+                            alt="ODS 13 - Ação Contra a Mudança Global do Clima"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(14)">
-                        <img src="img/ods14.png"
-                             alt="ODS 14 - Vida na Água">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(14)"
+                    >
+                        <img
+                            src="img/ods14.png"
+                            alt="ODS 14 - Vida na Água"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(15)">
-                        <img src="img/ods15.png"
-                             alt="ODS 15 - Vida Terrestre">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(15)"
+                    >
+                        <img
+                            src="img/ods15.png"
+                            alt="ODS 15 - Vida Terrestre"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(16)">
-                        <img src="img/ods16.png"
-                             alt="ODS 16 - Paz, Justiça e Instituições Eficazes">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(16)"
+                    >
+                        <img
+                            src="img/ods16.png"
+                            alt="ODS 16 - Paz, Justiça e Instituições Eficazes"
+                        >
                     </div>
 
-                    <div class="escolha-card" onclick="abrirModalODS(17)">
-                        <img src="img/ods17.png"
-                             alt="ODS 17 - Parcerias e Meios de Implementação">
+
+                    <div
+                        class="escolha-card"
+                        onclick="abrirModalODS(17)"
+                    >
+                        <img
+                            src="img/ods17.png"
+                            alt="ODS 17 - Parcerias e Meios de Implementação"
+                        >
                     </div>
+
 
                 </div>
+
             </div>
 
-            <button class="btn-carrossel next"
-                    id="odsNext"
-                    aria-label="Próximo">
+
+            <button
+                class="btn-carrossel next"
+                id="odsNext"
+                aria-label="Próximo"
+            >
                 &#10095;
             </button>
 
+
         </section>
 
-        <!-- SEÇÃO PRINCIPAL DE CONTEÚDO -->
+
+
+        <!-- =========================================
+             SEÇÃO PRINCIPAL DE CONTEÚDO
+             ========================================= -->
+
         <section class="secao-explicativa">
 
+
             <!-- CARD 1: O QUE SÃO AS ODS -->
+
             <div class="bloco-info">
+
 
                 <div class="bloco-texto">
 
-                    <h2>O que são as ODS?</h2>
+                    <h2>
+                        O que são as ODS?
+                    </h2>
+
 
                     <p>
                         Os Objetivos de Desenvolvimento Sustentável (ODS) são um
@@ -239,30 +690,50 @@
                         pessoas possam desfrutar de paz e prosperidade.
                     </p>
 
-                    <a href="https://brasil.un.org/pt-br/sdgs"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn-saiba-mais">
+
+                    <a
+                        href="https://brasil.un.org/pt-br/sdgs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-saiba-mais"
+                    >
                         Saiba mais na ONU
                     </a>
 
                 </div>
 
+
                 <div class="bloco-imagem-placeholder">
-                    <img src="img/onu.jpg" alt="ONU">
+
+                    <img
+                        src="img/onu.jpg"
+                        alt="ONU"
+                    >
+
                 </div>
+
 
             </div>
 
-            <!-- SEÇÃO DE JOGOS DAS ODS -->
+
+
+            <!-- =========================================
+                 SEÇÃO DE JOGOS DAS ODS
+                 ========================================= -->
+
             <div class="secao-jogos-ods">
+
 
                 <div class="jogos-lista">
 
+
                     <!-- JOGO 1 -->
+
                     <article class="bloco-jogo-detalhado jogo-terrestre">
 
+
                         <div class="jogo-info-col">
+
 
                             <div class="jogo-tags">
 
@@ -276,7 +747,11 @@
 
                             </div>
 
-                            <h3>Memória da Natureza</h3>
+
+                            <h3>
+                                Memória da Natureza
+                            </h3>
+
 
                             <p class="jogo-descricao">
                                 Pega as cartas e ache o par de cada animal!
@@ -284,27 +759,44 @@
                                 precisa ser rápido pra combinar todos.
                             </p>
 
+
                             <div class="jogo-acoes">
-                                <a href="jogo3.html"
-                                   class="btn-jogar-grande">
+
+                                <a
+                                    href="jogo3.html"
+                                    class="btn-jogar-grande"
+                                >
                                     Jogar Agora ➔
                                 </a>
+
                             </div>
 
+
                         </div>
 
+
                         <div class="jogo-print-container">
-                            <img src="img/print-jogo-memoria.png"
-                                 alt="Print do jogo Memória da Natureza"
-                                 class="print-jogo">
+
+                            <img
+                                src="img/print-jogo-memoria.png"
+                                alt="Print do jogo Memória da Natureza"
+                                class="print-jogo"
+                            >
+
                         </div>
+
 
                     </article>
 
+
+
                     <!-- JOGO 2 -->
+
                     <article class="bloco-jogo-detalhado jogo-reciclagem">
 
+
                         <div class="jogo-info-col">
+
 
                             <div class="jogo-tags">
 
@@ -318,7 +810,11 @@
 
                             </div>
 
-                            <h3>Lixo no Lixo</h3>
+
+                            <h3>
+                                Lixo no Lixo
+                            </h3>
+
 
                             <p class="jogo-descricao">
                                 O lixo tá caindo sem parar! Corre pra arrastar
@@ -326,27 +822,44 @@
                                 papel, metal, orgânico ou não reciclável.
                             </p>
 
+
                             <div class="jogo-acoes">
-                                <a href="jogo2.html"
-                                   class="btn-jogar-grande">
+
+                                <a
+                                    href="jogo2.html"
+                                    class="btn-jogar-grande"
+                                >
                                     Jogar Agora ➔
                                 </a>
+
                             </div>
 
+
                         </div>
 
+
                         <div class="jogo-print-container">
-                            <img src="img/print-jogo-reciclagem.png"
-                                 alt="Print do jogo Mestre da Reciclagem"
-                                 class="print-jogo">
+
+                            <img
+                                src="img/print-jogo-reciclagem.png"
+                                alt="Print do jogo Mestre da Reciclagem"
+                                class="print-jogo"
+                            >
+
                         </div>
+
 
                     </article>
 
+
+
                     <!-- JOGO 3 -->
+
                     <article class="bloco-jogo-detalhado jogo-agua">
 
+
                         <div class="jogo-info-col">
+
 
                             <div class="jogo-tags">
 
@@ -360,7 +873,11 @@
 
                             </div>
 
-                            <h3>Salve a Gota!!</h3>
+
+                            <h3>
+                                Salve a Gota!!
+                            </h3>
+
 
                             <p class="jogo-descricao">
                                 Alguém deixou as torneiras abertas e os canos
@@ -368,83 +885,148 @@
                                 vazamentos e não deixe o reservatório secar!
                             </p>
 
+
                             <div class="jogo-acoes">
-                                <a href="jogo1.html"
-                                   class="btn-jogar-grande">
+
+                                <a
+                                    href="jogo1.html"
+                                    class="btn-jogar-grande"
+                                >
                                     Jogar Agora ➔
                                 </a>
+
                             </div>
 
+
                         </div>
 
+
                         <div class="jogo-print-container">
-                            <img src="img/print-jogo-agua.png"
-                                 alt="Print do jogo Guardião das Águas"
-                                 class="print-jogo">
+
+                            <img
+                                src="img/print-jogo-agua.png"
+                                alt="Print do jogo Guardião das Águas"
+                                class="print-jogo"
+                            >
+
                         </div>
+
 
                     </article>
 
+
                 </div>
+
             </div>
+
 
         </section>
 
+
     </main>
 
-    <!-- MODAL DE INFORMAÇÕES DA ODS -->
-    <div class="modal-overlay" id="modalODS">
+
+
+    <!-- =========================================
+         MODAL DE INFORMAÇÕES DA ODS
+         ========================================= -->
+
+    <div
+        class="modal-overlay"
+        id="modalODS"
+    >
+
 
         <div class="modal-card">
 
-            <button class="modal-fechar"
-                    onclick="fecharModalODS()">
+
+            <button
+                class="modal-fechar"
+                onclick="fecharModalODS()"
+            >
                 &times;
             </button>
 
+
             <div class="modal-header">
 
-                <span class="modal-tag" id="modalTag">
+
+                <span
+                    class="modal-tag"
+                    id="modalTag"
+                >
                     ODS 1
                 </span>
+
 
                 <h2 id="modalTitle">
                     Título da ODS
                 </h2>
 
+
             </div>
+
 
             <div class="modal-body">
 
+
                 <div class="modal-imagem-container">
-                    <img id="modalImg"
-                         src=""
-                         alt="Ícone ODS">
+
+                    <img
+                        id="modalImg"
+                        src=""
+                        alt="Ícone ODS"
+                    >
+
                 </div>
+
 
                 <div class="modal-texto">
 
-                    <h3>Objetivo da Meta:</h3>
+
+                    <h3>
+                        Objetivo da Meta:
+                    </h3>
+
 
                     <p id="modalDesc">
                         Descrição detalhada do objetivo sustentável...
                     </p>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
-    <!-- RODAPÉ -->
+
+
+    <!-- =========================================
+         RODAPÉ
+         ========================================= -->
+
     <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
     </footer>
 
-    <!-- SCRIPT DA PÁGINA ODS -->
+
+
+    <!-- =========================================
+         SCRIPT DA PÁGINA ODS
+         ========================================= -->
+
     <script src="js/ods.js"></script>
+
 
 </body>
 
