@@ -86,11 +86,6 @@
             z-index: 10000 !important;
         }
 
-        .topbar-left {
-            display: flex !important;
-            align-items: center !important;
-            width: 50px !important;
-        }
 
         .topbar-center {
             position: absolute !important;
@@ -103,294 +98,18 @@
             justify-content: center !important;
         }
 
+
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
         }
 
+
         .topbar-right {
             width: 50px !important;
             visibility: hidden !important;
             pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           HAMBÚRGUER
-           ===================================================== */
-
-        .menu-checkbox {
-            display: none !important;
-        }
-
-        .hamburger {
-            width: 42px !important;
-            height: 42px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-
-            gap: 5px !important;
-
-            cursor: pointer !important;
-            border-radius: 8px !important;
-
-            transition: opacity 0.2s ease !important;
-        }
-
-        .hamburger:hover {
-            opacity: 0.85 !important;
-        }
-
-        .hamburger span {
-            width: 24px !important;
-            height: 3px !important;
-
-            background-color: #FFFFFF !important;
-            border-radius: 2px !important;
-        }
-
-
-        /* =====================================================
-           OVERLAY
-           ===================================================== */
-
-        .overlay {
-            position: fixed !important;
-
-            top: 0 !important;
-            left: 0 !important;
-
-            width: 100% !important;
-            height: 100% !important;
-
-            background: rgba(0, 0, 0, 0.4) !important;
-
-            z-index: 9998 !important;
-
-            display: none !important;
-        }
-
-        #menu-check:checked ~ .overlay {
-            display: block !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           BASEADO NO SIDEBAR DAS PÁGINAS LOGADAS
-           ===================================================== */
-
-        .sidebar {
-            position: fixed !important;
-
-            top: 0 !important;
-            left: -300px !important;
-
-            width: 270px !important;
-            height: 100vh !important;
-
-            background-color: #1B5E20 !important;
-
-            z-index: 9999 !important;
-
-            transition: left 0.3s ease !important;
-
-            padding: 30px 20px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-
-            box-sizing: border-box !important;
-        }
-
-        #menu-check:checked ~ .sidebar {
-            left: 0 !important;
-        }
-
-
-        /* =====================================================
-           PERFIL DO VISITANTE
-           ===================================================== */
-
-        .perfil-sidebar {
-            text-align: center !important;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-
-            padding-bottom: 20px !important;
-            margin-bottom: 20px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-        }
-
-
-        /* TUGA DENTRO DO CÍRCULO BRANCO */
-
-        .perfil-sidebar img.mascote-perfil {
-            width: 65px !important;
-            height: 65px !important;
-
-            object-fit: contain !important;
-
-            border-radius: 50% !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            background-color: #FFFFFF !important;
-
-            padding: 2px !important;
-
-            margin-bottom: 10px !important;
-
-            display: block !important;
-
-            image-rendering: pixelated !important;
-            image-rendering: crisp-edges !important;
-        }
-
-
-        /* NOME VISITANTE */
-
-        .perfil-sidebar p {
-            color: #FFB72B !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1.1rem !important;
-
-            margin: 0 !important;
-        }
-
-
-        /* =====================================================
-           ÁREA DOS BOTÕES
-           ===================================================== */
-
-        .sidebar-nav {
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            gap: 10px !important;
-
-            width: 100% !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO ENTRAR - NORMAL
-           ===================================================== */
-
-        .sidebar-nav a[href="escolha.html"] {
-            display: flex !important;
-
-            align-items: center !important;
-            justify-content: center !important;
-
-            width: 100% !important;
-
-            min-height: 62px !important;
-
-            padding: 14px 16px !important;
-
-            background-color: transparent !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            border-radius: 16px !important;
-
-            color: #FFFFFF !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1rem !important;
-
-            text-transform: uppercase !important;
-
-            transition:
-                background-color 0.2s ease,
-                border-color 0.2s ease,
-                color 0.2s ease !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO ENTRAR - HOVER
-           AMARELO + TEXTO BRANCO
-           ===================================================== */
-
-        .sidebar-nav a[href="escolha.html"]:hover {
-            background-color: #FFDD55 !important;
-
-            border-color: #FFDD55 !important;
-
-            color: #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO CADASTRAR - NORMAL
-           ===================================================== */
-
-        .sidebar-nav a[href="escolha-cadastro.html"] {
-            display: flex !important;
-
-            align-items: center !important;
-            justify-content: center !important;
-
-            width: 100% !important;
-
-            min-height: 62px !important;
-
-            padding: 14px 16px !important;
-
-            background-color: #FFFFFF !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            border-radius: 16px !important;
-
-            color: #1B5E20 !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1rem !important;
-
-            text-transform: uppercase !important;
-
-            transition:
-                background-color 0.2s ease,
-                border-color 0.2s ease,
-                color 0.2s ease !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO CADASTRAR - HOVER
-           ===================================================== */
-
-        .sidebar-nav a[href="escolha-cadastro.html"]:hover {
-            background-color: #FFDD55 !important;
-
-            border-color: #FFDD55 !important;
-
-            color: #1B5E20 !important;
         }
 
 
@@ -549,6 +268,7 @@
             text-align: left !important;
         }
 
+
         .form-field {
             width: 100% !important;
 
@@ -599,6 +319,7 @@
              * Espaço reservado para o cadeado.
              * O texto começa depois do ícone.
              */
+
             padding: 0 15px 0 50px !important;
 
             border: 1px solid #D1D5DB !important;
@@ -704,6 +425,7 @@
             text-align: left !important;
         }
 
+
         .erro-token.mostrar {
             display: block !important;
         }
@@ -722,6 +444,7 @@
 
             font-family: 'Poppins', sans-serif !important;
         }
+
 
         .cadastro a {
             color: #38BDF8 !important;
@@ -748,6 +471,7 @@
             padding: 20px 0 !important;
         }
 
+
         footer p {
             margin: 0 !important;
 
@@ -771,9 +495,11 @@
                 padding-bottom: 40px !important;
             }
 
+
             .titulo-token {
                 font-size: 1.8rem !important;
             }
+
 
             .subtitulo-token {
                 font-size: 0.9rem !important;
@@ -781,15 +507,13 @@
                 padding: 0 20px !important;
             }
 
+
             .login-box {
                 width: calc(100% - 30px) !important;
 
                 padding: 25px 20px !important;
             }
 
-            .sidebar {
-                width: 270px !important;
-            }
         }
 
     </style>
@@ -799,87 +523,14 @@
 
 <body>
 
+
     <!-- =====================================================
          NAVBAR
          ===================================================== -->
 
     <header class="topbar">
 
-        <!-- CONTROLE DO MENU -->
-        <input type="checkbox"
-               id="menu-check"
-               class="menu-checkbox">
-
-
-        <!-- OVERLAY -->
-        <label for="menu-check"
-               class="overlay">
-        </label>
-
-
-        <!-- =================================================
-             SIDEBAR
-             ================================================= -->
-
-        <aside class="sidebar">
-
-            <!-- PERFIL DO VISITANTE -->
-
-            <div class="perfil-sidebar">
-
-                <img src="img/TugaPqn.png"
-                     alt="Mascote Tuga"
-                     class="mascote-perfil">
-
-                <p>Visitante</p>
-
-            </div>
-
-
-            <!-- BOTÕES -->
-
-            <nav class="sidebar-nav">
-
-                <!-- ENTRAR -->
-
-                <a href="escolha.html">
-                    ENTRAR
-                </a>
-
-
-                <!-- CADASTRAR -->
-
-                <a href="escolha-cadastro.html">
-                    CADASTRAR
-                </a>
-
-            </nav>
-
-        </aside>
-
-
-        <!-- =================================================
-             HAMBÚRGUER
-             ================================================= -->
-
-        <div class="topbar-left">
-
-            <label for="menu-check"
-                   class="hamburger"
-                   aria-label="Abrir menu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </label>
-
-        </div>
-
-
-        <!-- =================================================
-             LOGO
-             ================================================= -->
+        <!-- LOGO -->
 
         <div class="topbar-center">
 
@@ -943,7 +594,9 @@
                 <!-- TÍTULO TOKEN -->
 
                 <h1>
+
                     Token
+
                 </h1>
 
 
@@ -1036,7 +689,9 @@
                     Não recebeu o e-mail?
 
                     <a href="#">
+
                         Reenviar
+
                     </a>
 
                 </p>
@@ -1055,7 +710,9 @@
     <footer>
 
         <p>
+
             © 2026 FATEC - Informática para Negócios
+
         </p>
 
     </footer>
@@ -1070,8 +727,10 @@
         const campoToken =
             document.getElementById('token_codigo');
 
+
         const formularioToken =
             document.getElementById('form-token');
+
 
         const mensagemErro =
             document.getElementById('erro-token');
@@ -1083,6 +742,7 @@
 
             this.value =
                 this.value.replace(/\D/g, '');
+
 
             if (this.value.length > 0) {
 
@@ -1098,6 +758,7 @@
         formularioToken.addEventListener('submit', function (event) {
 
             event.preventDefault();
+
 
             const valor =
                 campoToken.value.trim();
@@ -1119,6 +780,7 @@
         });
 
     </script>
+
 
 </body>
 
