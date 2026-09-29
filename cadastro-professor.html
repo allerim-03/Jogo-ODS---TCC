@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastro do Gestor - Cultivando o Saber</title>
 
-    <!-- Favicon / Ícone da guia -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
+
+    <!-- =====================================================
+         FONTES
+    ===================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS DO PROJETO
+    ===================================================== -->
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -34,13 +52,34 @@
     <style>
 
         /* =====================================================
+           CONFIGURAÇÃO GERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            width: 100% !important;
+            min-height: 100% !important;
+
+            background-color: #ffffff !important;
+
+        }
+
+
+
+        /* =====================================================
            NAVBAR
-           ===================================================== */
+        ===================================================== */
 
         .topbar {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
 
             position: fixed !important;
 
@@ -48,8 +87,14 @@
             left: 0 !important;
 
             width: 100% !important;
+
             height: 90px !important;
             min-height: 90px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: space-between !important;
 
             padding: 10px 25px !important;
 
@@ -58,18 +103,23 @@
             z-index: 1000 !important;
 
             margin: 0 !important;
+
         }
 
 
         .topbar-left {
+
             display: flex !important;
+
             align-items: center !important;
 
             width: 50px !important;
+
         }
 
 
         .topbar-center {
+
             position: absolute !important;
 
             left: 50% !important;
@@ -77,38 +127,55 @@
             transform: translateX(-50%) !important;
 
             display: flex !important;
+
             justify-content: center !important;
+
             align-items: center !important;
+
         }
 
 
         .topbar .navbar-logo {
+
             height: 38px !important;
+
             width: auto !important;
 
             display: block !important;
+
         }
 
 
         .topbar-right {
+
             width: 50px !important;
 
             visibility: hidden !important;
+
             pointer-events: none !important;
+
         }
 
 
 
         /* =====================================================
-           SIDEBAR — IGUAL AO LOGIN
-           ===================================================== */
+           MENU CHECKBOX
+        ===================================================== */
 
         .menu-checkbox {
+
             display: none !important;
+
         }
 
 
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
         .sidebar {
+
             position: fixed !important;
 
             top: 0 !important;
@@ -126,23 +193,28 @@
             padding: 30px 20px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             box-sizing: border-box !important;
+
         }
 
 
         #menu-check:checked ~ .sidebar {
+
             left: 0 !important;
+
         }
 
 
 
         /* =====================================================
            OVERLAY
-           ===================================================== */
+        ===================================================== */
 
         .overlay {
+
             position: fixed !important;
 
             top: 0 !important;
@@ -156,24 +228,29 @@
             z-index: 9998 !important;
 
             display: none !important;
+
         }
 
 
         #menu-check:checked ~ .overlay {
+
             display: block !important;
+
         }
 
 
 
         /* =====================================================
            HAMBÚRGUER
-           ===================================================== */
+        ===================================================== */
 
         .hamburger {
+
             width: 42px !important;
             height: 42px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             justify-content: center !important;
@@ -186,30 +263,36 @@
             border-radius: 8px !important;
 
             transition: opacity 0.2s ease !important;
+
         }
 
 
         .hamburger:hover {
+
             opacity: 0.85 !important;
+
         }
 
 
         .hamburger span {
+
             width: 24px !important;
             height: 3px !important;
 
             background-color: #FFFFFF !important;
 
             border-radius: 2px !important;
+
         }
 
 
 
         /* =====================================================
            PERFIL DO VISITANTE
-           ===================================================== */
+        ===================================================== */
 
         .perfil-sidebar {
+
             text-align: center !important;
 
             border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -219,13 +302,16 @@
             margin-bottom: 20px !important;
 
             display: flex !important;
+
             flex-direction: column !important;
 
             align-items: center !important;
+
         }
 
 
         .perfil-sidebar .mascote-perfil {
+
             width: 65px !important;
             height: 65px !important;
 
@@ -244,10 +330,12 @@
             image-rendering: pixelated !important;
 
             display: block !important;
+
         }
 
 
         .perfil-sidebar p {
+
             color: #FFB72B !important;
 
             font-family: 'Montserrat', sans-serif !important;
@@ -257,15 +345,19 @@
             font-size: 1.1rem !important;
 
             margin: 0 !important;
+
+            padding: 0 !important;
+
         }
 
 
 
         /* =====================================================
-           BOTÕES DA SIDEBAR
-           ===================================================== */
+           BOTÕES DO SIDEBAR
+        ===================================================== */
 
         .links-sidebar {
+
             display: flex !important;
 
             flex-direction: column !important;
@@ -273,10 +365,12 @@
             gap: 8px !important;
 
             width: 100% !important;
+
         }
 
 
         .links-sidebar a {
+
             width: 100% !important;
 
             text-decoration: none !important;
@@ -302,98 +396,229 @@
             display: flex !important;
 
             align-items: center !important;
+
             justify-content: center !important;
 
             min-height: 62px !important;
+
+            box-sizing: border-box !important;
+
         }
 
 
 
         /* =====================================================
-           ENTRAR — SIDEBAR
-           ===================================================== */
+           ENTRAR
+        ===================================================== */
 
         .links-sidebar a.link-entrar {
+
             color: #FFFFFF !important;
 
             background-color: transparent !important;
 
             border: 2px solid #FFFFFF !important;
+
         }
 
 
         .links-sidebar a.link-entrar:hover {
+
             background-color: #FFDE5A !important;
 
             color: #FFFFFF !important;
 
             border-color: #FFDE5A !important;
+
         }
 
 
 
         /* =====================================================
-           CADASTRAR — SIDEBAR
-           ===================================================== */
+           CADASTRAR
+        ===================================================== */
 
         .links-sidebar a.link-cadastrar {
+
             color: #1b5e20 !important;
 
             background-color: #FFFFFF !important;
 
             border: 2px solid #FFFFFF !important;
+
         }
 
 
         .links-sidebar a.link-cadastrar:hover {
+
             background-color: #FFDE5A !important;
 
             color: #1b5e20 !important;
 
             border-color: #FFDE5A !important;
+
+        }
+
+
+
+        /* =====================================================
+           CONTEÚDO PRINCIPAL
+        ===================================================== */
+
+        main {
+
+            margin-top: 90px !important;
+
+            padding-top: 20px !important;
+
+            min-height: calc(100vh - 175px) !important;
+
+            background-color: #ffffff !important;
+
         }
 
 
 
         /* =====================================================
            ÁREA DE CADASTRO
-           
-           IMPORTANTE:
-           ESTAS REGRAS PRESERVAM AS CORES ORIGINAIS
-           DO FORMULÁRIO.
-           ===================================================== */
+        ===================================================== */
 
         .auth-sidebar h2 {
+
             color: #FFFFFF !important;
+
         }
 
 
         .auth-sidebar .btn-outline {
+
             background-color: #FFFFFF !important;
 
             color: #38bdf8 !important;
 
             border-color: #FFFFFF !important;
+
         }
 
 
         .auth-sidebar .btn-outline:hover {
+
             background-color: #f0f0f0 !important;
 
             color: #0284c7 !important;
 
             border-color: #f0f0f0 !important;
+
         }
 
 
         .auth-sidebar .mascote {
+
             image-rendering: -moz-crisp-edges !important;
+
             image-rendering: -webkit-optimize-contrast !important;
+
             image-rendering: pixelated !important;
+
             image-rendering: crisp-edges !important;
+
+        }
+
+
+
+        /* =====================================================
+           ÍCONES DOS CAMPOS
+        ===================================================== */
+
+        .input-group svg {
+
+            width: 24px !important;
+            height: 24px !important;
+
+            min-width: 24px !important;
+            min-height: 24px !important;
+
+            max-width: 24px !important;
+            max-height: 24px !important;
+
+            display: block !important;
+
+            flex-shrink: 0 !important;
+
+            overflow: visible !important;
+
+            box-sizing: border-box !important;
+
+        }
+
+
+        .input-group svg path {
+
+            display: block !important;
+
+        }
+
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+
+            width: 100% !important;
+
+            min-width: 100% !important;
+
+            height: 85px !important;
+
+            min-height: 85px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            background-color: #CCCCCC !important;
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+            text-align: center !important;
+
+            position: relative !important;
+
+            left: 0 !important;
+
+        }
+
+
+        footer p {
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            color: #ffffff !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 18px !important;
+
+            font-weight: 400 !important;
+
+            text-align: center !important;
+
         }
 
     </style>
+
 </head>
 
 
@@ -402,9 +627,12 @@
 
     <!-- =====================================================
          NAVBAR
-         ===================================================== -->
+    ===================================================== -->
 
     <header class="topbar">
+
+
+        <!-- CHECKBOX DO MENU -->
 
         <input
             type="checkbox"
@@ -412,6 +640,8 @@
             class="menu-checkbox"
         >
 
+
+        <!-- OVERLAY -->
 
         <label
             for="menu-check"
@@ -422,11 +652,15 @@
 
         <!-- =================================================
              SIDEBAR
-             ================================================= -->
+        ================================================= -->
 
         <aside class="sidebar">
 
+
+            <!-- PERFIL DO VISITANTE -->
+
             <div class="perfil-sidebar">
+
 
                 <img
                     src="img/TugaPqn.png"
@@ -434,12 +668,24 @@
                     class="mascote-perfil"
                 >
 
-                <p>Visitante</p>
+
+                <p>
+                    Visitante
+                </p>
+
 
             </div>
 
 
+
+            <!-- =================================================
+                 BOTÕES
+            ================================================= -->
+
             <nav class="links-sidebar">
+
+
+                <!-- ENTRAR -->
 
                 <a
                     href="escolha.html"
@@ -449,6 +695,8 @@
                 </a>
 
 
+                <!-- CADASTRAR -->
+
                 <a
                     href="escolha-cadastro.html"
                     class="link-cadastrar"
@@ -456,7 +704,9 @@
                     CADASTRAR
                 </a>
 
+
             </nav>
+
 
         </aside>
 
@@ -464,9 +714,10 @@
 
         <!-- =================================================
              HAMBÚRGUER
-             ================================================= -->
+        ================================================= -->
 
         <div class="topbar-left">
+
 
             <label
                 for="menu-check"
@@ -475,10 +726,13 @@
             >
 
                 <span></span>
+
                 <span></span>
+
                 <span></span>
 
             </label>
+
 
         </div>
 
@@ -486,11 +740,13 @@
 
         <!-- =================================================
              LOGO CENTRAL
-             ================================================= -->
+        ================================================= -->
 
         <div class="topbar-center">
 
+
             <div class="logo">
+
 
                 <img
                     src="img/cultsab.png"
@@ -498,7 +754,9 @@
                     class="navbar-logo"
                 >
 
+
             </div>
+
 
         </div>
 
@@ -506,25 +764,31 @@
 
         <!-- =================================================
              LADO DIREITO
-             ================================================= -->
+        ================================================= -->
 
         <div class="topbar-right"></div>
+
 
     </header>
 
 
 
     <!-- =====================================================
-         CONTEÚDO ORIGINAL DO CADASTRO DO GESTOR
-         NÃO ALTERADO
-         ===================================================== -->
+         CONTEÚDO DO CADASTRO
+    ===================================================== -->
 
-    <main style="margin-top: 110px !important;">
+    <main>
+
 
         <div class="auth-container">
 
 
+            <!-- =================================================
+                 COLUNA ESQUERDA
+            ================================================= -->
+
             <div class="auth-sidebar professor-theme">
+
 
                 <img
                     src="img/TugaPqn.png"
@@ -533,7 +797,9 @@
                 >
 
 
-                <h2>Bem-vindo!</h2>
+                <h2>
+                    Bem-vindo!
+                </h2>
 
 
                 <p>
@@ -541,7 +807,12 @@
                 </p>
 
 
-                <p style="font-size: 0.85rem; margin-bottom: 15px;">
+                <p
+                    style="
+                        font-size: 0.85rem;
+                        margin-bottom: 15px;
+                    "
+                >
                     Já possui uma conta?
                 </p>
 
@@ -553,25 +824,38 @@
                     ENTRAR
                 </a>
 
+
             </div>
 
 
 
+            <!-- =================================================
+                 FORMULÁRIO
+            ================================================= -->
+
             <div class="auth-content">
 
-                <h1>Cadastro do Gestor</h1>
+
+                <h1>
+                    Cadastro do Gestor
+                </h1>
 
 
                 <form class="form-grid">
 
 
+                    <!-- NOME -->
+
                     <div class="form-field col-full">
+
 
                         <label for="name_user">
                             Nome Completo
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="text"
@@ -581,23 +865,33 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- GÊNERO -->
+
                     <div class="form-field">
+
 
                         <label for="id_gender">
                             Gênero
                         </label>
 
+
                         <div class="input-group">
+
 
                             <select
                                 id="id_gender"
@@ -633,22 +927,31 @@
 
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- NASCIMENTO -->
+
                     <div class="form-field">
+
 
                         <label for="birth_user">
                             Nascimento
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="date"
@@ -657,23 +960,33 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.89 2-2V5c0-1.1-.89-2-2-2zm0 16H5V8h14v11z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- MATRÍCULA -->
+
                     <div class="form-field col-full">
+
 
                         <label for="registration_user">
                             Número da Matrícula (Opcional)
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="text"
@@ -682,23 +995,33 @@
                                 placeholder="Digite a matrícula"
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- E-MAIL ORGANIZACIONAL -->
+
                     <div class="form-field">
+
 
                         <label for="main_email">
                             E-mail Organizacional
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="email"
@@ -708,23 +1031,33 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- E-MAIL SECUNDÁRIO -->
+
                     <div class="form-field">
+
 
                         <label for="personal_email">
                             E-mail Secundário
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="email"
@@ -734,23 +1067,33 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- SENHA -->
+
                     <div class="form-field">
+
 
                         <label for="password_user">
                             Senha
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="password"
@@ -760,23 +1103,33 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- CONFIRMAR SENHA -->
+
                     <div class="form-field">
+
 
                         <label for="confirm_password">
                             Confirmar Senha
                         </label>
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="password"
@@ -786,20 +1139,28 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
+
                         </div>
+
 
                     </div>
 
 
 
+                    <!-- BOTÃO -->
+
                     <div
                         class="form-field col-full"
                         style="margin-top: 10px;"
                     >
+
 
                         <button
                             type="submit"
@@ -808,31 +1169,38 @@
                             CADASTRAR
                         </button>
 
+
                     </div>
 
 
                 </form>
 
+
             </div>
 
+
         </div>
+
 
     </main>
 
 
 
     <!-- =====================================================
-         RODAPÉ ORIGINAL
-         ===================================================== -->
+         RODAPÉ
+    ===================================================== -->
 
     <footer>
+
 
         <p>
             © 2026 FATEC - Informática para Negócios
         </p>
 
+
     </footer>
 
 
 </body>
+
 </html>
