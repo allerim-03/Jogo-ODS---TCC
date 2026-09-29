@@ -31,28 +31,14 @@
 
     <style>
 
-        /* =========================================
-           CONFIGURAÇÕES GERAIS
-           ========================================= */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-
-        /* =========================================
-           HAMBÚRGUER
-           ========================================= */
+        /* =========================================================
+           MENU HAMBÚRGUER
+           3 TRAÇOS IGUAL AO INDEX
+        ========================================================= */
 
         .topbar .hamburger {
             width: 30px !important;
-            height: 26px !important;
+            height: 30px !important;
 
             display: flex !important;
             flex-direction: column !important;
@@ -62,7 +48,6 @@
             gap: 6px !important;
 
             cursor: pointer !important;
-
             padding: 0 !important;
             margin: 0 !important;
         }
@@ -75,40 +60,32 @@
 
             background-color: #ffffff !important;
 
-            border-radius: 10px !important;
+            border-radius: 5px !important;
 
             margin: 0 !important;
             padding: 0 !important;
+
+            transform: none !important;
         }
 
-        .topbar .hamburger:hover span {
-            background-color: #ffffff !important;
-        }
 
-
-        /* =========================================
+        /* =========================================================
            SIDEBAR
-           ========================================= */
+        ========================================================= */
 
         .sidebar {
-            display: flex !important;
-            flex-direction: column !important;
-        }
-
-        .links-sidebar {
-            display: flex !important;
-            flex-direction: column !important;
+            display: flex;
+            flex-direction: column;
         }
 
 
-        /* =========================================
-           BOTÃO SAIR DO SIDEBAR
-           ========================================= */
+        /* =========================================================
+           BOTÃO SAIR
+        ========================================================= */
 
-        .links-sidebar .sair-sidebar {
-            margin-top: 80px !important;
-
+        .sidebar .links-sidebar .link-sair {
             display: flex !important;
+
             align-items: center !important;
             gap: 12px !important;
 
@@ -117,62 +94,98 @@
             text-decoration: none !important;
 
             font-weight: bold !important;
-            font-size: 17px !important;
 
-            transition: color 0.2s ease !important;
-        }
+            margin-top: 70px !important;
 
-        .links-sidebar .sair-sidebar:hover {
-            color: #FFDD55 !important;
-        }
-
-        .links-sidebar .sair-sidebar:hover .icone-sair {
-            color: #FFDD55 !important;
+            cursor: pointer !important;
         }
 
 
-        /* =========================================
-           ÍCONE DE SAIR
-           ========================================= */
+        /* =========================================================
+           ÍCONE DE SAÍDA
+        ========================================================= */
 
-        .icone-sair {
-            width: 23px !important;
-            height: 23px !important;
+        .sidebar .links-sidebar .link-sair .icone-sair {
+            width: 22px !important;
+            height: 22px !important;
 
-            display: flex !important;
+            display: inline-flex !important;
+
             align-items: center !important;
             justify-content: center !important;
 
             color: #ffffff !important;
 
-            font-size: 23px !important;
-            font-weight: bold !important;
-
-            line-height: 1 !important;
-
-            transition: color 0.2s ease !important;
+            flex-shrink: 0 !important;
         }
 
 
-        /* =========================================
-           TOPBAR
-           ========================================= */
+        .sidebar .links-sidebar .link-sair .icone-sair svg {
+            width: 22px !important;
+            height: 22px !important;
+
+            display: block !important;
+
+            fill: none !important;
+
+            stroke: #ffffff !important;
+
+            stroke-width: 2 !important;
+
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+
+
+        /* =========================================================
+           HOVER DO SAIR
+           MESMA COR DO NÍVEL
+        ========================================================= */
+
+        .sidebar .links-sidebar .link-sair:hover {
+            color: #FFDD55 !important;
+        }
+
+
+        .sidebar .links-sidebar .link-sair:hover .icone-sair svg {
+            stroke: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+           NÍVEL E XP
+        ========================================================= */
 
         .topbar .level .star {
             color: #FFDD55 !important;
         }
 
+        .topbar .level .bar {
+            width: 120px !important;
+            height: 10px !important;
+
+            background-color: #2E7D32 !important;
+
+            border-radius: 10px !important;
+
+            overflow: hidden !important;
+        }
+
         .topbar .level .progress {
+            height: 100% !important;
+
             background-color: #FFDD55 !important;
+
+            border-radius: 10px !important;
         }
 
 
-        /* =========================================
-           CONTEÚDO PRINCIPAL
-           ========================================= */
+        /* =========================================================
+           GARANTE O TOPO
+        ========================================================= */
 
-        main {
-            padding-top: 0 !important;
+        .topbar {
+            z-index: 1000 !important;
         }
 
     </style>
@@ -183,9 +196,9 @@
 <body>
 
 
-    <!-- =========================================
+    <!-- =========================================================
          NAVBAR PADRONIZADA
-         ========================================= -->
+    ========================================================= -->
 
     <header class="topbar">
 
@@ -197,13 +210,13 @@
 
         <label
             for="menu-check"
-            class="overlay"
-        ></label>
+            class="overlay">
+        </label>
 
 
-        <!-- =========================================
+        <!-- =====================================================
              SIDEBAR
-             ========================================= -->
+        ===================================================== -->
 
         <aside class="sidebar">
 
@@ -254,17 +267,38 @@
                 </a>
 
 
-                <!-- =================================
+                <!-- =================================================
                      SAIR
-                     ================================= -->
+                ================================================= -->
 
                 <a
                     href="home.html"
-                    class="sair-sidebar"
+                    class="link-sair"
+                    aria-label="Sair"
                 >
 
                     <span class="icone-sair">
-                        ↪
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"
+                            />
+
+                            <path
+                                d="M13 12h8"
+                            />
+
+                            <path
+                                d="m18 8 4 4-4 4"
+                            />
+
+                        </svg>
+
                     </span>
 
                     <span>
@@ -278,9 +312,9 @@
         </aside>
 
 
-        <!-- =========================================
+        <!-- =====================================================
              LADO ESQUERDO
-             ========================================= -->
+        ===================================================== -->
 
         <div class="left">
 
@@ -310,9 +344,9 @@
                 </div>
 
 
-                <div class="level">
+                <!-- NÍVEL / XP -->
 
-                    <!-- NÍVEL -->
+                <div class="level">
 
                     <span
                         class="star"
@@ -321,8 +355,6 @@
                         ★ NÍVEL 2
                     </span>
 
-
-                    <!-- BARRA DE XP -->
 
                     <div class="bar">
 
@@ -333,7 +365,8 @@
                                 background: #FFDD55 !important;
                                 background-color: #FFDD55 !important;
                             "
-                        ></div>
+                        >
+                        </div>
 
                     </div>
 
@@ -349,9 +382,9 @@
         </div>
 
 
-        <!-- =========================================
-             MENU DE NAVEGAÇÃO CENTRAL
-             ========================================= -->
+        <!-- =====================================================
+             MENU CENTRAL
+        ===================================================== -->
 
         <nav class="menu">
 
@@ -389,9 +422,9 @@
         </nav>
 
 
-        <!-- =========================================
+        <!-- =====================================================
              PERFIL À DIREITA
-             ========================================= -->
+        ===================================================== -->
 
         <a
             href="perfil.html"
@@ -410,16 +443,14 @@
 
 
 
-    <!-- =========================================
+    <!-- =========================================================
          CONTEÚDO PRINCIPAL
-         ========================================= -->
+    ========================================================= -->
 
     <main>
 
 
-        <!-- =========================================
-             TÍTULO DA PÁGINA
-             ========================================= -->
+        <!-- TÍTULO -->
 
         <div class="titulo-principal-topo">
 
@@ -434,13 +465,11 @@
         </div>
 
 
-
-        <!-- =========================================
+        <!-- =====================================================
              CARROSSEL DE ODS
-             ========================================= -->
+        ===================================================== -->
 
         <section class="ods-carrossel-wrapper">
-
 
             <button
                 class="btn-carrossel prev"
@@ -458,7 +487,6 @@
 
                 <div class="ods-grid">
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(1)"
@@ -468,7 +496,6 @@
                             alt="ODS 1 - Erradicação da Pobreza"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -480,7 +507,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(3)"
@@ -490,7 +516,6 @@
                             alt="ODS 3 - Saúde e Bem-Estar"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -502,7 +527,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(5)"
@@ -512,7 +536,6 @@
                             alt="ODS 5 - Igualdade de Gênero"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -524,7 +547,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(7)"
@@ -534,7 +556,6 @@
                             alt="ODS 7 - Energia Limpa e Acessível"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -546,7 +567,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(9)"
@@ -556,7 +576,6 @@
                             alt="ODS 9 - Indústria e Inovação"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -568,7 +587,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(11)"
@@ -578,7 +596,6 @@
                             alt="ODS 11 - Cidades Sustentáveis"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -590,7 +607,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(13)"
@@ -600,7 +616,6 @@
                             alt="ODS 13 - Ação Contra a Mudança Global do Clima"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -612,7 +627,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(15)"
@@ -622,7 +636,6 @@
                             alt="ODS 15 - Vida Terrestre"
                         >
                     </div>
-
 
                     <div
                         class="escolha-card"
@@ -634,7 +647,6 @@
                         >
                     </div>
 
-
                     <div
                         class="escolha-card"
                         onclick="abrirModalODS(17)"
@@ -644,7 +656,6 @@
                             alt="ODS 17 - Parcerias e Meios de Implementação"
                         >
                     </div>
-
 
                 </div>
 
@@ -659,22 +670,19 @@
                 &#10095;
             </button>
 
-
         </section>
 
 
-
-        <!-- =========================================
-             SEÇÃO PRINCIPAL DE CONTEÚDO
-             ========================================= -->
+        <!-- =====================================================
+             SEÇÃO EXPLICATIVA
+        ===================================================== -->
 
         <section class="secao-explicativa">
 
 
-            <!-- CARD 1: O QUE SÃO AS ODS -->
+            <!-- O QUE SÃO AS ODS -->
 
             <div class="bloco-info">
-
 
                 <div class="bloco-texto">
 
@@ -682,14 +690,12 @@
                         O que são as ODS?
                     </h2>
 
-
                     <p>
                         Os Objetivos de Desenvolvimento Sustentável (ODS) são um
                         apelo global da ONU à ação para acabar com a pobreza,
                         proteger o meio ambiente e o clima e garantir que as
                         pessoas possam desfrutar de paz e prosperidade.
                     </p>
-
 
                     <a
                         href="https://brasil.un.org/pt-br/sdgs"
@@ -712,28 +718,25 @@
 
                 </div>
 
-
             </div>
 
 
-
-            <!-- =========================================
-                 SEÇÃO DE JOGOS DAS ODS
-                 ========================================= -->
+            <!-- =================================================
+                 JOGOS DAS ODS
+            ================================================= -->
 
             <div class="secao-jogos-ods">
-
 
                 <div class="jogos-lista">
 
 
                     <!-- JOGO 1 -->
 
-                    <article class="bloco-jogo-detalhado jogo-terrestre">
-
+                    <article
+                        class="bloco-jogo-detalhado jogo-terrestre"
+                    >
 
                         <div class="jogo-info-col">
-
 
                             <div class="jogo-tags">
 
@@ -747,18 +750,15 @@
 
                             </div>
 
-
                             <h3>
                                 Memória da Natureza
                             </h3>
-
 
                             <p class="jogo-descricao">
                                 Pega as cartas e ache o par de cada animal!
                                 A floresta tá cheia de bichos escondidos e você
                                 precisa ser rápido pra combinar todos.
                             </p>
-
 
                             <div class="jogo-acoes">
 
@@ -770,7 +770,6 @@
                                 </a>
 
                             </div>
-
 
                         </div>
 
@@ -785,18 +784,16 @@
 
                         </div>
 
-
                     </article>
-
 
 
                     <!-- JOGO 2 -->
 
-                    <article class="bloco-jogo-detalhado jogo-reciclagem">
-
+                    <article
+                        class="bloco-jogo-detalhado jogo-reciclagem"
+                    >
 
                         <div class="jogo-info-col">
-
 
                             <div class="jogo-tags">
 
@@ -810,18 +807,15 @@
 
                             </div>
 
-
                             <h3>
                                 Lixo no Lixo
                             </h3>
-
 
                             <p class="jogo-descricao">
                                 O lixo tá caindo sem parar! Corre pra arrastar
                                 cada item pra lixeira certa — plástico, vidro,
                                 papel, metal, orgânico ou não reciclável.
                             </p>
-
 
                             <div class="jogo-acoes">
 
@@ -833,7 +827,6 @@
                                 </a>
 
                             </div>
-
 
                         </div>
 
@@ -848,18 +841,16 @@
 
                         </div>
 
-
                     </article>
-
 
 
                     <!-- JOGO 3 -->
 
-                    <article class="bloco-jogo-detalhado jogo-agua">
-
+                    <article
+                        class="bloco-jogo-detalhado jogo-agua"
+                    >
 
                         <div class="jogo-info-col">
-
 
                             <div class="jogo-tags">
 
@@ -873,18 +864,15 @@
 
                             </div>
 
-
                             <h3>
                                 Salve a Gota!!
                             </h3>
-
 
                             <p class="jogo-descricao">
                                 Alguém deixou as torneiras abertas e os canos
                                 vazando! Corra, clique rápido pra fechar os
                                 vazamentos e não deixe o reservatório secar!
                             </p>
-
 
                             <div class="jogo-acoes">
 
@@ -896,7 +884,6 @@
                                 </a>
 
                             </div>
-
 
                         </div>
 
@@ -911,34 +898,27 @@
 
                         </div>
 
-
                     </article>
-
 
                 </div>
 
             </div>
 
-
         </section>
-
 
     </main>
 
 
-
-    <!-- =========================================
+    <!-- =========================================================
          MODAL DE INFORMAÇÕES DA ODS
-         ========================================= -->
+    ========================================================= -->
 
     <div
         class="modal-overlay"
         id="modalODS"
     >
 
-
         <div class="modal-card">
-
 
             <button
                 class="modal-fechar"
@@ -950,7 +930,6 @@
 
             <div class="modal-header">
 
-
                 <span
                     class="modal-tag"
                     id="modalTag"
@@ -958,17 +937,14 @@
                     ODS 1
                 </span>
 
-
                 <h2 id="modalTitle">
                     Título da ODS
                 </h2>
-
 
             </div>
 
 
             <div class="modal-body">
-
 
                 <div class="modal-imagem-container">
 
@@ -983,33 +959,26 @@
 
                 <div class="modal-texto">
 
-
                     <h3>
                         Objetivo da Meta:
                     </h3>
-
 
                     <p id="modalDesc">
                         Descrição detalhada do objetivo sustentável...
                     </p>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
 
-
-    <!-- =========================================
+    <!-- =========================================================
          RODAPÉ
-         ========================================= -->
+    ========================================================= -->
 
     <footer>
 
@@ -1020,13 +989,11 @@
     </footer>
 
 
-
-    <!-- =========================================
+    <!-- =========================================================
          SCRIPT DA PÁGINA ODS
-         ========================================= -->
+    ========================================================= -->
 
     <script src="js/ods.js"></script>
-
 
 </body>
 
