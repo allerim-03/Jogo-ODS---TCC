@@ -2,24 +2,35 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <title>Login do Gestor - Cultivando o Saber</title>
 
+
     <!-- Favicon / Ícone da guia -->
+
     <link rel="icon" type="image/png" href="img/icon.png">
 
+
     <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
         rel="stylesheet"
     >
 
+
     <!-- CSS -->
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/banner.css">
@@ -40,6 +51,7 @@
 
     <style>
 
+
         /* =====================================================
            CONFIGURAÇÃO GERAL
            ===================================================== */
@@ -48,26 +60,34 @@
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             margin: 0 !important;
+
             padding: 0 !important;
+
             background-color: #ffffff !important;
         }
 
 
+
         /* =====================================================
            NAVBAR
+           SEM SIDEBAR E SEM HAMBÚRGUER
            ===================================================== */
 
         .topbar {
+
             display: flex !important;
 
             align-items: center !important;
 
-            justify-content: space-between !important;
+            justify-content: center !important;
 
             position: relative !important;
+
 
             width: 100% !important;
 
@@ -75,27 +95,19 @@
 
             min-height: 90px !important;
 
+
             padding: 10px 25px !important;
+
 
             background-color: #4CAF50 !important;
 
+
             z-index: 1000 !important;
+
 
             margin: 0 !important;
         }
 
-
-        /* =====================================================
-           LADO ESQUERDO
-           ===================================================== */
-
-        .topbar-left {
-            display: flex !important;
-
-            align-items: center !important;
-
-            width: 50px !important;
-        }
 
 
         /* =====================================================
@@ -103,11 +115,13 @@
            ===================================================== */
 
         .topbar-center {
+
             position: absolute !important;
 
             left: 50% !important;
 
             transform: translateX(-50%) !important;
+
 
             display: flex !important;
 
@@ -116,7 +130,9 @@
             align-items: center !important;
         }
 
+
         .topbar .navbar-logo {
+
             height: 38px !important;
 
             width: auto !important;
@@ -125,294 +141,13 @@
         }
 
 
-        /* =====================================================
-           LADO DIREITO OCULTO
-           ===================================================== */
-
-        .topbar-right {
-            width: 50px !important;
-
-            visibility: hidden !important;
-
-            pointer-events: none !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           ===================================================== */
-
-        .menu-checkbox {
-            display: none !important;
-        }
-
-        .sidebar {
-            position: fixed !important;
-
-            top: 0 !important;
-
-            left: -300px !important;
-
-            width: 270px !important;
-
-            height: 100vh !important;
-
-            background-color: #1b5e20 !important;
-
-            z-index: 9999 !important;
-
-            transition: left 0.3s ease !important;
-
-            padding: 30px 20px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            box-sizing: border-box !important;
-        }
-
-
-        /* ABRIR SIDEBAR */
-
-        #menu-check:checked ~ .sidebar {
-            left: 0 !important;
-        }
-
-
-        /* =====================================================
-           OVERLAY
-           ===================================================== */
-
-        .overlay {
-            position: fixed !important;
-
-            top: 0 !important;
-
-            left: 0 !important;
-
-            width: 100% !important;
-
-            height: 100% !important;
-
-            background: rgba(0, 0, 0, 0.4) !important;
-
-            z-index: 9998 !important;
-
-            display: none !important;
-        }
-
-        #menu-check:checked ~ .overlay {
-            display: block !important;
-        }
-
-
-        /* =====================================================
-           HAMBÚRGUER
-           ===================================================== */
-
-        .hamburger {
-            width: 42px !important;
-
-            height: 42px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            justify-content: center !important;
-
-            align-items: center !important;
-
-            gap: 5px !important;
-
-            cursor: pointer !important;
-
-            border-radius: 8px !important;
-
-            transition: opacity 0.2s ease !important;
-        }
-
-        .hamburger:hover {
-            opacity: 0.85 !important;
-        }
-
-        .hamburger span {
-            width: 24px !important;
-
-            height: 3px !important;
-
-            background-color: #FFFFFF !important;
-
-            border-radius: 2px !important;
-        }
-
-
-        /* =====================================================
-           PERFIL DO VISITANTE
-           ===================================================== */
-
-        .perfil-sidebar {
-            text-align: center !important;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-
-            padding-bottom: 20px !important;
-
-            margin-bottom: 20px !important;
-
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            align-items: center !important;
-        }
-
-
-        /* CÍRCULO BRANCO DA TUGA */
-
-        .perfil-sidebar img.mascote-perfil {
-            width: 65px !important;
-
-            height: 65px !important;
-
-            border-radius: 50% !important;
-
-            object-fit: contain !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            background-color: #FFFFFF !important;
-
-            padding: 2px !important;
-
-            margin-bottom: 10px !important;
-
-            image-rendering: pixelated !important;
-
-            display: block !important;
-        }
-
-
-        /* TEXTO VISITANTE */
-
-        .perfil-sidebar p {
-            color: #FFB72B !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1.1rem !important;
-
-            margin: 0 !important;
-        }
-
-
-        /* =====================================================
-           LINKS DA SIDEBAR
-           ===================================================== */
-
-        .links-sidebar {
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            gap: 8px !important;
-
-            width: 100% !important;
-        }
-
-        .links-sidebar a {
-            width: 100% !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 16px !important;
-
-            text-transform: uppercase !important;
-
-            text-align: center !important;
-
-            padding: 12px 16px !important;
-
-            border-radius: 12px !important;
-
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease !important;
-
-            display: flex !important;
-
-            align-items: center !important;
-
-            justify-content: center !important;
-
-            min-height: 62px !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO ENTRAR - NORMAL
-           ===================================================== */
-
-        .links-sidebar a.link-entrar {
-            color: #FFFFFF !important;
-
-            background-color: transparent !important;
-
-            border: 2px solid #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO ENTRAR - HOVER
-           ===================================================== */
-
-        .links-sidebar a.link-entrar:hover {
-            background-color: #FFDE5A !important;
-
-            color: #FFFFFF !important;
-
-            border-color: #FFDE5A !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO CADASTRAR - NORMAL
-           ===================================================== */
-
-        .links-sidebar a.link-cadastrar {
-            color: #1b5e20 !important;
-
-            background-color: #FFFFFF !important;
-
-            border: 2px solid #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           BOTÃO CADASTRAR - HOVER
-           ===================================================== */
-
-        .links-sidebar a.link-cadastrar:hover {
-            background-color: #FFDE5A !important;
-
-            color: #1b5e20 !important;
-
-            border-color: #FFDE5A !important;
-        }
-
 
         /* =====================================================
            NITIDEZ DA TUGA DENTRO DO LOGIN
            ===================================================== */
 
         .login-box img {
+
             image-rendering: -moz-crisp-edges !important;
 
             image-rendering: -webkit-optimize-contrast !important;
@@ -421,14 +156,19 @@
 
             image-rendering: crisp-edges !important;
 
+
             width: 70px;
+
 
             height: auto;
 
+
             margin: 0 auto 10px auto;
+
 
             display: block;
         }
+
 
     </style>
 
@@ -438,84 +178,13 @@
 <body>
 
 
+
     <!-- =====================================================
          TOPBAR / NAVBAR
+         SOMENTE LOGO
          ===================================================== -->
 
     <header class="topbar">
-
-        <input
-            type="checkbox"
-            id="menu-check"
-            class="menu-checkbox"
-        >
-
-        <label
-            for="menu-check"
-            class="overlay"
-        ></label>
-
-
-        <!-- =================================================
-             SIDEBAR DO VISITANTE
-             ================================================= -->
-
-        <aside class="sidebar">
-
-            <div class="perfil-sidebar">
-
-                <img
-                    src="img/TugaPqn.png"
-                    alt="Mascote Tuga"
-                    class="mascote-perfil"
-                >
-
-                <p>Visitante</p>
-
-            </div>
-
-
-            <nav class="links-sidebar">
-
-                <a
-                    href="escolha.html"
-                    class="link-entrar"
-                >
-                    ENTRAR
-                </a>
-
-                <a
-                    href="escolha-cadastro.html"
-                    class="link-cadastrar"
-                >
-                    CADASTRAR
-                </a>
-
-            </nav>
-
-        </aside>
-
-
-        <!-- =================================================
-             MENU HAMBÚRGUER
-             ================================================= -->
-
-        <div class="topbar-left">
-
-            <label
-                for="menu-check"
-                class="hamburger"
-            >
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </label>
-
-        </div>
 
 
         <!-- =================================================
@@ -537,13 +206,8 @@
         </div>
 
 
-        <!-- =================================================
-             DIREITA OCULTA
-             ================================================= -->
-
-        <div class="topbar-right"></div>
-
     </header>
+
 
 
     <!-- =====================================================
@@ -558,6 +222,7 @@
         "
     >
 
+
         <!-- Seção sem fundo, com o título Acesso do Gestor -->
 
         <section
@@ -571,6 +236,7 @@
             "
         >
 
+
             <h2
                 style="
                     margin: 0 0 15px 0 !important;
@@ -582,6 +248,7 @@
             >
                 Acesso do Gestor
             </h2>
+
 
 
             <!-- =================================================
@@ -603,10 +270,12 @@
                 "
             >
 
+
                 <img
                     src="img/TugaPqn.png"
                     alt="Mascote Tuga"
                 >
+
 
 
                 <h1
@@ -618,6 +287,7 @@
                 >
                     Login
                 </h1>
+
 
 
                 <!-- =================================================
@@ -637,12 +307,15 @@
                         style="margin-bottom: 15px;"
                     >
 
+
                         <label for="email_prof">
                             Email
                         </label>
 
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="email"
@@ -652,15 +325,19 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
 
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 
                             </svg>
 
+
                         </div>
 
+
                     </div>
+
 
 
                     <!-- SENHA -->
@@ -670,12 +347,15 @@
                         style="margin-bottom: 15px;"
                     >
 
+
                         <label for="senha_prof">
                             Senha
                         </label>
 
 
+
                         <div class="input-group">
+
 
                             <input
                                 type="password"
@@ -685,15 +365,19 @@
                                 required
                             >
 
+
                             <svg viewBox="0 0 24 24">
 
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
 
                             </svg>
 
+
                         </div>
 
+
                     </div>
+
 
 
                     <!-- BOTÃO ENTRAR -->
@@ -703,6 +387,7 @@
                         style="margin-top: 10px;"
                     >
 
+
                         <button
                             type="submit"
                             class="btn-submit"
@@ -711,9 +396,12 @@
                             Entrar
                         </button>
 
+
                     </div>
 
+
                 </form>
+
 
 
                 <!-- CADASTRO -->
@@ -725,6 +413,7 @@
 
                     Não tem uma conta?
 
+
                     <a
                         href="cadastro-professor.html"
                         class="negrito texto-azul"
@@ -732,13 +421,18 @@
                         Cadastre-se aqui
                     </a>
 
+
                 </p>
+
 
             </div>
 
+
         </section>
 
+
     </main>
+
 
 
     <!-- =====================================================
@@ -755,4 +449,5 @@
 
 
 </body>
+
 </html>
