@@ -45,7 +45,7 @@
 
         /* =========================================================
            NAVBAR
-           ========================================================= */
+        ========================================================= */
 
         .topbar {
             width: 100%;
@@ -54,7 +54,7 @@
 
             display: flex !important;
             align-items: center !important;
-            justify-content: center !important;
+            justify-content: flex-start !important;
 
             position: relative !important;
 
@@ -69,21 +69,33 @@
         }
 
 
-        /* Logo central */
+        /* =========================================================
+           LOGO NO CANTO ESQUERDO
+        ========================================================= */
 
-        .topbar-center {
+        .topbar-logo {
+            width: 70px !important;
+            height: 70px !important;
+
+            overflow: hidden !important;
+
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
 
-            width: 100% !important;
-            height: 100% !important;
+            flex-shrink: 0 !important;
         }
 
 
-        .navbar-logo-center {
-            height: 38px !important;
-            width: auto !important;
+        .topbar-logo img {
+            width: 125px !important;
+            height: 125px !important;
+
+            max-width: none !important;
+
+            object-fit: cover !important;
+
+            transform: translateY(-7px) !important;
 
             display: block !important;
         }
@@ -195,6 +207,7 @@
 
         }
 
+
     </style>
 
 </head>
@@ -209,12 +222,12 @@
 
     <header class="topbar">
 
-        <div class="topbar-center">
+        <!-- LOGO -->
+        <div class="topbar-logo">
 
             <img
-                src="img/cultsab.png"
+                src="img/testelogo.png"
                 alt="Cultivando o Saber"
-                class="navbar-logo-center"
             >
 
         </div>
