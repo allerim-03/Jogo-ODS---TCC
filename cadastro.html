@@ -4,17 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastro do Aluno - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- =====================================================
+         FONTES
+    ===================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         CSS DO PROJETO
+    ===================================================== -->
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/base.css">
@@ -37,306 +47,33 @@
     <style>
 
         /* =====================================================
-           SIDEBAR — PADRÃO DOS OUTROS SIDEBARS DESLOGADOS
+           CONFIGURAÇÃO GERAL
         ===================================================== */
 
-        .menu-checkbox {
-            display: none !important;
+        * {
+            box-sizing: border-box;
         }
 
-
-        .sidebar {
-            position: fixed !important;
-
-            top: 0 !important;
-            left: -300px !important;
-
-            width: 270px !important;
-            height: 100vh !important;
-
-            background-color: #1b5e20 !important;
-
-            z-index: 9999 !important;
-
-            transition: left 0.3s ease !important;
-
-            padding: 30px 20px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-
-            box-sizing: border-box !important;
-        }
-
-
-        #menu-check:checked ~ .sidebar {
-            left: 0 !important;
-        }
-
-
-        /* =====================================================
-           OVERLAY
-        ===================================================== */
-
-        .overlay {
-            position: fixed !important;
-
-            top: 0 !important;
-            left: 0 !important;
-
-            width: 100% !important;
-            height: 100% !important;
-
-            background: rgba(0, 0, 0, 0.4) !important;
-
-            z-index: 9998 !important;
-
-            display: none !important;
-        }
-
-
-        #menu-check:checked ~ .overlay {
-            display: block !important;
-        }
-
-
-        /* =====================================================
-           HAMBÚRGUER
-        ===================================================== */
-
-        .hamburger {
-            width: 42px !important;
-            height: 42px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-
-            justify-content: center !important;
-            align-items: center !important;
-
-            gap: 5px !important;
-
-            cursor: pointer !important;
-
-            border-radius: 8px !important;
-
-            transition: opacity 0.2s ease !important;
-        }
-
-
-        .hamburger:hover {
-            opacity: 0.85 !important;
-        }
-
-
-        .hamburger span {
-            width: 24px !important;
-            height: 3px !important;
-
-            background-color: #FFFFFF !important;
-
-            border-radius: 2px !important;
-        }
-
-
-        /* =====================================================
-           PERFIL DO VISITANTE
-        ===================================================== */
-
-        .perfil-sidebar {
-            text-align: center !important;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-
-            padding-bottom: 20px !important;
-
-            margin-bottom: 20px !important;
-
-            display: flex !important;
-            flex-direction: column !important;
-
-            align-items: center !important;
-
-            justify-content: center !important;
-        }
-
-
-        /* Círculo branco da Tuga */
-
-        .perfil-sidebar .mascote-icon {
-            width: 65px !important;
-            height: 65px !important;
-
-            border-radius: 50% !important;
-
-            background-color: #FFFFFF !important;
-
-            border: 2px solid #FFFFFF !important;
-
-            padding: 2px !important;
-
-            margin-bottom: 10px !important;
-
-            display: flex !important;
-
-            align-items: center !important;
-            justify-content: center !important;
-
-            overflow: hidden !important;
-
-            font-size: 0 !important;
-        }
-
-
-        /* Tuga dentro do círculo */
-
-        .perfil-sidebar .mascote-icon img {
-            width: 55px !important;
-            height: 55px !important;
-
-            display: block !important;
-
-            object-fit: contain !important;
-
-            image-rendering: -moz-crisp-edges !important;
-            image-rendering: -webkit-optimize-contrast !important;
-            image-rendering: pixelated !important;
-            image-rendering: crisp-edges !important;
-        }
-
-
-        /* =====================================================
-           VISITANTE
-           MESMA FONTE/COR DOS OUTROS SIDEBARS
-        ===================================================== */
-
-        .perfil-sidebar p {
-            color: #FFB72B !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 1.1rem !important;
-
+        html,
+        body {
             margin: 0 !important;
             padding: 0 !important;
-        }
-
-
-        /* =====================================================
-           BOTÕES DO SIDEBAR
-        ===================================================== */
-
-        .sidebar-actions {
-            display: flex !important;
-
-            flex-direction: column !important;
-
-            gap: 8px !important;
-
+            background-color: #ffffff !important;
             width: 100% !important;
-
-            padding: 0 !important;
-        }
-
-
-        .sidebar-actions a {
-            width: 100% !important;
-
-            text-decoration: none !important;
-
-            font-family: 'Montserrat', sans-serif !important;
-
-            font-weight: 700 !important;
-
-            font-size: 16px !important;
-
-            text-transform: uppercase !important;
-
-            text-align: center !important;
-
-            padding: 12px 16px !important;
-
-            border-radius: 12px !important;
-
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease !important;
-
-            display: flex !important;
-
-            align-items: center !important;
-            justify-content: center !important;
-
-            min-height: 62px !important;
-
-            box-sizing: border-box !important;
-        }
-
-
-        /* =====================================================
-           ENTRAR — NORMAL
-        ===================================================== */
-
-        .sidebar-actions a.btn-secundario {
-            color: #FFFFFF !important;
-
-            background-color: transparent !important;
-
-            border: 2px solid #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           ENTRAR — HOVER
-        ===================================================== */
-
-        .sidebar-actions a.btn-secundario:hover {
-            background-color: #FFDE5A !important;
-
-            color: #FFFFFF !important;
-
-            border-color: #FFDE5A !important;
-        }
-
-
-        /* =====================================================
-           CADASTRAR — NORMAL
-        ===================================================== */
-
-        .sidebar-actions a:not(.btn-secundario) {
-            color: #1b5e20 !important;
-
-            background-color: #FFFFFF !important;
-
-            border: 2px solid #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           CADASTRAR — HOVER
-        ===================================================== */
-
-        .sidebar-actions a:not(.btn-secundario):hover {
-            background-color: #FFDE5A !important;
-
-            color: #1b5e20 !important;
-
-            border-color: #FFDE5A !important;
+            min-height: 100% !important;
         }
 
 
         /* =====================================================
            NAVBAR
-           ===================================================== */
+           SEM SIDEBAR / HAMBÚRGUER
+        ===================================================== */
 
         .topbar {
             display: flex !important;
 
             align-items: center !important;
-
-            justify-content: space-between !important;
+            justify-content: center !important;
 
             position: fixed !important;
 
@@ -358,14 +95,9 @@
         }
 
 
-        .topbar-left {
-            display: flex !important;
-
-            align-items: center !important;
-
-            width: 50px !important;
-        }
-
+        /* =====================================================
+           LOGO CENTRALIZADA
+        ===================================================== */
 
         .topbar-center {
             position: absolute !important;
@@ -377,7 +109,6 @@
             display: flex !important;
 
             justify-content: center !important;
-
             align-items: center !important;
         }
 
@@ -391,18 +122,29 @@
         }
 
 
+        /* =====================================================
+           LADOS DA NAVBAR OCULTOS
+        ===================================================== */
+
+        .topbar-left,
         .topbar-right {
-            width: 50px !important;
+            display: none !important;
+        }
 
-            visibility: hidden !important;
 
-            pointer-events: none !important;
+        /* =====================================================
+           GARANTE QUE ELEMENTOS DO SIDEBAR NÃO APAREÇAM
+        ===================================================== */
+
+        .menu-checkbox,
+        .sidebar,
+        .overlay {
+            display: none !important;
         }
 
 
         /* =====================================================
            FORMULÁRIO
-           NÃO ALTERADO
         ===================================================== */
 
         .auth-sidebar h2 {
@@ -462,6 +204,68 @@
             display: block !important;
         }
 
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        main {
+            margin-top: 90px !important;
+            padding-top: 20px !important;
+
+            min-height: calc(100vh - 175px) !important;
+
+            background-color: #ffffff !important;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+            width: 100% !important;
+            min-width: 100% !important;
+
+            height: 85px !important;
+            min-height: 85px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            background-color: #CCCCCC !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+            text-align: center !important;
+
+            position: relative !important;
+
+            left: 0 !important;
+        }
+
+
+        footer p {
+            margin: 0 !important;
+            padding: 0 !important;
+
+            color: #ffffff !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 18px !important;
+            font-weight: 400 !important;
+
+            text-align: center !important;
+        }
+
     </style>
 
 </head>
@@ -472,89 +276,10 @@
 
     <!-- =====================================================
          NAVBAR
+         SOMENTE A LOGO CENTRALIZADA
     ===================================================== -->
 
     <header class="topbar">
-
-        <input
-            type="checkbox"
-            id="menu-check"
-            class="menu-checkbox"
-        >
-
-        <label
-            for="menu-check"
-            class="overlay"
-        ></label>
-
-
-        <!-- =================================================
-             SIDEBAR
-        ================================================= -->
-
-        <aside class="sidebar">
-
-            <div class="perfil-sidebar">
-
-                <span class="mascote-icon">
-
-                    <img
-                        src="img/TugaPqn.png"
-                        alt="Mascote Tuga"
-                    >
-
-                </span>
-
-                <p>Visitante</p>
-
-            </div>
-
-
-            <div class="sidebar-actions">
-
-                <a
-                    href="escolha.html"
-                    class="btn-principal btn-secundario"
-                >
-                    ENTRAR
-                </a>
-
-                <a
-                    href="escolha-cadastro.html"
-                    class="btn-principal"
-                >
-                    CADASTRAR
-                </a>
-
-            </div>
-
-        </aside>
-
-
-        <!-- =================================================
-             HAMBÚRGUER
-        ================================================= -->
-
-        <div class="topbar-left">
-
-            <label
-                for="menu-check"
-                class="hamburger"
-                aria-label="Abrir menu"
-            >
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </label>
-
-        </div>
-
-
-        <!-- =================================================
-             LOGO
-        ================================================= -->
 
         <div class="topbar-center">
 
@@ -570,22 +295,21 @@
 
         </div>
 
-
-        <div class="topbar-right"></div>
-
     </header>
 
 
     <!-- =====================================================
          CONTEÚDO ORIGINAL DO CADASTRO
-         ===================================================== -->
+    ===================================================== -->
 
-    <main style="margin-top: 110px !important;">
+    <main>
 
         <div class="auth-container">
 
 
-            <!-- COLUNA ESQUERDA -->
+            <!-- =================================================
+                 COLUNA ESQUERDA
+            ================================================= -->
 
             <div class="auth-sidebar professor-theme">
 
@@ -627,6 +351,8 @@
                 <form class="form-grid">
 
 
+                    <!-- USUÁRIO -->
+
                     <div class="form-field col-full">
 
                         <label for="username">
@@ -644,13 +370,17 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+
                             </svg>
 
                         </div>
 
                     </div>
 
+
+                    <!-- E-MAIL -->
 
                     <div class="form-field col-full">
 
@@ -669,13 +399,17 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
                             </svg>
 
                         </div>
 
                     </div>
 
+
+                    <!-- SENHA -->
 
                     <div class="form-field">
 
@@ -694,13 +428,17 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
                         </div>
 
                     </div>
 
+
+                    <!-- REPETIR SENHA -->
 
                     <div class="form-field">
 
@@ -719,13 +457,17 @@
                             >
 
                             <svg viewBox="0 0 24 24">
+
                                 <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
                             </svg>
 
                         </div>
 
                     </div>
 
+
+                    <!-- BOTÃO CRIAR -->
 
                     <div
                         class="form-field col-full"
@@ -765,4 +507,5 @@
 
 
 </body>
+
 </html>
