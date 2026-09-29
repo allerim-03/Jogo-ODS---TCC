@@ -76,7 +76,9 @@
         }
 
 
-        /* Lado esquerdo */
+        /* =====================================================
+           LADO ESQUERDO
+           ===================================================== */
 
         .topbar .left {
             display: flex !important;
@@ -85,7 +87,39 @@
         }
 
 
-        /* Logo + nível */
+        /* =====================================================
+           HAMBÚRGUER
+           
+           SEM HOVER AMARELO
+           ===================================================== */
+
+        .topbar .hamburger,
+        .topbar .hamburger:hover,
+        .topbar .hamburger:focus,
+        .topbar .hamburger:active,
+        .topbar .hamburger:visited {
+            color: #FFFFFF !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
+
+        .topbar .hamburger span,
+        .topbar .hamburger:hover span,
+        .topbar .hamburger:focus span,
+        .topbar .hamburger:active span {
+            background-color: #FFFFFF !important;
+            color: #FFFFFF !important;
+            border-color: #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           LOGO + NÍVEL
+           ===================================================== */
 
         .topbar .info-container {
             display: flex !important;
@@ -195,63 +229,6 @@
 
 
         /* =====================================================
-           HAMBURGER / SIDEBAR
-           
-           O HAMBURGER FICA BRANCO E NÃO MUDA DE COR
-           AO PASSAR O MOUSE, CLICAR OU RECEBER FOCO.
-           ===================================================== */
-
-        .topbar .hamburger {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            text-decoration: none !important;
-        }
-
-        .topbar .hamburger:hover,
-        .topbar .hamburger:focus,
-        .topbar .hamburger:active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            text-decoration: none !important;
-        }
-
-        .topbar .hamburger span,
-        .topbar .hamburger:hover span,
-        .topbar .hamburger:focus span,
-        .topbar .hamburger:active span {
-            background-color: #FFFFFF !important;
-            border-color: #FFFFFF !important;
-            color: #FFFFFF !important;
-        }
-
-
-        /* =====================================================
-           SIDEBAR
-           ===================================================== */
-
-        .topbar .sidebar {
-            z-index: 1100 !important;
-        }
-
-        .topbar .links-sidebar a {
-            color: #FFFFFF !important;
-            text-decoration: none !important;
-        }
-
-        .topbar .links-sidebar a:hover,
-        .topbar .links-sidebar a:focus,
-        .topbar .links-sidebar a:active {
-            text-decoration: none !important;
-        }
-
-
-        /* =====================================================
            FOTO DE PERFIL
            ===================================================== */
 
@@ -272,8 +249,6 @@
 
         /* =====================================================
            ÁREA PRINCIPAL
-
-           AQUI ESTÁ A CORREÇÃO DA LINHA BRANCA.
            ===================================================== */
 
         main.sobre-main-container {
@@ -412,7 +387,6 @@
 
         /* =====================================================
            TUGA
-           SEM QUADRO TRACEJADO
            ===================================================== */
 
         .bloco-imagem-placeholder {
@@ -744,11 +718,7 @@
 
     <main class="sobre-main-container">
 
-
         <div class="card-sobre-central">
-
-
-            <!-- TÍTULO -->
 
             <div class="header-sobre">
 
@@ -759,15 +729,11 @@
             </div>
 
 
-
-            <!-- =================================================
-                 O PROJETO
-                 ================================================= -->
+            <!-- O PROJETO -->
 
             <section class="secao-info">
 
                 <div class="bloco-conteudo-projeto">
-
 
                     <div class="bloco-texto">
 
@@ -775,18 +741,15 @@
                             O Projeto
                         </h2>
 
-
                         <p>
                             Uma plataforma educacional gamificada desenvolvida como Trabalho de Conclusão de Curso por estudantes do curso superior de tecnologia em <strong>Informática para Negócios da FATEC de São Bernardo do Campo</strong>.
                         </p>
-
 
                         <p>
                             Nosso objetivo é transformar o aprendizado sobre os <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong> da ONU em uma experiência lúdica e interativa. Através de jogos, quizzes e missões práticas, os alunos ganham pontos de experiência (XP) e evoluem na jornada junto ao nosso mascote <strong>Tuga</strong>.
                         </p>
 
                     </div>
-
 
 
                     <!-- TUGA -->
@@ -803,14 +766,10 @@
             </section>
 
 
-
             <hr class="divisor">
 
 
-
-            <!-- =================================================
-                 MISSÃO
-                 ================================================= -->
+            <!-- MISSÃO -->
 
             <section class="secao-info secao-topico-linear">
 
@@ -833,14 +792,10 @@
             </section>
 
 
-
             <hr class="divisor">
 
 
-
-            <!-- =================================================
-                 VISÃO
-                 ================================================= -->
+            <!-- VISÃO -->
 
             <section class="secao-info secao-topico-linear">
 
@@ -863,14 +818,10 @@
             </section>
 
 
-
             <hr class="divisor">
 
 
-
-            <!-- =================================================
-                 VALORES
-                 ================================================= -->
+            <!-- VALORES -->
 
             <section class="secao-info secao-topico-linear">
 
@@ -893,14 +844,10 @@
             </section>
 
 
-
             <hr class="divisor">
 
 
-
-            <!-- =================================================
-                 EQUIPE
-                 ================================================= -->
+            <!-- EQUIPE -->
 
             <section class="secao-equipe">
 
@@ -919,7 +866,6 @@
 
 
                     <div class="time-container">
-
 
                         <div class="membro"
                              onclick="abrirModal('modal-membro-1')">
@@ -940,7 +886,6 @@
                             </div>
 
                         </div>
-
 
 
                         <div class="membro"
@@ -968,7 +913,6 @@
                 </div>
 
 
-
                 <!-- BACK-END -->
 
                 <div class="categoria-equipe">
@@ -979,7 +923,6 @@
 
 
                     <div class="time-container">
-
 
                         <div class="membro"
                              onclick="abrirModal('modal-membro-3')">
@@ -1002,7 +945,6 @@
                         </div>
 
 
-
                         <div class="membro"
                              onclick="abrirModal('modal-membro-4')">
 
@@ -1022,7 +964,6 @@
                             </div>
 
                         </div>
-
 
 
                         <div class="membro"
@@ -1067,7 +1008,6 @@
     </div>
 
 
-
     <div id="modal-membro-1"
          class="modal-membro">
 
@@ -1108,7 +1048,6 @@
         </div>
 
     </div>
-
 
 
     <div id="modal-membro-2"
@@ -1153,7 +1092,6 @@
     </div>
 
 
-
     <div id="modal-membro-3"
          class="modal-membro">
 
@@ -1196,7 +1134,6 @@
     </div>
 
 
-
     <div id="modal-membro-4"
          class="modal-membro">
 
@@ -1237,7 +1174,6 @@
         </div>
 
     </div>
-
 
 
     <div id="modal-membro-5"
