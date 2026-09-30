@@ -32,7 +32,7 @@
     <style>
 
         /* =========================================================
-           CONFIGURAÇÃO GERAL
+            CONFIGURAÇÃO GERAL
         ========================================================= */
 
         * {
@@ -43,15 +43,12 @@
         body {
             margin: 0 !important;
             padding: 0 !important;
-        }
-
-        body {
-            background-color: #D9F0FF !important;
+            background-color: #3399FF !important; /* Azul correspondente à imagem enviada para camuflar com o contorno */
         }
 
 
         /* =========================================================
-           TOPBAR
+            TOPBAR
         ========================================================= */
 
         .topbar {
@@ -78,9 +75,9 @@
 
 
         /* =========================================================
-           HAMBÚRGUER
-           3 TRAÇOS BRANCOS
-           SEM HOVER AMARELO
+            HAMBÚRGUER
+            3 TRAÇOS BRANCOS
+            SEM HOVER AMARELO
         ========================================================= */
 
         .topbar .hamburger {
@@ -123,6 +120,9 @@
         }
 
 
+        /* IMPORTANTE:
+            O HAMBÚRGUER NUNCA FICA AMARELO */
+
         .topbar .hamburger:hover {
             color: #ffffff !important;
         }
@@ -142,7 +142,7 @@
 
 
         /* =========================================================
-           LADO ESQUERDO
+            LADO ESQUERDO
         ========================================================= */
 
         .topbar .left {
@@ -154,7 +154,7 @@
 
 
         /* =========================================================
-           LOGO + XP
+            LOGO + XP
         ========================================================= */
 
         .topbar .info-container {
@@ -178,7 +178,7 @@
 
 
         /* =========================================================
-           NÍVEL E XP
+            NÍVEL E XP
         ========================================================= */
 
         .topbar .level {
@@ -234,7 +234,7 @@
 
 
         /* =========================================================
-           MENU CENTRAL
+            MENU CENTRAL
         ========================================================= */
 
         .topbar nav.menu {
@@ -269,6 +269,8 @@
         }
 
 
+        /* HOVER DO MENU */
+
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
 
@@ -281,6 +283,8 @@
             box-shadow: none !important;
         }
 
+
+        /* ATIVO / FOCO */
 
         .topbar nav.menu a:active,
         .topbar nav.menu a:focus,
@@ -298,7 +302,7 @@
 
 
         /* =========================================================
-           FOTO DE PERFIL
+            FOTO DE PERFIL
         ========================================================= */
 
         .topbar .perfil-externo img,
@@ -317,7 +321,7 @@
 
 
         /* =========================================================
-           SIDEBAR
+            SIDEBAR
         ========================================================= */
 
         .sidebar {
@@ -328,7 +332,7 @@
 
 
         /* =========================================================
-           PERFIL DA SIDEBAR
+            PERFIL DA SIDEBAR
         ========================================================= */
 
         .sidebar .perfil-sidebar {
@@ -340,7 +344,7 @@
 
 
         /* =========================================================
-           LINKS DA SIDEBAR
+            LINKS DA SIDEBAR
         ========================================================= */
 
         .sidebar .links-sidebar {
@@ -351,7 +355,8 @@
 
 
         /* =========================================================
-           BOTÃO SAIR
+            BOTÃO SAIR
+            IGUAL À PÁGINA ODS / INDEX
         ========================================================= */
 
         .sidebar .sair-sidebar {
@@ -381,7 +386,7 @@
 
 
         /* =========================================================
-           ÍCONE DO SAIR
+            ÍCONE DO SAIR
         ========================================================= */
 
         .sidebar .sair-sidebar .sair-icon {
@@ -418,7 +423,7 @@
 
 
         /* =========================================================
-           GARANTE QUE A SIDEBAR FIQUE ACIMA DO CONTEÚDO
+            GARANTE QUE A SIDEBAR FIQUE ACIMA DO CONTEÚDO
         ========================================================= */
 
         .topbar {
@@ -427,7 +432,7 @@
 
 
         /* =========================================================
-           CONTEÚDO PRINCIPAL
+            CONTEÚDO PRINCIPAL
         ========================================================= */
 
         main.editar-perfil-container {
@@ -450,11 +455,13 @@
 
     <header class="topbar">
 
+
         <input
             type="checkbox"
             id="menu-check"
             class="menu-checkbox"
         >
+
 
         <label
             for="menu-check"
@@ -464,9 +471,10 @@
 
         <!-- =====================================================
              SIDEBAR
-        ===================================================== -->
+        ==================================================== -->
 
         <aside class="sidebar">
+
 
             <div class="perfil-sidebar">
 
@@ -485,25 +493,31 @@
 
             <nav class="links-sidebar">
 
+
                 <a href="index.html">
                     HOME
                 </a>
+
 
                 <a href="ods.html">
                     ODS
                 </a>
 
+
                 <a href="quiz.html">
                     QUIZ
                 </a>
+
 
                 <a href="jogos.html">
                     JOGOS
                 </a>
 
+
                 <a href="ranking.html">
                     RANKING
                 </a>
+
 
                 <a
                     href="perfil.html"
@@ -512,14 +526,15 @@
                     PERFIL
                 </a>
 
+
                 <a href="sobrenos.html">
                     SOBRE NÓS
                 </a>
 
 
                 <!-- =================================================
-                     SAIR
-                ================================================= -->
+                    SAIR
+                ================================================ -->
 
                 <a
                     href="home.html"
@@ -542,9 +557,11 @@
                                 d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
                             </path>
 
+
                             <polyline
                                 points="16 17 21 12 16 7">
                             </polyline>
+
 
                             <line
                                 x1="21"
@@ -571,9 +588,10 @@
 
         <!-- =====================================================
              LADO ESQUERDO
-        ===================================================== -->
+        ==================================================== -->
 
         <div class="left">
+
 
             <label
                 for="menu-check"
@@ -590,6 +608,7 @@
 
             <div class="info-container">
 
+
                 <div class="logo">
 
                     <img
@@ -604,6 +623,7 @@
                 <!-- NÍVEL / XP -->
 
                 <div class="level">
+
 
                     <span class="star">
                         ★ NÍVEL 2
@@ -633,29 +653,35 @@
 
         <!-- =====================================================
              MENU DE NAVEGAÇÃO CENTRAL
-        ===================================================== -->
+        ==================================================== -->
 
         <nav class="menu">
+
 
             <a href="index.html">
                 HOME
             </a>
 
+
             <a href="ods.html">
                 ODS
             </a>
+
 
             <a href="quiz.html">
                 QUIZ
             </a>
 
+
             <a href="jogos.html">
                 JOGOS
             </a>
 
+
             <a href="ranking.html">
                 RANKING
             </a>
+
 
             <a
                 href="perfil.html"
@@ -663,6 +689,7 @@
             >
                 PERFIL
             </a>
+
 
             <a href="sobrenos.html">
                 SOBRE NÓS
@@ -673,7 +700,7 @@
 
         <!-- =====================================================
              PERFIL À DIREITA
-        ===================================================== -->
+        ==================================================== -->
 
         <a
             href="perfil.html"
@@ -697,7 +724,9 @@
 
     <main class="editar-perfil-container">
 
+
         <div class="editar-card">
+
 
             <div class="editar-header">
 
@@ -720,8 +749,8 @@
 
 
                 <!-- =================================================
-                     SELEÇÃO DE AVATAR
-                ================================================= -->
+                    SELEÇÃO DE AVATAR
+                ================================================ -->
 
                 <div class="form-grupo">
 
@@ -889,8 +918,8 @@
 
 
                 <!-- =================================================
-                     NOME DO JOGADOR
-                ================================================= -->
+                    NOME DO JOGADOR
+                ================================================ -->
 
                 <div class="form-grupo">
 
@@ -916,8 +945,8 @@
 
 
                 <!-- =================================================
-                     TÍTULO DA JORNADA
-                ================================================= -->
+                    TÍTULO DA JORNADA
+                ================================================ -->
 
                 <div class="form-grupo">
 
@@ -976,8 +1005,8 @@
 
 
                 <!-- =================================================
-                     BOTÕES
-                ================================================= -->
+                    BOTÕES
+                ================================================ -->
 
                 <div class="editar-acoes">
 
