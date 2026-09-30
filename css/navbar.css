@@ -1,4 +1,4 @@
-/* =========================================================
+/* ========================================================= 
    NAVBAR PADRÃO (FIXA, LOGO GRANDE, XP E MENU) 
    ========================================================= */ 
  
@@ -126,17 +126,17 @@
 
 
 /* =========================================================
-   ÍCONE HAMBÚRGUER (ATIVADO E PADRONIZADO)
+   ÍCONE HAMBÚRGUER (ATIVADO, DISTÂNCIA E ESPAÇAMENTO IGUAIS)
    ========================================================= */
 
 .topbar .hamburger { 
     display: flex !important; 
     flex-direction: column !important; 
-    justify-content: center !important; /* Centraliza as barras verticalmente no espaço */
-    align-items: stretch !important; 
+    justify-content: center !important; /* Centraliza as 3 barras verticalmente no botão */
+    align-items: flex-start !important;  /* Alinha as barras perfeitamente à esquerda */
     width: 30px !important; 
     height: 30px !important; 
-    gap: 5px !important; /* Distância exata e igual entre cada uma das 3 barras */
+    gap: 6px !important;                 /* Distância exata, simétrica e idêntica entre as 3 barras */
     cursor: pointer !important; 
     z-index: 1001 !important; 
     background: transparent !important;
@@ -147,8 +147,8 @@
  
 .topbar .hamburger span { 
     display: block !important; 
-    height: 4px !important; /* Mantém a espessura ideal */
-    width: 100% !important; 
+    height: 4px !important;              /* Espessura/altura da barra */
+    width: 30px !important;              /* Largura da barra */
     background-color: #ffffff !important; 
     border-radius: 4px !important; 
     margin: 0 !important;
