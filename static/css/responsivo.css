@@ -1,0 +1,60 @@
+/* =========================================
+   RESPONSIVO.CSS - Diretrizes Responsivas (Mobile Min. 320px)
+   ========================================= */
+
+/* TABLET E DISPOSITIVOS MÓVEIS */
+@media (max-width: 768px) {
+    .conteudo-flex,
+    .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .membro {
+        width: 100%;
+    }
+
+    .jogo-wrapper {
+        width: 100%;
+        height: 320px;
+    }
+}
+
+/* CELULARES PEQUENOS (MÍNIMO 320PX) */
+@media (max-width: 480px) {
+    .podium-container {
+        gap: 6px;
+    }
+
+    .podium-card {
+        padding: 10px 4px;
+    }
+
+    .podium-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .podium-card.first .podium-avatar {
+        width: 46px;
+        height: 46px;
+    }
+
+    .podium-name {
+        font-size: 0.75rem;
+    }
+
+    .podium-xp {
+        font-size: 0.7rem;
+    }
+
+    .podium-medal {
+        font-size: 1.4rem;
+    }
+
+    .login-box, 
+    .quiz-container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+}

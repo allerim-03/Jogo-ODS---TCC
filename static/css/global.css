@@ -1,0 +1,275 @@
+/* =========================================
+   GLOBAL.CSS - Reset, Configurações Base e Componentes
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600&display=swap');
+
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF !important; /* Fundo branco original */
+    color: #1A1A1A;
+    line-height: 1.6;
+}
+
+main {
+    flex: 1;
+}
+
+#menu-check {
+    display: none;
+}
+
+/* TIPOGRAFIA BASE DO GUIA */
+h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: #1A1A1A;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #4CAE50; /* Garden Green */
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #43B4FB; /* Bright Blue */
+}
+
+/* CLASSES UTILITÁRIAS DE CORES E TEXTO */
+.negrito {
+    font-weight: 700 !important;
+}
+
+.texto-azul {
+    color: #43B4FB !important; /* Bright Blue */
+}
+
+.texto-verde {
+    color: #4CAE50 !important; /* Garden Green */
+}
+
+.texto-amarelo {
+    color: #FFDE5A !important; /* Banana Yellow */
+}
+
+.texto-vermelho {
+    color: #FF524D !important; /* Vivid Red */
+}
+
+/* BOTÕES 3D */
+.btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background-color: #4CAE50;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #388E3C, 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-decoration: none;
+}
+
+.btn-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #388E3C, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-principal:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #388E3C, 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secundario {
+    background-color: #43B4FB;
+    box-shadow: 0 4px 0 #1E88E5, 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secundario:hover {
+    box-shadow: 0 6px 0 #1E88E5, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secundario:active {
+    box-shadow: 0 1px 0 #1E88E5, 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* HERO SECTION */
+.hero-section {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+
+.hero-section h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #4CAE50;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #1A1A1A;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+}
+
+/* PILARES DA PLATAFORMA */
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.pillar-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    border: 3px solid #43B4FB;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.pillar-card:hover {
+    transform: translateY(-6px);
+    border-color: #4CAE50;
+}
+
+.pillar-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.pillar-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #1A1A1A;
+    margin-bottom: 12px;
+}
+
+.pillar-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #1A1A1A;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* BLOCO DE IMPACTO */
+.impact-block {
+    background-color: #43B4FB;
+    color: #FFFFFF;
+    padding: 50px 25px;
+    text-align: center;
+    margin: 50px auto;
+    border-radius: 16px;
+    max-width: 1100px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.impact-block h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.impact-block p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   NAVEGAÇÃO - ESTILO PADRONIZADO DOS LINKS DO MENU
+   ========================================================= */
+
+/* 1. Estado Normal: Texto branco sem sublinhado ou borda inferior */
+.topbar nav.menu a,
+.topbar nav.menu a:link,
+.topbar nav.menu a:visited {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: color 0.2s ease !important;
+}
+
+/* 2. Hover: Fica amarelo sem linha/sublinhado */
+.topbar nav.menu a:hover {
+    color: #FFDD55 !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Ativo / Clicado / Selecionado */
+.topbar nav.menu a:active,
+.topbar nav.menu a:focus,
+.topbar nav.menu a.active {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   BARRA DE XP E NÍVEL - COR PADRÃO
+   ========================================================= */
+
+/* Cor da parte preenchida da barra de XP */
+.topbar .level .bar .progress {
+    background: #FFDD55 !important;
+    background-color: #FFDD55 !important;
+}
+
+/* Cor do texto e estrela do nível */
+.topbar .level .star {
+    color: #FFDD55 !important;
+}
