@@ -1,0 +1,180 @@
+/* =========================================
+   TEXTOS.CSS - Tipografia e Estilos de Texto
+   ========================================= */
+
+/* CABEÇALHO */
+.boas-vindas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px 10px 20px !important;
+    margin-bottom: 20px;
+    background-color: #F8FAFC !important;
+}
+
+.titulo-principal-topo {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.boas-vindas h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    color: #4CAE50 !important; /* Garden Green */
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+}
+
+.sub-titulo,
+.sub-branco {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #1A1A1A !important; /* Escuro de alto contraste */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+/* BOTÕES 3D DE BOAS-VINDAS */
+.botoes-boas-vindas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.botoes-boas-vindas .btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    background-color: #4CAE50;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #388E3C, 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-decoration: none !important;
+    min-width: 160px;
+}
+
+.botoes-boas-vindas .btn-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #388E3C, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.botoes-boas-vindas .btn-principal:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #388E3C, 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.botoes-boas-vindas .btn-secundario {
+    background-color: #43B4FB;
+    box-shadow: 0 4px 0 #1E88E5, 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.botoes-boas-vindas .btn-secundario:hover {
+    box-shadow: 0 6px 0 #1E88E5, 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.botoes-boas-vindas .btn-secundario:active {
+    box-shadow: 0 1px 0 #1E88E5, 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ESTRUTURA DOS CARDS DE CONTEÚDO (HOME) */
+.sobre-sessao {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sobre-sessao.cinza {
+    background-color: #F8FAFC;
+}
+
+.conteudo-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.conteudo-flex.reverso {
+    flex-direction: row-reverse;
+}
+
+/* TEXTOS REUTILIZÁVEIS DE SEÇÃO */
+.texto {
+    flex: 1;
+}
+
+.texto h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #4CAE50;
+}
+
+.texto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1A1A1A;
+}
+
+/* QUADRO DA IMAGEM ILUSTRATIVA */
+.imagem-placeholder {
+    width: 320px;
+    height: 200px;
+    border: 2px dashed #CBD5E1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    color: #94A3B8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* CLASSES UTILITÁRIAS DE COR E PESO */
+.negrito { font-weight: 700 !important; }
+.texto-azul { color: #43B4FB !important; }
+.texto-verde { color: #4CAE50 !important; }
+.texto-amarelo { color: #FFB72B !important; } /* Atualizado para o tom dourado da interface */
+.texto-vermelho { color: #FF524D !important; }
+
+/* RESPONSIVIDADE PARA TELAS MENORES */
+@media (max-width: 768px) {
+    .boas-vindas {
+        padding-top: 20px !important;
+    }
+
+    .conteudo-flex,
+    .conteudo-flex.reverso {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagem-placeholder {
+        width: 100%;
+        max-width: 320px;
+    }
+}

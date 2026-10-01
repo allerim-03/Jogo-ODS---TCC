@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro do Aluno - Cultivando o Saber</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- =====================================================
+         FONTES
+    ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         CSS DO PROJETO
+    ===================================================== -->
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÃO GERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #ffffff !important;
+            width: 100% !important;
+            min-height: 100% !important;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           SEM SIDEBAR / HAMBÚRGUER
+        ===================================================== */
+
+        .topbar {
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            position: fixed !important;
+
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+
+            height: 90px !important;
+            min-height: 90px !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
+            z-index: 1000 !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =====================================================
+           LOGO CENTRALIZADA
+        ===================================================== */
+
+        .topbar-center {
+            position: absolute !important;
+
+            left: 50% !important;
+
+            transform: translateX(-50%) !important;
+
+            display: flex !important;
+
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           LADOS DA NAVBAR OCULTOS
+        ===================================================== */
+
+        .topbar-left,
+        .topbar-right {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           GARANTE QUE ELEMENTOS DO SIDEBAR NÃO APAREÇAM
+        ===================================================== */
+
+        .menu-checkbox,
+        .sidebar,
+        .overlay {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           FORMULÁRIO
+        ===================================================== */
+
+        .auth-sidebar h2 {
+            color: #FFFFFF !important;
+        }
+
+
+        .auth-sidebar .btn-outline {
+            background-color: #FFFFFF !important;
+
+            color: #38bdf8 !important;
+
+            border-color: #FFFFFF !important;
+        }
+
+
+        .auth-sidebar .btn-outline:hover {
+            background-color: #f0f0f0 !important;
+
+            color: #0284c7 !important;
+        }
+
+
+        .auth-sidebar .mascote {
+            image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
+        }
+
+
+        /* =====================================================
+           CADEADO — GARANTE O SVG INTEIRO
+        ===================================================== */
+
+        .input-group svg {
+            width: 24px !important;
+            height: 24px !important;
+
+            min-width: 24px !important;
+            min-height: 24px !important;
+
+            max-width: 24px !important;
+            max-height: 24px !important;
+
+            display: block !important;
+
+            flex-shrink: 0 !important;
+
+            overflow: visible !important;
+
+            box-sizing: border-box !important;
+        }
+
+
+        .input-group svg path {
+            display: block !important;
+        }
+
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        main {
+            margin-top: 90px !important;
+            padding-top: 20px !important;
+
+            min-height: calc(100vh - 175px) !important;
+
+            background-color: #ffffff !important;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+            width: 100% !important;
+            min-width: 100% !important;
+
+            height: 85px !important;
+            min-height: 85px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            background-color: #CCCCCC !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+            text-align: center !important;
+
+            position: relative !important;
+
+            left: 0 !important;
+        }
+
+
+        footer p {
+            margin: 0 !important;
+            padding: 0 !important;
+
+            color: #ffffff !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 18px !important;
+            font-weight: 400 !important;
+
+            text-align: center !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+         SOMENTE A LOGO CENTRALIZADA
+    ===================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-center">
+
+            <div class="logo">
+
+                <img
+                    src="img/cultsab.png"
+                    alt="Cultivando o Saber"
+                    class="navbar-logo"
+                >
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO ORIGINAL DO CADASTRO
+    ===================================================== -->
+
+    <main>
+
+        <div class="auth-container">
+
+
+            <!-- =================================================
+                 COLUNA ESQUERDA
+            ================================================= -->
+
+            <div class="auth-sidebar professor-theme">
+
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Mascote Tuga"
+                    class="mascote"
+                >
+
+                <h2>Bem-vindo!</h2>
+
+                <p>
+                    Venha aprender brincando e explore um mundo de conhecimentos.
+                </p>
+
+                <p style="font-size: 0.85rem; margin-bottom: 15px;">
+                    Já possui uma conta?
+                </p>
+
+                <a
+                    href="login.html"
+                    class="btn-outline"
+                >
+                    ENTRAR
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMULÁRIO ORIGINAL
+            ================================================= -->
+
+            <div class="auth-content">
+
+                <h1>Cadastro do Aluno</h1>
+
+
+                <form class="form-grid">
+
+
+                    <!-- USUÁRIO -->
+
+                    <div class="form-field col-full">
+
+                        <label for="username">
+                            Usuário
+                        </label>
+
+                        <div class="input-group">
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Digite o nome de usuário"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- E-MAIL -->
+
+                    <div class="form-field col-full">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-group">
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="nome@email.com"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SENHA -->
+
+                    <div class="form-field">
+
+                        <label for="password">
+                            Senha
+                        </label>
+
+                        <div class="input-group">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Sua senha"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REPETIR SENHA -->
+
+                    <div class="form-field">
+
+                        <label for="confirm_password">
+                            Repita a senha
+                        </label>
+
+                        <div class="input-group">
+
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                name="confirm_password"
+                                placeholder="Confirme sua senha"
+                                required
+                            >
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÃO CRIAR -->
+
+                    <div
+                        class="form-field col-full"
+                        style="margin-top: 10px;"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn-submit"
+                        >
+                            Criar
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ===================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

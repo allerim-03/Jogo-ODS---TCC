@@ -1,0 +1,25 @@
+/* =========================================
+   BASE.CSS - Configurações Gerais e utilitários
+   ========================================= */
+
+
+/* CLASSES UTILITÁRIAS DE CORES E TEXTO */
+.negrito {
+    font-weight: 700 !important;
+}
+
+.texto-azul {
+    color: #43B4FB !important; /* Bright Blue */
+}
+
+.texto-verde {
+    color: #4CAE50 !important; /* Garden Green */
+}
+
+.texto-amarelo {
+    color: #FFDE5A !important; /* Banana Yellow */
+}
+
+.texto-vermelho {
+    color: #FF524D !important; /* Vivid Red */
+}

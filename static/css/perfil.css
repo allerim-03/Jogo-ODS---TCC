@@ -1,0 +1,370 @@
+/* ==========================================
+   PÁGINA DE PERFIL / DASHBOARD
+   ========================================== */
+
+:root {
+    --green-garden: #4CAF50;
+    --green-dark: #388E3C;
+    --blue-bright: #43B4FB;
+    --blue-dark: #29b6f6;
+    --yellow-banana: #FFDE5A;
+    --orange-gold: #FFB72B; /* Cor extraída da imagem de referência */
+    --red-vivid: #FF524D;
+    --red-dark: #E53935;
+    --bg-light: #F4F9F5;
+    --text-dark: #1A1A1A;
+    --text-muted: #555555;
+    --border-radius-card: 16px;
+    --border-radius-btn: 12px;
+    --border-radius-bar: 999px;
+}
+
+/* Reset da tag main */
+main.perfil-container {
+    width: 100% !important;
+    max-width: 960px !important;
+    margin: 120px auto 40px auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+}
+
+/* Header Card (Perfil + Nível + XP) */
+.perfil-header-card {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 3px solid var(--blue-bright);
+    border-radius: var(--border-radius-card);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.perfil-avatar-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* EFEITO HOVER APENAS NA FOTO DE PERFIL */
+.perfil-avatar-main {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--green-garden);
+    object-fit: cover;
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.perfil-avatar-main:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 14px rgba(76, 175, 80, 0.3);
+}
+
+.badge-nivel {
+    position: absolute;
+    bottom: -10px;
+    background-color: var(--yellow-banana);
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: var(--border-radius-bar);
+    white-space: nowrap;
+}
+
+.perfil-detalhes {
+    flex: 1;
+    width: 100%;
+}
+
+.perfil-detalhes h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--green-garden);
+    margin: 0 0 4px 0;
+}
+
+.perfil-subtitulo {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+}
+
+.xp-container-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.xp-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.xp-valor {
+    font-family: 'Montserrat', sans-serif;
+    color: #FFB72B !important; /* Cor exata da imagem */
+    font-weight: 700;
+}
+
+.bar-perfil {
+    width: 100%;
+    height: 16px;
+    background-color: #E0E0E0;
+    border-radius: var(--border-radius-bar);
+    overflow: hidden;
+}
+
+.progress-perfil {
+    height: 100%;
+    background-color: #FFB72B !important; /* Cor exata da imagem */
+    border-radius: var(--border-radius-bar);
+}
+
+/* Card Mascote Tuga */
+.tuga-card {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 3px solid var(--green-garden);
+    border-radius: var(--border-radius-card);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.tuga-avatar {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+.tuga-balao h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--green-garden);
+    margin: 0 0 4px 0;
+}
+
+.tuga-balao p {
+    font-size: 13px;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* Grid de Estatísticas e Badges */
+.perfil-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.card-estatisticas, .card-insignias {
+    background-color: #FFFFFF;
+    border: 3px solid var(--blue-bright);
+    border-radius: var(--border-radius-card);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-estatisticas h3, .card-insignias h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: var(--green-garden);
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* EFEITO HOVER APENAS NAS ESTATÍSTICAS */
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--bg-light);
+    padding: 10px 14px;
+    border-radius: var(--border-radius-btn);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+    font-size: 22px;
+}
+
+.stat-item strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: var(--green-garden);
+    display: block;
+}
+
+.stat-item p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Grid de Insígnias */
+.insignias-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* EFEITO HOVER APENAS EM CADA INSÍGNIA */
+.insignia-item {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-btn);
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.insignia-item:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 4px 12px rgba(67, 180, 251, 0.2);
+}
+
+.insignia-item.obtida {
+    border: 2px solid var(--green-garden);
+}
+
+.insignia-item.bloqueada {
+    opacity: 0.6;
+    border: 2px dashed #CCCCCC;
+}
+
+.insignia-icon {
+    font-size: 24px;
+}
+
+.insignia-item p {
+    font-size: 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ==========================================
+   BOTÕES DE AÇÃO DA CONTA (GUIA DE ESTILO)
+   ========================================== */
+.perfil-acoes {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.perfil-acoes .btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background-color: var(--blue-bright);
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: var(--border-radius-btn);
+    box-shadow: 0 4px 0 var(--blue-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    cursor: pointer;
+}
+
+.perfil-acoes .btn-principal:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 0 var(--blue-dark);
+}
+
+.perfil-acoes .btn-principal:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 0 var(--blue-dark);
+}
+
+/* Botão Vermelho (Sair da Conta) */
+.perfil-acoes .btn-perigo {
+    background-color: var(--red-vivid) !important;
+    box-shadow: 0 4px 0 var(--red-dark) !important;
+}
+
+.perfil-acoes .btn-perigo:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 0 var(--red-dark) !important;
+}
+
+.perfil-acoes .btn-perigo:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 0 var(--red-dark) !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .perfil-header-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .perfil-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-acoes {
+        justify-content: center;
+    }
+}
+
+/* ==========================================
+   BLOQUEIO FORÇADO DE ANIMAÇÃO NOS CARDS
+   ========================================== */
+main.perfil-container .perfil-header-card,
+main.perfil-container .tuga-card,
+main.perfil-container .card-estatisticas,
+main.perfil-container .card-insignias {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+main.perfil-container .perfil-header-card:hover,
+main.perfil-container .tuga-card:hover,
+main.perfil-container .card-estatisticas:hover,
+main.perfil-container .card-insignias:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
