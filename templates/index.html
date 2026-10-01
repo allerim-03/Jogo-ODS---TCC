@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivando o Saber</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/textos.css">
+
+    <style>
+
+        /* =========================================
+           CONFIGURAÇÕES GERAIS
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+
+        /* =========================================
+           TOPBAR
+        ========================================= */
+
+        .topbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 90px !important;
+            min-height: 90px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
+            z-index: 1000 !important;
+            margin: 0 !important;
+        }
+
+
+        /* =========================================
+           HAMBÚRGUER
+        ========================================= */
+
+        .hamburger {
+            width: 30px !important;
+            height: 26px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+
+            cursor: pointer !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .hamburger span {
+            display: block !important;
+
+            width: 30px !important;
+            height: 4px !important;
+
+            background-color: #ffffff !important;
+
+            border-radius: 3px !important;
+
+            transition: all 0.2s ease !important;
+        }
+
+
+        /* =========================================
+           LADO ESQUERDO DA NAVBAR
+        ========================================= */
+
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 18px !important;
+        }
+
+
+        /* =========================================
+           CONTAINER DO LOGO + NÍVEL
+        ========================================= */
+
+        .topbar .info-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            gap: 6px !important;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+
+        /* =========================================
+           NÍVEL / XP
+        ========================================= */
+
+        .topbar .level {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+
+            color: #ffffff !important;
+            font-size: 12px !important;
+            font-weight: bold !important;
+            line-height: 1 !important;
+        }
+
+
+        .topbar .level .star {
+            color: #FFDD55 !important;
+        }
+
+
+        .topbar .level .bar {
+            width: 120px !important;
+            height: 10px !important;
+
+            background-color: #2E7D32 !important;
+
+            border-radius: 10px !important;
+            overflow: hidden !important;
+        }
+
+
+        .topbar .level .progress {
+            height: 100% !important;
+
+            background-color: #FFDD55 !important;
+
+            border-radius: 10px !important;
+        }
+
+
+        .topbar .level .xp {
+            font-size: 11px !important;
+            color: #ffffff !important;
+            opacity: 0.95;
+        }
+
+
+        /* =========================================
+           MENU CENTRAL
+        ========================================= */
+
+        .topbar nav.menu {
+            margin-left: auto !important;
+            margin-right: 25px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+        }
+
+
+        .topbar nav.menu a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+
+            font-weight: bold !important;
+            font-size: 15px !important;
+
+            transition: color 0.2s ease !important;
+
+            padding-bottom: 3px !important;
+
+            border-bottom: none !important;
+        }
+
+
+        .topbar nav.menu a:hover {
+            color: #FFDD55 !important;
+            border-bottom: none !important;
+        }
+
+
+        .topbar nav.menu a.active {
+            color: #ffffff !important;
+            border-bottom: none !important;
+        }
+
+
+        /* =========================================
+           FOTO DE PERFIL
+        ========================================= */
+
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+            width: 45px !important;
+            height: 45px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: cover !important;
+            display: block !important;
+
+            border: 2px solid #ffffff !important;
+        }
+
+
+        /* =========================================
+           SAIR DO SIDEBAR
+        ========================================= */
+
+        .sidebar .sair-sidebar {
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            display: flex !important;
+            align-items: center !important;
+
+            gap: 10px !important;
+
+            font-weight: bold !important;
+            font-size: 16px !important;
+
+            transition: color 0.2s ease !important;
+
+            margin-top: 45px !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
+        }
+
+
+        .sidebar .sair-sidebar .sair-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #ffffff !important;
+
+            transition: color 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon {
+            color: #FFDD55 !important;
+        }
+
+
+        .sidebar .sair-sidebar .sair-icon svg {
+            width: 23px !important;
+            height: 23px !important;
+
+            stroke: #ffffff !important;
+
+            transition: stroke 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
+            stroke: #FFDD55 !important;
+        }
+
+
+        /* =========================================
+           CONTEÚDO PRINCIPAL
+        ========================================= */
+
+        main {
+            margin-top: 90px !important;
+            padding-top: 20px !important;
+        }
+
+
+        /* =========================================
+           BANNER
+        ========================================= */
+
+        .banner-section {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+
+            padding: 0 20px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .banner-img {
+            max-width: 1100px;
+            width: 100%;
+            height: auto;
+
+            display: block;
+
+            border-radius: 15px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+            border: none !important;
+            outline: none !important;
+        }
+
+
+        /* =========================================
+           SEÇÕES DE TEXTO
+        ========================================= */
+
+        .sobre-sessao {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+
+        .sobre-sessao .conteudo-flex {
+            width: 100%;
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 50px;
+        }
+
+
+        /* =========================================
+           TEXTO
+        ========================================= */
+
+        .sobre-sessao .texto {
+            flex: 1;
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            text-align: justify;
+        }
+
+
+        .sobre-sessao .texto h3 {
+            text-align: center !important;
+
+            margin-bottom: 20px;
+        }
+
+
+        .sobre-sessao .texto p {
+            text-align: justify !important;
+
+            margin: 0 auto 20px auto;
+
+            line-height: 1.7;
+
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+
+
+        /* =========================================
+           IMAGENS DAS SEÇÕES
+        ========================================= */
+
+        .sobre-sessao .imagem-placeholder {
+            width: 280px;
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+
+            border: none !important;
+            outline: none !important;
+
+            box-shadow: none !important;
+
+            background: transparent !important;
+
+            border-radius: 0 !important;
+        }
+
+
+        /* =========================================
+           SEÇÃO CINZA
+        ========================================= */
+
+        .sobre-sessao.cinza {
+            width: 100%;
+        }
+
+
+        .sobre-sessao.cinza .conteudo-flex {
+            justify-content: center;
+        }
+
+
+        /* =========================================
+           TUGA
+        ========================================= */
+
+        #journey-tuga {
+            border: none !important;
+            outline: none !important;
+
+            box-shadow: none !important;
+
+            background: transparent !important;
+
+            border-radius: 0 !important;
+        }
+
+
+        /* =========================================
+           IMAGENS
+        ========================================= */
+
+        .sobre-sessao img {
+            border: none !important;
+            outline: none !important;
+        }
+
+
+        /* =========================================
+           RESPONSIVIDADE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .sobre-sessao .conteudo-flex,
+            .sobre-sessao .conteudo-flex.reverso {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 30px;
+            }
+
+
+            .sobre-sessao .texto {
+                max-width: 800px;
+                width: 100%;
+            }
+
+
+            .sobre-sessao .texto h3 {
+                text-align: center !important;
+            }
+
+
+            .sobre-sessao .texto p {
+                text-align: justify !important;
+            }
+
+
+            .sobre-sessao .imagem-placeholder {
+                width: 220px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            main {
+                padding-top: 10px !important;
+            }
+
+
+            .sobre-sessao {
+                padding: 35px 20px;
+            }
+
+
+            .sobre-sessao .texto p {
+                text-align: justify !important;
+                font-size: 0.95rem;
+            }
+
+
+            .sobre-sessao .imagem-placeholder {
+                width: 180px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="topbar">
+
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+
+        <label
+            for="menu-check"
+            class="overlay"
+        ></label>
+
+
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
+
+        <aside class="sidebar">
+
+
+            <div class="perfil-sidebar">
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Foto de perfil"
+                >
+
+                <p>Nível 2</p>
+
+            </div>
+
+
+            <nav class="links-sidebar">
+
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+
+                <a href="ods.html">
+                    ODS
+                </a>
+
+
+                <a href="quiz.html">
+                    QUIZ
+                </a>
+
+
+                <a href="jogos.html">
+                    JOGOS
+                </a>
+
+
+                <a href="ranking.html">
+                    RANKING
+                </a>
+
+
+                <a href="perfil.html">
+                    PERFIL
+                </a>
+
+
+                <a href="sobrenos.html">
+                    SOBRE NÓS
+                </a>
+
+
+                <!-- =================================
+                     SAIR
+                ================================== -->
+
+                <a
+                    href="home.html"
+                    class="sair-sidebar"
+                >
+
+                    <span class="sair-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+
+                            <polyline points="16 17 21 12 16 7"></polyline>
+
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12"
+                            ></line>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        SAIR
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================================
+             LADO ESQUERDO
+        ========================================= -->
+
+        <div class="left">
+
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+
+            <div class="info-container">
+
+
+                <div class="logo">
+
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
+
+                </div>
+
+
+                <div class="level">
+
+
+                    <span class="star">
+                        ★ NÍVEL 2
+                    </span>
+
+
+                    <div class="bar">
+
+                        <div
+                            class="progress"
+                            style="width: 45%;"
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <span class="xp">
+                        450/1000
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             MENU CENTRAL
+        ========================================= -->
+
+        <nav class="menu">
+
+
+            <a
+                href="index.html"
+                class="active"
+            >
+                HOME
+            </a>
+
+
+            <a href="ods.html">
+                ODS
+            </a>
+
+
+            <a href="quiz.html">
+                QUIZ
+            </a>
+
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+
+            <a href="ranking.html">
+                RANKING
+            </a>
+
+
+            <a href="perfil.html">
+                PERFIL
+            </a>
+
+
+            <a href="sobrenos.html">
+                SOBRE NÓS
+            </a>
+
+        </nav>
+
+
+        <!-- =========================================
+             PERFIL
+        ========================================= -->
+
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
+
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
+
+        </a>
+
+    </header>
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+
+    <main>
+
+
+        <!-- =========================================
+             BANNER
+        ========================================= -->
+
+        <div class="banner-section">
+
+            <img
+                src="./img/banner.PNG"
+                alt="Cultivando o Saber - Banner em Pixel Art"
+                class="banner-img"
+            >
+
+        </div>
+
+
+        <!-- =========================================
+             PRIMEIRA SEÇÃO
+        ========================================= -->
+
+        <section class="sobre-sessao">
+
+
+            <div class="conteudo-flex">
+
+
+                <div class="texto">
+
+
+                    <h3>
+                        Cultivando o Saber
+                    </h3>
+
+
+                    <p>
+                        Uma plataforma desenvolvida para transformar a educação ambiental voltada para os alunos do Ensino Fundamental. Por isso, conectamos o aprendizado de forma simples e direta às metas da ODS 15 (Vida Terrestre), mostrando que defender nossas florestas e animais é uma missão que todos nós podemos abraçar desde cedo.
+                    </p>
+
+                </div>
+
+
+                <img
+                    src="img/testeimg.png"
+                    alt="Sobre o Cultivando o Saber"
+                    class="imagem-placeholder"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SEGUNDA SEÇÃO
+        ========================================= -->
+
+        <section class="sobre-sessao cinza">
+
+
+            <div class="conteudo-flex reverso">
+
+
+                <div class="texto">
+
+
+                    <h3>
+                        Aprendendo de forma divertida
+                    </h3>
+
+
+                    <p>
+                        Aprender pode ser muito mais interessante através de jogos lúdicos, quizz, cards informativos e missões sustentáveis. Cada atividade gera experiência e conquistas, incentivando a conscientização socioambiental.
+                    </p>
+
+                </div>
+
+
+                <img
+                    src="img/testeimg2.png"
+                    alt="Aprendendo de Forma Divertida"
+                    class="imagem-placeholder"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             JORNADA
+        ========================================= -->
+
+        <section class="journey">
+
+
+            <div class="journey-title">
+
+
+                <h2>
+                    Sua Jornada Sustentável
+                </h2>
+
+
+                <p>
+                    Acompanhe novas etapas no mapa
+                </p>
+
+
+                <br>
+                <br>
+
+            </div>
+
+
+            <div class="journey-map">
+
+
+                <img
+                    id="journey-tuga"
+                    src="img/TugaPqn.png"
+                    alt="Tuga"
+                >
+
+
+                <div class="journey-line"></div>
+
+
+                <div
+                    class="journey-step step-1 active"
+                    data-step="0"
+                >
+
+                    <div class="step-icon">
+                        📝
+                    </div>
+
+                    <span>
+                        Cadastro
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="journey-step step-2"
+                    data-step="1"
+                >
+
+                    <div class="step-icon">
+                        🎮
+                    </div>
+
+                    <span>
+                        Jogos
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="journey-step step-3"
+                    data-step="2"
+                >
+
+                    <div class="step-icon">
+                        🌱
+                    </div>
+
+                    <span>
+                        Evolução
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="journey-step step-4"
+                    data-step="3"
+                >
+
+                    <div class="step-icon">
+                        🌎
+                    </div>
+
+                    <span>
+                        ODS
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="journey-step step-5"
+                    data-step="4"
+                >
+
+                    <div class="step-icon">
+                        🏆
+                    </div>
+
+                    <span>
+                        Guardião
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 CARD DA JORNADA
+            ====================================== -->
+
+            <div class="journey-card">
+
+
+                <h3 id="journey-title">
+                    Comece sua Aventura
+                </h3>
+
+
+                <p id="journey-description">
+                    Cadastre-se para registrar seu desempenho
+                </p>
+
+
+                <div class="journey-action">
+
+
+                    <a
+                        id="journey-btn"
+                        href="perfil.html"
+                        class="btn-games"
+                    >
+                        Criar Perfil
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT DA JORNADA
+    ========================================= -->
+
+    <script src="js/journey.js"></script>
+
+</body>
+
+</html>

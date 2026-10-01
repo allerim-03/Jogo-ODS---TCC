@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar Perfil - Cultivando o Saber</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="css/editar-perfil.css">
+
+    <style>
+
+        /* =========================================================
+            CONFIGURAÇÃO GERAL
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #3399FF !important; /* Azul correspondente à imagem enviada para camuflar com o contorno */
+        }
+
+
+        /* =========================================================
+            TOPBAR
+        ========================================================= */
+
+        .topbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 100% !important;
+            height: 90px !important;
+            min-height: 90px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
+            z-index: 1000 !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =========================================================
+            HAMBÚRGUER
+            3 TRAÇOS BRANCOS
+            SEM HOVER AMARELO
+        ========================================================= */
+
+        .topbar .hamburger {
+            width: 30px !important;
+            height: 30px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+
+            justify-content: center !important;
+            align-items: flex-start !important;
+
+            gap: 6px !important;
+
+            cursor: pointer !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            color: #ffffff !important;
+        }
+
+
+        .topbar .hamburger span {
+            display: block !important;
+
+            width: 30px !important;
+            height: 4px !important;
+
+            background-color: #ffffff !important;
+
+            border-radius: 5px !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            transform: none !important;
+
+            transition: none !important;
+        }
+
+
+        /* IMPORTANTE:
+            O HAMBÚRGUER NUNCA FICA AMARELO */
+
+        .topbar .hamburger:hover {
+            color: #ffffff !important;
+        }
+
+        .topbar .hamburger:hover span {
+            background-color: #ffffff !important;
+        }
+
+        .topbar .hamburger:focus {
+            color: #ffffff !important;
+            outline: none !important;
+        }
+
+        .topbar .hamburger:focus span {
+            background-color: #ffffff !important;
+        }
+
+
+        /* =========================================================
+            LADO ESQUERDO
+        ========================================================= */
+
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+
+            gap: 18px !important;
+        }
+
+
+        /* =========================================================
+            LOGO + XP
+        ========================================================= */
+
+        .topbar .info-container {
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: flex-start !important;
+            justify-content: center !important;
+
+            gap: 6px !important;
+        }
+
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+
+            display: block !important;
+        }
+
+
+        /* =========================================================
+            NÍVEL E XP
+        ========================================================= */
+
+        .topbar .level {
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 8px !important;
+
+            color: #ffffff !important;
+
+            font-size: 12px !important;
+
+            font-weight: bold !important;
+
+            line-height: 1 !important;
+        }
+
+
+        .topbar .level .star {
+            color: #FFDD55 !important;
+        }
+
+
+        .topbar .level .bar {
+            width: 120px !important;
+            height: 10px !important;
+
+            background-color: #2E7D32 !important;
+
+            border-radius: 10px !important;
+
+            overflow: hidden !important;
+        }
+
+
+        .topbar .level .progress {
+            height: 100% !important;
+
+            background-color: #FFDD55 !important;
+
+            border-radius: 10px !important;
+        }
+
+
+        .topbar .level .xp {
+            font-size: 11px !important;
+
+            color: #ffffff !important;
+
+            opacity: 0.95;
+        }
+
+
+        /* =========================================================
+            MENU CENTRAL
+        ========================================================= */
+
+        .topbar nav.menu {
+            margin-left: auto !important;
+            margin-right: 25px !important;
+
+            display: flex !important;
+            align-items: center !important;
+
+            gap: 20px !important;
+        }
+
+
+        .topbar nav.menu a {
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            font-weight: bold !important;
+
+            font-size: 15px !important;
+
+            transition: color 0.2s ease !important;
+
+            padding: 0 !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* HOVER DO MENU */
+
+        .topbar nav.menu a:hover {
+            color: #FFDD55 !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* ATIVO / FOCO */
+
+        .topbar nav.menu a:active,
+        .topbar nav.menu a:focus,
+        .topbar nav.menu a.active {
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* =========================================================
+            FOTO DE PERFIL
+        ========================================================= */
+
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+            width: 45px !important;
+            height: 45px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: cover !important;
+
+            display: block !important;
+
+            border: 2px solid #ffffff;
+        }
+
+
+        /* =========================================================
+            SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            display: flex !important;
+
+            flex-direction: column !important;
+        }
+
+
+        /* =========================================================
+            PERFIL DA SIDEBAR
+        ========================================================= */
+
+        .sidebar .perfil-sidebar {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+
+        /* =========================================================
+            LINKS DA SIDEBAR
+        ========================================================= */
+
+        .sidebar .links-sidebar {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        /* =========================================================
+            BOTÃO SAIR
+            IGUAL À PÁGINA ODS / INDEX
+        ========================================================= */
+
+        .sidebar .sair-sidebar {
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 10px !important;
+
+            font-weight: bold !important;
+
+            font-size: 16px !important;
+
+            transition: color 0.2s ease !important;
+
+            margin-top: 45px !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+            ÍCONE DO SAIR
+        ========================================================= */
+
+        .sidebar .sair-sidebar .sair-icon {
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            color: #ffffff !important;
+
+            transition: color 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon {
+            color: #FFDD55 !important;
+        }
+
+
+        .sidebar .sair-sidebar .sair-icon svg {
+            width: 23px !important;
+            height: 23px !important;
+
+            stroke: #ffffff !important;
+
+            transition: stroke 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
+            stroke: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+            GARANTE QUE A SIDEBAR FIQUE ACIMA DO CONTEÚDO
+        ========================================================= */
+
+        .topbar {
+            z-index: 1000 !important;
+        }
+
+
+        /* =========================================================
+            CONTEÚDO PRINCIPAL
+        ========================================================= */
+
+        main.editar-perfil-container {
+            margin-top: 90px !important;
+
+            padding-top: 20px !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="topbar">
+
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+
+        <label
+            for="menu-check"
+            class="overlay">
+        </label>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ==================================================== -->
+
+        <aside class="sidebar">
+
+
+            <div class="perfil-sidebar">
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Foto de perfil"
+                >
+
+                <p>
+                    Nível 2
+                </p>
+
+            </div>
+
+
+            <nav class="links-sidebar">
+
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+
+                <a href="ods.html">
+                    ODS
+                </a>
+
+
+                <a href="quiz.html">
+                    QUIZ
+                </a>
+
+
+                <a href="jogos.html">
+                    JOGOS
+                </a>
+
+
+                <a href="ranking.html">
+                    RANKING
+                </a>
+
+
+                <a
+                    href="perfil.html"
+                    class="active"
+                >
+                    PERFIL
+                </a>
+
+
+                <a href="sobrenos.html">
+                    SOBRE NÓS
+                </a>
+
+
+                <!-- =================================================
+                    SAIR
+                ================================================ -->
+
+                <a
+                    href="home.html"
+                    class="sair-sidebar"
+                >
+
+                    <span class="sair-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <path
+                                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+                            </path>
+
+
+                            <polyline
+                                points="16 17 21 12 16 7">
+                            </polyline>
+
+
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12">
+                            </line>
+
+                        </svg>
+
+                    </span>
+
+
+                    <span>
+                        SAIR
+                    </span>
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =====================================================
+             LADO ESQUERDO
+        ==================================================== -->
+
+        <div class="left">
+
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+
+            <div class="info-container">
+
+
+                <div class="logo">
+
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
+
+                </div>
+
+
+                <!-- NÍVEL / XP -->
+
+                <div class="level">
+
+
+                    <span class="star">
+                        ★ NÍVEL 2
+                    </span>
+
+
+                    <div class="bar">
+
+                        <div
+                            class="progress"
+                            style="width: 45%;">
+                        </div>
+
+                    </div>
+
+
+                    <span class="xp">
+                        450/1000
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             MENU DE NAVEGAÇÃO CENTRAL
+        ==================================================== -->
+
+        <nav class="menu">
+
+
+            <a href="index.html">
+                HOME
+            </a>
+
+
+            <a href="ods.html">
+                ODS
+            </a>
+
+
+            <a href="quiz.html">
+                QUIZ
+            </a>
+
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+
+            <a href="ranking.html">
+                RANKING
+            </a>
+
+
+            <a
+                href="perfil.html"
+                class="active"
+            >
+                PERFIL
+            </a>
+
+
+            <a href="sobrenos.html">
+                SOBRE NÓS
+            </a>
+
+        </nav>
+
+
+        <!-- =====================================================
+             PERFIL À DIREITA
+        ==================================================== -->
+
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
+
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
+
+        </a>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+    ========================================================= -->
+
+    <main class="editar-perfil-container">
+
+
+        <div class="editar-card">
+
+
+            <div class="editar-header">
+
+                <h2>
+                    Editar Perfil
+                </h2>
+
+                <p>
+                    Personalize seu Guardião do Eco e escolha seu mascote de avatar!
+                </p>
+
+            </div>
+
+
+            <form
+                action="perfil.html"
+                method="GET"
+                class="editar-form"
+            >
+
+
+                <!-- =================================================
+                    SELEÇÃO DE AVATAR
+                ================================================ -->
+
+                <div class="form-grupo">
+
+                    <label class="form-label">
+                        Escolha seu Avatar de Animais:
+                    </label>
+
+
+                    <div class="avatars-grid">
+
+
+                        <!-- TARTARUGA -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="tuga"
+                                checked
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🐢
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Tartaruga Tuga
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- PEIXE -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="peixe"
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🐟
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Peixe Glub
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- LEÃO -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="leao"
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🦁
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Leão da Savana
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- MACACO -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="macaco"
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🐒
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Mico-Leão
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- ARARA -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="arara"
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🦜
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Arara-Azul
+                                </span>
+
+                            </div>
+
+                        </label>
+
+
+                        <!-- CAPIVARA -->
+
+                        <label class="avatar-option">
+
+                            <input
+                                type="radio"
+                                name="avatar"
+                                value="capivara"
+                            >
+
+                            <div class="avatar-card">
+
+                                <span class="avatar-icon">
+                                    🦦
+                                </span>
+
+                                <span class="avatar-nome">
+                                    Capivara Eco
+                                </span>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                    NOME DO JOGADOR
+                ================================================ -->
+
+                <div class="form-grupo">
+
+                    <label
+                        for="nome-usuario"
+                        class="form-label"
+                    >
+                        Nome do Guardião:
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nome-usuario"
+                        name="nome"
+                        class="form-input"
+                        value="Guardião do Eco"
+                        required
+                        maxlength="25"
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                    TÍTULO DA JORNADA
+                ================================================ -->
+
+                <div class="form-grupo">
+
+                    <label
+                        for="titulo-usuario"
+                        class="form-label"
+                    >
+                        Título da Sua Jornada:
+                    </label>
+
+
+                    <select
+                        id="titulo-usuario"
+                        name="titulo"
+                        class="form-input form-select"
+                    >
+
+                        <option
+                            value="Protetor da Natureza"
+                            selected
+                        >
+                            Protetor da Natureza
+                        </option>
+
+
+                        <option
+                            value="Guardião da Biodiversidade"
+                        >
+                            Guardião da Biodiversidade
+                        </option>
+
+
+                        <option
+                            value="Defensor da Água Potável"
+                        >
+                            Defensor da Água Potável
+                        </option>
+
+
+                        <option
+                            value="Herói do Clima"
+                        >
+                            Herói do Clima
+                        </option>
+
+
+                        <option
+                            value="Agente da Reciclagem"
+                        >
+                            Agente da Reciclagem
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =================================================
+                    BOTÕES
+                ================================================ -->
+
+                <div class="editar-acoes">
+
+
+                    <a
+                        href="perfil.html"
+                        class="btn-principal btn-cancelar"
+                    >
+                        Cancelar
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="btn-principal btn-salvar"
+                    >
+                        Salvar Alterações
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

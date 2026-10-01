@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cultivando o Saber - Ranking</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+
+
+    <style>
+
+        /* =========================================================
+           AJUSTES GERAIS
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+
+        /* =========================================================
+           MENU HAMBÚRGUER
+           BRANCO SEMPRE — SEM HOVER
+        ========================================================= */
+
+        .topbar .hamburger {
+            width: 30px !important;
+            height: 30px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+
+            gap: 6px !important;
+
+            cursor: pointer !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+
+        .topbar .hamburger span {
+            display: block !important;
+
+            width: 30px !important;
+            height: 4px !important;
+
+            background-color: #ffffff !important;
+
+            border-radius: 5px !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            transform: none !important;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+           MESMA ESTRUTURA DA PÁGINA ODS
+        ========================================================= */
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================================================
+           BOTÃO SAIR
+        ========================================================= */
+
+        .sidebar .sair-sidebar {
+
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 10px !important;
+
+            font-weight: bold !important;
+
+            font-size: 16px !important;
+
+            transition: color 0.2s ease !important;
+
+            margin-top: 45px !important;
+        }
+
+
+        /* Hover amarelo somente no SAIR */
+
+        .sidebar .sair-sidebar:hover {
+
+            color: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+           ÍCONE DO SAIR
+        ========================================================= */
+
+        .sidebar .sair-sidebar .sair-icon {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            color: #ffffff !important;
+
+            transition: color 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon {
+
+            color: #FFDD55 !important;
+        }
+
+
+        .sidebar .sair-sidebar .sair-icon svg {
+
+            width: 23px !important;
+
+            height: 23px !important;
+
+            stroke: #ffffff !important;
+
+            transition: stroke 0.2s ease !important;
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
+
+            stroke: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+           NÍVEL E XP
+        ========================================================= */
+
+        .topbar .level .star {
+
+            color: #FFDD55 !important;
+        }
+
+
+        .topbar .level .bar {
+
+            width: 120px !important;
+
+            height: 10px !important;
+
+            background-color: #2E7D32 !important;
+
+            border-radius: 10px !important;
+
+            overflow: hidden !important;
+        }
+
+
+        .topbar .level .progress {
+
+            height: 100% !important;
+
+            background-color: #FFDD55 !important;
+
+            border-radius: 10px !important;
+        }
+
+
+        /* =========================================================
+           TOPBAR
+        ========================================================= */
+
+        .topbar {
+
+            position: fixed !important;
+
+            top: 0 !important;
+
+            left: 0 !important;
+
+            width: 100% !important;
+
+            height: 90px !important;
+
+            min-height: 90px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            padding: 10px 25px !important;
+
+            background-color: #4CAF50 !important;
+
+            z-index: 1000 !important;
+
+            margin: 0 !important;
+        }
+
+
+        /* =========================================================
+           LADO ESQUERDO
+        ========================================================= */
+
+        .topbar .left {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 18px !important;
+        }
+
+
+        /* =========================================================
+           LOGO + XP
+        ========================================================= */
+
+        .topbar .info-container {
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: flex-start !important;
+
+            justify-content: center !important;
+
+            gap: 6px !important;
+        }
+
+
+        .topbar .navbar-logo {
+
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
+        }
+
+
+        /* =========================================================
+           MENU CENTRAL
+        ========================================================= */
+
+        .topbar nav.menu {
+
+            margin-left: auto !important;
+
+            margin-right: 25px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 20px !important;
+        }
+
+
+        .topbar nav.menu a {
+
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            font-weight: bold !important;
+
+            font-size: 15px !important;
+
+            transition: color 0.2s ease !important;
+
+            padding: 0 !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* Hover amarelo dos links da navbar */
+
+        .topbar nav.menu a:hover {
+
+            color: #FFDD55 !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* Página ativa continua branca */
+
+        .topbar nav.menu a:active,
+        .topbar nav.menu a:focus,
+        .topbar nav.menu a.active {
+
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* =========================================================
+           PERFIL
+        ========================================================= */
+
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+
+            width: 45px !important;
+
+            height: 45px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: cover !important;
+
+            display: block !important;
+
+            border: 2px solid #ffffff;
+        }
+
+
+        /* =========================================================
+           CONTEÚDO PRINCIPAL
+        ========================================================= */
+
+        main {
+
+            margin-top: 90px !important;
+
+            padding-top: 20px !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="pagina-ranking">
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="topbar">
+
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+
+        <label
+            for="menu-check"
+            class="overlay">
+        </label>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- PERFIL DO SIDEBAR -->
+
+            <div class="perfil-sidebar">
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Foto de perfil"
+                >
+
+                <p>
+                    Nível 2
+                </p>
+
+            </div>
+
+
+            <!-- LINKS DO SIDEBAR -->
+
+            <nav class="links-sidebar">
+
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+
+                <a href="ods.html">
+                    ODS
+                </a>
+
+
+                <a href="quiz.html">
+                    QUIZ
+                </a>
+
+
+                <a href="jogos.html">
+                    JOGOS
+                </a>
+
+
+                <a
+                    href="ranking.html"
+                    class="active"
+                >
+                    RANKING
+                </a>
+
+
+                <a href="perfil.html">
+                    PERFIL
+                </a>
+
+
+                <a href="sobrenos.html">
+                    SOBRE NÓS
+                </a>
+
+
+                <!-- =================================================
+                     SAIR
+                ================================================= -->
+
+                <a
+                    href="home.html"
+                    class="sair-sidebar"
+                >
+
+
+                    <span class="sair-icon">
+
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+
+                            <path
+                                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+                            </path>
+
+
+                            <polyline
+                                points="16 17 21 12 16 7">
+                            </polyline>
+
+
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12">
+                            </line>
+
+
+                        </svg>
+
+
+                    </span>
+
+
+                    <span>
+                        SAIR
+                    </span>
+
+
+                </a>
+
+
+            </nav>
+
+
+        </aside>
+
+
+        <!-- =====================================================
+             LADO ESQUERDO
+        ===================================================== -->
+
+        <div class="left">
+
+
+            <!-- HAMBÚRGUER -->
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </label>
+
+
+            <!-- LOGO E XP -->
+
+            <div class="info-container">
+
+
+                <div class="logo">
+
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
+
+                </div>
+
+
+                <!-- NÍVEL / XP -->
+
+                <div class="level">
+
+
+                    <span
+                        class="star"
+                        style="color: #FFDD55 !important;"
+                    >
+                        ★ NÍVEL 2
+                    </span>
+
+
+                    <div class="bar">
+
+
+                        <div
+                            class="progress"
+                            style="
+                                width: 45%;
+                                background-color: #FFDD55 !important;
+                            "
+                        >
+                        </div>
+
+
+                    </div>
+
+
+                    <span class="xp">
+                        450/1000
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             MENU CENTRAL
+        ===================================================== -->
+
+        <nav class="menu">
+
+
+            <a href="index.html">
+                HOME
+            </a>
+
+
+            <a href="ods.html">
+                ODS
+            </a>
+
+
+            <a href="quiz.html">
+                QUIZ
+            </a>
+
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+
+            <a
+                href="ranking.html"
+                class="active"
+            >
+                RANKING
+            </a>
+
+
+            <a href="perfil.html">
+                PERFIL
+            </a>
+
+
+            <a href="sobrenos.html">
+                SOBRE NÓS
+            </a>
+
+
+        </nav>
+
+
+        <!-- =====================================================
+             PERFIL À DIREITA
+        ===================================================== -->
+
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
+
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
+
+        </a>
+
+
+    </header>
+
+
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL — RANKING ORIGINAL
+    ========================================================= -->
+
+    <main>
+
+
+        <section
+            class="ranking-wrapper"
+            style="
+                padding-top: 20px !important;
+                margin-top: 0 !important;
+            "
+        >
+
+
+            <div
+                class="texto-ranking-topo"
+                style="
+                    margin-top: 0 !important;
+                    padding-top: 0 !important;
+                "
+            >
+
+
+                <h2
+                    style="
+                        margin-top: 0 !important;
+                        color: #ffffff !important;
+                        font-family: 'Nunito', sans-serif;
+                        font-size: 2.2rem;
+                        font-weight: 800;
+                        text-align: center;
+                    "
+                >
+                    Ranking Geral
+                </h2>
+
+
+                <p
+                    style="
+                        text-align: center;
+                        color: #ffffff !important;
+                    "
+                >
+                    Os melhores protetores do planeta!
+                </p>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 RANKING
+            ================================================= -->
+
+            <div class="ranking-container">
+
+
+                <!-- PÓDIO -->
+
+                <div class="podium-container">
+
+
+                    <!-- SEGUNDO LUGAR -->
+
+                    <div class="podium-card second">
+
+                        <div class="podium-medal">
+                            🥈
+                        </div>
+
+                        <img
+                            src="img/foto.png"
+                            class="podium-avatar"
+                            alt="Player 2"
+                        >
+
+                        <span class="podium-name">
+                            Nome2
+                        </span>
+
+                        <span class="podium-xp">
+                            2.400 XP
+                        </span>
+
+                    </div>
+
+
+                    <!-- PRIMEIRO LUGAR -->
+
+                    <div class="podium-card first">
+
+                        <div class="podium-medal">
+                            👑
+                        </div>
+
+                        <img
+                            src="img/foto.png"
+                            class="podium-avatar"
+                            alt="Player 1"
+                        >
+
+                        <span class="podium-name">
+                            Nome1
+                        </span>
+
+                        <span class="podium-xp">
+                            2.850 XP
+                        </span>
+
+                    </div>
+
+
+                    <!-- TERCEIRO LUGAR -->
+
+                    <div class="podium-card third">
+
+                        <div class="podium-medal">
+                            🥉
+                        </div>
+
+                        <img
+                            src="img/foto.png"
+                            class="podium-avatar"
+                            alt="Player 3"
+                        >
+
+                        <span class="podium-name">
+                            Nome3
+                        </span>
+
+                        <span class="podium-xp">
+                            2.150 XP
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     LISTA
+                ================================================= -->
+
+                <div class="ranking-list">
+
+
+                    <!-- 4º -->
+
+                    <div class="ranking-item">
+
+                        <span class="position">
+                            4º
+                        </span>
+
+                        <img
+                            src="img/foto.png"
+                            class="item-avatar"
+                            alt="Player"
+                        >
+
+                        <span class="player-name">
+                            Nome4
+                        </span>
+
+                        <span class="player-xp">
+                            1.900 XP
+                        </span>
+
+                    </div>
+
+
+                    <!-- 5º -->
+
+                    <div class="ranking-item">
+
+                        <span class="position">
+                            5º
+                        </span>
+
+                        <img
+                            src="img/foto.png"
+                            class="item-avatar"
+                            alt="Player"
+                        >
+
+                        <span class="player-name">
+                            Nome5
+                        </span>
+
+                        <span class="player-xp">
+                            1.750 XP
+                        </span>
+
+                    </div>
+
+
+                    <!-- 6º -->
+
+                    <div class="ranking-item">
+
+                        <span class="position">
+                            6º
+                        </span>
+
+                        <img
+                            src="img/foto.png"
+                            class="item-avatar"
+                            alt="Player"
+                        >
+
+                        <span class="player-name">
+                            Nome6
+                        </span>
+
+                        <span class="player-xp">
+                            1.600 XP
+                        </span>
+
+                    </div>
+
+
+                    <!-- VOCÊ -->
+
+                    <div class="ranking-item current-user">
+
+                        <span class="position">
+                            12º
+                        </span>
+
+                        <img
+                            src="img/foto.png"
+                            class="item-avatar"
+                            alt="Você"
+                        >
+
+                        <span class="player-name">
+                            Você
+                        </span>
+
+                        <span class="player-xp">
+                            450 XP
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

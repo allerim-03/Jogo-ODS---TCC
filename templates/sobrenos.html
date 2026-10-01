@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cultivando o Saber - Sobre nós</title>
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+
+
+    <style>
+
+        /* =========================================================
+           CONFIGURAÇÃO GERAL
+        ========================================================= */
+
+        html,
+        body {
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            min-height: 100vh !important;
+
+            background-color: #3F9B43 !important;
+
+        }
+
+
+        body {
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =========================================================
+           MENU HAMBÚRGUER
+           MESMA ESTRUTURA DO QUIZ
+        ========================================================= */
+
+        .topbar .hamburger {
+
+            width: 30px !important;
+            height: 26px !important;
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            justify-content: space-between !important;
+
+            align-items: flex-start !important;
+
+            cursor: pointer !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+            color: #FFFFFF !important;
+
+            background: transparent !important;
+
+            background-color: transparent !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+
+            text-decoration: none !important;
+
+        }
+
+
+        .topbar .hamburger:hover,
+        .topbar .hamburger:focus,
+        .topbar .hamburger:active,
+        .topbar .hamburger:visited {
+
+            color: #FFFFFF !important;
+
+            background: transparent !important;
+
+            background-color: transparent !important;
+
+            border: none !important;
+
+            outline: none !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+        .topbar .hamburger span {
+
+            display: block !important;
+
+            width: 30px !important;
+            height: 4px !important;
+
+            background-color: #FFFFFF !important;
+
+            border-radius: 5px !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            transform: none !important;
+
+        }
+
+
+        .topbar .hamburger:hover span,
+        .topbar .hamburger:focus span,
+        .topbar .hamburger:active span {
+
+            background-color: #FFFFFF !important;
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+           MESMA ESTRUTURA DO QUIZ
+        ========================================================= */
+
+        .sidebar {
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+        }
+
+
+        .sidebar .links-sidebar {
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+        }
+
+
+        /* =========================================================
+           BOTÃO SAIR
+           MESMO PADRÃO DO QUIZ
+        ========================================================= */
+
+        .sidebar .sair-sidebar {
+
+            color: #FFFFFF !important;
+
+            text-decoration: none !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 10px !important;
+
+            font-weight: bold !important;
+
+            font-size: 16px !important;
+
+            transition: color 0.2s ease !important;
+
+            margin-top: 45px !important;
+
+        }
+
+
+        .sidebar .sair-sidebar:hover {
+
+            color: #FFDD55 !important;
+
+        }
+
+
+        /* =========================================================
+           ÍCONE DO SAIR
+        ========================================================= */
+
+        .sidebar .sair-sidebar .sair-icon {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            color: #FFFFFF !important;
+
+            transition: color 0.2s ease !important;
+
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon {
+
+            color: #FFDD55 !important;
+
+        }
+
+
+        .sidebar .sair-sidebar .sair-icon svg {
+
+            width: 23px !important;
+
+            height: 23px !important;
+
+            stroke: #FFFFFF !important;
+
+            transition: stroke 0.2s ease !important;
+
+        }
+
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
+
+            stroke: #FFDD55 !important;
+
+        }
+
+
+        /* =========================================================
+           NÍVEL E XP
+           MESMAS CORES DO QUIZ
+        ========================================================= */
+
+        .topbar .level .star {
+
+            color: #FFDD55 !important;
+
+        }
+
+
+        .topbar .level .bar {
+
+            width: 120px !important;
+
+            height: 10px !important;
+
+            background-color: #2E7D32 !important;
+
+            border-radius: 10px !important;
+
+            overflow: hidden !important;
+
+        }
+
+
+        .topbar .level .progress {
+
+            height: 100% !important;
+
+            background-color: #FFDD55 !important;
+
+            border-radius: 10px !important;
+
+        }
+
+
+        /* =========================================================
+           TOPO
+        ========================================================= */
+
+        .topbar {
+
+            z-index: 1000 !important;
+
+        }
+
+
+        /* =========================================================
+           NAVBAR DO SOBRE NÓS
+           MANTENDO O TAMANHO ORIGINAL
+        ========================================================= */
+
+        .topbar {
+
+            position: relative !important;
+
+            top: 0 !important;
+
+            left: 0 !important;
+
+            width: 100% !important;
+
+            height: 90px !important;
+
+            min-height: 90px !important;
+
+            margin: 0 !important;
+
+            padding: 10px 25px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            box-sizing: border-box !important;
+
+            background-color: #4CAF50 !important;
+
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20) !important;
+
+        }
+
+
+        /* =========================================================
+           LADO ESQUERDO
+        ========================================================= */
+
+        .topbar .left {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 18px !important;
+
+        }
+
+
+        /* =========================================================
+           LOGO + NÍVEL
+        ========================================================= */
+
+        .topbar .info-container {
+
+            display: flex !important;
+
+            flex-direction: column !important;
+
+            align-items: flex-start !important;
+
+            justify-content: center !important;
+
+            gap: 6px !important;
+
+        }
+
+
+        .topbar .navbar-logo {
+
+            height: 38px !important;
+
+            width: auto !important;
+
+            display: block !important;
+
+        }
+
+
+        /* =========================================================
+           NÍVEL / XP
+        ========================================================= */
+
+        .topbar .level {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 8px !important;
+
+            color: #FFFFFF !important;
+
+            font-size: 12px !important;
+
+            font-weight: bold !important;
+
+            line-height: 1 !important;
+
+        }
+
+
+        .topbar .level .xp {
+
+            font-size: 11px !important;
+
+            color: #FFFFFF !important;
+
+            opacity: 0.95;
+
+        }
+
+
+        /* =========================================================
+           MENU SUPERIOR
+        ========================================================= */
+
+        .topbar nav.menu {
+
+            margin-left: auto !important;
+
+            margin-right: 25px !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            gap: 20px !important;
+
+        }
+
+
+        .topbar nav.menu a,
+        .topbar nav.menu a:link,
+        .topbar nav.menu a:visited {
+
+            color: #FFFFFF !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            border-bottom: none !important;
+
+            font-weight: bold !important;
+
+            font-size: 15px !important;
+
+            padding: 0 !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+        .topbar nav.menu a:hover {
+
+            color: #FFDD55 !important;
+
+            text-decoration: none !important;
+
+            border: none !important;
+
+            border-bottom: none !important;
+
+        }
+
+
+        .topbar nav.menu a.active {
+
+            color: #FFFFFF !important;
+
+            border: none !important;
+
+            border-bottom: none !important;
+
+        }
+
+
+        /* =========================================================
+           FOTO DE PERFIL
+        ========================================================= */
+
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+
+            width: 45px !important;
+
+            height: 45px !important;
+
+            border-radius: 50% !important;
+
+            object-fit: cover !important;
+
+            display: block !important;
+
+            border: 2px solid #FFFFFF !important;
+
+        }
+
+
+        /* =========================================================
+           ÁREA PRINCIPAL
+        ========================================================= */
+
+        main.sobre-main-container {
+
+            margin: 0 !important;
+
+            padding: 35px 0 60px 0 !important;
+
+            width: 100% !important;
+
+            min-height: calc(100vh - 90px) !important;
+
+            box-sizing: border-box !important;
+
+            display: flex !important;
+
+            justify-content: center !important;
+
+            align-items: flex-start !important;
+
+            background-color: #3F9B43 !important;
+
+        }
+
+
+        /* =========================================================
+           CARD CENTRAL
+        ========================================================= */
+
+        .card-sobre-central {
+
+            background-color: #FFFFFF !important;
+
+            border-radius: 24px !important;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+
+            width: 90% !important;
+
+            max-width: 1000px !important;
+
+            padding: 40px 50px !important;
+
+            box-sizing: border-box !important;
+
+            margin: 0 auto !important;
+
+        }
+
+
+        /* =========================================================
+           TÍTULO SOBRE NÓS
+        ========================================================= */
+
+        .header-sobre {
+
+            margin: 0 0 35px 0 !important;
+
+            padding: 0 !important;
+
+        }
+
+
+        .header-sobre .titulo-verde {
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            text-align: center !important;
+
+            color: #4CAF50 !important;
+
+            font-family: 'Nunito', sans-serif !important;
+
+            font-size: 2.4rem !important;
+
+            font-weight: 800 !important;
+
+        }
+
+
+        /* =========================================================
+           PROJETO
+        ========================================================= */
+
+        .secao-info {
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+        }
+
+
+        .bloco-conteudo-projeto {
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: space-between !important;
+
+            gap: 35px !important;
+
+            width: 100% !important;
+
+        }
+
+
+        .bloco-texto {
+
+            flex: 1 !important;
+
+            min-width: 0 !important;
+
+        }
+
+
+        .bloco-texto p {
+
+            margin: 0 0 20px 0 !important;
+
+            text-align: justify !important;
+
+            line-height: 1.65 !important;
+
+            color: #34495E !important;
+
+            font-family: 'Poppins', sans-serif !important;
+
+            font-size: 1rem !important;
+
+        }
+
+
+        .bloco-texto p:last-child {
+
+            margin-bottom: 0 !important;
+
+        }
+
+
+        /* =========================================================
+           TÍTULO DAS SEÇÕES
+        ========================================================= */
+
+        .titulo-secao {
+
+            margin: 0 0 20px 0 !important;
+
+            color: #4CAF50 !important;
+
+            font-family: 'Montserrat', sans-serif !important;
+
+            font-size: 1.6rem !important;
+
+            font-weight: 700 !important;
+
+        }
+
+
+        /* =========================================================
+           TUGA
+        ========================================================= */
+
+        .bloco-imagem-placeholder {
+
+            flex: 0 0 180px !important;
+
+            width: 180px !important;
+
+            height: auto !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            background: transparent !important;
+
+            border: none !important;
+
+            border-radius: 0 !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+        }
+
+
+        .bloco-imagem-placeholder img {
+
+            display: block !important;
+
+            width: 175px !important;
+
+            height: auto !important;
+
+            max-width: 100% !important;
+
+            background: transparent !important;
+
+            border: none !important;
+
+            border-radius: 0 !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+            image-rendering: pixelated !important;
+
+            image-rendering: crisp-edges !important;
+
+        }
+
+
+        /* =========================================================
+           DIVISORES
+        ========================================================= */
+
+        .divisor {
+
+            border: 0 !important;
+
+            border-top: 1px solid #E5E5E5 !important;
+
+            margin: 35px 0 !important;
+
+            width: 100% !important;
+
+        }
+
+
+        /* =========================================================
+           MISSÃO / VISÃO / VALORES
+        ========================================================= */
+
+        .secao-topico-linear {
+
+            display: flex !important;
+
+            align-items: flex-start !important;
+
+            gap: 20px !important;
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+        }
+
+
+        .icone-topico {
+
+            font-size: 2rem !important;
+
+            flex-shrink: 0 !important;
+
+        }
+
+
+        /* =========================================================
+           NOSSA EQUIPE
+        ========================================================= */
+
+        .secao-equipe {
+
+            margin-top: 10px !important;
+
+        }
+
+
+        .alinhado-centro {
+
+            text-align: center !important;
+
+        }
+
+
+        /* =========================================================
+           RODAPÉ
+        ========================================================= */
+
+        footer {
+
+            margin: 0 !important;
+
+        }
+
+
+        /* =========================================================
+           RESPONSIVIDADE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .topbar nav.menu {
+
+                gap: 12px !important;
+
+                margin-right: 10px !important;
+
+            }
+
+
+            .topbar nav.menu a {
+
+                font-size: 13px !important;
+
+            }
+
+
+            .card-sobre-central {
+
+                width: 94% !important;
+
+                padding: 30px !important;
+
+            }
+
+
+            .bloco-conteudo-projeto {
+
+                gap: 20px !important;
+
+            }
+
+
+            .bloco-imagem-placeholder {
+
+                flex: 0 0 150px !important;
+
+                width: 150px !important;
+
+            }
+
+
+            .bloco-imagem-placeholder img {
+
+                width: 145px !important;
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .bloco-conteudo-projeto {
+
+                flex-direction: column !important;
+
+                text-align: center !important;
+
+            }
+
+
+            .bloco-texto p {
+
+                text-align: justify !important;
+
+            }
+
+
+            .bloco-imagem-placeholder {
+
+                width: 150px !important;
+
+                flex-basis: auto !important;
+
+                margin: 10px auto 0 auto !important;
+
+            }
+
+
+            .bloco-imagem-placeholder img {
+
+                width: 145px !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="topbar">
+
+
+        <!-- =================================================
+             CONTROLE DO MENU
+        ================================================== -->
+
+        <input
+            type="checkbox"
+            id="menu-check"
+            class="menu-checkbox"
+        >
+
+
+        <label
+            for="menu-check"
+            class="overlay">
+        </label>
+
+
+
+        <!-- =================================================
+             SIDEBAR
+             MESMA ESTRUTURA DA PÁGINA QUIZ
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <div class="perfil-sidebar">
+
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Foto de perfil"
+                >
+
+
+                <p>
+                    Nível 2
+                </p>
+
+
+            </div>
+
+
+
+            <nav class="links-sidebar">
+
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+
+                <a href="ods.html">
+                    ODS
+                </a>
+
+
+                <a href="quiz.html">
+                    QUIZ
+                </a>
+
+
+                <a href="jogos.html">
+                    JOGOS
+                </a>
+
+
+                <a href="ranking.html">
+                    RANKING
+                </a>
+
+
+                <a href="perfil.html">
+                    PERFIL
+                </a>
+
+
+                <a
+                    href="sobrenos.html"
+                    class="active"
+                >
+                    SOBRE NÓS
+                </a>
+
+
+
+                <!-- =================================================
+                     SAIR
+                ================================================== -->
+
+                <a
+                    href="home.html"
+                    class="sair-sidebar"
+                >
+
+
+                    <span class="sair-icon">
+
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+
+                            <path
+                                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+                            </path>
+
+
+                            <polyline
+                                points="16 17 21 12 16 7">
+                            </polyline>
+
+
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12">
+                            </line>
+
+
+                        </svg>
+
+
+                    </span>
+
+
+                    <span>
+                        SAIR
+                    </span>
+
+
+                </a>
+
+
+            </nav>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             LADO ESQUERDO
+        ================================================== -->
+
+        <div class="left">
+
+
+            <label
+                for="menu-check"
+                class="hamburger"
+                aria-label="Abrir menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+
+
+            <div class="info-container">
+
+
+                <div class="logo">
+
+
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
+                        class="navbar-logo"
+                    >
+
+
+                </div>
+
+
+
+                <div class="level">
+
+
+                    <span
+                        class="star"
+                        style="color: #FFDD55 !important;"
+                    >
+                        ★ NÍVEL 2
+                    </span>
+
+
+
+                    <div class="bar">
+
+
+                        <div
+                            class="progress"
+                            style="
+                                width: 45%;
+                                background-color: #FFDD55 !important;
+                            "
+                        >
+                        </div>
+
+
+                    </div>
+
+
+
+                    <span class="xp">
+                        450/1000
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENU DE NAVEGAÇÃO CENTRAL
+        ================================================== -->
+
+        <nav class="menu">
+
+
+            <a href="index.html">
+                HOME
+            </a>
+
+
+            <a href="ods.html">
+                ODS
+            </a>
+
+
+            <a href="quiz.html">
+                QUIZ
+            </a>
+
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+
+            <a href="ranking.html">
+                RANKING
+            </a>
+
+
+            <a href="perfil.html">
+                PERFIL
+            </a>
+
+
+            <a
+                href="sobrenos.html"
+                class="active"
+            >
+                SOBRE NÓS
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- =================================================
+             PERFIL À DIREITA
+        ================================================== -->
+
+        <a
+            href="perfil.html"
+            class="perfil-externo"
+        >
+
+
+            <img
+                src="img/foto.png"
+                class="foto-perfil"
+                alt="Perfil"
+            >
+
+
+        </a>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="sobre-main-container">
+
+
+        <div class="card-sobre-central">
+
+
+            <div class="header-sobre">
+
+
+                <h1 class="titulo-verde">
+                    Sobre Nós
+                </h1>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 O PROJETO
+            ================================================== -->
+
+            <section class="secao-info">
+
+
+                <div class="bloco-conteudo-projeto">
+
+
+                    <div class="bloco-texto">
+
+
+                        <h2 class="titulo-secao">
+                            O Projeto
+                        </h2>
+
+
+                        <p>
+                            Uma plataforma educacional gamificada desenvolvida como Trabalho de Conclusão de Curso por estudantes do curso superior de tecnologia em <strong>Informática para Negócios da FATEC de São Bernardo do Campo</strong>.
+                        </p>
+
+
+                        <p>
+                            Nosso objetivo é transformar o aprendizado sobre os <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong> da ONU em uma experiência lúdica e interativa. Através de jogos, quizzes e missões práticas, os alunos ganham pontos de experiência (XP) e evoluem na jornada junto ao nosso mascote <strong>Tuga</strong>.
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- TUGA -->
+
+                    <div class="bloco-imagem-placeholder">
+
+
+                        <img
+                            src="img/TugaPqn.png"
+                            alt="Mascote Tuga"
+                        >
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <hr class="divisor">
+
+
+
+            <!-- =================================================
+                 MISSÃO
+            ================================================== -->
+
+            <section class="secao-info secao-topico-linear">
+
+
+                <div class="icone-topico">
+                    🎯
+                </div>
+
+
+                <div class="bloco-texto">
+
+
+                    <h2 class="titulo-secao">
+                        Missão
+                    </h2>
+
+
+                    <p>
+                        Promover a conscientização socioambiental infantil através de uma plataforma gamificada, transformando o aprendizado sobre os Objetivos de Desenvolvimento Sustentável (ODS) em uma jornada lúdica, interativa e acessível.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <hr class="divisor">
+
+
+
+            <!-- =================================================
+                 VISÃO
+            ================================================== -->
+
+            <section class="secao-info secao-topico-linear">
+
+
+                <div class="icone-topico">
+                    🚀
+                </div>
+
+
+                <div class="bloco-texto">
+
+
+                    <h2 class="titulo-secao">
+                        Visão
+                    </h2>
+
+
+                    <p>
+                        Tornar-se uma referência em tecnologia educacional voltada para o ensino de sustentabilidade, inspirando alunos e instituições no engajamento ativo por um futuro sustentável.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <hr class="divisor">
+
+
+
+            <!-- =================================================
+                 VALORES
+            ================================================== -->
+
+            <section class="secao-info secao-topico-linear">
+
+
+                <div class="icone-topico">
+                    💡
+                </div>
+
+
+                <div class="bloco-texto">
+
+
+                    <h2 class="titulo-secao">
+                        Valores
+                    </h2>
+
+
+                    <p>
+                        Sustentabilidade socioambiental, inovação pedagógica, aprendizado lúdico, inclusão tecnológica e compromisso com a formação cidadã.
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <hr class="divisor">
+
+
+
+            <!-- =================================================
+                 NOSSA EQUIPE
+            ================================================== -->
+
+            <section class="secao-equipe">
+
+
+                <h2 class="titulo-verde alinhado-centro">
+                    Nossa Equipe
+                </h2>
+
+
+
+                <!-- FRONT-END -->
+
+                <div class="categoria-equipe">
+
+
+                    <span class="badge-area">
+                        Front-end
+                    </span>
+
+
+
+                    <div class="time-container">
+
+
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-1')"
+                        >
+
+
+                            <div class="foto">
+
+
+                                <img
+                                    src="img/pessoa1.png"
+                                    alt="Andrielli Moreira"
+                                >
+
+
+                            </div>
+
+
+                            <div class="info">
+
+
+                                <h3>
+                                    Andrielli Moreira
+                                </h3>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-2')"
+                        >
+
+
+                            <div class="foto">
+
+
+                                <img
+                                    src="img/pessoa2.png"
+                                    alt="Nicoly Ramalho"
+                                >
+
+
+                            </div>
+
+
+                            <div class="info">
+
+
+                                <h3>
+                                    Nicoly Ramalho
+                                </h3>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BACK-END -->
+
+                <div class="categoria-equipe">
+
+
+                    <span class="badge-area">
+                        Back-end
+                    </span>
+
+
+
+                    <div class="time-container">
+
+
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-3')"
+                        >
+
+
+                            <div class="foto">
+
+
+                                <img
+                                    src="img/pessoa5.png"
+                                    alt="Kauan Gonçalves"
+                                >
+
+
+                            </div>
+
+
+                            <div class="info">
+
+
+                                <h3>
+                                    Kauan Gonçalves
+                                </h3>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-4')"
+                        >
+
+
+                            <div class="foto">
+
+
+                                <img
+                                    src="img/pessoa3.png"
+                                    alt="Kaylaini Araujo"
+                                >
+
+
+                            </div>
+
+
+                            <div class="info">
+
+
+                                <h3>
+                                    Kaylaini Araujo
+                                </h3>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div
+                            class="membro"
+                            onclick="abrirModal('modal-membro-5')"
+                        >
+
+
+                            <div class="foto">
+
+
+                                <img
+                                    src="img/pessoa4.png"
+                                    alt="Mirella Conceição"
+                                >
+
+
+                            </div>
+
+
+                            <div class="info">
+
+
+                                <h3>
+                                    Mirella Conceição
+                                </h3>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL OVERLAY
+    ====================================================== -->
+
+    <div
+        id="modal-overlay"
+        class="modal-overlay"
+        onclick="fecharTodosModais()"
+    >
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL 1
+    ====================================================== -->
+
+    <div
+        id="modal-membro-1"
+        class="modal-membro"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-1')"
+        >
+            &times;
+        </button>
+
+
+        <span class="badge-tag-modal">
+            FRONT-END
+        </span>
+
+
+        <h2 class="modal-nome">
+            Andrielli Moreira de Oliveira
+        </h2>
+
+
+        <div class="modal-corpo">
+
+
+            <div class="modal-foto-box">
+
+
+                <img
+                    src="img/pessoa1.png"
+                    alt="Andrielli Moreira"
+                >
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <h3>
+                    Contribuição
+                </h3>
+
+
+                <p>
+                    Responsável pelo desenvolvimento da interface gráfica, prototipação e estruturação visual do projeto para garantir uma ótima usabilidade infantil.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL 2
+    ====================================================== -->
+
+    <div
+        id="modal-membro-2"
+        class="modal-membro"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-2')"
+        >
+            &times;
+        </button>
+
+
+        <span class="badge-tag-modal">
+            FRONT-END
+        </span>
+
+
+        <h2 class="modal-nome">
+            Nicoly Ramalho Barbosa Siqueira
+        </h2>
+
+
+        <div class="modal-corpo">
+
+
+            <div class="modal-foto-box">
+
+
+                <img
+                    src="img/pessoa2.png"
+                    alt="Nicoly Ramalho"
+                >
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <h3>
+                    Contribuição
+                </h3>
+
+
+                <p>
+                    Atua na criação dos componentes visuais, estilização das telas e responsividade dos elementos gráficos da plataforma Cultivando o Saber.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL 3
+    ====================================================== -->
+
+    <div
+        id="modal-membro-3"
+        class="modal-membro"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-3')"
+        >
+            &times;
+        </button>
+
+
+        <span class="badge-tag-modal">
+            BACK-END
+        </span>
+
+
+        <h2 class="modal-nome">
+            Kauan Gonçalves da Silva
+        </h2>
+
+
+        <div class="modal-corpo">
+
+
+            <div class="modal-foto-box">
+
+
+                <img
+                    src="img/pessoa5.png"
+                    alt="Kauan Gonçalves"
+                >
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <h3>
+                    Contribuição
+                </h3>
+
+
+                <p>
+                    Atua no desenvolvimento da arquitetura de backend, integrando as regras de negócio da gamificação com o banco de dados do sistema.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL 4
+    ====================================================== -->
+
+    <div
+        id="modal-membro-4"
+        class="modal-membro"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-4')"
+        >
+            &times;
+        </button>
+
+
+        <span class="badge-tag-modal">
+            BACK-END
+        </span>
+
+
+        <h2 class="modal-nome">
+            Kaylaini Araujo do Nascimento
+        </h2>
+
+
+        <div class="modal-corpo">
+
+
+            <div class="modal-foto-box">
+
+
+                <img
+                    src="img/pessoa3.png"
+                    alt="Kaylaini Araujo"
+                >
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <h3>
+                    Contribuição
+                </h3>
+
+
+                <p>
+                    Responsável pela criação de APIs, persistência de dados dos usuários e controle da pontuação (XP) dos quizzes e jogos.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL 5
+    ====================================================== -->
+
+    <div
+        id="modal-membro-5"
+        class="modal-membro"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="fecharModal('modal-membro-5')"
+        >
+            &times;
+        </button>
+
+
+        <span class="badge-tag-modal">
+            BACK-END
+        </span>
+
+
+        <h2 class="modal-nome">
+            Mirella Conceição Machado dos Santos
+        </h2>
+
+
+        <div class="modal-corpo">
+
+
+            <div class="modal-foto-box">
+
+
+                <img
+                    src="img/pessoa4.png"
+                    alt="Mirella Conceição"
+                >
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <h3>
+                    Contribuição
+                </h3>
+
+
+                <p>
+                    Atua no suporte técnico da lógica do sistema, estruturação de dados e testes de integração do servidor com o front-end.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT DOS MODAIS
+    ====================================================== -->
+
+    <script>
+
+
+        function abrirModal(idModal) {
+
+            var modal =
+                document.getElementById(idModal);
+
+            var overlay =
+                document.getElementById('modal-overlay');
+
+
+            if (modal && overlay) {
+
+                overlay.classList.add('active');
+
+                modal.classList.add('active');
+
+            }
+
+        }
+
+
+
+        function fecharModal(idModal) {
+
+            var modal =
+                document.getElementById(idModal);
+
+            var overlay =
+                document.getElementById('modal-overlay');
+
+
+            if (modal) {
+
+                modal.classList.remove('active');
+
+            }
+
+
+            if (overlay) {
+
+                overlay.classList.remove('active');
+
+            }
+
+        }
+
+
+
+        function fecharTodosModais() {
+
+            var modais =
+                document.querySelectorAll('.modal-membro');
+
+            var overlay =
+                document.getElementById('modal-overlay');
+
+
+            modais.forEach(function(modal) {
+
+                modal.classList.remove('active');
+
+            });
+
+
+            if (overlay) {
+
+                overlay.classList.remove('active');
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

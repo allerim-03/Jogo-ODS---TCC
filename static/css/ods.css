@@ -1,0 +1,422 @@
+/* =========================================
+   1. COMPENSAÇÃO DE HEADER E TÍTULO
+   ========================================= */
+main {
+    margin-top: 90px !important;
+    padding-top: 20px !important;
+}
+
+.titulo-principal-topo {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.titulo-principal-topo h2 {
+    font-family: 'Nunito', sans-serif;
+    color: #4CAF50; /* Garden Green */
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.titulo-principal-topo p {
+    font-family: 'Poppins', sans-serif;
+    color: #555555;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-top: 6px;
+}
+
+/* =========================================
+   2. CARROSSEL DESLIZANTE DE ODS (SLIDER CONTINUO)
+   ========================================= */
+.ods-carrossel-wrapper {
+    position: relative;
+    max-width: 1050px;
+    margin: 0 auto 40px auto;
+    padding: 10px 45px; /* Espaço para as setas laterais */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.ods-carrossel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Esconde a barra no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra no IE/Edge */
+    cursor: grab;
+    padding: 12px 0;
+}
+
+.ods-carrossel-container::-webkit-scrollbar {
+    display: none; /* Esconde a barra no Chrome/Safari */
+}
+
+.ods-carrossel-container:active {
+    cursor: grabbing;
+}
+
+/* Alinha todos os cards em uma única linha contínua */
+.ods-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    width: max-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.ods-grid .escolha-card {
+    width: 130px !important; /* Tamanho padronizado do card */
+    height: 130px !important;
+    flex-shrink: 0 !important;
+    aspect-ratio: 1 / 1 !important;
+    background-color: transparent !important;
+    border-radius: 16px !important;
+    padding: 0 !important;
+    border: none !important;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.ods-grid .escolha-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 16px !important;
+    pointer-events: none;
+}
+
+.ods-grid .escolha-card:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* SETAS DE NAVEGAÇÃO LATERAL */
+.btn-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #43B4FB; /* Bright Blue */
+    color: #FFFFFF;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-carrossel:hover {
+    background-color: #4CAF50; /* Garden Green */
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-carrossel.prev { left: 0; }
+.btn-carrossel.next { right: 0; }
+
+/* =========================================
+   3. BLOCO INFORMATIVO DA ONU
+   ========================================= */
+.secao-explicativa {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 0 20px;
+}
+
+.bloco-info {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 30px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 3px solid #43B4FB; /* Bright Blue */
+    box-sizing: border-box;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.bloco-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.bloco-texto h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #4CAF50; /* Garden Green */
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bloco-texto p {
+    font-family: 'Poppins', sans-serif;
+    color: #1A1A1A;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    background-color: #43B4FB; /* Bright Blue */
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 10px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+}
+
+.bloco-imagem-placeholder {
+    width: 250px;
+    height: 170px;
+    border: 2px dashed #43B4FB;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8FAFC;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.bloco-imagem-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+/* =========================================
+   4. SEÇÃO DE JOGOS DAS ODS (BLOCOS GRANDES)
+   ========================================= */
+.secao-jogos-ods {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.jogos-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.jogos-header h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem;
+    color: #2D3748;
+    font-weight: 800;
+    margin: 0;
+}
+
+.jogos-header p {
+    font-family: 'Poppins', sans-serif;
+    color: #718096;
+    font-size: 1rem;
+    margin-top: 6px;
+}
+
+.jogos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Container do Bloco do Jogo */
+.bloco-jogo-detalhado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 30px;
+    gap: 30px;
+    color: #FFFFFF;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.bloco-jogo-detalhado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* Temas com Gradientes */
+.jogo-terrestre {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.jogo-reciclagem {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+}
+
+.jogo-agua {
+    background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+/* Coluna de Texto e Informações */
+.jogo-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.jogo-tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.badge-ods {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-xp {
+    background-color: #FFD700;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.jogo-info-col h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    color: #FFFFFF;
+}
+
+.jogo-descricao {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 20px 0;
+}
+
+.btn-jogar-grande {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-jogar-grande:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Espaço da Screenshot do Jogo */
+.jogo-print-container {
+    width: 380px;
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.print-jogo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.bloco-jogo-detalhado:hover .print-jogo {
+    transform: scale(1.04);
+}
+
+/* =========================================
+   5. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 850px) {
+    .bloco-jogo-detalhado {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        padding: 24px;
+    }
+
+    .jogo-print-container {
+        width: 100%;
+        height: 200px;
+    }
+
+    .jogo-info-col h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ods-carrossel-wrapper {
+        padding: 10px 35px;
+    }
+
+    .ods-grid .escolha-card {
+        width: 110px !important;
+        height: 110px !important;
+    }
+
+    .bloco-info {
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .bloco-imagem-placeholder {
+        width: 100%;
+        height: 180px;
+    }
+}
