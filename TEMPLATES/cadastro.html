@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro Aluno - Cultivando o Saber</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Arquivos CSS da pasta STATIC/css/ -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/global.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/banner.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/botoes.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/cards.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/escolha.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/formularios.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/jogos.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/journey.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/quiz.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/ranking.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/rodape.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/sidebar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/sobre.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/textos.css') }}">
+
+
+    <style>
+
+        .topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+        }
+
+        .topbar-center {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+
+        .topbar-right {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header class="topbar">
+
+        <input type="checkbox"
+               id="menu-check"
+               class="menu-checkbox">
+
+        <label for="menu-check"
+               class="overlay">
+        </label>
+
+
+        <div class="sidebar">
+
+            <div class="perfil-sidebar">
+
+                <span class="mascote-icon">
+                    🐢
+                </span>
+
+                <p>
+                    Visitante
+                </p>
+
+            </div>
+
+
+            <div class="sidebar-actions">
+
+                <!-- Ir para a página de escolha -->
+
+                <a href="/escolha"
+                   class="btn-principal btn-secundario">
+
+                    ENTRAR
+
+                </a>
+
+
+                <!-- Página atual -->
+
+                <a href="/cadastro"
+                   class="btn-principal">
+
+                    CADASTRAR
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-left">
+
+            <label for="menu-check"
+                   class="hamburger">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+        </div>
+
+
+        <div class="topbar-center">
+
+            <div class="logo">
+
+                <img src="{{ url_for('static', filename='img/cultsab.png') }}"
+                     alt="Cultivando o Saber"
+                     class="navbar-logo">
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <div class="topbar-actions">
+
+                <a href="/escolha"
+                   class="btn-principal btn-secundario btn-sm">
+
+                    ENTRAR
+
+                </a>
+
+
+                <a href="/cadastro"
+                   class="btn-principal btn-sm">
+
+                    CADASTRAR
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main style="
+        margin-top: 100px !important;
+        padding-top: 0 !important;
+        margin-bottom: 20px !important;
+        min-height: auto !important;
+        height: auto !important;
+    ">
+
+
+        <section class="boas-vindas"
+                 style="
+                    padding-top: 0 !important;
+                    margin-top: 0 !important;
+                    text-align: center;
+                 ">
+
+
+            <h2 class="titulo-branco"
+                style="
+                    margin: 0 !important;
+                    color: #41af4b !important;
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 2.2rem;
+                    font-weight: 800;
+                ">
+
+                Bem-vindo!
+
+            </h2>
+
+
+            <p class="sub-branco"
+               style="
+                    color: #000000 !important;
+                    font-weight: normal !important;
+                    margin-top: 8px;
+               ">
+
+                Venha aprender brincando
+
+            </p>
+
+
+            <div class="login-box">
+
+
+                <img src="{{ url_for('static', filename='img/TugaPqn.png') }}"
+                     alt="Mascote Tuga">
+
+
+                <h1 class="texto-azul negrito">
+
+                    Cadastro do Aluno
+
+                </h1>
+
+
+                <!--
+                    Por enquanto o formulário aponta para a própria
+                    página de cadastro.
+
+                    Depois vamos criar a rota responsável por
+                    realmente cadastrar o aluno no banco de dados.
+                -->
+
+                <form action="/cadastro"
+                      method="POST">
+
+
+                    <label for="usuario">
+
+                        Usuário
+
+                    </label>
+
+
+                    <input type="text"
+                           id="usuario"
+                           name="usuario"
+                           placeholder="Digite o nome"
+                           required>
+
+
+                    <label for="email">
+
+                        Email
+
+                    </label>
+
+
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="Digite o email"
+                           required>
+
+
+                    <label for="senha">
+
+                        Senha
+
+                    </label>
+
+
+                    <input type="password"
+                           id="senha"
+                           name="senha"
+                           placeholder="Escolha a senha"
+                           required>
+
+
+                    <label for="confirmar_senha">
+
+                        Repita a senha
+
+                    </label>
+
+
+                    <input type="password"
+                           id="confirmar_senha"
+                           name="confirmar_senha"
+                           placeholder="Confirme sua senha"
+                           required>
+
+
+                    <button type="submit"
+                            class="btn-cadastrar">
+
+                        Criar
+
+                    </button>
+
+
+                </form>
+
+
+                <!--
+                    A página de login ainda será integrada.
+                -->
+
+                <p class="cadastro">
+
+                    Já tem uma conta?
+
+                    <span class="texto-azul negrito">
+
+                        Faça login aqui
+
+                    </span>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
