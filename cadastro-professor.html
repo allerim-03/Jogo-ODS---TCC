@@ -10,293 +10,292 @@
     <!-- Favicon / Ícone da guia -->
     <link rel="icon" type="image/png" href="img/icon.png">
 
+    <!-- =====================================================
+         FONTES
+    ===================================================== -->
 
-<!-- =====================================================
-     FONTES
-===================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"
+    >
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet"
->
 
+    <!-- =====================================================
+         CSS DO PROJETO
+    ===================================================== -->
 
-<!-- =====================================================
-     CSS DO PROJETO
-===================================================== -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
 
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/banner.css">
-<link rel="stylesheet" href="css/botoes.css">
-<link rel="stylesheet" href="css/cards.css">
-<link rel="stylesheet" href="css/escolha.css">
-<link rel="stylesheet" href="css/formularios.css">
-<link rel="stylesheet" href="css/jogos.css">
-<link rel="stylesheet" href="css/journey.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/quiz.css">
-<link rel="stylesheet" href="css/ranking.css">
-<link rel="stylesheet" href="css/rodape.css">
-<link rel="stylesheet" href="css/sobre.css">
-<link rel="stylesheet" href="css/textos.css">
 
+    <style>
 
-<style>
+        /* =====================================================
+           CONFIGURAÇÃO GERAL
+        ===================================================== */
 
-    /* =====================================================
-       CONFIGURAÇÃO GERAL
-    ===================================================== */
+        * {
+            box-sizing: border-box;
+        }
 
-    * {
-        box-sizing: border-box;
-    }
 
+        html,
+        body {
 
-    html,
-    body {
+            margin: 0 !important;
+            padding: 0 !important;
 
-        margin: 0 !important;
-        padding: 0 !important;
+            width: 100% !important;
+            min-height: 100% !important;
 
-        width: 100% !important;
-        min-height: 100% !important;
+            background-color: #ffffff !important;
 
-        background-color: #ffffff !important;
+        }
 
-    }
 
 
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
+        .topbar {
 
-    .topbar {
+            position: fixed !important;
 
-        position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
 
-        top: 0 !important;
-        left: 0 !important;
+            width: 100% !important;
 
-        width: 100% !important;
+            height: 90px !important;
+            min-height: 90px !important;
 
-        height: 90px !important;
-        min-height: 90px !important;
+            display: flex !important;
 
-        display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
 
-        align-items: center !important;
-        justify-content: space-between !important;
+            padding: 10px 25px !important;
 
-        padding: 10px 25px !important;
+            background-color: #4CAF50 !important;
 
-        background-color: #4CAF50 !important;
+            z-index: 1000 !important;
 
-        z-index: 1000 !important;
+            margin: 0 !important;
 
-        margin: 0 !important;
+        }
 
-    }
 
+        .topbar-center {
 
-    .topbar-center {
+            position: absolute !important;
 
-        position: absolute !important;
+            left: 50% !important;
 
-        left: 50% !important;
+            transform: translateX(-50%) !important;
 
-        transform: translateX(-50%) !important;
+            display: flex !important;
 
-        display: flex !important;
+            justify-content: center !important;
 
-        justify-content: center !important;
+            align-items: center !important;
 
-        align-items: center !important;
+        }
 
-    }
 
+        .topbar .navbar-logo {
 
-    .topbar .navbar-logo {
+            height: 38px !important;
 
-        height: 38px !important;
+            width: auto !important;
 
-        width: auto !important;
+            display: block !important;
 
-        display: block !important;
+        }
 
-    }
 
 
+        /* =====================================================
+           CONTEÚDO PRINCIPAL
+        ===================================================== */
 
-    /* =====================================================
-       CONTEÚDO PRINCIPAL
-    ===================================================== */
+        main {
 
-    main {
+            margin-top: 90px !important;
 
-        margin-top: 90px !important;
+            padding-top: 20px !important;
 
-        padding-top: 20px !important;
+            min-height: calc(100vh - 175px) !important;
 
-        min-height: calc(100vh - 175px) !important;
+            background-color: #ffffff !important;
 
-        background-color: #ffffff !important;
+        }
 
-    }
 
 
+        /* =====================================================
+           ÁREA DE CADASTRO
+        ===================================================== */
 
-    /* =====================================================
-       ÁREA DE CADASTRO
-    ===================================================== */
+        .auth-sidebar h2 {
 
-    .auth-sidebar h2 {
+            color: #FFFFFF !important;
 
-        color: #FFFFFF !important;
+        }
 
-    }
 
+        .auth-sidebar .btn-outline {
 
-    .auth-sidebar .btn-outline {
+            background-color: #FFFFFF !important;
 
-        background-color: #FFFFFF !important;
+            color: #38bdf8 !important;
 
-        color: #38bdf8 !important;
+            border-color: #FFFFFF !important;
 
-        border-color: #FFFFFF !important;
+        }
 
-    }
 
+        .auth-sidebar .btn-outline:hover {
 
-    .auth-sidebar .btn-outline:hover {
+            background-color: #f0f0f0 !important;
 
-        background-color: #f0f0f0 !important;
+            color: #0284c7 !important;
 
-        color: #0284c7 !important;
+            border-color: #f0f0f0 !important;
 
-        border-color: #f0f0f0 !important;
+        }
 
-    }
 
+        .auth-sidebar .mascote {
 
-    .auth-sidebar .mascote {
+            image-rendering: -moz-crisp-edges !important;
 
-        image-rendering: -moz-crisp-edges !important;
+            image-rendering: -webkit-optimize-contrast !important;
 
-        image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: pixelated !important;
 
-        image-rendering: pixelated !important;
+            image-rendering: crisp-edges !important;
 
-        image-rendering: crisp-edges !important;
+        }
 
-    }
 
 
+        /* =====================================================
+           ÍCONES DOS CAMPOS
+        ===================================================== */
 
-    /* =====================================================
-       ÍCONES DOS CAMPOS
-    ===================================================== */
+        .input-group svg {
 
-    .input-group svg {
+            width: 24px !important;
+            height: 24px !important;
 
-        width: 24px !important;
-        height: 24px !important;
+            min-width: 24px !important;
+            min-height: 24px !important;
 
-        min-width: 24px !important;
-        min-height: 24px !important;
+            max-width: 24px !important;
+            max-height: 24px !important;
 
-        max-width: 24px !important;
-        max-height: 24px !important;
+            display: block !important;
 
-        display: block !important;
+            flex-shrink: 0 !important;
 
-        flex-shrink: 0 !important;
+            overflow: visible !important;
 
-        overflow: visible !important;
+            box-sizing: border-box !important;
 
-        box-sizing: border-box !important;
+        }
 
-    }
 
+        .input-group svg path {
 
-    .input-group svg path {
+            display: block !important;
 
-        display: block !important;
+        }
 
-    }
 
 
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
 
-    /* =====================================================
-       RODAPÉ
-    ===================================================== */
+        footer {
 
-    footer {
+            width: 100% !important;
 
-        width: 100% !important;
+            min-width: 100% !important;
 
-        min-width: 100% !important;
+            height: 85px !important;
 
-        height: 85px !important;
+            min-height: 85px !important;
 
-        min-height: 85px !important;
+            display: flex !important;
 
-        display: flex !important;
+            align-items: center !important;
 
-        align-items: center !important;
+            justify-content: center !important;
 
-        justify-content: center !important;
+            background-color: #CCCCCC !important;
 
-        background-color: #CCCCCC !important;
+            margin: 0 !important;
 
-        margin: 0 !important;
+            padding: 0 !important;
 
-        padding: 0 !important;
+            border: none !important;
 
-        border: none !important;
+            box-shadow: none !important;
 
-        box-shadow: none !important;
+            text-align: center !important;
 
-        text-align: center !important;
+            position: relative !important;
 
-        position: relative !important;
+            left: 0 !important;
 
-        left: 0 !important;
+        }
 
-    }
 
+        footer p {
 
-    footer p {
+            margin: 0 !important;
 
-        margin: 0 !important;
+            padding: 0 !important;
 
-        padding: 0 !important;
+            color: #ffffff !important;
 
-        color: #ffffff !important;
+            font-family: 'Poppins', sans-serif !important;
 
-        font-family: 'Poppins', sans-serif !important;
+            font-size: 18px !important;
 
-        font-size: 18px !important;
+            font-weight: 400 !important;
 
-        font-weight: 400 !important;
+            text-align: center !important;
 
-        text-align: center !important;
+        }
 
-    }
-
-</style>
-```
+    </style>
 
 </head>
 
+
 <body>
 
-```
+
 <!-- =====================================================
      NAVBAR
 ===================================================== -->
@@ -716,12 +715,13 @@
                 >
 
 
-                    <button
-                        type="submit"
+                    <a
+                        href="classroom.html"
                         class="btn-submit"
+                        style="display: block; text-align: center; text-decoration: none;"
                     >
                         CADASTRAR
-                    </button>
+                    </a>
 
 
                 </div>
@@ -753,7 +753,7 @@
 
 
 </footer>
-```
+
 
 </body>
 
