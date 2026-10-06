@@ -136,3 +136,37 @@
 .icone-sair {
     font-size: 1.2rem;
 }
+/* ==========================================================================
+   BOTÃO SAIR - CLASSROOM / PERFIL PROFESSOR / CREATE CLASSROOM
+   ========================================================================== */
+
+.links-sidebar a.sair-sidebar {
+    margin-top: auto !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+/* ÍCONE DA PORTA */
+.sair-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sair-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* Efeito ao passar o mouse */
+.links-sidebar a.sair-sidebar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #FFDE5A !important;
+}
+}
