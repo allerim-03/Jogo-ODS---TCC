@@ -340,7 +340,7 @@
 
 
             <!-- =================================================
-                 FORMULÁRIO ORIGINAL
+                 FORMULÁRIO
             ================================================= -->
 
             <div class="auth-content">
@@ -348,7 +348,8 @@
                 <h1>Cadastro do Aluno</h1>
 
 
-                <form class="form-grid">
+                <!-- ALTERADO: adicionado id="form-cadastro" -->
+                <form class="form-grid" id="form-cadastro">
 
 
                     <!-- USUÁRIO -->
@@ -468,19 +469,20 @@
 
 
                     <!-- BOTÃO CRIAR -->
+                    <!-- ALTERADO: agora é um <button type="submit"> em vez de link -->
 
                     <div
                         class="form-field col-full"
                         style="margin-top: 10px;"
                     >
 
-                        <a
-                            href="token.html"
+                        <button
+                            type="submit"
                             class="btn-submit"
-                            style="display: block; text-align: center; text-decoration: none;"
+                            style="display: block; width: 100%; text-align: center; cursor: pointer;"
                         >
                             Criar
-                        </a>
+                        </button>
 
                     </div>
 
@@ -505,6 +507,44 @@
         </p>
 
     </footer>
+
+
+    <!-- =====================================================
+         SALVAR NOME DO USUÁRIO CADASTRADO
+         (grava no navegador e segue para token.html)
+    ===================================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("form-cadastro");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById("username").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const senha = document.getElementById("password").value;
+                const confirmar = document.getElementById("confirm_password").value;
+
+                if (username === "") {
+                    alert("Digite um nome de usuário.");
+                    return;
+                }
+
+                if (senha !== confirmar) {
+                    alert("As senhas não coincidem.");
+                    return;
+                }
+
+                // Salva os dados no navegador
+                localStorage.setItem("nomeAluno", username);
+                localStorage.setItem("emailAluno", email);
+
+                // Segue para a próxima página do fluxo
+                window.location.href = "token.html";
+            });
+        });
+    </script>
 
 
 </body>
