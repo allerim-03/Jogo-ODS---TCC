@@ -394,7 +394,8 @@
             </h1>
 
 
-            <form class="form-grid">
+            <!-- ALTERADO: adicionado id="form-cadastro-professor" -->
+            <form class="form-grid" id="form-cadastro-professor">
 
 
                 <!-- NOME -->
@@ -528,13 +529,13 @@
 
 
 
-                <!-- MATRÍCULA -->
+                <!-- DISCIPLINA -->
 
                 <div class="form-field col-full">
 
 
                     <label for="registration_user">
-                        Disciplina que leciona
+                        Disciplina
                     </label>
 
 
@@ -708,6 +709,7 @@
 
 
                 <!-- BOTÃO -->
+                <!-- ALTERADO: agora é um <button type="submit"> em vez de link -->
 
                 <div
                     class="form-field col-full"
@@ -715,13 +717,13 @@
                 >
 
 
-                    <a
-                        href="classroom.html"
+                    <button
+                        type="submit"
                         class="btn-submit"
-                        style="display: block; text-align: center; text-decoration: none;"
+                        style="display: block; width: 100%; text-align: center; cursor: pointer;"
                     >
                         CADASTRAR
-                    </a>
+                    </button>
 
 
                 </div>
@@ -753,6 +755,46 @@
 
 
 </footer>
+
+
+<!-- =====================================================
+     SALVAR DADOS DO PROFESSOR CADASTRADO
+     (grava no navegador e segue para classroom.html)
+===================================================== -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("form-cadastro-professor");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("name_user").value.trim();
+            const genero = document.getElementById("id_gender").value;
+            const disciplina = document.getElementById("registration_user").value.trim();
+            const senha = document.getElementById("password_user").value;
+            const confirmar = document.getElementById("confirm_password").value;
+
+            if (nome === "") {
+                alert("Digite seu nome completo.");
+                return;
+            }
+
+            if (senha !== confirmar) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            // Salva os dados no navegador
+            localStorage.setItem("nomeProfessor", nome);
+            localStorage.setItem("generoProfessor", genero);
+            localStorage.setItem("disciplinaProfessor", disciplina);
+
+            // Segue para o painel do professor
+            window.location.href = "classroom.html";
+        });
+    });
+</script>
 
 
 </body>
