@@ -1,67 +1,59 @@
-<!DOCTYPE html> 
-<html lang="pt-br"> 
- 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Cultivando o Saber - Quiz</title> 
- 
-    <!-- Favicon / Ícone da guia --> 
-    <link rel="icon" type="image/png" href="img/icon.png"> 
- 
-    <!-- CSS Global e Módulos --> 
-    <link rel="stylesheet" href="css/global.css"> 
-    <link rel="stylesheet" href="css/base.css"> 
-    <link rel="stylesheet" href="css/banner.css"> 
-    <link rel="stylesheet" href="css/botoes.css"> 
-    <link rel="stylesheet" href="css/cards.css"> 
-    <link rel="stylesheet" href="css/escolha.css"> 
-    <link rel="stylesheet" href="css/formularios.css"> 
-    <link rel="stylesheet" href="css/jogos.css"> 
-    <link rel="stylesheet" href="css/journey.css"> 
-    <link rel="stylesheet" href="css/navbar.css"> 
-    <link rel="stylesheet" href="css/quiz.css"> 
-    <link rel="stylesheet" href="css/ranking.css"> 
-    <link rel="stylesheet" href="css/rodape.css"> 
-    <link rel="stylesheet" href="css/sidebar.css"> 
-    <link rel="stylesheet" href="css/sobre.css"> 
-    <link rel="stylesheet" href="css/textos.css"> 
- 
-    <!-- Estilo rápido para a caixa de dica da Tuga --> 
-    <style> 
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivando o Saber - Quiz</title>
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- CSS Global e Módulos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/botoes.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/escolha.css">
+    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/jogos.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/ranking.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/textos.css">
+
+    <style>
 
         /* =========================================================
            MENU HAMBÚRGUER
-           MESMO PADRÃO DO INDEX
         ========================================================= */
 
         .topbar .hamburger {
             width: 30px !important;
             height: 26px !important;
-
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
             align-items: flex-start !important;
-
             cursor: pointer !important;
             padding: 0 !important;
             margin: 0 !important;
+            flex-shrink: 0;
         }
 
         .topbar .hamburger span {
             display: block !important;
-
             width: 30px !important;
             height: 4px !important;
-
             background-color: #ffffff !important;
-
             border-radius: 5px !important;
-
             margin: 0 !important;
             padding: 0 !important;
-
             transform: none !important;
         }
 
@@ -75,65 +67,40 @@
             flex-direction: column !important;
         }
 
-
-        /* =========================================================
-           BOTÃO SAIR
-           MESMO PADRÃO DO INDEX
-        ========================================================= */
-
         .sidebar .sair-sidebar {
             color: #ffffff !important;
             text-decoration: none !important;
-
             display: flex !important;
             align-items: center !important;
-
             gap: 10px !important;
-
             font-weight: bold !important;
             font-size: 16px !important;
-
             transition: color 0.2s ease !important;
-
             margin-top: 45px !important;
         }
-
 
         .sidebar .sair-sidebar:hover {
             color: #FFDD55 !important;
         }
 
-
-        /* =========================================================
-           ÍCONE DO SAIR
-        ========================================================= */
-
         .sidebar .sair-sidebar .sair-icon {
             display: flex !important;
-
             align-items: center !important;
             justify-content: center !important;
-
             color: #ffffff !important;
-
             transition: color 0.2s ease !important;
         }
-
 
         .sidebar .sair-sidebar:hover .sair-icon {
             color: #FFDD55 !important;
         }
 
-
         .sidebar .sair-sidebar .sair-icon svg {
             width: 23px !important;
             height: 23px !important;
-
             stroke: #ffffff !important;
-
             transition: stroke 0.2s ease !important;
         }
-
 
         .sidebar .sair-sidebar:hover .sair-icon svg {
             stroke: #FFDD55 !important;
@@ -141,159 +108,311 @@
 
 
         /* =========================================================
-           NÍVEL E XP
-           MESMAS CORES DO INDEX
+           TOPBAR (MESMO PADRÃO DO INDEX)
         ========================================================= */
+
+        .topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            height: 90px !important;
+            min-height: 90px !important;
+            padding: 10px 25px !important;
+            background-color: #4CAF50 !important;
+            z-index: 1000 !important;
+        }
+
+        .topbar .left {
+            display: flex !important;
+            align-items: center !important;
+            gap: 18px !important;
+            flex-shrink: 0;
+        }
+
+        .topbar .info-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: center !important;
+            gap: 6px !important;
+        }
+
+        .topbar .navbar-logo {
+            height: 38px !important;
+            width: auto !important;
+            display: block !important;
+        }
+
+
+        /* =========================================================
+           NÍVEL E XP
+        ========================================================= */
+
+        .topbar .level {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #ffffff !important;
+            font-size: 12px !important;
+            font-weight: bold !important;
+            line-height: 1 !important;
+        }
 
         .topbar .level .star {
             color: #FFDD55 !important;
         }
 
-
         .topbar .level .bar {
             width: 120px !important;
             height: 10px !important;
-
             background-color: #2E7D32 !important;
-
             border-radius: 10px !important;
-
             overflow: hidden !important;
         }
 
-
         .topbar .level .progress {
             height: 100% !important;
-
             background-color: #FFDD55 !important;
-
             border-radius: 10px !important;
+        }
+
+        .topbar .level .xp {
+            font-size: 11px !important;
+            color: #ffffff !important;
+            opacity: 0.95;
         }
 
 
         /* =========================================================
-           GARANTE O TOPO
+           MENU CENTRALIZADO
         ========================================================= */
 
-        .topbar {
-            z-index: 1000 !important;
+        .topbar nav.menu {
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            margin: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            white-space: nowrap !important;
+        }
+
+        .topbar nav.menu a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            font-size: 15px !important;
+            transition: color 0.2s ease !important;
+            padding-bottom: 3px !important;
+            border-bottom: none !important;
+        }
+
+        .topbar nav.menu a:hover {
+            color: #FFDD55 !important;
+            border-bottom: none !important;
+        }
+
+        .topbar nav.menu a.active {
+            color: #ffffff !important;
+            border-bottom: none !important;
+        }
+
+
+        /* =========================================================
+           SAUDAÇÃO E FOTO À DIREITA
+        ========================================================= */
+
+        .perfil-usuario {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            gap: 10px !important;
+            margin-left: auto !important;
+            flex-shrink: 0 !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        #saudacao-aluno {
+            color: #ffffff !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            white-space: nowrap !important;
+        }
+
+        .topbar .perfil-externo img,
+        .topbar img.foto-perfil {
+            width: 45px !important;
+            height: 45px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            display: block !important;
+            border: 2px solid #ffffff !important;
+        }
+
+
+        /* =========================================================
+           RESPONSIVIDADE DA NAVBAR
+        ========================================================= */
+
+        @media (max-width: 1200px) {
+            .topbar {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .topbar nav.menu {
+                gap: 12px !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 13px !important;
+            }
+
+            .topbar .left {
+                gap: 10px !important;
+            }
+
+            .topbar .level .bar {
+                width: 75px !important;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .topbar nav.menu {
+                position: static !important;
+                transform: none !important;
+                margin-left: auto !important;
+                margin-right: 15px !important;
+                flex-wrap: wrap !important;
+                gap: 8px 12px !important;
+                white-space: normal !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 12px !important;
+            }
+
+            .topbar .level .bar,
+            .topbar .level .xp {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .topbar {
+                height: auto !important;
+                min-height: 90px !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                padding: 12px 15px !important;
+            }
+
+            .topbar nav.menu {
+                order: 3;
+                width: 100%;
+                margin: 0 !important;
+                justify-content: center !important;
+            }
+
+            .perfil-usuario {
+                margin-left: auto !important;
+            }
+
+            #saudacao-aluno {
+                font-size: 12px !important;
+            }
         }
 
 
         /* =========================================================
            CAIXA DE DICA DA TUGA
-           ORIGINAL
         ========================================================= */
 
-        .tuga-container { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 15px; 
-            margin: 25px auto; 
-            max-width: 600px; 
-            background: #f8f9fa; 
-            border: 2px solid #28a745; 
-            border-radius: 12px; 
-            padding: 12px 20px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-        } 
+        .tuga-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px auto;
+            max-width: 600px;
+            background: #f8f9fa;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
 
+        .tuga-avatar {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
 
-        .tuga-avatar { 
-            width: 50px; 
-            height: 50px; 
-            object-fit: contain; 
-        } 
+        .tuga-speech {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            margin: 0;
+        }
 
+    </style>
 
-        .tuga-speech { 
-            font-size: 1rem; 
-            color: #333; 
-            font-weight: 500; 
-            margin: 0; 
-        } 
+</head>
 
-    </style> 
+<body style="background-color: #FFFFFF !important;">
 
-</head> 
- 
-<body style="background-color: #FFFFFF !important;"> 
- 
     <!-- =========================================================
          NAVBAR PADRONIZADA
     ========================================================= -->
 
-    <header class="topbar"> 
+    <header class="topbar">
 
-        <input 
-            type="checkbox" 
-            id="menu-check" 
+        <input
+            type="checkbox"
+            id="menu-check"
             class="menu-checkbox"
-        > 
+        >
 
-        <label 
-            for="menu-check" 
+        <label
+            for="menu-check"
             class="overlay">
-        </label> 
- 
- 
-        <!-- =====================================================
-             SIDEBAR MOBILE
-        ===================================================== -->
+        </label>
 
-        <aside class="sidebar"> 
 
-            <div class="perfil-sidebar"> 
+        <!-- SIDEBAR MOBILE -->
 
-                <img 
-                    src="img/foto.png" 
-                    class="foto-perfil" 
+        <aside class="sidebar">
+
+            <div class="perfil-sidebar">
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
                     alt="Foto de perfil"
-                > 
+                >
 
-                <p>Nível 2</p> 
+                <p>Nível 2</p>
 
-            </div> 
- 
- 
-            <nav class="links-sidebar"> 
-
-                <a href="index.html">
-                    HOME
-                </a> 
-
-                <a href="ods.html">
-                    ODS
-                </a> 
-
-                <a href="quiz.html" class="active">
-                    QUIZ
-                </a> 
-
-                <a href="jogos.html">
-                    JOGOS
-                </a> 
-
-                <a href="ranking.html">
-                    RANKING
-                </a> 
-
-                <a href="perfil.html">
-                    PERFIL
-                </a> 
-
-                <a href="sobrenos.html">
-                    SOBRE NÓS
-                </a>
+            </div>
 
 
-                <!-- =================================================
-                     SAIR
-                ================================================= -->
+            <nav class="links-sidebar">
 
-                <a 
-                    href="home.html" 
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html" class="active">QUIZ</a>
+                <a href="jogos.html">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
+
+                <!-- SAIR -->
+
+                <a
+                    href="home.html"
                     class="sair-sidebar"
                 >
 
@@ -308,537 +427,507 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-
                             <polyline points="16 17 21 12 16 7"></polyline>
-
-                            <line 
-                                x1="21" 
-                                y1="12" 
-                                x2="9" 
-                                y2="12"
-                            ></line>
-
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
                         </svg>
 
                     </span>
 
-                    <span>
-                        SAIR
-                    </span>
+                    <span>SAIR</span>
 
                 </a>
 
-            </nav> 
+            </nav>
 
-        </aside> 
- 
- 
-        <!-- =====================================================
-             LADO ESQUERDO
-        ===================================================== -->
+        </aside>
 
-        <div class="left"> 
 
-            <label 
-                for="menu-check" 
-                class="hamburger" 
+        <!-- LADO ESQUERDO -->
+
+        <div class="left">
+
+            <label
+                for="menu-check"
+                class="hamburger"
                 aria-label="Abrir menu"
-            > 
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-                <span></span> 
-                <span></span> 
-                <span></span> 
 
-            </label> 
- 
- 
-            <div class="info-container"> 
+            <div class="info-container">
 
-                <div class="logo"> 
+                <div class="logo">
 
-                    <img 
-                        src="img/cultsab.png" 
-                        alt="Cultivando o Saber" 
+                    <img
+                        src="img/cultsab.png"
+                        alt="Cultivando o Saber"
                         class="navbar-logo"
-                    > 
+                    >
 
-                </div> 
- 
- 
-                <div class="level"> 
- 
-                    <!-- NÍVEL 2 - AMARELO CLARO --> 
+                </div>
 
-                    <span 
-                        class="star" 
-                        style="color: #FFDD55 !important;"
-                    > 
-                        ★ NÍVEL 2 
-                    </span> 
- 
- 
-                    <!-- BARRA DE XP - AMARELO CLARO --> 
 
-                    <div class="bar"> 
+                <div class="level">
 
-                        <div 
-                            class="progress" 
-                            style="
-                                width: 45%; 
-                                background-color: #FFDD55 !important;
-                            "
-                        > 
-                        </div> 
+                    <span class="star">★ NÍVEL 2</span>
 
-                    </div> 
- 
- 
-                    <span class="xp">
-                        450/1000
-                    </span> 
+                    <div class="bar">
 
-                </div> 
+                        <div
+                            class="progress"
+                            style="width: 45%;"
+                        >
+                        </div>
 
-            </div> 
+                    </div>
 
-        </div> 
- 
- 
-        <!-- =====================================================
-             MENU DE NAVEGAÇÃO CENTRAL
-        ===================================================== -->
+                    <span class="xp">450/1000</span>
 
-        <nav class="menu"> 
+                </div>
 
-            <a href="index.html">
-                HOME
-            </a> 
+            </div>
 
-            <a href="ods.html">
-                ODS
-            </a> 
+        </div>
 
-            <a href="quiz.html" class="active">
-                QUIZ
-            </a> 
 
-            <a href="jogos.html">
-                JOGOS
-            </a> 
+        <!-- MENU DE NAVEGAÇÃO CENTRAL -->
 
-            <a href="ranking.html">
-                RANKING
-            </a> 
+        <nav class="menu">
 
-            <a href="perfil.html">
-                PERFIL
-            </a> 
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html" class="active">QUIZ</a>
+            <a href="jogos.html">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
 
-            <a href="sobrenos.html">
-                SOBRE NÓS
-            </a> 
+        </nav>
 
-        </nav> 
- 
- 
-        <!-- =====================================================
-             PERFIL À DIREITA
-        ===================================================== -->
 
-        <a 
-            href="perfil.html" 
-            class="perfil-externo"
-        > 
+        <!-- SAUDAÇÃO E PERFIL À DIREITA -->
 
-            <img 
-                src="img/foto.png" 
-                class="foto-perfil" 
-                alt="Perfil"
-            > 
+        <div class="perfil-usuario">
 
-        </a> 
- 
-    </header> 
- 
- 
+            <span id="saudacao-aluno">Olá, estudante!</span>
+
+            <a
+                href="perfil.html"
+                class="perfil-externo"
+            >
+
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Perfil"
+                >
+
+            </a>
+
+        </div>
+
+    </header>
+
+
     <!-- =========================================================
          CONTEÚDO PRINCIPAL DO QUIZ
     ========================================================= -->
 
-    <main style="background-color: #FFFFFF !important;"> 
- 
-        <section 
-            class="boas-vindas" 
+    <main style="background-color: #FFFFFF !important;">
+
+        <section
+            class="boas-vindas"
             style="background-color: #FFFFFF !important;"
-        > 
- 
-            <h1 class="quiz-main-title"> 
-                ECO-QUIZ 
-            </h1> 
- 
-            <p 
-                class="quiz-sub-title" 
+        >
+
+            <h1 class="quiz-main-title">
+                ECO-QUIZ
+            </h1>
+
+            <p
+                class="quiz-sub-title"
                 style="color: #000000 !important;"
-            > 
-                Teste seus conhecimentos ambientais. 
-            </p> 
- 
- 
+            >
+                Teste seus conhecimentos ambientais.
+            </p>
+
+
             <!-- CAIXA DE DICA DA TUGA -->
 
-            <div class="tuga-container"> 
+            <div class="tuga-container">
 
-                <img 
-                    src="img/TugaPqn.png" 
-                    alt="Tartaruga Tuga" 
+                <img
+                    src="img/TugaPqn.png"
+                    alt="Tartaruga Tuga"
                     class="tuga-avatar"
-                > 
+                >
 
                 <p class="tuga-speech">
                     Responda com atenção para subir de nível.
-                </p> 
+                </p>
 
-            </div> 
- 
- 
+            </div>
+
+
             <!-- =================================================
                  TELA DE SELEÇÃO COM CARDS DINÂMICOS
             ================================================= -->
 
-            <div 
-                id="selection-screen" 
+            <div
+                id="selection-screen"
                 class="quiz-selection-wrapper"
-            > 
- 
-                <div class="quiz-cards-grid"> 
- 
- 
+            >
+
+                <div class="quiz-cards-grid">
+
+
                     <!-- CARD 1: VIDA TERRESTRE -->
 
-                    <div 
-                        class="quiz-card card-verde" 
-                        style="border: 2px solid #28a745 !important;" 
+                    <div
+                        class="quiz-card card-verde"
+                        style="border: 2px solid #28a745 !important;"
                         onclick="startQuiz('terrestres')"
-                    > 
- 
-                        <div class="quiz-card-header"> 
- 
-                            <span class="quiz-ods-badge"> 
-                                ODS 15 
-                            </span> 
- 
-                            <span class="quiz-xp-badge"> 
-                                ★ +300 XP 
-                            </span> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-body"> 
- 
-                            <img 
-                                src="img/Planeta.png" 
-                                alt="Vida Terrestre" 
+                    >
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 15
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img
+                                src="img/Planeta.png"
+                                alt="Vida Terrestre"
                                 class="quiz-icon-img"
-                            > 
- 
-                            <h3> 
-                                Vida Terrestre 
-                            </h3> 
- 
-                            <p> 
-                                Aprenda a proteger florestas, solos e a biodiversidade do nosso planeta. 
-                            </p> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-footer"> 
- 
-                            <button 
-                                class="btn-quiz-start btn-verde" 
+                            >
+
+                            <h3>
+                                Vida Terrestre
+                            </h3>
+
+                            <p>
+                                Aprenda a proteger florestas, solos e a biodiversidade do nosso planeta.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button
+                                class="btn-quiz-start btn-verde"
                                 style="
-                                    background-color: #28a745 !important; 
+                                    background-color: #28a745 !important;
                                     border-bottom: 4px solid #1e7e34 !important;
                                 "
-                            > 
-                                ▶ Iniciar Desafio 
-                            </button> 
- 
-                        </div> 
- 
-                    </div> 
- 
- 
+                            >
+                                ▶ Iniciar Desafio
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
                     <!-- CARD 2: RECICLAGEM E RESÍDUOS -->
 
-                    <div 
-                        class="quiz-card card-laranja" 
-                        style="border: 2px solid #fd7e14 !important;" 
+                    <div
+                        class="quiz-card card-laranja"
+                        style="border: 2px solid #fd7e14 !important;"
                         onclick="startQuiz('reciclagem')"
-                    > 
- 
-                        <div class="quiz-card-header"> 
- 
-                            <span class="quiz-ods-badge"> 
-                                ODS 12 
-                            </span> 
- 
-                            <span class="quiz-xp-badge"> 
-                                ★ +300 XP 
-                            </span> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-body"> 
- 
-                            <img 
-                                src="img/LixoAMARELO.png" 
-                                alt="Reciclagem e Resíduos" 
+                    >
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 12
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img
+                                src="img/LixoAMARELO.png"
+                                alt="Reciclagem e Resíduos"
                                 class="quiz-icon-img"
-                            > 
- 
-                            <h3> 
-                                Reciclagem e Resíduos 
-                            </h3> 
- 
-                            <p> 
-                                Aprenda a separar o lixo corretamente e a praticar os 5 R's da sustentabilidade. 
-                            </p> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-footer"> 
- 
-                            <button 
-                                class="btn-quiz-start btn-laranja" 
+                            >
+
+                            <h3>
+                                Reciclagem e Resíduos
+                            </h3>
+
+                            <p>
+                                Aprenda a separar o lixo corretamente e a praticar os 5 R's da sustentabilidade.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button
+                                class="btn-quiz-start btn-laranja"
                                 style="
-                                    background-color: #fd7e14 !important; 
+                                    background-color: #fd7e14 !important;
                                     border-bottom: 4px solid #d35400 !important;
                                 "
-                            > 
-                                ▶ Iniciar Desafio 
-                            </button> 
- 
-                        </div> 
- 
-                    </div> 
- 
- 
+                            >
+                                ▶ Iniciar Desafio
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
                     <!-- CARD 3: USO CONSCIENTE DA ÁGUA -->
 
-                    <div 
-                        class="quiz-card card-azul" 
-                        style="border: 2px solid #3b82f6 !important;" 
+                    <div
+                        class="quiz-card card-azul"
+                        style="border: 2px solid #3b82f6 !important;"
                         onclick="startQuiz('agua')"
-                    > 
- 
-                        <div class="quiz-card-header"> 
- 
-                            <span class="quiz-ods-badge"> 
-                                ODS 6 
-                            </span> 
- 
-                            <span class="quiz-xp-badge"> 
-                                ★ +300 XP 
-                            </span> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-body"> 
- 
-                            <img 
-                                src="img/GotaAgua.png" 
-                                alt="Uso Consciente da Água" 
+                    >
+
+                        <div class="quiz-card-header">
+
+                            <span class="quiz-ods-badge">
+                                ODS 6
+                            </span>
+
+                            <span class="quiz-xp-badge">
+                                ★ +300 XP
+                            </span>
+
+                        </div>
+
+                        <div class="quiz-card-body">
+
+                            <img
+                                src="img/GotaAgua.png"
+                                alt="Uso Consciente da Água"
                                 class="quiz-icon-img"
-                            > 
- 
-                            <h3> 
-                                Uso Consciente da Água 
-                            </h3> 
- 
-                            <p> 
-                                Entenda a importância da água limpa, saneamento e consumo responsável. 
-                            </p> 
- 
-                        </div> 
- 
-                        <div class="quiz-card-footer"> 
- 
-                            <button 
-                                class="btn-quiz-start btn-azul" 
+                            >
+
+                            <h3>
+                                Uso Consciente da Água
+                            </h3>
+
+                            <p>
+                                Entenda a importância da água limpa, saneamento e consumo responsável.
+                            </p>
+
+                        </div>
+
+                        <div class="quiz-card-footer">
+
+                            <button
+                                class="btn-quiz-start btn-azul"
                                 style="
-                                    background-color: #3b82f6 !important; 
+                                    background-color: #3b82f6 !important;
                                     border-bottom: 4px solid #1d4ed8 !important;
                                 "
-                            > 
-                                ▶ Iniciar Desafio 
-                            </button> 
- 
-                        </div> 
- 
-                    </div> 
- 
-                </div> 
+                            >
+                                ▶ Iniciar Desafio
+                            </button>
 
-            </div> 
- 
- 
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
             <!-- =================================================
                  TELA DO JOGO
             ================================================= -->
 
-            <div 
-                id="game" 
-                class="quiz-container" 
+            <div
+                id="game"
+                class="quiz-container"
                 style="display: none;"
-            > 
- 
-                <div class="quiz-header"> 
- 
-                    <div class="quiz-header-top"> 
- 
-                        <span 
-                            id="topic-badge" 
+            >
+
+                <div class="quiz-header">
+
+                    <div class="quiz-header-top">
+
+                        <span
+                            id="topic-badge"
                             class="topic-badge"
-                        > 
-                            Tema 
-                        </span> 
- 
-                        <span id="progress-text"> 
-                            Pergunta 1 de 3 
-                        </span> 
- 
-                    </div> 
- 
-                    <div class="bar quiz-bar"> 
- 
-                        <div 
-                            id="quiz-progress" 
-                            class="progress" 
+                        >
+                            Tema
+                        </span>
+
+                        <span id="progress-text">
+                            Pergunta 1 de 3
+                        </span>
+
+                    </div>
+
+                    <div class="bar quiz-bar">
+
+                        <div
+                            id="quiz-progress"
+                            class="progress"
                             style="width: 0%"
-                        > 
-                        </div> 
+                        >
+                        </div>
 
-                    </div> 
+                    </div>
 
-                </div> 
- 
- 
-                <h3 id="question-text"> 
-                    Carregando pergunta... 
-                </h3> 
- 
- 
-                <div class="options-container"> 
- 
-                    <button 
-                        class="btn-option" 
+                </div>
+
+
+                <h3 id="question-text">
+                    Carregando pergunta...
+                </h3>
+
+
+                <div class="options-container">
+
+                    <button
+                        class="btn-option"
                         onclick="selectOption(0)"
-                    > 
-                        Opção 1 
-                    </button> 
- 
-                    <button 
-                        class="btn-option" 
+                    >
+                        Opção 1
+                    </button>
+
+                    <button
+                        class="btn-option"
                         onclick="selectOption(1)"
-                    > 
-                        Opção 2 
-                    </button> 
- 
-                    <button 
-                        class="btn-option" 
+                    >
+                        Opção 2
+                    </button>
+
+                    <button
+                        class="btn-option"
                         onclick="selectOption(2)"
-                    > 
-                        Opção 3 
-                    </button> 
- 
-                    <button 
-                        class="btn-option" 
+                    >
+                        Opção 3
+                    </button>
+
+                    <button
+                        class="btn-option"
                         onclick="selectOption(3)"
-                    > 
-                        Opção 4 
-                    </button> 
- 
-                </div> 
- 
-            </div> 
- 
- 
+                    >
+                        Opção 4
+                    </button>
+
+                </div>
+
+            </div>
+
+
             <!-- =================================================
                  TELA DE RESULTADOS
             ================================================= -->
 
-            <div 
-                id="result-screen" 
-                class="quiz-container" 
+            <div
+                id="result-screen"
+                class="quiz-container"
                 style="display: none;"
-            > 
- 
-                <span class="result-icon"> 
-                    🎉 
-                </span> 
- 
-                <h2> 
-                    Missão Concluída! 
-                </h2> 
- 
-                <p> 
-                    Você conquistou: 
-                </p> 
- 
-                <div class="xp-result-box"> 
- 
-                    <span class="star"> 
-                        ★ 
-                    </span> 
- 
-                    <h2 
-                        id="final-score" 
-                        class="final-score-text"
-                    > 
-                        0 
-                    </h2> 
- 
-                    <span> 
-                        XP 
-                    </span> 
+            >
 
-                </div> 
- 
-                <button 
-                    class="btn-quiz-action" 
+                <span class="result-icon">
+                    🎉
+                </span>
+
+                <h2>
+                    Missão Concluída!
+                </h2>
+
+                <p>
+                    Você conquistou:
+                </p>
+
+                <div class="xp-result-box">
+
+                    <span class="star">
+                        ★
+                    </span>
+
+                    <h2
+                        id="final-score"
+                        class="final-score-text"
+                    >
+                        0
+                    </h2>
+
+                    <span>
+                        XP
+                    </span>
+
+                </div>
+
+                <button
+                    class="btn-quiz-action"
                     onclick="resetQuiz()"
-                > 
-                    VOLTAR AOS DESAFIOS 
-                </button> 
- 
-            </div> 
- 
-        </section> 
- 
-    </main> 
- 
- 
+                >
+                    VOLTAR AOS DESAFIOS
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
     <!-- =========================================================
          RODAPÉ
     ========================================================= -->
 
-    <footer> 
+    <footer>
 
-        <p> 
-            © 2026 FATEC - Informática para Negócios 
-        </p> 
+        <p>
+            © 2026 FATEC - Informática para Negócios
+        </p>
 
-    </footer> 
- 
- 
+    </footer>
+
+
     <!-- =========================================================
          ARQUIVO JS EXTERNO
     ========================================================= -->
 
-    <script src="js/quiz.js"></script> 
- 
-</body> 
- 
+    <script src="js/quiz.js"></script>
+
+
+    <!-- =========================================================
+         RECEBER NOME DO CADASTRO
+    ========================================================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nomeAluno = localStorage.getItem("nomeAluno");
+            const saudacao = document.getElementById("saudacao-aluno");
+
+            if (nomeAluno && nomeAluno.trim() !== "") {
+                const primeiroNome = nomeAluno.trim().split(/\s+/)[0];
+                saudacao.textContent = `Olá, ${primeiroNome}!`;
+            } else {
+                saudacao.textContent = "Olá, estudante!";
+            }
+        });
+    </script>
+
+</body>
+
 </html>
