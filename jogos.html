@@ -66,62 +66,45 @@
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
-
             width: 100% !important;
-
             height: 90px !important;
             min-height: 90px !important;
-
             display: flex !important;
             align-items: center !important;
             justify-content: space-between !important;
-
             padding: 10px 25px !important;
-
             background-color: #4CAF50 !important;
-
             z-index: 1000 !important;
-
             margin: 0 !important;
         }
 
 
         /* =====================================================
            MENU HAMBÚRGUER
-           MESMO PADRÃO DAS OUTRAS PÁGINAS
         ===================================================== */
 
         .topbar .hamburger {
             width: 30px !important;
             height: 30px !important;
-
             display: flex !important;
             flex-direction: column !important;
-
             justify-content: center !important;
             align-items: flex-start !important;
-
             gap: 6px !important;
-
             cursor: pointer !important;
-
             padding: 0 !important;
             margin: 0 !important;
+            flex-shrink: 0;
         }
 
         .topbar .hamburger span {
             display: block !important;
-
             width: 30px !important;
             height: 4px !important;
-
             background-color: #ffffff !important;
-
             border-radius: 5px !important;
-
             margin: 0 !important;
             padding: 0 !important;
-
             transform: none !important;
         }
 
@@ -138,93 +121,47 @@
 
         /* =====================================================
            SAIR
-           EXATAMENTE COMO NAS OUTRAS PÁGINAS
         ===================================================== */
 
         .sidebar .sair-sidebar {
             color: #ffffff !important;
-
             text-decoration: none !important;
-
             display: flex !important;
-
             align-items: center !important;
-
             gap: 10px !important;
-
             font-weight: bold !important;
-
             font-size: 16px !important;
-
             transition: color 0.2s ease !important;
-
             margin-top: 45px !important;
-
             cursor: pointer !important;
         }
-
-
-        /* =====================================================
-           HOVER DO SAIR
-           TEXTO AMARELO
-        ===================================================== */
 
         .sidebar .sair-sidebar:hover {
             color: #FFDD55 !important;
         }
 
-
-        /* =====================================================
-           ÍCONE DO SAIR
-        ===================================================== */
-
         .sidebar .sair-sidebar .sair-icon {
             display: flex !important;
-
             align-items: center !important;
-
             justify-content: center !important;
-
             color: #ffffff !important;
-
             transition: color 0.2s ease !important;
         }
-
-
-        /* =====================================================
-           HOVER DO ÍCONE
-           ÍCONE AMARELO JUNTO COM O TEXTO
-        ===================================================== */
 
         .sidebar .sair-sidebar:hover .sair-icon {
             color: #FFDD55 !important;
         }
 
-
-        /* =====================================================
-           SVG DO SAIR
-        ===================================================== */
-
         .sidebar .sair-sidebar .sair-icon svg {
             width: 23px !important;
             height: 23px !important;
-
             stroke: #ffffff !important;
-
             fill: none !important;
-
             stroke-width: 2.5 !important;
-
             stroke-linecap: round !important;
             stroke-linejoin: round !important;
-
             transition: stroke 0.2s ease !important;
         }
-
-
-        /* =====================================================
-           HOVER DO SVG
-        ===================================================== */
 
         .sidebar .sair-sidebar:hover .sair-icon svg {
             stroke: #FFDD55 !important;
@@ -237,10 +174,9 @@
 
         .topbar .left {
             display: flex !important;
-
             align-items: center !important;
-
             gap: 18px !important;
+            flex-shrink: 0;
         }
 
 
@@ -250,13 +186,9 @@
 
         .topbar .info-container {
             display: flex !important;
-
             flex-direction: column !important;
-
             align-items: flex-start !important;
-
             justify-content: center !important;
-
             gap: 6px !important;
         }
 
@@ -267,9 +199,7 @@
 
         .topbar .navbar-logo {
             height: 38px !important;
-
             width: auto !important;
-
             display: block !important;
         }
 
@@ -280,122 +210,106 @@
 
         .topbar .level {
             display: flex !important;
-
             align-items: center !important;
-
             gap: 8px !important;
-
             color: #ffffff !important;
-
             font-size: 12px !important;
-
             font-weight: bold !important;
-
             line-height: 1 !important;
         }
-
 
         .topbar .level .star {
             color: #FFDD55 !important;
         }
 
-
         .topbar .level .bar {
             width: 120px !important;
-
             height: 10px !important;
-
             background-color: #2E7D32 !important;
-
             border-radius: 10px !important;
-
             overflow: hidden !important;
         }
 
-
         .topbar .level .progress {
             height: 100% !important;
-
             background-color: #FFDD55 !important;
-
             border-radius: 10px !important;
         }
 
-
         .topbar .level .xp {
             font-size: 11px !important;
-
             color: #ffffff !important;
-
             opacity: 0.95;
         }
 
 
         /* =====================================================
-           MENU DE NAVEGAÇÃO
+           MENU DE NAVEGAÇÃO CENTRALIZADO
         ===================================================== */
 
         .topbar nav.menu {
-            margin-left: auto !important;
-
-            margin-right: 25px !important;
-
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            margin: 0 !important;
             display: flex !important;
-
             align-items: center !important;
-
+            justify-content: center !important;
             gap: 20px !important;
+            white-space: nowrap !important;
         }
-
 
         .topbar nav.menu a {
             color: #ffffff !important;
-
             text-decoration: none !important;
-
             font-weight: bold !important;
-
             font-size: 15px !important;
-
             transition: color 0.2s ease !important;
-
             padding-bottom: 3px !important;
-
             border-bottom: none !important;
         }
-
 
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
-
             border-bottom: none !important;
         }
 
-
         .topbar nav.menu a.active {
             color: #ffffff !important;
-
             border-bottom: none !important;
         }
 
 
         /* =====================================================
-           FOTO DE PERFIL
+           SAUDAÇÃO E FOTO À DIREITA
         ===================================================== */
+
+        .perfil-usuario {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            gap: 10px !important;
+            margin-left: auto !important;
+            flex-shrink: 0 !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        #saudacao-aluno {
+            color: #ffffff !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            white-space: nowrap !important;
+        }
 
         .topbar .perfil-externo img,
         .topbar img.foto-perfil {
             width: 45px !important;
-
             height: 45px !important;
-
             border-radius: 50% !important;
-
             object-fit: cover !important;
-
             display: block !important;
-
-            border: 2px solid #ffffff;
+            border: 2px solid #ffffff !important;
         }
 
 
@@ -405,7 +319,6 @@
 
         main {
             margin-top: 90px !important;
-
             padding-top: 0 !important;
         }
 
@@ -418,6 +331,84 @@
         main section,
         .boas-vindas {
             background-color: #FFFFFF !important;
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE DA NAVBAR
+        ===================================================== */
+
+        @media (max-width: 1200px) {
+            .topbar {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .topbar nav.menu {
+                gap: 12px !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 13px !important;
+            }
+
+            .topbar .left {
+                gap: 10px !important;
+            }
+
+            .topbar .level .bar {
+                width: 75px !important;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .topbar nav.menu {
+                position: static !important;
+                transform: none !important;
+                margin-left: auto !important;
+                margin-right: 15px !important;
+                flex-wrap: wrap !important;
+                gap: 8px 12px !important;
+                white-space: normal !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 12px !important;
+            }
+
+            .topbar .level .bar,
+            .topbar .level .xp {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .topbar {
+                height: auto !important;
+                min-height: 90px !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                padding: 12px 15px !important;
+            }
+
+            .topbar nav.menu {
+                order: 3;
+                width: 100%;
+                margin: 0 !important;
+                justify-content: center !important;
+            }
+
+            .perfil-usuario {
+                margin-left: auto !important;
+            }
+
+            #saudacao-aluno {
+                font-size: 12px !important;
+            }
+
+            main {
+                margin-top: 130px !important;
+            }
         }
 
     </style>
@@ -446,9 +437,7 @@
         </label>
 
 
-        <!-- =================================================
-             SIDEBAR MOBILE
-        ================================================= -->
+        <!-- SIDEBAR MOBILE -->
 
         <aside class="sidebar">
 
@@ -467,41 +456,15 @@
 
             <nav class="links-sidebar">
 
-                <a href="index.html">
-                    HOME
-                </a>
+                <a href="index.html">HOME</a>
+                <a href="ods.html">ODS</a>
+                <a href="quiz.html">QUIZ</a>
+                <a href="jogos.html" class="active">JOGOS</a>
+                <a href="ranking.html">RANKING</a>
+                <a href="perfil.html">PERFIL</a>
+                <a href="sobrenos.html">SOBRE NÓS</a>
 
-                <a href="ods.html">
-                    ODS
-                </a>
-
-                <a href="quiz.html">
-                    QUIZ
-                </a>
-
-                <a
-                    href="jogos.html"
-                    class="active"
-                >
-                    JOGOS
-                </a>
-
-                <a href="ranking.html">
-                    RANKING
-                </a>
-
-                <a href="perfil.html">
-                    PERFIL
-                </a>
-
-                <a href="sobrenos.html">
-                    SOBRE NÓS
-                </a>
-
-
-                <!-- =================================================
-                     SAIR
-                ================================================= -->
+                <!-- SAIR -->
 
                 <a
                     href="home.html"
@@ -520,25 +483,14 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-
                             <polyline points="16 17 21 12 16 7"></polyline>
-
-                            <line
-                                x1="21"
-                                y1="12"
-                                x2="9"
-                                y2="12"
-                            ></line>
-
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
                         </svg>
 
                     </span>
 
-                    <span>
-                        SAIR
-                    </span>
+                    <span>SAIR</span>
 
                 </a>
 
@@ -547,9 +499,7 @@
         </aside>
 
 
-        <!-- =================================================
-             LADO ESQUERDO
-        ================================================= -->
+        <!-- LADO ESQUERDO -->
 
         <div class="left">
 
@@ -558,11 +508,9 @@
                 class="hamburger"
                 aria-label="Abrir menu"
             >
-
                 <span></span>
                 <span></span>
                 <span></span>
-
             </label>
 
 
@@ -581,10 +529,7 @@
 
                 <div class="level">
 
-                    <span class="star">
-                        ★ NÍVEL 2
-                    </span>
-
+                    <span class="star">★ NÍVEL 2</span>
 
                     <div class="bar">
 
@@ -596,10 +541,7 @@
 
                     </div>
 
-
-                    <span class="xp">
-                        450/1000
-                    </span>
+                    <span class="xp">450/1000</span>
 
                 </div>
 
@@ -608,62 +550,41 @@
         </div>
 
 
-        <!-- =================================================
-             MENU DE NAVEGAÇÃO CENTRAL
-        ================================================= -->
+        <!-- MENU DE NAVEGAÇÃO CENTRAL -->
 
         <nav class="menu">
 
-            <a href="index.html">
-                HOME
-            </a>
-
-            <a href="ods.html">
-                ODS
-            </a>
-
-            <a href="quiz.html">
-                QUIZ
-            </a>
-
-            <a
-                href="jogos.html"
-                class="active"
-            >
-                JOGOS
-            </a>
-
-            <a href="ranking.html">
-                RANKING
-            </a>
-
-            <a href="perfil.html">
-                PERFIL
-            </a>
-
-            <a href="sobrenos.html">
-                SOBRE NÓS
-            </a>
+            <a href="index.html">HOME</a>
+            <a href="ods.html">ODS</a>
+            <a href="quiz.html">QUIZ</a>
+            <a href="jogos.html" class="active">JOGOS</a>
+            <a href="ranking.html">RANKING</a>
+            <a href="perfil.html">PERFIL</a>
+            <a href="sobrenos.html">SOBRE NÓS</a>
 
         </nav>
 
 
-        <!-- =================================================
-             PERFIL À DIREITA
-        ================================================= -->
+        <!-- SAUDAÇÃO E PERFIL À DIREITA -->
 
-        <a
-            href="perfil.html"
-            class="perfil-externo"
-        >
+        <div class="perfil-usuario">
 
-            <img
-                src="img/foto.png"
-                class="foto-perfil"
-                alt="Perfil"
+            <span id="saudacao-aluno">Olá, estudante!</span>
+
+            <a
+                href="perfil.html"
+                class="perfil-externo"
             >
 
-        </a>
+                <img
+                    src="img/foto.png"
+                    class="foto-perfil"
+                    alt="Perfil"
+                >
+
+            </a>
+
+        </div>
 
     </header>
 
@@ -869,6 +790,25 @@
 
 
     <script src="js/telajogos.js"></script>
+
+
+    <!-- =====================================================
+         RECEBER NOME DO CADASTRO
+    ===================================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nomeAluno = localStorage.getItem("nomeAluno");
+            const saudacao = document.getElementById("saudacao-aluno");
+
+            if (nomeAluno && nomeAluno.trim() !== "") {
+                const primeiroNome = nomeAluno.trim().split(/\s+/)[0];
+                saudacao.textContent = `Olá, ${primeiroNome}!`;
+            } else {
+                saudacao.textContent = "Olá, estudante!";
+            }
+        });
+    </script>
 
 
 </body>
