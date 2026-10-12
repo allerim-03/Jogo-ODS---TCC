@@ -149,13 +149,13 @@
 
             <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
 
-                <div class="escolha-card aluno-card" onclick="window.location.href='{{ url_for('cadastro') }}'">
+                <div class="escolha-card aluno-card" onclick="window.location.href=`{{ url_for('login') }}`">
                     <span class="escolha-icone"></span>
                     <h2>Aluno</h2>
                     <p>Quero aprender brincando!</p>
                 </div>
 
-                <div class="escolha-card professor-card" onclick="window.location.href='{{ url_for('cadastro_professor') }}'">
+                <div class="escolha-card professor-card" onclick="window.location.href=`{{ url_for('login_professor') }}`">
                     <span class="escolha-icone"></span>
                     <h2>Gestor</h2>
                     <p>Quero acompanhar meus alunos.</p>
