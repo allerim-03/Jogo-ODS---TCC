@@ -108,6 +108,13 @@ def editar_perfil():
         
     return render_template('editar-perfil.html')
 
+@app.route('/jogos')
+def jogos():
+    return render_template('jogos.html')
+
+@app.route('/jogo1')
+def jogo1():
+    return render_template('jogo1.html')
 
 # Manipulador oficial do Erro 404
 @app.errorhandler(404)

@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivando o Saber - Jogos</title>
-<!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/botoes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formularios.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jogos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/journey.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ranking.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/textos.css') }}">
 
     <style>
         /* Remoção total de margens e espaçamentos no topo */
@@ -169,18 +169,18 @@
         <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Foto de perfil">
                 <p>Nível 2</p>
             </div>
 
             <nav class="links-sidebar">
-                <a href="index.html">HOME</a>
-                <a href="ods.html">ODS</a>
-                <a href="quiz.html">QUIZ</a>
-                <a href="jogos.html">JOGOS</a>
-                <a href="ranking.html">RANKING</a>
-                <a href="perfil.html">PERFIL</a>
-                <a href="sobrenos.html">SOBRE NÓS</a>
+                <a href="{{ url_for('home') }}">HOME</a>
+                <a href="{{ url_for('ods') }}">ODS</a>
+                <a href="/quiz">QUIZ</a>
+                <a href="/jogos">JOGOS</a>
+                <a href="/ranking">RANKING</a>
+                <a href="/perfil">PERFIL</a>
+                <a href="/sobrenos">SOBRE NÓS</a>
             </nav>
         </aside>
 
@@ -194,7 +194,7 @@
 
             <div class="info-container">
                 <div class="logo">
-                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                    <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
 
                 <div class="level">
@@ -209,18 +209,18 @@
 
         <!-- Menu de Navegação Central -->
         <nav class="menu">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html" class="active">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html">PERFIL</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
+            <a href="{{ url_for('home') }}">HOME</a>
+            <a href="{{ url_for('ods') }}">ODS</a>
+            <a href="/quiz">QUIZ</a>
+            <a href="/jogos" class="active">JOGOS</a>
+            <a href="/ranking">RANKING</a>
+            <a href="/perfil">PERFIL</a>
+            <a href="/sobrenos">SOBRE NÓS</a>
         </nav>
 
         <!-- Perfil à Direita -->
-        <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
+        <a href="/perfil" class="perfil-externo">
+            <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
         </a>
     </header>
 
@@ -239,7 +239,7 @@
                     <div class="jogo-wrapper" data-index="0">
                         <div id="capa-jogo-1" class="capa-jogo">
                             <h3>JOGO 1</h3>
-                            <a href="jogo1.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                            <a href="/jogo1" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
                         </div>
                         <canvas id="canvas-jogo-1" width="600" height="400" class="canvas-game"></canvas>
                     </div>
@@ -247,7 +247,7 @@
                     <div class="jogo-wrapper active" data-index="1">
                         <div id="capa-jogo-2" class="capa-jogo">
                             <h3>JOGO 2</h3>
-                            <a href="jogo2.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                            <a href="/jogo2" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
                         </div>
                         <canvas id="canvas-jogo-2" width="600" height="400" class="canvas-game"></canvas>
                     </div>
@@ -255,7 +255,7 @@
                     <div class="jogo-wrapper" data-index="2">
                         <div id="capa-jogo-3" class="capa-jogo">
                             <h3>JOGO 3</h3>
-                            <a href="jogo3.html" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
+                            <a href="/jogo3" class="btn-login" style="display: inline-block; text-decoration: none; text-align: center;">JOGAR</a>
                         </div>
                         <canvas id="canvas-jogo-3" width="600" height="400" class="canvas-game"></canvas>
                     </div>
@@ -272,7 +272,7 @@
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
 
-    <script src="js/telajogos.js"></script>
+    <script src="{{ url_for('static', filename='js/telajogos.js') }}"></script>
 
 </body>
 
