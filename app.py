@@ -69,6 +69,7 @@ def create_classroom():
         
     return render_template('create-classroom.html')
 
+
 @app.route('/perfil')
 def perfil():
     return render_template('perfil.html')
@@ -86,6 +87,13 @@ def editar_perfil():
         return redirect(url_for('perfil'))
         
     return render_template('editar-perfil.html')
+
+
+# Manipulador oficial do Erro 404
+@app.errorhandler(404)
+def pagina_nao_encontrada(e):
+    return render_template('error404.html'), 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
