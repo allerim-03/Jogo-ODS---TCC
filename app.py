@@ -120,6 +120,21 @@ def perfil():
 def perfil_professor():
     return render_template('perfil-professor.html')
 
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
+
+@app.route('/ranking')
+def ranking():
+    return render_template('ranking.html')
+
+@app.route('/sobrenos-visitante')
+def sobrenos_visitante():
+    return render_template('sobrenos-visitante.html')
+
+@app.route('/sobrenos')
+def sobrenos():
+    return render_template('sobrenos.html')
 
 @app.route('/editar-perfil', methods=['GET', 'POST'])
 def editar_perfil():
