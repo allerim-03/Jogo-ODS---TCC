@@ -17,6 +17,16 @@ def ods():
     return render_template('ods.html')
 
 
+@app.route('/escolha')
+def escolha():
+    return render_template('escolha.html')
+
+
+@app.route('/escolha-cadastro')
+def escolha_cadastro():
+    return render_template('escolha-cadastro.html')
+
+
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == 'POST':
@@ -49,6 +59,11 @@ def cadastro_professor():
     return render_template('cadastro-professor.html')
 
 
+@app.route('/login-professor')
+def login_professor():
+    return render_template('cadastro-professor.html')
+
+
 @app.route('/classroom')
 def classroom():
     return render_template('classroom.html')
@@ -74,9 +89,6 @@ def create_classroom():
 def perfil():
     return render_template('perfil.html')
 
-@app.route('/escolha-cadastro')
-def escolha_cadastro():
-    return render_template('escolha-cadastro.html')
 
 @app.route('/editar-perfil', methods=['GET', 'POST'])
 def editar_perfil():

@@ -7,7 +7,7 @@
     <title>Login - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='IMAGES/icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
     <!-- Arquivos CSS da pasta static/css/ -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
@@ -119,9 +119,9 @@
             </div>
 
             <nav class="links-sidebar">
-                <a href="{{ url_for('index') }}">HOME</a>
+                <a href="{{ url_for('inicio') }}">HOME</a>
                 <a href="{{ url_for('ods') }}">ODS</a>
-                <a href="{{ url_for('sobrenos') }}">SOBRE NÓS</a>
+                <a href="/sobrenos">SOBRE NÓS</a>
             </nav>
         </aside>
 
@@ -135,7 +135,7 @@
 
         <div class="topbar-center">
             <div class="logo">
-                <img src="{{ url_for('static', filename='iMAGES/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
+                <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
@@ -149,13 +149,13 @@
 
             <div class="escolha-container" style="margin-top: 25px !important; display: flex; justify-content: center; gap: 20px; align-items: center;">
 
-                <div class="escolha-card aluno-card" onclick="window.location.href='{{ url_for('login') }}'">
+                <div class="escolha-card aluno-card" onclick="window.location.href='{{ url_for('cadastro') }}'">
                     <span class="escolha-icone"></span>
                     <h2>Aluno</h2>
                     <p>Quero aprender brincando!</p>
                 </div>
 
-                <div class="escolha-card professor-card" onclick="window.location.href='{{ url_for('login_professor') }}'">
+                <div class="escolha-card professor-card" onclick="window.location.href='{{ url_for('cadastro_professor') }}'">
                     <span class="escolha-icone"></span>
                     <h2>Gestor</h2>
                     <p>Quero acompanhar meus alunos.</p>
