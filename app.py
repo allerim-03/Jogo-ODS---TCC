@@ -69,6 +69,23 @@ def create_classroom():
         
     return render_template('create-classroom.html')
 
+@app.route('/perfil')
+def perfil():
+    return render_template('perfil.html')
+
+
+@app.route('/editar-perfil', methods=['GET', 'POST'])
+def editar_perfil():
+    if request.method == 'POST':
+        avatar = request.form.get('avatar')
+        nome = request.form.get('nome')
+        titulo = request.form.get('titulo')
+        
+        # Lógica para salvar as alterações no perfil no MySQL futuramente...
+        
+        return redirect(url_for('perfil'))
+        
+    return render_template('editar-perfil.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
