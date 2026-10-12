@@ -6,24 +6,24 @@
     <title>Cadastro do Gestor - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/botoes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formularios.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jogos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/journey.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ranking.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/textos.css') }}">
 
     <style>
         /* Força a exibição correta e centralizada da barra de navegação */
@@ -67,8 +67,8 @@
             </div>
 
             <div class="sidebar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal">CADASTRAR</a>
+                <a href="{{ url_for('escolha') }}" class="btn-principal btn-secundario">ENTRAR</a>
+                <a href="{{ url_for('escolha_cadastro') }}" class="btn-principal">CADASTRAR</a>
             </div>
         </div>
 
@@ -82,14 +82,14 @@
 
         <div class="topbar-center">
             <div class="logo">
-                <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
+                <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
         <div class="topbar-right">
             <div class="topbar-actions">
-                <a href="escolha.html" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
-                <a href="escolha-cadastro.html" class="btn-principal btn-sm">CADASTRAR</a>
+                <a href="{{ url_for('escolha') }}" class="btn-principal btn-secundario btn-sm">ENTRAR</a>
+                <a href="{{ url_for('escolha_cadastro') }}" class="btn-principal btn-sm">CADASTRAR</a>
             </div>
         </div>
     </header>
@@ -98,11 +98,11 @@
         <div class="auth-container">
             
             <div class="auth-sidebar professor-theme">
-                <img src="img/TugaPqn.png" alt="Mascote Tuga" class="mascote">
+                <img src="{{ url_for('static', filename='img/TugaPqn.png') }}" alt="Mascote Tuga" class="mascote">
                 <h2>Bem-vindo!</h2>
                 <p>Acompanhe o desempenho da sua turma e gerencie seus alunos em um só lugar.</p>
                 <p style="font-size: 0.85rem; margin-bottom: 15px;">Já possui uma conta?</p>
-                <a href="login-professor.html" class="btn-outline">ENTRAR</a>
+                <a href="{{ url_for('login_professor') }}" class="btn-outline">ENTRAR</a>
             </div>
 
             <div class="auth-content">
