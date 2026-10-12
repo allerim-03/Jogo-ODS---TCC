@@ -64,9 +64,17 @@ def cadastro_professor():
     return render_template('cadastro-professor.html')
 
 
-@app.route('/login-professor')
+@app.route('/login-professor', methods=['GET', 'POST'])
 def login_professor():
-    return render_template('cadastro-professor.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        # Lógica de validação do login do professor no MySQL futuramente...
+        
+        return redirect(url_for('classroom'))
+        
+    return render_template('login-professor.html')
 
 
 @app.route('/classroom')
@@ -94,6 +102,18 @@ def create_classroom():
 def perfil():
     return render_template('perfil.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        # Lógica de validação do login do aluno no MySQL futuramente...
+        
+        return redirect(url_for('home'))
+        
+    return render_template('login.html')
+
 
 @app.route('/editar-perfil', methods=['GET', 'POST'])
 def editar_perfil():
@@ -108,13 +128,16 @@ def editar_perfil():
         
     return render_template('editar-perfil.html')
 
+
 @app.route('/jogos')
 def jogos():
     return render_template('jogos.html')
 
+
 @app.route('/jogo1')
 def jogo1():
     return render_template('jogo1.html')
+
 
 # Manipulador oficial do Erro 404
 @app.errorhandler(404)
