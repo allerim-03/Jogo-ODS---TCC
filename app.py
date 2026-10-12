@@ -32,6 +32,19 @@ def escolha_cadastro():
     return render_template('escolha-cadastro.html')
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        # Lógica de validação do login do aluno no MySQL futuramente...
+        
+        return redirect(url_for('home'))
+        
+    return render_template('login.html')
+
+
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == 'POST':
@@ -102,17 +115,10 @@ def create_classroom():
 def perfil():
     return render_template('perfil.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        
-        # Lógica de validação do login do aluno no MySQL futuramente...
-        
-        return redirect(url_for('home'))
-        
-    return render_template('login.html')
+
+@app.route('/perfil-professor')
+def perfil_professor():
+    return render_template('perfil-professor.html')
 
 
 @app.route('/editar-perfil', methods=['GET', 'POST'])

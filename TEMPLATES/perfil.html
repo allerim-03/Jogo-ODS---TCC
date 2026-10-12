@@ -7,24 +7,24 @@
 
     <title>Perfil - Cultivando o Saber</title>
 <!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/botoes.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/escolha.css">
-    <link rel="stylesheet" href="css/formularios.css">
-    <link rel="stylesheet" href="css/jogos.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/quiz.css">
-    <link rel="stylesheet" href="css/ranking.css">
-    <link rel="stylesheet" href="css/rodape.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/sobre.css">
-    <link rel="stylesheet" href="css/textos.css">
-    <link rel="stylesheet" href="css/perfil.css">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/botoes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/escolha.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formularios.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jogos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/journey.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ranking.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rodape.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/textos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 
     <style>
         * {
@@ -167,162 +167,17 @@
         <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
-                <img src="img/foto.png" class="foto-perfil" alt="Foto de perfil">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Foto de perfil">
                 <p>Nível 2</p>
             </div>
 
             <nav class="links-sidebar">
-                <a href="index.html">HOME</a>
-                <a href="ods.html">ODS</a>
-                <a href="quiz.html">QUIZ</a>
-                <a href="jogos.html">JOGOS</a>
-                <a href="ranking.html">RANKING</a>
-                <a href="perfil.html">PERFIL</a>
-                <a href="sobrenos.html">SOBRE NÓS</a>
+                <a href="{{ url_for('home') }}">HOME</a>
+                <a href="{{ url_for('ods') }}">ODS</a>
+                <a href="/quiz">QUIZ</a>
+                <a href="/jogos">JOGOS</a>
+                <a href="/ranking">RANKING</a>
+                <a href="/perfil">PERFIL</a>
+                <a href="/sobrenos">SOBRE NÓS</a>
             </nav>
         </aside>
-
-        <!-- Lado Esquerdo -->
-        <div class="left">
-            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-
-            <div class="info-container">
-                <div class="logo">
-                    <img src="img/cultsab.png" alt="Cultivando o Saber" class="navbar-logo">
-                </div>
-
-                <div class="level">
-                    <span class="star">★ NÍVEL 2</span>
-                    <div class="bar">
-                        <div class="progress" style="width: 45%;"></div>
-                    </div>
-                    <span class="xp">450/1000</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu de Navegação Central -->
-        <nav class="menu">
-            <a href="index.html">HOME</a>
-            <a href="ods.html">ODS</a>
-            <a href="quiz.html">QUIZ</a>
-            <a href="jogos.html">JOGOS</a>
-            <a href="ranking.html">RANKING</a>
-            <a href="perfil.html" class="active">PERFIL</a>
-            <a href="sobrenos.html">SOBRE NÓS</a>
-        </nav>
-
-        <!-- Perfil à Direita -->
-        <a href="perfil.html" class="perfil-externo">
-            <img src="img/foto.png" class="foto-perfil" alt="Perfil">
-        </a>
-    </header>
-
-    <!-- CONTEÚDO PRINCIPAL DO PERFIL -->
-    <main class="perfil-container" style="margin-bottom: 20px !important;">
-        
-        <div style="text-align: center; margin-bottom: 15px !important;">
-            <h2 style="margin: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">Meu Perfil</h2>
-        </div>
-
-        <section class="perfil-header-card" style="margin-bottom: 12px !important;">
-            <div class="perfil-avatar-wrapper">
-                <img src="img/foto.png" alt="Foto do Jogador" class="perfil-avatar-main">
-                <span class="badge-nivel">★ NÍVEL 2</span>
-            </div>
-            <div class="perfil-detalhes">
-                <h2>Guardião do Eco</h2>
-                <p class="perfil-subtitulo">Protetor da Natureza | Cadastrado em 2026</p>
-                
-                <div class="xp-container-perfil">
-                    <div class="xp-info">
-                        <span>Progresso de Experiência</span>
-                        <strong class="xp-valor">450 / 1000 XP</strong>
-                    </div>
-                    <div class="bar-perfil">
-                        <div class="progress-perfil" style="width: 45%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tuga-card" style="margin-bottom: 12px !important;">
-            <img src="img/TugaPqn.png" alt="Mascote Tuga" class="tuga-avatar">
-            <div class="tuga-balao">
-                <h4>🐢 Mensagem do Tuga:</h4>
-                <p>Você já concluiu 2 missões de preservação ambiental esta semana! Continue jogando para subir no Ranking e desbloquear o ODS 15!</p>
-            </div>
-        </section>
-
-        <section class="perfil-grid" style="margin-bottom: 15px !important;">
-            
-            <div class="card-estatisticas">
-                <h3>Estatísticas da Jornada</h3>
-                <div class="stats-list">
-                    <div class="stat-item">
-                        <span class="stat-icon">🎮</span>
-                        <div>
-                            <strong>14</strong>
-                            <p>Jogos Concluídos</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">❓</span>
-                        <div>
-                            <strong>85%</strong>
-                            <p>Acertos nos Quizzes</p>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">🏆</span>
-                        <div>
-                            <strong>#12</strong>
-                            <p>Posição no Ranking Global</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-insignias">
-                <h3>Insígnias & ODS Liberados</h3>
-                <div class="insignias-grid">
-                    <div class="insignia-item obtida">
-                        <span class="insignia-icon">💧</span>
-                        <p>ODS 6: Água Potável</p>
-                    </div>
-                    <div class="insignia-item obtida">
-                        <span class="insignia-icon">🦁</span>
-                        <p>ODS 15: Vida Terrestre</p>
-                    </div>
-                    <div class="insignia-item bloqueada">
-                        <span class="insignia-icon">🔒</span>
-                        <p>ODS 13: Ação Climática</p>
-                    </div>
-                    <div class="insignia-item bloqueada">
-                        <span class="insignia-icon">🔒</span>
-                        <p>ODS 12: Consumo</p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="perfil-acoes" style="margin-bottom: 10px !important;">
-            <a href="editar-perfil.html" class="btn-principal" style="box-shadow: 0 5px 0 #1b85d6 !important; background-color: #3bb2ff !important; border: none !important;">Editar Perfil</a>
-            <a href="index.html" class="btn-principal btn-perigo">✕ Sair da Conta</a>
-        </section>
-
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer>
-        <p>© 2026 FATEC - Informática para Negócios</p>
-    </footer>
-
-</body>
-
-</html>
