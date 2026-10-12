@@ -48,6 +48,9 @@ def cadastro_professor():
         
     return render_template('cadastro-professor.html')
 
+@app.route('/classroom')
+def classroom():
+    return render_template('classroom.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
