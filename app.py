@@ -48,9 +48,27 @@ def cadastro_professor():
         
     return render_template('cadastro-professor.html')
 
+
 @app.route('/classroom')
 def classroom():
     return render_template('classroom.html')
+
+
+@app.route('/create-classroom', methods=['GET', 'POST'])
+def create_classroom():
+    if request.method == 'POST':
+        nome_turma = request.form.get('nome_turma')
+        ano_letivo = request.form.get('ano_letivo')
+        periodo_letivo = request.form.get('periodo_letivo')
+        disciplina = request.form.get('disciplina_turma')
+        descricao = request.form.get('descricao_turma')
+        
+        # Lógica para gerar o token e salvar a turma no MySQL futuramente...
+        
+        return redirect(url_for('classroom'))
+        
+    return render_template('create-classroom.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
