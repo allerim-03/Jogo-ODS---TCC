@@ -74,6 +74,9 @@ def create_classroom():
 def perfil():
     return render_template('perfil.html')
 
+@app.route('/escolha-cadastro')
+def escolha_cadastro():
+    return render_template('escolha-cadastro.html')
 
 @app.route('/editar-perfil', methods=['GET', 'POST'])
 def editar_perfil():
