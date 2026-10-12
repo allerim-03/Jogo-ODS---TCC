@@ -12,6 +12,11 @@ def inicio():
     return render_template('index.html')
 
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+
 @app.route('/ods')
 def ods():
     return render_template('ods.html')
@@ -36,7 +41,7 @@ def cadastro():
         
         # Lógica para salvar o aluno no MySQL futuramente...
         
-        return redirect(url_for('inicio'))
+        return redirect(url_for('home'))
         
     return render_template('cadastro.html')
 
@@ -54,7 +59,7 @@ def cadastro_professor():
         
         # Lógica para salvar o professor no MySQL futuramente...
         
-        return redirect(url_for('inicio'))
+        return redirect(url_for('home'))
         
     return render_template('cadastro-professor.html')
 
