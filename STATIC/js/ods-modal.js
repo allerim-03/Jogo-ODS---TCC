@@ -75,7 +75,7 @@ const dadosODS = {
         tag: "ODS 13",
         titulo: "Ação Contra a Mudança Global do Clima",
         imagem: "img/ods13.png",
-        descricao: "Combater o aquecimento global plantando árvores, economizando energia e evitando emissões de fumaça poluente no ar."
+        descricao: "Combater o aquecimento global plantando arvores, economizando energia e evitando emissões de fumaça poluente no ar."
     },
     14: {
         tag: "ODS 14",

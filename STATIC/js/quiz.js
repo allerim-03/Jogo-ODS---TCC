@@ -15,7 +15,7 @@ const quizDatabase = {
             },
             {
                 q: "O que é reflorestamento?",
-                options: ["Corte contínuo de árvores", "Plantio de árvores em áreas degradadas", "Asfaltamento de florestas", "Queimada controlada de pastos"],
+                options: ["Corte contínuo de arvores", "Plantio de arvores em áreas degradadas", "Asfaltamento de florestas", "Queimada controlada de pastos"],
                 answer: 1
             }
         ]
