@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Perfil - Cultivando o Saber</title>
-<!-- Favicon / Ícone da guia -->
-<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <!-- Favicon / Ícone da guia -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
@@ -27,16 +30,100 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        /* CONFIGURAÇÃO GERAL */
+        * { box-sizing: border-box; }
 
-        html, body {
+        html,
+        body {
             margin: 0 !important;
             padding: 0 !important;
         }
 
-        /* Topbar Padronizada Fixa */
+        /* MENU HAMBÚRGUER - SEM HOVER AMARELO */
+        .topbar .hamburger {
+            width: 30px !important;
+            height: 30px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+            cursor: pointer !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            flex-shrink: 0;
+        }
+
+        .topbar .hamburger span {
+            display: block !important;
+            width: 30px !important;
+            height: 4px !important;
+            background-color: #ffffff !important;
+            border-radius: 5px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        /* NÃO DEIXA O HAMBÚRGUER FICAR AMARELO */
+        .topbar .hamburger:hover span,
+        .topbar .hamburger:focus span,
+        .topbar .hamburger:active span {
+            background-color: #ffffff !important;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .sidebar .links-sidebar {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        /* BOTÃO SAIR */
+        .sidebar .sair-sidebar {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            transition: color 0.2s ease !important;
+            margin-top: 45px !important;
+        }
+
+        .sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
+            text-decoration: none !important;
+        }
+
+        .sidebar .sair-sidebar .sair-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #ffffff !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .sidebar .sair-sidebar:hover .sair-icon { color: #FFDD55 !important; }
+
+        .sidebar .sair-sidebar .sair-icon svg {
+            width: 23px !important;
+            height: 23px !important;
+            stroke: #ffffff !important;
+            transition: stroke 0.2s ease !important;
+        }
+
+        .sidebar .sair-sidebar:hover .sair-icon svg { stroke: #FFDD55 !important; }
+
+        /* TOPBAR */
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -53,13 +140,15 @@
             margin: 0 !important;
         }
 
-        /* Lado Esquerdo */
+        /* LADO ESQUERDO */
         .topbar .left {
             display: flex !important;
             align-items: center !important;
             gap: 18px !important;
+            flex-shrink: 0;
         }
 
+        /* CONTAINER LOGO + XP */
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
@@ -68,13 +157,14 @@
             gap: 6px !important;
         }
 
+        /* LOGO */
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
         }
 
-        /* Nível e Barra de Experiência */
+        /* NÍVEL / XP */
         .topbar .level {
             display: flex !important;
             align-items: center !important;
@@ -85,9 +175,7 @@
             line-height: 1 !important;
         }
 
-        .topbar .level .star {
-            color: #FFDD55 !important;
-        }
+        .topbar .level .star { color: #FFDD55 !important; }
 
         .topbar .level .bar {
             width: 120px !important;
@@ -109,13 +197,17 @@
             opacity: 0.95;
         }
 
-        /* Menu Central */
+        /* MENU CENTRALIZADO */
         .topbar nav.menu {
-            margin-left: auto !important;
-            margin-right: 25px !important;
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            margin: 0 !important;
             display: flex !important;
             align-items: center !important;
+            justify-content: center !important;
             gap: 20px !important;
+            white-space: nowrap !important;
         }
 
         .topbar nav.menu a {
@@ -131,6 +223,7 @@
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
             border-bottom: none !important;
+            text-decoration: none !important;
         }
 
         .topbar nav.menu a.active {
@@ -138,7 +231,25 @@
             border-bottom: none !important;
         }
 
-        /* Perfil Circular à Direita */
+        /* SAUDAÇÃO E FOTO À DIREITA */
+        .perfil-usuario {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            gap: 10px !important;
+            margin-left: auto !important;
+            flex-shrink: 0 !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        #saudacao-aluno {
+            color: #ffffff !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            white-space: nowrap !important;
+        }
+
         .topbar .perfil-externo img,
         .topbar img.foto-perfil {
             width: 45px !important;
@@ -146,13 +257,56 @@
             border-radius: 50% !important;
             object-fit: cover !important;
             display: block !important;
-            border: 2px solid #ffffff;
+            border: 2px solid #ffffff !important;
         }
 
-        /* Compensação do conteúdo principal */
+        /* CONTEÚDO PRINCIPAL */
         main.perfil-container {
             margin-top: 110px !important;
             padding-top: 0 !important;
+        }
+
+        /* RESPONSIVIDADE DA NAVBAR */
+        @media (max-width: 1200px) {
+            .topbar { padding-left: 15px !important; padding-right: 15px !important; }
+            .topbar nav.menu { gap: 12px !important; }
+            .topbar nav.menu a { font-size: 13px !important; }
+            .topbar .left { gap: 10px !important; }
+            .topbar .level .bar { width: 75px !important; }
+        }
+
+        @media (max-width: 1000px) {
+            .topbar nav.menu {
+                position: static !important;
+                transform: none !important;
+                margin-left: auto !important;
+                margin-right: 15px !important;
+                flex-wrap: wrap !important;
+                gap: 8px 12px !important;
+                white-space: normal !important;
+            }
+            .topbar nav.menu a { font-size: 12px !important; }
+            .topbar .level .bar,
+            .topbar .level .xp { display: none !important; }
+        }
+
+        @media (max-width: 700px) {
+            .topbar {
+                height: auto !important;
+                min-height: 90px !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                padding: 12px 15px !important;
+            }
+            .topbar nav.menu {
+                order: 3;
+                width: 100%;
+                margin: 0 !important;
+                justify-content: center !important;
+            }
+            .perfil-usuario { margin-left: auto !important; }
+            #saudacao-aluno { font-size: 12px !important; }
+            main.perfil-container { margin-top: 150px !important; }
         }
     </style>
 </head>
@@ -161,23 +315,252 @@
 
     <!-- NAVBAR PADRONIZADA -->
     <header class="topbar">
+
         <input type="checkbox" id="menu-check" class="menu-checkbox">
         <label for="menu-check" class="overlay"></label>
 
-        <!-- Sidebar Mobile -->
+        <!-- SIDEBAR -->
         <aside class="sidebar">
+
             <div class="perfil-sidebar">
                 <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Foto de perfil">
                 <p>Nível 2</p>
             </div>
 
             <nav class="links-sidebar">
-                <a href="{{ url_for('home') }}">HOME</a>
+                <a href="{{ url_for('inicio') }}">HOME</a>
                 <a href="{{ url_for('ods') }}">ODS</a>
                 <a href="/quiz">QUIZ</a>
                 <a href="/jogos">JOGOS</a>
                 <a href="/ranking">RANKING</a>
-                <a href="/perfil">PERFIL</a>
+                <a href="/perfil" class="active">PERFIL</a>
                 <a href="/sobrenos">SOBRE NÓS</a>
+
+                <!-- SAIR -->
+                <a href="/" class="sair-sidebar">
+                    <span class="sair-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </span>
+                    <span>SAIR</span>
+                </a>
             </nav>
+
         </aside>
+
+        <!-- LADO ESQUERDO -->
+        <div class="left">
+
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info-container">
+
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
+                </div>
+
+                <!-- NÍVEL / XP -->
+                <div class="level">
+                    <span class="star">★ NÍVEL 2</span>
+                    <div class="bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                    <span class="xp">450/1000</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MENU CENTRAL -->
+        <nav class="menu">
+            <a href="{{ url_for('inicio') }}">HOME</a>
+            <a href="{{ url_for('ods') }}">ODS</a>
+            <a href="/quiz">QUIZ</a>
+            <a href="/jogos">JOGOS</a>
+            <a href="/ranking">RANKING</a>
+            <a href="/perfil" class="active">PERFIL</a>
+            <a href="/sobrenos">SOBRE NÓS</a>
+        </nav>
+
+        <!-- SAUDAÇÃO E PERFIL À DIREITA -->
+        <div class="perfil-usuario">
+            <span id="saudacao-aluno">Olá, estudante!</span>
+
+            <a href="/perfil" class="perfil-externo">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
+            </a>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DO PERFIL -->
+    <main class="perfil-container" style="margin-bottom: 20px !important;">
+
+        <div style="text-align: center; margin-bottom: 15px !important;">
+            <h2 style="margin: 0 !important; color: #4CAF50 !important; font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 800;">
+                Meu Perfil
+            </h2>
+        </div>
+
+        <!-- CARD DO PERFIL -->
+        <section class="perfil-header-card" style="margin-bottom: 12px !important;">
+
+            <div class="perfil-avatar-wrapper">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" alt="Foto do Jogador" class="perfil-avatar-main">
+                <span class="badge-nivel">★ NÍVEL 2</span>
+            </div>
+
+            <div class="perfil-detalhes">
+
+                <h2>Guardião do Eco</h2>
+
+                <p class="perfil-subtitulo">Protetor da Natureza | Cadastrado em 2026</p>
+
+                <div class="xp-container-perfil">
+
+                    <div class="xp-info">
+                        <span>Progresso de Experiência</span>
+                        <strong class="xp-valor">450 / 1000 XP</strong>
+                    </div>
+
+                    <div class="bar-perfil">
+                        <div class="progress-perfil" style="width: 45%;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TUGA -->
+        <section class="tuga-card" style="margin-bottom: 12px !important;">
+
+            <img src="{{ url_for('static', filename='img/TugaPqn.png') }}" alt="Mascote Tuga" class="tuga-avatar">
+
+            <div class="tuga-balao">
+                <p>
+                    Você já concluiu 2 missões de preservação ambiental
+                    esta semana! Continue jogando para subir no Ranking
+                    e desbloquear o ODS 15!
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ESTATÍSTICAS E INSÍGNIAS -->
+        <section class="perfil-grid" style="margin-bottom: 15px !important;">
+
+            <div class="card-estatisticas">
+
+                <h3>Estatísticas da Jornada</h3>
+
+                <div class="stats-list">
+
+                    <div class="stat-item">
+                        <span class="stat-icon">🎮</span>
+                        <div>
+                            <strong>14</strong>
+                            <p>Jogos Concluídos</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-icon">❓</span>
+                        <div>
+                            <strong>85%</strong>
+                            <p>Acertos nos Quizzes</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <span class="stat-icon">🏆</span>
+                        <div>
+                            <strong>#12</strong>
+                            <p>Posição no Ranking Global</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INSÍGNIAS -->
+            <div class="card-insignias">
+
+                <h3>Insígnias &amp; ODS Liberados</h3>
+
+                <div class="insignias-grid">
+
+                    <div class="insignia-item obtida">
+                        <span class="insignia-icon">💧</span>
+                        <p>ODS 6: Água Potável</p>
+                    </div>
+
+                    <div class="insignia-item obtida">
+                        <span class="insignia-icon">🦁</span>
+                        <p>ODS 15: Vida Terrestre</p>
+                    </div>
+
+                    <div class="insignia-item bloqueada">
+                        <span class="insignia-icon">🔒</span>
+                        <p>ODS 13: Ação Climática</p>
+                    </div>
+
+                    <div class="insignia-item bloqueada">
+                        <span class="insignia-icon">🔒</span>
+                        <p>ODS 12: Consumo</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- AÇÕES -->
+        <section class="perfil-acoes" style="margin-bottom: 10px !important;">
+
+            <a href="/editar-perfil" class="btn-principal"
+                style="box-shadow: 0 5px 0 #1b85d6 !important; background-color: #3bb2ff !important; border: none !important;">
+                Editar Perfil
+            </a>
+
+            <a href="/" class="btn-principal btn-perigo">✕ Sair da Conta</a>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 FATEC - Informática para Negócios</p>
+    </footer>
+
+    <!-- RECEBER NOME DO CADASTRO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nomeAluno = localStorage.getItem("nomeAluno");
+            const saudacao = document.getElementById("saudacao-aluno");
+
+            if (nomeAluno && nomeAluno.trim() !== "") {
+                const primeiroNome = nomeAluno.trim().split(/\s+/)[0];
+                saudacao.textContent = `Olá, ${primeiroNome}!`;
+            } else {
+                saudacao.textContent = "Olá, estudante!";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
