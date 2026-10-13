@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/textos.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil_professor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil-professor.css') }}">
 </head>
 
 <body>
@@ -42,18 +42,24 @@
         <aside class="sidebar">
             <div class="perfil-sidebar">
                 <img src="{{ url_for('static', filename='img/prof.png') }}" class="foto-perfil" alt="Foto de perfil">
-                <p>Educação Ambiental</p>
+                <p>Professor</p>
             </div>
 
             <nav class="links-sidebar">
-                <a href="{{ url_for('home') }}">HOME</a>
-                <a href="{{ url_for('ods') }}">ODS</a>
-                <a href="/quiz">QUIZ</a>
-                <a href="/jogos">JOGOS</a>
-                <a href="/ranking">RANKING</a>
-                <a href="{{ url_for('classroom') }}">TURMAS</a>
-                <a href="/perfil-professor" class="active">PERFIL</a>
-                <a href="/sobrenos">SOBRE NÓS</a>
+                <a href="{{ url_for('inicio') }}">HOME</a>
+                <a href="/classroom">TURMAS</a>
+                <a href="/perfil-professor">PERFIL</a>
+
+                <a href="/" class="sair-sidebar">
+                    <span class="sair-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </span>
+                    <span>SAIR</span>
+                </a>
             </nav>
         </aside>
 
@@ -74,14 +80,9 @@
 
         <!-- Menu de Navegação Central -->
         <nav class="menu">
-            <a href="{{ url_for('home') }}">HOME</a>
-            <a href="{{ url_for('ods') }}">ODS</a>
-            <a href="/quiz">QUIZ</a>
-            <a href="/jogos">JOGOS</a>
-            <a href="/ranking">RANKING</a>
-            <a href="{{ url_for('classroom') }}">TURMAS</a>
+            <a href="{{ url_for('inicio') }}">HOME</a>
+            <a href="/classroom">TURMAS</a>
             <a href="/perfil-professor" class="active">PERFIL</a>
-            <a href="/sobrenos">SOBRE NÓS</a>
         </nav>
 
         <!-- Perfil à Direita -->
@@ -92,7 +93,7 @@
 
     <!-- CONTEÚDO PRINCIPAL DO PERFIL -->
     <main class="perfil-container main-prof-container">
-        
+
         <div class="prof-header-title">
             <h2>Perfil do Professor</h2>
         </div>
@@ -114,7 +115,7 @@
 
         <!-- MENSAGEM DO TUGA PARA O DOCENTE -->
         <section class="tuga-card prof-card-spacing">
-            <img src="{{ url_for('static', filename='img/tuga-pqn.png') }}" alt="Mascote Tuga" class="tuga-avatar">
+            <img src="{{ url_for('static', filename='img/TugaPqn.png') }}" alt="Mascote Tuga" class="tuga-avatar">
             <div class="tuga-balao">
                 <h4>Mensagem do Tuga:</h4>
                 <p>Olá, Professor! 85% dos seus alunos já realizaram os Quizzes de Meio Ambiente desta semana. Acesse a aba Turmas para conferir o relatório completo de desempenho!</p>
@@ -123,7 +124,7 @@
 
         <!-- GRID DE ESTATÍSTICAS E PAINEL DOCENTE -->
         <section class="perfil-grid prof-grid-spacing">
-            
+
             <!-- ESTATÍSTICAS GERAIS -->
             <div class="card-estatisticas">
                 <h3>Resumo Escolar</h3>
@@ -136,7 +137,7 @@
                         </div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-icon">👨‍🎓</span>
+                        <span class="stat-icon">👨‍‍🎓</span>
                         <div>
                             <strong>84</strong>
                             <p>Alunos Acompanhados</p>
@@ -156,11 +157,11 @@
             <div class="card-insignias">
                 <h3>Gestão e Turmas</h3>
                 <div class="insignias-grid prof-insignias-grid">
-                    <a href="{{ url_for('classroom') }}" class="insignia-item obtida prof-atalho-card">
+                    <a href="/classroom" class="insignia-item obtida prof-atalho-card">
                         <span class="insignia-icon">📚</span>
                         <p>Gerenciar Turmas</p>
                     </a>
-                    <a href="{{ url_for('create_classroom') }}" class="insignia-item obtida prof-atalho-card">
+                    <a href="/create-classroom" class="insignia-item obtida prof-atalho-card">
                         <span class="insignia-icon">➕</span>
                         <p>Criar Nova Turma</p>
                     </a>
@@ -179,7 +180,7 @@
 
         <!-- AÇÕES DA CONTA -->
         <section class="perfil-acoes prof-acoes-spacing">
-            <a href="{{ url_for('inicio') }}" class="btn-principal btn-perigo">✕ Sair da Conta</a>
+            <a href="/" class="btn-principal btn-perigo">✕ Sair da Conta</a>
         </section>
 
     </main>
