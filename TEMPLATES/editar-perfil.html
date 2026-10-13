@@ -30,17 +30,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/editar-perfil.css') }}">
 
     <style>
-        /* Remoção total de margens e espaçamentos no topo */
+        /* =========================================================
+            CONFIGURAÇÃO GERAL
+        ========================================================= */
+
         * {
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             margin: 0 !important;
             padding: 0 !important;
+            background-color: #3399FF !important;
         }
 
-        /* Topbar fixada diretamente no topo sem qualquer folga */
+
+        /* =========================================================
+            TOPBAR
+        ========================================================= */
+
         .topbar {
             position: fixed !important;
             top: 0 !important;
@@ -57,14 +66,72 @@
             margin: 0 !important;
         }
 
-        /* Lado esquerdo: hambúrguer + (logo + barra de XP) */
+
+        /* =========================================================
+            HAMBÚRGUER - 3 TRAÇOS BRANCOS, SEM HOVER AMARELO
+        ========================================================= */
+
+        .topbar .hamburger {
+            width: 30px !important;
+            height: 30px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+            cursor: pointer !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            color: #ffffff !important;
+            flex-shrink: 0;
+        }
+
+        .topbar .hamburger span {
+            display: block !important;
+            width: 30px !important;
+            height: 4px !important;
+            background-color: #ffffff !important;
+            border-radius: 5px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .topbar .hamburger:hover {
+            color: #ffffff !important;
+        }
+
+        .topbar .hamburger:hover span {
+            background-color: #ffffff !important;
+        }
+
+        .topbar .hamburger:focus {
+            color: #ffffff !important;
+            outline: none !important;
+        }
+
+        .topbar .hamburger:focus span {
+            background-color: #ffffff !important;
+        }
+
+
+        /* =========================================================
+            LADO ESQUERDO
+        ========================================================= */
+
         .topbar .left {
             display: flex !important;
             align-items: center !important;
             gap: 18px !important;
+            flex-shrink: 0;
         }
 
-        /* Container vertical para empilhar Logo e XP */
+
+        /* =========================================================
+            LOGO + XP
+        ========================================================= */
+
         .topbar .info-container {
             display: flex !important;
             flex-direction: column !important;
@@ -73,14 +140,17 @@
             gap: 6px !important;
         }
 
-        /* Logo em tamanho padrão */
         .topbar .navbar-logo {
             height: 38px !important;
             width: auto !important;
             display: block !important;
         }
 
-        /* Estilização da barra de nível e XP (Cor amarela de alto contraste - #FFDD55) */
+
+        /* =========================================================
+            NÍVEL E XP
+        ========================================================= */
+
         .topbar .level {
             display: flex !important;
             align-items: center !important;
@@ -115,13 +185,21 @@
             opacity: 0.95;
         }
 
-        /* Menu de navegação - Sem bordas inferiores ou sublinhados */
+
+        /* =========================================================
+            MENU CENTRALIZADO
+        ========================================================= */
+
         .topbar nav.menu {
-            margin-left: auto !important;
-            margin-right: 25px !important;
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            margin: 0 !important;
             display: flex !important;
             align-items: center !important;
+            justify-content: center !important;
             gap: 20px !important;
+            white-space: nowrap !important;
         }
 
         .topbar nav.menu a {
@@ -136,7 +214,6 @@
             box-shadow: none !important;
         }
 
-        /* Hover: Fica amarelo sem linha */
         .topbar nav.menu a:hover {
             color: #FFDD55 !important;
             text-decoration: none !important;
@@ -145,7 +222,6 @@
             box-shadow: none !important;
         }
 
-        /* Ao clicar / Selecionado / Ativo: Fica branco sem linha */
         .topbar nav.menu a:active,
         .topbar nav.menu a:focus,
         .topbar nav.menu a.active {
@@ -156,7 +232,29 @@
             box-shadow: none !important;
         }
 
-        /* Foto de perfil circular */
+
+        /* =========================================================
+            SAUDAÇÃO E FOTO À DIREITA
+        ========================================================= */
+
+        .perfil-usuario {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            gap: 10px !important;
+            margin-left: auto !important;
+            flex-shrink: 0 !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        #saudacao-aluno {
+            color: #ffffff !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            white-space: nowrap !important;
+        }
+
         .topbar .perfil-externo img,
         .topbar img.foto-perfil {
             width: 45px !important;
@@ -164,13 +262,160 @@
             border-radius: 50% !important;
             object-fit: cover !important;
             display: block !important;
-            border: 2px solid #ffffff;
+            border: 2px solid #ffffff !important;
         }
 
-        /* Compensação do conteúdo principal para a navbar fixada */
+
+        /* =========================================================
+            SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .sidebar .perfil-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar .links-sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================================================
+            BOTÃO SAIR
+        ========================================================= */
+
+        .sidebar .sair-sidebar {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            transition: color 0.2s ease !important;
+            margin-top: 45px !important;
+        }
+
+        .sidebar .sair-sidebar:hover {
+            color: #FFDD55 !important;
+        }
+
+        .sidebar .sair-sidebar .sair-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #ffffff !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .sidebar .sair-sidebar:hover .sair-icon {
+            color: #FFDD55 !important;
+        }
+
+        .sidebar .sair-sidebar .sair-icon svg {
+            width: 23px !important;
+            height: 23px !important;
+            stroke: #ffffff !important;
+            transition: stroke 0.2s ease !important;
+        }
+
+        .sidebar .sair-sidebar:hover .sair-icon svg {
+            stroke: #FFDD55 !important;
+        }
+
+
+        /* =========================================================
+            CONTEÚDO PRINCIPAL
+        ========================================================= */
+
         main.editar-perfil-container {
             margin-top: 90px !important;
             padding-top: 20px !important;
+        }
+
+
+        /* =========================================================
+            RESPONSIVIDADE DA NAVBAR
+        ========================================================= */
+
+        @media (max-width: 1200px) {
+            .topbar {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .topbar nav.menu {
+                gap: 12px !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 13px !important;
+            }
+
+            .topbar .left {
+                gap: 10px !important;
+            }
+
+            .topbar .level .bar {
+                width: 75px !important;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .topbar nav.menu {
+                position: static !important;
+                transform: none !important;
+                margin-left: auto !important;
+                margin-right: 15px !important;
+                flex-wrap: wrap !important;
+                gap: 8px 12px !important;
+                white-space: normal !important;
+            }
+
+            .topbar nav.menu a {
+                font-size: 12px !important;
+            }
+
+            .topbar .level .bar,
+            .topbar .level .xp {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .topbar {
+                height: auto !important;
+                min-height: 90px !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                padding: 12px 15px !important;
+            }
+
+            .topbar nav.menu {
+                order: 3;
+                width: 100%;
+                margin: 0 !important;
+                justify-content: center !important;
+            }
+
+            .perfil-usuario {
+                margin-left: auto !important;
+            }
+
+            #saudacao-aluno {
+                font-size: 12px !important;
+            }
+
+            main.editar-perfil-container {
+                margin-top: 150px !important;
+            }
         }
     </style>
 </head>
@@ -185,7 +430,7 @@
         <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
-                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Foto de perfil">
                 <p>Nível 2</p>
             </div>
 
@@ -195,8 +440,21 @@
                 <a href="/quiz">QUIZ</a>
                 <a href="/jogos">JOGOS</a>
                 <a href="/ranking">RANKING</a>
-                <a href="/perfil">PERFIL</a>
+                <a href="/perfil" class="active">PERFIL</a>
                 <a href="/sobrenos">SOBRE NÓS</a>
+
+                <!-- SAIR -->
+                <a href="/" class="sair-sidebar">
+                    <span class="sair-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </span>
+                    <span>SAIR</span>
+                </a>
             </nav>
         </aside>
 
@@ -213,6 +471,7 @@
                     <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
 
+                <!-- NÍVEL / XP -->
                 <div class="level">
                     <span class="star">★ NÍVEL 2</span>
                     <div class="bar">
@@ -234,10 +493,14 @@
             <a href="/sobrenos">SOBRE NÓS</a>
         </nav>
 
-        <!-- Perfil à Direita -->
-        <a href="/perfil" class="perfil-externo">
-            <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
-        </a>
+        <!-- Saudação e Perfil à Direita -->
+        <div class="perfil-usuario">
+            <span id="saudacao-aluno">Olá, estudante!</span>
+
+            <a href="/perfil" class="perfil-externo">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
+            </a>
+        </div>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -250,18 +513,21 @@
             </div>
 
             <form action="/editar-perfil" method="POST" class="editar-form">
-                
+
                 <!-- SELEÇÃO DE AVATAR (ANIMAIS) -->
                 <div class="form-grupo">
                     <label class="form-label">Escolha seu Avatar de Animais:</label>
-                    
+
                     <div class="avatars-grid">
-                        
+
                         <!-- Opção 1: Tartaruga (Selecionada por padrão) -->
                         <label class="avatar-option">
                             <input type="radio" name="avatar" value="tuga" checked>
                             <div class="avatar-card">
-                                <span class="avatar-icon">🐢</span>
+                                <span class="avatar-icon">
+                                    <img src="{{ url_for('static', filename='img/TugaPqn.png') }}" alt="Tartaruga Tuga"
+                                        style="width: 80px; height: 80px; object-fit: contain;">
+                                </span>
                                 <span class="avatar-nome">Tartaruga Tuga</span>
                             </div>
                         </label>
@@ -270,7 +536,10 @@
                         <label class="avatar-option">
                             <input type="radio" name="avatar" value="peixe">
                             <div class="avatar-card">
-                                <span class="avatar-icon">🐟</span>
+                                <span class="avatar-icon">
+                                    <img src="{{ url_for('static', filename='img/foto.png') }}" alt="Peixe Glub"
+                                        style="width: 80px; height: 80px; object-fit: contain;">
+                                </span>
                                 <span class="avatar-nome">Peixe Glub</span>
                             </div>
                         </label>
@@ -320,7 +589,7 @@
                     <input type="text" id="nome-usuario" name="nome" class="form-input" value="Guardião do Eco" required maxlength="25">
                 </div>
 
-                <!-- CAMPO: SUBTÍTULO / FRASE (SELEÇÃO PRÉ-DEFINIDA) -->
+                <!-- CAMPO: TÍTULO DA JORNADA (SELEÇÃO PRÉ-DEFINIDA) -->
                 <div class="form-grupo">
                     <label for="titulo-usuario" class="form-label">Título da Sua Jornada:</label>
                     <select id="titulo-usuario" name="titulo" class="form-input form-select">
@@ -347,6 +616,21 @@
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
+
+    <!-- RECEBER NOME DO CADASTRO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nomeAluno = localStorage.getItem("nomeAluno");
+            const saudacao = document.getElementById("saudacao-aluno");
+
+            if (nomeAluno && nomeAluno.trim() !== "") {
+                const primeiroNome = nomeAluno.trim().split(/\s+/)[0];
+                saudacao.textContent = `Olá, ${primeiroNome}!`;
+            } else {
+                saudacao.textContent = "Olá, estudante!";
+            }
+        });
+    </script>
 
 </body>
 
