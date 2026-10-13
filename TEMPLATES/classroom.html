@@ -40,19 +40,28 @@
         <!-- Sidebar Mobile -->
         <aside class="sidebar">
             <div class="perfil-sidebar">
-                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
-                <p>Professor</p>
+                <img src="{{ url_for('static', filename='img/prof.png') }}" class="foto-perfil" alt="Perfil">
+
+                <p id="saudacao-sidebar-prof">Professor</p>
+
+                <p id="disciplina-sidebar-prof" style="color: #ffffff !important; margin-top: 4px; font-size: 0.85rem; display: none;"></p>
             </div>
 
             <nav class="links-sidebar">
                 <a href="{{ url_for('inicio') }}">HOME</a>
-                <a href="{{ url_for('ods') }}">ODS</a>
-                <a href="/quiz">QUIZ</a>
-                <a href="/jogos">JOGOS</a>
-                <a href="/ranking">RANKING</a>
-                <a href="/classroom">TURMAS</a>
-                <a href="/perfil">PERFIL</a>
-                <a href="/sobrenos">SOBRE NÓS</a>
+                <a href="{{ url_for('classroom') }}" class="active">TURMAS</a>
+                <a href="{{ url_for('perfil_professor') }}">PERFIL</a>
+
+                <a href="{{ url_for('home') }}" class="sair-sidebar">
+                    <span class="sair-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </span>
+                    <span>SAIR</span>
+                </a>
             </nav>
         </aside>
 
@@ -74,18 +83,13 @@
         <!-- Menu de Navegação Central -->
         <nav class="menu">
             <a href="{{ url_for('inicio') }}">HOME</a>
-            <a href="{{ url_for('ods') }}">ODS</a>
-            <a href="/quiz">QUIZ</a>
-            <a href="/jogos">JOGOS</a>
-            <a href="/ranking">RANKING</a>
-            <a href="/classroom" class="active">TURMAS</a>
-            <a href="/perfil">PERFIL</a>
-            <a href="/sobrenos">SOBRE NÓS</a>
+            <a href="{{ url_for('classroom') }}" class="active">TURMAS</a>
+            <a href="{{ url_for('perfil_professor') }}">PERFIL</a>
         </nav>
 
         <!-- Perfil à Direita -->
-        <a href="/perfil" class="perfil-externo">
-            <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
+        <a href="{{ url_for('perfil_professor') }}" class="perfil-externo">
+            <img src="{{ url_for('static', filename='img/prof.png') }}" class="foto-perfil" alt="Perfil">
         </a>
     </header>
 
@@ -102,11 +106,11 @@
         <section class="teacher-banner-card">
             <div class="teacher-info">
                 <div class="teacher-avatar">
-                    <img src="{{ url_for('static', filename='img/foto.png') }}" alt="Foto Professor">
+                    <img src="{{ url_for('static', filename='img/prof.png') }}" alt="Foto Professor">
                 </div>
                 <div class="teacher-details">
-                    <h3>Prof. Ricardo Silva</h3>
-                    <p>Ciências e Meio Ambiente | 3 Turmas Ativas</p>
+                    <h3 id="prof-nome">Prof. Ricardo Silva</h3>
+                    <p><span id="prof-disciplina">Ciências e Meio Ambiente</span> | 3 Turmas Ativas</p>
                 </div>
             </div>
 
@@ -323,10 +327,68 @@
 
     </main>
 
+    <!-- MODAL DE CRIAÇÃO DE NOVA TURMA -->
+    <div class="modal-overlay" id="modal-criar-turma" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>➕ Criar Nova Turma</h3>
+                <button class="btn-fechar-modal" id="btn-fechar-modal">
+                    &times;
+                </button>
+            </div>
+
+            <form id="form-criar-turma">
+                <div class="form-grupo">
+                    <label class="form-label">Nome da Turma:</label>
+                    <input type="text" class="form-input" placeholder="Ex: 5º Ano C - Onça Pintada" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label class="form-label">Ano Letivo / Período:</label>
+                    <input type="text" class="form-input" placeholder="Ex: 2026 / 1º Semestre" required>
+                </div>
+
+                <div class="modal-acoes">
+                    <button type="button" class="btn-principal btn-cancelar" id="btn-cancelar-modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-principal btn-salvar">
+                        Salvar Turma
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- RODAPÉ -->
     <footer>
         <p>© 2026 FATEC - Informática para Negócios</p>
     </footer>
+
+    <!-- SCRIPT DE DADOS DO PROFESSOR -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nome = (localStorage.getItem("nomeProfessor") || "").trim();
+            const genero = localStorage.getItem("generoProfessor");
+            const disciplina = (localStorage.getItem("disciplinaProfessor") || "").trim();
+
+            if (nome !== "") {
+                const primeiroNome = nome.split(/\s+/)[0];
+                const titulo = genero === "1" ? "Profa." : "Prof.";
+                const nomeExibido = /^prof/i.test(nome) ? nome : `${titulo} ${nome}`;
+
+                document.getElementById("saudacao-sidebar-prof").textContent = `Olá, ${primeiroNome}!`;
+                document.getElementById("prof-nome").textContent = nomeExibido;
+            }
+
+            if (disciplina !== "") {
+                const disciplinaSidebar = document.getElementById("disciplina-sidebar-prof");
+                disciplinaSidebar.textContent = disciplina;
+                disciplinaSidebar.style.display = "block";
+                document.getElementById("prof-disciplina").textContent = disciplina;
+            }
+        });
+    </script>
 
 </body>
 
