@@ -22,9 +22,7 @@
 
     <style>
         /* CONFIGURAÇÕES GERAIS */
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html,
         body {
@@ -105,9 +103,7 @@
             line-height: 1 !important;
         }
 
-        .topbar .level .star {
-            color: #FFDD55 !important;
-        }
+        .topbar .level .star { color: #FFDD55 !important; }
 
         .topbar .level .bar {
             width: 120px !important;
@@ -204,9 +200,7 @@
             margin-top: 45px !important;
         }
 
-        .sidebar .sair-sidebar:hover {
-            color: #FFDD55 !important;
-        }
+        .sidebar .sair-sidebar:hover { color: #FFDD55 !important; }
 
         .sidebar .sair-sidebar .sair-icon {
             display: flex !important;
@@ -216,9 +210,7 @@
             transition: color 0.2s ease !important;
         }
 
-        .sidebar .sair-sidebar:hover .sair-icon {
-            color: #FFDD55 !important;
-        }
+        .sidebar .sair-sidebar:hover .sair-icon { color: #FFDD55 !important; }
 
         .sidebar .sair-sidebar .sair-icon svg {
             width: 23px !important;
@@ -227,9 +219,7 @@
             transition: stroke 0.2s ease !important;
         }
 
-        .sidebar .sair-sidebar:hover .sair-icon svg {
-            stroke: #FFDD55 !important;
-        }
+        .sidebar .sair-sidebar:hover .sair-icon svg { stroke: #FFDD55 !important; }
 
         /* CONTEÚDO PRINCIPAL */
         main {
@@ -309,13 +299,9 @@
             border-radius: 0 !important;
         }
 
-        .sobre-sessao.cinza {
-            width: 100%;
-        }
+        .sobre-sessao.cinza { width: 100%; }
 
-        .sobre-sessao.cinza .conteudo-flex {
-            justify-content: center;
-        }
+        .sobre-sessao.cinza .conteudo-flex { justify-content: center; }
 
         /* TUGA */
         #journey-tuga {
@@ -333,26 +319,11 @@
 
         /* RESPONSIVIDADE */
         @media (max-width: 1200px) {
-            .topbar {
-                padding-left: 15px !important;
-                padding-right: 15px !important;
-            }
-
-            .topbar nav.menu {
-                gap: 12px !important;
-            }
-
-            .topbar nav.menu a {
-                font-size: 13px !important;
-            }
-
-            .topbar .left {
-                gap: 10px !important;
-            }
-
-            .topbar .level .bar {
-                width: 75px !important;
-            }
+            .topbar { padding-left: 15px !important; padding-right: 15px !important; }
+            .topbar nav.menu { gap: 12px !important; }
+            .topbar nav.menu a { font-size: 13px !important; }
+            .topbar .left { gap: 10px !important; }
+            .topbar .level .bar { width: 75px !important; }
         }
 
         @media (max-width: 1000px) {
@@ -365,15 +336,9 @@
                 gap: 8px 12px !important;
                 white-space: normal !important;
             }
-
-            .topbar nav.menu a {
-                font-size: 12px !important;
-            }
-
+            .topbar nav.menu a { font-size: 12px !important; }
             .topbar .level .bar,
-            .topbar .level .xp {
-                display: none !important;
-            }
+            .topbar .level .xp { display: none !important; }
         }
 
         @media (max-width: 900px) {
@@ -389,17 +354,11 @@
                 width: 100%;
             }
 
-            .sobre-sessao .texto h3 {
-                text-align: center !important;
-            }
+            .sobre-sessao .texto h3 { text-align: center !important; }
 
-            .sobre-sessao .texto p {
-                text-align: justify !important;
-            }
+            .sobre-sessao .texto p { text-align: justify !important; }
 
-            .sobre-sessao .imagem-placeholder {
-                width: 220px;
-            }
+            .sobre-sessao .imagem-placeholder { width: 220px; }
         }
 
         @media (max-width: 700px) {
@@ -418,13 +377,9 @@
                 justify-content: center !important;
             }
 
-            .perfil-usuario {
-                margin-left: auto !important;
-            }
+            .perfil-usuario { margin-left: auto !important; }
 
-            #saudacao-aluno {
-                font-size: 12px !important;
-            }
+            #saudacao-aluno { font-size: 12px !important; }
 
             main {
                 margin-top: 130px !important;
@@ -433,18 +388,14 @@
         }
 
         @media (max-width: 600px) {
-            .sobre-sessao {
-                padding: 35px 20px;
-            }
+            .sobre-sessao { padding: 35px 20px; }
 
             .sobre-sessao .texto p {
                 text-align: justify !important;
                 font-size: 0.95rem;
             }
 
-            .sobre-sessao .imagem-placeholder {
-                width: 180px;
-            }
+            .sobre-sessao .imagem-placeholder { width: 180px; }
         }
     </style>
 </head>
@@ -454,51 +405,31 @@
     <!-- NAVBAR -->
     <header class="topbar">
 
-        <input
-            type="checkbox"
-            id="menu-check"
-            class="menu-checkbox"
-        >
-
-        <label
-            for="menu-check"
-            class="overlay"
-        ></label>
+        <input type="checkbox" id="menu-check" class="menu-checkbox">
+        <label for="menu-check" class="overlay"></label>
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
 
             <div class="perfil-sidebar">
-                <img
-                    src="{{ url_for('static', filename='img/foto.png') }}"
-                    class="foto-perfil"
-                    alt="Foto de perfil"
-                >
-
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Foto de perfil">
                 <p>Nível 2</p>
             </div>
 
             <nav class="links-sidebar">
                 <a href="{{ url_for('inicio') }}">HOME</a>
                 <a href="{{ url_for('ods') }}">ODS</a>
-                <a href="{{ url_for('quiz') }}">QUIZ</a>
-                <a href="{{ url_for('jogos') }}">JOGOS</a>
-                <a href="{{ url_for('ranking') }}">RANKING</a>
-                <a href="{{ url_for('perfil') }}">PERFIL</a>
+                <a href="/quiz">QUIZ</a>
+                <a href="/jogos">JOGOS</a>
+                <a href="/ranking">RANKING</a>
+                <a href="/perfil">PERFIL</a>
                 <a href="/sobrenos">SOBRE NÓS</a>
 
                 <!-- SAIR -->
-                <a href="{{ url_for('inicio') }}" class="sair-sidebar">
+                <a href="/" class="sair-sidebar">
                     <span class="sair-icon">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                             <polyline points="16 17 21 12 16 7"></polyline>
                             <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -513,11 +444,7 @@
         <!-- LADO ESQUERDO -->
         <div class="left">
 
-            <label
-                for="menu-check"
-                class="hamburger"
-                aria-label="Abrir menu"
-            >
+            <label for="menu-check" class="hamburger" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -526,21 +453,14 @@
             <div class="info-container">
 
                 <div class="logo">
-                    <img
-                        src="{{ url_for('static', filename='img/cultsab.png') }}"
-                        alt="Cultivando o Saber"
-                        class="navbar-logo"
-                    >
+                    <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
                 </div>
 
                 <div class="level">
                     <span class="star">★ NÍVEL 2</span>
 
                     <div class="bar">
-                        <div
-                            class="progress"
-                            style="width: 45%;"
-                        ></div>
+                        <div class="progress" style="width: 45%;"></div>
                     </div>
 
                     <span class="xp">450/1000</span>
@@ -553,10 +473,10 @@
         <nav class="menu">
             <a href="{{ url_for('inicio') }}" class="active">HOME</a>
             <a href="{{ url_for('ods') }}">ODS</a>
-            <a href="{{ url_for('quiz') }}">QUIZ</a>
-            <a href="{{ url_for('jogos') }}">JOGOS</a>
-            <a href="{{ url_for('ranking') }}">RANKING</a>
-            <a href="{{ url_for('perfil') }}">PERFIL</a>
+            <a href="/quiz">QUIZ</a>
+            <a href="/jogos">JOGOS</a>
+            <a href="/ranking">RANKING</a>
+            <a href="/perfil">PERFIL</a>
             <a href="/sobrenos">SOBRE NÓS</a>
         </nav>
 
@@ -565,12 +485,8 @@
 
             <span id="saudacao-aluno">Olá, estudante!</span>
 
-            <a href="{{ url_for('perfil') }}" class="perfil-externo">
-                <img
-                    src="{{ url_for('static', filename='img/foto.png') }}"
-                    class="foto-perfil"
-                    alt="Perfil"
-                >
+            <a href="/perfil" class="perfil-externo">
+                <img src="{{ url_for('static', filename='img/foto.png') }}" class="foto-perfil" alt="Perfil">
             </a>
 
         </div>
@@ -582,11 +498,7 @@
 
         <!-- BANNER -->
         <div class="banner-section">
-            <img
-                src="{{ url_for('static', filename='img/banner.png') }}"
-                alt="Cultivando o Saber - Banner em Pixel Art"
-                class="banner-img"
-            >
+            <img src="{{ url_for('static', filename='img/banner.PNG') }}" alt="Cultivando o Saber - Banner em Pixel Art" class="banner-img">
         </div>
 
         <!-- PRIMEIRA SEÇÃO -->
@@ -602,11 +514,7 @@
                     </p>
                 </div>
 
-                <img
-                    src="{{ url_for('static', filename='img/testeimg.png') }}"
-                    alt="Sobre o Cultivando o Saber"
-                    class="imagem-placeholder"
-                >
+                <img src="{{ url_for('static', filename='img/testeimg.png') }}" alt="Sobre o Cultivando o Saber" class="imagem-placeholder">
 
             </div>
         </section>
@@ -624,11 +532,7 @@
                     </p>
                 </div>
 
-                <img
-                    src="{{ url_for('static', filename='img/testeimg2.png') }}"
-                    alt="Aprendendo de Forma Divertida"
-                    class="imagem-placeholder"
-                >
+                <img src="{{ url_for('static', filename='img/testeimg2.png') }}" alt="Aprendendo de Forma Divertida" class="imagem-placeholder">
 
             </div>
         </section>
@@ -647,11 +551,7 @@
 
             <div class="journey-map">
 
-                <img
-                    id="journey-tuga"
-                    src="{{ url_for('static', filename='img/TugaPqn.png') }}"
-                    alt="Tuga"
-                >
+                <img id="journey-tuga" src="{{ url_for('static', filename='img/TugaPqn.png') }}" alt="Tuga">
 
                 <div class="journey-line"></div>
 
@@ -692,11 +592,7 @@
                 </p>
 
                 <div class="journey-action">
-                    <a
-                        id="journey-btn"
-                        href="{{ url_for('perfil') }}"
-                        class="btn-games"
-                    >
+                    <a id="journey-btn" href="/perfil" class="btn-games">
                         Criar Perfil
                     </a>
                 </div>
