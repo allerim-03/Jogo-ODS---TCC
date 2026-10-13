@@ -1,5 +1,5 @@
 
-from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from DATABASE.connection import get_connection
 
@@ -92,6 +92,78 @@ def cadastrar_usuario(
         if connection is not None and connection.is_connected():
             connection.rollback()
         raise
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+
+        if connection is not None and connection.is_connected():
+            connection.close()
+
+def autentificar_user(main_email, password_user):
+    connection = None
+    cursor = None
+
+    try:
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT
+                id_user,
+                name_user,
+                main_email,
+                password_user,
+                id_role
+            FROM user_plataform
+            WHERE main_email = %s
+            """,
+            (main_email,)
+        )
+
+        user = cursor.fetchone()
+
+        if user is None:
+            return None
+
+        senha_armazenada = user["password_user"]
+
+        # Compatibilidade com o professor que ainda
+        # possui a senha armazenada em texto puro.
+        senha_valida = (
+            check_password_hash(senha_armazenada, password_user)
+            if senha_armazenada.startswith(
+                ("scrypt:", "pbkdf2:")
+            )
+            else senha_armazenada == password_user
+        )
+
+        if not senha_valida:
+            return None
+
+        # Migra a senha antiga para um hash após
+        # uma autenticação bem-sucedida.
+        if not senha_armazenada.startswith(
+            ("scrypt:", "pbkdf2:")
+        ):
+            novo_hash = generate_password_hash(password_user)
+
+            cursor.execute(
+                """
+                UPDATE user_plataform
+                SET password_user = %s
+                WHERE id_user = %s
+                """,
+                (novo_hash, user["id_user"])
+            )
+
+            connection.commit()
+
+        # Não devolvemos a senha nem o hash.
+        user.pop("password_user", None)
+
+        return user
 
     finally:
         if cursor is not None:

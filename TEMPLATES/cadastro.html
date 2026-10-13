@@ -314,7 +314,7 @@
             <div class="auth-sidebar professor-theme">
 
                 <img
-                    src="{{ url_for('static', filename='img/TugaPqn.png') }}"
+                    src="{{ url_for('static', filename='img/tuga-pqn.png') }}"
                     alt="Mascote Tuga"
                     class="mascote"
                 >
@@ -438,10 +438,7 @@
 
                     </div>
 
-
-                    <!-- REPETIR SENHA -->
-
-                    <div class="form-field">
+                                        <div class="form-field">
 
                         <label for="confirm_password">
                             Repita a senha
@@ -466,6 +463,53 @@
                         </div>
 
                     </div>
+
+                    
+<!-- DATA DE NASCIMENTO -->
+<div class="form-field">
+    <label for="birth_user">Data de nascimento</label>
+    <div class="input-group">
+        <input
+            type="date"
+            id="birth_user"
+            name="birth_user"
+        >
+    </div>
+</div>
+
+<!-- MATRÍCULA -->
+<div class="form-field">
+    <label for="registration_user">Matrícula (opcional)</label>
+    <div class="input-group">
+        <input
+            type="text"
+            id="registration_user"
+            name="registration_user"
+            placeholder="Digite sua matrícula"
+        >
+    </div>
+</div>
+
+<!-- E-MAIL PESSOAL -->
+<div class="form-field col-full">
+    <label for="personal_email">
+        E-mail pessoal (opcional)
+    </label>
+    <div class="input-group">
+        <input
+            type="email"
+            id="personal_email"
+            name="personal_email"
+            placeholder="seuemail@exemplo.com"
+        >
+
+        <svg viewBox="0 0 24 24">
+
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+
+                            </svg>
+    </div>
+</div>
 
 
                     <!-- BOTÃO CRIAR -->

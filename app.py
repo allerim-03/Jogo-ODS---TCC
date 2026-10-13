@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from SERVICES.user_service import cadastrar_usuario
 
 app = Flask(
     __name__,
@@ -9,12 +10,12 @@ app = Flask(
 
 @app.route('/')
 def inicio():
-    return render_template('index.html')
-
-
-@app.route('/home')
-def home():
     return render_template('home.html')
+
+
+@app.route('/index')
+def home():
+    return render_template('index.html')
 
 
 @app.route('/ods')
@@ -45,18 +46,65 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/cadastro', methods=['GET', 'POST'])
+
+@app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
-    if request.method == 'POST':
-        usuario = request.form.get('usuario')
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        
-        # Lógica para salvar o aluno no MySQL futuramente...
-        
-        return redirect(url_for('home'))
-        
-    return render_template('cadastro.html')
+
+    if request.method == "POST":
+        nome = request.form.get("username", "").strip()
+        email = request.form.get("email", "").strip()
+        senha = request.form.get("password", "")
+        confirmar_senha = request.form.get("confirm_password", "")
+
+        # Validação básica
+        if not nome or not email or not senha:
+            return render_template(
+                "cadastro.html",
+                mensagem="Preencha todos os campos obrigatórios."
+            )
+
+        if senha != confirmar_senha:
+            return render_template(
+                "cadastro.html",
+                mensagem="As senhas não coincidem."
+            )
+
+        try:
+            resultado = cadastrar_usuario(
+                name_user=nome,
+                birth_user=None,
+                registration_user=None,
+                main_email=email,
+                personal_email=None,
+                password_user=senha,
+                id_gender=None,
+                tipo_usuario="student"
+            )
+
+            if resultado and resultado.get("sucesso"):
+                return render_template(
+                    "cadastro.html",
+                    mensagem="Cadastro realizado com sucesso!"
+                )
+
+            return render_template(
+                "cadastro.html",
+                mensagem="Não foi possível concluir o cadastro."
+            )
+
+        except Exception:
+            app.logger.exception("Erro ao cadastrar aluno")
+            return render_template(
+                "cadastro.html",
+                mensagem=(
+                    "Não foi possível realizar o cadastro. "
+                    "Verifique os dados ou tente outro e-mail."
+                )
+            )
+
+    # Exibe a página quando o usuário acessa /cadastro
+    return render_template("cadastro.html")
+
 
 
 @app.route('/cadastro-professor', methods=['GET', 'POST'])
@@ -158,6 +206,10 @@ def jogos():
 @app.route('/jogo1')
 def jogo1():
     return render_template('jogo1.html')
+
+@app.route('/token')
+def token():
+    return render_template('token.html')
 
 
 # Manipulador oficial do Erro 404
