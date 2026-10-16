@@ -32,9 +32,9 @@ const npcGuri = {
 
     // Lista de mensagens por etapas
     falas: [
-        "Olá! Eu sou o Guri. A nossa cidade está precisando muito da sua ajuda, Gota! Várias torneiras foram deixadas abertas e estamos desperdiçando água.",
-        "Você pode se movimentar usando as SETAS (ou WASD). Quando estiver bem perto de uma torneira aberta, aperte [ENTER] para fechá-la!",
-        "Fique de olho na sua pontuação no topo da tela! Feche torneiras o suficiente para economizar água e salvar a nossa cidade!"
+        "Gota! Nos ajude! Precisamos parar o desperdício de água na cidade!",
+        "Feche apertando ENTER nas torneiras!",
+        "Quando você fechar todas, você ganha pontos no ranking! Boa sorte!"
     ],
 
     atualizar: function(jogador) {
