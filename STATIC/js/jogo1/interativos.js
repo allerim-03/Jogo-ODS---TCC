@@ -2,7 +2,7 @@
 const spritesTorneira = [];
 for (let i = 1; i <= 6; i++) {
     const img = new Image();
-    img.src = `STATIC/STATIC/img/to-${i}.png`;
+    img.src = `STATIC/img/to-${i}.png`;
     spritesTorneira.push(img);
 }
 

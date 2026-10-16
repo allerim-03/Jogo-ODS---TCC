@@ -1,16 +1,16 @@
 // Carregamento das imagens do NPC
 const imgNpcStand = new Image();
-imgNpcStand.src = "STATIC/STATIC/img/stand-guri.png";
+imgNpcStand.src = "STATIC/img/stand-guri.png";
 
 const imgNpcPoint1 = new Image();
-imgNpcPoint1.src = "STATIC/STATIC/img/point-guri-1.png";
+imgNpcPoint1.src = "STATIC/img/point-guri-1.png";
 
 const imgNpcPoint2 = new Image();
-imgNpcPoint2.src = "STATIC/STATIC/img/point-guri-2.png";
+imgNpcPoint2.src = "STATIC/img/point-guri-2.png";
 
 // Carregamento do ícone de exclamação
 const imgExclamacao = new Image();
-imgExclamacao.src = "STATIC/STATIC/img/exclamacao.png";
+imgExclamacao.src = "STATIC/img/exclamacao.png";
 
 const npcGuri = {
     x: 220,

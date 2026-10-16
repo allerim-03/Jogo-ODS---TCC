@@ -2,7 +2,7 @@
 const spritesWalk = [];
 for (let i = 1; i <= 4; i++) {
     const img = new Image();
-img.src = `STATIC/STATIC/img/gota-walk-${i}.png`;    
+img.src = `STATIC/img/gota-walk-${i}.png`;    
 spritesWalk.push(img);
 }
 

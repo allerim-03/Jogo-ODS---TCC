@@ -7,7 +7,7 @@
     <title>Login - Cultivando o Saber</title>
 
     <!-- Favicon / Ícone da guia -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='STATIC/img/icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
     <!-- Arquivos CSS da pasta static/css/ -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
@@ -87,7 +87,7 @@
             min-height: calc(100vh - 150px) !important;
         }
 
-        /* Estilização dos Ícones de Escolha apontando para os caminhos da pasta static/STATIC/img/ */
+        /* Estilização dos Ícones de Escolha apontando para os caminhos da pasta static/img/ */
         .escolha-icone {
             display: inline-block;
             width: 80px;
@@ -97,11 +97,11 @@
         }
 
         .aluno-card .escolha-icone {
-            background-image: url("{{ url_for('static', filename='STATIC/img/aluno.png') }}");
+            background-image: url("{{ url_for('static', filename='img/aluno.png') }}");
         }
 
         .professor-card .escolha-icone {
-            background-image: url("{{ url_for('static', filename='STATIC/img/prof.png') }}");
+            background-image: url("{{ url_for('static', filename='img/prof.png') }}");
         }
     </style>
 </head>
@@ -135,7 +135,7 @@
 
         <div class="topbar-center">
             <div class="logo">
-                <img src="{{ url_for('static', filename='STATIC/img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
+                <img src="{{ url_for('static', filename='img/cultsab.png') }}" alt="Cultivando o Saber" class="navbar-logo">
             </div>
         </div>
 
