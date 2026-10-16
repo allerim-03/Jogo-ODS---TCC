@@ -2,8 +2,8 @@
 const spritesWalk = [];
 for (let i = 1; i <= 4; i++) {
     const img = new Image();
-    img.src = `img/gota-walk-${i}.png`;
-    spritesWalk.push(img);
+img.src = `STATIC/STATIC/img/gota-walk-${i}.png`;    
+spritesWalk.push(img);
 }
 
 const jogadorJogo1 = {

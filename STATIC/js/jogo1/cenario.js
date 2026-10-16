@@ -1,6 +1,6 @@
 // Carregamento da imagem do cenário (500x100 Pixel Art)
 const imgFundo = new Image();
-imgFundo.src = "img/cenario.png";
+imgFundo.src = "STATIC/STATIC/img/cenario.png";
 
 const cenarioJogo1 = {
     alturaChao: 360,

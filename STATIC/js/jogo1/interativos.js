@@ -2,13 +2,13 @@
 const spritesTorneira = [];
 for (let i = 1; i <= 6; i++) {
     const img = new Image();
-    img.src = `img/to-${i}.png`;
+    img.src = `STATIC/STATIC/img/to-${i}.png`;
     spritesTorneira.push(img);
 }
 
 // Sprite da Torneira Fechada (to-7)
 const imgTorneiraFechada = new Image();
-imgTorneiraFechada.src = "img/to-7.png";
+imgTorneiraFechada.src = "STATIC/img/to-7.png";
 
 const interativosJogo1 = {
     itens: [],
