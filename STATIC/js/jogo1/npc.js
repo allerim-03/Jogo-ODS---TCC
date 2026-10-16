@@ -14,10 +14,10 @@ imgExclamacao.src = "STATIC/img/exclamacao.png";
 
 const npcGuri = {
     x: 220,
-    y: 280,
-    largura: 50,
-    altura: 70,
-    distanciaInteracao: 90,
+    y: 240,
+    largura: 70,
+    altura: 110,
+    distanciaInteracao: 110,
     
     // Estado da conversa e páginas
     emConversa: false,
@@ -95,8 +95,8 @@ const npcGuri = {
             // Desenha a exclamação animada (apenas se ainda NÃO conversou)
             if (!this.jaConversou && imgExclamacao.complete && imgExclamacao.naturalWidth !== 0) {
                 const offsetOffsetY = Math.sin(this.anguloFlutuacao) * 5;
-                const exclamacaoLargura = 24;
-                const exclamacaoAltura = 24;
+                const exclamacaoLargura = 40;
+                const exclamacaoAltura = 40;
                 const exclamacaoX = posX + (this.largura / 2) - (exclamacaoLargura / 2);
                 const exclamacaoY = this.y - exclamacaoAltura - 8 + offsetOffsetY;
 
