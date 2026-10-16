@@ -19,22 +19,26 @@ const npcGuri = {
     altura: 70,
     distanciaInteracao: 90,
     
-    // Estado da conversa e se já interagiu alguma vez
+    // Estado da conversa e páginas
     emConversa: false,
     jaConversou: false,
-    
-    // Animação de fala
+    indiceFala: 0,
+
+    // Animação de fala e exclamação
     frameFala: 0,
     contadorTempo: 0,
     velocidadeAnimacao: 12,
-
-    // Animação da exclamação flutuante
     anguloFlutuacao: 0,
 
-    mensagem: "Cuidado! Precisamos fechar todas as torneiras para salvar a água!",
+    // Lista de mensagens por etapas
+    falas: [
+        "Olá! Eu sou o Guri. A nossa cidade está precisando muito da sua ajuda, Gota! Várias torneiras foram deixadas abertas e estamos desperdiçando água.",
+        "Você pode se movimentar usando as SETAS (ou WASD). Quando estiver bem perto de uma torneira aberta, aperte [ENTER] para fechá-la!",
+        "Fique de olho na sua pontuação no topo da tela! Feche torneiras o suficiente para economizar água e salvar a nossa cidade!"
+    ],
 
     atualizar: function(jogador) {
-        // Atualiza a oscilação da exclamação
+        // Atualiza a oscilação de elementos flutuantes (exclamação e seta)
         this.anguloFlutuacao += 0.08;
 
         // Se o jogador pressionar ESPAÇO ou ENTER perto do NPC
@@ -46,12 +50,18 @@ const npcGuri = {
             if (distancia <= this.distanciaInteracao) {
                 if (!this.emConversa) {
                     this.emConversa = true;
-                    this.jaConversou = true; // Faz a exclamação sumir para sempre após a 1ª interação
+                    this.indiceFala = 0;
+                    this.jaConversou = true; // Faz a exclamação sumir para sempre após iniciar a 1ª conversa
                 } else {
-                    this.emConversa = false;
+                    // Avança para a próxima fala ou encerra a conversa
+                    this.indiceFala++;
+                    if (this.indiceFala >= this.falas.length) {
+                        this.emConversa = false;
+                        this.indiceFala = 0;
+                    }
                 }
 
-                // Consome a tecla para não disparar várias vezes seguidas
+                // Consome a tecla para evitar cliques duplos rápidos
                 controlesJogo1.espaco = false;
                 controlesJogo1.enter = false;
             }
@@ -84,7 +94,7 @@ const npcGuri = {
 
             // Desenha a exclamação animada (apenas se ainda NÃO conversou)
             if (!this.jaConversou && imgExclamacao.complete && imgExclamacao.naturalWidth !== 0) {
-                const offsetOffsetY = Math.sin(this.anguloFlutuacao) * 5; // Faz subir e descer 5px
+                const offsetOffsetY = Math.sin(this.anguloFlutuacao) * 5;
                 const exclamacaoLargura = 24;
                 const exclamacaoAltura = 24;
                 const exclamacaoX = posX + (this.largura / 2) - (exclamacaoLargura / 2);
@@ -104,29 +114,92 @@ const npcGuri = {
     desenharDialogo: function(ctx, larguraCanvas, alturaCanvas) {
         if (!this.emConversa) return;
 
-        const caixaX = 30;
-        const caixaY = alturaCanvas - 110;
-        const caixaLargura = larguraCanvas - 60;
-        const caixaAltura = 90;
+        // Dimensões compactas e centralizadas na parte superior/média
+        const caixaLargura = 460;
+        const caixaAltura = 120;
+        const caixaX = (larguraCanvas - caixaLargura) / 2;
+        const caixaY = 80;
 
-        ctx.fillStyle = "rgba(0, 0, 0, 0.85)";
+        // Fundo semi-transparente e borda estilo retro
+        ctx.fillStyle = "rgba(0, 0, 0, 0.88)";
         ctx.fillRect(caixaX, caixaY, caixaLargura, caixaAltura);
 
         ctx.strokeStyle = "#ffffff";
         ctx.lineWidth = 3;
         ctx.strokeRect(caixaX, caixaY, caixaLargura, caixaAltura);
 
+        // Título/Nome do NPC
         ctx.fillStyle = "#f1c40f";
         ctx.font = "bold 16px Arial";
         ctx.textAlign = "left";
         ctx.fillText("Guri:", caixaX + 15, caixaY + 25);
 
+        // Quebra automática de texto para não ultrapassar a caixa
         ctx.fillStyle = "#ffffff";
         ctx.font = "14px Arial";
-        ctx.fillText(this.mensagem, caixaX + 15, caixaY + 50);
+        const textoAtual = this.falas[this.indiceFala];
+        this.desenharTextoComQuebra(ctx, textoAtual, caixaX + 15, caixaY + 48, caixaLargura - 30, 18);
 
+        // Indicador de navegação/avanço
         ctx.fillStyle = "#bdc3c7";
         ctx.font = "italic 11px Arial";
-        ctx.fillText("Aperte [ESPAÇO] ou [ENTER] para fechar...", caixaX + caixaLargura - 230, caixaY + caixaAltura - 12);
+        const textoBotao = (this.indiceFala < this.falas.length - 1) 
+            ? "Aperte [ESPAÇO] ou [ENTER] para avançar..." 
+            : "Aperte [ESPAÇO] ou [ENTER] para fechar...";
+        ctx.textAlign = "right";
+        ctx.fillText(textoBotao, caixaX + caixaLargura - 15, caixaY + caixaAltura - 10);
+
+        // Desenha a seta apontando para o placar HUD na página 3
+        if (this.indiceFala === 2) {
+            this.desenharSetaPlacar(ctx, larguraCanvas);
+        }
+    },
+
+    // Função auxiliar para quebrar linhas longas dentro do balão de fala
+    desenharTextoComQuebra: function(ctx, texto, x, y, larguraMaxima, alturaLinha) {
+        const palavras = texto.split(" ");
+        let linha = "";
+
+        for (let n = 0; n < palavras.length; n++) {
+            const linhaTeste = linha + palavras[n] + " ";
+            const metricas = ctx.measureText(linhaTeste);
+            const larguraTeste = metricas.width;
+
+            if (larguraTeste > larguraMaxima && n > 0) {
+                ctx.fillText(linha, x, y);
+                linha = palavras[n] + " ";
+                y += alturaLinha;
+            } else {
+                linha = linhaTeste;
+            }
+        }
+        ctx.fillText(linha, x, y);
+    },
+
+    // Desenha uma seta animada no canto superior direito apontando para a pontuação HUD
+    desenharSetaPlacar: function(ctx, larguraCanvas) {
+        const deslocamentoX = Math.sin(this.anguloFlutuacao) * 8; // Animação de ida e volta na horizontal
+        const setaX = larguraCanvas - 175 + deslocamentoX;
+        const setaY = 35;
+
+        ctx.save();
+        ctx.fillStyle = "#e74c3c";
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 2;
+
+        // Desenho do corpo e ponta da seta
+        ctx.beginPath();
+        ctx.moveTo(setaX, setaY - 8);
+        ctx.lineTo(setaX + 15, setaY - 8);
+        ctx.lineTo(setaX + 15, setaY - 14);
+        ctx.lineTo(setaX + 28, setaY);
+        ctx.lineTo(setaX + 15, setaY + 14);
+        ctx.lineTo(setaX + 15, setaY + 8);
+        ctx.lineTo(setaX, setaY + 8);
+        ctx.closePath();
+
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
     }
 };
