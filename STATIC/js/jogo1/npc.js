@@ -33,7 +33,7 @@ const npcGuri = {
     // Lista de mensagens por etapas
     falas: [
         "Gota! Nos ajude! Precisamos parar o desperdício de água na cidade!",
-        "Feche apertando ENTER nas torneiras!",
+        "Ande com as setinhas e feche as torneiras apertando ENTER!",
         "Quando você fechar todas, você ganha pontos no ranking! Boa sorte!"
     ],
 
