@@ -1,0 +1,19 @@
+/* 01. Identidade: cores originais e tons de apoio para legibilidade. */
+:root {
+  --green:#4caf50;
+  --green-dark:#246b38;
+  --forest:#183e29;
+  --green-soft:#edf6e8;
+  --blue:#43b4fb;
+  --blue-soft:#eaf6ff;
+  --yellow:#ffde5a;
+  --yellow-soft:#fff9dd;
+  --red:#ff524d;
+  --ink:#233d2c;
+  --muted:#637269;
+  --line:#dfe8dc;
+  --paper:#fff;
+  --canvas:#f8faf5;
+  --radius:20px;
+  --shadow:0 8px 32px #203d2910;
+  --content:1160px}

@@ -1,0 +1,98 @@
+{
+  "home.html": {
+    "url": "/",
+    "file": "pages/public/home.html"
+  },
+  "index.html": {
+    "url": "/app",
+    "file": "pages/student/dashboard.html"
+  },
+  "escolha.html": {
+    "url": "/entrar",
+    "file": "pages/auth/choose-login.html"
+  },
+  "escolha-cadastro.html": {
+    "url": "/cadastro",
+    "file": "pages/auth/choose-signup.html"
+  },
+  "login.html": {
+    "url": "/entrar/aluno",
+    "file": "pages/auth/login-student.html"
+  },
+  "login-professor.html": {
+    "url": "/entrar/gestor",
+    "file": "pages/auth/login-teacher.html"
+  },
+  "cadastro.html": {
+    "url": "/cadastro/aluno",
+    "file": "pages/auth/signup-student.html"
+  },
+  "cadastro-professor.html": {
+    "url": "/cadastro/gestor",
+    "file": "pages/auth/signup-teacher.html"
+  },
+  "perfil.html": {
+    "url": "/perfil",
+    "file": "pages/student/profile.html"
+  },
+  "perfil-professor.html": {
+    "url": "/gestor/perfil",
+    "file": "pages/teacher/profile.html"
+  },
+  "editar-perfil.html": {
+    "url": "/perfil/editar",
+    "file": "pages/shared/edit-profile.html"
+  },
+  "token.html": {
+    "url": "/turma/entrar",
+    "file": "pages/student/join-class.html"
+  },
+  "classroom.html": {
+    "url": "/turmas",
+    "file": "pages/teacher/classes.html"
+  },
+  "create_classroom.html": {
+    "url": "/turmas/nova",
+    "file": "pages/teacher/create-class.html"
+  },
+  "jogos.html": {
+    "url": "/jogos",
+    "file": "pages/student/games.html"
+  },
+  "jogo1.html": {
+    "url": "/jogos/agua",
+    "file": "pages/student/water-game.html"
+  },
+  "jogo2.html": {
+    "url": "/jogos/reciclagem",
+    "file": "pages/student/recycle-game.html"
+  },
+  "quiz.html": {
+    "url": "/quizzes",
+    "file": "pages/student/quiz.html"
+  },
+  "ranking.html": {
+    "url": "/ranking",
+    "file": "pages/shared/ranking.html"
+  },
+  "ods.html": {
+    "url": "/ods",
+    "file": "pages/public/ods.html"
+  },
+  "sobrenos.html": {
+    "url": "/sobre",
+    "file": "pages/public/about.html"
+  },
+  "erro404.html": {
+    "url": "/indisponivel",
+    "file": "pages/public/not-found.html"
+  },
+  "teacher-tasks.html": {
+    "url": "/gestor/tarefas",
+    "file": "pages/teacher/tasks.html"
+  },
+  "student-tasks.html": {
+    "url": "/tarefas",
+    "file": "pages/student/tasks.html"
+  }
+}

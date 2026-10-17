@@ -1,0 +1,265 @@
+/* 07. Perfis, ranking e gestão de turmas. */
+.perfil-header-card,.tuga-card,.teacher-banner-card,.section-card,.card-estatisticas,.card-insignias {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+  margin-bottom:24px}
+.perfil-header-card {
+  display:flex;
+  gap:30px;
+  align-items:center;
+  margin-top:24px}
+.perfil-avatar-wrapper {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px}
+.perfil-avatar-main {
+  width:100px;
+  height:100px;
+  object-fit:contain;
+  border-radius:50%;
+  background:var(--green-soft);
+  padding:10px;
+  image-rendering:pixelated}
+.badge-nivel,.badge,.badge-ods {
+  display:inline-block;
+  padding:5px 10px;
+  background:var(--green-soft);
+  color:var(--green-dark);
+  font-size:.69rem;
+  font-weight:750;
+  border-radius:20px;
+  white-space:nowrap}
+.perfil-detalhes {
+  flex:1;
+  min-width:0}
+.perfil-detalhes h2 {
+  margin-bottom:10px;
+  overflow-wrap:anywhere}
+.perfil-subtitulo {
+  font-size:.85rem}
+.xp-container-perfil {
+  margin-top:22px;
+  max-width:550px}
+.xp-info {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  font-size:.75rem;
+  margin-bottom:8px}
+.bar-perfil {
+  width:100%;
+  height:10px}
+.tuga-card {
+  display:flex;
+  align-items:center;
+  gap:24px;
+  background:var(--green-soft)}
+.tuga-avatar {
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  image-rendering:pixelated}
+.tuga-balao p {
+  font-size:.89rem}
+.perfil-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px}
+.stats-list {
+  display:grid;
+  gap:20px;
+  margin-top:24px}
+.stat-item {
+  display:flex;
+  align-items:center;
+  gap:16px}
+.stat-icon {
+  font-size:1.5rem;
+  background:var(--green-soft);
+  padding:10px;
+  border-radius:12px}
+.stat-item strong {
+  font-size:1.35rem;
+  line-height:1.2}
+.stat-item p {
+  font-size:.77rem}
+.insignias-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:24px}
+.insignia-item {
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  text-align:center;
+  background:var(--green-soft)}
+.insignia-item.bloqueada {
+  background:#f4f5f1;
+  color:#7d897c}
+.insignia-icon {
+  font-size:1.65rem}
+.insignia-item p {
+  font-size:.73rem;
+  margin-top:8px}
+.prof-bio {
+  margin-top:10px;
+  font-size:.85rem}
+#eco-history ul {
+  padding-left:18px;
+  margin-bottom:0;
+  font-size:.86rem}
+#eco-history li {
+  padding:6px 0}
+.teacher-banner-card,.teacher-info {
+  display:flex;
+  align-items:center;
+  gap:24px}
+.teacher-banner-card {
+  justify-content:space-between;
+  background:var(--green-soft)}
+.teacher-avatar img {
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  object-fit:contain;
+  background:white}
+.teacher-details p {
+  font-size:.82rem;
+  margin-top:8px}
+.section-title,.section-title-flex {
+  margin-bottom:24px}
+.section-title-flex {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px}
+.section-title p,.section-title-flex p {
+  font-size:.85rem;
+  margin-top:8px}
+.token-generator-box {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:end}
+.token-display-area {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap}
+.token-label {
+  font-size:.77rem}
+.token-code-box {
+  display:flex;
+  align-items:center;
+  gap:16px}
+#token-code {
+  font-size:2rem;
+  letter-spacing:.16em;
+  color:var(--green-dark);
+  font-variant-numeric:tabular-nums}
+.btn-gerar-token {
+  font-size:.77rem}
+.tabela-responsive {
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:14px}
+.tabela-alunos {
+  border-collapse:collapse;
+  width:100%;
+  text-align:left;
+  font-size:.82rem;
+  white-space:nowrap}
+.tabela-alunos th {
+  font-size:.71rem;
+  color:var(--muted);
+  background:var(--canvas);
+  font-weight:700}
+.tabela-alunos td,.tabela-alunos th {
+  padding:14px 17px;
+  border-bottom:1px solid var(--line)}
+.tabela-alunos tr:last-child td {
+  border-bottom:0}
+.texto-ranking-topo {
+  text-align:center;
+  margin-bottom:26px}
+.texto-ranking-topo p {
+  margin-top:12px}
+.ranking-container {
+  max-width:900px;
+  margin:auto}
+#eco-ranking-filter {
+  max-width:300px;
+  margin:0 auto 30px}
+.podium-container {
+  display:flex;
+  align-items:end;
+  gap:20px;
+  justify-content:center;
+  margin:32px 0}
+.podium-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  padding:24px;
+  width:30%;
+  min-width:0}
+.podium-card.first {
+  padding-top:36px;
+  padding-bottom:36px;
+  background:var(--yellow-soft);
+  border-color:#eee0a4}
+.podium-medal {
+  font-size:1.8rem}
+.podium-avatar {
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  image-rendering:pixelated}
+.podium-name {
+  font-size:.85rem;
+  font-weight:700;
+  text-align:center;
+  overflow-wrap:anywhere}
+.podium-xp {
+  font-size:.78rem;
+  color:var(--green-dark);
+  font-weight:800}
+.ranking-list {
+  display:grid;
+  gap:12px}
+.ranking-item {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:15px 22px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:white}
+.ranking-item.current-user {
+  border-color:var(--green);
+  background:var(--green-soft)}
+.position {
+  width:28px;
+  font-weight:800;
+  color:var(--muted)}
+.item-avatar {
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  image-rendering:pixelated}
+.player-name {
+  flex:1;
+  font-size:.9rem;
+  overflow-wrap:anywhere}
+.player-xp {
+  font-size:.82rem;
+  font-weight:800;
+  white-space:nowrap}

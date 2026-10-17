@@ -1,0 +1,99 @@
+/* Navegação lateral inspirada na organização da referência. */
+body {
+  background: #e7f4d9;
+  padding: 28px 24px;
+}
+.platform-shell {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  background: var(--green);
+  padding: 10px 10px 10px 0;
+  border-radius: 34px;
+  min-height: calc(100vh - 56px);
+  box-shadow: 0 18px 45px #28783c1c;
+}
+.platform-content {
+  background: #fff;
+  border-radius: 27px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+#site-header {
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  position: relative;
+  z-index: 40;
+}
+.header-inner {
+  position: sticky;
+  top: 28px;
+  width: 100%;
+  min-height: min(800px, calc(100vh - 76px));
+  padding: 28px 0 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 28px;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  color: #12381c;
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.12;
+}
+.brand:hover { text-decoration: none; }
+.brand img {
+  background: white;
+  padding: 8px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  image-rendering: pixelated;
+}
+.brand small { display: block; font-size: 1.08rem; margin-top: 4px; }
+#primary-navigation { display: flex; flex-direction: column; gap: 7px; padding-right: 18px; }
+#primary-navigation a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px 13px 24px;
+  border-radius: 0 24px 24px 0;
+  color: #12381c;
+  font-size: .85rem;
+  font-weight: 800;
+  line-height: 1.4;
+  transition: background .15s;
+}
+#primary-navigation a > span { font-size: 1.15rem; }
+#primary-navigation a:hover { background: #ffffff4d; text-decoration: none; }
+#primary-navigation a[aria-current="page"] { background: var(--yellow); color: #304223; box-shadow: 0 4px 0 #319840; }
+.header-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0 18px; margin-top: auto; }
+.account-link { color: #12381c; font-size: .79rem; font-weight: 850; text-align: center; }
+.logout-button { border: 0; padding: 8px 18px; background: #ffffff3b; border-radius: 12px; color: #143b1c; font-size: .78rem; font-weight: 750; }
+.header-actions .compact { background: #ffde5a; color: #304223; width: 100%; font-size: .78rem; }
+.nav-toggle { display: none; }
+.sidebar-grow { margin: 0 25px; padding: 19px 12px; border-radius: 20px; background: #fff; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 5px 0 #399f43; }
+.sidebar-grow .eyebrow { font-size: .55rem; letter-spacing: .06em; }
+.sidebar-grow strong { font-size: .8rem; line-height: 1.35; }
+.sidebar-grow small { font-size: .68rem; color: var(--muted); line-height: 1.5; }
+.sidebar-progress-ring { --progress: 0%; width: 82px; height: 82px; border-radius: 50%; background: conic-gradient(var(--green) var(--progress), #e4efd9 0); padding: 8px; }
+.sidebar-progress-ring img { width: 100%; height: 100%; border: 10px solid white; border-radius: 50%; background: white; image-rendering: pixelated; }
+/*.context-bar { width: calc(100% - 64px); margin: 24px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: .8rem; color: var(--muted); }
+.level { display: flex; align-items: center; gap: 10px; border-radius: 20px; background: #fff8ce; padding: 7px 13px; }*/
+.star { font-size: .69rem; font-weight: 850; color: #694f07; }*/
+.bar,.bar-perfil { height: 9px; width: 104px; border-radius: 20px; background: #e2eccf; overflow: hidden; }
+.progress,.progress-perfil { height: 100%; background: var(--green); border-radius: inherit; transition: width .25s; }
+.xp { font-size: .65rem; color: #605122; }
+.site-footer { width: calc(100% - 64px); margin: auto auto 0; padding: 24px 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: .72rem; }
+.site-footer > a { color: var(--green-dark); font-weight: 800; }

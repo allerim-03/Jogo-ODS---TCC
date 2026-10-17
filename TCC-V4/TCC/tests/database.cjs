@@ -1,0 +1,38 @@
+process.chdir(require('node:path').resolve(__dirname, '..'));
+const vm = require('node:vm'), fs = require('node:fs'), assert = require('node:assert/strict');
+const {webcrypto} = require('node:crypto');
+class Storage { constructor(){this.data=new Map()} getItem(k){return this.data.get(k)||null} setItem(k,v){this.data.set(k,String(v))} removeItem(k){this.data.delete(k)} }
+const context={crypto:webcrypto,TextEncoder,localStorage:new Storage(),sessionStorage:new Storage(),Event,window:{dispatchEvent(){}}};
+vm.createContext(context);vm.runInContext(fs.readFileSync('public/assets/js/services/mock-db.js','utf8'),context);const db=context.window.EcoDB;
+const studentData=(email='aluno@teste.com')=>({name:'Aluna Teste',email,role:'aluno',password:'teste123',confirm:'teste123'});
+(async()=>{
+ await assert.rejects(db.register({...studentData(),confirm:'errado'}),/coincidem/);
+ await assert.rejects(db.register({...studentData(),password:'123',confirm:'123'}),/6 caracteres/);
+ const teacher=await db.register({...studentData('gestor@teste.com'),role:'professor',name:'Gestora Teste'});
+ const c=db.createClass({name:'Turma Teste',year:'2026',period:'anual',discipline:'Ciências',description:'Turma de teste'});
+ assert.match(c.token,/^\d{4}$/);assert.equal(db.classes().length,1); const oldToken=c.token;const token=db.rotateToken(c.id);assert.notEqual(token,oldToken);
+ db.logout();assert.equal(db.current(),null);
+ await assert.rejects(db.login('gestor@teste.com','errada','professor'),/incorretos/);
+ await assert.rejects(db.login('gestor@teste.com','teste123','aluno'),/incorretos/);
+ const user=await db.register(studentData());assert.equal(user.xp,0);assert.equal(user.classId,null);
+ assert.throws(()=>db.joinClass('0000'),/inválido/);assert.throws(()=>db.joinClass(oldToken),/inválido/);
+ assert.throws(()=>db.recordResult({runId:'before-class',game:'quiz',points:100}),/turma/);
+ db.joinClass(token);assert.equal(db.current().classId,c.id);
+ assert.throws(()=>db.createClass({}),/perfil correto/);
+ await assert.rejects(db.register(studentData()),/já está cadastrado/);
+ assert.equal(db.recordResult({runId:'quiz-1',game:'quiz',points:300,details:{theme:'reciclagem',correct:3,total:3}}),300);
+ assert.equal(db.recordResult({runId:'quiz-1',game:'quiz',points:300}),0);
+ assert.throws(()=>db.recordResult({runId:'invalid',game:'jogo2',points:-1}),/inválido/);
+ const updated=db.updateProfile({name:'Aluna Eco',avatar:'arara',title:'Agente da Reciclagem'});assert.equal(updated.name,'Aluna Eco');assert.equal(updated.avatar,'arara');
+ const status={textContent:''};const bridgeContext={URLSearchParams,window:{parent:{EcoDB:db,document:{getElementById:()=>status}}},crypto:webcrypto};vm.createContext(bridgeContext);
+ vm.runInContext(fs.readFileSync('public/games/recycle/bridge.js','utf8'),bridgeContext);const game=bridgeContext.window.EcoGame;
+ game.start();game.finish(280,1,true);game.finish(280,1,true);assert.equal(db.current().xp,580);assert.equal(db.current().gameProgress.recyclePhase,2);assert.match(status.textContent,/280 XP/);
+ game.start();game.finish(70,2,false);assert.equal(db.current().xp,650);assert.equal(db.current().gameProgress.recyclePhase,2);
+ db.recordResult({runId:'level-up',game:'quiz',points:400});assert.equal(db.current().xp,1050);assert.deepEqual(JSON.parse(JSON.stringify(db.level(1050))),{level:2,progress:50,goal:1000});
+ assert.equal(db.ranking()[0].id,user.id);assert.equal(db.results(user.id).length,4);
+ db.logout();await db.login('gestor@teste.com','teste123','professor');assert.equal(db.students(c.id)[0].xp,1050);assert.equal(db.results(user.id).length,4);
+ const foreign=await db.register({...studentData('outro@teste.com'),name:'Outro Gestor',role:'professor'});assert.equal(db.classes().length,0);assert.throws(()=>db.rotateToken(c.id),/Selecione/);assert.throws(()=>db.students(c.id),/não encontrada/);
+ await db.login('aluno@teste.com','teste123','aluno');assert.equal(db.current().xp,1050);
+ const raw=context.localStorage.getItem('cultivando.db.v1');assert(!raw.includes('teste123'));assert(!('hash' in db.current()));
+ console.log('PASSOU: cadastro, login, papéis, turmas, renovação de token, matrícula, perfil, resultados, deduplicação, ranking, níveis e ponte do JOGO 2.');
+})().catch(e=>{console.error(e);process.exit(1)});

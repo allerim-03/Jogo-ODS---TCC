@@ -1,0 +1,13 @@
+{
+  "name": "cultivando-o-saber",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Plataforma de educação ambiental com banco demonstrativo em JavaScript",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node tests/database.cjs && node --experimental-vm-modules tests/game-engine.cjs && node tests/routes.cjs && node tests/navigation.cjs && node tests/tasks.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

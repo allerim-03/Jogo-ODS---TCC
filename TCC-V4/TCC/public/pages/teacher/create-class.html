@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criar Nova Turma - Cultivando o Saber</title><link rel="icon" href="/assets/images/icon.png"><link rel="stylesheet" href="/assets/css/design-system.css">
+<script src="/assets/js/services/mock-db.js"></script><script src="/assets/js/core/routes.js"></script>
+<script defer src="/assets/js/components/layout.js"></script><script defer src="/assets/js/core/app.js"></script></head>
+<body data-page="create_classroom.html"><a class="skip-link" href="#main-content">Ir para o conteúdo</a><div class="platform-shell"><header id="site-header"></header>
+<div class="platform-content"><main class="criar-turma-container" id="main-content" tabindex="-1">
+
+        <div class="criar-turma-header"> <br><br><br><br>
+            <a href="/turmas" class="btn-voltar-link">Voltar para Turmas</a>
+            <h2>Cadastro de Nova Turma</h2>
+            <p>Preencha os dados abaixo para criar um novo grupo de alunos e gerar o código de acesso.</p>
+        </div>
+
+        <section class="section-card form-card-container">
+            <form id="form-cadastrar-turma">
+                
+                <div class="form-grupo">
+                    <label for="nome-turma" class="form-label">Nome da Turma *</label>
+                    <input type="text" id="nome-turma" class="form-input" placeholder="Ex: 5º Ano A - Fauna Brasileira" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-grupo">
+                        <label for="ano-letivo" class="form-label">Ano Letivo *</label>
+                        <select id="ano-letivo" class="form-input form-select" required>
+                            <option value="" disabled selected>Selecione o ano</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="periodo-letivo" class="form-label">Período / Semestre *</label>
+                        <select id="periodo-letivo" class="form-input form-select" required>
+                            <option value="" disabled selected>Selecione o período</option>
+                            <option value="1s">1º Semestre</option>
+                            <option value="2s">2º Semestre</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="disciplina-turma" class="form-label">Disciplina / Foco Temático</label>
+                    <input type="text" id="disciplina-turma" class="form-input" placeholder="Ex: Ciências e Sustentabilidade">
+                </div>
+
+                <div class="form-grupo">
+                    <label for="descricao-turma" class="form-label">Descrição ou Observações</label>
+                    <textarea id="descricao-turma" class="form-input form-textarea" rows="4" placeholder="Adicione orientações gerais para a turma..."></textarea>
+                </div>
+
+                <div class="form-acoes">
+                    <a href="/turmas" class="btn-principal btn-cancelar">Cancelar</a>
+                    <button type="submit" class="btn-principal btn-salvar-turma">Salvar e Gerar Token</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer"><a href="/">Cultivando o Saber</a><span>Aprender. Cuidar. Transformar.</span><small>© 2026 · FATEC São Bernardo do Campo</small></footer></div></div></body></html>
