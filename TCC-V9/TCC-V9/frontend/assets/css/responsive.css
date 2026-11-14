@@ -1,0 +1,338 @@
+/* 10. Adaptação a telas menores. */
+@media(min-width:901px) {
+  body[data-page="create_classroom.html"] main>section,body[data-page="create_classroom.html"] main>div {
+  max-width:850px;
+  margin-left:auto;
+  margin-right:auto}
+}
+
+@media(max-width:1100px) {
+  .header-inner {
+  gap:16px}
+#primary-navigation {
+  gap:16px}
+.header-actions {
+  gap:12px}
+.brand {
+  font-size:.95rem}
+.brand img {
+  width:36px}
+.hero-public {
+  gap:30px}
+.hero-art {
+  min-height:350px}
+.hero-copy h1 {
+  font-size:2.9rem}
+.teacher-callout {
+  gap:30px;
+  padding:35px}
+}
+
+@media(max-width:900px) {
+  .header-inner {
+  flex-wrap:wrap;
+  min-height:76px;
+  padding:14px 0}
+.nav-toggle {
+  display:block;
+  margin-left:auto}
+#primary-navigation {
+  display:none;
+  order:3;
+  width:100%;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0;
+  padding:8px 0}
+.menu-open #primary-navigation {
+  display:flex}
+#primary-navigation a {
+  padding:12px 8px}
+#primary-navigation a[aria-current]:after {
+  display:none}
+#primary-navigation a[aria-current] {
+  background:var(--green-soft);
+  border-radius:10px}
+.header-actions {
+  margin-left:0}
+.hero-public {
+  grid-template-columns:1fr 1fr;
+  gap:22px}
+.hero-copy h1 {
+  font-size:2.5rem}
+.hero-copy .actions {
+  align-items:flex-start;
+  flex-direction:column}
+.hero-art {
+  min-height:320px;
+  padding:25px 15px}
+.hero-art-caption {
+  padding:12px;
+  font-size:.7rem}
+.feature-card {
+  padding:22px}
+.teacher-callout {
+  grid-template-columns:1fr}
+.teacher-steps {
+  max-width:none}
+.teacher-steps p {
+  max-width:none}
+.auth-container {
+  grid-template-columns:.6fr 1fr}
+.auth-sidebar,.auth-content {
+  padding:26px}
+.token-generator-box {
+  grid-template-columns:1fr}
+.section-title-flex {
+  align-items:flex-start;
+  flex-direction:column}
+.quiz-cards-grid {
+  grid-template-columns:1fr}
+.quiz-card {
+  display:grid;
+  grid-template-columns:1fr 1fr}
+.quiz-card-header {
+  grid-column:1/-1}
+.quiz-card-footer {
+  display:flex;
+  align-items:center;
+  padding:24px}
+.quiz-card-body {
+  padding:24px}
+.quiz-card-body .quiz-icon-img {
+  width:45px;
+  height:45px}
+.site-footer {
+  flex-wrap:wrap}
+.membro {
+  width:calc(50% - 11px)}
+}
+
+@media(max-width:640px) {
+  main {
+  width:calc(100% - 32px);
+  margin:26px auto 40px}
+.header-inner,.site-footer {
+  width:calc(100% - 32px)}
+.header-actions .compact {
+  display:none}
+.header-actions {
+  gap:7px}
+.account-link,.logout-button {
+  font-size:.72rem}
+.brand {
+  font-size:.91rem}
+.brand small {
+  font-size:.8rem}
+.brand img {
+  width:31px}
+.hero-public {
+  grid-template-columns:1fr;
+  gap:32px;
+  padding:6px 0 30px}
+.hero-copy h1 {
+  font-size:2.6rem}
+.hero-copy>p {
+  font-size:.95rem}
+.hero-copy .actions {
+  flex-direction:row;
+  align-items:center}
+.hero-art {
+  min-height:300px;
+  max-width:450px;
+  width:100%;
+  margin:auto}
+.hero-art>img {
+  max-height:240px}
+.pill-strip {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  font-size:.73rem;
+  padding:22px 0;
+  gap:15px}
+.feature-grid,.profile-choice-grid,.dashboard-stats,.game-grid,.perfil-grid {
+  grid-template-columns:1fr}
+.feature-card {
+  padding:26px}
+.landing-section {
+  margin:42px 0}
+.section-heading,.page-heading {
+  align-items:flex-start;
+  flex-direction:column;
+  gap:16px}
+.teacher-callout {
+  padding:28px 22px}
+.teacher-steps p {
+  padding:14px}
+.closing-note {
+  margin-top:45px}
+.context-bar {
+  width:calc(100% - 32px);
+  flex-wrap:wrap;
+  margin-top:18px}
+.level {
+  gap:8px}
+.level .bar {
+  width:100px}
+.welcome-card {
+  padding:28px;
+  gap:18px}
+.welcome-card h2 {
+  font-size:1.7rem}
+.welcome-card>img {
+  width:68px;
+  margin-right:0;
+  align-self:flex-start;
+  margin-top:25px}
+.welcome-card p {
+  font-size:.88rem}
+.welcome-card .pill {
+  font-size:.6rem}
+.dashboard-stats {
+  gap:12px}
+.dashboard-stats article {
+  padding:20px}
+.choose-profile {
+  padding:10px 0}
+.choose-profile h1 {
+  font-size:2.15rem}
+.profile-choice-grid {
+  margin:26px 0;
+  gap:16px}
+.profile-choice {
+  padding:26px}
+.auth-container {
+  display:flex;
+  flex-direction:column}
+.auth-sidebar {
+  padding:24px;
+  gap:12px}
+.auth-sidebar img {
+  width:45px}
+.auth-sidebar h2 {
+  font-size:1.5rem}
+.auth-sidebar p {
+  margin:0}
+.auth-content {
+  padding:25px 22px}
+.form-grid,.form-row {
+  grid-template-columns:1fr;
+  gap:18px}
+.login-box {
+  padding:26px 22px}
+.avatars-grid {
+  grid-template-columns:1fr 1fr}
+.editar-card {
+  padding:22px}
+.editar-acoes,.form-acoes {
+  flex-direction:column-reverse;
+  align-items:stretch}
+.perfil-header-card {
+  padding:24px;
+  flex-direction:column;
+  text-align:center;
+  gap:20px}
+.perfil-detalhes {
+  width:100%}
+.xp-info {
+  text-align:left}
+.perfil-grid {
+  gap:0}
+.card-estatisticas,.card-insignias,.section-card {
+  padding:22px}
+.tuga-card {
+  padding:20px;
+  gap:16px}
+.tuga-avatar {
+  width:44px;
+  height:44px}
+.teacher-banner-card {
+  flex-direction:column;
+  align-items:stretch;
+  padding:22px}
+.teacher-info {
+  gap:16px}
+.teacher-info h3 {
+  font-size:1.15rem}
+.teacher-avatar img {
+  width:52px;
+  height:52px}
+.podium-container {
+  gap:8px}
+.podium-card {
+  width:33.33%;
+  padding:14px 8px}
+.podium-card.first {
+  padding:25px 8px}
+.podium-avatar {
+  width:42px;
+  height:42px}
+.podium-name {
+  font-size:.73rem}
+.podium-xp {
+  font-size:.7rem}
+.ranking-item {
+  gap:12px;
+  padding:13px}
+.player-name {
+  font-size:.8rem}
+.player-xp {
+  font-size:.74rem}
+.game-card-body {
+  padding:24px}
+.next-game {
+  flex-wrap:wrap;
+  padding:22px}
+.next-game>span {
+  display:none}
+.next-game>div {
+  flex-basis:100%}
+.quiz-card {
+  display:flex}
+.quiz-card-footer {
+  padding-top:0}
+.quiz-container {
+  padding:23px}
+.options-container {
+  grid-template-columns:1fr}
+.quiz-header-top {
+  flex-direction:column;
+  gap:8px}
+.bloco-info,.bloco-conteudo-projeto,.bloco-jogo-detalhado {
+  flex-direction:column;
+  align-items:stretch;
+  padding:24px;
+  gap:24px}
+.bloco-imagem-placeholder,.jogo-print-container {
+  width:100%;
+  max-width:180px;
+  margin:auto}
+.ods-grid>* {
+  flex-basis:115px}
+.ods-grid img {
+  width:115px;
+  height:115px}
+.membro {
+  width:100%}
+.modal-corpo {
+  flex-direction:column}
+.modal-foto-box {
+  width:110px}
+.modal-membro,#modalODS>div {
+  padding:26px}
+.site-footer {
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  padding:24px 0}
+.site-footer small {
+  font-size:.7rem}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+  scroll-behavior:auto}
+*,*:before,*:after {
+  animation:none!important;
+  transition:none!important}
+}

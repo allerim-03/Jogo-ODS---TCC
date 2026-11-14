@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadastro do Aluno - Cultivando o Saber</title><link rel="icon" href="/assets/img/icon.png"><link rel="stylesheet" href="/assets/css/design-system.css">
+<script src="/config.js"></script><script src="/assets/js/services/api.js"></script><script src="/assets/js/core/routes.js"></script>
+<script defer src="/assets/js/components/layout.js"></script><script defer src="/assets/js/core/app.js"></script><script defer src="/assets/js/auth/forms.js"></script><script defer src="/assets/js/components/enhancements.js"></script></head>
+<body data-page="cadastro.html"><a class="skip-link" href="#main-content">Ir para o conteúdo</a><div class="platform-shell"><header id="site-header"></header>
+<div class="platform-content"><main id="main-content" tabindex="-1"><a class="back-link" href="/cadastro">← Escolher outro perfil</a>
+
+        <div class="auth-container">
+
+
+            <div class="auth-sidebar professor-theme">
+
+                <img src="/assets/img/TugaPqn.png" alt="Mascote Tuga" class="mascote">
+
+                <h2>Bem-vindo!</h2>
+
+                <p>
+                    Venha aprender brincando e explore um mundo de conhecimentos.
+                </p>
+
+                <p>
+                    Já possui uma conta?
+                </p>
+
+                <a href="/entrar/aluno" class="btn-outline">
+                    ENTRAR
+                </a>
+
+            </div>
+
+
+            <div class="auth-content">
+
+                <h1>Cadastro do Aluno</h1>
+
+
+                <form id="check-code" class="form-grid"><div class="form-field col-full"><label for="signup-code">Código de acesso</label><div class="input-group"><input id="signup-code" type="text" required inputmode="numeric" pattern="[0-9]{4}" maxlength="4"></div></div><button class="btn-principal">Verificar turma</button><p role="status" id="code-status"></p></form><form id="form-cadastro" class="form-grid" hidden><p id="class-confirmed"></p><div class="form-field col-full"><label for="username">Nome e sobrenome</label><div class="input-group"><input id="username" type="text" required autocomplete="name"></div></div><div class="form-field col-full"><label for="password">Senha de 6 caracteres</label><div class="input-group"><input id="password" type="password" required minlength="6" maxlength="6" autocomplete="new-password"></div></div><p>Inclua uma letra maiúscula, uma minúscula, um número e um símbolo.</p><button class="btn-principal">Criar conta e escolher avatar</button></form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="site-footer"><a href="/">Cultivando o Saber</a><span>Aprender. Cuidar. Transformar.</span><small>© 2026 · FATEC São Bernardo do Campo</small></footer></div></div></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ReciclaCoop</title>
+    <style>
+        /* Criamos o nome da fonte e dizemos onde o arquivo está */
+        @font-face {
+            font-family: 'RiskOfRain';
+            src: url('assets/Fonts/enter-the-gungeon-big.ttf');
+        }
+
+        body {
+            font-family: 'RiskOfRain', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="style-recycle.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- Resolução interna fixa de 800x450, CSS redimensiona visualmente -->
+        <canvas id="telaJogo" width="800" height="450"></canvas>
+    </div>
+
+    <script src="bridge.js"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

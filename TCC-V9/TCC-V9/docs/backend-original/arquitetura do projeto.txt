@@ -1,0 +1,60 @@
+jogos--ods--tcc/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+├── database.db
+│
+├── app/
+│   │
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── quiz.py
+│   │   ├── dashboard.py
+│   │   ├── games.py
+│   │   └── api.py
+│   │
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── cadastro.html
+│   │   ├── dashboard.html
+│   │   ├── quiz.html
+│   │   ├── ranking.html
+│   │   └── jogos/
+│   │       ├── memoria.html
+│   │       └── ciclo_agua.html
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │   └── dashboard.css
+│   │   │
+│   │   ├── js/
+│   │   │   ├── quiz.js
+│   │   │   ├── dashboard.js
+│   │   │   └── games.js
+│   │   │
+│   │   ├── img/
+│   │   └── audio/
+│   │
+│   ├── models/
+│   │   ├── user.py
+│   │   ├── quiz.py
+│   │   ├── score.py
+│   │   └── game_progress.py
+│   │
+│   ├── services/
+│   │   ├── xp_system.py
+│   │   ├── ranking.py
+│   │   └── security.py
+│   │
+│   └── database/
+│       ├── schema.sql
+│       └── seed.sql
+│
+└── docs/
+    ├── diagramas/
+    ├── requisitos/
+    └── apresentacao/

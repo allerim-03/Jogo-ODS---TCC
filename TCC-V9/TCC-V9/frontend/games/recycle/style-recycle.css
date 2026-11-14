@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f172a; /* Fundo escuro industrial fora do canvas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    touch-action: none; /* Evita pull-to-refresh em mobile */
+    user-select: none;
+}
+
+#game-container {
+    width: 100%;
+    max-width: 960px; /* Largura máxima para Desktop */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Mantém a proporção Widescreen/Horizontal perfeita */
+    border: 6px solid #334155;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: #1e293b;
+    display: block;
+    cursor: pointer;
+}
