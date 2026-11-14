@@ -1,131 +1,319 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Cultivando o Saber - Objetivos de Desenvolvimento Sustentável</title><link href="/assets/img/icon.png" rel="icon"/><link href="/assets/css/design-system.css" rel="stylesheet"/>
-<script src="/config.js"></script><script src="/assets/js/services/api.js"></script><script src="/assets/js/core/routes.js"></script>
-<script defer="" src="/assets/js/components/layout.js"></script><script defer="" src="/assets/js/core/app.js"></script><script defer="" src="/assets/js/pages/ods.js"></script><script defer="" src="/assets/js/components/enhancements.js"></script><script defer="" src="/assets/js/pages/public-presentation.js"></script></head>
-<body data-page="ods.html"><a class="skip-link" href="#main-content">Ir para o conteúdo</a><div class="platform-shell"><header id="site-header"></header>
-<div class="platform-content"><main id="main-content" tabindex="-1">
-<div class="titulo-principal-topo">
-<h2>
-                OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL
-            </h2>
-<p>
-                Conheça as 17 metas globais para transformar o nosso planeta até 2030
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Cultivando o Saber - Objetivos de Desenvolvimento Sustentável</title>
+    <link href="/assets/img/icon.png" rel="icon" />
+    <link href="/assets/css/design-system.css" rel="stylesheet" />
+    <script src="/config.js"></script>
+    <script src="/assets/js/services/api.js"></script>
+    <script src="/assets/js/core/routes.js"></script>
+    <script defer="" src="/assets/js/components/layout.js"></script>
+    <script defer="" src="/assets/js/core/app.js"></script>
+    <script defer="" src="/assets/js/pages/ods.js"></script>
+    <script defer="" src="/assets/js/components/enhancements.js"></script>
+    <script defer="" src="/assets/js/pages/public-presentation.js"></script>
+  </head>
+  <body data-page="ods.html">
+    <a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+    <div class="platform-shell">
+      <header id="site-header"></header>
+      <div class="platform-content">
+        <main id="main-content" tabindex="-1">
+          <div class="titulo-principal-topo">
+            <h2>OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL</h2>
+            <p>
+              Conheça as 17 metas globais para transformar o nosso planeta até
+              2030
             </p>
-</div>
-<section class="ods-carrossel-wrapper">
-<button aria-label="Anterior" class="btn-carrossel prev" id="odsPrev">
-                ❮
+          </div>
+          <section class="ods-carrossel-wrapper">
+            <button
+              aria-label="Anterior"
+              class="btn-carrossel prev"
+              id="odsPrev"
+            >
+              ❮
             </button>
-<div class="ods-carrossel-container" id="odsContainer">
-<div class="ods-grid">
-<div class="escolha-card" onclick="abrirModalODS(1)">
-<img alt="ODS 1 - Erradicação da Pobreza" src="/assets/img/ods1.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(2)">
-<img alt="ODS 2 - Fome Zero" src="/assets/img/ods2.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(3)">
-<img alt="ODS 3 - Saúde e Bem-Estar" src="/assets/img/ods3.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(4)">
-<img alt="ODS 4 - Educação de Qualidade" src="/assets/img/ods4.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(5)">
-<img alt="ODS 5 - Igualdade de Gênero" src="/assets/img/ods5.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(6)">
-<img alt="ODS 6 - Água Potável e Saneamento" src="/assets/img/ods6.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(7)">
-<img alt="ODS 7 - Energia Limpa e Acessível" src="/assets/img/ods7.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(8)">
-<img alt="ODS 8 - Trabalho Decente" src="/assets/img/ods8.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(9)">
-<img alt="ODS 9 - Indústria e Inovação" src="/assets/img/ods9.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(10)">
-<img alt="ODS 10 - Redução das Desigualdades" src="/assets/img/ods10.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(11)">
-<img alt="ODS 11 - Cidades Sustentáveis" src="/assets/img/ods11.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(12)">
-<img alt="ODS 12 - Consumo Responsável" src="/assets/img/ods12.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(13)">
-<img alt="ODS 13 - Ação Contra a Mudança Global do Clima" src="/assets/img/ods13.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(14)">
-<img alt="ODS 14 - Vida na Água" src="/assets/img/ods14.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(15)">
-<img alt="ODS 15 - Vida Terrestre" src="/assets/img/ods15.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(16)">
-<img alt="ODS 16 - Paz, Justiça e Instituições Eficazes" src="/assets/img/ods16.png"/>
-</div>
-<div class="escolha-card" onclick="abrirModalODS(17)">
-<img alt="ODS 17 - Parcerias e Meios de Implementação" src="/assets/img/ods17.png"/>
-</div>
-</div>
-</div>
-<button aria-label="Próximo" class="btn-carrossel next" id="odsNext">
-                ❯
+            <div class="ods-carrossel-container" id="odsContainer">
+              <div class="ods-grid">
+                <div class="escolha-card" onclick="abrirModalODS(1)">
+                  <img
+                    alt="ODS 1 - Erradicação da Pobreza"
+                    src="/assets/img/ods1.jpg"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(2)">
+                  <img alt="ODS 2 - Fome Zero" src="/assets/img/ods2.png" />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(3)">
+                  <img
+                    alt="ODS 3 - Saúde e Bem-Estar"
+                    src="/assets/img/ods3.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(4)">
+                  <img
+                    alt="ODS 4 - Educação de Qualidade"
+                    src="/assets/img/ods4.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(5)">
+                  <img
+                    alt="ODS 5 - Igualdade de Gênero"
+                    src="/assets/img/ods5.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(6)">
+                  <img
+                    alt="ODS 6 - Água Potável e Saneamento"
+                    src="/assets/img/ods6.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(7)">
+                  <img
+                    alt="ODS 7 - Energia Limpa e Acessível"
+                    src="/assets/img/ods7.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(8)">
+                  <img
+                    alt="ODS 8 - Trabalho Decente"
+                    src="/assets/img/ods8.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(9)">
+                  <img
+                    alt="ODS 9 - Indústria e Inovação"
+                    src="/assets/img/ods9.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(10)">
+                  <img
+                    alt="ODS 10 - Redução das Desigualdades"
+                    src="/assets/img/ods10.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(11)">
+                  <img
+                    alt="ODS 11 - Cidades Sustentáveis"
+                    src="/assets/img/ods11.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(12)">
+                  <img
+                    alt="ODS 12 - Consumo Responsável"
+                    src="/assets/img/ods12.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(13)">
+                  <img
+                    alt="ODS 13 - Ação Contra a Mudança Global do Clima"
+                    src="/assets/img/ods13.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(14)">
+                  <img
+                    alt="ODS 14 - Vida na Água"
+                    src="/assets/img/ods14.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(15)">
+                  <img
+                    alt="ODS 15 - Vida Terrestre"
+                    src="/assets/img/ods15.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(16)">
+                  <img
+                    alt="ODS 16 - Paz, Justiça e Instituições Eficazes"
+                    src="/assets/img/ods16.png"
+                  />
+                </div>
+                <div class="escolha-card" onclick="abrirModalODS(17)">
+                  <img
+                    alt="ODS 17 - Parcerias e Meios de Implementação"
+                    src="/assets/img/ods17.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              aria-label="Próximo"
+              class="btn-carrossel next"
+              id="odsNext"
+            >
+              ❯
             </button>
-</section>
-<section class="secao-explicativa">
-<div class="bloco-info">
-<div class="bloco-texto">
-<h2>
-                        O que são as ODS?
-                    </h2>
-<p>
-                        Os Objetivos de Desenvolvimento Sustentável (ODS) são um
-                        apelo global da ONU à ação para acabar com a pobreza,
-                        proteger o meio ambiente e o clima e garantir que as
-                        pessoas possam desfrutar de paz e prosperidade.
+          </section>
+          <section class="secao-explicativa">
+            <div class="bloco-info">
+              <div class="bloco-texto">
+                <h2>O que são as ODS?</h2>
+                <p>
+                  Os Objetivos de Desenvolvimento Sustentável (ODS) são um apelo
+                  global da ONU à ação para acabar com a pobreza, proteger o
+                  meio ambiente e o clima e garantir que as pessoas possam
+                  desfrutar de paz e prosperidade.
+                </p>
+                <a
+                  class="btn-saiba-mais"
+                  href="https://brasil.un.org/pt-br/sdgs"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Saiba mais na ONU
+                </a>
+              </div>
+              <div class="bloco-imagem-placeholder">
+                <img alt="ONU" src="/assets/img/onu.jpg" />
+              </div>
+            </div>
+            <div class="secao-jogos-ods">
+              <div class="section-heading">
+                <div>
+                  <span class="eyebrow">CONHECIMENTO QUE VIRA EXPERIÊNCIA</span>
+                  <h2>Os ODS ganham vida nos jogos</h2>
+                  <p>
+                    Conheça os temas e descubra como as atividades fazem parte
+                    da jornada do aluno.
+                  </p>
+                </div>
+              </div>
+              <div class="game-showcase">
+                <article class="game-preview">
+                  <figure
+                    class="game-preview-media"
+                    data-game-preview="memoria"
+                  >
+                    <img alt="Cena do jogo Memória da Natureza" hidden="" />
+                    <div class="game-preview-placeholder">
+                      <span aria-hidden="true">▧</span
+                      ><strong>Memória da Natureza</strong
+                      ><span>Imagem do jogo em breve</span>
+                    </div>
+                    <figcaption>Uma janela para a aventura</figcaption>
+                  </figure>
+                  <div class="game-preview-copy">
+                    <span class="eyebrow"
+                      >Biodiversidade e cuidado com a natureza</span
+                    >
+                    <h3>Memória da Natureza</h3>
+                    <p>
+                      O jogo de memória aproxima o aluno dos elementos da
+                      natureza por meio da observação e da associação de pares.
                     </p>
-<a class="btn-saiba-mais" href="https://brasil.un.org/pt-br/sdgs" rel="noopener noreferrer" target="_blank">
-                        Saiba mais na ONU
-                    </a>
-</div>
-<div class="bloco-imagem-placeholder">
-<img alt="ONU" src="/assets/img/onu.jpg"/>
-</div>
-</div>
-<div class="secao-jogos-ods"><div class="section-heading"><div><span class="eyebrow">CONHECIMENTO QUE VIRA EXPERIÊNCIA</span><h2>Os ODS ganham vida nos jogos</h2><p>Conheça os temas e descubra como as atividades fazem parte da jornada do aluno.</p></div></div><div class="game-showcase"><article class="game-preview"><figure class="game-preview-media" data-game-preview="memoria"><img alt="Cena do jogo Memória da Natureza" hidden=""/><div class="game-preview-placeholder"><span aria-hidden="true">▧</span><strong>Memória da Natureza</strong><span>Imagem do jogo em breve</span></div><figcaption>Uma janela para a aventura</figcaption></figure><div class="game-preview-copy"><span class="eyebrow">Biodiversidade e cuidado com a natureza</span><h3>Memória da Natureza</h3><p>O jogo de memória aproxima o aluno dos elementos da natureza por meio da observação e da associação de pares.</p><h4>Como a jornada avança</h4><p>A proposta é descobrir os pares e completar o tabuleiro. Os detalhes da progressão serão apresentados quando o jogo for integrado à plataforma.</p><span class="preview-badge">Em preparação</span></div></article><article class="game-preview"><figure class="game-preview-media" data-game-preview="reciclagem"><img alt="Cena do jogo ReciclaCoop" hidden=""/><div class="game-preview-placeholder"><span aria-hidden="true">▧</span><strong>ReciclaCoop</strong><span>Imagem do jogo em breve</span></div><figcaption>Uma janela para a aventura</figcaption></figure><div class="game-preview-copy"><span class="eyebrow">ODS 12 · Consumo e produção responsáveis</span><h3>ReciclaCoop</h3><p>Separar resíduos ajuda a reconhecer materiais e compreender a importância do descarte correto e da reciclagem.</p><h4>Como a jornada avança</h4><p>A jornada tem quatro fases. Cada vitória libera a próxima etapa; a conclusão das quatro fases registra o jogo como concluído. O modo infinito oferece um desafio extra.</p><span class="preview-badge">Jornada em quatro fases</span></div></article><article class="game-preview"><figure class="game-preview-media" data-game-preview="agua"><img alt="Cena do jogo Salve a Gota!" hidden=""/><div class="game-preview-placeholder"><span aria-hidden="true">▧</span><strong>Salve a Gota!</strong><span>Imagem do jogo em breve</span></div><figcaption>Uma janela para a aventura</figcaption></figure><div class="game-preview-copy"><span class="eyebrow">ODS 6 · Água potável e saneamento</span><h3>Salve a Gota!</h3><p>Uma aventura sobre o uso consciente da água: identificar desperdícios e agir para cuidar desse recurso no cotidiano.</p><h4>Como a jornada avança</h4><p>O aluno cumpre os objetivos do cenário e recebe XP pelas ações realizadas. O jogo é registrado como concluído quando todos os objetivos são finalizados.</p><span class="preview-badge">Missões de cuidado com a água</span></div></article></div><aside class="preview-progress"><h3>Do desafio à conquista</h3><p>Na área do aluno, as atividades se conectam ao perfil: o XP ajuda a avançar de nível, as conquistas registram marcos da jornada e o professor acompanha as tarefas da turma. Assim, brincar também é uma forma de perceber o próprio aprendizado.</p></aside></div>
-</section>
-</main>
-<footer class="site-footer"><a href="/">Cultivando o Saber</a><span>Aprender. Cuidar. Transformar.</span><small>© 2026 · FATEC São Bernardo do Campo</small></footer></div></div><div class="modal-overlay" id="modalODS">
-<div class="modal-card">
-<button class="modal-fechar" onclick="fecharModalODS()">
-                ×
-            </button>
-<div class="modal-header">
-<span class="modal-tag" id="modalTag">
-                    ODS 1
-                </span>
-<h2 id="modalTitle">
-                    Título da ODS
-                </h2>
-</div>
-<div class="modal-body">
-<div class="modal-imagem-container">
-<img alt="Ícone ODS" id="modalImg" src=""/>
-</div>
-<div class="modal-texto">
-<h3>
-                        Objetivo da Meta:
-                    </h3>
-<p id="modalDesc">
-                        Descrição detalhada do objetivo sustentável...
+                    <h4>Como a jornada avança</h4>
+                    <p>
+                      A proposta é descobrir os pares e completar o tabuleiro.
+                      Os detalhes da progressão serão apresentados quando o jogo
+                      for integrado à plataforma.
                     </p>
-</div>
-</div>
-</div>
-</div>
-</body></html>
+                    <span class="preview-badge">Em preparação</span>
+                  </div>
+                </article>
+                <article class="game-preview">
+                  <figure
+                    class="game-preview-media"
+                    data-game-preview="reciclagem"
+                  >
+                    <img alt="Cena do jogo ReciclaCoop" hidden="" />
+                    <div class="game-preview-placeholder">
+                      <span aria-hidden="true">▧</span
+                      ><strong>ReciclaCoop</strong
+                      ><span>Imagem do jogo em breve</span>
+                    </div>
+                    <figcaption>Uma janela para a aventura</figcaption>
+                  </figure>
+                  <div class="game-preview-copy">
+                    <span class="eyebrow"
+                      >ODS 12 · Consumo e produção responsáveis</span
+                    >
+                    <h3>ReciclaCoop</h3>
+                    <p>
+                      Separar resíduos ajuda a reconhecer materiais e
+                      compreender a importância do descarte correto e da
+                      reciclagem.
+                    </p>
+                    <h4>Como a jornada avança</h4>
+                    <p>
+                      A jornada tem quatro fases. Cada vitória libera a próxima
+                      etapa; a conclusão das quatro fases registra o jogo como
+                      concluído. O modo infinito oferece um desafio extra.
+                    </p>
+                    <span class="preview-badge">Jornada em quatro fases</span>
+                  </div>
+                </article>
+                <article class="game-preview">
+                  <figure class="game-preview-media" data-game-preview="agua">
+                    <img alt="Cena do jogo Salve a Gota!" hidden="" />
+                    <div class="game-preview-placeholder">
+                      <span aria-hidden="true">▧</span
+                      ><strong>Salve a Gota!</strong
+                      ><span>Imagem do jogo em breve</span>
+                    </div>
+                    <figcaption>Uma janela para a aventura</figcaption>
+                  </figure>
+                  <div class="game-preview-copy">
+                    <span class="eyebrow"
+                      >ODS 6 · Água potável e saneamento</span
+                    >
+                    <h3>Salve a Gota!</h3>
+                    <p>
+                      Uma aventura sobre o uso consciente da água: identificar
+                      desperdícios e agir para cuidar desse recurso no
+                      cotidiano.
+                    </p>
+                    <h4>Como a jornada avança</h4>
+                    <p>
+                      O aluno cumpre os objetivos do cenário e recebe XP pelas
+                      ações realizadas. O jogo é registrado como concluído
+                      quando todos os objetivos são finalizados.
+                    </p>
+                    <span class="preview-badge"
+                      >Missões de cuidado com a água</span
+                    >
+                  </div>
+                </article>
+              </div>
+              <aside class="preview-progress">
+                <h3>Do desafio à conquista</h3>
+                <p>
+                  Na área do aluno, as atividades se conectam ao perfil: o XP
+                  ajuda a avançar de nível, as conquistas registram marcos da
+                  jornada e o professor acompanha as tarefas da turma. Assim,
+                  brincar também é uma forma de perceber o próprio aprendizado.
+                </p>
+              </aside>
+            </div>
+          </section>
+        </main>
+        <footer class="site-footer">
+          <a href="/">Cultivando o Saber</a
+          ><span>Aprender. Cuidar. Transformar.</span
+          ><small>© 2026 · FATEC São Bernardo do Campo</small>
+        </footer>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modalODS">
+      <div class="modal-card">
+        <button class="modal-fechar" onclick="fecharModalODS()">×</button>
+        <div class="modal-header">
+          <span class="modal-tag" id="modalTag"> ODS 1 </span>
+          <h2 id="modalTitle">Título da ODS</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal-imagem-container">
+            <img alt="Ícone ODS" id="modalImg" src="" />
+          </div>
+          <div class="modal-texto">
+            <h3>Objetivo da Meta:</h3>
+            <p id="modalDesc">Descrição detalhada do objetivo sustentável...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
