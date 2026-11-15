@@ -1,0 +1,323 @@
+
+/* =========================================
+   CULTIVANDO O SABER
+   JORNADA CURVILÍNEA - VINHA
+   ========================================= */
+
+/* Área principal */
+.vine-journey {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 880px;
+    margin: 50px auto;
+}
+
+/* Desenho SVG */
+.vine-drawing {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+/* Caule */
+.vine-stem {
+    fill: none;
+    stroke: #4CAF50;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    /* Vinha inicialmente invisível */
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+
+    /* Não inicia automaticamente */
+    animation: none;
+}
+
+/* Lista */
+.vine-list {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 120px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Cada etapa */
+.vine-step {
+    position: relative;
+
+    display: grid;
+    align-items: center;
+    gap: 26px;
+
+    min-width: 0;
+    margin: 0;
+}
+
+/* Fases 1 e 3:
+   Cartão à esquerda e círculo à direita */
+.vine-step:nth-child(odd) {
+    grid-template-columns: minmax(0, 1fr) 78px;
+}
+
+/* Fase 2:
+   Círculo à esquerda e cartão à direita */
+.vine-step:nth-child(even) {
+    grid-template-columns: 78px minmax(0, 1fr);
+}
+
+/* Cartões */
+.vine-card {
+    min-width: 0;
+    padding: 26px 30px;
+
+    border-radius: 24px;
+    background: #eaf5df;
+    border: 2px solid #c7dfb3;
+    box-shadow: 0 6px 0 #d8e9c8;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Segunda fase */
+.vine-step:nth-child(2) .vine-card {
+    background: #e5f4ff;
+    border-color: #b8dff7;
+    box-shadow: 0 6px 0 #d1e9f8;
+}
+
+/* Terceira fase */
+.vine-step:nth-child(3) .vine-card {
+    background: #fff6cf;
+    border-color: #efdc86;
+    box-shadow: 0 6px 0 #f0e4ae;
+}
+
+/* Textos superiores */
+.vine-eyebrow {
+    display: block;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    color: #32713f;
+}
+
+/* Títulos */
+.vine-card h3 {
+    margin: 10px 0;
+    font-size: 1.3rem;
+    color: #2c5434;
+}
+
+/* Descrições */
+.vine-card p {
+    margin: 0;
+    line-height: 1.7;
+    color: #566653;
+}
+
+/* Detalhes */
+.vine-detail {
+    display: block;
+    margin-top: 16px;
+
+    font-size: .82rem;
+    font-weight: 700;
+    color: #425b3c;
+}
+
+/* Círculos numerados */
+.vine-number {
+    position: relative;
+    z-index: 2;
+
+    width: 78px;
+    height: 78px;
+
+    display: grid;
+    place-items: center;
+
+    border: 6px solid white;
+    border-radius: 50%;
+
+    background: #4CAF50;
+    color: white;
+
+    font-size: 1.9rem;
+    font-weight: 900;
+
+    box-shadow: 0 0 0 2px #b7d6a4;
+}
+
+/* Segunda fase */
+.vine-step:nth-child(2) .vine-number {
+    background: #43b4fb;
+    color: #164264;
+}
+
+/* Terceira fase */
+.vine-step:nth-child(3) .vine-number {
+    background: #ffde5a;
+    color: #594511;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* No celular, mantemos os cartões alinhados */
+    .vine-drawing {
+        display: none;
+    }
+
+    .vine-step,
+    .vine-step:nth-child(odd),
+    .vine-step:nth-child(even) {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .vine-number {
+        width: 48px;
+        height: 48px;
+        border-width: 4px;
+        font-size: 1.3rem;
+    }
+
+    .vine-card {
+        padding: 20px 16px;
+    }
+
+    .vine-card h3 {
+        font-size: 1.05rem;
+    }
+
+    .vine-eyebrow {
+        font-size: .65rem;
+    }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .vine-stem {
+        animation: none;
+    }
+}
+
+/* Crescimento de cima para baixo */
+@keyframes vine-growing {
+    from {
+        stroke-dashoffset: 1;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Respeita a preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .vine-stem {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+
+/* =========================================
+   FLORESCIMENTO DA VINHA
+   ========================================= */
+
+/* Imagens das flores */
+.vine-flower {
+    position: absolute;
+    z-index: 3;
+
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+
+    opacity: 0;
+    transform: scale(0);
+
+    pointer-events: none;
+}
+
+/* Posições iniciais: nos espaços da trilha */
+.flower-one {
+    left: 80%;
+    top: 31%;
+}
+
+.flower-two {
+    left: 10%;
+    top: 69%;
+}
+
+/* A vinha fica atrás das flores e dos cartões */
+.vine-journey .vine-drawing {
+    z-index: 0;
+}
+
+.vine-journey .vine-list {
+    position: relative;
+    z-index: 2;
+}
+
+.vine-journey.is-growing .vine-stem {
+    animation: vine-growing 4s ease-in-out forwards;
+}
+
+/* Flores aparecem progressivamente */
+.vine-journey.is-growing .flower-one {
+    animation: flower-bloom .6s ease-out 1.1s forwards;
+}
+
+.vine-journey.is-growing .flower-two {
+    animation: flower-bloom .6s ease-out 2.5s forwards;
+}
+
+/* Efeito de nascimento da flor */
+@keyframes flower-bloom {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    65% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .vine-journey .vine-stem {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+
+    .vine-journey .vine-flower {
+        opacity: 1;
+        transform: scale(1);
+        animation: none;
+    }
+}

@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cultivando o Saber - Home</title>
-    <link rel="icon" href="/assets/img/icon.png">
-    <link rel="stylesheet" href="/assets/css/design-system.css">
+    <link rel="icon" href="/assets/img/icon.png" />
+    <link rel="stylesheet" href="/assets/css/public-presentation.css" />
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/journey-vine.css" />
     <script src="/config.js"></script>
     <script src="/assets/js/services/api.js"></script>
     <script src="/assets/js/core/routes.js"></script>
@@ -14,88 +15,206 @@
     <script defer src="/assets/js/core/app.js"></script>
     <script defer src="/assets/js/auth/forms.js"></script>
     <script defer src="/assets/js/components/enhancements.js"></script>
-</head>
+  </head>
 
-<body data-page="home.html"><a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+  <body data-page="home.html">
+    <a class="skip-link" href="#main-content">Ir para o conteúdo</a>
     <div class="platform-shell">
-        <header id="site-header"></header>
-        <div class="platform-content">
-            <main id="main-content" tabindex="-1">
-                <section class="hero-public">
-                    <div class="hero-copy"><span class="eyebrow">PEQUENAS ATITUDES. GRANDES DESCOBERTAS.</span>
-                        <h1>O futuro do planeta<br>começa com <em>uma descoberta.</em></h1>
-                        <p>Jogos, desafios e curiosidade para cultivar o cuidado com a natureza. Uma jornada de
-                            aprendizado para alunos e educadores.</p>
-                        <div class="actions"><a class="btn-principal" href="/cadastro">Começar minha jornada <span
-                                    aria-hidden="true">↗</span></a><a class="btn-text" href="#como-funciona">Como
-                                funciona ↓</a></div>
-                        <div class="hero-note"><span class="mini-mark">✓</span> Educação ambiental para o Ensino
-                            Fundamental</div>
-                    </div>
-                    <div class="hero-art">
-                        <img src="/assets/img/Home1.png" alt="Personagens do Cultivando o Saber em uma aventura na natureza">
-                    </div>
-                </section>
-                <section class="landing-section journey-section" id="como-funciona" aria-labelledby="journey-title">
-                    <div class="section-heading">
-                        <div>
-                            <h2 id="journey-title">Uma jornada cheia de propósito.</h2>
-                        </div>
-                    </div>
-                    <div class="journey-guide"><img src="/assets/img/TugaPqn.png" alt="Tuga, nosso guia" style="position: relative; top: 30px;">
-                      <img src="/assets/img/ballon-sentence.png" alt="Balão de fala" style="width: 100%;">
-                    </div>
-                    <ol class="journey-trail">
-                        <li class="journey-stop"><span class="journey-number">1</span>
-                            <article><span class="eyebrow">O PRIMEIRO PASSO É A CURIOSIDADE</span>
-                                <h3>EXPLORE E DESCUBRA</h3>
-                                <p>“Vamos conhecer os ODS? No mapa, você explora cada objetivo e descobre como ele faz
-                                    parte da sua vida.”</p><span class="journey-detail">Mapa dos ODS · Descobertas ·
-                                    Ações do dia a dia</span>
-                            </article>
-                        </li>
-                        <li class="journey-stop"><span class="journey-number">2</span>
-                            <article><span class="eyebrow">AGORA É HORA DE EXPERIMENTAR</span>
-                                <h3>APRENDA JOGANDO</h3>
-                                <p>“Vamos colocar o que aprendemos em prática! Cuide da água, separe resíduos e responda
-                                    aos desafios do seu professor.”</p><span class="journey-detail">Jogos · Quizzes ·
-                                    Tarefas da turma</span>
-                            </article>
-                        </li>
-                        <li class="journey-stop"><span class="journey-number">3</span>
-                            <article><span class="eyebrow">CADA DESCOBERTA CONTA</span>
-                                <h3>VEJA SEU PROGRESSO</h3>
-                                <p>“Olha só o quanto você aprendeu! Acompanhe seu XP, avance de nível e conquiste novos
-                                    títulos ao longo da jornada.”</p><span class="journey-detail">Níveis · Conquistas ·
-                                    Evolução do perfil</span>
-                            </article>
-                        </li>
-                    </ol>
-                </section>
-                <section class="teacher-callout">
-                    <div><span class="eyebrow">PARA QUEM ENSINA</span>
-                        <h2>Uma turma. Muitas formas<br>de transformar o futuro.</h2>
-                        <p>Crie turmas, compartilhe um código de acesso e acompanhe o aprendizado de cada aluno em um só
-                            lugar.</p><a class="btn-principal" href="/cadastro/gestor">Quero criar uma turma ↗</a>
-                    </div>
-                    <div class="teacher-steps">
-                        <p><span>1</span> Cadastre seu perfil de gestor</p>
-                        <p><span>2</span> Crie sua turma e compartilhe o código de acesso</p>
-                        <p><span>3</span> Acompanhe as descobertas dos alunos</p>
-                    </div>
-                </section>
-                <section class="closing-note"><img src="/assets/img/TugaPqn.png" alt="Tuga, a tartaruga mascote">
-                    <h2>Vamos cultivar um mundo melhor?</h2>
-                    <p>Sua próxima descoberta começa aqui.</p><a class="btn-principal" href="/cadastro">Criar minha
-                        conta</a>
-                </section>
-            </main>
+      <header id="site-header"></header>
+      <div class="platform-content">
+        <main id="main-content" tabindex="-1">
+          <section class="hero-public">
+            <div class="hero-copy">
+              <span class="eyebrow"
+                >PEQUENAS ATITUDES. GRANDES DESCOBERTAS.</span
+              >
+              <h1>
+                O futuro do planeta<br />começa com <em>uma descoberta.</em>
+              </h1>
+              <p>
+                Jogos, desafios e curiosidade para cultivar o cuidado com a
+                natureza. Uma jornada de aprendizado para alunos e educadores.
+              </p>
+              <div class="actions">
+                <a class="btn-principal" href="/cadastro"
+                  >Começar minha jornada</a
+                ><a class="btn-text" href="#como-funciona">Como funciona?</a>
+              </div>
+              <div class="hero-note">
+                <span class="mini-mark">✓</span> Educação ambiental para o
+                Ensino Fundamental
+              </div>
+            </div>
+            <div class="hero-art">
+              <img
+                src="/assets/img/Home1.png"
+                alt="Personagens do Cultivando o Saber em uma aventura na natureza"
+              />
+            </div>
+          </section>
 
+          <h2>Uma jornada cheia de propósito</h2>
 
-            <footer class="site-footer"><a href="/">Cultivando o Saber</a><span>Aprender. Cuidar.
-                    Transformar.</span><small>© 2026 · FATEC São Bernardo do Campo</small></footer>
-        </div>
+          <div class="vine-journey">
+            <!-- Trilha ilustrada -->
+            <svg
+              class="vine-drawing"
+              viewBox="0 0 880 600"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                class="vine-stem"
+                pathLength="1"
+                d="M 841,90
+               C 920,150 920,240 39,300
+               C -20,370 -20,450 841,510"
+              />
+            </svg>
+
+            <!-- Flores que brotam durante o crescimento -->
+            <img
+              class="vine-flower flower-one"
+              src="/assets/img/leaf-1.svg"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <img
+              class="vine-flower flower-two"
+              src="/assets/img/leaf-2.svg"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <ol class="vine-list">
+              <!-- FASE 1 -->
+              <li class="vine-step">
+                <article class="vine-card">
+                  <span class="vine-eyebrow">
+                    O PRIMEIRO PASSO É A CURIOSIDADE
+                  </span>
+
+                  <h3>EXPLORE E DESCUBRA</h3>
+
+                  <p>
+                    “Vamos conhecer os ODS? No mapa, você explora cada objetivo
+                    e descobre como ele faz parte da sua vida.”
+                  </p>
+
+                  <span class="vine-detail">
+                    Mapa dos ODS · Descobertas · Ações do dia a dia
+                  </span>
+                </article>
+
+                <span class="vine-number">1</span>
+              </li>
+
+              <!-- FASE 2 -->
+              <li class="vine-step">
+                <span class="vine-number">2</span>
+
+                <article class="vine-card">
+                  <span class="vine-eyebrow">
+                    AGORA É HORA DE EXPERIMENTAR
+                  </span>
+
+                  <h3>APRENDA JOGANDO</h3>
+
+                  <p>
+                    “Vamos colocar o que aprendemos em prática! Cuide da água,
+                    separe resíduos e responda aos desafios do seu professor.”
+                  </p>
+
+                  <span class="vine-detail">
+                    Jogos · Quizzes · Tarefas da turma
+                  </span>
+                </article>
+              </li>
+
+              <!-- FASE 3 -->
+              <li class="vine-step">
+                <article class="vine-card">
+                  <span class="vine-eyebrow"> CADA DESCOBERTA CONTA </span>
+
+                  <h3>VEJA SEU PROGRESSO</h3>
+
+                  <p>
+                    “Olha só o quanto você aprendeu! Acompanhe seu XP, avance de
+                    nível e conquiste novos títulos ao longo da jornada.”
+                  </p>
+
+                  <span class="vine-detail">
+                    Níveis · Conquistas · Evolução do perfil
+                  </span>
+                </article>
+
+                <span class="vine-number">3</span>
+              </li>
+            </ol>
+          </div>
+
+          <section class="teacher-callout">
+            <div>
+              <span class="eyebrow">PARA QUEM ENSINA</span>
+              <h2>Uma turma. Muitas formas<br />de transformar o futuro.</h2>
+              <p>
+                Crie turmas, compartilhe um código de acesso e acompanhe o
+                aprendizado de cada aluno em um só lugar.
+              </p>
+              <a class="btn-principal" href="/cadastro/gestor"
+                >Quero criar uma turma ↗</a
+              >
+            </div>
+            <div class="teacher-steps">
+              <p><span>1</span> Cadastre seu perfil de gestor</p>
+              <p>
+                <span>2</span> Crie sua turma e compartilhe o código de acesso
+              </p>
+              <p><span>3</span> Acompanhe as descobertas dos alunos</p>
+            </div>
+          </section>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <a href="/">Cultivando o Saber</a
+          ><span>Aprender. Cuidar. Transformar.</span
+          ><small>© 2026 · FATEC São Bernardo do Campo</small>
+        </footer>
+      </div>
     </div>
-</body>
+  </body>
+  <script>
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const journey = document.querySelector(".vine-journey");
+    const journeyList = document.querySelector(".vine-list");
+
+    if (!journey || !journeyList) return;
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                // Inicia o crescimento da vinha
+                journey.classList.add("is-growing");
+
+                // Não precisa observar novamente
+                observer.unobserve(journeyList);
+            }
+
+        });
+
+    }, {
+        threshold: 0
+    });
+
+    observer.observe(journeyList);
+
+});
+  </script>
 </html>
