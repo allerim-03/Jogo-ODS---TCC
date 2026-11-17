@@ -21,7 +21,10 @@ Nas próximas execuções, basta executar o último comando. Não abra os HTMLs 
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements.txt
+python -m pip install -r backend/requirements.txt
 .venv/bin/python backend/run.py
+python backend/app.py
+python backend/run.py
 ```
 
 ## Primeiro acesso
