@@ -14,9 +14,9 @@ imgExclamacao.src = "/assets/img/exclamacao.png";
 
 const npcGuri = {
     x: 220,
-    y: 280,
-    largura: 50,
-    altura: 70,
+    y: 230,
+    largura: 65,
+    altura: 108,
     distanciaInteracao: 90,
     
     // Estado da conversa e se já interagiu alguma vez
@@ -105,7 +105,7 @@ const npcGuri = {
         if (!this.emConversa) return;
 
         const caixaX = 30;
-        const caixaY = alturaCanvas - 110;
+        const caixaY = 70;
         const caixaLargura = larguraCanvas - 60;
         const caixaAltura = 90;
 

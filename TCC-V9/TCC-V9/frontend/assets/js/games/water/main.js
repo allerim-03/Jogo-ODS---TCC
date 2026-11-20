@@ -4,9 +4,10 @@ const ctx = canvas.getContext("2d");
 
 let estado = "menu"; // "menu", "jogando", "gameover"
 
-// Botões da interface
-const botaoPlay = { x: 220, y: 180, largura: 160, altura: 60 };
-const botaoReplay = { x: 220, y: 220, largura: 160, altura: 50 };
+// Botão PLAY centralizado perfeitamente entre os personagens e abaixo do título
+// Centralizado no meio (x = 320) e posicionado verticalmente abaixo do título (y = 210 ou 220)
+const botaoPlay = { x: 225, y: 230, largura: 160, altura: 60 };
+const botaoReplay = { x: 320, y: 220, largura: 160, altura: 50 };
 
 // Disparado quando o jogador colide com a água
 function dispararMorte() {

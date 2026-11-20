@@ -1,3 +1,10 @@
+// Carregamento dos tiles de textura para repetição horizontal
+const imgPlatTile = new Image();
+imgPlatTile.src = "/assets/img/plataforma-tile.png"; 
+
+const imgPocaTile = new Image();
+imgPocaTile.src = "/assets/img/poca-tile.png";       
+
 const plataformasJogo1 = {
     listaPlataformas: [],
     listaPocas: [],
@@ -10,13 +17,13 @@ const plataformasJogo1 = {
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 200, y: 345, largura: 100, altura: 15 }
+                    { x: xBase + 200, y: 325, largura: 100, altura: 30 } // Grossura aumentada
                 ],
                 plataformas: [
-                    { x: xBase + 100, y: 250, largura: 120, altura: 16 },
-                    { x: xBase + 350, y: 220, largura: 100, altura: 16 },
-                    { x: xBase + 500, y: 170, largura: 100, altura: 16 },
-                    { x: xBase + 650, y: 120, largura: 120, altura: 16 }
+                    { x: xBase + 100, y: 250, largura: 120, altura: 32 },
+                    { x: xBase + 350, y: 220, largura: 100, altura: 32 },
+                    { x: xBase + 500, y: 170, largura: 100, altura: 32 },
+                    { x: xBase + 650, y: 120, largura: 120, altura: 32 }
                 ]
             };
         },
@@ -25,12 +32,12 @@ const plataformasJogo1 = {
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 300, y: 345, largura: 350, altura: 15 }
+                    { x: xBase + 300, y: 325, largura: 350, altura: 30 }
                 ],
                 plataformas: [
-                    { x: xBase + 150, y: 240, largura: 110, altura: 16 },
-                    { x: xBase + 350, y: 200, largura: 250, altura: 16 },
-                    { x: xBase + 680, y: 240, largura: 110, altura: 16 }
+                    { x: xBase + 150, y: 240, largura: 110, altura: 32 },
+                    { x: xBase + 350, y: 200, largura: 250, altura: 32 },
+                    { x: xBase + 680, y: 240, largura: 110, altura: 32 }
                 ]
             };
         },
@@ -39,27 +46,23 @@ const plataformasJogo1 = {
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 150, y: 345, largura: 90, altura: 15 },
-                    { x: xBase + 500, y: 345, largura: 120, altura: 15 }
+                    { x: xBase + 150, y: 325, largura: 90, altura: 30 },
+                    { x: xBase + 500, y: 325, largura: 120, altura: 30 }
                 ],
                 plataformas: [
-                    { x: xBase + 280, y: 230, largura: 140, altura: 16 },
-                    { x: xBase + 650, y: 190, largura: 130, altura: 16 }
+                    { x: xBase + 280, y: 230, largura: 140, altura: 32 },
+                    { x: xBase + 650, y: 190, largura: 130, altura: 32 }
                 ]
             };
         }
     ],
 
     atualizar: function(jogador, callbackMorte) {
-        // Sorteia um Módulo estruturado completo quando o jogador avança
         if (jogador.x - this.tempoUltimoGerado > this.distanciaModulo || this.tempoUltimoGerado === 0) {
             const xBase = jogador.x === 100 ? 400 : jogador.x + 600;
-
-            // Escolhe um padrão da lista
             const indiceSorteado = Math.floor(Math.random() * this.modulos.length);
             const moduloNovo = this.modulos[indiceSorteado](xBase);
 
-            // Adiciona as poças e plataformas do padrão sorteado
             this.listaPocas.push(...moduloNovo.pocas);
             this.listaPlataformas.push(...moduloNovo.plataformas);
 
@@ -72,7 +75,7 @@ const plataformasJogo1 = {
                 jogador.x + jogador.largura > plat.x &&
                 jogador.x < plat.x + plat.largura &&
                 jogador.y + jogador.altura >= plat.y &&
-                jogador.y + jogador.altura <= plat.y + 15 &&
+                jogador.y + jogador.altura <= plat.y + 25 &&
                 jogador.velocidadeY >= 0
             ) {
                 jogador.y = plat.y - jogador.altura;
@@ -97,27 +100,53 @@ const plataformasJogo1 = {
     desenhar: function(ctx, cameraX) {
         ctx.imageSmoothingEnabled = false;
 
-        // Desenha Poças D'água (Azul escuro)
+        // --- Desenha Poças D'água escalonadas e repetidas ---
         for (let poca of this.listaPocas) {
             const posX = poca.x - cameraX;
             if (posX > -150 && posX < 850) {
-                ctx.fillStyle = "#2980b9";
-                ctx.fillRect(posX, poca.y, poca.largura, poca.altura);
-                ctx.strokeStyle = "#3498db";
-                ctx.lineWidth = 2;
-                ctx.strokeRect(posX, poca.y, poca.largura, poca.altura);
+                if (imgPocaTile.complete && imgPocaTile.naturalWidth !== 0) {
+                    // Calcula a largura proporcional do tile para não esticar o desenho
+                    const proporcao = imgPocaTile.naturalWidth / imgPocaTile.naturalHeight;
+                    const larguraBloco = poca.altura * proporcao;
+
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.rect(posX, poca.y, poca.largura, poca.altura);
+                    ctx.clip(); // Garante que não passe da largura exata da poça
+
+                    for (let x = 0; x < poca.largura; x += larguraBloco) {
+                        ctx.drawImage(imgPocaTile, posX + x, poca.y, larguraBloco, poca.altura);
+                    }
+                    ctx.restore();
+                } else {
+                    ctx.fillStyle = "#2980b9";
+                    ctx.fillRect(posX, poca.y, poca.largura, poca.altura);
+                }
             }
         }
 
-        // Desenha Plataformas Flutuantes (Roxo/Madeira)
+        // --- Desenha Plataformas Flutuantes escalonadas e repetidas ---
         for (let plat of this.listaPlataformas) {
             const posX = plat.x - cameraX;
             if (posX > -200 && posX < 850) {
-                ctx.fillStyle = "#8e44ad";
-                ctx.fillRect(posX, plat.y, plat.largura, plat.altura);
-                ctx.strokeStyle = "#ffffff";
-                ctx.lineWidth = 2;
-                ctx.strokeRect(posX, plat.y, plat.largura, plat.altura);
+                if (imgPlatTile.complete && imgPlatTile.naturalWidth !== 0) {
+                    // Calcula a largura proporcional do tile para acompanhar a grossura
+                    const proporcao = imgPlatTile.naturalWidth / imgPlatTile.naturalHeight;
+                    const larguraBloco = plat.altura * proporcao;
+
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.rect(posX, plat.y, plat.largura, plat.altura);
+                    ctx.clip(); // Garante que não passe da largura exata da plataforma
+
+                    for (let x = 0; x < plat.largura; x += larguraBloco) {
+                        ctx.drawImage(imgPlatTile, posX + x, plat.y, larguraBloco, plat.altura);
+                    }
+                    ctx.restore();
+                } else {
+                    ctx.fillStyle = "#8e44ad";
+                    ctx.fillRect(posX, plat.y, plat.largura, plat.altura);
+                }
             }
         }
     },

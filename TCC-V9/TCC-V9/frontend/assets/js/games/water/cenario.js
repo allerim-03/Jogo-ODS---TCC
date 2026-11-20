@@ -1,53 +1,65 @@
-// Carregamento da imagem do cenário (500x100 Pixel Art)
+// Carregamento da imagem do cenário do jogo (500x100 Pixel Art)
 const imgFundo = new Image();
 imgFundo.src = "/assets/img/cenario.png";
+
+// Carregamento das imagens do Menu (Capa e Botão)
+const imgCapaMenu = new Image();
+imgCapaMenu.src = "/assets/img/capa-menu.png"; // Ajuste o nome se necessário
+
+const imgBotaoJogar = new Image();
+imgBotaoJogar.src = "/assets/img/btn-jogar.png"; // Ajuste o nome se necessário
 
 const cenarioJogo1 = {
     alturaChao: 360,
     cameraX: 0,
 
     atualizarCamera: function(jogadorX, larguraCanvas) {
-        // Câmera segue o jogador continuamente
         this.cameraX = jogadorX - larguraCanvas / 3;
-
         if (this.cameraX < 0) {
             this.cameraX = 0;
         }
     },
 
     desenharMenu: function(ctx, larguraCanvas, alturaCanvas, botaoPlay) {
-        ctx.fillStyle = "#1e3a5f";
+        ctx.imageSmoothingEnabled = false;
+
+        // 1. Pinta o fundo inteiro com a cor azul exata da capa para cobrir as bordas
+        ctx.fillStyle = "#ffffff"; // Cor de fundo azul da sua imagem
         ctx.fillRect(0, 0, larguraCanvas, alturaCanvas);
 
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 36px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText("Ciclo da Água", larguraCanvas / 2, 100);
+        // 2. Desenha a imagem centralizada SEM esticar (mantendo proporção original)
+        if (imgCapaMenu.complete && imgCapaMenu.naturalWidth !== 0) {
+            const imgLargura = imgCapaMenu.naturalWidth;
+            const imgAltura = imgCapaMenu.naturalHeight;
 
-        ctx.font = "18px Arial";
-        ctx.fillText("Ajude o Gota em sua jornada!", larguraCanvas / 2, 135);
+            // Calcula a escala para caber na altura ou largura do canvas mantendo a proporção
+            const escala = Math.min(larguraCanvas / imgLargura, alturaCanvas / imgAltura);
+            const larguraRender = imgLargura * escala;
+            const alturaRender = imgAltura * escala;
 
-        ctx.fillStyle = "#2ecc71";
-        ctx.fillRect(botaoPlay.x, botaoPlay.y, botaoPlay.largura, botaoPlay.altura);
+            // Centraliza na tela
+            const xCentralizado = (larguraCanvas - larguraRender) / 2;
+            const yCentralizado = (alturaCanvas - alturaRender) / 2;
 
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 26px Arial";
-        ctx.fillText("PLAY", larguraCanvas / 2, botaoPlay.y + 40);
+            ctx.drawImage(imgCapaMenu, xCentralizado, yCentralizado, larguraRender, alturaRender);
+        }
+
+        // 3. Desenha o botão de jogar perfeitamente centralizado no meio da tela
+        if (imgBotaoJogar.complete && imgBotaoJogar.naturalWidth !== 0) {
+            ctx.drawImage(imgBotaoJogar, botaoPlay.x, botaoPlay.y, botaoPlay.largura, botaoPlay.altura);
+        } else {
+            ctx.fillStyle = "#2ecc71";
+            ctx.fillRect(botaoPlay.x, botaoPlay.y, botaoPlay.largura, botaoPlay.altura);
+        }
     },
 
     desenharJogo: function(ctx, larguraCanvas, alturaCanvas) {
         ctx.imageSmoothingEnabled = false;
 
         if (imgFundo.complete && imgFundo.naturalWidth !== 0) {
-            // Mantém a proporção exata de 500x100 projetada para a altura do Canvas (400px)
-            // 100px altura -> 400px canvas (escala de 4x)
-            // 500px largura -> 2000px largura no canvas
             const larguraRedimensionada = (alturaCanvas / imgFundo.naturalHeight) * imgFundo.naturalWidth;
-
-            // Calcula o deslocamento contínuo em loop
             const offsetX = -(this.cameraX % larguraRedimensionada);
 
-            // Desenha a imagem principal e a próxima para emendar sem cortes
             ctx.drawImage(imgFundo, offsetX, 0, larguraRedimensionada, alturaCanvas);
             ctx.drawImage(imgFundo, offsetX + larguraRedimensionada, 0, larguraRedimensionada, alturaCanvas);
         } else {
