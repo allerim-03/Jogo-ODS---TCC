@@ -85,7 +85,8 @@ const interativosJogo1 = {
             this.frameTorneiraAtual = (this.frameTorneiraAtual + 1) % 6;
         }
 
-        if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
+        // 1. Só gera novas torneiras se ainda não atingiu o objetivo (10)
+        if (this.contadorConcluidos < this.totalObjetivo && (jogador.x - this.tempoUltimoItem > this.proximaDistancia)) {
             this.gerarItem(jogador.x, listaPocas, listaPlataformas);
             this.tempoUltimoItem = jogador.x;
             this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
@@ -102,7 +103,24 @@ const interativosJogo1 = {
                     if (distancia <= this.distanciaInteracao) {
                         item.interagido = true; // Marca como fechada (passa a ser to-7)
                         this.contadorConcluidos++;
-                        if (EcoAPI.current()?.role === 'aluno') EcoAPI.recordResult({runId:jogo1RunId + ':' + this.contadorConcluidos, game:'jogo1', points:100, completed:this.contadorConcluidos === this.totalObjetivo, details:{mission:this.contadorConcluidos, assignmentId:new URLSearchParams(location.search).get('assignment')}}).catch(error=>EcoAPI.showError(error));
+                        
+                        if (EcoAPI.current()?.role === 'aluno') {
+                            EcoAPI.recordResult({
+                                runId: jogo1RunId + ':' + this.contadorConcluidos,
+                                game: 'jogo1',
+                                points: 100,
+                                completed: this.contadorConcluidos === this.totalObjetivo,
+                                details: {
+                                    mission: this.contadorConcluidos,
+                                    assignmentId: new URLSearchParams(location.search).get('assignment')
+                                }
+                            }).catch(error => EcoAPI.showError(error));
+                        }
+
+                        // 2. Se acabou de fechar a 10ª torneira, posiciona o Guri mais à frente para o final
+                        if (this.contadorConcluidos >= this.totalObjetivo && typeof npcGuri !== "undefined") {
+                            npcGuri.prepararFinal(jogador.x + 1500);
+                        }
                         
                         controlesJogo1.enter = false;
                         controlesJogo1.espaco = false;
