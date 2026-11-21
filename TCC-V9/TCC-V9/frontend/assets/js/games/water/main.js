@@ -9,6 +9,14 @@ const botaoPlay = { x: 225, y: 230, largura: 160, altura: 60 };
 const botaoReplay = { x: (canvas.width - 160) / 2, y: 215, largura: 160, altura: 50 };
 const botaoJogarNovamente = { x: (canvas.width - 230) / 2, y: 200, largura: 230, altura: 50 };
 
+// Filtro escuro sobre o cenário para destacar plataformas e poças
+function aplicarFiltroCenarioLeve() {
+    ctx.save();
+    ctx.fillStyle = "rgba(0, 0, 0, 0.24)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
+}
+
 // Disparado quando o jogador colide com a água
 function dispararMorte() {
     estado = "gameover";
@@ -78,6 +86,7 @@ function loop() {
 
         // 2. Renderização
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
+        aplicarFiltroCenarioLeve();
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         
         // Desenha o NPC no cenário
@@ -105,6 +114,7 @@ function loop() {
     // Tela de Vitória (Mantém o Guri animado e o diálogo de agradecimento visível)
     if (estado === "vitoria") {
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
+        aplicarFiltroCenarioLeve();
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         
         if (typeof npcGuri !== "undefined") {
@@ -135,6 +145,7 @@ function loop() {
     // Tela de Game Over (Congela o estado atual do jogo no fundo)
     if (estado === "gameover") {
         cenarioJogo1.desenharJogo(ctx, canvas.width, canvas.height);
+        aplicarFiltroCenarioLeve();
         plataformasJogo1.desenhar(ctx, cenarioJogo1.cameraX);
         
         if (typeof npcGuri !== "undefined") {

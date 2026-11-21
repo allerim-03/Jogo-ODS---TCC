@@ -9,54 +9,126 @@ const plataformasJogo1 = {
     listaPlataformas: [],
     listaPocas: [],
     tempoUltimoGerado: 0,
-    distanciaModulo: 1100, // Comprimento de cada bloco de fase
+    distanciaModulo: 1450, // Maior espaçamento entre blocos gerados
     limiteFinalX: null, // Ponto limite a partir do qual nada mais aparece no final
+    ultimoModuloIndex: -1, // Evita repetir o mesmo módulo duas vezes seguidas
 
-    // Biblioteca de Padrões (Level Design)
+    // Biblioteca de Padrões (Level Design) mais espaçados
     modulos: [
-        // Módulo 1: Poça pequena + Escada subindo
+        // Módulo 1: Poça pequena + Escada subindo espaçada
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 200, y: 325, largura: 100, altura: 30 }
+                    { x: xBase + 240, y: 325, largura: 95, altura: 30 }
                 ],
                 plataformas: [
-                    { x: xBase + 100, y: 250, largura: 120, altura: 32 },
-                    { x: xBase + 350, y: 220, largura: 100, altura: 32 },
-                    { x: xBase + 500, y: 170, largura: 100, altura: 32 },
-                    { x: xBase + 650, y: 120, largura: 120, altura: 32 }
+                    { x: xBase + 110, y: 250, largura: 120, altura: 32 },
+                    { x: xBase + 410, y: 220, largura: 105, altura: 32 },
+                    { x: xBase + 630, y: 175, largura: 105, altura: 32 },
+                    { x: xBase + 860, y: 140, largura: 120, altura: 32 }
                 ]
             };
         },
 
-        // Módulo 2: Poça grande no chão + Plataforma longa de travessia
+        // Módulo 2: Poça no chão + Plataforma longa de travessia espaçada
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 300, y: 325, largura: 350, altura: 30 }
+                    { x: xBase + 380, y: 325, largura: 280, altura: 30 }
                 ],
                 plataformas: [
-                    { x: xBase + 150, y: 240, largura: 110, altura: 32 },
-                    { x: xBase + 350, y: 200, largura: 250, altura: 32 },
-                    { x: xBase + 680, y: 240, largura: 110, altura: 32 }
+                    { x: xBase + 160, y: 245, largura: 115, altura: 32 },
+                    { x: xBase + 420, y: 205, largura: 220, altura: 32 },
+                    { x: xBase + 810, y: 240, largura: 120, altura: 32 }
                 ]
             };
         },
 
-        // Módulo 3: Alternância de pulos (Chão -> Plataforma -> Chão)
+        // Módulo 3: Alternância de pulos bem espaçada (Chão -> Plataforma -> Chão)
         function(xBase) {
             return {
                 pocas: [
-                    { x: xBase + 150, y: 325, largura: 90, altura: 30 },
-                    { x: xBase + 500, y: 325, largura: 120, altura: 30 }
+                    { x: xBase + 180, y: 325, largura: 85, altura: 30 },
+                    { x: xBase + 660, y: 325, largura: 105, altura: 30 }
                 ],
                 plataformas: [
-                    { x: xBase + 280, y: 230, largura: 140, altura: 32 },
-                    { x: xBase + 650, y: 190, largura: 130, altura: 32 }
+                    { x: xBase + 360, y: 230, largura: 140, altura: 32 },
+                    { x: xBase + 840, y: 195, largura: 135, altura: 32 }
+                ]
+            };
+        },
+
+        // Módulo 4: Zigue-zague de alturas com pulo duplo e respiro horizontal
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 260, y: 325, largura: 115, altura: 30 },
+                    { x: xBase + 740, y: 325, largura: 120, altura: 30 }
+                ],
+                plataformas: [
+                    { x: xBase + 120, y: 255, largura: 110, altura: 32 },
+                    { x: xBase + 420, y: 170, largura: 120, altura: 32 },
+                    { x: xBase + 670, y: 245, largura: 110, altura: 32 },
+                    { x: xBase + 910, y: 160, largura: 125, altura: 32 }
+                ]
+            };
+        },
+
+        // Módulo 5: Travessia elevada sobre poças bem separadas
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 210, y: 325, largura: 110, altura: 30 },
+                    { x: xBase + 640, y: 325, largura: 140, altura: 30 }
+                ],
+                plataformas: [
+                    { x: xBase + 260, y: 215, largura: 125, altura: 32 },
+                    { x: xBase + 580, y: 165, largura: 210, altura: 32 }
+                ]
+            };
+        },
+
+        // Módulo 6: Ritmo fluido com poças curtas e espaços amplos
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 160, y: 325, largura: 80, altura: 30 },
+                    { x: xBase + 520, y: 325, largura: 90, altura: 30 },
+                    { x: xBase + 880, y: 325, largura: 95, altura: 30 }
+                ],
+                plataformas: [
+                    { x: xBase + 330, y: 250, largura: 115, altura: 32 },
+                    { x: xBase + 690, y: 230, largura: 120, altura: 32 }
+                ]
+            };
+        },
+
+        // Módulo 7: Degraus altos + patamar lateral espaçado
+        function(xBase) {
+            return {
+                pocas: [
+                    { x: xBase + 340, y: 325, largura: 170, altura: 30 }
+                ],
+                plataformas: [
+                    { x: xBase + 140, y: 260, largura: 115, altura: 32 },
+                    { x: xBase + 380, y: 185, largura: 130, altura: 32 },
+                    { x: xBase + 620, y: 185, largura: 130, altura: 32 },
+                    { x: xBase + 870, y: 245, largura: 125, altura: 32 }
                 ]
             };
         }
     ],
+
+    sortearModuloIndex: function() {
+        if (this.modulos.length <= 1) return 0;
+
+        let novoIndice = Math.floor(Math.random() * this.modulos.length);
+        while (novoIndice === this.ultimoModuloIndex) {
+            novoIndice = Math.floor(Math.random() * this.modulos.length);
+        }
+        this.ultimoModuloIndex = novoIndice;
+        return novoIndice;
+    },
 
     atualizar: function(jogador, callbackMorte) {
         const atingiuMeta = typeof interativosJogo1 !== "undefined" && 
@@ -73,9 +145,9 @@ const plataformasJogo1 = {
         } else {
             // Gera novos módulos enquanto não atingiu 10/10
             if (jogador.x - this.tempoUltimoGerado > this.distanciaModulo || this.tempoUltimoGerado === 0) {
-                const xBase = jogador.x === 100 ? 400 : jogador.x + 600;
+                const xBase = jogador.x === 100 ? 400 : jogador.x + 650;
 
-                const indiceSorteado = Math.floor(Math.random() * this.modulos.length);
+                const indiceSorteado = this.sortearModuloIndex();
                 const moduloNovo = this.modulos[indiceSorteado](xBase);
 
                 this.listaPocas.push(...moduloNovo.pocas);
@@ -177,5 +249,6 @@ const plataformasJogo1 = {
         this.listaPocas = [];
         this.tempoUltimoGerado = 0;
         this.limiteFinalX = null;
+        this.ultimoModuloIndex = -1;
     }
 };
