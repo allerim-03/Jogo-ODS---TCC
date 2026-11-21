@@ -10,15 +10,19 @@ for (let i = 1; i <= 6; i++) {
 const imgTorneiraFechada = new Image();
 imgTorneiraFechada.src = "/assets/img/to-7.png";
 
+// Canvas auxiliar fora da tela para escurecer apenas os pixels opacos do sprite (sem quadrado)
+const canvasSpriteEscuro = document.createElement("canvas");
+const ctxSpriteEscuro = canvasSpriteEscuro.getContext("2d");
+
 const interativosJogo1 = {
     itens: [],
     contadorConcluidos: 0,
     totalObjetivo: 10,
     tempoUltimoItem: 0,
-    distanciaInteracao: 70,
+    distanciaInteracao: 80,
     proximaDistancia: 800, 
     
-    // Controle da animação das torneiras e da exclamação
+    // Controle da animação das torneiras, brilho e exclamação
     anguloFlutuacao: 0,
     contadorTempoAnimacao: 0,
     velocidadeAnimacao: 6, // Velocidade de troca dos frames
@@ -39,8 +43,8 @@ const interativosJogo1 = {
     },
 
     gerarItem: function(xBase, listaPocas, listaPlataformas) {
-        const largura = 45;
-        const altura = 45;
+        const largura = 64;
+        const altura = 64;
 
         const tentarPlataforma = Math.random() > 0.5;
 
@@ -68,7 +72,7 @@ const interativosJogo1 = {
 
         this.itens.push({
             x: xChao,
-            y: 315, // Ajustado para o chão (360 - 45)
+            y: 360 - altura, // Mantém a base encostada no chão
             largura: largura,
             altura: altura,
             interagido: false
@@ -85,7 +89,8 @@ const interativosJogo1 = {
             this.frameTorneiraAtual = (this.frameTorneiraAtual + 1) % 6;
         }
 
-        if (jogador.x - this.tempoUltimoItem > this.proximaDistancia) {
+        // 1. Só gera novas torneiras se ainda não atingiu o objetivo (10)
+        if (this.contadorConcluidos < this.totalObjetivo && (jogador.x - this.tempoUltimoItem > this.proximaDistancia)) {
             this.gerarItem(jogador.x, listaPocas, listaPlataformas);
             this.tempoUltimoItem = jogador.x;
             this.proximaDistancia = Math.floor(Math.random() * (1400 - 700 + 1)) + 700;
@@ -102,7 +107,24 @@ const interativosJogo1 = {
                     if (distancia <= this.distanciaInteracao) {
                         item.interagido = true; // Marca como fechada (passa a ser to-7)
                         this.contadorConcluidos++;
-                        if (EcoAPI.current()?.role === 'aluno') EcoAPI.recordResult({runId:jogo1RunId + ':' + this.contadorConcluidos, game:'jogo1', points:100, completed:this.contadorConcluidos === this.totalObjetivo, details:{mission:this.contadorConcluidos, assignmentId:new URLSearchParams(location.search).get('assignment')}}).catch(error=>EcoAPI.showError(error));
+                        
+                        if (EcoAPI.current()?.role === 'aluno') {
+                            EcoAPI.recordResult({
+                                runId: jogo1RunId + ':' + this.contadorConcluidos,
+                                game: 'jogo1',
+                                points: 100,
+                                completed: this.contadorConcluidos === this.totalObjetivo,
+                                details: {
+                                    mission: this.contadorConcluidos,
+                                    assignmentId: new URLSearchParams(location.search).get('assignment')
+                                }
+                            }).catch(error => EcoAPI.showError(error));
+                        }
+
+                        // 2. Se acabou de fechar a 10ª torneira, posiciona o Guri mais à frente para o final
+                        if (this.contadorConcluidos >= this.totalObjetivo && typeof npcGuri !== "undefined") {
+                            npcGuri.prepararFinal(jogador.x + 1500);
+                        }
                         
                         controlesJogo1.enter = false;
                         controlesJogo1.espaco = false;
@@ -119,7 +141,7 @@ const interativosJogo1 = {
         for (let item of this.itens) {
             const posX = item.x - cameraX;
 
-            if (posX > -60 && posX < 850) {
+            if (posX > -item.largura - 20 && posX < 850) {
                 let imgTorneira;
 
                 if (item.interagido) {
@@ -130,9 +152,34 @@ const interativosJogo1 = {
                     imgTorneira = spritesTorneira[this.frameTorneiraAtual];
                 }
 
-                // Desenha a imagem da torneira
+                // Desenha a imagem da torneira com brilho se aberta ou escurecendo só o sprite se fechada
                 if (imgTorneira && imgTorneira.complete && imgTorneira.naturalWidth !== 0) {
-                    ctx.drawImage(imgTorneira, posX, item.y, item.largura, item.altura);
+                    ctx.save();
+
+                    if (!item.interagido) {
+                        // Brilho suave pulsante quando ainda não foi fechada
+                        const pulsoBrilho = 10 + Math.sin(this.anguloFlutuacao * 1.4) * 5;
+                        ctx.shadowColor = "rgba(255, 245, 157, 0.9)";
+                        ctx.shadowBlur = pulsoBrilho;
+                        ctx.drawImage(imgTorneira, posX, item.y, item.largura, item.altura);
+                    } else {
+                        // Escurece apenas os pixels opacos do sprite (sem deixar quadrado)
+                        canvasSpriteEscuro.width = item.largura;
+                        canvasSpriteEscuro.height = item.altura;
+                        ctxSpriteEscuro.imageSmoothingEnabled = false;
+                        ctxSpriteEscuro.clearRect(0, 0, item.largura, item.altura);
+
+                        ctxSpriteEscuro.globalCompositeOperation = "source-over";
+                        ctxSpriteEscuro.drawImage(imgTorneira, 0, 0, item.largura, item.altura);
+
+                        ctxSpriteEscuro.globalCompositeOperation = "source-atop";
+                        ctxSpriteEscuro.fillStyle = "rgba(0, 0, 0, 0.35)";
+                        ctxSpriteEscuro.fillRect(0, 0, item.largura, item.altura);
+
+                        ctx.drawImage(canvasSpriteEscuro, posX, item.y, item.largura, item.altura);
+                    }
+
+                    ctx.restore();
                 }
 
                 // Desenha a exclamação flutuante (32x32) apenas se a torneira ainda estiver aberta
